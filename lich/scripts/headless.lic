@@ -28,6 +28,8 @@ if Script.exists?("bodega")
     Bodega::Parser.to_json()
     Bodega::Parser.manifest()
   rescue => exception
+    $stdout.write(exception.message + "\n")
+    $stdout.write(exception.backtrace)
     Thread.main.raise(exception.message)
   end
 else
