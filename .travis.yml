@@ -9,6 +9,7 @@ before_install:
 
 script:
   - bin/index_shops
+  - find lich/logs -name "*.log" -print | xargs cat
 
 # https://docs.travis-ci.com/user/deployment/surge/
 deploy:
