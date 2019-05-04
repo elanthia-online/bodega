@@ -1,0 +1,30 @@
+##
+## always download the latest version from the repository
+##
+if ENV["CI"]
+  $stdout.write("... downloading bodega.lic\n")
+  Script.run(%[repository], 
+    %[download bodega.lic])
+end
+##
+## attach debugging logs
+##
+if ENV["DEBUG"]
+  $stdout.write("... downloading log.lic\n")
+  Script.run(%[repository], 
+    %[download log.lic])
+  $stdout.write("... attaching logger\n")
+  Script.start("log")
+  wait_until do Script.running?("log") end
+end
+##
+## tell bodega we are running in bot mode
+## and run the actual script
+##
+$stdout.write("... crawling shops\n")
+opts = ENV["BODEGA_OPTS"] || %[--save --headless --manifest]
+Script.run(%[bodega], %[parser ] + opts)
+##
+## kill the bot
+##
+fput("exit")
