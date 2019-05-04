@@ -21,9 +21,15 @@ end
 ## tell bodega we are running in bot mode
 ## and run the actual script
 ##
-$stdout.write("... crawling shops\n")
-opts = ENV["BODEGA_OPTS"] || %[--save --headless --manifest]
-Script.run(%[bodega], %[parser ] + opts)
+if Script.exists?("bodega")
+  opts = %[parser ] + (ENV["BODEGA_OPTS"] || %[--save --headless --manifest])
+  $stdout.write("... crawling shops\n")
+  $stdout.write("bodega #{opts}\n")
+  Script.run(%[bodega], opts)
+else
+  $stdout.write("... bodega.lic NOT FOUND\n")
+  Process.exit(1)
+end
 ##
 ## kill the bot
 ##
