@@ -7125,9 +7125,9 @@ module Games
                         elsif ($_SERVERSTRING_ =~ /<pushStream id="atmospherics" \/>/)
                            atmospherics = true
                         end
-#                        while $_SERVERSTRING_.scan('<pushStream').length > $_SERVERSTRING_.scan('<popStream').length
-#                           $_SERVERSTRING_.concat(@@socket.gets)
-#                        end
+
+                        
+                       
                         $_SERVERBUFFER_.push($_SERVERSTRING_)
                         if alt_string = DownstreamHook.run($_SERVERSTRING_)
 #                           Buffer.update(alt_string, Buffer::DOWNSTREAM_MOD)
@@ -7147,10 +7147,12 @@ module Games
                            end
                            $_CLIENT_.write(alt_string)
                         end
+                        if $_SERVERSTRING_ =~ /^<settingsInfo .*?space not found /
+                           $_SERVERSTRING_.sub!('space not found', '')
+                        end
+
                         unless $_SERVERSTRING_ =~ /^<settings /
-                           if $_SERVERSTRING_ =~ /^<settingsInfo .*?space not found /
-                              $_SERVERSTRING_.sub!('space not found', '')
-                           end
+                           
                            begin
                               REXML::Document.parse_stream($_SERVERSTRING_, XMLData)
                               # XMLData.parse($_SERVERSTRING_)
