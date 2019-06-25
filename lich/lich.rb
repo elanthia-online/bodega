@@ -7106,6 +7106,11 @@ module Games
                begin
                   atmospherics = false
                   while $_SERVERSTRING_ = @@socket.gets
+                     # fml
+                     if $_SERVERSTRING_.include?("<settingsInfo")
+                        $_SERVERSTRING_.sub!('space not found', '')
+                     end
+
                      @@last_recv = Time.now
                      @@_buffer.update($_SERVERSTRING_) if TESTING
                      begin
@@ -7126,11 +7131,8 @@ module Games
                            atmospherics = true
                         end
 
-                        
-                       
                         $_SERVERBUFFER_.push($_SERVERSTRING_)
                         if alt_string = DownstreamHook.run($_SERVERSTRING_)
-#                           Buffer.update(alt_string, Buffer::DOWNSTREAM_MOD)
                            if $_DETACHABLE_CLIENT_
                               begin
                                  $_DETACHABLE_CLIENT_.write(alt_string)
@@ -7142,15 +7144,10 @@ module Games
                                  Lich.log "error: client_thread: #{$!}\n\t#{$!.backtrace.join("\n\t")}"
                               end
                            end
-                           if $frontend =~ /^(?:wizard|avalon)$/
-                              alt_string = sf_to_wiz(alt_string)
-                           end
+                  
                            $_CLIENT_.write(alt_string)
                         end
-                        if $_SERVERSTRING_ =~ /^<settingsInfo .*?space not found /
-                           $_SERVERSTRING_.sub!('space not found', '')
-                        end
-
+                        
                         unless $_SERVERSTRING_ =~ /^<settings /
                            
                            begin
@@ -10100,12 +10097,6 @@ Dir.entries(TEMP_DIR).find_all { |fn| fn =~ /^debug-\d+-\d+-\d+-\d+-\d+-\d+\.log
    end
 }
 
-
-
-
-
-
-
 if (RUBY_VERSION =~ /^2\.[012]\./)
    begin
       did_trusted_defaults = Lich.db.get_first_value("SELECT value FROM lich_settings WHERE name='did_trusted_defaults';")
@@ -10163,8 +10154,6 @@ if ARGV.any? { |arg| (arg == '-h') or (arg == '--help') }
    puts ''
    exit
 end
-
-
 
 if arg = ARGV.find { |a| a == '--hosts-dir' }
    i = ARGV.index(arg)
@@ -10533,60 +10522,6 @@ else
    Lich.log "info: no force-mode info given"
 end
 
-if defined?(Gtk)
-   unless File.exists?('fly64.png')
-      File.open('fly64.png', 'wb') { |f| f.write '
-         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAChVBMVEUAAAAA
-         AAABAQECAgIDAwMEBAQFBQUGBgYHBwcICAgKCgoLCwsMDAwNDQ0ODg4QEBAR
-         ERESEhITExMUFBQWFhYXFxcYGBgZGRkaGhobGxscHBwdHR0eHh4fHx8hISEi
-         IiIjIyMkJCQmJiYnJycoKCgpKSksLCwtLS0uLi4vLy8wMDAyMjIzMzM1NTU2
-         NjY4ODg6Ojo7Ozs8PDw9PT0+Pj5AQEBBQUFCQkJDQ0NERERFRUVGRkZHR0dJ
-         SUlKSkpLS0tMTExNTU1OTk5PT09QUFBRUVFSUlJTU1NUVFRVVVVWVlZXV1dY
-         WFhZWVlaWlpcXFxdXV1eXl5gYGBiYmJjY2NkZGRnZ2dpaWlqampra2tsbGxt
-         bW1ubm5vb29xcXFycnJ0dHR1dXV2dnZ4eHh5eXl6enp7e3t8fHx9fX1/f3+A
-         gICBgYGCgoKDg4OEhISFhYWGhoaHh4eJiYmKioqLi4uMjIyNjY2Ojo6Pj4+Q
-         kJCRkZGSkpKTk5OVlZWXl5eYmJiZmZmcnJydnZ2goKChoaGioqKjo6OlpaWm
-         pqanp6eoqKipqamqqqqrq6utra2urq6vr6+wsLCxsbGysrKzs7O0tLS1tbW2
-         tra3t7e4uLi5ubm6urq7u7u9vb2+vr6/v7/AwMDBwcHCwsLDw8PExMTFxcXH
-         x8fIyMjJycnLy8vMzMzPz8/Q0NDR0dHS0tLT09PV1dXW1tbX19fZ2dnc3Nzd
-         3d3e3t7f39/g4ODh4eHi4uLj4+Pk5OTl5eXm5ubn5+fo6Ojp6enq6urr6+vs
-         7Ozt7e3v7+/w8PDx8fHy8vLz8/P09PT19fX29vb39/f4+Pj5+fn6+vr7+/v8
-         /Pz9/f3+/v7////aGP7gAAAAAXRSTlMAQObYZgAABDZJREFUWMOll4tfVEUU
-         x+/vxgJlYmUKKZT4KIOgQi3toWA+e1CGEthDEJMwA/KR0UM0X/kow420QMns
-         pdVCaka0ApUh0YJF7u/vae7u3d175z4+W3c+n4WZs+d858ycM3NmFcWtcYiK
-         p8ZbPAL+KPXoQGOrR8DNHldwPtOjA6sf9+YBU7HRG+GbiZj+kycEt6Tiuf9L
-         IIUlh+/D9WeSQ3xIk15o9aTSoIY4dh0WDSczYb2velQJ64MrZ6G149qYd6hI
-         xgeG5mLqCW1ODr2KaLtfG+4F1ie3CLahjApf063VnAVbxbAdmJfsPvKaKnK3
-         bo+nDx0YZfgMkJl0HIiXybkwtOI+8SfoYiEDdit8DFixMAZQxafTHFzT6Ohn
-         JkAQp4VM5G+awYk6GqzbCisCMQa5M2+/2YV2hIT8fZbA1FZ2hCPB+TzqmNrQ
-         ow1PrsJmeQW7ovHugqWV7GivSRELemTToz4xvGHrxgxUWvaWz6dGZIvh0HJ7
-         tamDb60R/WW/WmPDWT5xAPq6Msxm9e9Vj4320msGoxvA81/ahZYTkGYz71Mi
-         my4dnKNGBnk7XJKC0yan2wBU6ofTX5qijZd3Mux8ghnq+vReidCVUPi67Foh
-         GLuHbsnJFAlQbdTm4TIhGveSC6FDXsN8Sn7uyhXS8gEnRiWwxgS40xrwwDyR
-         FGvtCfThbj5sBNxqo8iLGSoqbGO5H2jgoBFgX5+YpWLATj4FIqHZYiRU2hLe
-         BDZZF9czCViidfxGQn6fDeJ7oFYWs1lT/znSPSeF0oIQd+U7UnwGszXdHF3a
-         aQ5m1d9m7au3Q7qs+bZQmwjsjN3tN0n5sPhH6neYyNiv8lXJATYCr/D1BJby
-         sVYx5tnaZv/Rln2NS7Rxs+RAAT4hs7AqDiiGS8vYIu/Kb5hGpRv4OE6cI9vE
-         OtkrNwcsm8omvKuwwbAxnCEBQhzt7fmhe4C0O4y8cYzYojS8mADIXvtdi0o/
-         6qn0AmcNEmMTFeoN16I0X0vgbZiecO6wCcDlDhkdNQ8W4Unxf7I4R3HZOqP9
-         Q/wI9zgBwlwrquDFyKoNZegBI6BZe3L10978CO5qiXx1CosS8n+0e1x8DhRq
-         gCGFH4xD8S82xaC1aL0eFZbDUCv3AbO0SB7hXxXpiNS2tjzr+VMun4gHlbnp
-         hhXMBP5UmKP6NNtLurPHszLP0bHEExWKcQtbrirK6ATUmC7l7eIN4RSLYwjE
-         9eqAZyKKv0uHlpdnlDgQWIWRWD8APKirZU+Ri3h5gcN1XIALeq8/BTNjzwhU
-         WRa9odD+ml2hFkXLoLhRZ8dUuvGdVfPbhbaEC8AT4qAFxUWS2KhWXLGZ6+SI
-         rQtNImPG3yYeIKcTCb3N9pXqtI1fjBeIqX4aX8Cz/9sTfbijxxy1uqUef7XU
-         bvAIqG/yCNjuEaB0rvMIGHnBm73CfK8/4E+5A/4FccSsAIr2lfUAAAAASUVO
-         RK5CYII='.unpack('m')[0] }
-   end
-   begin
-      Gtk.queue {
-         Gtk::Window.default_icon = GdkPixbuf::Pixbuf.new(:file => 'fly64.png')
-      }
-   rescue
-      nil # fixme
-   end
-end
-
 main_thread = Thread.new {
           test_mode = false
     $SEND_CHARACTER = '>'
@@ -10899,365 +10834,6 @@ main_thread = Thread.new {
             quick_game_entry_tab.border_width = 5
             quick_game_entry_tab.pack_start(quick_sw, true, true, 5)
          end
-
-=begin
-         #
-         # game entry tab
-         #
-
-         checked_frontends = false
-         wizard_dir        = nil
-         stormfront_dir    = nil
-         found_profanity   = false
-
-         account_name_label        = Gtk::Label.new('Account Name:')
-         account_name_entry        = Gtk::Entry.new
-         password_label            = Gtk::Label.new('Password:')
-         password_entry            = Gtk::Entry.new
-         password_entry.visibility = false
-
-         account_name_label_box = Gtk::HBox.new
-         account_name_label_box.pack_end(account_name_label, false, false, 0)
-
-         password_label_box = Gtk::HBox.new
-         password_label_box.pack_end(password_label, false, false, 0)
-
-         login_table = Gtk::Table.new(2, 2, false)
-         login_table.attach(account_name_label_box, 0, 1, 0, 1, Gtk::FILL, Gtk::FILL, 5, 5)
-         login_table.attach(account_name_entry, 1, 2, 0, 1, Gtk::EXPAND|Gtk::FILL, Gtk::EXPAND|Gtk::FILL, 5, 5)
-         login_table.attach(password_label_box, 0, 1, 1, 2, Gtk::FILL, Gtk::FILL, 5, 5)
-         login_table.attach(password_entry, 1, 2, 1, 2, Gtk::EXPAND|Gtk::FILL, Gtk::EXPAND|Gtk::FILL, 5, 5)
-
-         disconnect_button = Gtk::Button.new(' Disconnect ')
-         disconnect_button.sensitive = false
-
-         connect_button = Gtk::Button.new(' Connect ')
-
-         login_button_box = Gtk::HBox.new
-         login_button_box.pack_end(connect_button, false, false, 5)
-         login_button_box.pack_end(disconnect_button, false, false, 5)
-
-         liststore = Gtk::ListStore.new(String, String, String, String)
-         liststore.set_sort_column_id(1, Gtk::SORT_ASCENDING)
-
-         renderer = Gtk::CellRendererText.new
-
-         treeview = Gtk::TreeView.new(liststore)
-         treeview.height_request = 160
-
-         col = Gtk::TreeViewColumn.new("Game", renderer, :text => 1)
-         col.resizable = true
-         treeview.append_column(col)
-
-         col = Gtk::TreeViewColumn.new("Character", renderer, :text => 3)
-         col.resizable = true
-         treeview.append_column(col)
-
-         sw = Gtk::ScrolledWindow.new
-         sw.set_policy(Gtk::POLICY_AUTOMATIC, Gtk::POLICY_ALWAYS)
-         sw.add(treeview)
-
-         wizard_option = Gtk::RadioButton.new('WizardFE')
-         stormfront_option = Gtk::RadioButton.new(wizard_option, 'Stormfront')
-         profanity_option = Gtk::RadioButton.new(wizard_option, 'ProfanityFE')
-         other_fe_option = Gtk::RadioButton.new(wizard_option, '(other)')
-
-         frontend_label = Gtk::Label.new('Frontend: ')
-
-         frontend_option = Gtk::ComboBox.new(is_text_only = true)
-         frontend_option.append_text('WizardFE')
-         frontend_option.append_text('Stormfront')
-         frontend_option.append_text('ProfanityFE')
-         frontend_option.append_text('(other)')
-
-         frontend_box2 = Gtk::HBox.new(false, 10)
-         frontend_box2.pack_start(frontend_label, false, false, 0)
-         frontend_box2.pack_start(frontend_option, false, false, 0)
-
-         launch_label = Gtk::Label.new('Launch method: ')
-
-         launch_option = Gtk::ComboBox.new(is_text_only = true)
-         launch_option.append_text('ShellExecute')
-         launch_option.append_text('spawn')
-         launch_option.append_text('system')
-         launch_option.active = 0
-
-         launch_box = Gtk::HBox.new(false, 10)
-         launch_box.pack_start(launch_label, false, false, 0)
-         launch_box.pack_start(launch_option, false, false, 0)
-
-         frontend_box = Gtk::HBox.new(false, 10)
-         frontend_box.pack_start(wizard_option, false, false, 0)
-         frontend_box.pack_start(stormfront_option, false, false, 0)
-         frontend_box.pack_start(profanity_option, false, false, 0)
-         frontend_box.pack_start(other_fe_option, false, false, 0)
-
-         use_simu_launcher_option = Gtk::CheckButton.new('Use the Simutronics Launcher')
-         use_simu_launcher_option.active = true
-
-         custom_launch_option = Gtk::CheckButton.new('Use a custom launch command')
-         custom_launch_entry = Gtk::ComboBoxEntry.new()
-         custom_launch_entry.child.text = "(enter custom launch command)"
-         custom_launch_entry.append_text("Wizard.Exe /GGS /H127.0.0.1 /P%port% /K%key%")
-         custom_launch_entry.append_text("Stormfront.exe /GGS /H127.0.0.1 /P%port% /K%key%")
-         custom_launch_dir = Gtk::ComboBoxEntry.new()
-         custom_launch_dir.child.text = "(enter working directory for command)"
-         custom_launch_dir.append_text("../wizard")
-         custom_launch_dir.append_text("../StormFront")
-
-         remember_use_simu_launcher_active = nil 
-         revert_custom_launch_active = nil
-         frontend_option.signal_connect('changed') {
-            if ((frontend_option.active == 0) and not wizard_dir) or ((frontend_option.active == 1) and not stormfront_dir) or (frontend_option.active == 2) or (frontend_option.active == 3)
-#            if (frontend_option.active != 0) and (frontend_option.active != 1) # Wizard or Stormfront
-               if use_simu_launcher_option.sensitive?
-                  remember_use_simu_launcher_active = use_simu_launcher_option.active?
-                  use_simu_launcher_option.active = true
-                  use_simu_launcher_option.sensitive = false
-               end
-            elsif not use_simu_launcher_option.sensitive? and not custom_launch_option.active?
-               use_simu_launcher_option.sensitive = true
-               use_simu_launcher_option.active = remember_use_simu_launcher_active
-            end
-            if (frontend_option.active == 3) or ((frontend_option.active == 2) and not found_profanity)
-               if custom_launch_option.sensitive?
-                  if not custom_launch_option.active?
-                     revert_custom_launch_active = true
-                  else
-                     revert_custom_launch_active = false
-                  end
-                  custom_launch_option.active = true
-                  custom_launch_option.sensitive = false
-               end
-            elsif not custom_launch_option.sensitive?
-               custom_launch_option.sensitive = true
-               if revert_custom_launch_active
-                  revert_custom_launch_active = false
-                  custom_launch_option.active = false
-               end
-            end
-         }
-         frontend_option.active = 0
-
-         make_quick_option = Gtk::CheckButton.new('Save this info for quick game entry')
-
-         play_button = Gtk::Button.new(' Play ')
-         play_button.sensitive = false
-
-         play_button_box = Gtk::HBox.new
-         play_button_box.pack_end(play_button, false, false, 5)
-
-         game_entry_tab = Gtk::VBox.new
-         game_entry_tab.border_width = 5
-         game_entry_tab.pack_start(login_table, false, false, 0)
-         game_entry_tab.pack_start(login_button_box, false, false, 0)
-         game_entry_tab.pack_start(sw, true, true, 3)
-#         game_entry_tab.pack_start(frontend_box, false, false, 3)
-         game_entry_tab.pack_start(frontend_box2, false, false, 3)
-         game_entry_tab.pack_start(launch_box, false, false, 3)
-         game_entry_tab.pack_start(use_simu_launcher_option, false, false, 3)
-         game_entry_tab.pack_start(custom_launch_option, false, false, 3)
-         game_entry_tab.pack_start(custom_launch_entry, false, false, 3)
-         game_entry_tab.pack_start(custom_launch_dir, false, false, 3)
-         game_entry_tab.pack_start(make_quick_option, false, false, 3)
-         game_entry_tab.pack_start(play_button_box, false, false, 3)
-
-         custom_launch_option.signal_connect('toggled') {
-            custom_launch_entry.visible = custom_launch_option.active?
-            custom_launch_dir.visible = custom_launch_option.active?
-            if custom_launch_option.active?
-               if use_simu_launcher_option.sensitive?
-                  remember_use_simu_launcher_active = use_simu_launcher_option.active?
-                  use_simu_launcher_option.active = false
-                  use_simu_launcher_option.sensitive = false
-               end
-            elsif not use_simu_launcher_option.sensitive? and ((frontend_option.active == 0) or (frontend_option.active == 1) or ((frontend_option.active == 2) and not found_profanity))
-               use_simu_launcher_option.sensitive = true
-               use_simu_launcher_option.active = remember_use_simu_launcher_active
-            end
-         }
-
-         connect_button.signal_connect('clicked') {
-            connect_button.sensitive = false
-            account_name_entry.sensitive = false
-            password_entry.sensitive = false
-            iter = liststore.append
-            iter[1] = 'working...'
-            Gtk.queue {
-               begin
-                  login_server = nil
-                  connect_thread = Thread.new {
-                     login_server = TCPSocket.new('eaccess.play.net', 7900)
-                  }
-                  300.times {
-                     sleep 0.1
-                     break unless connect_thread.status
-                  }
-                  if connect_thread.status
-                     connect_thread.kill rescue nil
-                     msgbox.call "error: timed out connecting to eaccess.play.net:7900"
-                  end
-               rescue
-                  msgbox.call "error connecting to server: #{$!}"
-                  connect_button.sensitive = true
-                  account_name_entry.sensitive = true
-                  password_entry.sensitive = true
-               end
-               disconnect_button.sensitive = true
-               if login_server
-                  login_server.puts "K\n"
-                  hashkey = login_server.gets
-                  if 'test'[0].class == String
-                     password = password_entry.text.split('').collect { |c| c.getbyte(0) }
-                     hashkey = hashkey.split('').collect { |c| c.getbyte(0) }
-                  else
-                     password = password_entry.text.split('').collect { |c| c[0] }
-                     hashkey = hashkey.split('').collect { |c| c[0] }
-                  end
-                  # password_entry.text = String.new
-                  password.each_index { |i| password[i] = ((password[i]-32)^hashkey[i])+32 }
-                  password = password.collect { |c| c.chr }.join
-                  login_server.puts "A\t#{account_name_entry.text}\t#{password}\n"
-                  password = nil
-                  response = login_server.gets
-                  login_key = /KEY\t([^\t]+)\t/.match(response).captures.first
-                  if login_key
-                     login_server.puts "M\n"
-                     response = login_server.gets
-                     if response =~ /^M\t/
-                        liststore.clear
-                        for game in response.sub(/^M\t/, '').scan(/[^\t]+\t[^\t^\n]+/)
-                           game_code, game_name = game.split("\t")
-                           login_server.puts "N\t#{game_code}\n"
-                           if login_server.gets =~ /STORM/
-                              login_server.puts "F\t#{game_code}\n"
-                              if login_server.gets =~ /NORMAL|PREMIUM|TRIAL|INTERNAL|FREE/
-                                 login_server.puts "G\t#{game_code}\n"
-                                 login_server.gets
-                                 login_server.puts "P\t#{game_code}\n"
-                                 login_server.gets
-                                 login_server.puts "C\n"
-                                 for code_name in login_server.gets.sub(/^C\t[0-9]+\t[0-9]+\t[0-9]+\t[0-9]+[\t\n]/, '').scan(/[^\t]+\t[^\t^\n]+/)
-                                    char_code, char_name = code_name.split("\t")
-                                    iter = liststore.append
-                                    iter[0] = game_code
-                                    iter[1] = game_name
-                                    iter[2] = char_code
-                                    iter[3] = char_name
-                                 end
-                              end
-                           end
-                        end
-                        disconnect_button.sensitive = true
-                     else
-                        login_server.close unless login_server.closed?
-                        msgbox.call "Unrecognized response from server (#{response})"
-                     end
-                  else
-                     login_server.close unless login_server.closed?
-                     disconnect_button.sensitive = false
-                     connect_button.sensitive = true
-                     account_name_entry.sensitive = true
-                     password_entry.sensitive = true
-                     msgbox.call "Something went wrong... probably invalid user id and/or password.\nserver response: #{response}"
-                  end
-               end
-            }
-         }
-         treeview.signal_connect('cursor-changed') {
-            if login_server
-               play_button.sensitive = true
-            end
-         }
-         disconnect_button.signal_connect('clicked') {
-            disconnect_button.sensitive = false
-            play_button.sensitive = false
-            liststore.clear
-            login_server.close unless login_server.closed?
-            connect_button.sensitive = true
-            account_name_entry.sensitive = true
-            password_entry.sensitive = true
-         }
-         play_button.signal_connect('clicked') {
-            play_button.sensitive = false
-            game_code = treeview.selection.selected[0]
-            char_code = treeview.selection.selected[2]
-            if login_server and not login_server.closed?
-               login_server.puts "F\t#{game_code}\n"
-               login_server.gets
-               login_server.puts "G\t#{game_code}\n"
-               login_server.gets
-               login_server.puts "P\t#{game_code}\n"
-               login_server.gets
-               login_server.puts "C\n"
-               login_server.gets
-               login_server.puts "L\t#{char_code}\tSTORM\n"
-               response = login_server.gets
-               if response =~ /^L\t/
-                  login_server.close unless login_server.closed?
-                  port = /GAMEPORT=([0-9]+)/.match(response).captures.first
-                  host = /GAMEHOST=([^\t\n]+)/.match(response).captures.first
-                  key = /KEY=([^\t\n]+)/.match(response).captures.first
-                  launch_data = response.sub(/^L\tOK\t/, '').split("\t")
-                  login_server.close unless login_server.closed?
-                  if wizard_option.active?
-                     launch_data.collect! { |line| line.sub(/GAMEFILE=.+/, "GAMEFILE=WIZARD.EXE").sub(/GAME=.+/, "GAME=WIZ") }
-                  elsif suks_option.active?
-                     launch_data.collect! { |line| line.sub(/GAMEFILE=.+/, "GAMEFILE=WIZARD.EXE").sub(/GAME=.+/, "GAME=SUKS") }
-                  end
-                  if custom_launch_option.active?
-                     launch_data.push "CUSTOMLAUNCH=#{custom_launch_entry.child.text}"
-                     unless custom_launch_dir.child.text.empty? or custom_launch_dir.child.text == "(enter working directory for command)"
-                        launch_data.push "CUSTOMLAUNCHDIR=#{custom_launch_dir.child.text}"
-                     end
-                  end
-                  if make_quick_option.active?
-                     if wizard_option.active?
-                        frontend = 'wizard'
-                     else
-                        frontend = 'stormfront'
-                     end
-                     if custom_launch_option.active?
-                        custom_launch = custom_launch_entry.child.text
-                        if custom_launch_dir.child.text.empty? or custom_launch_dir.child.text == "(enter working directory for command)"
-                           custom_launch_dir = nil
-                        else
-                           custom_launch_dir = custom_launch_dir.child.text
-                        end
-                     else
-                        custom_launch = nil
-                        custom_launch_dir = nil
-                     end
-                     entry_data.push h={ :char_name => treeview.selection.selected[3], :game_code => treeview.selection.selected[0], :game_name => treeview.selection.selected[1], :user_id => account_name_entry.text, :password => password_entry.text, :frontend => frontend, :custom_launch => custom_launch, :custom_launch_dir => custom_launch_dir }
-                     save_entry_data = true
-                  end
-                  account_name_entry.text = String.new
-                  password_entry.text = String.new
-                  window.destroy
-                  done = true
-               else
-                  login_server.close unless login_server.closed?
-                  disconnect_button.sensitive = false
-                  play_button.sensitive = false
-                  connect_button.sensitive = true
-                  account_name_entry.sensitive = true
-                  password_entry.sensitive = true
-               end
-            else
-               disconnect_button.sensitive = false
-               play_button.sensitive = false
-               connect_button.sensitive = true
-               account_name_entry.sensitive = true
-               password_entry.sensitive = true
-            end
-         }
-         account_name_entry.signal_connect('activate') {
-            password_entry.grab_focus
-         }
-         password_entry.signal_connect('activate') {
-            connect_button.clicked
-         }
-=end
 
          #
          # old game entry tab
@@ -11700,131 +11276,6 @@ main_thread = Thread.new {
             end
          }
 
-=begin
-         #
-         # options tab
-         #
-
-         lich_char_label = Gtk::Label.new('Lich char:')
-         lich_char_label.xalign = 1
-         lich_char_entry = Gtk::Entry.new
-         lich_char_entry.text = ';' # fixme LichSettings['lich_char'].to_s
-         lich_box = Gtk::HBox.new
-         lich_box.pack_end(lich_char_entry, true, true, 5)
-         lich_box.pack_end(lich_char_label, true, true, 5)
-
-         cache_serverbuffer_button = Gtk::CheckButton.new('Cache to disk')
-         cache_serverbuffer_button.active = LichSettings['cache_serverbuffer']
-
-         serverbuffer_max_label = Gtk::Label.new('Maximum lines in memory:')
-         serverbuffer_max_entry = Gtk::Entry.new
-         serverbuffer_max_entry.text = LichSettings['serverbuffer_max_size'].to_s
-         serverbuffer_min_label = Gtk::Label.new('Minumum lines in memory:')
-         serverbuffer_min_entry = Gtk::Entry.new
-         serverbuffer_min_entry.text = LichSettings['serverbuffer_min_size'].to_s
-         serverbuffer_min_entry.sensitive = cache_serverbuffer_button.active?
-
-         serverbuffer_table = Gtk::Table.new(2, 2, false)
-         serverbuffer_table.attach(serverbuffer_max_label, 0, 1, 0, 1, Gtk::EXPAND|Gtk::FILL, Gtk::EXPAND|Gtk::FILL, 5, 5)
-         serverbuffer_table.attach(serverbuffer_max_entry, 1, 2, 0, 1, Gtk::EXPAND|Gtk::FILL, Gtk::EXPAND|Gtk::FILL, 5, 5)
-         serverbuffer_table.attach(serverbuffer_min_label, 0, 1, 1, 2, Gtk::EXPAND|Gtk::FILL, Gtk::EXPAND|Gtk::FILL, 5, 5)
-         serverbuffer_table.attach(serverbuffer_min_entry, 1, 2, 1, 2, Gtk::EXPAND|Gtk::FILL, Gtk::EXPAND|Gtk::FILL, 5, 5)
-
-         serverbuffer_box = Gtk::VBox.new
-         serverbuffer_box.pack_start(cache_serverbuffer_button, false, false, 5)
-         serverbuffer_box.pack_start(serverbuffer_table, false, false, 5)
-
-         serverbuffer_frame = Gtk::Frame.new('Server Buffer')
-         serverbuffer_frame.add(serverbuffer_box)
-
-         cache_clientbuffer_button = Gtk::CheckButton.new('Cache to disk')
-         cache_clientbuffer_button.active = LichSettings['cache_clientbuffer']
-
-         clientbuffer_max_label = Gtk::Label.new('Maximum lines in memory:')
-         clientbuffer_max_entry = Gtk::Entry.new
-         clientbuffer_max_entry.text = LichSettings['clientbuffer_max_size'].to_s
-         clientbuffer_min_label = Gtk::Label.new('Minumum lines in memory:')
-         clientbuffer_min_entry = Gtk::Entry.new
-         clientbuffer_min_entry.text = LichSettings['clientbuffer_min_size'].to_s
-         clientbuffer_min_entry.sensitive = cache_clientbuffer_button.active?
-
-         clientbuffer_table = Gtk::Table.new(2, 2, false)
-         clientbuffer_table.attach(clientbuffer_max_label, 0, 1, 0, 1, Gtk::EXPAND|Gtk::FILL, Gtk::EXPAND|Gtk::FILL, 5, 5)
-         clientbuffer_table.attach(clientbuffer_max_entry, 1, 2, 0, 1, Gtk::EXPAND|Gtk::FILL, Gtk::EXPAND|Gtk::FILL, 5, 5)
-         clientbuffer_table.attach(clientbuffer_min_label, 0, 1, 1, 2, Gtk::EXPAND|Gtk::FILL, Gtk::EXPAND|Gtk::FILL, 5, 5)
-         clientbuffer_table.attach(clientbuffer_min_entry, 1, 2, 1, 2, Gtk::EXPAND|Gtk::FILL, Gtk::EXPAND|Gtk::FILL, 5, 5)
-
-         clientbuffer_box = Gtk::VBox.new
-         clientbuffer_box.pack_start(cache_clientbuffer_button, false, false, 5)
-         clientbuffer_box.pack_start(clientbuffer_table, false, false, 5)
-
-         clientbuffer_frame = Gtk::Frame.new('Client Buffer')
-         clientbuffer_frame.add(clientbuffer_box)
-
-         save_button = Gtk::Button.new(' Save ')
-         save_button.sensitive = false
-
-         save_button_box = Gtk::HBox.new
-         save_button_box.pack_end(save_button, false, false, 5)
-
-         options_tab = Gtk::VBox.new
-         options_tab.border_width = 5
-         options_tab.pack_start(lich_box, false, false, 5)
-         options_tab.pack_start(serverbuffer_frame, false, false, 5)
-         options_tab.pack_start(clientbuffer_frame, false, false, 5)
-         options_tab.pack_start(save_button_box, false, false, 5)
-
-         check_changed = proc {
-            Gtk.queue {
-               if (LichSettings['lich_char'] == lich_char_entry.text) and (LichSettings['cache_serverbuffer'] == cache_serverbuffer_button.active?) and (LichSettings['serverbuffer_max_size'] == serverbuffer_max_entry.text.to_i) and (LichSettings['serverbuffer_min_size'] == serverbuffer_min_entry.text.to_i) and (LichSettings['cache_clientbuffer'] == cache_clientbuffer_button.active?) and (LichSettings['clientbuffer_max_size'] == clientbuffer_max_entry.text.to_i) and (LichSettings['clientbuffer_min_size'] == clientbuffer_min_entry.text.to_i)
-                  save_button.sensitive = false
-               else
-                  save_button.sensitive = true
-               end
-            }
-         }
-
-         lich_char_entry.signal_connect('key-press-event') {
-            check_changed.call
-            false
-         }
-         serverbuffer_max_entry.signal_connect('key-press-event') {
-            check_changed.call
-            false
-         }
-         serverbuffer_min_entry.signal_connect('key-press-event') {
-            check_changed.call
-            false
-         }
-         clientbuffer_max_entry.signal_connect('key-press-event') {
-            check_changed.call
-            false
-         }
-         clientbuffer_min_entry.signal_connect('key-press-event') {
-            check_changed.call
-            false
-         }
-         cache_serverbuffer_button.signal_connect('clicked') {
-            serverbuffer_min_entry.sensitive = cache_serverbuffer_button.active?
-            check_changed.call
-         }
-         cache_clientbuffer_button.signal_connect('clicked') {
-            clientbuffer_min_entry.sensitive = cache_clientbuffer_button.active?
-            check_changed.call
-         }
-         save_button.signal_connect('clicked') {
-            LichSettings['lich_char']             = lich_char_entry.text
-            LichSettings['cache_serverbuffer']    = cache_serverbuffer_button.active?
-            LichSettings['serverbuffer_max_size'] = serverbuffer_max_entry.text.to_i
-            LichSettings['serverbuffer_min_size'] = serverbuffer_min_entry.text.to_i
-            LichSettings['cache_clientbuffer']    = cache_clientbuffer_button.active?
-            LichSettings['clientbuffer_max_size'] = clientbuffer_max_entry.text.to_i
-            LichSettings['clientbuffer_min_size'] = clientbuffer_min_entry.text.to_i
-            LichSettings.save
-            save_button.sensitive = false
-         }
-=end
-
          #
          # put it together and show the window
          #
@@ -11837,45 +11288,6 @@ main_thread = Thread.new {
          notebook.signal_connect('switch-page') { |who,page,page_num|
             if (page_num == 2) and not install_tab_loaded
                refresh_button.clicked
-=begin
-            elsif (page_num == 1) and not checked_frontends
-               checked_frontends = true
-               found_profanity = File.exists?("#{LICH_DIR}/profanity.rb")
-               if defined?(Win32)
-                  begin
-                     key = Win32.RegOpenKeyEx(:hKey => Win32::HKEY_LOCAL_MACHINE, :lpSubKey => 'Software\\Simutronics\\STORM32', :samDesired => (Win32::KEY_ALL_ACCESS|Win32::KEY_WOW64_32KEY))[:phkResult]
-                     stormfront_dir = Win32.RegQueryValueEx(:hKey => key, :lpValueName => 'Directory')[:lpData]
-                  rescue
-                     stormfront_dir = nil
-                  ensure
-                     Win32.RegCloseKey(:hKey => key) rescue nil
-                  end
-                  begin
-                     key = Win32.RegOpenKeyEx(:hKey => Win32::HKEY_LOCAL_MACHINE, :lpSubKey => 'Software\\Simutronics\\WIZ32', :samDesired => (Win32::KEY_ALL_ACCESS|Win32::KEY_WOW64_32KEY))[:phkResult]
-                     wizard_dir = Win32.RegQueryValueEx(:hKey => key, :lpValueName => 'Directory')[:lpData]
-                  rescue
-                     wizard_dir = nil
-                  ensure
-                     Win32.RegCloseKey(:hKey => key) rescue nil
-                  end
-               elsif defined?(Wine)
-                  stormfront_dir = Wine.registry_gets('HKEY_LOCAL_MACHINE\\Software\\Simutronics\\STORM32\\Directory').gsub("\\", "/")
-                  wizard_dir = Wine.registry_gets('HKEY_LOCAL_MACHINE\\Software\\Simutronics\\WIZ32\\Directory').gsub("\\", "/")
-               else
-                  stormfront_dir = nil
-                  wizard_dir = nil
-               end
-               Lich.log "wizard_dir: #{wizard_dir}"
-               Lich.log "stormfront_dir: #{stormfront_dir}"
-               unless File.exists?("#{stormfront_dir}\\Stormfront.exe")
-                  Lich.log "stormfront doesn't exist"
-                  stormfront_dir = nil
-               end
-               unless File.exists?("#{wizard_dir}\\Wizard.Exe")
-                  Lich.log "wizard doesn't exist"
-                  wizard_dir = nil
-               end
-=end
             end
          }
 
@@ -11915,19 +11327,6 @@ main_thread = Thread.new {
 
    Socket.do_not_reverse_lookup = true
 
-   #
-   # open the client and have it connect to us
-   #
-   if argv_options[:sal]
-      begin
-         launch_data = File.open(argv_options[:sal]) { |file| file.readlines }.collect { |line| line.chomp }
-      rescue
-         $stdout.puts "error: failed to read launch_file: #{$!}"
-         Lich.log "info: launch_file: #{argv_options[:sal]}"
-         Lich.log "error: failed to read launch_file: #{$!}\n\t#{$!.backtrace.join("\n\t")}"
-         exit
-      end
-   end
    if launch_data
       unless gamecode = launch_data.find { |line| line =~ /GAMECODE=/ }
          $stdout.puts "error: launch_data contains no GAMECODE info"
@@ -12313,140 +11712,6 @@ main_thread = Thread.new {
             Game._puts("<c>")
          }
          $login_time = Time.now
-      }
-   else
-      #
-      # shutdown listening socket
-      #
-      error_count = 0
-      begin
-         # Somehow... for some ridiculous reason... Windows doesn't let us close the socket if we shut it down first...
-         # listener.shutdown
-         listener.close unless listener.closed?
-      rescue
-         Lich.log "warning: failed to close listener socket: #{$!}"
-         if (error_count += 1) > 20
-            Lich.log 'warning: giving up...'
-         else
-            sleep 0.05
-            retry
-         end
-      end
-
-      $stdout = $_CLIENT_
-      $_CLIENT_.sync = true
-
-      client_thread = Thread.new {
-         $login_time = Time.now
-
-         if $offline_mode
-            nil
-         elsif $frontend =~ /^(?:wizard|avalon)$/
-            #
-            # send the login key
-            #
-            client_string = $_CLIENT_.gets
-            Game._puts(client_string)
-            #
-            # take the version string from the client, ignore it, and ask the server for xml
-            #
-            $_CLIENT_.gets
-            client_string = "/FE:STORMFRONT /VERSION:1.0.1.26 /P:#{RUBY_PLATFORM} /XML"
-            $_CLIENTBUFFER_.push(client_string.dup)
-            Game._puts(client_string)
-            #
-            # tell the server we're ready
-            #
-            2.times {
-               sleep 0.3
-               $_CLIENTBUFFER_.push("#{$cmd_prefix}\r\n")
-               Game._puts($cmd_prefix)
-            }
-            #
-            # set up some stuff
-            #
-            for client_string in [ "#{$cmd_prefix}_injury 2", "#{$cmd_prefix}_flag Display Inventory Boxes 1", "#{$cmd_prefix}_flag Display Dialog Boxes 0" ]
-               $_CLIENTBUFFER_.push(client_string)
-               Game._puts(client_string)
-            end
-            #
-            # client wants to send "GOOD", xml server won't recognize it
-            #
-            $_CLIENT_.gets
-         else
-            inv_off_proc = proc { |server_string|
-               if server_string =~ /^<(?:container|clearContainer|exposeContainer)/
-                  server_string.gsub!(/<(?:container|clearContainer|exposeContainer)[^>]*>|<inv.+\/inv>/, '')
-                  if server_string.empty?
-                     nil
-                  else
-                     server_string
-                  end
-               elsif server_string =~ /^<flag id="Display Inventory Boxes" status='on' desc="Display all inventory and container windows."\/>/
-                  server_string.sub("status='on'", "status='off'")
-               elsif server_string =~ /^\s*<d cmd="flag Inventory off">Inventory<\/d>\s+ON/
-                  server_string.sub("flag Inventory off", "flag Inventory on").sub('ON', 'OFF')
-               else
-                  server_string
-               end
-            }
-            DownstreamHook.add('inventory_boxes_off', inv_off_proc)
-            inv_toggle_proc = proc { |client_string|
-               if client_string =~ /^(?:<c>)?_flag Display Inventory Boxes ([01])/
-                  if $1 == '1'
-                     DownstreamHook.remove('inventory_boxes_off')
-                     Lich.set_inventory_boxes(XMLData.player_id, true)
-                  else
-                     DownstreamHook.add('inventory_boxes_off', inv_off_proc)
-                     Lich.set_inventory_boxes(XMLData.player_id, false)
-                  end
-                  nil
-               elsif client_string =~ /^(?:<c>)?\s*(?:set|flag)\s+inv(?:e|en|ent|ento|entor|entory)?\s+(on|off)/i
-                  if $1.downcase == 'on'
-                     DownstreamHook.remove('inventory_boxes_off')
-                     respond 'You have enabled viewing of inventory and container windows.'
-                     Lich.set_inventory_boxes(XMLData.player_id, true)
-                  else
-                     DownstreamHook.add('inventory_boxes_off', inv_off_proc)
-                     respond 'You have disabled viewing of inventory and container windows.'
-                     Lich.set_inventory_boxes(XMLData.player_id, false)
-                  end
-                  nil
-               else
-                  client_string
-               end
-            }
-            UpstreamHook.add('inventory_boxes_toggle', inv_toggle_proc)
-
-            unless $offline_mode
-               client_string = $_CLIENT_.gets
-               Game._puts(client_string)
-               client_string = $_CLIENT_.gets
-               $_CLIENTBUFFER_.push(client_string.dup)
-               Game._puts(client_string)
-            end
-         end
-
-         begin
-            while client_string = $_CLIENT_.gets
-               client_string = "#{$cmd_prefix}#{client_string}" if $frontend =~ /^(?:wizard|avalon)$/
-               begin
-                  $_IDLETIMESTAMP_ = Time.now
-                  do_client(client_string)
-               rescue
-                  respond "--- Lich: error: client_thread: #{$!}"
-                  respond $!.backtrace.first
-                  Lich.log "error: client_thread: #{$!}\n\t#{$!.backtrace.join("\n\t")}"
-               end
-            end
-         rescue
-            respond "--- Lich: error: client_thread: #{$!}"
-            respond $!.backtrace.first
-            Lich.log "error: client_thread: #{$!}\n\t#{$!.backtrace.join("\n\t")}"
-            sleep 0.2
-            retry unless $_CLIENT_.closed? or Game.closed? or !Game.thread.alive? or ($!.to_s =~ /invalid argument|A connection attempt failed|An existing connection was forcibly closed/i)
-         end
-         Game.close
       }
    end
 
