@@ -1016,20 +1016,20 @@ header h1 {
     height: 100%;
     color: #e0e0e0;
     white-space: nowrap;
-    animation: scroll-ticker 20s linear infinite;
-    /* Start with content visible instead of waiting */
-    transform: translateX(0%);
+    /* JavaScript controls animation - no CSS animation needed */
+    transform: translateX(0);
 }
 
 .ticker-item {
-    padding: 0 20px;
+    padding-left: 20px;
+    padding-right: 10px;
     position: relative;
 }
 
 .ticker-item:after {
     content: "•";
     position: absolute;
-    right: 8px;
+    right: 2px;
     color: var(--color-accent);
 }
 
@@ -1043,13 +1043,12 @@ header h1 {
 }
 
 .ticker-spacer {
-    padding: 0 40px;
+    padding: 0 60px;
 }
 
 .ticker-spacer:after {
-    content: "★";
-    color: var(--text-secondary);
-    right: 15px;
+    content: "";
+    display: none;
 }
 
 @keyframes scroll-ticker {
@@ -1057,7 +1056,7 @@ header h1 {
         transform: translateX(0%);
     }
     100% {
-        transform: translateX(-50%);
+        transform: translateX(-90%);
     }
 }
 
@@ -1149,7 +1148,7 @@ header h1 {
     }
 
     .ticker-content {
-        animation-duration: 15s;
+        /* JavaScript controls animation */
     }
 
 }
@@ -1384,19 +1383,6 @@ header h1 {
     line-height: 1.4;
 }
 
-/* Removed mode tab styling */
-#removed-tab {
-    position: relative;
-}
-
-#removed-tab::after {
-    content: "β";
-    position: absolute;
-    top: -2px;
-    right: 2px;
-    font-size: 10px;
-    color: #999;
-}
 
 /* Mobile responsive for removed items */
 @media (max-width: 768px) {
