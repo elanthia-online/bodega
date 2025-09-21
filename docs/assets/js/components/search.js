@@ -480,10 +480,27 @@ class SearchEngine {
         // Shop
         const shopCell = document.createElement('td');
         const shopDiv = document.createElement('div');
-        shopDiv.innerHTML = `
-            <strong>${item.shopName}</strong><br>
-            <span class="shop-location">${item.room}</span>
-        `;
+
+        // Create clickable shop name link
+        const shopLink = document.createElement('a');
+        shopLink.href = '#';
+        shopLink.className = 'shop-link';
+        shopLink.innerHTML = `<strong>${item.shopName}</strong>`;
+        shopLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            this.navigateToShopInBrowse(item.town, item.shopName);
+        });
+
+        // Create room span
+        const roomSpan = document.createElement('span');
+        roomSpan.className = 'shop-location';
+        roomSpan.textContent = item.room;
+
+        // Append shop link and room to div
+        shopDiv.appendChild(shopLink);
+        shopDiv.appendChild(document.createElement('br'));
+        shopDiv.appendChild(roomSpan);
+
         shopCell.appendChild(shopDiv);
 
         row.appendChild(nameCell);
@@ -944,6 +961,28 @@ class SearchEngine {
                 }
             }
         }, 1000); // Wait for data to load
+    }
+
+    navigateToShopInBrowse(townName, shopName) {
+        // Switch to browse tab
+        if (window.browseEngine) {
+            window.browseEngine.switchToBrowse();
+
+            // Wait for browse mode to initialize then select the town and shop
+            setTimeout(() => {
+                // Select the town in the dropdown
+                const townSelect = document.getElementById('browse-town-select');
+                if (townSelect) {
+                    townSelect.value = townName;
+                    window.browseEngine.selectTown(townName);
+
+                    // Select the specific shop after town is loaded
+                    setTimeout(() => {
+                        window.browseEngine.selectShop(townName, shopName);
+                    }, 100);
+                }
+            }, 100);
+        }
     }
 }
 

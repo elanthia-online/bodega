@@ -262,22 +262,74 @@ class AddedEngine {
         const addedDate = new Date(item.addedDate);
         const properties = this.createPropertiesElement(item);
 
-        row.innerHTML = `
-            <td class="item-name">
-                <span class="name">${item.name}</span>
-                ${item.enchant > 0 ? `<span class="enchant">+${item.enchant}</span>` : ''}
-                <div class="added-info">
-                    Added ${this.formatRelativeTime(addedDate)}
-                </div>
-            </td>
-            <td class="item-price">${this.formatPrice(item.price)}</td>
-            <td class="item-properties">${properties.innerHTML}</td>
-            <td class="item-town">${item.town || 'Unknown'}</td>
-            <td class="item-shop">${item.room || item.shop || 'Unknown'}</td>
+        // Create the table cells manually to add event handlers properly
+        const nameCell = document.createElement('td');
+        nameCell.className = 'item-name';
+        nameCell.innerHTML = `
+            <span class="name">${item.name}</span>
+            ${item.enchant > 0 ? `<span class="enchant">+${item.enchant}</span>` : ''}
+            <div class="added-info">
+                Added ${this.formatRelativeTime(addedDate)}
+            </div>
         `;
+        nameCell.addEventListener('click', () => this.showItemDetails(item));
 
-        // Add click handler for item details
-        row.addEventListener('click', () => this.showItemDetails(item));
+        const priceCell = document.createElement('td');
+        priceCell.className = 'item-price';
+        priceCell.textContent = this.formatPrice(item.price);
+        priceCell.addEventListener('click', () => this.showItemDetails(item));
+
+        const propertiesCell = document.createElement('td');
+        propertiesCell.className = 'item-properties';
+        propertiesCell.appendChild(properties);
+        propertiesCell.addEventListener('click', () => this.showItemDetails(item));
+
+        const townCell = document.createElement('td');
+        townCell.className = 'item-town';
+        townCell.textContent = item.town || 'Unknown';
+        townCell.addEventListener('click', () => this.showItemDetails(item));
+
+        // Shop cell with clickable link
+        const shopCell = document.createElement('td');
+        shopCell.className = 'item-shop';
+
+        if (item.shopName) {
+            const shopDiv = document.createElement('div');
+
+            // Create clickable shop name link
+            const shopLink = document.createElement('a');
+            shopLink.href = '#';
+            shopLink.className = 'shop-link';
+            shopLink.innerHTML = `<strong>${item.shopName}</strong>`;
+            shopLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.navigateToShopInBrowse(item.town, item.shopName);
+            });
+
+            // Create room span
+            const roomSpan = document.createElement('span');
+            roomSpan.className = 'shop-location';
+            roomSpan.textContent = item.room || '';
+
+            // Append shop link and room to div
+            shopDiv.appendChild(shopLink);
+            if (item.room) {
+                shopDiv.appendChild(document.createElement('br'));
+                shopDiv.appendChild(roomSpan);
+            }
+
+            shopCell.appendChild(shopDiv);
+        } else {
+            shopCell.textContent = item.room || item.shop || 'Unknown';
+            shopCell.addEventListener('click', () => this.showItemDetails(item));
+        }
+
+        row.appendChild(nameCell);
+        row.appendChild(priceCell);
+        row.appendChild(propertiesCell);
+        row.appendChild(townCell);
+        row.appendChild(shopCell);
 
         return row;
     }
@@ -442,6 +494,28 @@ class AddedEngine {
 
         this.currentSort = { field: 'addedDate', direction: 'desc' };
         this.performSearch();
+    }
+
+    navigateToShopInBrowse(townName, shopName) {
+        // Switch to browse tab
+        if (window.browseEngine) {
+            window.browseEngine.switchToBrowse();
+
+            // Wait for browse mode to initialize then select the town and shop
+            setTimeout(() => {
+                // Select the town in the dropdown
+                const townSelect = document.getElementById('browse-town-select');
+                if (townSelect) {
+                    townSelect.value = townName;
+                    window.browseEngine.selectTown(townName);
+
+                    // Select the specific shop after town is loaded
+                    setTimeout(() => {
+                        window.browseEngine.selectShop(townName, shopName);
+                    }, 100);
+                }
+            }, 100);
+        }
     }
 }
 
