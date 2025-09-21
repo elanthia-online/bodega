@@ -68,6 +68,7 @@ class RemovedEngine {
 
         // Hide pagination controls for removed mode
         document.getElementById('pagination').style.display = 'none';
+        document.getElementById('pagination-top').style.display = 'none';
 
         // Initialize removed data if not done yet
         if (this.removedItems.length === 0) {

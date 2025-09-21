@@ -68,6 +68,7 @@ class AddedEngine {
 
         // Hide pagination controls for added mode
         document.getElementById('pagination').style.display = 'none';
+        document.getElementById('pagination-top').style.display = 'none';
 
         // Initialize added data if not done yet
         if (this.addedItems.length === 0) {

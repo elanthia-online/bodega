@@ -117,12 +117,21 @@ class SearchEngine {
 
         // Table header sorting removed - using sidebar sorting only
 
-        // Pagination
+        // Pagination - Bottom controls
         document.getElementById('prev-page').addEventListener('click', () => {
             this.previousPage();
         });
 
         document.getElementById('next-page').addEventListener('click', () => {
+            this.nextPage();
+        });
+
+        // Pagination - Top controls
+        document.getElementById('prev-page-top').addEventListener('click', () => {
+            this.previousPage();
+        });
+
+        document.getElementById('next-page-top').addEventListener('click', () => {
             this.nextPage();
         });
 
@@ -744,34 +753,49 @@ class SearchEngine {
     updatePagination() {
         const totalPages = Math.ceil(this.filteredItems.length / this.itemsPerPage);
 
+        // Update both bottom and top pagination controls
         document.getElementById('prev-page').disabled = this.currentPage <= 1;
         document.getElementById('next-page').disabled = this.currentPage >= totalPages;
+        document.getElementById('prev-page-top').disabled = this.currentPage <= 1;
+        document.getElementById('next-page-top').disabled = this.currentPage >= totalPages;
 
         const pageNumbers = document.getElementById('page-numbers');
+        const pageNumbersTop = document.getElementById('page-numbers-top');
         pageNumbers.innerHTML = '';
+        pageNumbersTop.innerHTML = '';
 
         if (totalPages <= 1) return;
 
-        // Generate page numbers
+        // Generate page numbers for both top and bottom
         const startPage = Math.max(1, this.currentPage - 2);
         const endPage = Math.min(totalPages, this.currentPage + 2);
 
         for (let i = startPage; i <= endPage; i++) {
+            // Create page button for bottom pagination
             const pageBtn = document.createElement('span');
             pageBtn.className = 'page-number';
             pageBtn.textContent = i;
 
+            // Create page button for top pagination
+            const pageBtnTop = document.createElement('span');
+            pageBtnTop.className = 'page-number';
+            pageBtnTop.textContent = i;
+
             if (i === this.currentPage) {
                 pageBtn.classList.add('current');
+                pageBtnTop.classList.add('current');
             } else {
-                pageBtn.addEventListener('click', () => {
+                const clickHandler = () => {
                     this.currentPage = i;
                     this.displayResults();
                     this.updatePagination();
-                });
+                };
+                pageBtn.addEventListener('click', clickHandler);
+                pageBtnTop.addEventListener('click', clickHandler);
             }
 
             pageNumbers.appendChild(pageBtn);
+            pageNumbersTop.appendChild(pageBtnTop);
         }
     }
 
