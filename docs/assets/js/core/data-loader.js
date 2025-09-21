@@ -556,27 +556,81 @@ class DataLoader {
             return;
         }
 
-        // Build ticker content - duplicate for seamless scrolling
-        const tickerItems = sortedTowns.map(town => {
+        // Build ticker content - each town with proper spacing
+        const tickerItems = sortedTowns.map((town) => {
             const timestamp = this.townTimestamps[town];
             const timeAgo = this.getTimeAgo(timestamp);
             return `<span class="ticker-item"><strong>${town}:</strong> ${timeAgo}</span>`;
         }).join('');
 
-        // Create ticker with duplicated content for seamless loop
-        // Add spacer between duplicates for better visual separation
+        // Create ticker with 5 duplicates for seamless JavaScript-controlled loop
+        const duplicatedContent = Array(5).fill(tickerItems).join('');
+
         timestampContainer.innerHTML = `
             <div class="ticker-wrapper">
                 <div class="ticker-label">Town Updates:</div>
                 <div class="ticker-scroll-wrapper">
-                    <div class="ticker-content">
-                        ${tickerItems}
-                        <span class="ticker-item ticker-spacer"></span>
-                        ${tickerItems}
+                    <div class="ticker-content" id="ticker-content">
+                        ${duplicatedContent}
                     </div>
                 </div>
             </div>
         `;
+
+        // Start JavaScript-based smooth scrolling
+        this.startSmoothTicker();
+    }
+
+    startSmoothTicker() {
+        const tickerContent = document.getElementById('ticker-content');
+        if (!tickerContent) return;
+
+        let position = 0;
+        const speed = 0.125; // pixels per frame - adjust for speed
+        let animationId;
+        let isPaused = false;
+
+        // Calculate reset point: when set 2 reaches where set 1 started
+        // With 5 duplicates, reset when we've scrolled 1/5 of the total width
+        const measureWidth = () => {
+            const totalWidth = tickerContent.scrollWidth;
+            return totalWidth / 5; // Reset point: one set width
+        };
+
+        let resetPoint = measureWidth();
+
+        const animate = () => {
+            if (!isPaused) {
+                position += speed;
+
+                // Reset when second set reaches start position (seamless)
+                if (position >= resetPoint) {
+                    position = 0;
+                }
+
+                tickerContent.style.transform = `translateX(-${position}px)`;
+            }
+
+            animationId = requestAnimationFrame(animate);
+        };
+
+        // Pause on hover
+        const wrapper = tickerContent.closest('.ticker-scroll-wrapper');
+        if (wrapper) {
+            wrapper.addEventListener('mouseenter', () => { isPaused = true; });
+            wrapper.addEventListener('mouseleave', () => { isPaused = false; });
+        }
+
+        // Handle window resize - recalculate reset point
+        window.addEventListener('resize', () => {
+            resetPoint = measureWidth();
+        });
+
+        // Start animation
+        animate();
+
+        // Store animation ID for cleanup if needed
+        this.tickerAnimationId = animationId;
     }
 
     createTimestampContainer() {
