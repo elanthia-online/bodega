@@ -1,0 +1,17 @@
+
+Script.start("log")
+
+fput("go table")
+
+if Time.now.hour == 8
+  Lich.log("Starting Full Bodega Scan (which_bodega)")
+  Script.run("bodega", "--parser --smart --save")
+  Script.run("bodega", "--parser --save")
+else
+  Lich.log("Starting Smart Bodega Scan (which_bodega)")
+  Script.run("bodega", "--parser --smart --save")
+end
+
+Lich.log("Bodega out -- quitting!")
+
+fput("quit")

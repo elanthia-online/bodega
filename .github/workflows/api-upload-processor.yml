@@ -1,0 +1,324 @@
+name: Process API Upload
+
+on:
+  repository_dispatch:
+    types: [shop_data_upload]
+
+permissions:
+  contents: write
+  issues: write
+  actions: write
+
+jobs:
+  extract-and-download:
+    runs-on: ubuntu-latest
+    outputs:
+      gist_id: ${{ steps.extract.outputs.gist_id }}
+      files_count: ${{ steps.download.outputs.files_count }}
+
+    steps:
+    - name: Extract gist information
+      id: extract
+      run: |
+        echo "Processing API upload from ${{ github.event.client_payload.source }}"
+        echo "Upload timestamp: ${{ github.event.client_payload.timestamp }}"
+        echo "Gist URL: ${{ github.event.client_payload.gist_url }}"
+        echo "Gist ID: ${{ github.event.client_payload.gist_id }}"
+        echo "File count: ${{ github.event.client_payload.file_count }}"
+
+        # Output gist ID for next step
+        echo "gist_id=${{ github.event.client_payload.gist_id }}" >> $GITHUB_OUTPUT
+
+    - name: Download gist files
+      id: download
+      run: |
+        # Fetch gist metadata
+        gist_id="${{ steps.extract.outputs.gist_id }}"
+        gist_api_url="https://api.github.com/gists/$gist_id"
+        echo "Fetching gist from: $gist_api_url"
+
+        gist_data=$(curl -s "$gist_api_url")
+
+        # Create directory for artifacts
+        mkdir -p shop-data
+
+        # Process each file
+        files=$(echo "$gist_data" | jq -r '.files | keys[]')
+        files_count=0
+
+        for file in $files; do
+          if [[ "$file" == *.json ]]; then
+            echo "Downloading file: $file"
+
+            # Always use raw_url to ensure we get the full content
+            raw_url=$(echo "$gist_data" | jq -r ".files[\"$file\"].raw_url")
+            echo "Fetching from: $raw_url"
+
+            # Download directly to shop-data directory
+            curl -s "$raw_url" -o "shop-data/$file"
+
+            # Show file size for verification
+            size=$(stat -c%s "shop-data/$file")
+            echo "Downloaded $file: $size bytes"
+            files_count=$((files_count + 1))
+          fi
+        done
+
+        echo "files_count=$files_count" >> $GITHUB_OUTPUT
+
+        # List downloaded files
+        echo "Downloaded files:"
+        ls -la shop-data/
+
+    - name: Upload shop data as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: api-shop-data
+        path: shop-data/*.json
+        retention-days: 1
+
+  validate-data:
+    runs-on: ubuntu-latest
+    needs: extract-and-download
+    outputs:
+      validation_status: ${{ steps.validate.outputs.validation_status }}
+
+    steps:
+    - name: Download shop data artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: api-shop-data
+        path: shop-data
+
+    - name: Validate JSON files
+      id: validate
+      run: |
+        echo "Validating downloaded JSON files..."
+
+        validation_failed=false
+        valid_files=""
+        total_shops=0
+        total_items=0
+
+        for file in shop-data/*.json; do
+          if [ ! -f "$file" ]; then
+            echo "No files found to validate"
+            echo "validation_status=failed" >> $GITHUB_OUTPUT
+            exit 1
+          fi
+
+          filename=$(basename "$file")
+          echo "Validating $filename..."
+
+          # Validate JSON syntax
+          if ! jq . "$file" > /dev/null 2>&1; then
+            echo "ERROR: Invalid JSON in $filename"
+            validation_failed=true
+            continue
+          fi
+
+          # Validate structure
+          town=$(jq -r '.town' "$file")
+          shops=$(jq -r '.shops | length' "$file")
+
+          if [ "$town" == "null" ] || [ "$shops" == "null" ] || [ "$shops" == "0" ]; then
+            echo "ERROR: Invalid data structure in $filename"
+            validation_failed=true
+            continue
+          fi
+
+          echo "✓ Valid: $filename - $town with $shops shops"
+          valid_files="$valid_files $filename"
+          total_shops=$((total_shops + shops))
+
+          # Count items
+          items=$(jq '[.shops[].inv[].items[]] | length' "$file")
+          total_items=$((total_items + items))
+        done
+
+        echo "Summary: $total_shops shops, $total_items items across $(echo $valid_files | wc -w) files"
+
+        if [ "$validation_failed" = true ]; then
+          echo "validation_status=failed" >> $GITHUB_OUTPUT
+        else
+          echo "validation_status=passed" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Upload validation results
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: api-validation-results
+        path: shop-data/*.json
+        retention-days: 7
+
+  commit-changes:
+    runs-on: ubuntu-latest
+    needs: validate-data
+    if: needs.validate-data.outputs.validation_status == 'passed'
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Download validated data
+      uses: actions/download-artifact@v4
+      with:
+        name: api-shop-data
+        path: temp-data
+
+    - name: Update data files with timestamp comparison
+      run: |
+        echo "Updating data files with smart timestamp comparison..."
+
+        # Ensure data directory exists
+        mkdir -p data
+
+        files_updated=0
+        timestamp_only_updates=0
+
+        # Process each uploaded file
+        for file in temp-data/*.json; do
+          if [ -f "$file" ]; then
+            filename=$(basename "$file")
+            new_file="$file"
+            existing_file="data/$filename"
+
+            echo "Processing $filename..."
+
+            # Get timestamp from new file
+            new_timestamp=$(jq -r '.created_at' "$new_file")
+
+            if [ -f "$existing_file" ]; then
+              # File exists - compare timestamps
+              existing_timestamp=$(jq -r '.created_at' "$existing_file")
+
+              echo "  New timestamp: $new_timestamp"
+              echo "  Existing timestamp: $existing_timestamp"
+
+              # Convert timestamps to epoch for comparison
+              new_epoch=$(date -d "$new_timestamp" +%s 2>/dev/null || echo "0")
+              existing_epoch=$(date -d "$existing_timestamp" +%s 2>/dev/null || echo "0")
+
+              if [ "$new_epoch" -gt "$existing_epoch" ]; then
+                # New data is newer - replace file
+                echo "  ✅ New data is newer - updating file"
+                cp "$new_file" "$existing_file"
+                files_updated=$((files_updated + 1))
+              else
+                # New data is same/older - keep existing, just note the upload
+                echo "  📝 New data is same/older - keeping existing data"
+                timestamp_only_updates=$((timestamp_only_updates + 1))
+              fi
+            else
+              # File doesn't exist - create it
+              echo "  🆕 New file - creating"
+              cp "$new_file" "$existing_file"
+              files_updated=$((files_updated + 1))
+            fi
+          fi
+        done
+
+        echo ""
+        echo "=== UPDATE SUMMARY ==="
+        echo "Files with newer data: $files_updated"
+        echo "Files with older/same data (timestamp-only updates): $timestamp_only_updates"
+        echo ""
+
+        # Show what's being committed
+        echo "Files in data directory:"
+        ls -la data/*.json
+
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+
+        # Debug: Show current state
+        echo "=== Current repository state ==="
+        git status
+        echo ""
+        echo "=== Files in data directory ==="
+        ls -la data/ || echo "data/ directory doesn't exist"
+        echo ""
+        echo "=== Files in temp-data directory ==="
+        ls -la temp-data/ || echo "temp-data/ directory doesn't exist"
+        echo ""
+        echo "=== Git diff for data directory ==="
+        git diff --name-only data/ || echo "No diff output"
+        echo ""
+        echo "=== Git diff summary ==="
+        git diff --stat data/ || echo "No diff stat"
+        echo ""
+
+        # Always create timestamp file to track when data was last checked
+        echo "Creating timestamp file to track upload processing..."
+        echo "Last upload processed: $(date -u +"%Y-%m-%d %H:%M:%S UTC")" > data/last_updated.txt
+        echo "Upload source: ${{ github.event.client_payload.source }}" >> data/last_updated.txt
+        echo "Data timestamp: ${{ github.event.client_payload.timestamp }}" >> data/last_updated.txt
+
+        # Check if there are any changes
+        git add data/
+        if git diff --quiet --cached data/; then
+          echo "No file changes detected"
+          git commit -m "Process shop data upload (no data changes)
+
+        - Uploaded via Netlify API at ${{ github.event.client_payload.timestamp }}
+        - Smart timestamp comparison: no files needed updating
+        - Website timestamp updated to show last check
+
+        🤖 Generated with [Claude Code](https://claude.ai/code)
+
+        Co-Authored-By: GitHub API Upload <noreply@github.com>"
+        else
+          echo "File changes detected - committing updates"
+          git commit -m "Update shop data from API upload
+
+        - Uploaded via Netlify API at ${{ github.event.client_payload.timestamp }}
+        - Smart timestamp comparison applied
+        - Only newer data files were updated
+
+        🤖 Generated with [Claude Code](https://claude.ai/code)
+
+        Co-Authored-By: GitHub API Upload <noreply@github.com>"
+        fi
+
+        git push origin master
+        echo "✅ Successfully committed and pushed changes"
+
+    - name: Trigger deploy workflow
+      run: |
+        echo "🚀 Triggering deploy workflow..."
+        curl -X POST \
+          -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          -H "Accept: application/vnd.github.v3+json" \
+          https://api.github.com/repos/${{ github.repository }}/actions/workflows/deploy.yml/dispatches \
+          -d '{"ref":"master"}'
+        echo "✅ Deploy workflow triggered"
+
+  handle-failure:
+    runs-on: ubuntu-latest
+    needs: [extract-and-download, validate-data]
+    if: failure()
+
+    steps:
+    - name: Download artifacts for debugging
+      uses: actions/download-artifact@v4
+      with:
+        name: api-validation-results
+        path: failed-data
+      continue-on-error: true
+
+    - name: Log failure details
+      run: |
+        echo "❌ API upload processing failed"
+        echo "Upload timestamp: ${{ github.event.client_payload.timestamp }}"
+        echo "Source: ${{ github.event.client_payload.source }}"
+
+        if [ -d "failed-data" ]; then
+          echo "Files that were processed:"
+          ls -la failed-data/ || echo "No failed data artifacts found"
+        fi
+
+        echo "Check the workflow logs for detailed error information"
+        echo "Artifacts are preserved for 7 days for debugging"

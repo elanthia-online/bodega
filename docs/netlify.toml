@@ -1,0 +1,19 @@
+[build]
+  functions = "netlify/functions"
+
+# Function configuration
+[functions."*"]
+  timeout = 30
+
+[[headers]]
+  for = "/api/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, POST, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type"
+
+# Function route mapping
+[[redirects]]
+  from = "/api/upload"
+  to = "/.netlify/functions/upload"
+  status = 200

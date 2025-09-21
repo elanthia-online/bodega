@@ -1,0 +1,89 @@
+#!/bin/bash
+set -e
+
+echo "=== Bodega Consolidated - Environment Setup ==="
+
+# Check Ruby version
+echo "Checking Ruby version..."
+ruby --version
+
+# Install required Ruby gems
+echo "Installing required gems..."
+gem install sqlite3 terminal-table mechanize nokogiri sequel
+
+# Create necessary directories
+mkdir -p automation/lich/data
+mkdir -p automation/logs
+
+# Ensure Lich scripts are executable
+echo "Setting up Lich environment..."
+chmod +x automation/lich/lich.rb
+
+# Create entry.dat from environment variables
+echo "Creating authentication file from GitHub Secrets..."
+ruby -e "
+require 'base64'
+
+# Validate required environment variables
+unless ENV['SIMU_USERNAME'] && ENV['SIMU_PASSWORD'] && ENV['SIMU_CHARACTER']
+  puts 'ERROR: Missing required environment variables'
+  puts 'Required: SIMU_USERNAME, SIMU_PASSWORD, SIMU_CHARACTER'
+  exit 1
+end
+
+# Create entry data structure
+entry_data = [{
+  char_name: ENV['SIMU_CHARACTER'],
+  game_code: 'GS3',
+  game_name: 'GemStone IV',
+  user_id: ENV['SIMU_USERNAME'],
+  password: ENV['SIMU_PASSWORD'],
+  frontend: 'stormfront',
+  custom_launch: nil,
+  custom_launch_dir: nil
+}]
+
+# Marshal and encode
+marshalled_data = Marshal.dump(entry_data)
+encoded_data = Base64.encode64(marshalled_data)
+
+# Write to entry.dat in local automation directory
+File.open('automation/lich/data/entry.dat', 'w') { |f| f.write(encoded_data) }
+
+puts 'Authentication file created successfully'
+
+# Verify
+begin
+  test_data = File.open('automation/lich/data/entry.dat', 'r') { |f|
+    Marshal.load(f.read.unpack('m').first)
+  }
+  puts 'Verification: Character ' + test_data.first[:char_name] + ' ready for automation'
+rescue => e
+  puts 'ERROR: Failed to verify authentication - ' + e.message
+  exit 1
+end
+"
+
+# Create symlink from automation/lich/bodega to repository data directory
+echo "Creating symlink to data directory..."
+DATA_DIR="$(pwd)/docs/data"
+BODEGA_LINK="automation/lich/bodega"
+
+# Remove existing bodega directory/symlink if it exists
+if [ -L "$BODEGA_LINK" ]; then
+  echo "Removing existing symlink: $BODEGA_LINK"
+  rm "$BODEGA_LINK"
+elif [ -d "$BODEGA_LINK" ]; then
+  echo "Removing existing directory: $BODEGA_LINK"
+  rm -rf "$BODEGA_LINK"
+fi
+
+# Create symlink to repository data directory
+ln -s "$DATA_DIR" "$BODEGA_LINK"
+echo "Created symlink: $BODEGA_LINK -> $DATA_DIR"
+
+echo "Environment setup completed successfully!"
+echo "Character: $SIMU_CHARACTER"
+echo "Lich installation: automation/lich/"
+echo "Authentication file: automation/lich/data/entry.dat"
+echo "Data symlink: $BODEGA_LINK -> $DATA_DIR"
