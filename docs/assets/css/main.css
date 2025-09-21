@@ -386,6 +386,23 @@ header h1 {
     color: var(--text-secondary);
 }
 
+/* Shop link in search results */
+.shop-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.shop-link:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
+.shop-link strong {
+    font-weight: 600;
+}
+
 /* Pagination */
 #pagination, #pagination-top {
     margin-top: 15px;
