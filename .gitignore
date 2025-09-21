@@ -1,11 +1,36 @@
-temp
-backup
-data44
-maps
-fly64.png
-lich/data/entry.dat
-lich/data/GSIV
-lich/scripts/bodega.lic
-lich/scripts/log.lic
-lich/bodega
-lich/logs
+# Automation logs
+automation/logs/*
+!automation/logs/.gitkeep
+
+# Lich runtime files
+automation/lich/logs/*
+!automation/lich/logs/.gitkeep
+automation/lich/data/entry.dat
+automation/lich/data/*.db3
+!automation/lich/data/.gitkeep
+
+# Temporary files
+*.tmp
+*.bak
+*~
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Local development
+.env
+.local
+
+# Node modules (if any)
+node_modules/
+
+# Logs
+*.log
+logs/

@@ -1,0 +1,56 @@
+#!/bin/bash
+set -e
+
+echo "=== Bodega Consolidated - Deploy Results ==="
+
+# Logging function
+log() {
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1"
+}
+
+log "Processing scan results..."
+
+# Check if we have any updated data files
+if [ ! -d "docs/data" ]; then
+    log "ERROR: docs/data directory not found"
+    exit 1
+fi
+
+# Configure git for automation
+git config user.name "Bodega Automation"
+git config user.email "automation@bodega.local"
+
+# Add all data files
+log "Adding data files to git..."
+git add docs/data/*.json
+
+# Check if there are changes to commit
+if git diff --staged --quiet; then
+    log "No changes detected in data files"
+    exit 0
+fi
+
+# Determine commit message based on scan type
+current_hour=$(date -u +%H)
+if [ "$current_hour" = "08" ]; then
+    scan_type="Full"
+else
+    scan_type="Smart"
+fi
+
+commit_msg="Automated $scan_type scan: $(date '+%Y-%m-%d %H:%M UTC')
+
+- Scan type: $scan_type
+- Triggered at: $(date '+%Y-%m-%d %H:%M:%S UTC')
+- Character: $SIMU_CHARACTER
+
+🤖 Generated with Bodega Consolidated Automation"
+
+log "Committing changes..."
+log "Commit message: Automated $scan_type scan"
+
+# Commit the changes
+git commit -m "$commit_msg"
+
+log "Data processing completed successfully"
+log "Changes ready for deployment"

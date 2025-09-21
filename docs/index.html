@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GemStone IV Playershops</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="wrapper">
+        <!-- Header -->
+        <header>
+            <h1>GemStone IV Playershops</h1>
+            <div class="stats" id="stats">
+                <span id="item-count">Loading...</span> items |
+                <span id="shop-count">0</span> shops |
+                <span id="town-count">0</span> towns |
+                Last updated: <span id="last-updated">Never</span>
+            </div>
+        </header>
+
+        <!-- Main Container -->
+        <div id="main-container">
+            <!-- Left Sidebar - Filters -->
+            <aside id="sidebar">
+                <!-- Mode Tabs -->
+                <div class="mode-tabs">
+                    <button id="search-tab" class="mode-tab active">Search</button>
+                    <button id="browse-tab" class="mode-tab">Browse</button>
+                    <button id="added-tab" class="mode-tab">Added</button>
+                    <button id="removed-tab" class="mode-tab">Removed</button>
+                </div>
+
+                <!-- Search Mode -->
+                <div id="search-mode" class="mode-content">
+                    <div class="filter-section">
+                        <h3>Search</h3>
+                        <input type="text" id="search-input" placeholder="Search items..." />
+                        <button id="search-btn">Search</button>
+                        <button id="clear-btn">Clear</button>
+
+                        <div class="search-help">
+                            <div class="search-help-toggle" id="search-help-toggle">
+                                <span>Search Tips</span> <span class="toggle-icon">▼</span>
+                            </div>
+                            <div class="search-help-content" id="search-help-content" style="display: none;">
+                                <div class="search-tip">
+                                    <strong>"exact phrase"</strong> - Search for exact phrases using quotes
+                                </div>
+                                <div class="search-tip">
+                                    <strong>partial*</strong> - Use asterisk (*) for wildcard matching
+                                </div>
+                                <div class="search-tip">
+                                    <strong>multiple terms</strong> - All terms must match (AND search)
+                                </div>
+                                <div class="search-tip">
+                                    Search includes: item names, shop signs, materials, enchants, properties
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                <div class="filter-section">
+                    <button id="apply-filters">Apply Filters</button>
+                    <button id="reset-filters">Reset All</button>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Sort By</h3>
+                    <select id="sort-filter">
+                        <option value="name">Name</option>
+                        <option value="price-asc">Price (Low to High)</option>
+                        <option value="price-desc">Price (High to Low)</option>
+                        <option value="enchant-desc">Enchant (High to Low)</option>
+                        <option value="town">Town</option>
+                        <option value="type">Item Type</option>
+                        <option value="capacity">Capacity</option>
+                    </select>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Town</h3>
+                    <select id="town-filter" class="multi-select-dropdown">
+                        <option value="" disabled selected>Select towns...</option>
+                    </select>
+                    <div id="town-tags" class="filter-tags"></div>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Price Range</h3>
+                    <select id="price-filter" class="multi-select-dropdown">
+                        <option value="" disabled selected>Select price ranges...</option>
+                        <option value="0-1000">Under 1k</option>
+                        <option value="1000-10000">1k - 10k</option>
+                        <option value="10000-100000">10k - 100k</option>
+                        <option value="100000-500000">100k - 500k</option>
+                        <option value="500000-1000000">500k - 1M</option>
+                        <option value="1000000-5000000">1M - 5M</option>
+                        <option value="5000000-10000000">5M - 10M</option>
+                        <option value="10000000-50000000">10M - 50M</option>
+                        <option value="50000000-999999999">Over 50M</option>
+                    </select>
+                    <div id="price-tags" class="filter-tags"></div>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Enchant</h3>
+                    <select id="enchant-filter" class="multi-select-dropdown">
+                        <option value="" disabled selected>Select enchant levels...</option>
+                        <option value="15">+15 or higher</option>
+                        <option value="20">+20 or higher</option>
+                        <option value="25">+25 or higher</option>
+                        <option value="30">+30 or higher</option>
+                        <option value="35">+35 or higher</option>
+                        <option value="40">+40 or higher</option>
+                        <option value="45">+45 or higher</option>
+                        <option value="50">+50 or higher</option>
+                    </select>
+                    <div id="enchant-tags" class="filter-tags"></div>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Item Type</h3>
+                    <select id="item-type-filter" class="multi-select-dropdown">
+                        <option value="" disabled selected>Select item types...</option>
+                        <option value="weapon">Weapons</option>
+                        <option value="armor">Armor</option>
+                        <option value="shield">Shields</option>
+                        <option value="container">Containers</option>
+                        <option value="jewelry">Jewelry</option>
+                        <option value="gemstone">Gemstones</option>
+                    </select>
+                    <div id="item-type-tags" class="filter-tags"></div>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Capacity</h3>
+                    <select id="capacity-filter" class="multi-select-dropdown">
+                        <option value="" disabled selected>Select capacities...</option>
+                        <option value="very small">Very Small</option>
+                        <option value="small">Small</option>
+                        <option value="fairly small">Fairly Small</option>
+                        <option value="slightly small">Slightly Small</option>
+                        <option value="somewhat small">Somewhat Small</option>
+                        <option value="medium">Medium</option>
+                        <option value="slightly large">Slightly Large</option>
+                        <option value="fairly large">Fairly Large</option>
+                        <option value="large">Large</option>
+                        <option value="significant">Significant</option>
+                        <option value="particularly large">Particularly Large</option>
+                        <option value="very large">Very Large</option>
+                        <option value="huge">Huge</option>
+                        <option value="gigantic">Gigantic</option>
+                    </select>
+                    <div id="capacity-tags" class="filter-tags"></div>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Armor Type</h3>
+                    <select id="armor-type-filter" class="multi-select-dropdown">
+                        <option value="" disabled selected>Select armor types...</option>
+                        <option value="cloth">Cloth</option>
+                        <option value="leather">Leather</option>
+                        <option value="scale">Scale</option>
+                        <option value="chain">Chain</option>
+                        <option value="plate">Plate</option>
+                    </select>
+                    <div id="armor-type-tags" class="filter-tags"></div>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Shield Type</h3>
+                    <select id="shield-type-filter" class="multi-select-dropdown">
+                        <option value="" disabled selected>Select shield types...</option>
+                        <option value="small">Small Shield</option>
+                        <option value="medium">Medium Shield</option>
+                        <option value="large">Large Shield</option>
+                        <option value="tower">Tower Shield</option>
+                    </select>
+                    <div id="shield-type-tags" class="filter-tags"></div>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Wear Location</h3>
+                    <select id="wear-location-filter" class="multi-select-dropdown">
+                        <option value="" disabled selected>Select wear locations...</option>
+                        <option value="pin">Pin</option>
+                        <option value="head">Head</option>
+                        <option value="hair">Hair</option>
+                        <option value="ear">Ear</option>
+                        <option value="ears">Ears</option>
+                        <option value="neck">Neck</option>
+                        <option value="cloak">Cloak</option>
+                        <option value="shoulders">Shoulders</option>
+                        <option value="chest">Chest</option>
+                        <option value="front">Front</option>
+                        <option value="undershirt">Undershirt</option>
+                        <option value="back">Back</option>
+                        <option value="arms">Arms</option>
+                        <option value="wrist">Wrist</option>
+                        <option value="hands">Hands</option>
+                        <option value="finger">Finger</option>
+                        <option value="waist">Waist</option>
+                        <option value="belt">Belt</option>
+                        <option value="pants">Pants</option>
+                        <option value="legs">Legs</option>
+                        <option value="leggings">Leggings</option>
+                        <option value="ankle">Ankle</option>
+                        <option value="socks">Socks</option>
+                        <option value="feet">Feet</option>
+                    </select>
+                    <div id="wear-location-tags" class="filter-tags"></div>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Gemstone Rarity</h3>
+                    <select id="gemstone-rarity-filter" class="multi-select-dropdown">
+                        <option value="" disabled selected>Select rarities...</option>
+                        <option value="common">Common</option>
+                        <option value="rare">Rare</option>
+                        <option value="regional">Regional</option>
+                        <option value="legendary">Legendary</option>
+                    </select>
+                    <div id="gemstone-rarity-tags" class="filter-tags"></div>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Gemstone Property Count</h3>
+                    <select id="gemstone-properties-filter" class="multi-select-dropdown">
+                        <option value="" disabled selected>Select property counts...</option>
+                        <option value="1">1 Property</option>
+                        <option value="2">2 Properties</option>
+                        <option value="3">3 Properties</option>
+                    </select>
+                    <div id="gemstone-properties-tags" class="filter-tags"></div>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Skill Required</h3>
+                    <select id="skill-filter" class="multi-select-dropdown">
+                        <option value="" disabled selected>Select skills...</option>
+                        <option value="edged weapons">Edged Weapons</option>
+                        <option value="blunt weapons">Blunt Weapons</option>
+                        <option value="two handed weapons">Two Handed Weapons</option>
+                        <option value="twohanded weapons">Twohanded Weapons</option>
+                        <option value="polearms">Polearms</option>
+                        <option value="ranged weapons">Ranged Weapons</option>
+                        <option value="thrown weapons">Thrown Weapons</option>
+                        <option value="brawling">Brawling</option>
+                        <option value="shield use">Shield Use</option>
+                        <option value="armor use">Armor Use</option>
+                    </select>
+                    <div id="skill-tags" class="filter-tags"></div>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Special Properties</h3>
+                    <select id="special-properties-filter" class="multi-select-dropdown">
+                        <option value="" disabled selected>Select special properties...</option>
+                        <option value="enhancive">Enhancive</option>
+                        <option value="persists">Persists</option>
+                        <option value="crumbly">Crumbly</option>
+                        <option value="flares">Has Flares</option>
+                        <option value="holy">Holy</option>
+                        <option value="max_light">Max Light</option>
+                        <option value="max_deep">Max Deep</option>
+                    </select>
+                    <div id="special-properties-tags" class="filter-tags"></div>
+                </div>
+                </div>
+
+                <!-- Browse Mode -->
+                <div id="browse-mode" class="mode-content" style="display: none;">
+                    <div class="filter-section">
+                        <h3>Select Town</h3>
+                        <select id="browse-town-select" size="10">
+                            <option value="">Loading towns...</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-section" id="shop-list-section" style="display: none;">
+                        <h3>Shops in <span id="selected-town-name"></span></h3>
+                        <div id="shop-list">
+                            <!-- Shops will be populated here -->
+                        </div>
+                    </div>
+
+                    <div class="filter-section" id="room-list-section" style="display: none;">
+                        <h3>Rooms in <span id="selected-shop-name"></span></h3>
+                        <div id="room-list">
+                            <!-- Rooms will be populated here -->
+                        </div>
+                        <button id="back-to-shops" class="nav-button">← Back to Shops</button>
+                    </div>
+                </div>
+
+                <!-- Added Mode -->
+                <div id="added-mode" class="mode-content" style="display: none;">
+                    <div class="filter-section">
+                        <h3>Recently Added Items</h3>
+                        <p class="mode-description">Items added to shops within the last 24 hours</p>
+
+                        <input type="text" id="added-search-input" placeholder="Search added items..." />
+                        <button id="added-search-btn">Search</button>
+                        <button id="added-clear-btn">Clear</button>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3>Addition Date</h3>
+                        <select id="added-date-filter">
+                            <option value="1" selected>Last 24 hours</option>
+                            <option value="3">Last 3 days</option>
+                            <option value="7">Last 7 days</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3>Town</h3>
+                        <select id="added-town-filter">
+                            <option value="">All Towns</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3>Price Range</h3>
+                        <select id="added-price-filter">
+                            <option value="">Any Price</option>
+                            <option value="0-1000">Under 1k</option>
+                            <option value="1000-10000">1k - 10k</option>
+                            <option value="10000-100000">10k - 100k</option>
+                            <option value="100000-500000">100k - 500k</option>
+                            <option value="500000-1000000">500k - 1M</option>
+                            <option value="1000000-5000000">1M - 5M</option>
+                            <option value="5000000-10000000">5M - 10M</option>
+                            <option value="10000000-50000000">10M - 50M</option>
+                            <option value="50000000-999999999">Over 50M</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3>Sort By</h3>
+                        <select id="added-sort-filter">
+                            <option value="added-desc">Recently Added (New to Old)</option>
+                            <option value="added-asc">Recently Added (Old to New)</option>
+                            <option value="price-desc">Price (High to Low)</option>
+                            <option value="price-asc">Price (Low to High)</option>
+                            <option value="name">Name</option>
+                            <option value="enchant-desc">Enchant (High to Low)</option>
+                            <option value="town">Town</option>
+                            <option value="type">Item Type</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-section">
+                        <button id="added-apply-filters">Apply Filters</button>
+                        <button id="added-reset-filters">Reset All</button>
+                    </div>
+                </div>
+
+                <!-- Removed Mode -->
+                <div id="removed-mode" class="mode-content" style="display: none;">
+                    <div class="filter-section">
+                        <h3>Removed Items</h3>
+                        <p class="mode-description">Items removed from shops (retained for 14-180 days based on data size)</p>
+                        <p class="disclaimer"><strong>DISCLAIMER:</strong> Not a source of truth on sales price. Items listed have been removed from shops, by what means is unknown.</p>
+
+                        <input type="text" id="removed-search-input" placeholder="Search removed items..." />
+                        <button id="removed-search-btn">Search</button>
+                        <button id="removed-clear-btn">Clear</button>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3>Removal Date</h3>
+                        <select id="removed-date-filter">
+                            <option value="">Any Time</option>
+                            <option value="1">Last 24 hours</option>
+                            <option value="3">Last 3 days</option>
+                            <option value="7">Last 7 days</option>
+                            <option value="14">Last 14 days</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3>Price Range</h3>
+                        <select id="removed-price-filter">
+                            <option value="">Any Price</option>
+                            <option value="0-1000">Under 1k</option>
+                            <option value="1000-10000">1k - 10k</option>
+                            <option value="10000-100000">10k - 100k</option>
+                            <option value="100000-500000">100k - 500k</option>
+                            <option value="500000-1000000">500k - 1M</option>
+                            <option value="1000000-5000000">1M - 5M</option>
+                            <option value="5000000-10000000">5M - 10M</option>
+                            <option value="10000000-50000000">10M - 50M</option>
+                            <option value="50000000-999999999">Over 50M</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3>Sort By</h3>
+                        <select id="removed-sort-filter">
+                            <option value="removed-desc">Recently Removed (New to Old)</option>
+                            <option value="removed-asc">Recently Removed (Old to New)</option>
+                            <option value="price-desc">Price (High to Low)</option>
+                            <option value="price-asc">Price (Low to High)</option>
+                            <option value="name">Name</option>
+                            <option value="enchant-desc">Enchant (High to Low)</option>
+                            <option value="town">Town</option>
+                            <option value="type">Item Type</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-section">
+                        <button id="removed-apply-filters">Apply Filters</button>
+                        <button id="removed-reset-filters">Reset All</button>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Content Area -->
+            <main id="content">
+                <div id="results-header">
+                    <span id="results-count">0 items found</span>
+                    <span id="page-info"></span>
+                </div>
+
+                <!-- Results Table -->
+                <div id="results-container">
+                    <table id="results-table">
+                        <thead>
+                            <tr>
+                                <th>Item Name</th>
+                                <th>Price</th>
+                                <th>Properties</th>
+                                <th>Town</th>
+                                <th>Shop</th>
+                            </tr>
+                        </thead>
+                        <tbody id="results-body">
+                            <!-- Results will be inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div id="pagination">
+                    <button id="prev-page" disabled>Previous</button>
+                    <span id="page-numbers"></span>
+                    <button id="next-page">Next</button>
+                </div>
+            </main>
+        </div>
+
+        <!-- Item Detail Modal -->
+        <div id="item-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2 id="modal-item-name">Item Name</h2>
+                <div id="modal-content-body">
+                    <!-- Item details will be inserted here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Overlay -->
+        <div id="loading-overlay">
+            <div class="spinner"></div>
+            <p>Loading shop data...</p>
+        </div>
+    </div>
+
+    <script src="data-loader.js"></script>
+    <script src="search.js"></script>
+    <script src="browse.js"></script>
+    <script src="added.js"></script>
+    <script src="removed.js"></script>
+</body>
+</html>

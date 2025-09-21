@@ -1,0 +1,90 @@
+#!/bin/bash
+set -e
+
+echo "=== Bodega Consolidated - Automation Scan ==="
+
+# Setup logging
+LOG_FILE="automation/logs/scan-$(date +%Y%m%d-%H%M%S).log"
+mkdir -p automation/logs
+
+# Logging function
+log() {
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" | tee -a "$LOG_FILE"
+}
+
+# Cleanup function
+cleanup() {
+    log "Cleaning up processes..."
+    pkill -f lich || true
+    pkill -f ruby || true
+}
+trap cleanup EXIT
+
+log "Starting bodega automation scan"
+log "Account: $SIMU_USERNAME"
+log "Character: $SIMU_CHARACTER"
+
+# Determine scan type
+current_hour=$(date -u +%H)
+if [ "$current_hour" = "08" ]; then
+    log "Scan type: FULL (8 AM UTC - comprehensive scan)"
+else
+    log "Scan type: SMART (outside 8 AM - efficient scan)"
+fi
+
+# Validate setup
+LICH_DIR="automation/lich"
+if [ ! -f "$LICH_DIR/lich.rb" ]; then
+    log "ERROR: Lich not found at $LICH_DIR/lich.rb"
+    exit 1
+fi
+
+if [ ! -f "$LICH_DIR/data/entry.dat" ]; then
+    log "ERROR: Authentication file not found - run setup-environment first"
+    exit 1
+fi
+
+# Start Lich with our enhanced headless script
+log "Launching Lich with enhanced Ruby automation..."
+log "Command: ruby $LICH_DIR/lich.rb --login $SIMU_CHARACTER --without-frontend --detachable-client=8000 --start-scripts=headless"
+
+# Change to project root so relative paths work
+cd "$(dirname "$0")/../.."
+
+# Launch Lich
+ruby "$LICH_DIR/lich.rb" \
+  --login "$SIMU_CHARACTER" \
+  --without-frontend \
+  --detachable-client=8000 \
+  --start-scripts=headless \
+  >> "$LOG_FILE" 2>&1 &
+
+LICH_PID=$!
+log "Lich started with PID: $LICH_PID"
+
+# Wait for Lich to initialize
+log "Waiting for Lich to authenticate..."
+sleep 10
+
+# Check if Lich is still running
+if ! kill -0 $LICH_PID 2>/dev/null; then
+    log "ERROR: Lich process died during startup"
+    log "Last 30 lines of log:"
+    tail -30 "$LOG_FILE" 2>/dev/null || log "Could not read log file"
+    exit 1
+fi
+
+# Wait for Lich to complete
+log "Waiting for automation to complete..."
+wait $LICH_PID
+exit_code=$?
+
+if [ $exit_code -eq 0 ]; then
+    log "Automation completed successfully"
+else
+    log "Automation failed with exit code: $exit_code"
+    log "Check log file: $LOG_FILE"
+fi
+
+log "Scan completed - exit code: $exit_code"
+exit $exit_code

@@ -1,0 +1,17 @@
+#!/bin/bash
+set -e
+port=8023
+char=Ordnung
+##
+## reset session
+##
+rm -rf lich/logs/*
+##
+## login our bot
+##
+ruby lich/lich.rb \
+  --login $char \
+  --detachable-client=$port \
+  --start-scripts=headless \
+  --without-frontend
+  

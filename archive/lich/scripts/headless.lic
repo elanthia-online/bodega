@@ -1,0 +1,42 @@
+require "pathname"
+##
+## always download the latest version from the repository
+##
+if ENV["CI"]
+  $stdout.write("... downloading bodega.lic\n")
+  Script.run(%[repository], 
+    %[download bodega.lic])
+end
+##
+## attach debugging logs
+##
+if ENV["DEBUG"]
+  $stdout.write("... downloading log.lic\n")
+  Script.run(%[repository], 
+    %[download log.lic])
+  $stdout.write("... attaching logger\n")
+  Script.start("log")
+  wait_until do Script.running?("log") end
+end
+##
+## tell bodega we are running in bot mode
+## and run the actual script
+##
+if Script.exists?("bodega")
+  begin
+    load("scripts/bodega.lic")
+    Bodega::Opts[:headless] = true
+    Bodega::Parser.to_json()
+    Bodega::Parser.manifest()
+  rescue => exception
+    $stdout.write(exception.message + "\n")
+    $stdout.write(exception.backtrace)
+    Thread.main.raise(exception.message)
+  end
+else
+  Thread.main.raise("... bodega.lic NOT FOUND")
+end
+##
+## kill the bot
+##
+fput("exit")

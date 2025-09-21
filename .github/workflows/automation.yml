@@ -1,0 +1,84 @@
+name: Bodega Consolidated Automation
+
+on:
+  schedule:
+    # Run every 2 hours: 00, 02, 04, 06, 08, 10, 12, 14, 16, 18, 20, 22 UTC
+    # 08 UTC will trigger full scan, others will do smart scan
+    - cron: '0 0,2,4,6,8,10,12,14,16,18,20,22 * * *'
+  workflow_dispatch: # Allow manual triggering
+
+env:
+  SIMU_USERNAME: ${{ secrets.SIMU_USERNAME }}
+  SIMU_PASSWORD: ${{ secrets.SIMU_PASSWORD }}
+  SIMU_CHARACTER: ${{ secrets.SIMU_CHARACTER }}
+
+jobs:
+  automated-scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120 # 2 hour timeout
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.1'
+
+    - name: Install system dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y telnet sqlite3 libsqlite3-dev
+
+    - name: Setup Lich environment
+      run: |
+        chmod +x automation/bin/setup-environment
+        ./automation/bin/setup-environment
+
+    - name: Run bodega automation
+      run: |
+        chmod +x automation/bin/run-scan
+        ./automation/bin/run-scan
+
+    - name: Process and commit results
+      run: |
+        chmod +x automation/bin/deploy-results
+        ./automation/bin/deploy-results
+
+    - name: Push changes
+      run: |
+        # Only push if there are changes
+        if ! git diff --quiet HEAD~1; then
+          echo "Pushing updated data to repository..."
+          git push origin master
+        else
+          echo "No changes to push"
+        fi
+
+    - name: Archive automation logs
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: automation-logs-${{ github.run_number }}
+        path: |
+          automation/logs/
+          automation/lich/logs/
+          automation/lich/temp/
+        retention-days: 30
+
+    - name: Log scan summary
+      if: always()
+      run: |
+        echo "=== Automation Summary ==="
+        echo "Timestamp: $(date '+%Y-%m-%d %H:%M:%S UTC')"
+        echo "Character: $SIMU_CHARACTER"
+        echo "Scan type: $([ "$(date -u +%H)" = "08" ] && echo "Full" || echo "Smart")"
+        echo "Status: ${{ job.status }}"
+
+        if [ -d "automation/logs" ]; then
+          echo "Log files created:"
+          ls -la automation/logs/
+        fi
