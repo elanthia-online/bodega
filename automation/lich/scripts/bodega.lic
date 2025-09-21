@@ -1349,8 +1349,9 @@ module Bodega
   module Uploader
     # Upload endpoints - API method preferred for better reliability
     API_ENDPOINTS = [
-      "https://bodega-uploads-19363e013.netlify.app/.netlify/functions/upload",
-      # Fallback endpoints can be added here
+      "https://bodega-netlify-api.netlify.app/.netlify/functions/upload",
+      "https://bodega-vercel-api.vercel.app/api/upload",
+      # Additional fallback endpoints can be added here
     ]
 
     def self.upload_all_files(specific_files = nil)
