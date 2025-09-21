@@ -317,7 +317,7 @@ header h1 {
 }
 
 /* Pagination */
-#pagination {
+#pagination, #pagination-top {
     margin-top: 15px;
     text-align: center;
     display: flex;
@@ -326,7 +326,7 @@ header h1 {
     gap: 8px;
 }
 
-#pagination button {
+#pagination button, #pagination-top button {
     padding: 4px 8px;
     margin: 0 2px;
     border: 1px solid #ccc;
@@ -335,16 +335,16 @@ header h1 {
     font-size: 11px;
 }
 
-#pagination button:hover:not(:disabled) {
+#pagination button:hover:not(:disabled), #pagination-top button:hover:not(:disabled) {
     background: #e5e5e5;
 }
 
-#pagination button:disabled {
+#pagination button:disabled, #pagination-top button:disabled {
     opacity: 0.5;
     cursor: not-allowed;
 }
 
-#pagination .page-number {
+#pagination .page-number, #pagination-top .page-number {
     padding: 4px 8px;
     margin: 0 1px;
     border: 1px solid #ccc;
@@ -354,7 +354,7 @@ header h1 {
     display: inline-block;
 }
 
-#pagination .page-number.current {
+#pagination .page-number.current, #pagination-top .page-number.current {
     background: #4a90e2;
     color: white;
     border-color: #357abd;
