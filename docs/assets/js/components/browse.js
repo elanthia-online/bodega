@@ -53,6 +53,9 @@ class BrowseEngine {
         // Initialize browse data if not done yet
         if (Object.keys(this.townData).length === 0) {
             this.initializeBrowseData();
+        } else {
+            // Ensure a town is selected when switching to browse mode
+            this.ensureTownSelected();
         }
     }
 
@@ -110,6 +113,12 @@ class BrowseEngine {
         const townSelect = document.getElementById('browse-town-select');
         townSelect.innerHTML = '';
 
+        // Add default "Select a town..." option
+        const defaultOption = document.createElement('option');
+        defaultOption.value = '';
+        defaultOption.textContent = 'Select a town...';
+        townSelect.appendChild(defaultOption);
+
         const towns = Object.keys(this.townData).sort();
         towns.forEach(town => {
             const option = document.createElement('option');
@@ -126,6 +135,43 @@ class BrowseEngine {
             option.textContent = `${town} (${totalItems} items)`;
             townSelect.appendChild(option);
         });
+
+        // Set default town selection
+        this.setDefaultTownSelection();
+    }
+
+    setDefaultTownSelection() {
+        const townSelect = document.getElementById('browse-town-select');
+
+        // Try to get saved town from localStorage
+        let savedTown = localStorage.getItem('browse-selected-town');
+
+        // If no saved town or saved town doesn't exist, default to Icemule Trace
+        if (!savedTown || !this.townData[savedTown]) {
+            savedTown = 'Icemule Trace';
+            // If Icemule Trace doesn't exist, pick the first available town
+            if (!this.townData[savedTown] && Object.keys(this.townData).length > 0) {
+                savedTown = Object.keys(this.townData).sort()[0];
+            }
+        }
+
+        // Select the town in the dropdown and display it
+        if (savedTown && this.townData[savedTown]) {
+            townSelect.value = savedTown;
+            this.selectTown(savedTown);
+        }
+    }
+
+    ensureTownSelected() {
+        const townSelect = document.getElementById('browse-town-select');
+
+        // If no town is currently selected, apply default selection
+        if (!townSelect.value || !this.currentTown || !this.townData[this.currentTown]) {
+            this.setDefaultTownSelection();
+        } else {
+            // Re-display the current town to ensure shops are shown
+            this.selectTown(this.currentTown);
+        }
     }
 
     selectTown(townName) {
@@ -134,6 +180,9 @@ class BrowseEngine {
             this.hideRoomList();
             return;
         }
+
+        // Save town selection to localStorage
+        localStorage.setItem('browse-selected-town', townName);
 
         this.currentTown = townName;
         this.currentShop = null;
