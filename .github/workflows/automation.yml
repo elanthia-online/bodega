@@ -61,6 +61,8 @@ jobs:
       run: |
         # Only push if there are changes
         if ! git diff --quiet HEAD~1; then
+          echo "Pulling latest changes before push..."
+          git pull origin master --strategy=ours
           echo "Pushing updated data to repository..."
           git push origin master
           echo "CHANGES_PUSHED=true" >> $GITHUB_ENV
