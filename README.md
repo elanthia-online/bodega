@@ -72,10 +72,10 @@ The repository automatically collects data every 2 hours.
 - **Full Scan** (8 AM UTC): Comprehensive scan of all shops
 
 ### Ruby Integration
-Based on the original author's clean patterns:
+The automation system uses the core bodega.lic script directly:
 
 ```ruby
-# Enhanced headless.lic with proper module integration
+# Direct execution of bodega.lic
 Bodega::Opts[:headless] = true
 Bodega::Opts[:automation] = true
 
