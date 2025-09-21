@@ -30,8 +30,17 @@ jobs:
 
     - name: Install system dependencies
       run: |
-        sudo DEBIAN_FRONTEND=noninteractive apt-get update -o Dpkg::Options::="--force-confold"
-        sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends telnet sqlite3 libsqlite3-dev
+        # Disable man-db to prevent slow triggers
+        sudo rm -f /var/lib/man-db/auto-update
+        echo 'man-db man-db/auto-update boolean false' | sudo debconf-set-selections
+        # Update and install with trigger skipping
+        sudo DEBIAN_FRONTEND=noninteractive apt-get update
+        sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
+          -o Dpkg::Options::="--force-confdef" \
+          -o Dpkg::Options::="--force-confold" \
+          -o DPkg::Options::="--no-triggers" \
+          --no-install-recommends \
+          telnet sqlite3 libsqlite3-dev
 
     - name: Setup Lich environment
       run: |
