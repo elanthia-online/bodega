@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GemStone IV Playershops</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/themes.css">
+    <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
     <div id="wrapper">
@@ -16,6 +17,17 @@
                 <span id="shop-count">0</span> shops |
                 <span id="town-count">0</span> towns |
                 Last updated: <span id="last-updated">Never</span>
+            </div>
+            <div class="theme-switcher">
+                <button class="theme-btn" data-theme="light" title="Light mode">
+                    ☀️ <span>Light</span>
+                </button>
+                <button class="theme-btn" data-theme="dark" title="Dark mode">
+                    🌙 <span>Dark</span>
+                </button>
+                <button class="theme-btn active" data-theme="auto" title="Auto (system)">
+                    💻 <span>Auto</span>
+                </button>
             </div>
         </header>
 
@@ -421,14 +433,15 @@
             <main id="content">
                 <div id="results-header">
                     <span id="results-count">0 items found</span>
-                    <span id="page-info"></span>
-                </div>
 
-                <!-- Top Pagination -->
-                <div id="pagination-top" class="pagination">
-                    <button id="prev-page-top" disabled>Previous</button>
-                    <span id="page-numbers-top"></span>
-                    <button id="next-page-top">Next</button>
+                    <!-- Pagination in header -->
+                    <div id="pagination-top" class="pagination">
+                        <button id="prev-page-top" disabled>Previous</button>
+                        <span id="page-numbers-top"></span>
+                        <button id="next-page-top">Next</button>
+                    </div>
+
+                    <span id="page-info"></span>
                 </div>
 
                 <!-- Results Table -->
@@ -476,10 +489,11 @@
         </div>
     </div>
 
-    <script src="data-loader.js"></script>
-    <script src="search.js"></script>
-    <script src="browse.js"></script>
-    <script src="added.js"></script>
-    <script src="removed.js"></script>
+    <script src="assets/js/core/theme.js"></script>
+    <script src="assets/js/core/data-loader.js"></script>
+    <script src="assets/js/components/search.js"></script>
+    <script src="assets/js/components/browse.js"></script>
+    <script src="assets/js/components/added.js"></script>
+    <script src="assets/js/components/removed.js"></script>
 </body>
 </html>
