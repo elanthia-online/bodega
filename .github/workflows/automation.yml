@@ -30,8 +30,8 @@ jobs:
 
     - name: Install system dependencies
       run: |
-        sudo apt-get update
-        sudo apt-get install -y telnet sqlite3 libsqlite3-dev
+        sudo DEBIAN_FRONTEND=noninteractive apt-get update -o Dpkg::Options::="--force-confold"
+        sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends telnet sqlite3 libsqlite3-dev
 
     - name: Setup Lich environment
       run: |
