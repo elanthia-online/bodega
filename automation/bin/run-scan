@@ -34,8 +34,8 @@ fi
 
 # Validate setup
 LICH_DIR="automation/lich"
-if [ ! -f "$LICH_DIR/lich.rb" ]; then
-    log "ERROR: Lich not found at $LICH_DIR/lich.rb"
+if [ ! -f "$LICH_DIR/lich.rbw" ]; then
+    log "ERROR: Lich not found at $LICH_DIR/lich.rbw"
     exit 1
 fi
 
@@ -46,13 +46,13 @@ fi
 
 # Start Lich with our enhanced headless script
 log "Launching Lich with enhanced Ruby automation..."
-log "Command: ruby $LICH_DIR/lich.rb --login $SIMU_CHARACTER --without-frontend --detachable-client=8000 --start-scripts=headless"
+log "Command: ruby $LICH_DIR/lich.rbw --login $SIMU_CHARACTER --without-frontend --detachable-client=8000 --start-scripts=headless"
 
 # Change to project root so relative paths work
 cd "$(dirname "$0")/../.."
 
 # Launch Lich
-ruby "$LICH_DIR/lich.rb" \
+ruby "$LICH_DIR/lich.rbw" \
   --login "$SIMU_CHARACTER" \
   --without-frontend \
   --detachable-client=8000 \
