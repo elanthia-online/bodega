@@ -1,0 +1,199 @@
+/* Theme Variables */
+:root {
+    /* Primary colors */
+    --bg-primary: #f5f5f5;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #e8e8e8;
+    --text-primary: #333;
+    --text-secondary: #666;
+    --text-tertiary: #444;
+
+    /* Border colors */
+    --border-primary: #ddd;
+    --border-secondary: #ccc;
+    --border-tertiary: #bbb;
+
+    /* Interactive colors */
+    --color-accent: #4a90e2;
+    --color-accent-dark: #357abd;
+    --color-accent-darker: #2e5d8a;
+    --color-accent-light: #e3f2fd;
+
+    /* Header gradient */
+    --header-gradient: linear-gradient(to bottom, #4a90e2, #357abd);
+    --header-border: #2e5d8a;
+
+    /* Backgrounds */
+    --bg-sidebar: #e8e8e8;
+    --bg-hover: #f9f9f9;
+    --bg-alternate: #fafafa;
+    --bg-input: white;
+    --bg-button: #f0f0f0;
+    --bg-button-hover: #e0e0e0;
+    --bg-table-header: #f8f8f8;
+
+    /* Status colors (keep consistent across themes) */
+    --color-success: #4caf50;
+    --color-error: #d32f2f;
+    --color-warning: #ff9800;
+    --color-info: #1976d2;
+
+    /* Modal */
+    --modal-overlay: rgba(0, 0, 0, 0.5);
+    --modal-bg: white;
+
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 12px rgba(74, 144, 226, 0.15);
+    --shadow-lg: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2a2a2a;
+    --bg-tertiary: #333333;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --text-tertiary: #c0c0c0;
+
+    --border-primary: #404040;
+    --border-secondary: #505050;
+    --border-tertiary: #606060;
+
+    --color-accent: #5a9fee;
+    --color-accent-dark: #4080d0;
+    --color-accent-darker: #3a70c0;
+    --color-accent-light: #1a2a3a;
+
+    --header-gradient: linear-gradient(to bottom, #2a4a7a, #1a3a5a);
+    --header-border: #0a2a4a;
+
+    --bg-sidebar: #252525;
+    --bg-hover: #303030;
+    --bg-alternate: #282828;
+    --bg-input: #2a2a2a;
+    --bg-button: #3a3a3a;
+    --bg-button-hover: #4a4a4a;
+    --bg-table-header: #2a2a2a;
+
+    --modal-overlay: rgba(0, 0, 0, 0.8);
+    --modal-bg: #2a2a2a;
+
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.3);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+/* Auto mode - respect OS dark preference */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]):not([data-theme="gemstone"]):not([data-theme="dragonrealms"]) {
+        --bg-primary: #1a1a1a;
+        --bg-secondary: #2a2a2a;
+        --bg-tertiary: #333333;
+        --text-primary: #e0e0e0;
+        --text-secondary: #a0a0a0;
+        --text-tertiary: #c0c0c0;
+
+        --border-primary: #404040;
+        --border-secondary: #505050;
+        --border-tertiary: #606060;
+
+        --color-accent: #5a9fee;
+        --color-accent-dark: #4080d0;
+        --color-accent-darker: #3a70c0;
+        --color-accent-light: #1a2a3a;
+
+        --header-gradient: linear-gradient(to bottom, #2a4a7a, #1a3a5a);
+        --header-border: #0a2a4a;
+
+        --bg-sidebar: #252525;
+        --bg-hover: #303030;
+        --bg-alternate: #282828;
+        --bg-input: #2a2a2a;
+        --bg-button: #3a3a3a;
+        --bg-button-hover: #4a4a4a;
+        --bg-table-header: #2a2a2a;
+
+        --modal-overlay: rgba(0, 0, 0, 0.8);
+        --modal-bg: #2a2a2a;
+
+        --shadow-sm: 0 2px 4px rgba(0,0,0,0.3);
+        --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+        --shadow-lg: 0 2px 8px rgba(0,0,0,0.5);
+    }
+}
+
+/* GemStone IV Theme - Based on official site */
+[data-theme="gemstone"] {
+    --bg-primary: #0a1628;
+    --bg-secondary: #0f1f3a;
+    --bg-tertiary: #1a2844;
+    --text-primary: #e8eef5;
+    --text-secondary: #a8b8d0;
+    --text-tertiary: #c8d4e0;
+
+    --border-primary: #2a3a5a;
+    --border-secondary: #354568;
+    --border-tertiary: #405070;
+
+    --color-accent: #5a8fdb;
+    --color-accent-dark: #03346E;
+    --color-accent-darker: #022a5a;
+    --color-accent-light: #1a3a6a;
+
+    --header-gradient: linear-gradient(to bottom, #03346E, #022045);
+    --header-border: #011530;
+
+    --bg-sidebar: #0d1a30;
+    --bg-hover: #1a2a4a;
+    --bg-alternate: #122038;
+    --bg-input: #1a2844;
+    --bg-button: #2a3a5a;
+    --bg-button-hover: #354568;
+    --bg-table-header: #1a2844;
+
+    --modal-overlay: rgba(3, 20, 44, 0.9);
+    --modal-bg: #0f1f3a;
+
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.4);
+    --shadow-md: 0 4px 12px rgba(3, 52, 110, 0.3);
+    --shadow-lg: 0 2px 8px rgba(0,0,0,0.6);
+}
+
+/* DragonRealms Theme - Deep purple/burgundy fantasy */
+[data-theme="dragonrealms"] {
+    --bg-primary: #1a0a1a;
+    --bg-secondary: #2a1028;
+    --bg-tertiary: #3a1838;
+    --text-primary: #f0e0f0;
+    --text-secondary: #c0a0c0;
+    --text-tertiary: #d0b0d0;
+
+    --border-primary: #4a2048;
+    --border-secondary: #5a2858;
+    --border-tertiary: #6a3068;
+
+    --color-accent: #9a5a9a;
+    --color-accent-dark: #6a2a6a;
+    --color-accent-darker: #4a1a4a;
+    --color-accent-light: #3a1838;
+
+    --header-gradient: linear-gradient(to bottom, #5a2050, #3a1030);
+    --header-border: #2a0828;
+
+    --bg-sidebar: #221018;
+    --bg-hover: #3a2238;
+    --bg-alternate: #2a1828;
+    --bg-input: #3a1838;
+    --bg-button: #4a2048;
+    --bg-button-hover: #5a2858;
+    --bg-table-header: #3a1838;
+
+    --modal-overlay: rgba(26, 10, 26, 0.9);
+    --modal-bg: #2a1028;
+
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.5);
+    --shadow-md: 0 4px 12px rgba(154, 90, 154, 0.2);
+    --shadow-lg: 0 2px 8px rgba(0,0,0,0.7);
+}
