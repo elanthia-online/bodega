@@ -31,7 +31,25 @@ This consolidated repository merges the best of both worlds:
 ## Architecture
 
 ```
-```bodega/├── docs/                  # Web Application (GitHub Pages)│   ├── index.html        # Main UI│   ├── *.js             # Feature modules│   ├── style.css        # Responsive styling│   ├── data/            # JSON data files│   │   ├── *.json       # Town shop data│   │   └── removed_items.json # Removed items tracking│   └── netlify/         # API functions├── automation/           # Ruby automation system│   ├── lich/            # Lich environment│   └── bin/             # Automation scripts├── scripts/              # Core scripts│   └── bodega.lic       # Single source of truth├── .github/workflows/    # CI/CD automation│   ├── automation.yml   # Data collection│   ├── deploy.yml       # Web deployment│   └── api-processor.yml # Manual uploads└── README.md            # Documentation```
+bodega/
+├── docs/                  # Web Application (GitHub Pages)
+│   ├── index.html        # Main UI
+│   ├── *.js             # Feature modules
+│   ├── style.css        # Responsive styling
+│   ├── data/            # JSON data files
+│   │   ├── *.json       # Town shop data
+│   │   └── removed_items.json # Removed items tracking
+│   └── netlify/         # API functions
+├── automation/           # Ruby automation system
+│   ├── lich/            # Lich environment
+│   └── bin/             # Automation scripts
+├── scripts/              # Core scripts
+│   └── bodega.lic       # Single source of truth
+├── .github/workflows/    # CI/CD automation
+│   ├── automation.yml   # Data collection
+│   ├── deploy.yml       # Web deployment
+│   └── api-processor.yml # Manual uploads
+└── README.md            # Documentation
 ```
 
 ## Quick Start
@@ -45,7 +63,7 @@ Visit the web interface: [Bodega](https://elanthia-online.github.io/bodega)
 3. Submit a pull request
 
 ### For Data Collection (Automation)
-The repository automatically collects data every 2 hours. Manual uploads are also supported through the web interface.
+The repository automatically collects data every 2 hours.
 
 ## Automation System
 
@@ -209,7 +227,7 @@ export SIMU_CHARACTER="your-character"
 
 ## Acknowledgments
 
-- **Original Author**: Clean Ruby architecture patterns and Lich integration
+- **Ondreian**: Original author of bodega.lic and the entire framework, including clean Ruby architecture patterns and Lich integration
 - **Community**: Data contributions and feedback
 - **GemStone IV**: Game world and shop system
 
