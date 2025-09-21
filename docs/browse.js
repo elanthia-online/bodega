@@ -28,6 +28,7 @@ class BrowseEngine {
 
         // Show pagination controls for search mode
         document.getElementById('pagination').style.display = 'flex';
+        document.getElementById('pagination-top').style.display = 'flex';
 
         // Trigger search refresh
         if (window.searchEngine) {
@@ -47,6 +48,7 @@ class BrowseEngine {
 
         // Hide pagination controls for browse mode
         document.getElementById('pagination').style.display = 'none';
+        document.getElementById('pagination-top').style.display = 'none';
 
         // Initialize browse data if not done yet
         if (Object.keys(this.townData).length === 0) {
