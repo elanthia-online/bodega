@@ -40,10 +40,13 @@ class DataLoader {
             // Also load the separate removed_items.json if it exists
             const removedItemsData = await this.loadRemovedItems();
 
+            // Load the separate added_items.json if it exists
+            const addedItemsData = await this.loadAddedItems();
+
             // Load shop mapping data if it exists
             await this.loadShopMapping();
 
-            this.processAllData(townDataArray, removedItemsData);
+            this.processAllData(townDataArray, removedItemsData, addedItemsData);
             this.updateStats();
             this.populateTownFilter();
 
@@ -101,6 +104,26 @@ class DataLoader {
         }
     }
 
+    async loadAddedItems() {
+        try {
+            console.log('Loading added_items.json...');
+            const response = await fetch('data/added_items.json');
+
+            if (!response.ok) {
+                console.log('No added_items.json found, will use embedded added_date fields');
+                return null;
+            }
+
+            const data = await response.json();
+            console.log('Loaded added_items.json with', Object.keys(data).length, 'items');
+            return data;
+
+        } catch (error) {
+            console.log('No added_items.json found, will use embedded added_date fields');
+            return null;
+        }
+    }
+
     async loadShopMapping() {
         try {
             console.log('Loading shop mapping data...');
@@ -122,7 +145,7 @@ class DataLoader {
         }
     }
 
-    processAllData(townDataArray, removedItemsData) {
+    processAllData(townDataArray, removedItemsData, addedItemsData) {
         this.allItems = [];
         this.removedItems = [];
         this.addedItems = [];
@@ -157,15 +180,16 @@ class DataLoader {
                         if (processedItem) {
                             this.allItems.push(processedItem);
 
-                            // Check if item was added recently (within last 7 days for data collection)
-                            if (item.added_date) {
-                                const addedDate = new Date(item.added_date);
-                                const sevenDaysAgo = new Date();
-                                sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+                            // Check if item was added recently using added_items.json
+                            if (addedItemsData && addedItemsData[item.id]) {
+                                const itemAddedDate = addedItemsData[item.id];
+                                const addedDate = new Date(itemAddedDate);
+                                const thirtyTwoDaysAgo = new Date();
+                                thirtyTwoDaysAgo.setDate(thirtyTwoDaysAgo.getDate() - 32);
 
-                                if (addedDate >= sevenDaysAgo) {
+                                if (addedDate >= thirtyTwoDaysAgo) {
                                     const addedItem = Object.assign({}, processedItem);
-                                    addedItem.addedDate = item.added_date;
+                                    addedItem.addedDate = itemAddedDate;
                                     this.addedItems.push(addedItem);
                                 }
                             }
@@ -563,8 +587,8 @@ class DataLoader {
             return `<span class="ticker-item"><strong>${town}:</strong> ${timeAgo}</span>`;
         }).join('');
 
-        // Create ticker with 5 duplicates for seamless JavaScript-controlled loop
-        const duplicatedContent = Array(5).fill(tickerItems).join('');
+        // Create ticker with 3 duplicates for seamless JavaScript-controlled loop
+        const duplicatedContent = Array(3).fill(tickerItems).join('');
 
         timestampContainer.innerHTML = `
             <div class="ticker-wrapper">
@@ -591,10 +615,10 @@ class DataLoader {
         let isPaused = false;
 
         // Calculate reset point: when set 2 reaches where set 1 started
-        // With 5 duplicates, reset when we've scrolled 1/5 of the total width
+        // With 3 duplicates, reset when we've scrolled 1/3 of the total width
         const measureWidth = () => {
             const totalWidth = tickerContent.scrollWidth;
-            return totalWidth / 5; // Reset point: one set width
+            return totalWidth / 3; // Reset point: one set width
         };
 
         let resetPoint = measureWidth();
