@@ -165,20 +165,39 @@ header h1 {
     margin-right: 5px;
 }
 
-#apply-filters, #reset-filters {
+.search-controls {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.checkbox-label {
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+#apply-filters, #reset-filters, #apply-filters-bottom, #reset-filters-bottom {
     width: 48%;
     padding: 6px;
     font-size: 11px;
     font-weight: bold;
 }
 
-#apply-filters {
+#apply-filters, #apply-filters-bottom {
     background: var(--color-accent);
     color: white;
     border: 1px solid var(--color-accent-dark);
 }
 
-#apply-filters:hover {
+#apply-filters:hover, #apply-filters-bottom:hover {
     background: var(--color-accent-dark);
 }
 
@@ -402,6 +421,7 @@ header h1 {
 .shop-link strong {
     font-weight: 600;
 }
+
 
 /* Pagination */
 #pagination, #pagination-top {
@@ -1277,6 +1297,19 @@ header h1 {
 .shop-card:hover .shop-card-action {
     opacity: 1;
     color: var(--color-accent);
+}
+
+/* Shop sign search highlighting */
+.shop-card-sign mark {
+    background-color: var(--highlight-bg, #ffeb3b);
+    color: var(--highlight-color, #000);
+    padding: 0 2px;
+    border-radius: 2px;
+}
+
+.stat-badge.town-badge {
+    background: var(--color-accent);
+    color: white;
 }
 
 /* Mobile responsive for shop cards */

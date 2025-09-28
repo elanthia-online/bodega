@@ -109,6 +109,15 @@ class SearchEngine {
             this.resetFilters();
         });
 
+        // Bottom filter controls (duplicates for mobile)
+        document.getElementById('apply-filters-bottom').addEventListener('click', () => {
+            this.performSearch();
+        });
+
+        document.getElementById('reset-filters-bottom').addEventListener('click', () => {
+            this.resetFilters();
+        });
+
         // Sort control
         document.getElementById('sort-filter').addEventListener('change', (e) => {
             this.setSortOrder(e.target.value);
@@ -193,6 +202,7 @@ class SearchEngine {
     getFilters() {
         return {
             search: document.getElementById('search-input').value.toLowerCase().trim(),
+            searchShopSigns: document.getElementById('search-shop-signs').checked,
             towns: this.multiSelectFilters.town.getSelectedValues(),
             priceRanges: this.multiSelectFilters.price.getSelectedValues(),
             enchantLevels: this.multiSelectFilters.enchant.getSelectedValues(),
@@ -247,8 +257,34 @@ class SearchEngine {
 
     matchesAllFilters(item, filters) {
         // Advanced search text filter
-        if (filters.search && !this.matchesSearchText(item.searchText, filters.search)) {
-            return false;
+        if (filters.search) {
+            // If checkbox is unchecked, use searchText that excludes shop signs
+            // If checkbox is checked, use the full searchText (default behavior)
+            const useFullSearch = filters.searchShopSigns;
+
+            if (useFullSearch) {
+                // Original behavior - search everything including shop signs
+                if (!this.matchesSearchText(item.searchText, filters.search)) {
+                    return false;
+                }
+            } else {
+                // New behavior - exclude shop signs from search
+                // We'll rebuild the search text without the shop sign
+                const searchTextWithoutShopSign = [
+                    item.name,
+                    item.town,
+                    item.room || '',
+                    ...(item.raw || []),
+                    ...(item.tags || []),
+                    item.material || '',
+                    ...(item.enhancives || []).map(e => `${e.ability} ${e.boost}`),
+                    ...(item.gemstoneProperties || []).map(p => `${p.name} ${p.rarity} ${p.mnemonic} ${p.description}`)
+                ].join(' ').toLowerCase();
+
+                if (!this.matchesSearchText(searchTextWithoutShopSign, filters.search)) {
+                    return false;
+                }
+            }
         }
 
         // Town filter - now supports multiple selections
@@ -845,6 +881,9 @@ class SearchEngine {
         Object.values(this.multiSelectFilters).forEach(filter => {
             if (filter && filter.clear) filter.clear();
         });
+
+        // Reset shop sign checkbox
+        document.getElementById('search-shop-signs').checked = false;
 
 
         // Reset sort

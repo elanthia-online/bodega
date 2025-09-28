@@ -48,8 +48,14 @@
                     <div class="filter-section">
                         <h3>Search</h3>
                         <input type="text" id="search-input" placeholder="Search items..." />
-                        <button id="search-btn">Search</button>
-                        <button id="clear-btn">Clear</button>
+                        <div class="search-controls">
+                            <button id="search-btn">Search</button>
+                            <button id="clear-btn">Clear</button>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="search-shop-signs" />
+                                Include shop signs
+                            </label>
+                        </div>
 
                         <div class="search-help">
                             <div class="search-help-toggle" id="search-help-toggle">
@@ -66,7 +72,10 @@
                                     <strong>multiple terms</strong> - All terms must match (AND search)
                                 </div>
                                 <div class="search-tip">
-                                    Search includes: item names, shop signs, materials, enchants, properties
+                                    Search includes: item names, materials, enchants, properties
+                                </div>
+                                <div class="search-tip">
+                                    Check "Include shop signs" to search shop descriptions (useful for chrisms)
                                 </div>
                             </div>
                         </div>
@@ -279,6 +288,12 @@
                     </select>
                     <div id="special-properties-tags" class="filter-tags"></div>
                 </div>
+
+                <!-- Duplicate Filter Buttons at Bottom of Sidebar (for mobile) -->
+                <div class="filter-section">
+                    <button id="apply-filters-bottom">Apply Filters</button>
+                    <button id="reset-filters-bottom">Reset All</button>
+                </div>
                 </div>
 
                 <!-- Browse Mode -->
@@ -290,10 +305,16 @@
                         </select>
                     </div>
 
-                    <div class="filter-section" id="shop-list-section" style="display: none;">
-                        <h3>Shops in <span id="selected-town-name"></span></h3>
-                        <div id="shop-list">
-                            <!-- Shops will be populated here -->
+                    <div class="filter-section" id="shop-sign-search-section">
+                        <h3>Search Shop Signs</h3>
+                        <input type="text" id="shop-sign-search-input" placeholder="Search shop signs..." />
+                        <div class="search-controls">
+                            <button id="shop-sign-search-btn">Search</button>
+                            <button id="shop-sign-clear-btn">Clear</button>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="search-all-towns" />
+                                Search all towns
+                            </label>
                         </div>
                     </div>
 
