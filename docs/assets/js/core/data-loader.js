@@ -180,18 +180,12 @@ class DataLoader {
                         if (processedItem) {
                             this.allItems.push(processedItem);
 
-                            // Check if item was added recently using added_items.json
+                            // Check if item was added using added_items.json
                             if (addedItemsData && addedItemsData[item.id]) {
                                 const itemAddedDate = addedItemsData[item.id];
-                                const addedDate = new Date(itemAddedDate);
-                                const thirtyTwoDaysAgo = new Date();
-                                thirtyTwoDaysAgo.setDate(thirtyTwoDaysAgo.getDate() - 32);
-
-                                if (addedDate >= thirtyTwoDaysAgo) {
-                                    const addedItem = Object.assign({}, processedItem);
-                                    addedItem.addedDate = itemAddedDate;
-                                    this.addedItems.push(addedItem);
-                                }
+                                const addedItem = Object.assign({}, processedItem);
+                                addedItem.addedDate = itemAddedDate;
+                                this.addedItems.push(addedItem);
                             }
                         }
                     });

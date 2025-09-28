@@ -958,12 +958,11 @@ module Bodega
       # Save added_items.json (only called during smart scans)
       return unless @added_items_data
 
-      # Clean up old items (older than 32 days) to prevent file growth
-      thirty_two_days_ago = Time.now.utc - (32 * 24 * 60 * 60)
-
+      # Remove items with invalid timestamps only
       @added_items_data = @added_items_data.select do |item_id, timestamp_str|
         begin
-          Time.parse(timestamp_str) >= thirty_two_days_ago
+          Time.parse(timestamp_str)
+          true
         rescue
           false # Remove items with invalid timestamps
         end
