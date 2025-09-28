@@ -14,6 +14,15 @@ class BrowseEngine {
         // Browse navigation
         document.getElementById('browse-town-select').addEventListener('change', (e) => this.selectTown(e.target.value));
         document.getElementById('back-to-shops').addEventListener('click', () => this.backToShops());
+
+        // Shop sign search
+        document.getElementById('shop-sign-search-btn').addEventListener('click', () => this.searchShopSigns());
+        document.getElementById('shop-sign-clear-btn').addEventListener('click', () => this.clearShopSignSearch());
+        document.getElementById('shop-sign-search-input').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                this.searchShopSigns();
+            }
+        });
     }
 
     switchToSearch() {
@@ -93,7 +102,8 @@ class BrowseEngine {
                 // Store shop metadata (from first item encountered for this shop)
                 this.shopMetadata[town][shop] = {
                     preamble: item.shopLocation || '',
-                    id: item.shopId || ''
+                    id: item.shopId || '',
+                    shopSign: item.shopSign || ''
                 };
             }
 
@@ -499,18 +509,192 @@ class BrowseEngine {
         console.log('backToShops() called');
         console.log('currentTown:', this.currentTown);
 
-        if (this.currentTown) {
-            // Hide the room list sidebar
-            this.hideRoomList();
+        // Hide the room list sidebar
+        this.hideRoomList();
 
-            // Display the shop directory in the main area
+        // Check if we have an active search
+        const searchQuery = document.getElementById('shop-sign-search-input').value.trim();
+        const searchAllTowns = document.getElementById('search-all-towns').checked;
+
+        if (searchQuery) {
+            // If there's an active search, re-run it to show the search results
+            this.searchShopSigns();
+        } else if (this.currentTown) {
+            // Otherwise, display the shop directory for the current town
             this.displayShopDirectory(this.currentTown);
-
-            // Clear the current shop selection
-            this.currentShop = null;
         } else {
-            console.log('No currentTown set, cannot display shop directory');
+            console.log('No currentTown set and no active search');
         }
+
+        // Clear the current shop selection
+        this.currentShop = null;
+    }
+
+    searchShopSigns() {
+        const searchQuery = document.getElementById('shop-sign-search-input').value.toLowerCase().trim();
+        const searchAllTowns = document.getElementById('search-all-towns').checked;
+
+        if (!searchQuery) {
+            // If empty search, show normal view
+            if (this.currentTown && !searchAllTowns) {
+                this.displayShopDirectory(this.currentTown);
+            }
+            return;
+        }
+
+        // Get towns to search
+        let townsToSearch = [];
+        if (searchAllTowns) {
+            townsToSearch = Object.keys(this.townData);
+        } else if (this.currentTown) {
+            townsToSearch = [this.currentTown];
+        } else {
+            // No town selected and not searching all
+            document.getElementById('results-body').innerHTML = '<tr><td colspan="5" class="no-results">Please select a town or check "Search all towns".</td></tr>';
+            return;
+        }
+
+        // Search for shops with matching signs
+        const matchingShops = [];
+
+        townsToSearch.forEach(townName => {
+            const shops = this.shopMetadata[townName];
+            if (!shops) return;
+
+            Object.entries(shops).forEach(([shopName, metadata]) => {
+                const shopSign = (metadata.shopSign || '').toLowerCase();
+
+                // Check if shop sign contains the search query
+                if (shopSign && shopSign.includes(searchQuery)) {
+                    matchingShops.push({
+                        town: townName,
+                        shopName: shopName,
+                        shopSign: metadata.shopSign,
+                        preamble: metadata.preamble,
+                        itemCount: this.getShopItemCount(townName, shopName),
+                        roomCount: Object.keys(this.townData[townName][shopName] || {}).length
+                    });
+                }
+            });
+        });
+
+        // Display results
+        this.displayShopSignSearchResults(matchingShops, searchQuery, searchAllTowns);
+    }
+
+    clearShopSignSearch() {
+        document.getElementById('shop-sign-search-input').value = '';
+        document.getElementById('search-all-towns').checked = false;
+
+        // Return to normal view
+        if (this.currentTown) {
+            this.displayShopDirectory(this.currentTown);
+        }
+    }
+
+    getShopItemCount(townName, shopName) {
+        let count = 0;
+        const shop = this.townData[townName][shopName];
+        if (shop) {
+            Object.values(shop).forEach(room => {
+                count += room.length;
+            });
+        }
+        return count;
+    }
+
+    displayShopSignSearchResults(shops, searchQuery, searchedAllTowns) {
+        const tbody = document.getElementById('results-body');
+        const resultsCount = document.getElementById('results-count');
+        const pageInfo = document.getElementById('page-info');
+
+        // Update header
+        const scope = searchedAllTowns ? 'all towns' : this.currentTown;
+        resultsCount.textContent = `${shops.length} shops found with "${searchQuery}" in signs (${scope})`;
+        pageInfo.textContent = '';
+
+        // Clear table
+        tbody.innerHTML = '';
+
+        if (shops.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="5" class="no-results">No shops found with matching signs.</td></tr>';
+            return;
+        }
+
+        // Sort by town, then shop name
+        shops.sort((a, b) => {
+            if (a.town !== b.town) return a.town.localeCompare(b.town);
+            return a.shopName.localeCompare(b.shopName);
+        });
+
+        // Display each matching shop
+        shops.forEach((shopInfo) => {
+            const shopRow = document.createElement('tr');
+            shopRow.className = 'shop-directory-row clickable';
+
+            const locationInfo = this.extractLocationInfo({ preamble: shopInfo.preamble });
+
+            const shopCard = `
+                <td colspan="5" class="shop-directory-card">
+                    <div class="shop-card">
+                        <div class="shop-card-header">
+                            <div class="shop-card-name">${shopInfo.shopName}</div>
+                            <div class="shop-card-stats">
+                                <span class="stat-badge">${shopInfo.itemCount} items</span>
+                                <span class="stat-badge">${shopInfo.roomCount} rooms</span>
+                                ${searchedAllTowns ? `<span class="stat-badge town-badge">${shopInfo.town}</span>` : ''}
+                            </div>
+                        </div>
+                        ${locationInfo ? `<div class="shop-card-location">${locationInfo}</div>` : ''}
+                        <div class="shop-card-sign">${this.highlightSearchTerm(shopInfo.shopSign, searchQuery)}</div>
+                    </div>
+                </td>
+            `;
+
+            shopRow.innerHTML = shopCard;
+
+            // Add click handler to view shop
+            shopRow.addEventListener('click', () => {
+                // If searching all towns and clicking a shop from a different town
+                if (searchedAllTowns && shopInfo.town !== this.currentTown) {
+                    // Update the town select dropdown but don't trigger displayShopDirectory
+                    const townSelect = document.getElementById('browse-town-select');
+                    townSelect.value = shopInfo.town;
+                    this.currentTown = shopInfo.town;
+
+                    // Save town selection to localStorage
+                    localStorage.setItem('browse-selected-town', shopInfo.town);
+                }
+
+                // Directly select the shop without refreshing the shop list
+                this.selectShopDirect(shopInfo.town, shopInfo.shopName);
+            });
+
+            tbody.appendChild(shopRow);
+        });
+    }
+
+    highlightSearchTerm(text, searchTerm) {
+        if (!text || !searchTerm) return text;
+
+        const regex = new RegExp(`(${searchTerm})`, 'gi');
+        return text.replace(regex, '<mark>$1</mark>');
+    }
+
+    selectShopDirect(townName, shopName) {
+        // This method selects a shop directly without refreshing the shop directory
+        // Used when clicking on search results to preserve the search view
+
+        if (!townName || !shopName) return;
+
+        // Update current selections
+        this.currentShop = shopName;
+
+        // Show the shop's room list in the sidebar
+        this.showRoomList(townName, shopName);
+
+        // Display the shop's inventory in the main area
+        this.showRoomInventory(townName, shopName);
     }
 }
 
