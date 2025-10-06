@@ -39,9 +39,35 @@ class BrowseEngine {
         document.getElementById('pagination').style.display = 'flex';
         document.getElementById('pagination-top').style.display = 'flex';
 
+        // Show and restore search mode table headers
+        const tableHead = document.querySelector('#results-table thead');
+        if (tableHead) tableHead.style.display = '';
+        this.restoreSearchHeaders();
+
         // Trigger search refresh
         if (window.searchEngine) {
             window.searchEngine.performSearch();
+        }
+    }
+
+    restoreSearchHeaders() {
+        const thead = document.querySelector('#results-table thead tr');
+        thead.innerHTML = `
+            <th class="sortable" data-sort="name">Item Name <span class="sort-indicator"></span></th>
+            <th class="sortable" data-sort="price">Price <span class="sort-indicator"></span></th>
+            <th class="sortable" data-sort="properties">Properties <span class="sort-indicator"></span></th>
+            <th class="sortable" data-sort="town">Town <span class="sort-indicator"></span></th>
+            <th class="sortable" data-sort="shop">Shop <span class="sort-indicator"></span></th>
+        `;
+
+        // Re-attach header click handlers for search
+        if (window.searchEngine) {
+            document.querySelectorAll('#results-table th.sortable').forEach(header => {
+                header.addEventListener('click', () => {
+                    const sortField = header.dataset.sort;
+                    window.searchEngine.handleHeaderSort(sortField);
+                });
+            });
         }
     }
 
@@ -59,12 +85,66 @@ class BrowseEngine {
         document.getElementById('pagination').style.display = 'none';
         document.getElementById('pagination-top').style.display = 'none';
 
+        // Hide table headers in browse mode
+        const tableHead = document.querySelector('#results-table thead');
+        if (tableHead) tableHead.style.display = 'none';
+
         // Initialize browse data if not done yet
         if (Object.keys(this.townData).length === 0) {
             this.initializeBrowseData();
         } else {
             // Ensure a town is selected when switching to browse mode
             this.ensureTownSelected();
+        }
+    }
+
+    switchToBrowseAndSelectShop(townName, shopName) {
+        console.log(`switchToBrowseAndSelectShop called with town: ${townName}, shop: ${shopName}`);
+
+        // Switch to browse mode UI
+        document.getElementById('search-tab').classList.remove('active');
+        document.getElementById('browse-tab').classList.add('active');
+        document.getElementById('added-tab').classList.remove('active');
+        document.getElementById('removed-tab').classList.remove('active');
+        document.getElementById('search-mode').style.display = 'none';
+        document.getElementById('browse-mode').style.display = 'block';
+        document.getElementById('added-mode').style.display = 'none';
+        document.getElementById('removed-mode').style.display = 'none';
+
+        // Hide pagination controls for browse mode
+        document.getElementById('pagination').style.display = 'none';
+        document.getElementById('pagination-top').style.display = 'none';
+
+        // Hide table headers in browse mode
+        const tableHead = document.querySelector('#results-table thead');
+        if (tableHead) tableHead.style.display = 'none';
+
+        // Initialize browse data if not done yet
+        if (Object.keys(this.townData).length === 0) {
+            this.initializeBrowseData();
+        }
+
+        // Select the town and shop
+        const townSelect = document.getElementById('browse-town-select');
+        if (townSelect && this.townData[townName]) {
+            console.log(`Town found in townData: ${townName}`);
+            townSelect.value = townName;
+            this.selectTown(townName);
+
+            // Give a moment for town to load, then select the shop
+            setTimeout(() => {
+                console.log(`Checking for shop: ${shopName} in town: ${townName}`);
+                console.log(`Available shops:`, Object.keys(this.townData[townName] || {}));
+
+                if (this.townData[townName] && this.townData[townName][shopName]) {
+                    console.log(`Shop found! Selecting: ${shopName}`);
+                    this.selectShop(townName, shopName);
+                } else {
+                    console.log(`Shop not found: ${shopName}`);
+                }
+            }, 50);
+        } else {
+            console.log(`Town not found or townSelect missing: ${townName}`);
         }
     }
 
@@ -204,9 +284,11 @@ class BrowseEngine {
         // Show shop directory in main content area instead of sidebar
         this.displayShopDirectory(townName);
 
-        // Hide sidebar shop list section
+        // Hide sidebar shop list section if it exists
         const shopListSection = document.getElementById('shop-list-section');
-        shopListSection.style.display = 'none';
+        if (shopListSection) {
+            shopListSection.style.display = 'none';
+        }
     }
 
     displayShopDirectory(townName) {
