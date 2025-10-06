@@ -1,6 +1,6 @@
 {
-  "created_at": "2025-10-06 06:17:52 UTC",
-  "run_time": "04s",
+  "created_at": "2025-10-06 08:43:30 UTC",
+  "run_time": "01m 37s",
   "town": "River's Rest",
   "shops": [
     {
@@ -10930,6 +10930,13 @@
           "room_title": "Annandale's General Store",
           "branch": "entry",
           "items": [
+
+          ]
+        },
+        {
+          "room_title": "Annandale's Outfitting",
+          "branch": "southeast",
+          "items": [
             {
               "id": "634856339",
               "name": "an oval bloodstone pendant",
@@ -11005,13 +11012,7 @@
                 "worn": "neck",
                 "material": "gemstone, an extremely common material"
               }
-            }
-          ]
-        },
-        {
-          "room_title": "Annandale's Outfitting",
-          "branch": "southeast",
-          "items": [
+            },
             {
               "id": "163269",
               "name": "a handful of sparkling dust",
@@ -11066,6 +11067,10 @@
                 "material": "wood, an extremely common material"
               }
             }
+          ],
+          "sign": [
+            "Written on a hand-lettered sign:",
+            "* In the cabinet are fresh, unattuned first-tier Bloodstone Pendants; Pick a new worn location when you FLIP the pendant before you wear it for the first time."
           ]
         },
         {
@@ -11572,6 +11577,25 @@
               }
             },
             {
+              "id": "619779135",
+              "name": "a long-necked glass jar containing uncut diamonds",
+              "details": {
+                "raw": [
+                  "It is estimated that a long-necked glass jar containing uncut diamonds can store a very small amount with enough space for one item.",
+                  "The jar can not be worn.",
+                  "Analysis of a long-necked glass jar containing uncut diamonds indicates the creator has provided the following information:",
+                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
+                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
+                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
+                  "The glass jar will cost 85,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "material": "glass, an extremely common material"
+              }
+            },
+            {
               "id": "173250",
               "name": "a cushion-cut indigo jewel ringed in copper inclusions",
               "details": {
@@ -11806,25 +11830,6 @@
                   }
                 ],
                 "weight": 3
-              }
-            },
-            {
-              "id": "619779135",
-              "name": "a long-necked glass jar containing uncut diamonds",
-              "details": {
-                "raw": [
-                  "It is estimated that a long-necked glass jar containing uncut diamonds can store a very small amount with enough space for one item.",
-                  "The jar can not be worn.",
-                  "Analysis of a long-necked glass jar containing uncut diamonds indicates the creator has provided the following information:",
-                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
-                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
-                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
-                  "The glass jar will cost 85,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "material": "glass, an extremely common material"
               }
             }
           ]
@@ -14642,6 +14647,49 @@
           "branch": "entry",
           "items": [
             {
+              "id": "618539780",
+              "name": "a veniom-hilted rhimar flamberge",
+              "details": {
+                "raw": [
+                  "Analysis of a veniom-hilted rhimar flamberge indicates the item has certain alteration restrictions.  This material cannot be dyed.",
+                  "The rhimar flamberge will cost 34,999,900 coins.",
+                  "It is an enhancive item:",
+                  "    It seems to have quite a few enhancive charges remaining.",
+                  "It is estimated to be worth about 400,000 silvers.",
+                  "It is predominantly crafted of rhimar.",
+                  "It is a simple project (74 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Jaskier."
+                ],
+                "tags": [
+                  "lightenable",
+                  "persists"
+                ],
+                "skill": "twohanded weapons",
+                "material": "rhimar, a rare metal",
+                "enchant": 5,
+                "flare": "the power of an ice elemental",
+                "enhancives": [
+                  {
+                    "boost": 7,
+                    "ability": "Aura Base"
+                  },
+                  {
+                    "boost": 9,
+                    "ability": "Constitution Base"
+                  },
+                  {
+                    "boost": 6,
+                    "ability": "Stamina Recovery"
+                  },
+                  {
+                    "boost": 4,
+                    "ability": "Combat Maneuvers Bonus"
+                  }
+                ],
+                "weight": 8
+              }
+            },
+            {
               "id": "600607910",
               "name": "a thick imflass helm",
               "details": {
@@ -15099,49 +15147,6 @@
 
                 ],
                 "material": "gemstone, an extremely common material"
-              }
-            },
-            {
-              "id": "618539780",
-              "name": "a veniom-hilted rhimar flamberge",
-              "details": {
-                "raw": [
-                  "Analysis of a veniom-hilted rhimar flamberge indicates the item has certain alteration restrictions.  This material cannot be dyed.",
-                  "The rhimar flamberge will cost 34,999,900 coins.",
-                  "It is an enhancive item:",
-                  "    It seems to have quite a few enhancive charges remaining.",
-                  "It is estimated to be worth about 400,000 silvers.",
-                  "It is predominantly crafted of rhimar.",
-                  "It is a simple project (74 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by Jaskier."
-                ],
-                "tags": [
-                  "lightenable",
-                  "persists"
-                ],
-                "skill": "twohanded weapons",
-                "material": "rhimar, a rare metal",
-                "enchant": 5,
-                "flare": "the power of an ice elemental",
-                "enhancives": [
-                  {
-                    "boost": 7,
-                    "ability": "Aura Base"
-                  },
-                  {
-                    "boost": 9,
-                    "ability": "Constitution Base"
-                  },
-                  {
-                    "boost": 6,
-                    "ability": "Stamina Recovery"
-                  },
-                  {
-                    "boost": 4,
-                    "ability": "Combat Maneuvers Bonus"
-                  }
-                ],
-                "weight": 8
               }
             }
           ],
