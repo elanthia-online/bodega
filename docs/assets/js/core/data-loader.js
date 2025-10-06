@@ -164,7 +164,9 @@ class DataLoader {
 
             // Track per-town update time
             if (townData.created_at) {
-                const updateTime = new Date(townData.created_at);
+                // Convert "2025-10-06 00:50:25 UTC" to ISO 8601 format for Safari compatibility
+                const isoDate = townData.created_at.replace(' UTC', 'Z').replace(' ', 'T');
+                const updateTime = new Date(isoDate);
                 this.townTimestamps[townData.town] = updateTime;
 
                 if (!oldestUpdate || updateTime < oldestUpdate) {
