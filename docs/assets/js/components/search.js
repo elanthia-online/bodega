@@ -118,13 +118,13 @@ class SearchEngine {
             this.resetFilters();
         });
 
-        // Sort control
-        document.getElementById('sort-filter').addEventListener('change', (e) => {
-            this.setSortOrder(e.target.value);
-            this.performSearch();
+        // Table header sorting
+        document.querySelectorAll('#results-table th.sortable').forEach(header => {
+            header.addEventListener('click', () => {
+                const sortField = header.dataset.sort;
+                this.handleHeaderSort(sortField);
+            });
         });
-
-        // Table header sorting removed - using sidebar sorting only
 
         // Pagination - Bottom controls (check if active mode before executing)
         document.getElementById('prev-page').addEventListener('click', () => {
@@ -187,7 +187,6 @@ class SearchEngine {
         const allItems = window.dataLoader.allItems;
         const filters = this.getFilters();
 
-        console.log('Performing search with filters:', filters);
 
         this.filteredItems = allItems.filter(item => {
             return this.matchesAllFilters(item, filters);
@@ -408,34 +407,60 @@ class SearchEngine {
         return true;
     }
 
-    setSortOrder(sortValue) {
-        const sortMap = {
-            'name': { field: 'name', direction: 'asc' },
-            'price-asc': { field: 'price', direction: 'asc' },
-            'price-desc': { field: 'price', direction: 'desc' },
-            'enchant-desc': { field: 'enchant', direction: 'desc' },
-            'town': { field: 'town', direction: 'asc' },
-            'type': { field: 'itemType', direction: 'asc' },
-            'capacity': { field: 'capacityLevel', direction: 'asc' }
-        };
+    handleHeaderSort(field) {
+        // Map header field names to item property names
+        let sortField = field;
+        if (field === 'shop') sortField = 'shopName';
+        if (field === 'properties') sortField = 'propertyCount';
 
-        this.currentSort = sortMap[sortValue] || { field: 'name', direction: 'asc' };
-        // updateSortHeaders removed - using sidebar sorting only
+        // Toggle direction if clicking same field, otherwise default to asc
+        if (this.currentSort.field === sortField) {
+            this.currentSort.direction = this.currentSort.direction === 'asc' ? 'desc' : 'asc';
+        } else {
+            // Default: price asc, property count desc (most properties first), others asc
+            const defaultDirection = (sortField === 'price') ? 'asc' : (sortField === 'propertyCount' ? 'desc' : 'asc');
+            this.currentSort = { field: sortField, direction: defaultDirection };
+        }
+
+        this.updateSortIndicators();
+        this.performSearch();
     }
 
-    // toggleSort removed - using sidebar sorting only
+    updateSortIndicators() {
+        // Clear all indicators
+        document.querySelectorAll('#results-table th.sortable .sort-indicator').forEach(indicator => {
+            indicator.textContent = '';
+        });
 
-    // updateSortHeaders removed - using sidebar sorting only
+        // Map internal field names back to header data-sort values
+        let headerField = this.currentSort.field;
+        if (this.currentSort.field === 'shopName') headerField = 'shop';
+        if (this.currentSort.field === 'propertyCount') headerField = 'properties';
+
+        // Set indicator for current sort
+        const currentHeader = document.querySelector(`#results-table th[data-sort="${headerField}"]`);
+        if (currentHeader) {
+            const indicator = currentHeader.querySelector('.sort-indicator');
+            indicator.textContent = this.currentSort.direction === 'asc' ? ' ↑' : ' ↓';
+        }
+    }
 
     sortItems() {
         this.filteredItems.sort((a, b) => {
             let aVal = a[this.currentSort.field];
             let bVal = b[this.currentSort.field];
 
-            // Handle null/undefined values
-            if (aVal == null && bVal == null) return 0;
-            if (aVal == null) return 1;
-            if (bVal == null) return -1;
+            // Calculate property count dynamically if sorting by properties
+            if (this.currentSort.field === 'propertyCount') {
+                aVal = this.calculatePropertyCount(a);
+                bVal = this.calculatePropertyCount(b);
+                // For property count, 0 is a valid value, so don't treat as null
+            } else {
+                // Handle null/undefined values for other fields
+                if (aVal == null && bVal == null) return 0;
+                if (aVal == null) return 1;
+                if (bVal == null) return -1;
+            }
 
             // Convert to comparable types
             if (typeof aVal === 'string') {
@@ -449,6 +474,15 @@ class SearchEngine {
 
             return this.currentSort.direction === 'desc' ? -result : result;
         });
+    }
+
+    calculatePropertyCount(item) {
+        // Only count enhancive properties (green stat bonuses)
+        // Note: the property is called "enhancives" (plural)
+        if (item.enhancives && item.enhancives.length > 0) {
+            return item.enhancives.length;
+        }
+        return 0;
     }
 
     displayResults() {
@@ -900,12 +934,9 @@ class SearchEngine {
         // Reset shop sign checkbox
         document.getElementById('search-shop-signs').checked = false;
 
-
         // Reset sort
-        document.getElementById('sort-filter').selectedIndex = 0;
-
         this.currentSort = { field: 'name', direction: 'asc' };
-        // updateSortHeaders removed - using sidebar sorting only
+        this.updateSortIndicators();
         this.performSearch();
     }
 
@@ -1023,24 +1054,9 @@ class SearchEngine {
     }
 
     navigateToShopInBrowse(townName, shopName) {
-        // Switch to browse tab
+        // Switch to browse tab and navigate to specific shop
         if (window.browseEngine) {
-            window.browseEngine.switchToBrowse();
-
-            // Wait for browse mode to initialize then select the town and shop
-            setTimeout(() => {
-                // Select the town in the dropdown
-                const townSelect = document.getElementById('browse-town-select');
-                if (townSelect) {
-                    townSelect.value = townName;
-                    window.browseEngine.selectTown(townName);
-
-                    // Select the specific shop after town is loaded
-                    setTimeout(() => {
-                        window.browseEngine.selectShop(townName, shopName);
-                    }, 100);
-                }
-            }, 100);
+            window.browseEngine.switchToBrowseAndSelectShop(townName, shopName);
         }
     }
 }

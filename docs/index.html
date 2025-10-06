@@ -87,19 +87,6 @@
                 </div>
 
                 <div class="filter-section">
-                    <h3>Sort By</h3>
-                    <select id="sort-filter">
-                        <option value="name">Name</option>
-                        <option value="price-asc">Price (Low to High)</option>
-                        <option value="price-desc">Price (High to Low)</option>
-                        <option value="enchant-desc">Enchant (High to Low)</option>
-                        <option value="town">Town</option>
-                        <option value="type">Item Type</option>
-                        <option value="capacity">Capacity</option>
-                    </select>
-                </div>
-
-                <div class="filter-section">
                     <h3>Town</h3>
                     <select id="town-filter" class="multi-select-dropdown">
                         <option value="" disabled selected>Select towns...</option>
@@ -371,20 +358,6 @@
                     </div>
 
                     <div class="filter-section">
-                        <h3>Sort By</h3>
-                        <select id="added-sort-filter">
-                            <option value="added-desc">Recently Added (New to Old)</option>
-                            <option value="added-asc">Recently Added (Old to New)</option>
-                            <option value="price-desc">Price (High to Low)</option>
-                            <option value="price-asc">Price (Low to High)</option>
-                            <option value="name">Name</option>
-                            <option value="enchant-desc">Enchant (High to Low)</option>
-                            <option value="town">Town</option>
-                            <option value="type">Item Type</option>
-                        </select>
-                    </div>
-
-                    <div class="filter-section">
                         <button id="added-apply-filters">Apply Filters</button>
                         <button id="added-reset-filters">Reset All</button>
                     </div>
@@ -430,20 +403,6 @@
                     </div>
 
                     <div class="filter-section">
-                        <h3>Sort By</h3>
-                        <select id="removed-sort-filter">
-                            <option value="removed-desc">Recently Removed (New to Old)</option>
-                            <option value="removed-asc">Recently Removed (Old to New)</option>
-                            <option value="price-desc">Price (High to Low)</option>
-                            <option value="price-asc">Price (Low to High)</option>
-                            <option value="name">Name</option>
-                            <option value="enchant-desc">Enchant (High to Low)</option>
-                            <option value="town">Town</option>
-                            <option value="type">Item Type</option>
-                        </select>
-                    </div>
-
-                    <div class="filter-section">
                         <button id="removed-apply-filters">Apply Filters</button>
                         <button id="removed-reset-filters">Reset All</button>
                     </div>
@@ -470,11 +429,11 @@
                     <table id="results-table">
                         <thead>
                             <tr>
-                                <th>Item Name</th>
-                                <th>Price</th>
-                                <th>Properties</th>
-                                <th>Town</th>
-                                <th>Shop</th>
+                                <th class="sortable" data-sort="name">Item Name <span class="sort-indicator"></span></th>
+                                <th class="sortable" data-sort="price">Price <span class="sort-indicator"></span></th>
+                                <th class="sortable" data-sort="properties">Properties <span class="sort-indicator"></span></th>
+                                <th class="sortable" data-sort="town">Town <span class="sort-indicator"></span></th>
+                                <th class="sortable" data-sort="shop">Shop <span class="sort-indicator"></span></th>
                             </tr>
                         </thead>
                         <tbody id="results-body">

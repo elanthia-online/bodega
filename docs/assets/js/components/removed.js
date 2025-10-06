@@ -36,12 +36,6 @@ class RemovedEngine {
             this.resetFilters();
         });
 
-        // Sort control
-        document.getElementById('removed-sort-filter').addEventListener('change', (e) => {
-            this.setSortOrder(e.target.value);
-            this.performSearch();
-        });
-
         // Pagination controls
         document.getElementById('prev-page').addEventListener('click', () => {
             if (this.isActiveMode()) this.previousPage();
@@ -69,6 +63,26 @@ class RemovedEngine {
         };
     }
 
+    updateTableHeaders() {
+        const thead = document.querySelector('#results-table thead tr');
+        thead.innerHTML = `
+            <th class="sortable" data-sort="name">Item Name <span class="sort-indicator"></span></th>
+            <th class="sortable" data-sort="removed">Removed <span class="sort-indicator"></span></th>
+            <th class="sortable" data-sort="price">Price <span class="sort-indicator"></span></th>
+            <th class="sortable" data-sort="properties">Properties <span class="sort-indicator"></span></th>
+            <th class="sortable" data-sort="town">Town <span class="sort-indicator"></span></th>
+            <th class="sortable" data-sort="shop">Shop <span class="sort-indicator"></span></th>
+        `;
+
+        // Re-attach header click handlers
+        document.querySelectorAll('#results-table th.sortable').forEach(header => {
+            header.addEventListener('click', () => {
+                const sortField = header.dataset.sort;
+                this.handleHeaderSort(sortField);
+            });
+        });
+    }
+
     switchToRemoved() {
         document.getElementById('search-tab').classList.remove('active');
         document.getElementById('browse-tab').classList.remove('active');
@@ -83,6 +97,12 @@ class RemovedEngine {
         // Show pagination controls for removed mode
         document.getElementById('pagination').style.display = 'flex';
         document.getElementById('pagination-top').style.display = 'flex';
+
+        // Show and update table headers for removed mode
+        const tableHead = document.querySelector('#results-table thead');
+        if (tableHead) tableHead.style.display = '';
+        this.updateTableHeaders();
+        this.updateSortIndicators();
 
         // Initialize removed data if not done yet
         if (this.removedItems.length === 0) {
@@ -118,8 +138,7 @@ class RemovedEngine {
         return {
             search: document.getElementById('removed-search-input').value.trim(),
             days: document.getElementById('removed-date-filter').value,
-            priceRange: document.getElementById('removed-price-filter').value,
-            sort: document.getElementById('removed-sort-filter').value
+            priceRange: document.getElementById('removed-price-filter').value
         };
     }
 
@@ -162,19 +181,46 @@ class RemovedEngine {
         return text.includes(query);
     }
 
-    setSortOrder(sortValue) {
-        const sortMap = {
-            'removed-desc': { field: 'removedDate', direction: 'desc' },
-            'removed-asc': { field: 'removedDate', direction: 'asc' },
-            'name': { field: 'name', direction: 'asc' },
-            'price-asc': { field: 'price', direction: 'asc' },
-            'price-desc': { field: 'price', direction: 'desc' },
-            'enchant-desc': { field: 'enchant', direction: 'desc' },
-            'town': { field: 'lastSeenTown', direction: 'asc' },
-            'type': { field: 'itemType', direction: 'asc' }
-        };
+    handleHeaderSort(field) {
+        // Map header field names to item property names
+        let sortField = field;
+        if (field === 'removed') sortField = 'removedDate';
+        if (field === 'shop') sortField = 'lastSeenShop';
+        if (field === 'town') sortField = 'lastSeenTown';
+        if (field === 'properties') sortField = 'propertyCount';
 
-        this.currentSort = sortMap[sortValue] || { field: 'removedDate', direction: 'desc' };
+        // Toggle direction if clicking same field, otherwise default appropriately
+        if (this.currentSort.field === sortField) {
+            this.currentSort.direction = this.currentSort.direction === 'asc' ? 'desc' : 'asc';
+        } else {
+            // Default: price asc, removed desc (newest first), property count desc, others asc
+            const defaultDirection = (sortField === 'removedDate' || sortField === 'propertyCount') ? 'desc' : (sortField === 'price' ? 'asc' : 'asc');
+            this.currentSort = { field: sortField, direction: defaultDirection };
+        }
+
+        this.updateSortIndicators();
+        this.performSearch();
+    }
+
+    updateSortIndicators() {
+        // Clear all indicators
+        document.querySelectorAll('#results-table th.sortable .sort-indicator').forEach(indicator => {
+            indicator.textContent = '';
+        });
+
+        // Map internal field names back to header data-sort values
+        let headerField = this.currentSort.field;
+        if (this.currentSort.field === 'removedDate') headerField = 'removed';
+        if (this.currentSort.field === 'lastSeenShop') headerField = 'shop';
+        if (this.currentSort.field === 'lastSeenTown') headerField = 'town';
+        if (this.currentSort.field === 'propertyCount') headerField = 'properties';
+
+        // Set indicator for current sort
+        const currentHeader = document.querySelector(`#results-table th[data-sort="${headerField}"]`);
+        if (currentHeader) {
+            const indicator = currentHeader.querySelector('.sort-indicator');
+            indicator.textContent = this.currentSort.direction === 'asc' ? ' ↑' : ' ↓';
+        }
     }
 
     sortItems() {
@@ -182,15 +228,22 @@ class RemovedEngine {
             let aValue = a[this.currentSort.field];
             let bValue = b[this.currentSort.field];
 
-            // Handle dates
-            if (this.currentSort.field === 'removedDate') {
-                aValue = new Date(aValue);
-                bValue = new Date(bValue);
-            }
+            // Calculate property count dynamically if sorting by properties
+            if (this.currentSort.field === 'propertyCount') {
+                aValue = this.calculatePropertyCount(a);
+                bValue = this.calculatePropertyCount(b);
+                // For property count, 0 is a valid value, so don't treat as null
+            } else {
+                // Handle dates
+                if (this.currentSort.field === 'removedDate') {
+                    aValue = new Date(aValue);
+                    bValue = new Date(bValue);
+                }
 
-            // Handle nulls
-            if (aValue === null || aValue === undefined) aValue = '';
-            if (bValue === null || bValue === undefined) bValue = '';
+                // Handle nulls
+                if (aValue === null || aValue === undefined) aValue = '';
+                if (bValue === null || bValue === undefined) bValue = '';
+            }
 
             if (this.currentSort.direction === 'asc') {
                 return aValue > bValue ? 1 : -1;
@@ -198,6 +251,15 @@ class RemovedEngine {
                 return aValue < bValue ? 1 : -1;
             }
         });
+    }
+
+    calculatePropertyCount(item) {
+        // Only count enhancive properties (green stat bonuses)
+        // Note: the property is called "enhancives" (plural)
+        if (item.enhancives && item.enhancives.length > 0) {
+            return item.enhancives.length;
+        }
+        return 0;
     }
 
     displayResults() {
@@ -238,11 +300,8 @@ class RemovedEngine {
             <td class="item-name">
                 <span class="name">${item.name}</span>
                 ${item.enchant > 0 ? `<span class="enchant">+${item.enchant}</span>` : ''}
-                <div class="removed-info">
-                    Removed ${this.formatRelativeTime(removedDate)}
-                    ${item.lastSeenShop ? ` from ${item.lastSeenShop}` : ''}
-                </div>
             </td>
+            <td class="item-removed-time">${this.formatRelativeTime(removedDate)}</td>
             <td class="item-price">${this.formatPrice(item.price)}</td>
             <td class="item-properties">${properties.innerHTML}</td>
             <td class="item-town">${item.lastSeenTown || 'Unknown'}</td>
@@ -290,13 +349,14 @@ class RemovedEngine {
     formatRelativeTime(date) {
         const now = new Date();
         const diffMs = now - date;
+        const diffMins = Math.floor(diffMs / (1000 * 60));
         const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
         const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
 
-        if (diffHours < 1) return 'less than an hour ago';
-        if (diffHours < 24) return `${diffHours} hour${diffHours !== 1 ? 's' : ''} ago`;
-        if (diffDays === 1) return 'yesterday';
-        return `${diffDays} days ago`;
+        if (diffMins < 1) return '< 1m';
+        if (diffMins < 60) return `${diffMins}m`;
+        if (diffHours < 24) return `${diffHours}h`;
+        return `${diffDays}d`;
     }
 
     formatPrice(price) {
@@ -312,7 +372,7 @@ class RemovedEngine {
         const tbody = document.getElementById('results-body');
         tbody.innerHTML = `
             <tr>
-                <td colspan="5" class="no-results">
+                <td colspan="6" class="no-results">
                     No removed items found matching your criteria
                 </td>
             </tr>
@@ -455,9 +515,9 @@ class RemovedEngine {
         document.getElementById('removed-search-input').value = '';
         document.getElementById('removed-date-filter').selectedIndex = 0;
         document.getElementById('removed-price-filter').selectedIndex = 0;
-        document.getElementById('removed-sort-filter').selectedIndex = 0;
 
         this.currentSort = { field: 'removedDate', direction: 'desc' };
+        this.updateSortIndicators();
         this.performSearch();
     }
 }

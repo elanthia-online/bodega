@@ -265,7 +265,21 @@ header h1 {
     color: var(--text-primary);
 }
 
-/* Table sorting styles removed - using sidebar sorting only */
+/* Sortable table headers */
+#results-table th.sortable {
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+}
+
+#results-table th.sortable:hover {
+    background: var(--bg-hover);
+}
+
+#results-table th.sortable .sort-indicator {
+    color: var(--accent-primary);
+    font-weight: bold;
+}
 
 #results-table td {
     padding: 6px;
