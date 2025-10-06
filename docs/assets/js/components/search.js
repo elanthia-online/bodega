@@ -245,6 +245,23 @@ class SearchEngine {
             return regex.test(itemText);
         }
 
+        // Handle enhancive property searches (e.g., "9 armor use bonus" or "9 to armor use bonus")
+        // Pattern: number followed by stat/skill name
+        const enhancivePattern = /^(\d+)\s+(to\s+)?(.+)$/i;
+        const enhanciveMatch = searchQuery.match(enhancivePattern);
+        if (enhanciveMatch) {
+            const boost = enhanciveMatch[1];
+            const ability = enhanciveMatch[3];
+            // Check if the exact phrase exists (in any of the indexed formats)
+            const phrase1 = `${boost} to ${ability}`.toLowerCase();
+            const phrase2 = `${boost} ${ability}`.toLowerCase();
+            if (itemText.includes(phrase1) || itemText.includes(phrase2)) {
+                return true;
+            }
+            // If the enhancive pattern matched but wasn't found, return false (don't fall through to term matching)
+            return false;
+        }
+
         // Handle regular space-separated terms (all must match)
         if (searchQuery) {
             const terms = searchQuery.split(/\s+/).filter(term => term.length > 0);
@@ -276,7 +293,12 @@ class SearchEngine {
                     ...(item.raw || []),
                     ...(item.tags || []),
                     item.material || '',
-                    ...(item.enhancives || []).map(e => `${e.ability} ${e.boost}`),
+                    // Index enhancives in multiple formats for better searchability
+                    ...(item.enhancives || []).flatMap(e => [
+                        `${e.boost} to ${e.ability}`,  // "9 to Armor Use Bonus"
+                        `${e.boost} ${e.ability}`,      // "9 Armor Use Bonus"
+                        `${e.ability} ${e.boost}`       // "Armor Use Bonus 9"
+                    ]),
                     ...(item.gemstoneProperties || []).map(p => `${p.name} ${p.rarity} ${p.mnemonic} ${p.description}`)
                 ].join(' ').toLowerCase();
 

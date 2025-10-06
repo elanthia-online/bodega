@@ -543,7 +543,12 @@ class DataLoader {
             ...(item.details?.raw || []),
             ...(item.details?.tags || []),
             item.details?.material || '',
-            ...(item.details?.enhancives || []).map(e => `${e.ability} ${e.boost}`),
+            // Index enhancives in multiple formats for better searchability
+            ...(item.details?.enhancives || []).flatMap(e => [
+                `${e.boost} to ${e.ability}`,  // "9 to Armor Use Bonus"
+                `${e.boost} ${e.ability}`,      // "9 Armor Use Bonus"
+                `${e.ability} ${e.boost}`       // "Armor Use Bonus 9"
+            ]),
             ...(item.details?.gemstone_properties || []).map(p => `${p.name} ${p.rarity} ${p.mnemonic} ${p.description}`)
         ];
 
