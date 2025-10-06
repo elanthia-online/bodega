@@ -43,10 +43,18 @@ class RemovedEngine {
         });
 
         // Pagination controls
-        document.getElementById('prev-page').addEventListener('click', () => this.previousPage());
-        document.getElementById('next-page').addEventListener('click', () => this.nextPage());
-        document.getElementById('prev-page-top').addEventListener('click', () => this.previousPage());
-        document.getElementById('next-page-top').addEventListener('click', () => this.nextPage());
+        document.getElementById('prev-page').addEventListener('click', () => {
+            if (this.isActiveMode()) this.previousPage();
+        });
+        document.getElementById('next-page').addEventListener('click', () => {
+            if (this.isActiveMode()) this.nextPage();
+        });
+        document.getElementById('prev-page-top').addEventListener('click', () => {
+            if (this.isActiveMode()) this.previousPage();
+        });
+        document.getElementById('next-page-top').addEventListener('click', () => {
+            if (this.isActiveMode()) this.nextPage();
+        });
     }
 
     debounce(func, wait) {
@@ -317,6 +325,11 @@ class RemovedEngine {
 
         resultsCount.textContent = `${this.filteredItems.length} removed items found`;
         pageInfo.textContent = '';
+    }
+
+    isActiveMode() {
+        const removedMode = document.getElementById('removed-mode');
+        return removedMode && removedMode.style.display !== 'none';
     }
 
     showItemDetails(item) {

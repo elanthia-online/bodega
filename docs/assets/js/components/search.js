@@ -126,22 +126,22 @@ class SearchEngine {
 
         // Table header sorting removed - using sidebar sorting only
 
-        // Pagination - Bottom controls
+        // Pagination - Bottom controls (check if active mode before executing)
         document.getElementById('prev-page').addEventListener('click', () => {
-            this.previousPage();
+            if (this.isActiveMode()) this.previousPage();
         });
 
         document.getElementById('next-page').addEventListener('click', () => {
-            this.nextPage();
+            if (this.isActiveMode()) this.nextPage();
         });
 
-        // Pagination - Top controls
+        // Pagination - Top controls (check if active mode before executing)
         document.getElementById('prev-page-top').addEventListener('click', () => {
-            this.previousPage();
+            if (this.isActiveMode()) this.previousPage();
         });
 
         document.getElementById('next-page-top').addEventListener('click', () => {
-            this.nextPage();
+            if (this.isActiveMode()) this.nextPage();
         });
 
         // Modal
@@ -495,8 +495,18 @@ class SearchEngine {
             this.copyItemURL(item);
         });
 
+        const openButton = document.createElement('button');
+        openButton.className = 'url-button';
+        openButton.title = 'Open item in new tab';
+        openButton.innerHTML = '↗️';
+        openButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            this.openItemURL(item);
+        });
+
         nameContainer.appendChild(nameLink);
         nameContainer.appendChild(urlButton);
+        nameContainer.appendChild(openButton);
         nameCell.appendChild(nameContainer);
 
         // Price
@@ -852,6 +862,11 @@ class SearchEngine {
         }
     }
 
+    isActiveMode() {
+        const searchMode = document.getElementById('search-mode');
+        return searchMode && searchMode.style.display !== 'none';
+    }
+
     previousPage() {
         if (this.currentPage > 1) {
             this.currentPage--;
@@ -928,6 +943,11 @@ class SearchEngine {
         } else {
             this.fallbackCopyURL(url);
         }
+    }
+
+    openItemURL(item) {
+        const url = this.generateItemURL(item);
+        window.open(url, '_blank');
     }
 
     fallbackCopyURL(url) {

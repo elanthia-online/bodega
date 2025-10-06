@@ -43,10 +43,18 @@ class AddedEngine {
         });
 
         // Pagination controls
-        document.getElementById('prev-page').addEventListener('click', () => this.previousPage());
-        document.getElementById('next-page').addEventListener('click', () => this.nextPage());
-        document.getElementById('prev-page-top').addEventListener('click', () => this.previousPage());
-        document.getElementById('next-page-top').addEventListener('click', () => this.nextPage());
+        document.getElementById('prev-page').addEventListener('click', () => {
+            if (this.isActiveMode()) this.previousPage();
+        });
+        document.getElementById('next-page').addEventListener('click', () => {
+            if (this.isActiveMode()) this.nextPage();
+        });
+        document.getElementById('prev-page-top').addEventListener('click', () => {
+            if (this.isActiveMode()) this.previousPage();
+        });
+        document.getElementById('next-page-top').addEventListener('click', () => {
+            if (this.isActiveMode()) this.nextPage();
+        });
     }
 
     debounce(func, wait) {
@@ -463,6 +471,11 @@ class AddedEngine {
         } else {
             document.getElementById('page-info').textContent = '';
         }
+    }
+
+    isActiveMode() {
+        const addedMode = document.getElementById('added-mode');
+        return addedMode && addedMode.style.display !== 'none';
     }
 
     previousPage() {
