@@ -1,6 +1,6 @@
 {
-  "created_at": "2025-10-11 06:15:29 UTC",
-  "run_time": "04s",
+  "created_at": "2025-10-11 08:41:12 UTC",
+  "run_time": "01m 41s",
   "town": "River's Rest",
   "shops": [
     {
@@ -13112,7 +13112,7 @@
               "name": "a blood red liquid-filled vial",
               "details": {
                 "raw": [
-                  "This tiny crystalline vial contains what appears to be fake blood.",
+                  "This tiny crystalline vial contains one dose of what appears to be fake blood.",
                   "The vial can not be worn.",
                   "Analysis of a blood red liquid-filled vial indicates the creator has provided the following information:",
                   "This is a vial of fake blood for a trick dagger that makes it look as though you injure yourself.  You can EAT or SHAKE the vial.  EATing the vial will destroy it and add a temporary unique feature line of 'Blood drips from the corner of his lip.' if no other unique feature-altering items are worn.",
@@ -13430,6 +13430,47 @@
           "room_title": "Ntinly's Magic Shoppe",
           "branch": "entry",
           "items": [
+            {
+              "id": "51900544",
+              "name": "a chased platinum pendant",
+              "details": {
+                "raw": [
+                  "Analysis of a chased platinum pendant indicates the item is free from merchant alteration restrictions.",
+                  "The platinum pendant will cost 50,000 coins.",
+                  "It has 9 charges.",
+                  "It will persist after its last magical charge has been expended.",
+                  "It is estimated to be worth about 22,000 silvers.",
+                  "It is magic resistant.",
+                  "It has a permanently unlocked loresong by Vonaq."
+                ],
+                "tags": [
+                  "purpose",
+                  "small"
+                ],
+                "worn": "neck",
+                "spell": "Wizard's Shield",
+                "activator": "tapping"
+              }
+            },
+            {
+              "id": "51900494",
+              "name": "a long-necked glass jar containing uncut diamonds",
+              "details": {
+                "raw": [
+                  "It is estimated that a long-necked glass jar containing uncut diamonds can store a very small amount with enough space for one item.",
+                  "The jar can not be worn.",
+                  "Analysis of a long-necked glass jar containing uncut diamonds indicates the creator has provided the following information:",
+                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
+                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
+                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
+                  "The glass jar will cost 85,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "material": "glass, an extremely common material"
+              }
+            },
             {
               "id": "130788",
               "name": "an invar-edged imflass falchion",
@@ -14044,47 +14085,6 @@
                 "gemstone_bound_to": "Faerous",
                 "material": "gemstone, an extremely common material"
               }
-            },
-            {
-              "id": "51900544",
-              "name": "a chased platinum pendant",
-              "details": {
-                "raw": [
-                  "Analysis of a chased platinum pendant indicates the item is free from merchant alteration restrictions.",
-                  "The platinum pendant will cost 50,000 coins.",
-                  "It has 9 charges.",
-                  "It will persist after its last magical charge has been expended.",
-                  "It is estimated to be worth about 22,000 silvers.",
-                  "It is magic resistant.",
-                  "It has a permanently unlocked loresong by Vonaq."
-                ],
-                "tags": [
-                  "purpose",
-                  "small"
-                ],
-                "worn": "neck",
-                "spell": "Wizard's Shield",
-                "activator": "tapping"
-              }
-            },
-            {
-              "id": "51900494",
-              "name": "a long-necked glass jar containing uncut diamonds",
-              "details": {
-                "raw": [
-                  "It is estimated that a long-necked glass jar containing uncut diamonds can store a very small amount with enough space for one item.",
-                  "The jar can not be worn.",
-                  "Analysis of a long-necked glass jar containing uncut diamonds indicates the creator has provided the following information:",
-                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
-                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
-                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
-                  "The glass jar will cost 85,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "material": "glass, an extremely common material"
-              }
             }
           ]
         }
@@ -14601,7 +14601,17 @@
                 ],
                 "weight": 8
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on an ornate tile sign:",
+            "You buy, yes?"
+          ]
+        },
+        {
+          "room_title": "Tshiva's Magic Shoppe",
+          "branch": "north",
+          "items": [
             {
               "id": "50828073",
               "name": "a gold and star ruby bracelet",
@@ -14645,89 +14655,6 @@
                 ]
               }
             },
-            {
-              "id": "50828082",
-              "name": "a diamond-set sterling silver ring",
-              "details": {
-                "raw": [
-                  "Analysis of a diamond-set sterling silver ring indicates the item is free from merchant alteration restrictions.",
-                  "The sterling silver ring will cost 650,000 coins.",
-                  "It is an enhancive item:",
-                  "    It seems to have a lot of enhancive charges remaining.",
-                  "It will crumble into dust after its last enhancive charge has been expended.",
-                  "It is estimated to be worth about 200,000 silvers.",
-                  "It is magic resistant.",
-                  "It has a permanently unlocked loresong by Vonaq."
-                ],
-                "tags": [
-                  "purpose",
-                  "small"
-                ],
-                "worn": "finger",
-                "enhancives": [
-                  {
-                    "boost": 14,
-                    "ability": "Climbing Bonus"
-                  },
-                  {
-                    "boost": 8,
-                    "ability": "Logic Base"
-                  },
-                  {
-                    "boost": 3,
-                    "ability": "Arcane Symbols Bonus"
-                  }
-                ]
-              }
-            },
-            {
-              "id": "53119394",
-              "name": "an oval-cut star ruby necklace",
-              "details": {
-                "raw": [
-                  "Analysis of an oval-cut star ruby necklace indicates the item is free from merchant alteration restrictions.",
-                  "The star ruby necklace will cost 2,999,999 coins.",
-                  "It has 0 charges.  It is rechargeable.",
-                  "It will disintegrate after its last magical charge has been expended.",
-                  "It is an enhancive item:",
-                  "    It seems to have a lot of enhancive charges remaining.",
-                  "It will crumble into dust after its last enhancive charge has been expended.",
-                  "It is estimated to be worth about 250,000 silvers.",
-                  "It has a permanently unlocked loresong by Dayzed."
-                ],
-                "tags": [
-                  "purpose",
-                  "imbeddable",
-                  "small"
-                ],
-                "worn": "neck",
-                "activator": "waving",
-                "enhancives": [
-                  {
-                    "boost": 8,
-                    "ability": "Two-Handed Weapons Bonus"
-                  },
-                  {
-                    "boost": 6,
-                    "ability": "Shield Use Bonus"
-                  },
-                  {
-                    "boost": 4,
-                    "ability": "Stamina Recovery"
-                  }
-                ]
-              }
-            }
-          ],
-          "sign": [
-            "Written on an ornate tile sign:",
-            "You buy, yes?"
-          ]
-        },
-        {
-          "room_title": "Tshiva's General Store",
-          "branch": "north",
-          "items": [
             {
               "id": "131224",
               "name": "an amethyst studded mithril necklace",
@@ -15058,6 +14985,79 @@
           "room_title": "Tshiva's Magic Shoppe",
           "branch": "east",
           "items": [
+            {
+              "id": "53119394",
+              "name": "an oval-cut star ruby necklace",
+              "details": {
+                "raw": [
+                  "Analysis of an oval-cut star ruby necklace indicates the item is free from merchant alteration restrictions.",
+                  "The star ruby necklace will cost 2,999,999 coins.",
+                  "It has 0 charges.  It is rechargeable.",
+                  "It will disintegrate after its last magical charge has been expended.",
+                  "It is an enhancive item:",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It will crumble into dust after its last enhancive charge has been expended.",
+                  "It is estimated to be worth about 250,000 silvers.",
+                  "It has a permanently unlocked loresong by Dayzed."
+                ],
+                "tags": [
+                  "purpose",
+                  "imbeddable",
+                  "small"
+                ],
+                "worn": "neck",
+                "activator": "waving",
+                "enhancives": [
+                  {
+                    "boost": 8,
+                    "ability": "Two-Handed Weapons Bonus"
+                  },
+                  {
+                    "boost": 6,
+                    "ability": "Shield Use Bonus"
+                  },
+                  {
+                    "boost": 4,
+                    "ability": "Stamina Recovery"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "50828082",
+              "name": "a diamond-set sterling silver ring",
+              "details": {
+                "raw": [
+                  "Analysis of a diamond-set sterling silver ring indicates the item is free from merchant alteration restrictions.",
+                  "The sterling silver ring will cost 650,000 coins.",
+                  "It is an enhancive item:",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It will crumble into dust after its last enhancive charge has been expended.",
+                  "It is estimated to be worth about 200,000 silvers.",
+                  "It is magic resistant.",
+                  "It has a permanently unlocked loresong by Vonaq."
+                ],
+                "tags": [
+                  "purpose",
+                  "small"
+                ],
+                "worn": "finger",
+                "enhancives": [
+                  {
+                    "boost": 14,
+                    "ability": "Climbing Bonus"
+                  },
+                  {
+                    "boost": 8,
+                    "ability": "Logic Base"
+                  },
+                  {
+                    "boost": 3,
+                    "ability": "Arcane Symbols Bonus"
+                  }
+                ]
+              }
+            },
             {
               "id": "17337114",
               "name": "a timeworn location swatch",
