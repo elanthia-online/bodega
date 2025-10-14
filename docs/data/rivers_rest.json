@@ -1,6 +1,6 @@
 {
-  "created_at": "2025-10-14 06:18:20 UTC",
-  "run_time": "03s",
+  "created_at": "2025-10-14 08:50:08 UTC",
+  "run_time": "02m 03s",
   "town": "River's Rest",
   "shops": [
     {
@@ -813,7 +813,7 @@
       "id": "2",
       "inv": [
         {
-          "room_title": "Aldean's Weaponry",
+          "room_title": "Sythril's General Store",
           "branch": "entry",
           "items": [
 
@@ -821,6 +821,20 @@
           "sign": [
             "Written on an oak plank sign:",
             "The spiral-carved slender orase staff is a wand-holding staff."
+          ]
+        },
+        {
+          "room_title": "Sythril's General Store",
+          "branch": "northeast",
+          "items": [
+
+          ]
+        },
+        {
+          "room_title": "Sythril's General Store",
+          "branch": "northwest",
+          "items": [
+
           ]
         }
       ]
@@ -13672,7 +13686,17 @@
                 ],
                 "weight": 8
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on an ornate tile sign:",
+            "You buy, yes?"
+          ]
+        },
+        {
+          "room_title": "Tshiva's Combat Gear",
+          "branch": "north",
+          "items": [
             {
               "id": "110732457",
               "name": "some etched mithril studded leather",
@@ -13712,24 +13736,14 @@
                 ],
                 "weight": 18
               }
-            }
-          ],
-          "sign": [
-            "Written on an ornate tile sign:",
-            "You buy, yes?"
-          ]
-        },
-        {
-          "room_title": "Tshiva's Magic Shoppe",
-          "branch": "north",
-          "items": [
+            },
             {
               "id": "50828073",
               "name": "a gold and star ruby bracelet",
               "details": {
                 "raw": [
                   "Analysis of a gold and star ruby bracelet indicates the item is free from merchant alteration restrictions.",
-                  "The star ruby bracelet will cost 7,999,999 coins.",
+                  "The star ruby bracelet will cost 8,999,999 coins.",
                   "It has 0 charges.",
                   "It will persist after its last magical charge has been expended.",
                   "It is an enhancive item:",
@@ -14063,12 +14077,83 @@
           "branch": "east",
           "items": [
             {
+              "id": "131214",
+              "name": "a polished glaes helm",
+              "details": {
+                "raw": [
+                  "The helm is miscellaneous armor that covers the head.",
+                  "Analysis of a polished glaes helm indicates the item is free from merchant alteration restrictions.",
+                  "The glaes helm will cost 749,999 coins.",
+                  "It is an enhancive item:",
+                  "    It seems to have more than your average dwarf could count enhancive charges remaining.",
+                  "It is estimated to be worth about 1,450,000 silvers.",
+                  "It is temporarily padded to lessen the damage the wearer takes, but exactly how much requires assessment.  Its temporary enhancement will degrade when the wearer is struck in combat.  It has quite a few uses left before the enhancement degrades away completely, which will cause the item to lose its ability to grant greater protection.",
+                  "It is predominantly crafted of glaes.",
+                  "It is a basic project (166 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Basoon."
+                ],
+                "tags": [
+                  "purpose",
+                  "lightenable",
+                  "persists"
+                ],
+                "worn": "head",
+                "material": "glaes, a rare metal",
+                "enhancives": [
+                  {
+                    "boost": 9,
+                    "ability": "Two Weapon Combat Bonus"
+                  }
+                ],
+                "weight": 4
+              }
+            },
+            {
+              "id": "131215",
+              "name": "an elegant dragonfire opal pendant",
+              "details": {
+                "raw": [
+                  "Analysis of an elegant dragonfire opal pendant indicates the item is free from merchant alteration restrictions.",
+                  "The dragonfire opal pendant will cost 400,000 coins.",
+                  "It has 0 charges.  It is rechargeable.",
+                  "It will disintegrate after its last magical charge has been expended.",
+                  "It is an enhancive item:",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It will crumble into dust after its last enhancive charge has been expended.",
+                  "It is estimated to be worth about 300,000 silvers.",
+                  "It has a permanently unlocked loresong by Vonaq."
+                ],
+                "tags": [
+                  "purpose",
+                  "holy",
+                  "imbeddable",
+                  "small"
+                ],
+                "worn": "neck",
+                "activator": "waving",
+                "enhancives": [
+                  {
+                    "boost": 5,
+                    "ability": "Spiritual Lore - Blessings Bonus"
+                  },
+                  {
+                    "boost": 8,
+                    "ability": "Harness Power Bonus"
+                  },
+                  {
+                    "boost": 1,
+                    "ability": "Discipline Bonus"
+                  }
+                ]
+              }
+            },
+            {
               "id": "74743133",
               "name": "a marquise-cut pink tourmaline band",
               "details": {
                 "raw": [
                   "Analysis of a marquise-cut pink tourmaline band indicates the item is free from merchant alteration restrictions.",
-                  "The pink tourmaline band will cost 1,000,000 coins.",
+                  "The pink tourmaline band will cost 850,000 coins.",
                   "It has 0 charges.",
                   "It will disintegrate after its last magical charge has been expended.",
                   "It is an enhancive item:",
@@ -14480,77 +14565,6 @@
                   }
                 ],
                 "weight": 4
-              }
-            },
-            {
-              "id": "131214",
-              "name": "a polished glaes helm",
-              "details": {
-                "raw": [
-                  "The helm is miscellaneous armor that covers the head.",
-                  "Analysis of a polished glaes helm indicates the item is free from merchant alteration restrictions.",
-                  "The glaes helm will cost 800,000 coins.",
-                  "It is an enhancive item:",
-                  "    It seems to have more than your average dwarf could count enhancive charges remaining.",
-                  "It is estimated to be worth about 1,450,000 silvers.",
-                  "It is temporarily padded to lessen the damage the wearer takes, but exactly how much requires assessment.  Its temporary enhancement will degrade when the wearer is struck in combat.  It has quite a few uses left before the enhancement degrades away completely, which will cause the item to lose its ability to grant greater protection.",
-                  "It is predominantly crafted of glaes.",
-                  "It is a basic project (166 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by Basoon."
-                ],
-                "tags": [
-                  "purpose",
-                  "lightenable",
-                  "persists"
-                ],
-                "worn": "head",
-                "material": "glaes, a rare metal",
-                "enhancives": [
-                  {
-                    "boost": 9,
-                    "ability": "Two Weapon Combat Bonus"
-                  }
-                ],
-                "weight": 4
-              }
-            },
-            {
-              "id": "131215",
-              "name": "an elegant dragonfire opal pendant",
-              "details": {
-                "raw": [
-                  "Analysis of an elegant dragonfire opal pendant indicates the item is free from merchant alteration restrictions.",
-                  "The dragonfire opal pendant will cost 500,000 coins.",
-                  "It has 0 charges.  It is rechargeable.",
-                  "It will disintegrate after its last magical charge has been expended.",
-                  "It is an enhancive item:",
-                  "    It seems to have a lot of enhancive charges remaining.",
-                  "It will crumble into dust after its last enhancive charge has been expended.",
-                  "It is estimated to be worth about 300,000 silvers.",
-                  "It has a permanently unlocked loresong by Vonaq."
-                ],
-                "tags": [
-                  "purpose",
-                  "holy",
-                  "imbeddable",
-                  "small"
-                ],
-                "worn": "neck",
-                "activator": "waving",
-                "enhancives": [
-                  {
-                    "boost": 5,
-                    "ability": "Spiritual Lore - Blessings Bonus"
-                  },
-                  {
-                    "boost": 8,
-                    "ability": "Harness Power Bonus"
-                  },
-                  {
-                    "boost": 1,
-                    "ability": "Discipline Bonus"
-                  }
-                ]
               }
             },
             {
