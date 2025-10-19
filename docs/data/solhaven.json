@@ -1,6 +1,6 @@
 {
-  "created_at": "2025-10-19 06:16:56 UTC",
-  "run_time": "13s",
+  "created_at": "2025-10-19 08:44:51 UTC",
+  "run_time": "07m 34s",
   "town": "Solhaven",
   "shops": [
     {
@@ -2235,13 +2235,13 @@
               "name": "a gnome travel brochure",
               "details": {
                 "raw": [
-                  "   Current Time: 04:33   Current Flight Schedule",
+                  "   Current Time: 04:37   Current Flight Schedule",
                   "   Depart| From                    | To                      |Arrive",
                   "    -----+-------------------------+-------------------------+------",
                   "    22:46|Gnome Homeland           |Gnome Homeland           |22:46",
                   "    ---------------------------------------------------------------",
                   "Times be estimates only!  Subject ta change by headwinds an' tailwinds an' sidewinds an' stuff!  Deal wit' it!",
-                  "   Current Time: 04:33   Current Flight Schedule",
+                  "   Current Time: 04:37   Current Flight Schedule",
                   "   Depart| From                    | To                      |Arrive",
                   "    -----+-------------------------+-------------------------+------",
                   "    22:46|Gnome Homeland           |Gnome Homeland           |22:46",
@@ -4052,6 +4052,42 @@
           "branch": "entry",
           "items": [
             {
+              "id": "202171704",
+              "name": "a scratched ora greathelm",
+              "details": {
+                "raw": [
+                  "The greathelm is miscellaneous armor that covers the head and neck.",
+                  "Analysis of a scratched ora greathelm indicates the item is free from merchant alteration restrictions.",
+                  "The ora greathelm will cost 500,000 coins.",
+                  "It is an enhancive item:",
+                  "    It seems to have quite a few enhancive charges remaining.",
+                  "It is temporarily and moderately resistant (18%) to fiery attacks, provided by a temporary enhancement and will degrade when the wearer is struck in combat.  It has an incredible amount of uses left before the enhancement degrades away completely, which will cause the item to simply return to normal.",
+                  "It is estimated to be worth about 200,000 silvers.",
+                  "It is predominantly crafted of ora.",
+                  "It is a simple project (17 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Jaskier."
+                ],
+                "tags": [
+                  "purpose",
+                  "lightenable",
+                  "persists"
+                ],
+                "worn": "head",
+                "material": "ora, an uncommon metal",
+                "enhancives": [
+                  {
+                    "boost": 7,
+                    "ability": "Combat Maneuvers Bonus"
+                  },
+                  {
+                    "boost": 7,
+                    "ability": "Stalking and Hiding Bonus"
+                  }
+                ],
+                "weight": 4
+              }
+            },
+            {
               "id": "103041119",
               "name": "a shimmering blue orb",
               "details": {
@@ -4827,42 +4863,6 @@
                   {
                     "boost": 8,
                     "ability": "Harness Power Bonus"
-                  }
-                ],
-                "weight": 4
-              }
-            },
-            {
-              "id": "202171704",
-              "name": "a scratched ora greathelm",
-              "details": {
-                "raw": [
-                  "The greathelm is miscellaneous armor that covers the head and neck.",
-                  "Analysis of a scratched ora greathelm indicates the item is free from merchant alteration restrictions.",
-                  "The ora greathelm will cost 500,000 coins.",
-                  "It is an enhancive item:",
-                  "    It seems to have quite a few enhancive charges remaining.",
-                  "It is temporarily and moderately resistant (18%) to fiery attacks, provided by a temporary enhancement and will degrade when the wearer is struck in combat.  It has an incredible amount of uses left before the enhancement degrades away completely, which will cause the item to simply return to normal.",
-                  "It is estimated to be worth about 200,000 silvers.",
-                  "It is predominantly crafted of ora.",
-                  "It is a simple project (17 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by Jaskier."
-                ],
-                "tags": [
-                  "purpose",
-                  "lightenable",
-                  "persists"
-                ],
-                "worn": "head",
-                "material": "ora, an uncommon metal",
-                "enhancives": [
-                  {
-                    "boost": 7,
-                    "ability": "Combat Maneuvers Bonus"
-                  },
-                  {
-                    "boost": 7,
-                    "ability": "Stalking and Hiding Bonus"
                   }
                 ],
                 "weight": 4
@@ -18155,6 +18155,10 @@
               "details": {
                 "raw": [
                   "The glue can not be worn.",
+                  "Analysis of a tiny vial of glue indicates the creator has provided the following information:",
+                  "This is a small supply of skin glue that can be POURed to temporarily glue a gem to your forehead that is visible when other people look at you.",
+                  "  It currently has 1 charges left.",
+                  "  This glue is super glue, which will leave gems on until removed.",
                   "The vial of glue will cost 300,000 coins."
                 ],
                 "tags": [
@@ -26500,7 +26504,7 @@
               "name": "a tiny nacreous humanoid skeleton with bat wings and a scorpion tail",
               "details": {
                 "raw": [
-                  "You glance at the nacreous skeleton, wondering if it's possibly sideways.  Or upside down.  Or backwards.  It's really confusing you!",
+                  "Are those eyes peering back at you?!  Oh, no.  It's just a tiny nacreous humanoid skeleton with bat wings and a scorpion tail.",
                   "Analysis of a tiny nacreous humanoid skeleton with bat wings and a scorpion tail indicates the creator has provided the following information:",
                   "This item's description/base/look may not be altered in any way.",
                   "Available verbs: PEER, GAZE, RUB, STARE, TAP",
@@ -54341,7 +54345,17 @@
                   }
                 ]
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on an oak-framed parchment sign:",
+            "Nucky's Stuff. High level MIU/AS/SMC enhancives to help you with sanctifying or standard making. Raise your bonus up and cast a P3 like a real Pally!"
+          ]
+        },
+        {
+          "room_title": "Nucky's Outfitting",
+          "branch": "east",
+          "items": [
             {
               "id": "199646261",
               "name": "a hammered gold earring",
@@ -54371,17 +54385,7 @@
                   }
                 ]
               }
-            }
-          ],
-          "sign": [
-            "Written on an oak-framed parchment sign:",
-            "Nucky's Stuff. High level MIU/AS/SMC enhancives to help you with sanctifying or standard making. Raise your bonus up and cast a P3 like a real Pally!"
-          ]
-        },
-        {
-          "room_title": "Nucky's Outfitting",
-          "branch": "east",
-          "items": [
+            },
             {
               "id": "118652",
               "name": "an old imflass helm",
@@ -54715,7 +54719,7 @@
                 "raw": [
                   "The greaves is miscellaneous armor that covers the legs.",
                   "Analysis of some glaes leg greaves indicates the item is free from merchant alteration restrictions.",
-                  "The glaes leg greaves will cost 8,000,000 coins.",
+                  "The glaes leg greaves will cost 2,000,000 coins.",
                   "It is an enhancive item:",
                   "    It seems to have a lot of enhancive charges remaining.",
                   "It is temporarily and moderately resistant (12%) to frigid attacks, provided by a temporary enhancement and will degrade when the wearer is struck in combat.  It has an incredible amount of uses left before the enhancement degrades away completely, which will cause the item to simply return to normal.",
@@ -57987,7 +57991,7 @@
       "id": "52",
       "inv": [
         {
-          "room_title": "Relicor's Outfitting",
+          "room_title": "Relicor's General Store",
           "branch": "entry",
           "items": [
             {
@@ -58142,21 +58146,6 @@
                 ],
                 "worn": "cloak",
                 "material": "leather, an extremely common material"
-              }
-            },
-            {
-              "id": "852467",
-              "name": "a grey-veined blue mithril lockpick suspended from a braided leather wristband",
-              "details": {
-                "raw": [
-                  "Analysis of a grey-veined blue mithril lockpick suspended from a braided leather wristband indicates the item is free from merchant alteration restrictions.",
-                  "The mithril lockpick will cost 1,500 coins."
-                ],
-                "tags": [
-
-                ],
-                "worn": "wrist",
-                "material": "mithril, an uncommon metal"
               }
             },
             {
