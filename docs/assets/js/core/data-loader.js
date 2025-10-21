@@ -427,11 +427,13 @@ class DataLoader {
                 }
             }
 
-            // Flare parsing
-            if (line.match(/infused.*power/i) ||
-                line.match(/flare/i) ||
-                line.match(/holy.*fire/i) ||
-                line.match(/blessed.*undead/i)) {
+            // Flare parsing - be more specific to avoid matching gemstone descriptions
+            // Skip lines that start with "Description:" (gemstone properties)
+            if (!line.match(/^Description:/i) &&
+                (line.match(/infused.*power/i) ||
+                 line.match(/\b(fire|ice|lightning|vacuum|impact|acid|plasma|steam|grapple|unbalance|disrupt|disruption)\s+flares?\b/i) ||
+                 line.match(/holy.*fire/i) ||
+                 line.match(/blessed.*undead/i))) {
                 properties.flares.push(line.trim());
             }
 
