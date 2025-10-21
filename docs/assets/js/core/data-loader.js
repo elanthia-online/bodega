@@ -182,12 +182,35 @@ class DataLoader {
                         if (processedItem) {
                             this.allItems.push(processedItem);
 
-                            // Check if item was added using added_items.json
-                            if (addedItemsData && addedItemsData[item.id]) {
-                                const itemAddedDate = addedItemsData[item.id];
-                                const addedItem = Object.assign({}, processedItem);
-                                addedItem.addedDate = itemAddedDate;
-                                this.addedItems.push(addedItem);
+                            // Check if item was added using added_items.json (hash-based lookup)
+                            if (addedItemsData) {
+                                // Extract price from item details
+                                let price = 0;
+                                if (item.details?.cost) {
+                                    price = item.details.cost;
+                                } else if (item.details?.raw) {
+                                    const priceLine = item.details.raw.find(line => line.includes('will cost') && line.includes('coins'));
+                                    if (priceLine) {
+                                        const match = priceLine.match(/will cost ([\d,]+) coins/);
+                                        if (match) {
+                                            price = parseInt(match[1].replace(/,/g, ''));
+                                        }
+                                    }
+                                }
+
+                                const itemSignature = this.createItemSignature(
+                                    townData.town,
+                                    shop.preamble,
+                                    item.name,
+                                    price
+                                );
+
+                                if (addedItemsData[itemSignature]) {
+                                    const itemAddedDate = addedItemsData[itemSignature];
+                                    const addedItem = Object.assign({}, processedItem);
+                                    addedItem.addedDate = itemAddedDate;
+                                    this.addedItems.push(addedItem);
+                                }
                             }
                         }
                     });
@@ -329,6 +352,7 @@ class DataLoader {
             isShield: false,
             isContainer: false,
             isJewelry: false,
+            isGemstone: false,
             charges: null,
             spell: null,
             blessing: null
@@ -431,6 +455,12 @@ class DataLoader {
                 properties.itemType = 'jewelry';
             }
 
+            // Gemstone detection - look for gem/jewel/gemstone keywords
+            if (line.match(/\b(gem|jewel|gemstone|stone)\b/i) ||
+                line.match(/\b(diamond|ruby|sapphire|emerald|pearl|opal|garnet|topaz|amethyst|turquoise|jade|onyx|quartz|crystal)\b/i)) {
+                properties.isGemstone = true;
+            }
+
             // Container detection - only if it has storage capacity
             if (line.match(/can store.*amount/i) ||
                 line.match(/container.*capacity/i) ||
@@ -481,15 +511,21 @@ class DataLoader {
             }
         }
 
+        // Check for gemstone properties from the parser
+        if (item.details?.gemstone_properties && item.details.gemstone_properties.length > 0) {
+            properties.isGemstone = true;
+        }
+
         // Determine primary item type with proper priority
         if (!properties.itemType) {
-            // Priority order: Weapon > Armor > Shield > Container > Jewelry > Misc
+            // Priority order: Weapon > Armor > Shield > Container > Jewelry > Gemstone > Misc
             // Weapons and armor should take precedence over container classification
             if (properties.isWeapon) properties.itemType = 'weapon';
             else if (properties.isArmor) properties.itemType = 'armor';
             else if (properties.isShield) properties.itemType = 'shield';
             else if (properties.isContainer) properties.itemType = 'container';
             else if (properties.isJewelry) properties.itemType = 'jewelry';
+            else if (properties.isGemstone) properties.itemType = 'gemstone';
             // No default itemType assignment
         }
 
@@ -553,6 +589,36 @@ class DataLoader {
         ];
 
         return parts.join(' ').toLowerCase();
+    }
+
+    createItemSignature(town, shopPreamble, itemName, price) {
+        // Create item signature matching Ruby's safe_string logic
+        // This must match the format in bodega.lic Utils.create_item_signature
+        // Using shop_name (extracted from preamble) because shop_id changes during server reboots
+        const safeTown = this.safeString(town);
+        const safeShop = this.safeString(this.extractShopNameFromPreamble(shopPreamble));
+        const safeItem = (itemName || '').toLowerCase().trim();
+        const safePrice = (price || 0).toString();
+
+        return `${safeTown}:${safeShop}:${safeItem}:${safePrice}`;
+    }
+
+    safeString(text) {
+        // Match Ruby's safe_string function
+        return (text || '')
+            .toString()
+            .toLowerCase()
+            .replace(/ta'/g, 'ta_')
+            .replace(/['",]/g, '')
+            .replace(/[-\s]/g, '_');
+    }
+
+    extractShopNameFromPreamble(preamble) {
+        // Extract shop name from preamble like "Starsworn's Shop is located in..."
+        if (!preamble) return 'unknown';
+        const match = preamble.match(/^(.*?)'s?\s+Shop\s+is\s+located/i) ||
+                     preamble.match(/^(.*?)\s+is\s+located/i);
+        return match ? match[1].trim() : 'unknown';
     }
 
     updateStats() {

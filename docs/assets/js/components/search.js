@@ -344,8 +344,8 @@ class SearchEngine {
             let matchesType = false;
             for (const type of filters.itemTypes) {
                 if (type === 'gemstone') {
-                    // For gemstone filter, check if item has gemstone properties
-                    if (item.gemstoneProperties && item.gemstoneProperties.length > 0) {
+                    // For gemstone filter, check if item has gemstone properties or itemType is gemstone
+                    if ((item.gemstoneProperties && item.gemstoneProperties.length > 0) || item.itemType === 'gemstone') {
                         matchesType = true;
                         break;
                     }
@@ -404,6 +404,12 @@ class SearchEngine {
                 if (prop === 'holy' && !item.blessing) return false;
                 if (prop === 'max_light' && (!item.tags || !item.tags.includes('max_light'))) return false;
                 if (prop === 'max_deep' && (!item.tags || !item.tags.includes('max_deep'))) return false;
+                if (prop === 'chrism') {
+                    // Chrism detection: price 1k-20k AND "But you are not holding" in raw text
+                    const priceInRange = item.price >= 1000 && item.price <= 20000;
+                    const hasNotHoldingText = item.raw && item.raw.some(line => line.includes('But you are not holding'));
+                    if (!priceInRange || !hasNotHoldingText) return false;
+                }
             }
         }
 
