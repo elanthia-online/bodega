@@ -639,10 +639,10 @@ class BrowseEngine {
 
         const nameCell = document.createElement('td');
         nameCell.className = 'item-name';
-        nameCell.innerHTML = `
-            <span class="name">${item.name}</span>
-            ${item.enchant > 0 ? `<span class="enchant">+${item.enchant}</span>` : ''}
-        `;
+        const nameSpan = document.createElement('span');
+        nameSpan.className = 'name';
+        nameSpan.textContent = item.name;
+        nameCell.appendChild(nameSpan);
 
         const priceCell = document.createElement('td');
         priceCell.className = 'item-price';
@@ -683,6 +683,14 @@ class BrowseEngine {
             container.appendChild(tag);
         }
 
+        // Enchant tag
+        if (item.enchant) {
+            const tag = document.createElement('span');
+            tag.className = 'property-tag';
+            tag.textContent = `+${item.enchant}`;
+            container.appendChild(tag);
+        }
+
         // Gemstone rarity tags
         if (item.gemstoneProperties && item.gemstoneProperties.length > 0) {
             const rarityOrder = ['regional', 'common', 'rare', 'legendary'];
@@ -707,11 +715,51 @@ class BrowseEngine {
         }
 
         // Capacity tag
-        if (item.capacity) {
+        if (item.capacityLevel) {
             const tag = document.createElement('span');
             tag.className = 'property-tag special';
-            tag.textContent = `${item.capacityLevel.charAt(0).toUpperCase() + item.capacityLevel.slice(1)}`;
+            tag.textContent = item.capacityLevel.charAt(0).toUpperCase() + item.capacityLevel.slice(1);
             container.appendChild(tag);
+        }
+
+        // Armor/Weapon/Shield type
+        if (item.armorType) {
+            const tag = document.createElement('span');
+            tag.className = 'property-tag';
+            tag.textContent = item.armorType.charAt(0).toUpperCase() + item.armorType.slice(1);
+            container.appendChild(tag);
+        }
+
+        if (item.weaponType) {
+            const tag = document.createElement('span');
+            tag.className = 'property-tag';
+            tag.textContent = item.weaponType.charAt(0).toUpperCase() + item.weaponType.slice(1);
+            container.appendChild(tag);
+        }
+
+        if (item.shieldType) {
+            const tag = document.createElement('span');
+            tag.className = 'property-tag';
+            tag.textContent = item.shieldType.charAt(0).toUpperCase() + item.shieldType.slice(1);
+            container.appendChild(tag);
+        }
+
+        // Skill required (but don't duplicate weapon type)
+        if (item.skill && (!item.weaponType || item.skill !== item.weaponType)) {
+            const tag = document.createElement('span');
+            tag.className = 'property-tag';
+            tag.textContent = item.skill.charAt(0).toUpperCase() + item.skill.slice(1);
+            container.appendChild(tag);
+        }
+
+        // Enhancives
+        if (item.enhancives && item.enhancives.length > 0) {
+            item.enhancives.forEach(enh => {
+                const tag = document.createElement('span');
+                tag.className = 'property-tag enhancive';
+                tag.textContent = `+${enh.boost} ${enh.ability}`;
+                container.appendChild(tag);
+            });
         }
 
         // Flares tag
@@ -744,6 +792,19 @@ class BrowseEngine {
             tag.className = 'property-tag special';
             tag.textContent = 'Holy';
             container.appendChild(tag);
+        }
+
+        // Special tags (max_light, max_deep, persists, crumbly, holy)
+        if (item.tags && item.tags.length > 0) {
+            const specialTags = ['max_light', 'max_deep', 'persists', 'crumbly', 'holy'];
+            item.tags.forEach(tag => {
+                if (specialTags.includes(tag)) {
+                    const tagEl = document.createElement('span');
+                    tagEl.className = 'property-tag special';
+                    tagEl.textContent = tag.replace('_', ' ');
+                    container.appendChild(tagEl);
+                }
+            });
         }
 
         return container;
