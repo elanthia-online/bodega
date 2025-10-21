@@ -455,12 +455,6 @@ class DataLoader {
                 properties.itemType = 'jewelry';
             }
 
-            // Gemstone detection - look for gem/jewel/gemstone keywords
-            if (line.match(/\b(gem|jewel|gemstone|stone)\b/i) ||
-                line.match(/\b(diamond|ruby|sapphire|emerald|pearl|opal|garnet|topaz|amethyst|turquoise|jade|onyx|quartz|crystal)\b/i)) {
-                properties.isGemstone = true;
-            }
-
             // Container detection - only if it has storage capacity
             if (line.match(/can store.*amount/i) ||
                 line.match(/container.*capacity/i) ||
