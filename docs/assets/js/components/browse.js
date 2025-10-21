@@ -637,18 +637,34 @@ class BrowseEngine {
         const row = document.createElement('tr');
         row.className = 'item-row';
 
-        const properties = this.formatItemProperties(item);
-
-        row.innerHTML = `
-            <td class="item-name">
-                <span class="name">${item.name}</span>
-                ${item.enchant > 0 ? `<span class="enchant">+${item.enchant}</span>` : ''}
-            </td>
-            <td class="item-price">${this.formatPrice(item.price)}</td>
-            <td class="item-properties">${properties}</td>
-            <td class="item-town">${item.town}</td>
-            <td class="item-shop">${item.shopName}</td>
+        const nameCell = document.createElement('td');
+        nameCell.className = 'item-name';
+        nameCell.innerHTML = `
+            <span class="name">${item.name}</span>
+            ${item.enchant > 0 ? `<span class="enchant">+${item.enchant}</span>` : ''}
         `;
+
+        const priceCell = document.createElement('td');
+        priceCell.className = 'item-price';
+        priceCell.textContent = this.formatPrice(item.price);
+
+        const propsCell = document.createElement('td');
+        propsCell.className = 'item-properties';
+        propsCell.appendChild(this.createPropertiesElement(item));
+
+        const townCell = document.createElement('td');
+        townCell.className = 'item-town';
+        townCell.textContent = item.town;
+
+        const shopCell = document.createElement('td');
+        shopCell.className = 'item-shop';
+        shopCell.textContent = item.shopName;
+
+        row.appendChild(nameCell);
+        row.appendChild(priceCell);
+        row.appendChild(propsCell);
+        row.appendChild(townCell);
+        row.appendChild(shopCell);
 
         // Add click handler for item details
         row.addEventListener('click', () => this.showItemDetails(item));
@@ -656,14 +672,18 @@ class BrowseEngine {
         return row;
     }
 
-    formatItemProperties(item) {
-        const props = [];
+    createPropertiesElement(item) {
+        const container = document.createElement('div');
 
+        // Item type tag
         if (item.itemType) {
-            props.push(item.itemType);
+            const tag = document.createElement('span');
+            tag.className = 'property-tag';
+            tag.textContent = item.itemType.charAt(0).toUpperCase() + item.itemType.slice(1);
+            container.appendChild(tag);
         }
 
-        // Add gemstone rarities
+        // Gemstone rarity tags
         if (item.gemstoneProperties && item.gemstoneProperties.length > 0) {
             const rarityOrder = ['regional', 'common', 'rare', 'legendary'];
             const rarities = new Set();
@@ -675,31 +695,58 @@ class BrowseEngine {
                 }
             });
 
-            // Add rarities in the correct order
+            // Add rarity tags in the correct order
             rarityOrder.forEach(rarity => {
                 if (rarities.has(rarity)) {
-                    props.push(rarity);
+                    const rarityTag = document.createElement('span');
+                    rarityTag.className = `property-tag rarity rarity-${rarity}`;
+                    rarityTag.textContent = rarity.charAt(0).toUpperCase() + rarity.slice(1);
+                    container.appendChild(rarityTag);
                 }
             });
         }
 
+        // Capacity tag
         if (item.capacity) {
-            props.push(`${item.capacityLevel} capacity`);
-        }
-        if (item.flares && item.flares.length > 0) {
-            props.push(`${item.flares.join(', ')} flares`);
-        }
-        if (item.spell) {
-            props.push('spell');
-        }
-        if (item.isEnhancive) {
-            props.push('enhancive');
-        }
-        if (item.blessing) {
-            props.push(item.blessing);
+            const tag = document.createElement('span');
+            tag.className = 'property-tag special';
+            tag.textContent = `${item.capacityLevel.charAt(0).toUpperCase() + item.capacityLevel.slice(1)}`;
+            container.appendChild(tag);
         }
 
-        return props.join(', ');
+        // Flares tag
+        if (item.flares && item.flares.length > 0) {
+            const tag = document.createElement('span');
+            tag.className = 'property-tag special';
+            tag.textContent = 'Flares';
+            container.appendChild(tag);
+        }
+
+        // Spell tag
+        if (item.spell) {
+            const tag = document.createElement('span');
+            tag.className = 'property-tag special';
+            tag.textContent = 'Spell';
+            container.appendChild(tag);
+        }
+
+        // Enhancive tag
+        if (item.isEnhancive) {
+            const tag = document.createElement('span');
+            tag.className = 'property-tag enhancive';
+            tag.textContent = 'Enhancive';
+            container.appendChild(tag);
+        }
+
+        // Holy/Blessing tag
+        if (item.blessing) {
+            const tag = document.createElement('span');
+            tag.className = 'property-tag special';
+            tag.textContent = 'Holy';
+            container.appendChild(tag);
+        }
+
+        return container;
     }
 
     formatPrice(price) {
