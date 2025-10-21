@@ -182,31 +182,33 @@ class DataLoader {
                         if (processedItem) {
                             this.allItems.push(processedItem);
 
-                            // Check if item was added using added_items.json (hash-based lookup)
+                            // Check if item was added using added_items.json
+                            // Support both hash-based (new) and ID-based (backwards compatibility) lookups
                             if (addedItemsData) {
-                                // Extract price from item details
-                                let price = 0;
-                                if (item.details?.cost) {
-                                    price = item.details.cost;
-                                } else if (item.details?.raw) {
-                                    const priceLine = item.details.raw.find(line => line.includes('will cost') && line.includes('coins'));
-                                    if (priceLine) {
-                                        const match = priceLine.match(/will cost ([\d,]+) coins/);
-                                        if (match) {
-                                            price = parseInt(match[1].replace(/,/g, ''));
-                                        }
-                                    }
-                                }
+                                let itemAddedDate = null;
 
+                                // Try hash-based lookup first (new format)
                                 const itemSignature = this.createItemSignature(
                                     townData.town,
                                     shop.preamble,
                                     item.name,
-                                    price
+                                    processedItem.price
                                 );
 
-                                if (addedItemsData[itemSignature]) {
-                                    const itemAddedDate = addedItemsData[itemSignature];
+                                if (itemSignature && addedItemsData[itemSignature]) {
+                                    itemAddedDate = addedItemsData[itemSignature];
+                                }
+
+                                // Fall back to ID-based lookup for backwards compatibility
+                                if (!itemAddedDate && item.id) {
+                                    const itemId = item.id.toString();
+                                    if (addedItemsData[itemId]) {
+                                        itemAddedDate = addedItemsData[itemId];
+                                    }
+                                }
+
+                                // If we found a date (from either method), add to addedItems
+                                if (itemAddedDate) {
                                     const addedItem = Object.assign({}, processedItem);
                                     addedItem.addedDate = itemAddedDate;
                                     this.addedItems.push(addedItem);

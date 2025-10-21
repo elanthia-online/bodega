@@ -814,7 +814,8 @@ module Bodega
             new_items << item_data
 
             # Track in added_items.json for persistence across full scans
-            track_added_item(item_id, current_time)
+            # Pass town, preamble, and item_data for hash-based tracking
+            track_added_item(item_id, current_time, town: town, preamble: preamble, item_data: item_data)
           rescue => e
             Log.out("Failed to inspect item #{item_id}: #{e.message}", label: :smart)
           end
@@ -946,12 +947,52 @@ module Bodega
       @added_items_data
     end
 
-    def self.track_added_item(item_id, timestamp)
+    def self.track_added_item(item_id, timestamp, town: nil, preamble: nil, item_data: nil)
       # Initialize added items tracking if needed
       load_added_items
 
-      # Add this item to our tracking
-      @added_items_data[item_id.to_s] = timestamp
+      # Only store by hash signature (not by ID which can be recycled)
+      # If we don't have the data needed for hash, skip tracking
+      if town && preamble && item_data
+        signature = create_item_signature(town, preamble, item_data)
+        if signature
+          @added_items_data[signature] = timestamp
+        else
+          Log.out("Warning: Could not create signature for item #{item_id}", label: :smart)
+        end
+      else
+        Log.out("Warning: Missing data to track item #{item_id} (town: #{town.nil?}, preamble: #{preamble.nil?}, item_data: #{item_data.nil?})", label: :smart)
+      end
+    end
+
+    def self.create_item_signature(town, preamble, item_data)
+      # Create a unique signature for the item based on stable attributes
+      # This matches the JavaScript implementation in data-loader.js
+      return nil unless item_data && item_data[:name]
+
+      # Extract shop name from preamble
+      shop_name = extract_shop_name_from_preamble(preamble)
+
+      # Extract price from item details
+      price = item_data.dig(:details, :cost) || 0
+
+      # Create signature using safe_string
+      safe_town = Utils.safe_string(town)
+      safe_shop = Utils.safe_string(shop_name)
+      safe_item = item_data[:name].to_s.downcase.strip
+      safe_price = price.to_s
+
+      "#{safe_town}:#{safe_shop}:#{safe_item}:#{safe_price}"
+    end
+
+    def self.extract_shop_name_from_preamble(preamble)
+      # Extract shop name from preamble like "Starsworn's Shop is located in..."
+      return 'unknown' unless preamble
+
+      match = preamble.match(/^(.*?)'s?\s+Shop\s+is\s+located/i) ||
+              preamble.match(/^(.*?)\s+is\s+located/i)
+
+      match ? match[1].strip : 'unknown'
     end
 
     def self.save_added_items
