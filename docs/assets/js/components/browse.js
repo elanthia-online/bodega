@@ -662,6 +662,27 @@ class BrowseEngine {
         if (item.itemType) {
             props.push(item.itemType);
         }
+
+        // Add gemstone rarities
+        if (item.gemstoneProperties && item.gemstoneProperties.length > 0) {
+            const rarityOrder = ['regional', 'common', 'rare', 'legendary'];
+            const rarities = new Set();
+
+            // Collect all unique rarities
+            item.gemstoneProperties.forEach(prop => {
+                if (prop.rarity) {
+                    rarities.add(prop.rarity.toLowerCase());
+                }
+            });
+
+            // Add rarities in the correct order
+            rarityOrder.forEach(rarity => {
+                if (rarities.has(rarity)) {
+                    props.push(rarity);
+                }
+            });
+        }
+
         if (item.capacity) {
             props.push(`${item.capacityLevel} capacity`);
         }
