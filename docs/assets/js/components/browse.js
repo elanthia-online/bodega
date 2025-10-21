@@ -4,6 +4,7 @@ class BrowseEngine {
         this.currentShop = null;
         this.townData = {};
         this.initializeEventListeners();
+        this.initializeHashNavigation();
     }
 
     initializeEventListeners() {
@@ -22,6 +23,102 @@ class BrowseEngine {
             if (e.key === 'Enter') {
                 this.searchShopSigns();
             }
+        });
+    }
+
+    initializeHashNavigation() {
+        // Listen for hash changes
+        window.addEventListener('hashchange', () => this.handleHashChange());
+    }
+
+    handleHashChange() {
+        const hash = window.location.hash;
+        if (!hash || hash === '#') return;
+
+        // Parse hash format: #browse/town-name/shop-name
+        const match = hash.match(/^#browse\/([^/]+)\/(.+)$/);
+        if (match) {
+            const townSlug = match[1];
+            const shopSlug = match[2];
+
+            // Convert slugs back to original names
+            const townName = this.slugToName(townSlug);
+            const shopName = this.slugToName(shopSlug);
+
+            console.log(`Hash navigation to: ${townName} / ${shopName}`);
+
+            // Switch to browse mode and select the shop
+            this.switchToBrowseAndSelectShop(townName, shopName);
+        }
+    }
+
+    nameToSlug(name) {
+        return name.toLowerCase()
+            .replace(/['']/g, '')  // Remove apostrophes
+            .replace(/[^a-z0-9]+/g, '-')  // Replace non-alphanumeric with dashes
+            .replace(/^-+|-+$/g, '');  // Remove leading/trailing dashes
+    }
+
+    slugToName(slug) {
+        // We'll need to search through our data to find the matching name
+        // This is necessary because we can't perfectly reverse the slug transformation
+        const searchSlug = slug.toLowerCase();
+
+        // Search towns
+        for (const townName of Object.keys(this.townData)) {
+            if (this.nameToSlug(townName) === searchSlug) {
+                return townName;
+            }
+
+            // Search shops within this town
+            for (const shopName of Object.keys(this.townData[townName])) {
+                if (this.nameToSlug(shopName) === searchSlug) {
+                    return shopName;
+                }
+            }
+        }
+
+        return slug;  // Return original if no match found
+    }
+
+    updateUrlHash(townName, shopName) {
+        const townSlug = this.nameToSlug(townName);
+        const shopSlug = this.nameToSlug(shopName);
+        const newHash = `#browse/${townSlug}/${shopSlug}`;
+
+        // Update URL without triggering hashchange event
+        if (window.location.hash !== newHash) {
+            history.replaceState(null, null, newHash);
+        }
+    }
+
+    clearUrlHash() {
+        if (window.location.hash) {
+            history.replaceState(null, null, window.location.pathname);
+        }
+    }
+
+    copyShopLink(townName, shopName, event) {
+        event.stopPropagation();  // Prevent shop selection when clicking copy button
+
+        const townSlug = this.nameToSlug(townName);
+        const shopSlug = this.nameToSlug(shopName);
+        const url = `${window.location.origin}${window.location.pathname}#browse/${townSlug}/${shopSlug}`;
+
+        navigator.clipboard.writeText(url).then(() => {
+            // Show feedback
+            const button = event.target.closest('.copy-link-btn');
+            const originalText = button.innerHTML;
+            button.innerHTML = '✓ Copied!';
+            button.classList.add('copied');
+
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.classList.remove('copied');
+            }, 2000);
+        }).catch(err => {
+            console.error('Failed to copy link:', err);
+            alert('Failed to copy link. Please copy manually: ' + url);
         });
     }
 
@@ -157,6 +254,11 @@ class BrowseEngine {
         console.log('Initializing browse data...');
         this.organizeTownData();
         this.populateTownList();
+
+        // Check if there's a hash to navigate to
+        if (window.location.hash) {
+            this.handleHashChange();
+        }
     }
 
     organizeTownData() {
@@ -345,6 +447,7 @@ class BrowseEngine {
                             </div>
                             <div class="shop-card-footer">
                                 <div class="shop-card-action">Click to browse inventory →</div>
+                                <button class="copy-link-btn" title="Copy link to this shop">🔗 Copy Link</button>
                             </div>
                         </div>
                     </td>
@@ -352,6 +455,11 @@ class BrowseEngine {
 
                 shopRow.innerHTML = shopCard;
                 shopRow.addEventListener('click', () => this.selectShop(townName, shopName));
+
+                // Add copy link button handler
+                const copyButton = shopRow.querySelector('.copy-link-btn');
+                copyButton.addEventListener('click', (e) => this.copyShopLink(townName, shopName, e));
+
                 tbody.appendChild(shopRow);
 
                 console.log(`Added shop card ${index + 1}/${shops.length}: ${shopName}`);
@@ -384,6 +492,9 @@ class BrowseEngine {
         this.currentShop = shopName;
         this.showRoomList(townName, shopName);
         this.showRoomInventory(townName, shopName);
+
+        // Update URL hash
+        this.updateUrlHash(townName, shopName);
     }
 
     showRoomList(townName, shopName) {
@@ -399,7 +510,10 @@ class BrowseEngine {
         // Enhanced shop header with metadata and navigation info
         selectedShopName.innerHTML = `
             <div class="shop-detail-header">
-                <div class="shop-detail-name">${shopName}</div>
+                <div class="shop-detail-name-row">
+                    <div class="shop-detail-name">${shopName}</div>
+                    <button class="copy-link-btn shop-header-copy-btn" title="Copy link to this shop">🔗 Copy Link</button>
+                </div>
                 ${shopMappingData ? `
                     <div class="shop-navigation-info">
                         <div class="shop-map-id">📍 Room: ${shopMappingData.map_id}</div>
@@ -410,6 +524,10 @@ class BrowseEngine {
                 ${metadata.sign ? `<div class="shop-detail-sign">${metadata.sign}</div>` : ''}
             </div>
         `;
+
+        // Add copy link button handler
+        const copyButton = selectedShopName.querySelector('.copy-link-btn');
+        copyButton.addEventListener('click', (e) => this.copyShopLink(townName, shopName, e));
 
         roomList.innerHTML = '';
 
@@ -594,6 +712,9 @@ class BrowseEngine {
         // Hide the room list sidebar
         this.hideRoomList();
 
+        // Clear URL hash
+        this.clearUrlHash();
+
         // Check if we have an active search
         const searchQuery = document.getElementById('shop-sign-search-input').value.trim();
         const searchAllTowns = document.getElementById('search-all-towns').checked;
@@ -729,11 +850,18 @@ class BrowseEngine {
                         </div>
                         ${locationInfo ? `<div class="shop-card-location">${locationInfo}</div>` : ''}
                         <div class="shop-card-sign">${this.highlightSearchTerm(shopInfo.shopSign, searchQuery)}</div>
+                        <div class="shop-card-footer">
+                            <button class="copy-link-btn" title="Copy link to this shop">🔗 Copy Link</button>
+                        </div>
                     </div>
                 </td>
             `;
 
             shopRow.innerHTML = shopCard;
+
+            // Add copy link button handler
+            const copyButton = shopRow.querySelector('.copy-link-btn');
+            copyButton.addEventListener('click', (e) => this.copyShopLink(shopInfo.town, shopInfo.shopName, e));
 
             // Add click handler to view shop
             shopRow.addEventListener('click', () => {
@@ -777,6 +905,9 @@ class BrowseEngine {
 
         // Display the shop's inventory in the main area
         this.showRoomInventory(townName, shopName);
+
+        // Update URL hash
+        this.updateUrlHash(townName, shopName);
     }
 }
 

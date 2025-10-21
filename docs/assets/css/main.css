@@ -859,11 +859,23 @@ header h1 {
     margin-bottom: 10px;
 }
 
+.shop-detail-name-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+    gap: 10px;
+}
+
 .shop-detail-name {
     font-size: 14px;
     font-weight: bold;
     color: var(--color-accent-darker);
-    margin-bottom: 4px;
+}
+
+.shop-header-copy-btn {
+    padding: 4px 10px;
+    font-size: 10px;
 }
 
 .shop-detail-location {
@@ -1297,7 +1309,9 @@ header h1 {
 
 .shop-card-footer {
     margin-top: 12px;
-    text-align: right;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .shop-card-action {
@@ -1311,6 +1325,35 @@ header h1 {
 .shop-card:hover .shop-card-action {
     opacity: 1;
     color: var(--color-accent);
+}
+
+.copy-link-btn {
+    background: var(--color-accent);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.copy-link-btn:hover {
+    background: var(--color-accent-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.copy-link-btn:active {
+    transform: translateY(0);
+}
+
+.copy-link-btn.copied {
+    background: #4caf50;
 }
 
 /* Shop sign search highlighting */
