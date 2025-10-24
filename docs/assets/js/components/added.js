@@ -171,7 +171,7 @@ class AddedEngine {
         }
 
         // Days filter (only show items added within the timeframe)
-        if (filters.days) {
+        if (filters.days && filters.days !== 'all') {
             const daysAgo = parseInt(filters.days);
             const addedDate = new Date(item.addedDate);
             const cutoffDate = new Date();
@@ -180,7 +180,7 @@ class AddedEngine {
             if (addedDate < cutoffDate) {
                 return false;
             }
-        } else {
+        } else if (!filters.days) {
             // Default to last 24 hours if no filter selected
             const addedDate = new Date(item.addedDate);
             const cutoffDate = new Date();
@@ -190,6 +190,7 @@ class AddedEngine {
                 return false;
             }
         }
+        // If filters.days === 'all', don't filter by date at all
 
         // Price range filter
         if (filters.priceRange) {

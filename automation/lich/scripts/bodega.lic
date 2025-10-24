@@ -156,7 +156,7 @@ module Bodega
     COMMAND  = %r[You can use the (?<command>.*?) command to browse the inventory of a particular shop.]
     NEW_ROOM = %r[^(?<room_title>.*)\s\((?<branch>\w+)\)$]
     SIGN     = %r[^Written on]
-    ITEM     = %r[^(?<item_id>\d+)\)]
+    ITEM     = %r[^\s*(?<item_id>\d+)\).*?for\s+(?<price>[\d,]+)\s+silver]
   end
 end
 
@@ -625,9 +625,12 @@ module Bodega
     end
 
     def self.add_item(acc, row)
-      acc.last.items.push(
-        row.match(Messages::ITEM)[:item_id]
-      )
+      match = row.match(Messages::ITEM)
+      # Store both item_id and price from browse output
+      acc.last.items.push({
+        id: match[:item_id],
+        browse_price: match[:price]&.gsub(',', '')&.to_i
+      })
     end
 
     def self.parse_inv(inv)
@@ -641,30 +644,35 @@ module Bodega
       end
       .map do |room|
         max_item_depth = (Opts["max-item-depth"] || 100).to_i
-        room.items = room.items.take(max_item_depth).map do |id| Parser.scan_item(id) end
+        room.items = room.items.take(max_item_depth).map do |item_data|
+          # item_data is now a hash with {id: ..., browse_price: ...}
+          Parser.scan_item(item_data[:id] || item_data, item_data[:browse_price])
+        end
         room
       end
       .map(&:to_h)
     end
 
     def self.get_browse_ids(inv)
-      # Extract item IDs from browse output without doing full inspection
-      item_ids = Set.new
+      # Extract item IDs and prices from browse output without doing full inspection
+      item_prices = {}
 
       inv.reduce([]) do |acc, row|
         break acc if row.include?("SHOP INSPECT")
         Parser.add_room(acc, row) if row.match(Messages::NEW_ROOM)
         Parser.add_sign(acc, row) if row.match(Messages::SIGN) or not acc.last.sign.nil?
 
-        # Extract item ID without full inspection
+        # Extract item ID and price without full inspection
         if row.match(Messages::ITEM) and acc.last.sign.nil?
-          item_id = row.match(Messages::ITEM)[:item_id]
-          item_ids.add(item_id)
+          match = row.match(Messages::ITEM)
+          item_id = match[:item_id]
+          price = match[:price]&.gsub(',', '')&.to_i
+          item_prices[item_id] = price
         end
         acc
       end
 
-      item_ids
+      item_prices
     end
 
     def self.load_and_validate_town_json(town)
@@ -752,7 +760,8 @@ module Bodega
       )
 
       (preamble, *inv) = coll.run()
-      current_ids = get_browse_ids(inv.map(&:strip))
+      current_items = get_browse_ids(inv.map(&:strip)) # Now returns {id => price}
+      current_ids = current_items.keys.to_set
 
       Log.out("Found #{current_ids.size} items currently in shop #{shop_id}", label: :smart)
 
@@ -810,7 +819,9 @@ module Bodega
         current_time = Time.now.utc.iso8601
         new_ids.take(max_item_depth).each do |item_id|
           begin
-            item_data = scan_item(item_id)
+            # Pass browse price to scan_item for more reliable cost tracking
+            browse_price = current_items[item_id]
+            item_data = scan_item(item_id, browse_price)
             new_items << item_data
 
             # Track in added_items.json for persistence across full scans
@@ -1185,7 +1196,7 @@ module Bodega
       @smart_stats = nil
     end
 
-    def self.scan_item(id)
+    def self.scan_item(id, browse_price = nil)
       coll = Collector.new(
         command: %[shop inspect #{id}],
         start: %[You request a thorough inspection of],
@@ -1193,10 +1204,14 @@ module Bodega
       )
 
       details = coll.run()
+      extracted_details = Extractor.of(details.slice(1..-2))
+
+      # Add browse price if available (more reliable than parsing from inspect output)
+      extracted_details[:cost] = browse_price if browse_price
 
       { id: id,
         name: details.first.gsub("You request a thorough inspection of ", "").gsub(%r[\sfrom [A-Z].*?\.$], ""),
-        details: Extractor.of(details.slice(1..-2)) }
+        details: extracted_details }
     end
 
     def self.towns_to_search()
