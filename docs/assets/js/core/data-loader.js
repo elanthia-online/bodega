@@ -256,6 +256,16 @@ class DataLoader {
                             processedItem.lastSeenTown = removedItem.town || cleanTownName;
 
                             this.removedItems.push(processedItem);
+
+                            // Also check if this removed item was in added_items.json
+                            if (addedItemsData && removedItem.id) {
+                                const itemId = removedItem.id.toString();
+                                if (addedItemsData[itemId]) {
+                                    const addedItem = Object.assign({}, processedItem);
+                                    addedItem.addedDate = addedItemsData[itemId];
+                                    this.addedItems.push(addedItem);
+                                }
+                            }
                         }
                     });
                 }
