@@ -98,6 +98,10 @@ class AddedEngine {
         document.getElementById('pagination').style.display = 'flex';
         document.getElementById('pagination-top').style.display = 'flex';
 
+        // Hide browse sort mode toggle
+        const sortModeToggle = document.getElementById('browse-sort-mode-toggle');
+        if (sortModeToggle) sortModeToggle.style.display = 'none';
+
         // Show and update table headers for added mode
         const tableHead = document.querySelector('#results-table thead');
         if (tableHead) tableHead.style.display = '';

@@ -233,6 +233,38 @@ header h1 {
     font-size: 13px;
 }
 
+/* Browse Sort Mode Toggle */
+#browse-sort-mode-toggle {
+    display: flex;
+    gap: 5px;
+    background: var(--bg-secondary);
+    padding: 3px;
+    border-radius: 6px;
+    border: 1px solid var(--border-secondary);
+}
+
+.sort-mode-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 11px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.sort-mode-btn:hover {
+    background: var(--bg-hover);
+}
+
+.sort-mode-btn.active {
+    background: var(--accent-primary);
+    color: white;
+    font-weight: bold;
+}
+
 #page-info {
     font-size: 11px;
     color: var(--text-secondary);
@@ -713,6 +745,16 @@ header h1 {
     #results-count {
         order: 1;
         text-align: center;
+    }
+
+    #browse-sort-mode-toggle {
+        order: 1.5;
+        justify-content: center;
+    }
+
+    .sort-mode-btn {
+        font-size: 10px;
+        padding: 5px 8px;
     }
 
     #page-info {

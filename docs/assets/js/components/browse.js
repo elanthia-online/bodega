@@ -3,6 +3,8 @@ class BrowseEngine {
         this.currentTown = null;
         this.currentShop = null;
         this.townData = {};
+        this.currentSort = { field: 'name', direction: 'asc' };
+        this.sortMode = 'by-room'; // 'by-room' or 'all-items'
         this.initializeEventListeners();
         this.initializeHashNavigation();
     }
@@ -24,6 +26,10 @@ class BrowseEngine {
                 this.searchShopSigns();
             }
         });
+
+        // Sort mode toggle
+        document.getElementById('sort-by-room-btn').addEventListener('click', () => this.setSortMode('by-room'));
+        document.getElementById('sort-all-items-btn').addEventListener('click', () => this.setSortMode('all-items'));
     }
 
     initializeHashNavigation() {
@@ -98,6 +104,27 @@ class BrowseEngine {
         }
     }
 
+    setSortMode(mode) {
+        this.sortMode = mode;
+
+        // Update button active states
+        const byRoomBtn = document.getElementById('sort-by-room-btn');
+        const allItemsBtn = document.getElementById('sort-all-items-btn');
+
+        if (mode === 'by-room') {
+            byRoomBtn.classList.add('active');
+            allItemsBtn.classList.remove('active');
+        } else {
+            byRoomBtn.classList.remove('active');
+            allItemsBtn.classList.add('active');
+        }
+
+        // Re-render current shop with new sort mode
+        if (this.currentTown && this.currentShop) {
+            this.showRoomInventory(this.currentTown, this.currentShop);
+        }
+    }
+
     copyShopLink(townName, shopName, event) {
         event.stopPropagation();  // Prevent shop selection when clicking copy button
 
@@ -135,6 +162,10 @@ class BrowseEngine {
         // Show pagination controls for search mode
         document.getElementById('pagination').style.display = 'flex';
         document.getElementById('pagination-top').style.display = 'flex';
+
+        // Hide browse sort mode toggle
+        const sortModeToggle = document.getElementById('browse-sort-mode-toggle');
+        if (sortModeToggle) sortModeToggle.style.display = 'none';
 
         // Show and restore search mode table headers
         const tableHead = document.querySelector('#results-table thead');
@@ -398,6 +429,14 @@ class BrowseEngine {
         const tbody = document.getElementById('results-body');
         const resultsCount = document.getElementById('results-count');
         const pageInfo = document.getElementById('page-info');
+        const thead = document.querySelector('#results-table thead');
+        const sortModeToggle = document.getElementById('browse-sort-mode-toggle');
+
+        // Hide table headers when showing shop directory
+        if (thead) thead.style.display = 'none';
+
+        // Hide sort mode toggle when showing shop list
+        if (sortModeToggle) sortModeToggle.style.display = 'none';
 
         console.log('Found tbody element:', tbody);
 
@@ -572,6 +611,12 @@ class BrowseEngine {
         const shop = this.townData[townName][shopName];
         let itemsToShow = [];
 
+        // Show the sort mode toggle when viewing a shop
+        const sortModeToggle = document.getElementById('browse-sort-mode-toggle');
+        if (sortModeToggle) {
+            sortModeToggle.style.display = 'flex';
+        }
+
         if (specificRoom) {
             // Show items from specific room
             itemsToShow = shop[specificRoom] || [];
@@ -594,12 +639,31 @@ class BrowseEngine {
             itemsByRoom[room].push(item);
         });
 
-        this.displayGroupedItems(itemsByRoom);
+        if (this.sortMode === 'by-room') {
+            // Sort items within each room
+            this.sortItemsByRoom(itemsByRoom);
+            this.displayGroupedItems(itemsByRoom);
+        } else {
+            // Sort all items together
+            const allItems = [];
+            Object.values(itemsByRoom).forEach(roomItems => {
+                allItems.push(...roomItems);
+            });
+            this.sortAllItems(allItems);
+            this.displayFlatItems(allItems);
+        }
     }
 
     displayGroupedItems(itemsByRoom) {
         const tbody = document.getElementById('results-body');
+        const thead = document.querySelector('#results-table thead');
         tbody.innerHTML = '';
+
+        // Show table headers when viewing shop inventory
+        if (thead) {
+            thead.style.display = '';
+            this.setupBrowseHeaders();
+        }
 
         Object.keys(itemsByRoom).sort().forEach(roomName => {
             // Get room sign from first item in room (all items in same room have same sign)
@@ -631,6 +695,160 @@ class BrowseEngine {
                 tbody.appendChild(row);
             });
         });
+    }
+
+    setupBrowseHeaders() {
+        const thead = document.querySelector('#results-table thead tr');
+        thead.innerHTML = `
+            <th class="sortable" data-sort="name">Item Name <span class="sort-indicator"></span></th>
+            <th class="sortable" data-sort="price">Price <span class="sort-indicator"></span></th>
+            <th class="sortable" data-sort="properties">Properties <span class="sort-indicator"></span></th>
+            <th class="sortable" data-sort="town">Town <span class="sort-indicator"></span></th>
+            <th class="sortable" data-sort="shop">Shop <span class="sort-indicator"></span></th>
+        `;
+
+        // Attach header click handlers for browse mode
+        document.querySelectorAll('#results-table th.sortable').forEach(header => {
+            header.addEventListener('click', () => {
+                const sortField = header.dataset.sort;
+                this.handleHeaderSort(sortField);
+            });
+        });
+
+        // Update sort indicators
+        this.updateSortIndicators();
+    }
+
+    handleHeaderSort(field) {
+        // Map header field names to item property names
+        let sortField = field;
+        if (field === 'shop') sortField = 'shopName';
+        if (field === 'properties') sortField = 'propertyCount';
+
+        // Toggle direction if clicking same field, otherwise default to asc
+        if (this.currentSort.field === sortField) {
+            this.currentSort.direction = this.currentSort.direction === 'asc' ? 'desc' : 'asc';
+        } else {
+            // Default: price asc, property count desc (most properties first), others asc
+            const defaultDirection = (sortField === 'price') ? 'asc' : (sortField === 'propertyCount' ? 'desc' : 'asc');
+            this.currentSort = { field: sortField, direction: defaultDirection };
+        }
+
+        this.updateSortIndicators();
+
+        // Re-render the current shop with new sort
+        if (this.currentTown && this.currentShop) {
+            this.showRoomInventory(this.currentTown, this.currentShop);
+        }
+    }
+
+    updateSortIndicators() {
+        // Clear all indicators
+        document.querySelectorAll('#results-table th.sortable .sort-indicator').forEach(indicator => {
+            indicator.textContent = '';
+        });
+
+        // Map internal field names back to header data-sort values
+        let headerField = this.currentSort.field;
+        if (this.currentSort.field === 'shopName') headerField = 'shop';
+        if (this.currentSort.field === 'propertyCount') headerField = 'properties';
+
+        // Set indicator for current sort
+        const currentHeader = document.querySelector(`#results-table th[data-sort="${headerField}"]`);
+        if (currentHeader) {
+            const indicator = currentHeader.querySelector('.sort-indicator');
+            indicator.textContent = this.currentSort.direction === 'asc' ? ' ↑' : ' ↓';
+        }
+    }
+
+    sortItemsByRoom(itemsByRoom) {
+        // Sort items within each room
+        Object.keys(itemsByRoom).forEach(roomName => {
+            itemsByRoom[roomName].sort((a, b) => {
+                let aVal = a[this.currentSort.field];
+                let bVal = b[this.currentSort.field];
+
+                // Calculate property count dynamically if sorting by properties
+                if (this.currentSort.field === 'propertyCount') {
+                    aVal = this.calculatePropertyCount(a);
+                    bVal = this.calculatePropertyCount(b);
+                } else {
+                    // Handle null/undefined values for other fields
+                    if (aVal == null && bVal == null) return 0;
+                    if (aVal == null) return 1;
+                    if (bVal == null) return -1;
+                }
+
+                // Convert to comparable types
+                if (typeof aVal === 'string') {
+                    aVal = aVal.toLowerCase();
+                    bVal = bVal.toLowerCase();
+                }
+
+                let result = 0;
+                if (aVal < bVal) result = -1;
+                else if (aVal > bVal) result = 1;
+
+                return this.currentSort.direction === 'desc' ? -result : result;
+            });
+        });
+    }
+
+    sortAllItems(items) {
+        // Sort all items together (ignoring room boundaries)
+        items.sort((a, b) => {
+            let aVal = a[this.currentSort.field];
+            let bVal = b[this.currentSort.field];
+
+            // Calculate property count dynamically if sorting by properties
+            if (this.currentSort.field === 'propertyCount') {
+                aVal = this.calculatePropertyCount(a);
+                bVal = this.calculatePropertyCount(b);
+            } else {
+                // Handle null/undefined values for other fields
+                if (aVal == null && bVal == null) return 0;
+                if (aVal == null) return 1;
+                if (bVal == null) return -1;
+            }
+
+            // Convert to comparable types
+            if (typeof aVal === 'string') {
+                aVal = aVal.toLowerCase();
+                bVal = bVal.toLowerCase();
+            }
+
+            let result = 0;
+            if (aVal < bVal) result = -1;
+            else if (aVal > bVal) result = 1;
+
+            return this.currentSort.direction === 'desc' ? -result : result;
+        });
+    }
+
+    displayFlatItems(items) {
+        const tbody = document.getElementById('results-body');
+        const thead = document.querySelector('#results-table thead');
+        tbody.innerHTML = '';
+
+        // Show table headers when viewing shop inventory
+        if (thead) {
+            thead.style.display = '';
+            this.setupBrowseHeaders();
+        }
+
+        // Display all items without room headers
+        items.forEach(item => {
+            const row = this.createItemRow(item);
+            tbody.appendChild(row);
+        });
+    }
+
+    calculatePropertyCount(item) {
+        // Only count enhancive properties (green stat bonuses)
+        if (item.enhancives && item.enhancives.length > 0) {
+            return item.enhancives.length;
+        }
+        return 0;
     }
 
     createItemRow(item) {
@@ -939,6 +1157,14 @@ class BrowseEngine {
         const tbody = document.getElementById('results-body');
         const resultsCount = document.getElementById('results-count');
         const pageInfo = document.getElementById('page-info');
+        const thead = document.querySelector('#results-table thead');
+        const sortModeToggle = document.getElementById('browse-sort-mode-toggle');
+
+        // Hide table headers when showing shop search results
+        if (thead) thead.style.display = 'none';
+
+        // Hide sort mode toggle when showing shop search results
+        if (sortModeToggle) sortModeToggle.style.display = 'none';
 
         // Update header
         const scope = searchedAllTowns ? 'all towns' : this.currentTown;
