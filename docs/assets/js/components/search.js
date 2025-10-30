@@ -184,6 +184,10 @@ class SearchEngine {
             return;
         }
 
+        // Ensure table headers are visible when searching (in case browse mode hid them)
+        const tableHead = document.querySelector('#results-table thead');
+        if (tableHead) tableHead.style.display = '';
+
         const allItems = window.dataLoader.allItems;
         const filters = this.getFilters();
 
@@ -193,6 +197,7 @@ class SearchEngine {
         });
 
         this.sortItems();
+        this.updateSortIndicators();
         this.currentPage = 1;
         this.displayResults();
         this.updatePagination();
