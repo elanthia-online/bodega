@@ -1,6 +1,6 @@
 {
-  "created_at": "2025-10-31 06:17:39 UTC",
-  "run_time": "34s",
+  "created_at": "2025-10-31 08:35:44 UTC",
+  "run_time": "18m 56s",
   "town": "Wehnimer's Landing",
   "shops": [
     {
@@ -2920,6 +2920,22 @@
           "branch": "entry",
           "items": [
             {
+              "id": "420566975",
+              "name": "a massive oak-hafted ora mattock",
+              "details": {
+                "raw": [
+                  "Analysis of a massive oak-hafted ora mattock indicates the item is free from merchant alteration restrictions.",
+                  "The ora mattock will cost 2,000,000 coins."
+                ],
+                "tags": [
+                  "lightenable"
+                ],
+                "skill": "twohanded weapons",
+                "material": "ora, an uncommon metal",
+                "cost": 2000000
+              }
+            },
+            {
               "id": "340294868",
               "name": "a black rose-painted deck",
               "details": {
@@ -3411,22 +3427,6 @@
                 ],
                 "weight": 9,
                 "cost": 5000000
-              }
-            },
-            {
-              "id": "420566975",
-              "name": "a massive oak-hafted ora mattock",
-              "details": {
-                "raw": [
-                  "Analysis of a massive oak-hafted ora mattock indicates the item is free from merchant alteration restrictions.",
-                  "The ora mattock will cost 2,000,000 coins."
-                ],
-                "tags": [
-                  "lightenable"
-                ],
-                "skill": "twohanded weapons",
-                "material": "ora, an uncommon metal",
-                "cost": 2000000
               }
             }
           ],
@@ -6428,7 +6428,7 @@
                   "It has a small enchanter's glyph.",
                   "The leathers is leather armor that covers the torso, arms, legs, neck, and head.  It is spiked.",
                   "Analysis of some spiked golvern-reinforced mottled thrak hide leathers indicates the item is free from merchant alteration restrictions.",
-                  "The thrak hide leathers will cost 5,000,000 coins.",
+                  "The thrak hide leathers will cost 10,000,000 coins.",
                   "It is estimated to be worth about 400,000 silvers.",
                   "It is padded against critical blows, but exactly how much requires assessment.",
                   "It is spiked.",
@@ -6443,7 +6443,7 @@
                 "material": "leather, an extremely common material",
                 "enchant": 25,
                 "weight": 16,
-                "cost": 5000000
+                "cost": 10000000
               }
             },
             {
@@ -10748,7 +10748,7 @@
               "name": "a desiccated eight-fingered claw",
               "details": {
                 "raw": [
-                  "The eight-fingered claw looks exactly like you'd expect it to look.",
+                  "You do a double take, because for a moment, the eight-fingered claw looked exactly like a rotting corpse!",
                   "The claw can not be worn.",
                   "Analysis of a desiccated eight-fingered claw indicates the creator has provided the following information:",
                   "This item's description/base/look may not be altered in any way.",
@@ -10803,7 +10803,7 @@
               "name": "a faceted iridescent glob",
               "details": {
                 "raw": [
-                  "Oddly enough, it looks like a faceted iridescent glob.",
+                  "The iridescent glob looks exactly like you'd expect it to look.",
                   "The glob can not be worn.",
                   "Analysis of a faceted iridescent glob indicates the creator has provided the following information:",
                   "This item's description/base/look may not be altered in any way.",
@@ -10878,7 +10878,7 @@
               "name": "a rotting severed finger",
               "details": {
                 "raw": [
-                  "You glance at the severed finger, wondering if it's possibly sideways.  Or upside down.  Or backwards.  It's really confusing you!",
+                  "Are those eyes peering back at you?!  Oh, no.  It's just a rotting severed finger.",
                   "The finger can not be worn.",
                   "Analysis of a rotting severed finger indicates the creator has provided the following information:",
                   "This item's description/base/look may not be altered in any way.",
@@ -31792,24 +31792,6 @@
               }
             },
             {
-              "id": "72638983",
-              "name": "an enruned stone cube",
-              "details": {
-                "raw": [
-                  "Twenty-five crimson runes glow on each side of the cube, brightening up the rather lifeless hue of the stone.  There are no obvious openings on the cube, and it appears impossible to know what could be inside.",
-                  "The cube can not be worn.",
-                  "Analysis of an enruned stone cube indicates the creator has provided the following information:",
-                  "This is used at Arena of the Abyss or the Newcropolis at Ebon Gate  -- LOOK at it for more details!",
-                  "The stone cube will cost 1,300,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "material": "stone, an extremely common material",
-                "cost": 1300000
-              }
-            },
-            {
               "id": "115172258",
               "name": "an Ebon Gate festival flyer",
               "details": {
@@ -31843,7 +31825,17 @@
                 "material": "glass, an extremely common material",
                 "cost": 2000000
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on a carved black marble sign:",
+            "Welcome!"
+          ]
+        },
+        {
+          "room_title": "Galann's General Store",
+          "branch": "east",
+          "items": [
             {
               "id": "415443199",
               "name": "a candle stub bound in a net of shimmering silk",
@@ -31924,6 +31916,116 @@
               }
             },
             {
+              "id": "218148917",
+              "name": "a shimmering green orb",
+              "details": {
+                "raw": [
+                  "Green tendrils writhe within the orb.  Your desire to rub and caress it is nearly overwhelming.  You sense there is 1 use within the orb.",
+                  "The orb can not be worn.",
+                  "Analysis of a shimmering green orb indicates the creator has provided the following information:",
+                  "This is a 1.5x modifier with 250 flat experience award orb.  It is not currently attuned to any character.",
+                  "The green orb will cost 1,000,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "material": "gemstone, an extremely common material",
+                "cost": 1000000
+              }
+            },
+            {
+              "id": "218148992",
+              "name": "an Adventurer's Guild voucher pack",
+              "details": {
+                "raw": [
+                  "In neat calligraphy, it reads:",
+                  "\"This pack entitles the presenter to 120 expedited task reassignments, courtesy of the Adventurer's Guild.  Valid only on tasks voluntarily removed.\"",
+                  "\"To redeem this Guild voucher pack, please GIVE it to headmaster of any Adventurer's Guild location.\"",
+                  "The pack can not be worn.",
+                  "Analysis of an Adventurer's Guild voucher pack indicates the creator has provided the following information:",
+                  "This pack contains 120 expedited task reassignment vouchers for the Adventurer's Guild, valid only on tasks voluntarily removed.",
+                  "GIVE the pack to an Adventurer's Guild Headmaster to redeem the vouchers and add them to your total in BOUNTY.",
+                  "BUNDLE it with other packs like it to combine uses.",
+                  "TEAR it to remove a single voucher.",
+                  "It cannot be altered.",
+                  "The Guild voucher pack will cost 3,000,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 3000000
+              }
+            },
+            {
+              "id": "418237170",
+              "name": "a pale porcelain anchor",
+              "details": {
+                "raw": [
+                  "The anchor can not be worn.",
+                  "Analysis of a pale porcelain anchor indicates the creator has provided the following information:",
+                  "When REDEEMed, this anchor will grant a custom death message to your character:",
+                  "  * Brodega staggers off of life's stage; exit stage death.",
+                  "The porcelain anchor will cost 100,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "material": "organic material, an extremely common material",
+                "cost": 100000
+              }
+            },
+            {
+              "id": "418237175",
+              "name": "a moldering green silk cravat",
+              "details": {
+                "raw": [
+                  "The cravat can not be worn.",
+                  "Analysis of a moldering green silk cravat indicates the creator has provided the following information:",
+                  "When REDEEMed, this cravat will grant a custom death message to your character:",
+                  "  * Brodega is pursuing an exciting new career in the death industry as a corpse.",
+                  "The green silk cravat will cost 100,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "material": "cloth, an extremely common material",
+                "cost": 100000
+              }
+            },
+            {
+              "id": "418237177",
+              "name": "a translucent pink vellum",
+              "details": {
+                "raw": [
+                  "This pink vellum looks interesting... Perhaps you should read it.",
+                  "Invoking this pink vellum will grant you permanent access to a special method of preparing your spells.",
+                  "It will provide the following phrase:",
+                  "First Person:  Your forehead wrinkles in concentration as you haltingly stammer out the words to prepare [Spell Name].",
+                  "Third Person:  Brodega's forehead wrinkles in concentration as he haltingly stammers out a phrase.",
+                  "Hidden or Invisible:  You hear someone haltingly stammer out a phrase.",
+                  "Profession Restrictions:  Warrior only",
+                  "Invoking this pink vellum will grant you permanent access to a special method of preparing your spells.",
+                  "It will provide the following phrase:",
+                  "First Person:  Your forehead wrinkles in concentration as you haltingly stammer out the words to prepare [Spell Name].",
+                  "Third Person:  Brodega's forehead wrinkles in concentration as he haltingly stammers out a phrase.",
+                  "Hidden or Invisible:  You hear someone haltingly stammer out a phrase.",
+                  "Profession Restrictions:  Warrior only",
+                  "Analysis of a translucent pink vellum indicates the creator has provided the following information:",
+                  "Invoking this pink vellum will grant you permanent access to a special method of preparing your spells.",
+                  "It will provide the following phrase:",
+                  "First Person:  Your forehead wrinkles in concentration as you haltingly stammer out the words to prepare [Spell Name].",
+                  "Third Person:  Brodega's forehead wrinkles in concentration as he haltingly stammers out a phrase.",
+                  "Hidden or Invisible:  You hear someone haltingly stammer out a phrase.",
+                  "Profession Restrictions:  Warrior only",
+                  "The pink vellum will cost 1,000,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 1000000
+              }
+            },
+            {
               "id": "415443151",
               "name": "a shimmering mandala-inked vellum",
               "details": {
@@ -31954,6 +32056,24 @@
 
                 ],
                 "cost": 1000000
+              }
+            },
+            {
+              "id": "338011158",
+              "name": "a flat black plate",
+              "details": {
+                "raw": [
+                  "The plate can not be worn.",
+                  "Analysis of a flat black plate indicates the creator has provided the following information:",
+                  "When REDEEMed, this plate will grant a custom death message to your character:",
+                  "  * Brodega smells like a corpse, because he is one.",
+                  "The black plate will cost 100,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "material": "organic material, an extremely common material",
+                "cost": 100000
               }
             },
             {
@@ -32025,144 +32145,6 @@
 
                 ],
                 "material": "wood, an extremely common material",
-                "cost": 100000
-              }
-            },
-            {
-              "id": "418237170",
-              "name": "a pale porcelain anchor",
-              "details": {
-                "raw": [
-                  "The anchor can not be worn.",
-                  "Analysis of a pale porcelain anchor indicates the creator has provided the following information:",
-                  "When REDEEMed, this anchor will grant a custom death message to your character:",
-                  "  * Brodega staggers off of life's stage; exit stage death.",
-                  "The porcelain anchor will cost 100,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "material": "organic material, an extremely common material",
-                "cost": 100000
-              }
-            },
-            {
-              "id": "418237175",
-              "name": "a moldering green silk cravat",
-              "details": {
-                "raw": [
-                  "The cravat can not be worn.",
-                  "Analysis of a moldering green silk cravat indicates the creator has provided the following information:",
-                  "When REDEEMed, this cravat will grant a custom death message to your character:",
-                  "  * Brodega is pursuing an exciting new career in the death industry as a corpse.",
-                  "The green silk cravat will cost 100,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "material": "cloth, an extremely common material",
-                "cost": 100000
-              }
-            },
-            {
-              "id": "418237177",
-              "name": "a translucent pink vellum",
-              "details": {
-                "raw": [
-                  "This pink vellum looks interesting... Perhaps you should read it.",
-                  "Invoking this pink vellum will grant you permanent access to a special method of preparing your spells.",
-                  "It will provide the following phrase:",
-                  "First Person:  Your forehead wrinkles in concentration as you haltingly stammer out the words to prepare [Spell Name].",
-                  "Third Person:  Brodega's forehead wrinkles in concentration as he haltingly stammers out a phrase.",
-                  "Hidden or Invisible:  You hear someone haltingly stammer out a phrase.",
-                  "Profession Restrictions:  Warrior only",
-                  "Invoking this pink vellum will grant you permanent access to a special method of preparing your spells.",
-                  "It will provide the following phrase:",
-                  "First Person:  Your forehead wrinkles in concentration as you haltingly stammer out the words to prepare [Spell Name].",
-                  "Third Person:  Brodega's forehead wrinkles in concentration as he haltingly stammers out a phrase.",
-                  "Hidden or Invisible:  You hear someone haltingly stammer out a phrase.",
-                  "Profession Restrictions:  Warrior only",
-                  "Analysis of a translucent pink vellum indicates the creator has provided the following information:",
-                  "Invoking this pink vellum will grant you permanent access to a special method of preparing your spells.",
-                  "It will provide the following phrase:",
-                  "First Person:  Your forehead wrinkles in concentration as you haltingly stammer out the words to prepare [Spell Name].",
-                  "Third Person:  Brodega's forehead wrinkles in concentration as he haltingly stammers out a phrase.",
-                  "Hidden or Invisible:  You hear someone haltingly stammer out a phrase.",
-                  "Profession Restrictions:  Warrior only",
-                  "The pink vellum will cost 1,000,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "cost": 1000000
-              }
-            }
-          ],
-          "sign": [
-            "Written on a carved black marble sign:",
-            "Welcome!"
-          ]
-        },
-        {
-          "room_title": "Galann's General Store",
-          "branch": "east",
-          "items": [
-            {
-              "id": "218148917",
-              "name": "a shimmering green orb",
-              "details": {
-                "raw": [
-                  "Green tendrils writhe within the orb.  Your desire to rub and caress it is nearly overwhelming.  You sense there is 1 use within the orb.",
-                  "The orb can not be worn.",
-                  "Analysis of a shimmering green orb indicates the creator has provided the following information:",
-                  "This is a 1.5x modifier with 250 flat experience award orb.  It is not currently attuned to any character.",
-                  "The green orb will cost 1,000,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "material": "gemstone, an extremely common material",
-                "cost": 1000000
-              }
-            },
-            {
-              "id": "218148992",
-              "name": "an Adventurer's Guild voucher pack",
-              "details": {
-                "raw": [
-                  "In neat calligraphy, it reads:",
-                  "\"This pack entitles the presenter to 120 expedited task reassignments, courtesy of the Adventurer's Guild.  Valid only on tasks voluntarily removed.\"",
-                  "\"To redeem this Guild voucher pack, please GIVE it to headmaster of any Adventurer's Guild location.\"",
-                  "The pack can not be worn.",
-                  "Analysis of an Adventurer's Guild voucher pack indicates the creator has provided the following information:",
-                  "This pack contains 120 expedited task reassignment vouchers for the Adventurer's Guild, valid only on tasks voluntarily removed.",
-                  "GIVE the pack to an Adventurer's Guild Headmaster to redeem the vouchers and add them to your total in BOUNTY.",
-                  "BUNDLE it with other packs like it to combine uses.",
-                  "TEAR it to remove a single voucher.",
-                  "It cannot be altered.",
-                  "The Guild voucher pack will cost 3,000,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "cost": 3000000
-              }
-            },
-            {
-              "id": "338011158",
-              "name": "a flat black plate",
-              "details": {
-                "raw": [
-                  "The plate can not be worn.",
-                  "Analysis of a flat black plate indicates the creator has provided the following information:",
-                  "When REDEEMed, this plate will grant a custom death message to your character:",
-                  "  * Brodega smells like a corpse, because he is one.",
-                  "The black plate will cost 100,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "material": "organic material, an extremely common material",
                 "cost": 100000
               }
             },
@@ -32954,6 +32936,26 @@
           "branch": "entry",
           "items": [
             {
+              "id": "412985155",
+              "name": "an opalescent glass jar containing uncut diamonds",
+              "details": {
+                "raw": [
+                  "It is estimated that an opalescent glass jar containing uncut diamonds can store a very small amount with enough space for one item.",
+                  "The jar can not be worn.",
+                  "Analysis of an opalescent glass jar containing uncut diamonds indicates the creator has provided the following information:",
+                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
+                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
+                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
+                  "The glass jar will cost 100,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "material": "glass, an extremely common material",
+                "cost": 100000
+              }
+            },
+            {
               "id": "118792",
               "name": "a scratched villswood aegis",
               "details": {
@@ -32986,26 +32988,6 @@
                 ],
                 "cost": 700000
               }
-            },
-            {
-              "id": "412985155",
-              "name": "an opalescent glass jar containing uncut diamonds",
-              "details": {
-                "raw": [
-                  "It is estimated that an opalescent glass jar containing uncut diamonds can store a very small amount with enough space for one item.",
-                  "The jar can not be worn.",
-                  "Analysis of an opalescent glass jar containing uncut diamonds indicates the creator has provided the following information:",
-                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
-                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
-                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
-                  "The glass jar will cost 100,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "material": "glass, an extremely common material",
-                "cost": 100000
-              }
             }
           ],
           "sign": [
@@ -33017,26 +32999,6 @@
           "room_title": "Vindicate's Weaponry",
           "branch": "northeast",
           "items": [
-            {
-              "id": "394483321",
-              "name": "an opalescent glass jar containing uncut emeralds",
-              "details": {
-                "raw": [
-                  "It is estimated that an opalescent glass jar containing uncut emeralds can store a very small amount with enough space for one item.",
-                  "The jar can not be worn.",
-                  "Analysis of an opalescent glass jar containing uncut emeralds indicates the creator has provided the following information:",
-                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
-                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
-                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
-                  "The glass jar will cost 100,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "material": "glass, an extremely common material",
-                "cost": 100000
-              }
-            },
             {
               "id": "118820",
               "name": "a platinum slain knight sculpture",
@@ -37059,6 +37021,17 @@
           "room_title": "Leafi's Confectionery Castle",
           "branch": "entry",
           "items": [
+
+          ],
+          "sign": [
+            "Written on a lopsided cookie-shaped menu:",
+            "Full chrisms in this room! The ones in the bakery display are cheaper and the ones offered by the waitress statue help you recover faster. Both keep your mind full after resurrection, though!"
+          ]
+        },
+        {
+          "room_title": "Triumphs and Treasures",
+          "branch": "east",
+          "items": [
             {
               "id": "420187693",
               "name": "an ivory-inlaid imflass earcuff",
@@ -37090,17 +37063,7 @@
                 ],
                 "cost": 475000
               }
-            }
-          ],
-          "sign": [
-            "Written on a lopsided cookie-shaped menu:",
-            "Full chrisms in this room! The ones in the bakery display are cheaper and the ones offered by the waitress statue help you recover faster. Both keep your mind full after resurrection, though!"
-          ]
-        },
-        {
-          "room_title": "Triumphs and Treasures",
-          "branch": "east",
-          "items": [
+            },
             {
               "id": "330117499",
               "name": "a hazy green potion",
@@ -40528,40 +40491,6 @@
                 "worn": "feet",
                 "cost": 275000
               }
-            },
-            {
-              "id": "417576863",
-              "name": "a pair of sparkling knitted moon and star-patterned twilight black tartan socks",
-              "details": {
-                "raw": [
-                  "Analysis of a pair of sparkling knitted moon and star-patterned twilight black tartan socks indicates the item is free from merchant alteration restrictions.",
-                  "The tartan socks will cost 175,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "worn": "socks",
-                "material": "cloth, an extremely common material",
-                "cost": 175000
-              }
-            },
-            {
-              "id": "425729954",
-              "name": "a vaalin trimmed leather bow sling inlaid with grey-green mist emeralds",
-              "details": {
-                "raw": [
-                  "You see a vaalin trimmed leather bow sling inlaid with grey-green mist emeralds, which was made with the utmost skill and care.  It has six grey-green mist emeralds fixed upon it.  The outer rim of the sling is trimmed with vaalin.  You see Darrgo's initials stamped upon it.",
-                  "It is estimated that a vaalin trimmed leather bow sling inlaid with grey-green mist emeralds can store a medium amount with enough space for several items.",
-                  "The bow sling will cost 375,000 coins."
-                ],
-                "tags": [
-                  "purpose",
-                  "max_light",
-                  "deepenable"
-                ],
-                "worn": "shoulders",
-                "cost": 375000
-              }
             }
           ],
           "sign": [
@@ -40810,6 +40739,22 @@
                 ],
                 "worn": "belt",
                 "cost": 250000
+              }
+            },
+            {
+              "id": "417576863",
+              "name": "a pair of sparkling knitted moon and star-patterned twilight black tartan socks",
+              "details": {
+                "raw": [
+                  "Analysis of a pair of sparkling knitted moon and star-patterned twilight black tartan socks indicates the item is free from merchant alteration restrictions.",
+                  "The tartan socks will cost 175,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "worn": "socks",
+                "material": "cloth, an extremely common material",
+                "cost": 175000
               }
             },
             {
@@ -41237,6 +41182,24 @@
                 ],
                 "worn": "belt",
                 "cost": 175000
+              }
+            },
+            {
+              "id": "425729954",
+              "name": "a vaalin trimmed leather bow sling inlaid with grey-green mist emeralds",
+              "details": {
+                "raw": [
+                  "You see a vaalin trimmed leather bow sling inlaid with grey-green mist emeralds, which was made with the utmost skill and care.  It has six grey-green mist emeralds fixed upon it.  The outer rim of the sling is trimmed with vaalin.  You see Darrgo's initials stamped upon it.",
+                  "It is estimated that a vaalin trimmed leather bow sling inlaid with grey-green mist emeralds can store a medium amount with enough space for several items.",
+                  "The bow sling will cost 375,000 coins."
+                ],
+                "tags": [
+                  "purpose",
+                  "max_light",
+                  "deepenable"
+                ],
+                "worn": "shoulders",
+                "cost": 375000
               }
             },
             {
@@ -50701,6 +50664,32 @@
           "branch": "entry",
           "items": [
             {
+              "id": "35782014",
+              "name": "an azure sephwir heavy crossbow",
+              "details": {
+                "raw": [
+                  "You see an azure sephwir heavy crossbow which is not cocked.",
+                  "Analysis of an azure sephwir heavy crossbow indicates the item has certain alteration restrictions.  It cannot be used in alterations.",
+                  "The sephwir heavy crossbow will cost 200,000 coins.",
+                  "It is estimated to be worth about 1,450,000 silvers.",
+                  "It is sighted to assist in aiming, but exactly how much requires assessment.",
+                  "It is predominantly crafted of sephwir.",
+                  "It is a simple project (83 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Nitos."
+                ],
+                "tags": [
+                  "purpose",
+                  "lightenable"
+                ],
+                "skill": "ranged weapons",
+                "worn": "shoulders",
+                "material": "sephwir, an extremely rare wood",
+                "enchant": 25,
+                "weight": 12,
+                "cost": 200000
+              }
+            },
+            {
               "id": "394019045",
               "name": "some imflass brigandine armor",
               "details": {
@@ -51558,42 +51547,6 @@
                 "weight": 3,
                 "cost": 1000000
               }
-            },
-            {
-              "id": "417497503",
-              "name": "a shimmering green orb",
-              "details": {
-                "raw": [
-                  "Green tendrils writhe within the orb.  Your desire to rub and caress it is nearly overwhelming.  You sense there is 1 use within the orb.",
-                  "The orb can not be worn.",
-                  "Analysis of a shimmering green orb indicates the creator has provided the following information:",
-                  "This is a 1.5x modifier with 250 flat experience award orb.  It is not currently attuned to any character.",
-                  "The green orb will cost 300,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "material": "gemstone, an extremely common material",
-                "cost": 300000
-              }
-            },
-            {
-              "id": "420412905",
-              "name": "a shimmering green orb",
-              "details": {
-                "raw": [
-                  "Green tendrils writhe within the orb.  Your desire to rub and caress it is nearly overwhelming.  You sense there is 1 use within the orb.",
-                  "The orb can not be worn.",
-                  "Analysis of a shimmering green orb indicates the creator has provided the following information:",
-                  "This is a 1.5x modifier with 250 flat experience award orb.  It is not currently attuned to any character.",
-                  "The green orb will cost 300,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "material": "gemstone, an extremely common material",
-                "cost": 300000
-              }
             }
           ]
         },
@@ -51939,6 +51892,42 @@
           "branch": "northwest",
           "items": [
             {
+              "id": "420412905",
+              "name": "a shimmering green orb",
+              "details": {
+                "raw": [
+                  "Green tendrils writhe within the orb.  Your desire to rub and caress it is nearly overwhelming.  You sense there is 1 use within the orb.",
+                  "The orb can not be worn.",
+                  "Analysis of a shimmering green orb indicates the creator has provided the following information:",
+                  "This is a 1.5x modifier with 250 flat experience award orb.  It is not currently attuned to any character.",
+                  "The green orb will cost 300,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "material": "gemstone, an extremely common material",
+                "cost": 300000
+              }
+            },
+            {
+              "id": "417497503",
+              "name": "a shimmering green orb",
+              "details": {
+                "raw": [
+                  "Green tendrils writhe within the orb.  Your desire to rub and caress it is nearly overwhelming.  You sense there is 1 use within the orb.",
+                  "The orb can not be worn.",
+                  "Analysis of a shimmering green orb indicates the creator has provided the following information:",
+                  "This is a 1.5x modifier with 250 flat experience award orb.  It is not currently attuned to any character.",
+                  "The green orb will cost 300,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "material": "gemstone, an extremely common material",
+                "cost": 300000
+              }
+            },
+            {
               "id": "135260",
               "name": "a purple-veined black leather backpack",
               "details": {
@@ -52089,32 +52078,6 @@
 
                 ],
                 "material": "gemstone, an extremely common material",
-                "cost": 300000
-              }
-            },
-            {
-              "id": "35782014",
-              "name": "an azure sephwir heavy crossbow",
-              "details": {
-                "raw": [
-                  "You see an azure sephwir heavy crossbow which is not cocked.",
-                  "Analysis of an azure sephwir heavy crossbow indicates the item has certain alteration restrictions.  It cannot be used in alterations.",
-                  "The sephwir heavy crossbow will cost 300,000 coins.",
-                  "It is estimated to be worth about 1,450,000 silvers.",
-                  "It is sighted to assist in aiming, but exactly how much requires assessment.",
-                  "It is predominantly crafted of sephwir.",
-                  "It is a simple project (83 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by Nitos."
-                ],
-                "tags": [
-                  "purpose",
-                  "lightenable"
-                ],
-                "skill": "ranged weapons",
-                "worn": "shoulders",
-                "material": "sephwir, an extremely rare wood",
-                "enchant": 25,
-                "weight": 12,
                 "cost": 300000
               }
             },
@@ -65506,10 +65469,9 @@
           "sign": [
             "Written on an engraved ironwood sign:",
             "The chain is spiked and temp VCHP.",
-            "The harness is T2 of 3.",
             "Jewelry is custom made, many pieces are zested.",
             "Be sure to check the perfume on the counter!",
-            "Drinks and cheeses are hand crafted - contact Traiva to place custom order!"
+            "Drinks and cheeses are hand crafted - contact Traiva to place a custom order!"
           ]
         }
       ]
@@ -69748,6 +69710,49 @@
           "branch": "entry",
           "items": [
             {
+              "id": "419593691",
+              "name": "a skull-etched spiked crimson eahnor pavis",
+              "details": {
+                "raw": [
+                  "On the reverse of the pavis, a complex webbing of oiled leather straps and polished buckles forms an intricate arm harness.  The straps are arranged in a pattern that appears able to secure a weapon within.  It has a small enchanter's glyph.",
+                  "The pavis is a tower shield that protects the bearer if carried in the left hand.  It is spiked.",
+                  "Analysis of a skull-etched spiked crimson eahnor pavis indicates the creator has provided the following information:",
+                  "You get a strong sense that the pavis can be altered by any merchant as long as the harness remains in place.",
+                  "This pavis is currently Tier 1 of 2, with access to Rub*, Turn, Cower, and Batter.",
+                  "*This verb loosens straps to allow access to a stored weapon and will also, if loose, tighten to secure the weapon.",
+                  "The size of the weapon that can be stored in the pavis's harness is dependent on the size of the shield.",
+                  "The crimson eahnor pavis will cost 1,750,000 coins.",
+                  "It is an enhancive item:",
+                  "    It seems to have more than your average dwarf could count enhancive charges remaining.",
+                  "It is estimated to be worth about 200,000 silvers.",
+                  "It is spiked.",
+                  "It is predominantly crafted of eahnor.",
+                  "It is a simple project (46 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Amhrain."
+                ],
+                "tags": [
+                  "purpose",
+                  "lightenable",
+                  "persists"
+                ],
+                "worn": "shoulders",
+                "material": "eahnor, a very rare metal",
+                "enchant": 25,
+                "enhancives": [
+                  {
+                    "boost": 3,
+                    "ability": "Shield Use Bonus"
+                  },
+                  {
+                    "boost": 2,
+                    "ability": "Dexterity Bonus"
+                  }
+                ],
+                "weight": 10,
+                "cost": 1750000
+              }
+            },
+            {
               "id": "349625352",
               "name": "a bundle of baobab arrows",
               "details": {
@@ -70498,49 +70503,6 @@
                 "weight": 5,
                 "cost": 5000000
               }
-            },
-            {
-              "id": "419593691",
-              "name": "a skull-etched spiked crimson eahnor pavis",
-              "details": {
-                "raw": [
-                  "On the reverse of the pavis, a complex webbing of oiled leather straps and polished buckles forms an intricate arm harness.  The straps are arranged in a pattern that appears able to secure a weapon within.  It has a small enchanter's glyph.",
-                  "The pavis is a tower shield that protects the bearer if carried in the left hand.  It is spiked.",
-                  "Analysis of a skull-etched spiked crimson eahnor pavis indicates the creator has provided the following information:",
-                  "You get a strong sense that the pavis can be altered by any merchant as long as the harness remains in place.",
-                  "This pavis is currently Tier 1 of 2, with access to Rub*, Turn, Cower, and Batter.",
-                  "*This verb loosens straps to allow access to a stored weapon and will also, if loose, tighten to secure the weapon.",
-                  "The size of the weapon that can be stored in the pavis's harness is dependent on the size of the shield.",
-                  "The crimson eahnor pavis will cost 1,750,000 coins.",
-                  "It is an enhancive item:",
-                  "    It seems to have more than your average dwarf could count enhancive charges remaining.",
-                  "It is estimated to be worth about 200,000 silvers.",
-                  "It is spiked.",
-                  "It is predominantly crafted of eahnor.",
-                  "It is a simple project (46 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by Amhrain."
-                ],
-                "tags": [
-                  "purpose",
-                  "lightenable",
-                  "persists"
-                ],
-                "worn": "shoulders",
-                "material": "eahnor, a very rare metal",
-                "enchant": 25,
-                "enhancives": [
-                  {
-                    "boost": 3,
-                    "ability": "Shield Use Bonus"
-                  },
-                  {
-                    "boost": 2,
-                    "ability": "Dexterity Bonus"
-                  }
-                ],
-                "weight": 10,
-                "cost": 1750000
-              }
             }
           ],
           "sign": [
@@ -71211,7 +71173,7 @@
               "name": "a tiny nacreous humanoid skeleton with bat wings and a scorpion tail",
               "details": {
                 "raw": [
-                  "You glance at the nacreous skeleton, wondering if it's possibly sideways.  Or upside down.  Or backwards.  It's really confusing you!",
+                  "Oddly enough, it looks like a tiny nacreous humanoid skeleton with bat wings and a scorpion tail.",
                   "Analysis of a tiny nacreous humanoid skeleton with bat wings and a scorpion tail indicates the creator has provided the following information:",
                   "This item's description/base/look may not be altered in any way.",
                   "Available verbs: PEER, GAZE, RUB, STARE, TAP",
@@ -80770,41 +80732,6 @@
                 ],
                 "cost": 425000
               }
-            },
-            {
-              "id": "420187735",
-              "name": "a rune-etched alexandrite clasp",
-              "details": {
-                "raw": [
-                  "Analysis of a rune-etched alexandrite clasp indicates the item is free from merchant alteration restrictions.",
-                  "The alexandrite clasp will cost 425,000 coins.",
-                  "It has 0 charges.  It is rechargeable.",
-                  "It will persist after its last magical charge has been expended.",
-                  "It is an enhancive item:",
-                  "    It seems to have a lot of enhancive charges remaining.",
-                  "It is estimated to be worth about 300,000 silvers.",
-                  "It has a permanently unlocked loresong by Florania."
-                ],
-                "tags": [
-                  "purpose",
-                  "imbeddable",
-                  "persists",
-                  "small"
-                ],
-                "worn": "pin",
-                "activator": "waving",
-                "enhancives": [
-                  {
-                    "boost": 7,
-                    "ability": "Swimming Bonus"
-                  },
-                  {
-                    "boost": 4,
-                    "ability": "Spiritual Lore - Summoning Bonus"
-                  }
-                ],
-                "cost": 425000
-              }
             }
           ],
           "sign": [
@@ -81082,6 +81009,41 @@
                 ],
                 "weight": 6,
                 "cost": 725000
+              }
+            },
+            {
+              "id": "420187735",
+              "name": "a rune-etched alexandrite clasp",
+              "details": {
+                "raw": [
+                  "Analysis of a rune-etched alexandrite clasp indicates the item is free from merchant alteration restrictions.",
+                  "The alexandrite clasp will cost 425,000 coins.",
+                  "It has 0 charges.  It is rechargeable.",
+                  "It will persist after its last magical charge has been expended.",
+                  "It is an enhancive item:",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It is estimated to be worth about 300,000 silvers.",
+                  "It has a permanently unlocked loresong by Florania."
+                ],
+                "tags": [
+                  "purpose",
+                  "imbeddable",
+                  "persists",
+                  "small"
+                ],
+                "worn": "pin",
+                "activator": "waving",
+                "enhancives": [
+                  {
+                    "boost": 7,
+                    "ability": "Swimming Bonus"
+                  },
+                  {
+                    "boost": 4,
+                    "ability": "Spiritual Lore - Summoning Bonus"
+                  }
+                ],
+                "cost": 425000
               }
             },
             {
@@ -97008,49 +96970,6 @@
                 "weight": 2,
                 "cost": 900000
               }
-            },
-            {
-              "id": "35782030",
-              "name": "an ornate carmiln shield",
-              "details": {
-                "raw": [
-                  "The shield is a medium shield that protects the bearer if carried in the left hand.",
-                  "Analysis of an ornate carmiln shield indicates the item is free from merchant alteration restrictions.",
-                  "The carmiln shield will cost 400,000 coins.",
-                  "It protects against magical attacks with a bonus of 7.",
-                  "It is an enhancive item:",
-                  "    It seems to have a lot of enhancive charges remaining.",
-                  "It has a temporary enhancement that will degrade when the wearer is struck in combat.  It has an incredible amount of uses left before the enhancement degrades away completely, which will cause the item to lose its special ability.",
-                  "It is estimated to be worth about 450,000 silvers.",
-                  "It is predominantly crafted of carmiln.",
-                  "It is a simple project (50 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by a bard."
-                ],
-                "tags": [
-                  "purpose",
-                  "lightenable",
-                  "persists"
-                ],
-                "worn": "shoulders",
-                "material": "carmiln, an uncommon wood",
-                "enchant": 6,
-                "enhancives": [
-                  {
-                    "boost": 6,
-                    "ability": "Discipline Base"
-                  },
-                  {
-                    "boost": 6,
-                    "ability": "Agility Base"
-                  },
-                  {
-                    "boost": 5,
-                    "ability": "Constitution Base"
-                  }
-                ],
-                "weight": 8,
-                "cost": 400000
-              }
             }
           ]
         },
@@ -97918,6 +97837,49 @@
           "room_title": "Vendor's Magic Shoppe",
           "branch": "west",
           "items": [
+            {
+              "id": "35782030",
+              "name": "an ornate carmiln shield",
+              "details": {
+                "raw": [
+                  "The shield is a medium shield that protects the bearer if carried in the left hand.",
+                  "Analysis of an ornate carmiln shield indicates the item is free from merchant alteration restrictions.",
+                  "The carmiln shield will cost 400,000 coins.",
+                  "It protects against magical attacks with a bonus of 7.",
+                  "It is an enhancive item:",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It has a temporary enhancement that will degrade when the wearer is struck in combat.  It has an incredible amount of uses left before the enhancement degrades away completely, which will cause the item to lose its special ability.",
+                  "It is estimated to be worth about 450,000 silvers.",
+                  "It is predominantly crafted of carmiln.",
+                  "It is a simple project (50 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by a bard."
+                ],
+                "tags": [
+                  "purpose",
+                  "lightenable",
+                  "persists"
+                ],
+                "worn": "shoulders",
+                "material": "carmiln, an uncommon wood",
+                "enchant": 6,
+                "enhancives": [
+                  {
+                    "boost": 6,
+                    "ability": "Discipline Base"
+                  },
+                  {
+                    "boost": 6,
+                    "ability": "Agility Base"
+                  },
+                  {
+                    "boost": 5,
+                    "ability": "Constitution Base"
+                  }
+                ],
+                "weight": 8,
+                "cost": 400000
+              }
+            },
             {
               "id": "35868551",
               "name": "a pear-cut amber torc",
@@ -112440,6 +112402,21 @@
               }
             },
             {
+              "id": "249407958",
+              "name": "a shimmering blue-violet potion",
+              "details": {
+                "raw": [
+                  "You must first be holding the blue-violet potion.",
+                  "The potion can not be worn.",
+                  "The blue-violet potion will cost 100,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 100000
+              }
+            },
+            {
               "id": "357719670",
               "name": "a stability contract",
               "details": {
@@ -112480,21 +112457,6 @@
                 ],
                 "material": "organic material, an extremely common material",
                 "cost": 500000
-              }
-            },
-            {
-              "id": "249407958",
-              "name": "a shimmering blue-violet potion",
-              "details": {
-                "raw": [
-                  "You must first be holding the blue-violet potion.",
-                  "The potion can not be worn.",
-                  "The blue-violet potion will cost 400,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "cost": 400000
               }
             }
           ],
@@ -137267,6 +137229,66 @@
           "branch": "entry",
           "items": [
             {
+              "id": "414563914",
+              "name": "an opalescent glass jar containing clear tourmalines",
+              "details": {
+                "raw": [
+                  "It is estimated that an opalescent glass jar containing clear tourmalines can store a very small amount with enough space for one item.",
+                  "The jar can not be worn.",
+                  "Analysis of an opalescent glass jar containing clear tourmalines indicates the creator has provided the following information:",
+                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
+                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
+                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
+                  "The glass jar will cost 69,999 coins."
+                ],
+                "tags": [
+
+                ],
+                "material": "gemstone, an extremely common material",
+                "cost": 69999
+              }
+            },
+            {
+              "id": "414563834",
+              "name": "an opalescent glass jar containing polished black coral",
+              "details": {
+                "raw": [
+                  "It is estimated that an opalescent glass jar containing polished black coral can store a very small amount with enough space for one item.",
+                  "The jar can not be worn.",
+                  "Analysis of an opalescent glass jar containing polished black coral indicates the creator has provided the following information:",
+                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
+                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
+                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
+                  "The glass jar will cost 24,398 coins."
+                ],
+                "tags": [
+
+                ],
+                "material": "gemstone, an extremely common material",
+                "cost": 24398
+              }
+            },
+            {
+              "id": "414563860",
+              "name": "an opalescent glass jar containing iridescent labradorite stones",
+              "details": {
+                "raw": [
+                  "It is estimated that an opalescent glass jar containing iridescent labradorite stones can store a very small amount with enough space for one item.",
+                  "The jar can not be worn.",
+                  "Analysis of an opalescent glass jar containing iridescent labradorite stones indicates the creator has provided the following information:",
+                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
+                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
+                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
+                  "The glass jar will cost 39,898 coins."
+                ],
+                "tags": [
+
+                ],
+                "material": "gemstone, an extremely common material",
+                "cost": 39898
+              }
+            },
+            {
               "id": "354576869",
               "name": "an opalescent glass jar containing yellow zircons",
               "details": {
@@ -137684,66 +137706,6 @@
                 ],
                 "material": "gemstone, an extremely common material",
                 "cost": 69999
-              }
-            },
-            {
-              "id": "414563914",
-              "name": "an opalescent glass jar containing clear tourmalines",
-              "details": {
-                "raw": [
-                  "It is estimated that an opalescent glass jar containing clear tourmalines can store a very small amount with enough space for one item.",
-                  "The jar can not be worn.",
-                  "Analysis of an opalescent glass jar containing clear tourmalines indicates the creator has provided the following information:",
-                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
-                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
-                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
-                  "The glass jar will cost 69,999 coins."
-                ],
-                "tags": [
-
-                ],
-                "material": "gemstone, an extremely common material",
-                "cost": 69999
-              }
-            },
-            {
-              "id": "414563834",
-              "name": "an opalescent glass jar containing polished black coral",
-              "details": {
-                "raw": [
-                  "It is estimated that an opalescent glass jar containing polished black coral can store a very small amount with enough space for one item.",
-                  "The jar can not be worn.",
-                  "Analysis of an opalescent glass jar containing polished black coral indicates the creator has provided the following information:",
-                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
-                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
-                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
-                  "The glass jar will cost 24,398 coins."
-                ],
-                "tags": [
-
-                ],
-                "material": "gemstone, an extremely common material",
-                "cost": 24398
-              }
-            },
-            {
-              "id": "414563860",
-              "name": "an opalescent glass jar containing iridescent labradorite stones",
-              "details": {
-                "raw": [
-                  "It is estimated that an opalescent glass jar containing iridescent labradorite stones can store a very small amount with enough space for one item.",
-                  "The jar can not be worn.",
-                  "Analysis of an opalescent glass jar containing iridescent labradorite stones indicates the creator has provided the following information:",
-                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
-                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
-                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
-                  "The glass jar will cost 39,898 coins."
-                ],
-                "tags": [
-
-                ],
-                "material": "gemstone, an extremely common material",
-                "cost": 39898
               }
             }
           ],
@@ -146435,6 +146397,31 @@
           "branch": "entry",
           "items": [
             {
+              "id": "426123456",
+              "name": "some burnished double leather",
+              "details": {
+                "raw": [
+                  "It has a small enchanter's glyph.",
+                  "The leather is leather armor that covers the torso, arms, legs, neck, and head.",
+                  "Analysis of some burnished double leather indicates the item is free from merchant alteration restrictions.",
+                  "The double leather will cost 625,000 coins.",
+                  "It is estimated to be worth about 100,000 silvers.",
+                  "It is predominantly crafted of leather.",
+                  "It is a simple project (68 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by a bard."
+                ],
+                "tags": [
+                  "purpose",
+                  "lightenable"
+                ],
+                "worn": "chest",
+                "material": "leather, an extremely common material",
+                "enchant": 25,
+                "weight": 16,
+                "cost": 625000
+              }
+            },
+            {
               "id": "398613065",
               "name": "an opalescent glass jar containing white opals",
               "details": {
@@ -146606,6 +146593,46 @@
                 "material": "steel, an extremely common metal",
                 "weight": 12,
                 "cost": 110000
+              }
+            },
+            {
+              "id": "416058419",
+              "name": "an opalescent glass jar containing polished red coral",
+              "details": {
+                "raw": [
+                  "It is estimated that an opalescent glass jar containing polished red coral can store a very small amount with enough space for one item.",
+                  "The jar can not be worn.",
+                  "Analysis of an opalescent glass jar containing polished red coral indicates the creator has provided the following information:",
+                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
+                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
+                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
+                  "The glass jar will cost 70,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "material": "glass, an extremely common material",
+                "cost": 70000
+              }
+            },
+            {
+              "id": "416058235",
+              "name": "an opalescent glass jar containing turquoise stones",
+              "details": {
+                "raw": [
+                  "It is estimated that an opalescent glass jar containing turquoise stones can store a very small amount with enough space for one item.",
+                  "The jar can not be worn.",
+                  "Analysis of an opalescent glass jar containing turquoise stones indicates the creator has provided the following information:",
+                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
+                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
+                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
+                  "The glass jar will cost 70,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "material": "glass, an extremely common material",
+                "cost": 70000
               }
             },
             {
@@ -146920,71 +146947,6 @@
                 "flare": "the power of a lightning bolt",
                 "weight": 10,
                 "cost": 400000
-              }
-            },
-            {
-              "id": "416058419",
-              "name": "an opalescent glass jar containing polished red coral",
-              "details": {
-                "raw": [
-                  "It is estimated that an opalescent glass jar containing polished red coral can store a very small amount with enough space for one item.",
-                  "The jar can not be worn.",
-                  "Analysis of an opalescent glass jar containing polished red coral indicates the creator has provided the following information:",
-                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
-                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
-                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
-                  "The glass jar will cost 70,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "material": "glass, an extremely common material",
-                "cost": 70000
-              }
-            },
-            {
-              "id": "416058235",
-              "name": "an opalescent glass jar containing turquoise stones",
-              "details": {
-                "raw": [
-                  "It is estimated that an opalescent glass jar containing turquoise stones can store a very small amount with enough space for one item.",
-                  "The jar can not be worn.",
-                  "Analysis of an opalescent glass jar containing turquoise stones indicates the creator has provided the following information:",
-                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
-                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
-                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
-                  "The glass jar will cost 70,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "material": "glass, an extremely common material",
-                "cost": 70000
-              }
-            },
-            {
-              "id": "426123456",
-              "name": "some burnished double leather",
-              "details": {
-                "raw": [
-                  "It has a small enchanter's glyph.",
-                  "The leather is leather armor that covers the torso, arms, legs, neck, and head.",
-                  "Analysis of some burnished double leather indicates the item is free from merchant alteration restrictions.",
-                  "The double leather will cost 625,000 coins.",
-                  "It is estimated to be worth about 100,000 silvers.",
-                  "It is predominantly crafted of leather.",
-                  "It is a simple project (68 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by a bard."
-                ],
-                "tags": [
-                  "purpose",
-                  "lightenable"
-                ],
-                "worn": "chest",
-                "material": "leather, an extremely common material",
-                "enchant": 25,
-                "weight": 16,
-                "cost": 625000
               }
             }
           ],
@@ -154599,36 +154561,6 @@
                 "worn": "feet",
                 "cost": 7000
               }
-            },
-            {
-              "id": "420099532",
-              "name": "a grot t'kel potion",
-              "details": {
-                "raw": [
-                  "The potion can not be worn.",
-                  "Analysis of a grot t'kel potion indicates the item is free from merchant alteration restrictions.",
-                  "The grot t'kel potion will cost 1,200 coins."
-                ],
-                "tags": [
-
-                ],
-                "cost": 1200
-              }
-            },
-            {
-              "id": "420099578",
-              "name": "a sarmoc potion",
-              "details": {
-                "raw": [
-                  "The potion can not be worn.",
-                  "Analysis of a sarmoc potion indicates the item is free from merchant alteration restrictions.",
-                  "The sarmoc potion will cost 4,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "cost": 4000
-              }
             }
           ],
           "sign": [
@@ -154640,6 +154572,28 @@
           "room_title": "Roelaren's Magic Shoppe",
           "branch": "southeast",
           "items": [
+            {
+              "id": "121243",
+              "name": "a fel-hafted mithril war mattock",
+              "details": {
+                "raw": [
+                  "Analysis of a fel-hafted mithril war mattock indicates the item is free from merchant alteration restrictions.",
+                  "The mithril war mattock will cost 5,000 coins.",
+                  "It is estimated to be worth about 7,250 silvers.",
+                  "It is predominantly crafted of mithril.",
+                  "It is a simple project (-19 difficulty) for an adventurer to modify.",
+                  "It has a temporarily unlocked loresong by a bard."
+                ],
+                "tags": [
+                  "lightenable"
+                ],
+                "skill": "twohanded weapons",
+                "material": "mithril, an uncommon metal",
+                "enchant": 5,
+                "weight": 7,
+                "cost": 5000
+              }
+            },
             {
               "id": "121253",
               "name": "a silver-edged black rolaren backsword",
@@ -154826,6 +154780,36 @@
               }
             },
             {
+              "id": "420099532",
+              "name": "a grot t'kel potion",
+              "details": {
+                "raw": [
+                  "The potion can not be worn.",
+                  "Analysis of a grot t'kel potion indicates the item is free from merchant alteration restrictions.",
+                  "The grot t'kel potion will cost 1,200 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 1200
+              }
+            },
+            {
+              "id": "420099578",
+              "name": "a sarmoc potion",
+              "details": {
+                "raw": [
+                  "The potion can not be worn.",
+                  "Analysis of a sarmoc potion indicates the item is free from merchant alteration restrictions.",
+                  "The sarmoc potion will cost 4,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 4000
+              }
+            },
+            {
               "id": "121244",
               "name": "a crystalline flask containing a luminous ruddy potion",
               "details": {
@@ -154837,28 +154821,6 @@
 
                 ],
                 "cost": 500
-              }
-            },
-            {
-              "id": "121243",
-              "name": "a fel-hafted mithril war mattock",
-              "details": {
-                "raw": [
-                  "Analysis of a fel-hafted mithril war mattock indicates the item is free from merchant alteration restrictions.",
-                  "The mithril war mattock will cost 7,250 coins.",
-                  "It is estimated to be worth about 7,250 silvers.",
-                  "It is predominantly crafted of mithril.",
-                  "It is a simple project (-19 difficulty) for an adventurer to modify.",
-                  "It has a temporarily unlocked loresong by a bard."
-                ],
-                "tags": [
-                  "lightenable"
-                ],
-                "skill": "twohanded weapons",
-                "material": "mithril, an uncommon metal",
-                "enchant": 5,
-                "weight": 7,
-                "cost": 7250
               }
             }
           ],
