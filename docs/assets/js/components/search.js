@@ -843,7 +843,9 @@ class SearchEngine {
     }
 
     getShopMapInfo(shopName) {
-        const shopMappingData = window.dataLoader?.shopMapping?.[shopName];
+        // Extract owner name since shop_mapping uses owner names (e.g., "Painz") not full names (e.g., "Painz's Magic Shoppe")
+        const ownerName = this.extractOwnerNameFromShopName(shopName);
+        const shopMappingData = window.dataLoader?.shopMapping?.[ownerName];
         if (shopMappingData) {
             const mapId = shopMappingData.map_id;
             const exterior = shopMappingData.exterior;
@@ -853,12 +855,37 @@ class SearchEngine {
     }
 
     getShopMapInfoInline(shopName) {
-        const shopMappingData = window.dataLoader?.shopMapping?.[shopName];
+        // Extract owner name since shop_mapping uses owner names (e.g., "Painz") not full names (e.g., "Painz's Magic Shoppe")
+        const ownerName = this.extractOwnerNameFromShopName(shopName);
+        const shopMappingData = window.dataLoader?.shopMapping?.[ownerName];
         if (shopMappingData) {
             const mapId = shopMappingData.map_id;
             return ` <span style="color: #1b5e20; font-weight: bold;">(📍 Room: ${mapId})</span>`;
         }
         return '';
+    }
+
+    extractOwnerNameFromShopName(shopName) {
+        // Extract owner name from shop name for shop_mapping lookups
+        // shop_mapping.json uses owner names (e.g., "Painz") not full shop names (e.g., "Painz's Magic Shoppe")
+        if (!shopName) return shopName;
+
+        // Extract owner name from patterns like:
+        //   "Painz's Magic Shoppe" -> "Painz"
+        //   "Dark Tower Imports" -> "Dark Tower Imports" (business name, keep as-is)
+        const match = shopName.match(/^(.*?)'s?\s+(Magic Shoppe|Weaponry|Armory|Outfitting|General Store|Combat Gear|Locksmith Shop|Shop|Boutique)/i);
+        if (match) {
+            return match[1].trim();
+        }
+
+        // Check for possessive without shop type
+        const possessiveMatch = shopName.match(/^(.*?)'s\s+(.*)$/i);
+        if (possessiveMatch) {
+            return possessiveMatch[1].trim();
+        }
+
+        // Return as-is if no pattern matches (business names)
+        return shopName;
     }
 
     closeModal() {

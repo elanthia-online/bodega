@@ -548,6 +548,40 @@ class DataLoader {
         return entryRoom.room_title || 'Unknown Shop';
     }
 
+    extractShopOwnerName(shop) {
+        // Extract just the owner name from shop data for shop_mapping lookups
+        // shop_mapping.json uses owner names (e.g., "Painz") not full shop names (e.g., "Painz's Magic Shoppe")
+
+        // Try preamble first (most reliable)
+        if (shop.preamble) {
+            const ownerFromPreamble = this.extractShopNameFromPreamble(shop.preamble);
+            if (ownerFromPreamble && ownerFromPreamble !== 'unknown') {
+                return ownerFromPreamble;
+            }
+        }
+
+        // Fall back to extracting from room_title
+        const roomTitle = this.extractShopName(shop);
+        if (!roomTitle || roomTitle === 'Unknown Shop') return 'unknown';
+
+        // Extract owner name from patterns like:
+        //   "Painz's Magic Shoppe" -> "Painz"
+        //   "Dark Tower Imports" -> "Dark Tower Imports" (business name, keep as-is)
+        const match = roomTitle.match(/^(.*?)'s?\s+(Magic Shoppe|Weaponry|Armory|Outfitting|General Store|Combat Gear|Locksmith Shop|Shop|Boutique)/i);
+        if (match) {
+            return match[1].trim();
+        }
+
+        // Check for possessive without shop type
+        const possessiveMatch = roomTitle.match(/^(.*?)'s\s+(.*)$/i);
+        if (possessiveMatch) {
+            return possessiveMatch[1].trim();
+        }
+
+        // Return as-is if no pattern matches (business names)
+        return roomTitle;
+    }
+
     extractShopSign(shop) {
         // Look for shop sign in the first room (entry room)
         if (!shop.inv || shop.inv.length === 0) return '';

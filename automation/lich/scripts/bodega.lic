@@ -838,6 +838,34 @@ module Bodega
         add_items_to_shop(existing_shop, new_items)
       end
 
+      # Step 9: Update room_title to match current preamble (handles shop ID swaps during maintenance)
+      # The preamble is always fresh from the game, but room_title comes from cached inv structure
+      # Extract the shop name from the preamble and update the entry room's title
+      preamble_shop_name = extract_shop_name_from_preamble(preamble)
+      if existing_shop['inv'] && existing_shop['inv'][0] && preamble_shop_name != 'unknown'
+        # Get the current room title to determine shop type
+        current_room_title = existing_shop['inv'][0]['room_title']
+
+        # Extract shop type from current room_title (e.g., "Magic Shoppe", "Weaponry", etc.)
+        shop_type_match = current_room_title&.match(/(?:'s?\s+)?(Magic Shoppe|Weaponry|Armory|Outfitting|General Store|Combat Gear|Locksmith Shop|Shop|Boutique|Treasures|Cupboard|Pantry|Market|Tower|Stash|Castle|Eye|Claw|Kiss|Ransom|Den|Hoard|Goods|Emporium|Salon|Parlor|Boutique|Imports|Defence|Couture|Station|Things|Wares|Snack Pantry|Icemule Trade Station|Confectionery Castle|Smuggling Emporium|Arcane Antiquities|Fine Furs|Supply Center|Lost Things|Locksmith Shop|Lockpicks|Trade Station)$/i)
+        shop_type = shop_type_match ? shop_type_match[1] : nil
+
+        # Construct new room_title: "Owner's Shop Type" or just shop type for business names
+        new_room_title = if shop_type && !preamble_shop_name.match(/^(The|A)\s+/i)
+          # Owner-possessive format: "Painz's Magic Shoppe"
+          "#{preamble_shop_name}'s #{shop_type}"
+        elsif shop_type
+          # Business name format: "The Best Defence" or "Dark Tower Imports"
+          "#{preamble_shop_name} #{shop_type}"
+        else
+          # Fallback: use preamble shop name as-is
+          preamble_shop_name
+        end
+
+        existing_shop['inv'][0]['room_title'] = new_room_title
+        Log.out("Updated room_title from '#{current_room_title}' to '#{new_room_title}'", label: :smart)
+      end
+
       # Return the updated shop structure, preserving room_id if it exists
       result = {
         preamble: preamble,
