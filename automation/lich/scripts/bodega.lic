@@ -9,10 +9,14 @@
 
   Author: Ondreian
   Requirements: Ruby >= 2.3
-  version: 0.5
+  version: 0.6
   tags: playershops
 
   changelog:
+    v0.6 - Fix shop ID swap handling during maintenance reboots
+           - Smart scan now automatically syncs room_title with preamble
+           - Prevents stale room metadata when shop IDs are reassigned
+           - Maintains shop type detection during synchronization
     v0.5 - Add smart parsing mode for 90%+ performance improvement
            - New --smart flag for intelligent item inspection
            - Loads existing JSON, compares IDs, only inspects new items
