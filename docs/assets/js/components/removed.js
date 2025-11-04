@@ -398,8 +398,10 @@ class RemovedEngine {
 
     showItemDetails(item) {
         // Get shop exterior description from shop mapping if available
+        // Extract owner name since shop_mapping uses owner names (e.g., "Painz") not full names (e.g., "Painz's Magic Shoppe")
         const shopMapping = window.dataLoader && window.dataLoader.shopMapping ? window.dataLoader.shopMapping : {};
-        const shopExterior = shopMapping[item.lastSeenShop]?.exterior || '';
+        const ownerName = this.extractOwnerNameFromShopName(item.lastSeenShop);
+        const shopExterior = shopMapping[ownerName]?.exterior || '';
 
         // Debug logging to see what's happening
         console.log('Shop mapping debug:', {
@@ -513,6 +515,29 @@ class RemovedEngine {
     clearSearch() {
         document.getElementById('removed-search-input').value = '';
         this.performSearch();
+    }
+
+    extractOwnerNameFromShopName(shopName) {
+        // Extract owner name from shop name for shop_mapping lookups
+        // shop_mapping.json uses owner names (e.g., "Painz") not full shop names (e.g., "Painz's Magic Shoppe")
+        if (!shopName) return shopName;
+
+        // Extract owner name from patterns like:
+        //   "Painz's Magic Shoppe" -> "Painz"
+        //   "Dark Tower Imports" -> "Dark Tower Imports" (business name, keep as-is)
+        const match = shopName.match(/^(.*?)'s?\s+(Magic Shoppe|Weaponry|Armory|Outfitting|General Store|Combat Gear|Locksmith Shop|Shop|Boutique)/i);
+        if (match) {
+            return match[1].trim();
+        }
+
+        // Check for possessive without shop type
+        const possessiveMatch = shopName.match(/^(.*?)'s\s+(.*)$/i);
+        if (possessiveMatch) {
+            return possessiveMatch[1].trim();
+        }
+
+        // Return as-is if no pattern matches (business names)
+        return shopName;
     }
 
     resetFilters() {
