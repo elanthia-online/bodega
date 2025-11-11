@@ -762,6 +762,36 @@ class SearchEngine {
         return container;
     }
 
+    formatFlareDisplay(flare) {
+        // Format flare text for better display
+        if (typeof flare !== 'string') return String(flare);
+
+        // Handle "mana (+X)" format
+        if (flare.includes('mana (')) {
+            return 'Mana flares ' + flare.replace('mana', '').trim();
+        }
+
+        // Handle "the power of X" format
+        if (flare.includes('the power of')) {
+            return flare.replace('the power of', 'Flares with the power of');
+        }
+
+        // Handle element-only format (e.g., "fire", "ice")
+        const elementalFlares = ['fire', 'ice', 'lightning', 'acid', 'vacuum', 'plasma', 'steam', 'impact'];
+        const lowerFlare = flare.toLowerCase();
+        if (elementalFlares.includes(lowerFlare)) {
+            return flare.charAt(0).toUpperCase() + flare.slice(1) + ' flares';
+        }
+
+        // Handle "disruption" or "disrupt" format
+        if (lowerFlare.includes('disrupt')) {
+            return 'Disruption flares';
+        }
+
+        // Default: capitalize first letter and ensure it looks presentable
+        return flare.charAt(0).toUpperCase() + flare.slice(1);
+    }
+
     showItemDetails(item) {
         const modal = document.getElementById('item-modal');
         const nameEl = document.getElementById('modal-item-name');
@@ -785,6 +815,17 @@ class SearchEngine {
             <div class="modal-section">
                 <h4>Enchantment</h4>
                 <p>+${item.enchant} enchant bonus</p>
+            </div>
+            ` : ''}
+
+            ${item.flares && item.flares.length > 0 ? `
+            <div class="modal-section">
+                <h4>Flares</h4>
+                <div class="flares-list">
+                    ${item.flares.map(flare => `
+                        <p>${this.formatFlareDisplay(flare)}</p>
+                    `).join('')}
+                </div>
             </div>
             ` : ''}
 
