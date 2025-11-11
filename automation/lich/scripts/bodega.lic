@@ -9,10 +9,13 @@
 
   Author: Ondreian
   Requirements: Ruby >= 2.3
-  version: 0.6
+  version: 0.7
   tags: playershops
 
   changelog:
+    v0.7 - Preserve complete item inspection details in raw data
+           - Fix issue where parsed properties were removed from raw output
+           - Raw data now contains full item inspection regardless of parsing
     v0.6 - Fix shop ID swap handling during maintenance reboots
            - Smart scan now automatically syncs room_title with preamble
            - Prevents stale room metadata when shop IDs are reassigned
@@ -269,9 +272,9 @@ module Bodega
       _extract(details)
     end
 
-    def maybe_raw(line, *others)
+    def maybe_raw(line)
+      # Always add non-blacklisted lines to raw, regardless of parsing
       return if BLACKLIST.match(line)
-      return if others.any? { |identity| identity }
       @props[:raw] << line
     end
 
@@ -283,11 +286,13 @@ module Bodega
         # Try to parse gemstone properties first (multi-line blocks)
         next if _gemstone_property(details_array, index)
 
-        # Then handle single-line patterns
-        maybe_raw(line,
-                  _props(line),
-                  _bools(line),
-                  _enhancive(line.strip))
+        # Always add to raw (unless blacklisted)
+        maybe_raw(line)
+
+        # Then handle single-line patterns for extraction
+        _props(line)
+        _bools(line)
+        _enhancive(line.strip)
       end
     end
 
@@ -856,15 +861,15 @@ module Bodega
 
         # Construct new room_title: "Owner's Shop Type" or just shop type for business names
         new_room_title = if shop_type && !preamble_shop_name.match(/^(The|A)\s+/i)
-          # Owner-possessive format: "Painz's Magic Shoppe"
-          "#{preamble_shop_name}'s #{shop_type}"
-        elsif shop_type
-          # Business name format: "The Best Defence" or "Dark Tower Imports"
-          "#{preamble_shop_name} #{shop_type}"
-        else
-          # Fallback: use preamble shop name as-is
-          preamble_shop_name
-        end
+                           # Owner-possessive format: "Painz's Magic Shoppe"
+                           "#{preamble_shop_name}'s #{shop_type}"
+                         elsif shop_type
+                           # Business name format: "The Best Defence" or "Dark Tower Imports"
+                           "#{preamble_shop_name} #{shop_type}"
+                         else
+                           # Fallback: use preamble shop name as-is
+                           preamble_shop_name
+                         end
 
         existing_shop['inv'][0]['room_title'] = new_room_title
         Log.out("Updated room_title from '#{current_room_title}' to '#{new_room_title}'", label: :smart)
@@ -1043,7 +1048,7 @@ module Bodega
       return unless @added_items_data
 
       # Remove items with invalid timestamps only
-      @added_items_data = @added_items_data.select do |item_id, timestamp_str|
+      @added_items_data = @added_items_data.select do |_item_id, timestamp_str|
         begin
           Time.parse(timestamp_str)
           true
