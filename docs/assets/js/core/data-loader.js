@@ -370,6 +370,11 @@ class DataLoader {
             blessing: null
         };
 
+        // Add the already parsed flare from bodega.lic if it exists
+        if (item.details?.flare) {
+            properties.flares.push(item.details.flare);
+        }
+
         (item.details?.raw || []).forEach(line => {
             // Capacity parsing
             const capacityMatch = line.match(/can store a (.*?) amount/i);
@@ -441,12 +446,21 @@ class DataLoader {
 
             // Flare parsing - be more specific to avoid matching gemstone descriptions
             // Skip lines that start with "Description:" (gemstone properties)
+            // Also check if we already have this flare from item.details.flare
             if (!line.match(/^Description:/i) &&
                 (line.match(/infused.*power/i) ||
+                 line.match(/infused.*mana/i) ||  // Add pattern for mana flares
                  line.match(/\b(fire|ice|lightning|vacuum|impact|acid|plasma|steam|grapple|unbalance|disrupt|disruption)\s+flares?\b/i) ||
                  line.match(/holy.*fire/i) ||
                  line.match(/blessed.*undead/i))) {
-                properties.flares.push(line.trim());
+                // Extract just the flare type if the line matches a pattern like "It has been infused with..."
+                const infusedMatch = line.match(/has been infused with (.+)\.?$/i);
+                const flareText = infusedMatch ? infusedMatch[1].replace(/\.$/, '') : line.trim();
+
+                // Don't add if we already have this flare
+                if (!properties.flares.some(f => f.toLowerCase() === flareText.toLowerCase())) {
+                    properties.flares.push(flareText);
+                }
             }
 
             // Spell parsing
