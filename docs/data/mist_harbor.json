@@ -1,6 +1,6 @@
 {
-  "created_at": "2025-11-22 06:17:25 UTC",
-  "run_time": "13s",
+  "created_at": "2025-11-22 09:01:36 UTC",
+  "run_time": "06m 03s",
   "town": "Mist Harbor",
   "shops": [
     {
@@ -7171,7 +7171,7 @@
       "id": "8",
       "inv": [
         {
-          "room_title": "Alixi",
+          "room_title": "The Mirage",
           "branch": "entry",
           "items": [
 
@@ -9049,7 +9049,7 @@
       "id": "10",
       "inv": [
         {
-          "room_title": "Rylohk",
+          "room_title": "Bards and Nobles, Lobby",
           "branch": "entry",
           "items": [
             {
@@ -25340,6 +25340,40 @@
           "branch": "entry",
           "items": [
             {
+              "id": "359351804",
+              "name": "a glittering silver bracer",
+              "details": {
+                "raw": [
+                  "The bracer can be worn around the wrist.  The bracer appears to serve some purpose.",
+                  "Analysis of a glittering silver bracer indicates the item is free from merchant alteration restrictions.",
+                  "The silver bracer will cost 875,000 coins.",
+                  "It will persist after its last magical charge has been expended.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 6 to Dexterity Base.",
+                  "    This enhancement may not be used by adventurers who have not trained 21 times.",
+                  "    It provides a boost of 2 to Max Mana.",
+                  "    This enhancement may not be used by adventurers who have not trained 3 times.",
+                  "    It seems to have more than your average dwarf could count enhancive charges remaining.",
+                  "It will crumble into dust after its last enhancive charge has been expended."
+                ],
+                "tags": [
+                  "purpose"
+                ],
+                "worn": "wrist",
+                "enhancives": [
+                  {
+                    "boost": 6,
+                    "ability": "Dexterity Base"
+                  },
+                  {
+                    "boost": 2,
+                    "ability": "Max Mana"
+                  }
+                ],
+                "cost": 875000
+              }
+            },
+            {
               "id": "269244406",
               "name": "a prism-cut coppery jewel streaked with rhimar",
               "details": {
@@ -26363,41 +26397,13 @@
                 ],
                 "cost": 500000
               }
-            },
-            {
-              "id": "359351804",
-              "name": "a glittering silver bracer",
-              "details": {
-                "raw": [
-                  "The bracer can be worn around the wrist.  The bracer appears to serve some purpose.",
-                  "Analysis of a glittering silver bracer indicates the item is free from merchant alteration restrictions.",
-                  "The silver bracer will cost 875,000 coins.",
-                  "It will persist after its last magical charge has been expended.",
-                  "It is an enhancive item:",
-                  "    It provides a boost of 6 to Dexterity Base.",
-                  "    This enhancement may not be used by adventurers who have not trained 21 times.",
-                  "    It provides a boost of 2 to Max Mana.",
-                  "    This enhancement may not be used by adventurers who have not trained 3 times.",
-                  "    It seems to have more than your average dwarf could count enhancive charges remaining.",
-                  "It will crumble into dust after its last enhancive charge has been expended."
-                ],
-                "tags": [
-                  "purpose"
-                ],
-                "worn": "wrist",
-                "enhancives": [
-                  {
-                    "boost": 6,
-                    "ability": "Dexterity Base"
-                  },
-                  {
-                    "boost": 2,
-                    "ability": "Max Mana"
-                  }
-                ],
-                "cost": 875000
-              }
-            },
+            }
+          ]
+        },
+        {
+          "room_title": "Djinn's Weaponry",
+          "branch": "north",
+          "items": [
             {
               "id": "359343251",
               "name": "a chrysoberyl inset ora necklace",
@@ -26430,13 +26436,7 @@
                 ],
                 "cost": 975000
               }
-            }
-          ]
-        },
-        {
-          "room_title": "Djinn's Weaponry",
-          "branch": "north",
-          "items": [
+            },
             {
               "id": "163881",
               "name": "a broken golden brown jewel speckled with copper flakes",
@@ -33397,6 +33397,61 @@
           "branch": "entry",
           "items": [
             {
+              "id": "347615168",
+              "name": "a small silk pillow",
+              "details": {
+                "raw": [
+                  "As you gaze over a small silk pillow, you realize that ANALYZE may provide you with more of the finer details.",
+                  "The pillow can not be worn.",
+                  "It looks like this item has been mainly crafted out of cloth, an extremely common material.",
+                  "Analysis of a small silk pillow indicates the creator has provided the following information:",
+                  "This is a prize token that, once REDEEMed, will:",
+                  "Grant the ability to cast a customized Miracle (350) involving memories.",
+                  "First Person: Images of memories fade as you feel yourself falling through darkness.  Your surroundings become more clear as you fall as if waking from a dream.  When you stop, you open your eyes alive once again.",
+                  "Others' View: The prone astral image of Brodega comes floating down from above.  When it reaches his body, his eyes slowly open.",
+                  "Important note:",
+                  "The effect of this token is cosmetic.  It does not increase the effect or damage caused by a spell.",
+                  "This item does NOT grant spell knowledge.  REDEEMing this item assumes that the player already has the ability to cast the customized spell either from an item, Spell Knowledge, or having the spell cast upon you, if applicable.",
+                  "The silk pillow will cost 250,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "material": "cloth, an extremely common material",
+                "cost": 250000
+              }
+            },
+            {
+              "id": "347615111",
+              "name": "a shadow-inked vellum",
+              "details": {
+                "raw": [
+                  "This shadow-inked vellum looks interesting... Perhaps you should read it.",
+                  "Invoking this shadow-inked vellum will grant you permanent access to a special method of preparing your spells.",
+                  "It will provide the following phrase:",
+                  "First Person:  Swaying slightly, you hum an ancient hymn that causes the shadows to gather to you.  Whispering in your ear, the voices of the dead lend their chorus to your hum and aid you in casting [Spell Name].",
+                  "Third Person:  Swaying slightly, Brodega hums an ancient hymn that causes the shadows to stretch towards him.  Soft at first, whispers from unseen visitors lend their voice to his humming as he completes his spell.",
+                  "Hidden or Invisible:  Rising from the shadows, an ancient hymn fills the air and grows into a cryptic chorus before abating.",
+                  "Invoking this shadow-inked vellum will grant you permanent access to a special method of preparing your spells.",
+                  "It will provide the following phrase:",
+                  "First Person:  Swaying slightly, you hum an ancient hymn that causes the shadows to gather to you.  Whispering in your ear, the voices of the dead lend their chorus to your hum and aid you in casting [Spell Name].",
+                  "Third Person:  Swaying slightly, Brodega hums an ancient hymn that causes the shadows to stretch towards him.  Soft at first, whispers from unseen visitors lend their voice to his humming as he completes his spell.",
+                  "Hidden or Invisible:  Rising from the shadows, an ancient hymn fills the air and grows into a cryptic chorus before abating.",
+                  "Analysis of a shadow-inked vellum indicates the creator has provided the following information:",
+                  "Invoking this shadow-inked vellum will grant you permanent access to a special method of preparing your spells.",
+                  "It will provide the following phrase:",
+                  "First Person:  Swaying slightly, you hum an ancient hymn that causes the shadows to gather to you.  Whispering in your ear, the voices of the dead lend their chorus to your hum and aid you in casting [Spell Name].",
+                  "Third Person:  Swaying slightly, Brodega hums an ancient hymn that causes the shadows to stretch towards him.  Soft at first, whispers from unseen visitors lend their voice to his humming as he completes his spell.",
+                  "Hidden or Invisible:  Rising from the shadows, an ancient hymn fills the air and grows into a cryptic chorus before abating.",
+                  "The shadow-inked vellum will cost 200,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 200000
+              }
+            },
+            {
               "id": "319990662",
               "name": "an elegant knitted frost-patterned moonlight silver lotus silk jacket",
               "details": {
@@ -33889,77 +33944,6 @@
                 ],
                 "cost": 18000000
               }
-            },
-            {
-              "id": "347615168",
-              "name": "a small silk pillow",
-              "details": {
-                "raw": [
-                  "As you gaze over a small silk pillow, you realize that ANALYZE may provide you with more of the finer details.",
-                  "The pillow can not be worn.",
-                  "It looks like this item has been mainly crafted out of cloth, an extremely common material.",
-                  "Analysis of a small silk pillow indicates the creator has provided the following information:",
-                  "This is a prize token that, once REDEEMed, will:",
-                  "Grant the ability to cast a customized Miracle (350) involving memories.",
-                  "First Person: Images of memories fade as you feel yourself falling through darkness.  Your surroundings become more clear as you fall as if waking from a dream.  When you stop, you open your eyes alive once again.",
-                  "Others' View: The prone astral image of Brodega comes floating down from above.  When it reaches his body, his eyes slowly open.",
-                  "Important note:",
-                  "The effect of this token is cosmetic.  It does not increase the effect or damage caused by a spell.",
-                  "This item does NOT grant spell knowledge.  REDEEMing this item assumes that the player already has the ability to cast the customized spell either from an item, Spell Knowledge, or having the spell cast upon you, if applicable.",
-                  "The silk pillow will cost 250,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "material": "cloth, an extremely common material",
-                "cost": 250000
-              }
-            },
-            {
-              "id": "347615111",
-              "name": "a shadow-inked vellum",
-              "details": {
-                "raw": [
-                  "This shadow-inked vellum looks interesting... Perhaps you should read it.",
-                  "Invoking this shadow-inked vellum will grant you permanent access to a special method of preparing your spells.",
-                  "It will provide the following phrase:",
-                  "First Person:  Swaying slightly, you hum an ancient hymn that causes the shadows to gather to you.  Whispering in your ear, the voices of the dead lend their chorus to your hum and aid you in casting [Spell Name].",
-                  "Third Person:  Swaying slightly, Brodega hums an ancient hymn that causes the shadows to stretch towards him.  Soft at first, whispers from unseen visitors lend their voice to his humming as he completes his spell.",
-                  "Hidden or Invisible:  Rising from the shadows, an ancient hymn fills the air and grows into a cryptic chorus before abating.",
-                  "Invoking this shadow-inked vellum will grant you permanent access to a special method of preparing your spells.",
-                  "It will provide the following phrase:",
-                  "First Person:  Swaying slightly, you hum an ancient hymn that causes the shadows to gather to you.  Whispering in your ear, the voices of the dead lend their chorus to your hum and aid you in casting [Spell Name].",
-                  "Third Person:  Swaying slightly, Brodega hums an ancient hymn that causes the shadows to stretch towards him.  Soft at first, whispers from unseen visitors lend their voice to his humming as he completes his spell.",
-                  "Hidden or Invisible:  Rising from the shadows, an ancient hymn fills the air and grows into a cryptic chorus before abating.",
-                  "Analysis of a shadow-inked vellum indicates the creator has provided the following information:",
-                  "Invoking this shadow-inked vellum will grant you permanent access to a special method of preparing your spells.",
-                  "It will provide the following phrase:",
-                  "First Person:  Swaying slightly, you hum an ancient hymn that causes the shadows to gather to you.  Whispering in your ear, the voices of the dead lend their chorus to your hum and aid you in casting [Spell Name].",
-                  "Third Person:  Swaying slightly, Brodega hums an ancient hymn that causes the shadows to stretch towards him.  Soft at first, whispers from unseen visitors lend their voice to his humming as he completes his spell.",
-                  "Hidden or Invisible:  Rising from the shadows, an ancient hymn fills the air and grows into a cryptic chorus before abating.",
-                  "The shadow-inked vellum will cost 200,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "cost": 200000
-              }
-            },
-            {
-              "id": "346983981",
-              "name": "a shimmering glaesine orb",
-              "details": {
-                "raw": [
-                  "The script is so tiny, you will have to hold the glaesine orb in order to read it.",
-                  "The orb can be worn anywhere on the body.  The orb appears to serve some purpose.",
-                  "The glaesine orb will cost 10,000,000 coins."
-                ],
-                "tags": [
-                  "purpose"
-                ],
-                "worn": "pin",
-                "cost": 10000000
-              }
             }
           ],
           "sign": [
@@ -33971,6 +33955,27 @@
           "room_title": "Tenacity's Outfitting",
           "branch": "north",
           "items": [
+            {
+              "id": "134059",
+              "name": "a niello-threaded knitted whiskey-hued sea silk and silver-hazed aneula backpack",
+              "details": {
+                "raw": [
+                  "It is estimated that a niello-threaded knitted whiskey-hued sea silk and silver-hazed aneula backpack can store a significant amount with enough space for any number of items.",
+                  "The backpack can be worn on the back.  The backpack appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of cloth, an extremely common material.",
+                  "Analysis of a niello-threaded knitted whiskey-hued sea silk and silver-hazed aneula backpack indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the silk and aneula backpack for you or deepen its pockets.",
+                  "The silk and aneula backpack will cost 175,000 coins."
+                ],
+                "tags": [
+                  "purpose",
+                  "lightenable"
+                ],
+                "worn": "back",
+                "material": "cloth, an extremely common material",
+                "cost": 175000
+              }
+            },
             {
               "id": "108741917",
               "name": "a rivulet-inked vellum",
@@ -34203,16 +34208,16 @@
               }
             },
             {
-              "id": "134059",
-              "name": "a niello-threaded knitted whiskey-hued sea silk and silver-hazed aneula backpack",
+              "id": "134048",
+              "name": "a knitted purple-hazed jute backpack",
               "details": {
                 "raw": [
-                  "It is estimated that a niello-threaded knitted whiskey-hued sea silk and silver-hazed aneula backpack can store a significant amount with enough space for any number of items.",
+                  "It is estimated that a knitted purple-hazed jute backpack can store a significant amount with enough space for any number of items.",
                   "The backpack can be worn on the back.  The backpack appears to serve some purpose.",
                   "It looks like this item has been mainly crafted out of cloth, an extremely common material.",
-                  "Analysis of a niello-threaded knitted whiskey-hued sea silk and silver-hazed aneula backpack indicates the item is free from merchant alteration restrictions.",
-                  "You might be able to have a talented merchant lighten the silk and aneula backpack for you or deepen its pockets.",
-                  "The silk and aneula backpack will cost 190,000 coins."
+                  "Analysis of a knitted purple-hazed jute backpack indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the jute backpack for you or deepen its pockets.",
+                  "The jute backpack will cost 175,000 coins."
                 ],
                 "tags": [
                   "purpose",
@@ -34220,7 +34225,7 @@
                 ],
                 "worn": "back",
                 "material": "cloth, an extremely common material",
-                "cost": 190000
+                "cost": 175000
               }
             },
             {
@@ -34410,27 +34415,6 @@
               }
             },
             {
-              "id": "134048",
-              "name": "a knitted purple-hazed jute backpack",
-              "details": {
-                "raw": [
-                  "It is estimated that a knitted purple-hazed jute backpack can store a significant amount with enough space for any number of items.",
-                  "The backpack can be worn on the back.  The backpack appears to serve some purpose.",
-                  "It looks like this item has been mainly crafted out of cloth, an extremely common material.",
-                  "Analysis of a knitted purple-hazed jute backpack indicates the item is free from merchant alteration restrictions.",
-                  "You might be able to have a talented merchant lighten the jute backpack for you or deepen its pockets.",
-                  "The jute backpack will cost 175,000 coins."
-                ],
-                "tags": [
-                  "purpose",
-                  "lightenable"
-                ],
-                "worn": "back",
-                "material": "cloth, an extremely common material",
-                "cost": 175000
-              }
-            },
-            {
               "id": "134047",
               "name": "a bronze-scaled snake pin",
               "details": {
@@ -34567,6 +34551,41 @@
           "room_title": "Tenacity's Outfitting",
           "branch": "east",
           "items": [
+            {
+              "id": "134033",
+              "name": "a silver charm bracelet",
+              "details": {
+                "raw": [
+                  "There are no charms on the silver charm bracelet.",
+                  "A silver charm bracelet cannot store anything inside of it at all.",
+                  "The bracelet can be worn around the wrist.  The bracelet appears to serve some purpose.",
+                  "Analysis of a silver charm bracelet indicates the creator has provided the following information:",
+                  "    --- Charm Jewelry ---",
+                  "This is a piece of jewelry that can hold various types of charms.",
+                  "Charms do not have to be specifically made for this item, but MUST:",
+                  "    * Be light enough (less than 1 pound).",
+                  "    * Have the noun 'charm'.",
+                  "You can attach up to a maximum of 20 charms to this silver charm bracelet.",
+                  "This silver charm bracelet currently has 0 charm(s) attached.",
+                  "You can use INSPECT to see all the charms attached.",
+                  "To remove a charm, TURN to the specific charm and PULL to remove it.",
+                  "To add a charm, hold the appropriate charm in your right hand and PUSH the silver charm bracelet.",
+                  "You can POKE the bracelet to play with the currently selected attached charm.",
+                  "This silver charm bracelet is currently at Tier 3 of 3 (Fully Unlocked).",
+                  "At this tier, you have access to the following verbs: TURN, PUSH, PULL, POKE, WEAR, REMOVE, SPIN, RUB, FIDGET, PINCH, PROD, TOUCH (changes description).",
+                  "    ===Alteration Guidelines====",
+                  "You can alter the long, show, or both of this silver charm bracelet, though keep in mind that a portion of the show about what charms are attached will always be appended.",
+                  "This should always be something that holds charms, IE a charm bracelet, charm anklet, or charm necklace.",
+                  "You can also adjust some wording in the TOUCH description changes, namely the word after the item's noun (Default: suspending), as well as the group noun for the charms (Default: myriad).",
+                  "The silver charm bracelet will cost 900,000 coins."
+                ],
+                "tags": [
+                  "purpose"
+                ],
+                "worn": "wrist",
+                "cost": 900000
+              }
+            },
             {
               "id": "283111146",
               "name": "a feather-fringed knitted moonlight silver lotus silk backpack",
@@ -34706,41 +34725,6 @@
               }
             },
             {
-              "id": "134033",
-              "name": "a silver charm bracelet",
-              "details": {
-                "raw": [
-                  "There are no charms on the silver charm bracelet.",
-                  "A silver charm bracelet cannot store anything inside of it at all.",
-                  "The bracelet can be worn around the wrist.  The bracelet appears to serve some purpose.",
-                  "Analysis of a silver charm bracelet indicates the creator has provided the following information:",
-                  "    --- Charm Jewelry ---",
-                  "This is a piece of jewelry that can hold various types of charms.",
-                  "Charms do not have to be specifically made for this item, but MUST:",
-                  "    * Be light enough (less than 1 pound).",
-                  "    * Have the noun 'charm'.",
-                  "You can attach up to a maximum of 20 charms to this silver charm bracelet.",
-                  "This silver charm bracelet currently has 0 charm(s) attached.",
-                  "You can use INSPECT to see all the charms attached.",
-                  "To remove a charm, TURN to the specific charm and PULL to remove it.",
-                  "To add a charm, hold the appropriate charm in your right hand and PUSH the silver charm bracelet.",
-                  "You can POKE the bracelet to play with the currently selected attached charm.",
-                  "This silver charm bracelet is currently at Tier 3 of 3 (Fully Unlocked).",
-                  "At this tier, you have access to the following verbs: TURN, PUSH, PULL, POKE, WEAR, REMOVE, SPIN, RUB, FIDGET, PINCH, PROD, TOUCH (changes description).",
-                  "    ===Alteration Guidelines====",
-                  "You can alter the long, show, or both of this silver charm bracelet, though keep in mind that a portion of the show about what charms are attached will always be appended.",
-                  "This should always be something that holds charms, IE a charm bracelet, charm anklet, or charm necklace.",
-                  "You can also adjust some wording in the TOUCH description changes, namely the word after the item's noun (Default: suspending), as well as the group noun for the charms (Default: myriad).",
-                  "The silver charm bracelet will cost 1,100,000 coins."
-                ],
-                "tags": [
-                  "purpose"
-                ],
-                "worn": "wrist",
-                "cost": 1100000
-              }
-            },
-            {
               "id": "134031",
               "name": "a flame-shaped firestone stud",
               "details": {
@@ -34797,6 +34781,56 @@
                 ],
                 "worn": "pin",
                 "cost": 110000
+              }
+            },
+            {
+              "id": "134024",
+              "name": "a small silver-trimmed hourglass",
+              "details": {
+                "raw": [
+                  "The sand looks a little clumpy, maybe you should turn it to loosen it up a bit.",
+                  "The hourglass can not be worn.",
+                  "Analysis of a small silver-trimmed hourglass indicates the creator has provided the following information:",
+                  "This is a scripted hourglass.  The noun must remain \"hourglass\" and the description should have a chain in it of some kind.",
+                  "The silver-trimmed hourglass will cost 10,000,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 10000000
+              }
+            },
+            {
+              "id": "301761500",
+              "name": "an armored sword-wielding toy warrior",
+              "details": {
+                "raw": [
+                  "The toy warrior can not be worn.",
+                  "Analysis of an armored sword-wielding toy warrior indicates the creator has provided the following information:",
+                  "You get a strong sense that the toy warrior can be altered by any merchant as long it clearly remains a toy, doll, or similar type of item.  In its original form, it is a toy warrior.",
+                  "Currently you are able to use TAP, TILT, TURN, RAISE, and POKE on the sword-wielding toy warrior.",
+                  "The sword-wielding toy warrior will cost 8,000,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 8000000
+              }
+            },
+            {
+              "id": "346983981",
+              "name": "a shimmering glaesine orb",
+              "details": {
+                "raw": [
+                  "The script is so tiny, you will have to hold the glaesine orb in order to read it.",
+                  "The orb can be worn anywhere on the body.  The orb appears to serve some purpose.",
+                  "The glaesine orb will cost 10,000,000 coins."
+                ],
+                "tags": [
+                  "purpose"
+                ],
+                "worn": "pin",
+                "cost": 10000000
               }
             },
             {
@@ -34867,23 +34901,6 @@
               }
             },
             {
-              "id": "301761500",
-              "name": "an armored sword-wielding toy warrior",
-              "details": {
-                "raw": [
-                  "The toy warrior can not be worn.",
-                  "Analysis of an armored sword-wielding toy warrior indicates the creator has provided the following information:",
-                  "You get a strong sense that the toy warrior can be altered by any merchant as long it clearly remains a toy, doll, or similar type of item.  In its original form, it is a toy warrior.",
-                  "Currently you are able to use TAP, TILT, TURN, RAISE, and POKE on the sword-wielding toy warrior.",
-                  "The sword-wielding toy warrior will cost 10,000,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "cost": 10000000
-              }
-            },
-            {
               "id": "267933815",
               "name": "a bubble-swirled vellum",
               "details": {
@@ -34930,23 +34947,6 @@
                 ],
                 "material": "organic material, an extremely common material",
                 "cost": 110000
-              }
-            },
-            {
-              "id": "134024",
-              "name": "a small silver-trimmed hourglass",
-              "details": {
-                "raw": [
-                  "The sand looks a little clumpy, maybe you should turn it to loosen it up a bit.",
-                  "The hourglass can not be worn.",
-                  "Analysis of a small silver-trimmed hourglass indicates the creator has provided the following information:",
-                  "This is a scripted hourglass.  The noun must remain \"hourglass\" and the description should have a chain in it of some kind.",
-                  "The silver-trimmed hourglass will cost 1,500,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "cost": 1500000
               }
             },
             {
@@ -36008,7 +36008,7 @@
       "id": "28",
       "inv": [
         {
-          "room_title": "Polveiss's Magic Shoppe",
+          "room_title": "Polveiss' Magic Shoppe",
           "branch": "entry",
           "items": [
             {
@@ -38218,7 +38218,7 @@
       "id": "30",
       "inv": [
         {
-          "room_title": "Idiyan",
+          "room_title": "The Black Heron, Cargo Hold",
           "branch": "entry",
           "items": [
             {
@@ -41388,7 +41388,7 @@
       "id": "34",
       "inv": [
         {
-          "room_title": "Maetriks's Kiss",
+          "room_title": "Nightshade's Kiss",
           "branch": "entry",
           "items": [
             {
@@ -42908,6 +42908,34 @@
           "branch": "entry",
           "items": [
             {
+              "id": "350380654",
+              "name": "an invar claidhmore",
+              "details": {
+                "raw": [
+                  "The claidhmore is a claidhmore that requires skill in twohanded weapons to use effectively.",
+                  "It looks like this item has been mainly crafted out of invar, an unusual metal.",
+                  "Analysis of an invar claidhmore indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the invar claidhmore for you.",
+                  "The invar claidhmore will cost 500,000 coins.",
+                  "It imparts a bonus of +2 more than usual.",
+                  "It appears to weigh about 13 pounds.",
+                  "It is estimated to be worth about 59,000 silvers.",
+                  "It is weighted to inflict more critical wounds, but exactly how much requires assessment.",
+                  "It is predominantly crafted of invar.",
+                  "It is an overwhelming project (1,600 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Anjella."
+                ],
+                "tags": [
+                  "lightenable"
+                ],
+                "skill": "twohanded weapons",
+                "material": "invar, an unusual metal",
+                "enchant": 2,
+                "weight": 13,
+                "cost": 500000
+              }
+            },
+            {
               "id": "163598",
               "name": "an ivory-hilted vultite broadsword",
               "details": {
@@ -43037,6 +43065,62 @@
                 ],
                 "weight": 4,
                 "cost": 50000
+              }
+            },
+            {
+              "id": "350882865",
+              "name": "a fel-handled vultite jeddart-axe",
+              "details": {
+                "raw": [
+                  "The jeddart-axe is a jeddart-axe that requires skill in polearms to use effectively.",
+                  "It looks like this item has been mainly crafted out of vultite, an uncommon metal.",
+                  "Analysis of a fel-handled vultite jeddart-axe indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the vultite jeddart-axe for you.",
+                  "The vultite jeddart-axe will cost 80,000 coins.",
+                  "It imparts a bonus of +20 more than usual.",
+                  "It appears to weigh about 7 pounds.",
+                  "It is estimated to be worth about 83,000 silvers.",
+                  "It is predominantly crafted of vultite.",
+                  "It is a simple project (36 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by a bard."
+                ],
+                "tags": [
+                  "lightenable"
+                ],
+                "skill": "polearms",
+                "material": "vultite, an uncommon metal",
+                "enchant": 20,
+                "weight": 7,
+                "cost": 80000
+              }
+            },
+            {
+              "id": "350380653",
+              "name": "a tarnished gornar-studded maul",
+              "details": {
+                "raw": [
+                  "The maul is a maul that requires skill in twohanded weapons to use effectively.",
+                  "It looks like this item has been mainly crafted out of gornar, a rare metal.  This material cannot be dyed.",
+                  "Analysis of a tarnished gornar-studded maul indicates the item has certain alteration restrictions.  This material cannot be dyed.",
+                  "You might be able to have a talented merchant lighten the gornar-studded maul for you.",
+                  "The gornar-studded maul will cost 10,000 coins.",
+                  "It imparts a bonus of +5 more than usual.",
+                  "It has been infused with the power of an earth elemental.",
+                  "It appears to weigh about 8 pounds.",
+                  "It is estimated to be worth about 8,500 silvers.",
+                  "It is predominantly crafted of gornar.",
+                  "It is a simple project (51 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Anjella."
+                ],
+                "tags": [
+                  "lightenable"
+                ],
+                "skill": "twohanded weapons",
+                "material": "gornar, a rare metal",
+                "enchant": 5,
+                "flare": "the power of an earth elemental",
+                "weight": 8,
+                "cost": 10000
               }
             },
             {
@@ -43548,156 +43632,6 @@
                 ],
                 "cost": 7000
               }
-            },
-            {
-              "id": "350065424",
-              "name": "a deathstone studded ora necklace",
-              "details": {
-                "raw": [
-                  "The necklace can be worn around the neck.  The necklace appears to serve some purpose.",
-                  "Analysis of a deathstone studded ora necklace indicates the item is free from merchant alteration restrictions.",
-                  "The studded ora necklace will cost 75,000 coins.",
-                  "It is an enhancive item:",
-                  "    It provides a boost of 2 to Shield Use Ranks.",
-                  "    This enhancement may not be used by adventurers who have not trained 10 times.",
-                  "    It provides a boost of 2 to Combat Maneuvers Ranks.",
-                  "    This enhancement may not be used by adventurers who have not trained 10 times.",
-                  "    It seems to have a lot of enhancive charges remaining.",
-                  "It will persist after its last enhancive charge has been expended.",
-                  "It is a small item, under a pound.",
-                  "It is estimated to be worth about 450,000 silvers.",
-                  "It is magic resistant.",
-                  "It has a permanently unlocked loresong by Anjella."
-                ],
-                "tags": [
-                  "purpose",
-                  "persists",
-                  "small"
-                ],
-                "worn": "neck",
-                "enhancives": [
-                  {
-                    "boost": 2,
-                    "ability": "Shield Use Ranks"
-                  },
-                  {
-                    "boost": 2,
-                    "ability": "Combat Maneuvers Ranks"
-                  }
-                ],
-                "cost": 75000
-              }
-            },
-            {
-              "id": "350380654",
-              "name": "an invar claidhmore",
-              "details": {
-                "raw": [
-                  "The claidhmore is a claidhmore that requires skill in twohanded weapons to use effectively.",
-                  "It looks like this item has been mainly crafted out of invar, an unusual metal.",
-                  "Analysis of an invar claidhmore indicates the item is free from merchant alteration restrictions.",
-                  "You might be able to have a talented merchant lighten the invar claidhmore for you.",
-                  "The invar claidhmore will cost 500,000 coins.",
-                  "It imparts a bonus of +2 more than usual.",
-                  "It appears to weigh about 13 pounds.",
-                  "It is estimated to be worth about 59,000 silvers.",
-                  "It is weighted to inflict more critical wounds, but exactly how much requires assessment.",
-                  "It is predominantly crafted of invar.",
-                  "It is an overwhelming project (1,600 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by Anjella."
-                ],
-                "tags": [
-                  "lightenable"
-                ],
-                "skill": "twohanded weapons",
-                "material": "invar, an unusual metal",
-                "enchant": 2,
-                "weight": 13,
-                "cost": 500000
-              }
-            },
-            {
-              "id": "350882865",
-              "name": "a fel-handled vultite jeddart-axe",
-              "details": {
-                "raw": [
-                  "The jeddart-axe is a jeddart-axe that requires skill in polearms to use effectively.",
-                  "It looks like this item has been mainly crafted out of vultite, an uncommon metal.",
-                  "Analysis of a fel-handled vultite jeddart-axe indicates the item is free from merchant alteration restrictions.",
-                  "You might be able to have a talented merchant lighten the vultite jeddart-axe for you.",
-                  "The vultite jeddart-axe will cost 80,000 coins.",
-                  "It imparts a bonus of +20 more than usual.",
-                  "It appears to weigh about 7 pounds.",
-                  "It is estimated to be worth about 83,000 silvers.",
-                  "It is predominantly crafted of vultite.",
-                  "It is a simple project (36 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by a bard."
-                ],
-                "tags": [
-                  "lightenable"
-                ],
-                "skill": "polearms",
-                "material": "vultite, an uncommon metal",
-                "enchant": 20,
-                "weight": 7,
-                "cost": 80000
-              }
-            },
-            {
-              "id": "350380653",
-              "name": "a tarnished gornar-studded maul",
-              "details": {
-                "raw": [
-                  "The maul is a maul that requires skill in twohanded weapons to use effectively.",
-                  "It looks like this item has been mainly crafted out of gornar, a rare metal.  This material cannot be dyed.",
-                  "Analysis of a tarnished gornar-studded maul indicates the item has certain alteration restrictions.  This material cannot be dyed.",
-                  "You might be able to have a talented merchant lighten the gornar-studded maul for you.",
-                  "The gornar-studded maul will cost 10,000 coins.",
-                  "It imparts a bonus of +5 more than usual.",
-                  "It has been infused with the power of an earth elemental.",
-                  "It appears to weigh about 8 pounds.",
-                  "It is estimated to be worth about 8,500 silvers.",
-                  "It is predominantly crafted of gornar.",
-                  "It is a simple project (51 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by Anjella."
-                ],
-                "tags": [
-                  "lightenable"
-                ],
-                "skill": "twohanded weapons",
-                "material": "gornar, a rare metal",
-                "enchant": 5,
-                "flare": "the power of an earth elemental",
-                "weight": 8,
-                "cost": 10000
-              }
-            },
-            {
-              "id": "350882867",
-              "name": "a keenly-edged imflass bastard sword",
-              "details": {
-                "raw": [
-                  "The sword is a bastard sword that requires skill in edged weapons to use effectively.",
-                  "It looks like this item has been mainly crafted out of imflass, an uncommon metal.",
-                  "Analysis of a keenly-edged imflass bastard sword indicates the item is free from merchant alteration restrictions.",
-                  "You might be able to have a talented merchant lighten the imflass bastard sword for you.",
-                  "The imflass bastard sword will cost 100,000 coins.",
-                  "It imparts a bonus of +12 more than usual.",
-                  "It appears to weigh about 6 pounds.",
-                  "It is estimated to be worth about 41,000 silvers.",
-                  "It is predominantly crafted of imflass.",
-                  "It is a simple project (41 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by Annarosa."
-                ],
-                "tags": [
-                  "lightenable"
-                ],
-                "skill": "edged weapons",
-                "material": "imflass, an uncommon metal",
-                "enchant": 12,
-                "weight": 6,
-                "cost": 100000
-              }
             }
           ],
           "sign": [
@@ -43716,7 +43650,7 @@
           ]
         },
         {
-          "room_title": "Annarosa's Combat Gear",
+          "room_title": "Annarosa's Outfitting",
           "branch": "north",
           "items": [
             {
@@ -43997,6 +43931,72 @@
 
                 ],
                 "cost": 7000
+              }
+            },
+            {
+              "id": "350882867",
+              "name": "a keenly-edged imflass bastard sword",
+              "details": {
+                "raw": [
+                  "The sword is a bastard sword that requires skill in edged weapons to use effectively.",
+                  "It looks like this item has been mainly crafted out of imflass, an uncommon metal.",
+                  "Analysis of a keenly-edged imflass bastard sword indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the imflass bastard sword for you.",
+                  "The imflass bastard sword will cost 100,000 coins.",
+                  "It imparts a bonus of +12 more than usual.",
+                  "It appears to weigh about 6 pounds.",
+                  "It is estimated to be worth about 41,000 silvers.",
+                  "It is predominantly crafted of imflass.",
+                  "It is a simple project (41 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Annarosa."
+                ],
+                "tags": [
+                  "lightenable"
+                ],
+                "skill": "edged weapons",
+                "material": "imflass, an uncommon metal",
+                "enchant": 12,
+                "weight": 6,
+                "cost": 100000
+              }
+            },
+            {
+              "id": "350065424",
+              "name": "a deathstone studded ora necklace",
+              "details": {
+                "raw": [
+                  "The necklace can be worn around the neck.  The necklace appears to serve some purpose.",
+                  "Analysis of a deathstone studded ora necklace indicates the item is free from merchant alteration restrictions.",
+                  "The studded ora necklace will cost 75,000 coins.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 2 to Shield Use Ranks.",
+                  "    This enhancement may not be used by adventurers who have not trained 10 times.",
+                  "    It provides a boost of 2 to Combat Maneuvers Ranks.",
+                  "    This enhancement may not be used by adventurers who have not trained 10 times.",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 450,000 silvers.",
+                  "It is magic resistant.",
+                  "It has a permanently unlocked loresong by Anjella."
+                ],
+                "tags": [
+                  "purpose",
+                  "persists",
+                  "small"
+                ],
+                "worn": "neck",
+                "enhancives": [
+                  {
+                    "boost": 2,
+                    "ability": "Shield Use Ranks"
+                  },
+                  {
+                    "boost": 2,
+                    "ability": "Combat Maneuvers Ranks"
+                  }
+                ],
+                "cost": 75000
               }
             },
             {
@@ -50458,7 +50458,7 @@
       "id": "40",
       "inv": [
         {
-          "room_title": "Naamit's Hoard",
+          "room_title": "The Harpy's Hoard",
           "branch": "entry",
           "items": [
             {
@@ -54492,48 +54492,6 @@
                 "material": "gemstone, an extremely common material",
                 "cost": 1500000
               }
-            },
-            {
-              "id": "356590771",
-              "name": "an ovate sea blue jewel flecked with veniom",
-              "details": {
-                "raw": [
-                  "A mirage-like haze of arcane influence clings to the jewel, alight with half-glimpsed glyphs refracting across its facets from within.  The effect is dizzying and makes further visual inspection difficult.",
-                  "The jewel appears to be a powerful relic that can convey wondrous abilities on its wielder.  It has the following properties:",
-                  "Rarity:      Regional",
-                  "Mnemonic:    hwindigestible",
-                  "Description: You react violently to being devoured by oozes in the Hinterwilds.  Oozes immediately expel you and take Vacuum damage.",
-                  "Rarity:      Rare",
-                  "Mnemonic:    bloodwell",
-                  "Description: You instantly regain all of your health.  Cooldown: 60/40/20 mins.",
-                  "  * Activated",
-                  "You note the telltale filaments of a lesser binding shimmering around the sea blue jewel.  You can sense that the jewel is bound to Ketsimney, but a sufficiently skilled artificer should be able to dispel the binding.",
-                  "The jewel can not be worn.",
-                  "It looks like this item has been mainly crafted out of gemstone, an extremely common material.",
-                  "The sea blue jewel will cost 8,000,000 coins."
-                ],
-                "tags": [
-                  "is_gemstone"
-                ],
-                "gemstone_properties": [
-                  {
-                    "name": "Hinterwilds: Indigestible",
-                    "rarity": "Regional",
-                    "mnemonic": "hwindigestible",
-                    "description": "You react violently to being devoured by oozes in the Hinterwilds.  Oozes immediately expel you and take Vacuum damage."
-                  },
-                  {
-                    "name": "Blood Wellspring (Rank 1 of 3)",
-                    "rarity": "Rare",
-                    "mnemonic": "bloodwell",
-                    "description": "You instantly regain all of your health.  Cooldown: 60/40/20 mins. * Activated",
-                    "activated": true
-                  }
-                ],
-                "gemstone_bound_to": "Ketsimney",
-                "material": "gemstone, an extremely common material",
-                "cost": 8000000
-              }
             }
           ]
         },
@@ -55463,6 +55421,48 @@
           "room_title": "Ketsimney's Armory",
           "branch": "east",
           "items": [
+            {
+              "id": "356590771",
+              "name": "an ovate sea blue jewel flecked with veniom",
+              "details": {
+                "raw": [
+                  "A mirage-like haze of arcane influence clings to the jewel, alight with half-glimpsed glyphs refracting across its facets from within.  The effect is dizzying and makes further visual inspection difficult.",
+                  "The jewel appears to be a powerful relic that can convey wondrous abilities on its wielder.  It has the following properties:",
+                  "Rarity:      Regional",
+                  "Mnemonic:    hwindigestible",
+                  "Description: You react violently to being devoured by oozes in the Hinterwilds.  Oozes immediately expel you and take Vacuum damage.",
+                  "Rarity:      Rare",
+                  "Mnemonic:    bloodwell",
+                  "Description: You instantly regain all of your health.  Cooldown: 60/40/20 mins.",
+                  "  * Activated",
+                  "You note the telltale filaments of a lesser binding shimmering around the sea blue jewel.  You can sense that the jewel is bound to Ketsimney, but a sufficiently skilled artificer should be able to dispel the binding.",
+                  "The jewel can not be worn.",
+                  "It looks like this item has been mainly crafted out of gemstone, an extremely common material.",
+                  "The sea blue jewel will cost 8,000,000 coins."
+                ],
+                "tags": [
+                  "is_gemstone"
+                ],
+                "gemstone_properties": [
+                  {
+                    "name": "Hinterwilds: Indigestible",
+                    "rarity": "Regional",
+                    "mnemonic": "hwindigestible",
+                    "description": "You react violently to being devoured by oozes in the Hinterwilds.  Oozes immediately expel you and take Vacuum damage."
+                  },
+                  {
+                    "name": "Blood Wellspring (Rank 1 of 3)",
+                    "rarity": "Rare",
+                    "mnemonic": "bloodwell",
+                    "description": "You instantly regain all of your health.  Cooldown: 60/40/20 mins. * Activated",
+                    "activated": true
+                  }
+                ],
+                "gemstone_bound_to": "Ketsimney",
+                "material": "gemstone, an extremely common material",
+                "cost": 8000000
+              }
+            },
             {
               "id": "256992990",
               "name": "a ruby-handled eonake spear",
@@ -62739,6 +62739,21 @@
           "branch": "entry",
           "items": [
             {
+              "id": "351322142",
+              "name": "a bundle of broodtender tendrils",
+              "details": {
+                "raw": [
+                  "The tendrils can not be worn.",
+                  "Analysis of a bundle of broodtender tendrils indicates the item is free from merchant alteration restrictions.",
+                  "The broodtender tendrils will cost 70,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 70000
+              }
+            },
+            {
               "id": "303240145",
               "name": "a bundle of broodtender tendrils",
               "details": {
@@ -63076,21 +63091,6 @@
 
                 ],
                 "cost": 40000
-              }
-            },
-            {
-              "id": "351322142",
-              "name": "a bundle of broodtender tendrils",
-              "details": {
-                "raw": [
-                  "The tendrils can not be worn.",
-                  "Analysis of a bundle of broodtender tendrils indicates the item is free from merchant alteration restrictions.",
-                  "The broodtender tendrils will cost 70,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "cost": 70000
               }
             }
           ],
@@ -63769,7 +63769,7 @@
       "id": "51",
       "inv": [
         {
-          "room_title": "Acamas's Shop",
+          "room_title": "Acamas' Shop",
           "branch": "entry",
           "items": [
 
