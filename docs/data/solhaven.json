@@ -1,6 +1,6 @@
 {
-  "created_at": "2025-11-24 06:19:57 UTC",
-  "run_time": "13s",
+  "created_at": "2025-11-24 08:44:31 UTC",
+  "run_time": "06m 34s",
   "town": "Solhaven",
   "shops": [
     {
@@ -791,9 +791,41 @@
       "id": "3",
       "inv": [
         {
-          "room_title": "Blossom's Goods",
+          "room_title": "House of Gnomish Goods",
           "branch": "entry",
           "items": [
+            {
+              "id": "382097707",
+              "name": "an etched glaes metal breastplate",
+              "details": {
+                "raw": [
+                  "The breastplate is plate armor that covers the torso only.",
+                  "The breastplate can be worn around the chest.  The breastplate appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of glaes, a rare metal.",
+                  "Analysis of an etched glaes metal breastplate indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the glaes metal breastplate for you.",
+                  "The glaes metal breastplate will cost 750,000 coins.",
+                  "It imparts a bonus of +15 more than usual.",
+                  "It has been infused with the power of an ice elemental.",
+                  "It is moderately resistant (14%) to shocking attacks.",
+                  "It appears to weigh about 28 pounds.",
+                  "It is estimated to be worth about 1,150,000 silvers.",
+                  "It is predominantly crafted of glaes.",
+                  "It is a basic project (135 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Archales."
+                ],
+                "tags": [
+                  "purpose",
+                  "lightenable"
+                ],
+                "worn": "chest",
+                "material": "glaes, a rare metal",
+                "enchant": 15,
+                "flare": "the power of an ice elemental",
+                "weight": 28,
+                "cost": 750000
+              }
+            },
             {
               "id": "153172",
               "name": "some blackened ora arm greaves",
@@ -1025,13 +1057,13 @@
               "name": "a gnome travel brochure",
               "details": {
                 "raw": [
-                  "   Current Time: 03:35   Current Flight Schedule",
+                  "   Current Time: 03:38   Current Flight Schedule",
                   "   Depart| From                    | To                      |Arrive",
                   "    -----+-------------------------+-------------------------+------",
                   "    22:46|Gnome Homeland           |Gnome Homeland           |22:46",
                   "    ---------------------------------------------------------------",
                   "Times be estimates only!  Subject ta change by headwinds an' tailwinds an' sidewinds an' stuff!  Deal wit' it!",
-                  "   Current Time: 03:35   Current Flight Schedule",
+                  "   Current Time: 03:38   Current Flight Schedule",
                   "   Depart| From                    | To                      |Arrive",
                   "    -----+-------------------------+-------------------------+------",
                   "    22:46|Gnome Homeland           |Gnome Homeland           |22:46",
@@ -1693,38 +1725,6 @@
                   }
                 ],
                 "cost": 10000000
-              }
-            },
-            {
-              "id": "382097707",
-              "name": "an etched glaes metal breastplate",
-              "details": {
-                "raw": [
-                  "The breastplate is plate armor that covers the torso only.",
-                  "The breastplate can be worn around the chest.  The breastplate appears to serve some purpose.",
-                  "It looks like this item has been mainly crafted out of glaes, a rare metal.",
-                  "Analysis of an etched glaes metal breastplate indicates the item is free from merchant alteration restrictions.",
-                  "You might be able to have a talented merchant lighten the glaes metal breastplate for you.",
-                  "The glaes metal breastplate will cost 750,000 coins.",
-                  "It imparts a bonus of +15 more than usual.",
-                  "It has been infused with the power of an ice elemental.",
-                  "It is moderately resistant (14%) to shocking attacks.",
-                  "It appears to weigh about 28 pounds.",
-                  "It is estimated to be worth about 1,150,000 silvers.",
-                  "It is predominantly crafted of glaes.",
-                  "It is a basic project (135 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by Archales."
-                ],
-                "tags": [
-                  "purpose",
-                  "lightenable"
-                ],
-                "worn": "chest",
-                "material": "glaes, a rare metal",
-                "enchant": 15,
-                "flare": "the power of an ice elemental",
-                "weight": 28,
-                "cost": 750000
               }
             }
           ],
@@ -2812,7 +2812,7 @@
       "id": "4",
       "inv": [
         {
-          "room_title": "Landrai",
+          "room_title": "The Sunlight Rose, Luminous",
           "branch": "entry",
           "items": [
             {
@@ -4462,7 +4462,7 @@
       "id": "5",
       "inv": [
         {
-          "room_title": "Eiadh's Fine Furs",
+          "room_title": "E and S's Fine Furs",
           "branch": "entry",
           "items": [
 
@@ -6065,7 +6065,7 @@
       "id": "7",
       "inv": [
         {
-          "room_title": "Kateerina",
+          "room_title": "Katee's Kupboard",
           "branch": "entry",
           "items": [
             {
@@ -8016,7 +8016,7 @@
       "id": "8",
       "inv": [
         {
-          "room_title": "Vinsant",
+          "room_title": "The Freeport Exchange, Showroom",
           "branch": "entry",
           "items": [
             {
@@ -10341,7 +10341,7 @@
       "id": "9",
       "inv": [
         {
-          "room_title": "Dhask",
+          "room_title": "The Bloated Jewel, Foyer",
           "branch": "entry",
           "items": [
 
@@ -11008,7 +11008,13 @@
                 "material": "gemstone, an extremely common material",
                 "cost": 2250000
               }
-            },
+            }
+          ]
+        },
+        {
+          "room_title": "Charlet's General Store",
+          "branch": "east",
+          "items": [
             {
               "id": "391362822",
               "name": "a nacreous pearl bangle",
@@ -11027,13 +11033,7 @@
                 "material": "gemstone, an extremely common material",
                 "cost": 100000
               }
-            }
-          ]
-        },
-        {
-          "room_title": "Charlet's General Store",
-          "branch": "east",
-          "items": [
+            },
             {
               "id": "1832598",
               "name": "a sun-etched gold ring",
@@ -12510,7 +12510,7 @@
       "id": "12",
       "inv": [
         {
-          "room_title": "Miaplacidas's Combat Gear",
+          "room_title": "Miaplacidas' Combat Gear",
           "branch": "entry",
           "items": [
             {
@@ -14401,7 +14401,7 @@
       "id": "14",
       "inv": [
         {
-          "room_title": "Lavastene",
+          "room_title": "Lavastene and Company",
           "branch": "entry",
           "items": [
             {
@@ -21447,7 +21447,7 @@
       "id": "17",
       "inv": [
         {
-          "room_title": "Raelee",
+          "room_title": "Practical Arcana",
           "branch": "entry",
           "items": [
             {
@@ -22558,7 +22558,7 @@
       "id": "18",
       "inv": [
         {
-          "room_title": "Alisaire",
+          "room_title": "The Baleful Basilisk",
           "branch": "entry",
           "items": [
             {
@@ -24083,7 +24083,7 @@
       "id": "19",
       "inv": [
         {
-          "room_title": "Tesserus's Outfitting",
+          "room_title": "Tesserus' Outfitting",
           "branch": "entry",
           "items": [
             {
@@ -34242,7 +34242,7 @@
               "name": "a tiny nacreous humanoid skeleton with bat wings and a scorpion tail",
               "details": {
                 "raw": [
-                  "It's hard to tell exactly what it looks like.",
+                  "Oddly enough, it looks like a tiny nacreous humanoid skeleton with bat wings and a scorpion tail.",
                   "The skeleton can be worn anywhere on the body.",
                   "It looks like this item has been mainly crafted out of bone, an extremely common material.",
                   "Analysis of a tiny nacreous humanoid skeleton with bat wings and a scorpion tail indicates the creator has provided the following information:",
@@ -39520,7 +39520,7 @@
       "id": "30",
       "inv": [
         {
-          "room_title": "Zhagen's Den",
+          "room_title": "The Serpent's Den",
           "branch": "entry",
           "items": [
             {
@@ -43706,7 +43706,7 @@
       "id": "34",
       "inv": [
         {
-          "room_title": "Grhim",
+          "room_title": "Nighthaven",
           "branch": "entry",
           "items": [
             {
@@ -47621,7 +47621,7 @@
       "id": "36",
       "inv": [
         {
-          "room_title": "Charna",
+          "room_title": "C and C's Divine Offerings",
           "branch": "entry",
           "items": [
             {
@@ -49179,7 +49179,7 @@
       "id": "39",
       "inv": [
         {
-          "room_title": "Kilthal",
+          "room_title": "A Glimpse of Glee",
           "branch": "entry",
           "items": [
             {
@@ -50022,7 +50022,7 @@
       "id": "40",
       "inv": [
         {
-          "room_title": "Kyaloria",
+          "room_title": "Magpie Mercantyle",
           "branch": "entry",
           "items": [
             {
@@ -55678,7 +55678,7 @@
       "id": "43",
       "inv": [
         {
-          "room_title": "Lirasuta",
+          "room_title": "Jewels From the Wastes",
           "branch": "entry",
           "items": [
             {
@@ -58688,6 +58688,96 @@
           "branch": "entry",
           "items": [
             {
+              "id": "388085680",
+              "name": "a scratched spiked mithril helm",
+              "details": {
+                "raw": [
+                  "The helm is miscellaneous armor that covers the head.  It is spiked.",
+                  "The helm can be worn on the head.  The helm appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of mithril, an uncommon metal.",
+                  "Analysis of a scratched spiked mithril helm indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the spiked mithril helm for you.",
+                  "The spiked mithril helm will cost 2,000,000 coins.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 10 to Wisdom Base.",
+                  "    This enhancement may not be used by adventurers who have not trained 55 times.",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It appears to weigh about 4 pounds.",
+                  "It is estimated to be worth about 450,000 silvers.",
+                  "It is spiked.",
+                  "It is predominantly crafted of mithril.",
+                  "It is a simple project (-4 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Sarowyn."
+                ],
+                "tags": [
+                  "purpose",
+                  "lightenable",
+                  "persists"
+                ],
+                "worn": "head",
+                "material": "mithril, an uncommon metal",
+                "enhancives": [
+                  {
+                    "boost": 10,
+                    "ability": "Wisdom Base"
+                  }
+                ],
+                "weight": 4,
+                "cost": 2000000
+              }
+            },
+            {
+              "id": "224934282",
+              "name": "some scratched mithril leg greaves",
+              "details": {
+                "raw": [
+                  "The greaves is miscellaneous armor that covers the legs.",
+                  "The greaves can be worn around the legs.  The greaves appear to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of mithril, an uncommon metal.",
+                  "Analysis of some scratched mithril leg greaves indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the mithril leg greaves for you.",
+                  "The mithril leg greaves will cost 5,000,000 coins.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 13 to Physical Fitness Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 37 times.",
+                  "    It provides a boost of 11 to Spell Aiming Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 40 times.",
+                  "    It provides a boost of 10 to Swimming Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 11 times.",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It appears to weigh about 4 pounds.",
+                  "It is estimated to be worth about 750,000 silvers.",
+                  "It is predominantly crafted of mithril.",
+                  "It is a simple project (6 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Sarowyn."
+                ],
+                "tags": [
+                  "lightenable",
+                  "persists"
+                ],
+                "worn": "legs",
+                "material": "mithril, an uncommon metal",
+                "enhancives": [
+                  {
+                    "boost": 13,
+                    "ability": "Physical Fitness Bonus"
+                  },
+                  {
+                    "boost": 11,
+                    "ability": "Spell Aiming Bonus"
+                  },
+                  {
+                    "boost": 10,
+                    "ability": "Swimming Bonus"
+                  }
+                ],
+                "weight": 4,
+                "cost": 5000000
+              }
+            },
+            {
               "id": "361039668",
               "name": "a faceted white starstone earring",
               "details": {
@@ -58955,56 +59045,6 @@
                   }
                 ],
                 "cost": 900000
-              }
-            },
-            {
-              "id": "224934282",
-              "name": "some scratched mithril leg greaves",
-              "details": {
-                "raw": [
-                  "The greaves is miscellaneous armor that covers the legs.",
-                  "The greaves can be worn around the legs.  The greaves appear to serve some purpose.",
-                  "It looks like this item has been mainly crafted out of mithril, an uncommon metal.",
-                  "Analysis of some scratched mithril leg greaves indicates the item is free from merchant alteration restrictions.",
-                  "You might be able to have a talented merchant lighten the mithril leg greaves for you.",
-                  "The mithril leg greaves will cost 7,000,000 coins.",
-                  "It is an enhancive item:",
-                  "    It provides a boost of 13 to Physical Fitness Bonus.",
-                  "    This enhancement may not be used by adventurers who have not trained 37 times.",
-                  "    It provides a boost of 11 to Spell Aiming Bonus.",
-                  "    This enhancement may not be used by adventurers who have not trained 40 times.",
-                  "    It provides a boost of 10 to Swimming Bonus.",
-                  "    This enhancement may not be used by adventurers who have not trained 11 times.",
-                  "    It seems to have a lot of enhancive charges remaining.",
-                  "It will persist after its last enhancive charge has been expended.",
-                  "It appears to weigh about 4 pounds.",
-                  "It is estimated to be worth about 750,000 silvers.",
-                  "It is predominantly crafted of mithril.",
-                  "It is a simple project (6 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by Sarowyn."
-                ],
-                "tags": [
-                  "lightenable",
-                  "persists"
-                ],
-                "worn": "legs",
-                "material": "mithril, an uncommon metal",
-                "enhancives": [
-                  {
-                    "boost": 13,
-                    "ability": "Physical Fitness Bonus"
-                  },
-                  {
-                    "boost": 11,
-                    "ability": "Spell Aiming Bonus"
-                  },
-                  {
-                    "boost": 10,
-                    "ability": "Swimming Bonus"
-                  }
-                ],
-                "weight": 4,
-                "cost": 7000000
               }
             },
             {
@@ -59727,46 +59767,6 @@
                 "weight": 2,
                 "cost": 900000
               }
-            },
-            {
-              "id": "388085680",
-              "name": "a scratched spiked mithril helm",
-              "details": {
-                "raw": [
-                  "The helm is miscellaneous armor that covers the head.  It is spiked.",
-                  "The helm can be worn on the head.  The helm appears to serve some purpose.",
-                  "It looks like this item has been mainly crafted out of mithril, an uncommon metal.",
-                  "Analysis of a scratched spiked mithril helm indicates the item is free from merchant alteration restrictions.",
-                  "You might be able to have a talented merchant lighten the spiked mithril helm for you.",
-                  "The spiked mithril helm will cost 2,000,000 coins.",
-                  "It is an enhancive item:",
-                  "    It provides a boost of 10 to Wisdom Base.",
-                  "    This enhancement may not be used by adventurers who have not trained 55 times.",
-                  "    It seems to have a lot of enhancive charges remaining.",
-                  "It will persist after its last enhancive charge has been expended.",
-                  "It appears to weigh about 4 pounds.",
-                  "It is estimated to be worth about 450,000 silvers.",
-                  "It is spiked.",
-                  "It is predominantly crafted of mithril.",
-                  "It is a simple project (-4 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by Sarowyn."
-                ],
-                "tags": [
-                  "purpose",
-                  "lightenable",
-                  "persists"
-                ],
-                "worn": "head",
-                "material": "mithril, an uncommon metal",
-                "enhancives": [
-                  {
-                    "boost": 10,
-                    "ability": "Wisdom Base"
-                  }
-                ],
-                "weight": 4,
-                "cost": 2000000
-              }
             }
           ],
           "sign": [
@@ -60183,7 +60183,7 @@
                   "It looks like this item has been mainly crafted out of vultite, an uncommon metal.",
                   "Analysis of some old spiked vultite leg greaves indicates the item is free from merchant alteration restrictions.",
                   "You might be able to have a talented merchant lighten the vultite leg greaves for you.",
-                  "The vultite leg greaves will cost 10,000,000 coins.",
+                  "The vultite leg greaves will cost 8,000,000 coins.",
                   "It is an enhancive item:",
                   "    It provides a boost of 11 to Ranged Weapons Bonus.",
                   "    This enhancement may not be used by adventurers who have not trained 40 times.",
@@ -60216,7 +60216,7 @@
                   }
                 ],
                 "weight": 4,
-                "cost": 10000000
+                "cost": 8000000
               }
             },
             {
@@ -63186,119 +63186,6 @@
                 "material": "pewter, an infrequent alloy",
                 "cost": 20000000
               }
-            },
-            {
-              "id": "380151358",
-              "name": "some burnished spiked double leather",
-              "details": {
-                "raw": [
-                  "It has a small enchanter's glyph.",
-                  "The leather is leather armor that covers the torso, arms, legs, neck, and head.  It is spiked.",
-                  "The leather can be worn around the chest.  The leather appears to serve some purpose.",
-                  "It looks like this item has been mainly crafted out of leather, an extremely common material.",
-                  "Analysis of some burnished spiked double leather indicates the item is free from merchant alteration restrictions.",
-                  "You might be able to have a talented merchant lighten the spiked double leather for you.",
-                  "The spiked double leather will cost 750,000 coins.",
-                  "It imparts a bonus of +20 more than usual.",
-                  "It appears to weigh about 14 pounds.",
-                  "It is estimated to be worth about 300,000 silvers.",
-                  "It is somewhat padded to lessen the damage the wearer takes.",
-                  "It is spiked.",
-                  "It is predominantly crafted of leather.",
-                  "It is a simple project (72 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by Nitos."
-                ],
-                "tags": [
-                  "purpose",
-                  "lightenable"
-                ],
-                "worn": "chest",
-                "material": "leather, an extremely common material",
-                "enchant": 20,
-                "weight": 14,
-                "cost": 750000
-              }
-            },
-            {
-              "id": "380124146",
-              "name": "an opalescent glass jar containing green glimaerstones",
-              "details": {
-                "raw": [
-                  "It is estimated that an opalescent glass jar containing green glimaerstones can store a very small amount with enough space for one item.",
-                  "The jar can not be worn.",
-                  "It looks like this item has been mainly crafted out of gemstone, an extremely common material.",
-                  "Analysis of an opalescent glass jar containing green glimaerstones indicates the creator has provided the following information:",
-                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
-                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
-                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
-                  "The glass jar will cost 40,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "material": "gemstone, an extremely common material",
-                "cost": 40000
-              }
-            },
-            {
-              "id": "389211060",
-              "name": "a rigid chunk of balenite",
-              "details": {
-                "raw": [
-                  "The balenite can not be worn.",
-                  "It looks like this item has been mainly crafted out of metal, an extremely common material.  This item is intended to be supplied for an alteration.",
-                  "Analysis of a rigid chunk of balenite indicates the creator has provided the following information:",
-                  "This item cannot be altered in any way.",
-                  "The rigid chunk of balenite will cost 100,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "material": "metal, an extremely common material",
-                "cost": 100000
-              }
-            },
-            {
-              "id": "389210744",
-              "name": "a faceted glass jar containing uncut diamonds",
-              "details": {
-                "raw": [
-                  "It is estimated that a faceted glass jar containing uncut diamonds can store a very small amount with enough space for one item.",
-                  "The jar can not be worn.",
-                  "It looks like this item has been mainly crafted out of glass, an extremely common material.",
-                  "Analysis of a faceted glass jar containing uncut diamonds indicates the creator has provided the following information:",
-                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
-                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
-                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
-                  "The glass jar will cost 90,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "material": "glass, an extremely common material",
-                "cost": 90000
-              }
-            },
-            {
-              "id": "389210745",
-              "name": "a faceted glass jar containing uncut emeralds",
-              "details": {
-                "raw": [
-                  "It is estimated that a faceted glass jar containing uncut emeralds can store a very small amount with enough space for one item.",
-                  "The jar can not be worn.",
-                  "It looks like this item has been mainly crafted out of glass, an extremely common material.",
-                  "Analysis of a faceted glass jar containing uncut emeralds indicates the creator has provided the following information:",
-                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
-                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
-                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
-                  "The glass jar will cost 90,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "material": "glass, an extremely common material",
-                "cost": 90000
-              }
             }
           ],
           "sign": [
@@ -63587,9 +63474,59 @@
           ]
         },
         {
-          "room_title": "Vexarthis's Weaponry",
+          "room_title": "Vexarthis's Combat Gear",
           "branch": "east",
           "items": [
+            {
+              "id": "389211060",
+              "name": "a rigid chunk of balenite",
+              "details": {
+                "raw": [
+                  "The balenite can not be worn.",
+                  "It looks like this item has been mainly crafted out of metal, an extremely common material.  This item is intended to be supplied for an alteration.",
+                  "Analysis of a rigid chunk of balenite indicates the creator has provided the following information:",
+                  "This item cannot be altered in any way.",
+                  "The rigid chunk of balenite will cost 100,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "material": "metal, an extremely common material",
+                "cost": 100000
+              }
+            },
+            {
+              "id": "380151358",
+              "name": "some burnished spiked double leather",
+              "details": {
+                "raw": [
+                  "It has a small enchanter's glyph.",
+                  "The leather is leather armor that covers the torso, arms, legs, neck, and head.  It is spiked.",
+                  "The leather can be worn around the chest.  The leather appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of leather, an extremely common material.",
+                  "Analysis of some burnished spiked double leather indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the spiked double leather for you.",
+                  "The spiked double leather will cost 750,000 coins.",
+                  "It imparts a bonus of +20 more than usual.",
+                  "It appears to weigh about 14 pounds.",
+                  "It is estimated to be worth about 300,000 silvers.",
+                  "It is somewhat padded to lessen the damage the wearer takes.",
+                  "It is spiked.",
+                  "It is predominantly crafted of leather.",
+                  "It is a simple project (72 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Nitos."
+                ],
+                "tags": [
+                  "purpose",
+                  "lightenable"
+                ],
+                "worn": "chest",
+                "material": "leather, an extremely common material",
+                "enchant": 20,
+                "weight": 14,
+                "cost": 750000
+              }
+            },
             {
               "id": "332927780",
               "name": "a white ora bastard sword",
@@ -63812,6 +63749,69 @@
                 ],
                 "worn": "shoulders",
                 "cost": 2500000
+              }
+            },
+            {
+              "id": "389210744",
+              "name": "a faceted glass jar containing uncut diamonds",
+              "details": {
+                "raw": [
+                  "It is estimated that a faceted glass jar containing uncut diamonds can store a very small amount with enough space for one item.",
+                  "The jar can not be worn.",
+                  "It looks like this item has been mainly crafted out of glass, an extremely common material.",
+                  "Analysis of a faceted glass jar containing uncut diamonds indicates the creator has provided the following information:",
+                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
+                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
+                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
+                  "The glass jar will cost 90,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "material": "glass, an extremely common material",
+                "cost": 90000
+              }
+            },
+            {
+              "id": "389210745",
+              "name": "a faceted glass jar containing uncut emeralds",
+              "details": {
+                "raw": [
+                  "It is estimated that a faceted glass jar containing uncut emeralds can store a very small amount with enough space for one item.",
+                  "The jar can not be worn.",
+                  "It looks like this item has been mainly crafted out of glass, an extremely common material.",
+                  "Analysis of a faceted glass jar containing uncut emeralds indicates the creator has provided the following information:",
+                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
+                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
+                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
+                  "The glass jar will cost 90,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "material": "glass, an extremely common material",
+                "cost": 90000
+              }
+            },
+            {
+              "id": "380124146",
+              "name": "an opalescent glass jar containing green glimaerstones",
+              "details": {
+                "raw": [
+                  "It is estimated that an opalescent glass jar containing green glimaerstones can store a very small amount with enough space for one item.",
+                  "The jar can not be worn.",
+                  "It looks like this item has been mainly crafted out of gemstone, an extremely common material.",
+                  "Analysis of an opalescent glass jar containing green glimaerstones indicates the creator has provided the following information:",
+                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
+                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
+                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
+                  "The glass jar will cost 40,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "material": "gemstone, an extremely common material",
+                "cost": 40000
               }
             },
             {
@@ -71368,7 +71368,18 @@
                 ],
                 "cost": 45000
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on a large sign:",
+            "Eternal Light all.",
+            "Please contact us with any questions about our wares or the Arkati."
+          ]
+        },
+        {
+          "room_title": "Bakarus's Magic Shoppe",
+          "branch": "north",
+          "items": [
             {
               "id": "389344523",
               "name": "some etched rolaren arm greaves",
@@ -71419,18 +71430,7 @@
                 "weight": 5,
                 "cost": 12500000
               }
-            }
-          ],
-          "sign": [
-            "Written on a large sign:",
-            "Eternal Light all.",
-            "Please contact us with any questions about our wares or the Arkati."
-          ]
-        },
-        {
-          "room_title": "Bakarus's Magic Shoppe",
-          "branch": "north",
-          "items": [
+            },
             {
               "id": "147020",
               "name": "an opalescent glass jar containing shadow amethysts",
