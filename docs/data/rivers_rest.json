@@ -1,6 +1,6 @@
 {
-  "created_at": "2025-12-08 06:22:06 UTC",
-  "run_time": "04s",
+  "created_at": "2025-12-08 08:47:24 UTC",
+  "run_time": "01m 34s",
   "town": "River's Rest",
   "shops": [
     {
@@ -947,6 +947,55 @@
           "branch": "entry",
           "items": [
             {
+              "id": "129843",
+              "name": "a ruic long bow inlaid with strips of red maple",
+              "details": {
+                "raw": [
+                  "It has a small enchanter's glyph.",
+                  "The bow is a long bow that requires skill in ranged weapons to use effectively.",
+                  "The bow can be worn, slinging it across the shoulders and back.  The bow appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of ruic, an uncommon wood.",
+                  "Analysis of a ruic long bow inlaid with strips of red maple indicates the item is free from merchant alteration restrictions.",
+                  "You can tell that the bow is as light as it can get.",
+                  "The ruic long bow will cost 1,450,000 coins.",
+                  "It imparts a bonus of +31 more than usual.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 3 to Dexterity Base.",
+                  "    It provides a boost of 3 to Strength Base.",
+                  "    This enhancive item may not be used by adventurers who have not trained 15 times.",
+                  "    It seems to have more than your average dwarf could count enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It appears to weigh about 2 pounds.",
+                  "It is estimated to be worth about 450,000 silvers.",
+                  "It is predominantly crafted of ruic.",
+                  "It may be enchanted up to a bonus of 35 by a wizard and was last enchanted by Najeira.",
+                  "It is a basic project (155 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Nisme."
+                ],
+                "tags": [
+                  "purpose",
+                  "max_light",
+                  "persists"
+                ],
+                "skill": "ranged weapons",
+                "worn": "shoulders",
+                "material": "ruic, an uncommon wood",
+                "enchant": 31,
+                "enhancives": [
+                  {
+                    "boost": 3,
+                    "ability": "Dexterity Base"
+                  },
+                  {
+                    "boost": 3,
+                    "ability": "Strength Base"
+                  }
+                ],
+                "weight": 2,
+                "cost": 1450000
+              }
+            },
+            {
               "id": "58625866",
               "name": "a white glaes mace",
               "details": {
@@ -1315,55 +1364,6 @@
                   }
                 ],
                 "cost": 1500000
-              }
-            },
-            {
-              "id": "129843",
-              "name": "a ruic long bow inlaid with strips of red maple",
-              "details": {
-                "raw": [
-                  "It has a small enchanter's glyph.",
-                  "The bow is a long bow that requires skill in ranged weapons to use effectively.",
-                  "The bow can be worn, slinging it across the shoulders and back.  The bow appears to serve some purpose.",
-                  "It looks like this item has been mainly crafted out of ruic, an uncommon wood.",
-                  "Analysis of a ruic long bow inlaid with strips of red maple indicates the item is free from merchant alteration restrictions.",
-                  "You can tell that the bow is as light as it can get.",
-                  "The ruic long bow will cost 6,000,000 coins.",
-                  "It imparts a bonus of +31 more than usual.",
-                  "It is an enhancive item:",
-                  "    It provides a boost of 3 to Dexterity Base.",
-                  "    It provides a boost of 3 to Strength Base.",
-                  "    This enhancive item may not be used by adventurers who have not trained 15 times.",
-                  "    It seems to have more than your average dwarf could count enhancive charges remaining.",
-                  "It will persist after its last enhancive charge has been expended.",
-                  "It appears to weigh about 2 pounds.",
-                  "It is estimated to be worth about 450,000 silvers.",
-                  "It is predominantly crafted of ruic.",
-                  "It may be enchanted up to a bonus of 35 by a wizard and was last enchanted by Najeira.",
-                  "It is a basic project (155 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by Nisme."
-                ],
-                "tags": [
-                  "purpose",
-                  "max_light",
-                  "persists"
-                ],
-                "skill": "ranged weapons",
-                "worn": "shoulders",
-                "material": "ruic, an uncommon wood",
-                "enchant": 31,
-                "enhancives": [
-                  {
-                    "boost": 3,
-                    "ability": "Dexterity Base"
-                  },
-                  {
-                    "boost": 3,
-                    "ability": "Strength Base"
-                  }
-                ],
-                "weight": 2,
-                "cost": 6000000
               }
             },
             {
@@ -2001,7 +2001,7 @@
           ]
         },
         {
-          "room_title": "Sythril's Combat Gear",
+          "room_title": "Sythril's Weaponry",
           "branch": "northwest",
           "items": [
             {
@@ -11843,7 +11843,7 @@
       "id": "12",
       "inv": [
         {
-          "room_title": "Arathis's Weaponry",
+          "room_title": "Arathis' Weaponry",
           "branch": "entry",
           "items": [
             {
@@ -14622,7 +14622,7 @@
       "id": "15",
       "inv": [
         {
-          "room_title": "Riverman's Wares",
+          "room_title": "The Grandfather's Wares",
           "branch": "entry",
           "items": [
             {
@@ -17589,7 +17589,17 @@
                 "weight": 4,
                 "cost": 19999999
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on an ornate tile sign:",
+            "You buy, yes?"
+          ]
+        },
+        {
+          "room_title": "Tshiva's Armory",
+          "branch": "north",
+          "items": [
             {
               "id": "87634041",
               "name": "an embossed glaes helm",
@@ -17630,17 +17640,66 @@
                 "weight": 6,
                 "cost": 6999999
               }
-            }
-          ],
-          "sign": [
-            "Written on an ornate tile sign:",
-            "You buy, yes?"
-          ]
-        },
-        {
-          "room_title": "Tshiva's Armory",
-          "branch": "north",
-          "items": [
+            },
+            {
+              "id": "140335",
+              "name": "some vultite brigandine armor",
+              "details": {
+                "raw": [
+                  "The armor is scale armor that covers the torso, arms, legs, neck, and head.",
+                  "The armor can be worn around the chest.  The armor appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of vultite, an uncommon metal.",
+                  "Analysis of some vultite brigandine armor indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the brigandine armor for you.",
+                  "The brigandine armor will cost 4,499,999 coins.",
+                  "It imparts a bonus of +20 more than usual.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 9 to Ambush Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 27 times.",
+                  "    It provides a boost of 2 to Health Recovery.",
+                  "    This enhancement may not be used by adventurers who have not trained 6 times.",
+                  "    It provides a boost of 10 to Thrown Weapons Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 33 times.",
+                  "    It provides a boost of 2 to Dodging Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 2 times.",
+                  "    It seems to have a few enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It appears to weigh about 20 pounds.",
+                  "It is estimated to be worth about 550,000 silvers.",
+                  "It is predominantly crafted of vultite.",
+                  "It is a simple project (56 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by a bard."
+                ],
+                "tags": [
+                  "purpose",
+                  "lightenable",
+                  "persists"
+                ],
+                "worn": "chest",
+                "material": "vultite, an uncommon metal",
+                "enchant": 20,
+                "enhancives": [
+                  {
+                    "boost": 9,
+                    "ability": "Ambush Bonus"
+                  },
+                  {
+                    "boost": 2,
+                    "ability": "Health Recovery"
+                  },
+                  {
+                    "boost": 10,
+                    "ability": "Thrown Weapons Bonus"
+                  },
+                  {
+                    "boost": 2,
+                    "ability": "Dodging Bonus"
+                  }
+                ],
+                "weight": 20,
+                "cost": 4499999
+              }
+            },
             {
               "id": "140340",
               "name": "some old mithril arm greaves",
@@ -17889,65 +17948,6 @@
                 ],
                 "weight": 3,
                 "cost": 12999999
-              }
-            },
-            {
-              "id": "140335",
-              "name": "some vultite brigandine armor",
-              "details": {
-                "raw": [
-                  "The armor is scale armor that covers the torso, arms, legs, neck, and head.",
-                  "The armor can be worn around the chest.  The armor appears to serve some purpose.",
-                  "It looks like this item has been mainly crafted out of vultite, an uncommon metal.",
-                  "Analysis of some vultite brigandine armor indicates the item is free from merchant alteration restrictions.",
-                  "You might be able to have a talented merchant lighten the brigandine armor for you.",
-                  "The brigandine armor will cost 5,999,999 coins.",
-                  "It imparts a bonus of +20 more than usual.",
-                  "It is an enhancive item:",
-                  "    It provides a boost of 9 to Ambush Bonus.",
-                  "    This enhancement may not be used by adventurers who have not trained 27 times.",
-                  "    It provides a boost of 2 to Health Recovery.",
-                  "    This enhancement may not be used by adventurers who have not trained 6 times.",
-                  "    It provides a boost of 10 to Thrown Weapons Bonus.",
-                  "    This enhancement may not be used by adventurers who have not trained 33 times.",
-                  "    It provides a boost of 2 to Dodging Bonus.",
-                  "    This enhancement may not be used by adventurers who have not trained 2 times.",
-                  "    It seems to have a few enhancive charges remaining.",
-                  "It will persist after its last enhancive charge has been expended.",
-                  "It appears to weigh about 20 pounds.",
-                  "It is estimated to be worth about 550,000 silvers.",
-                  "It is predominantly crafted of vultite.",
-                  "It is a simple project (56 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by a bard."
-                ],
-                "tags": [
-                  "purpose",
-                  "lightenable",
-                  "persists"
-                ],
-                "worn": "chest",
-                "material": "vultite, an uncommon metal",
-                "enchant": 20,
-                "enhancives": [
-                  {
-                    "boost": 9,
-                    "ability": "Ambush Bonus"
-                  },
-                  {
-                    "boost": 2,
-                    "ability": "Health Recovery"
-                  },
-                  {
-                    "boost": 10,
-                    "ability": "Thrown Weapons Bonus"
-                  },
-                  {
-                    "boost": 2,
-                    "ability": "Dodging Bonus"
-                  }
-                ],
-                "weight": 20,
-                "cost": 5999999
               }
             },
             {
