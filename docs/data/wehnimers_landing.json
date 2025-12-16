@@ -1,6 +1,6 @@
 {
-  "created_at": "2025-12-16 06:20:56 UTC",
-  "run_time": "44s",
+  "created_at": "2025-12-16 08:40:20 UTC",
+  "run_time": "20m 08s",
   "town": "Wehnimer's Landing",
   "shops": [
     {
@@ -12,6 +12,45 @@
           "room_title": "Grimburn's Outfitting",
           "branch": "entry",
           "items": [
+            {
+              "id": "116815402",
+              "name": "some crimson gloves with sharp-cut rubies on the knuckles",
+              "details": {
+                "raw": [
+                  "It has a small enchanter's glyph.",
+                  "The crimson gloves are suitable for use in unarmed combat.",
+                  "The gloves can be worn on the hands.  The gloves appear to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of leather, an extremely common material.",
+                  "Analysis of some crimson gloves with sharp-cut rubies on the knuckles indicates the creator has provided the following information:",
+                  "These are \"Elemental Gloves\", and are intended to be UCS Equipment which allows for temporary SMRv2 attacks a certain number of times per day.",
+                  "Alteration instructions:",
+                  "These crimson gloves MUST remain gloves (the noun cannot be changed for any reason, or the script will fail).  While the script can handle alterations aside from that (to include a SHOW), it's important to note that the script will always show (and use in the messaging) a buckle used to cinch the gloves around the wrist.  This means no forearm- or elbow-length gloves.  The material of the buckle can be changed by any merchant willing to do so.",
+                  "These crimson gloves are attuned to fire.  If your elemental ATTUNEment matches this, then your gloves will be more mechanically effective.  Note that water attunement syncs with cold flares, and both air and lightning attunement sync with electricity flares.",
+                  "These gloves can be activated 1 time a day using CLENCH.  When activated, the gloves can execute elemental attacks using WAVE.  This ability remains active for 45 seconds.  Once the last charge has been expended,  the gloves will be fully recharged the following day.",
+                  "These crimson gloves currently have 1 charge remaining.",
+                  "SNAP and CLAP are fluff verbs which only function when the wearer's attunement matches the element of the gloves.",
+                  "You can tell that the gloves are as light as they can get.",
+                  "This gloves has a Custom Flare Message script - messaging is not available.",
+                  "The crimson gloves will cost 10,300,000 coins.",
+                  "It imparts a bonus of +25 more than usual.",
+                  "It has been infused with the power of a fire elemental.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 47,000 silvers.",
+                  "It is predominantly crafted of leather.",
+                  "It is an involved project (238 difficulty) for an adventurer to modify.",
+                  "It has some unknown (scripted) benefit.",
+                  "It has a permanently unlocked loresong by Hiet."
+                ],
+                "tags": [
+                  "small"
+                ],
+                "worn": "hands",
+                "material": "leather, an extremely common material",
+                "enchant": 25,
+                "flare": "the power of a fire elemental",
+                "cost": 10300000
+              }
+            },
             {
               "id": "25429165",
               "name": "a massive oak-hafted ora mattock",
@@ -83,7 +122,7 @@
                   "It looks like this item has been mainly crafted out of imflass, an uncommon metal.",
                   "Analysis of some dark crimson imflass leather indicates the item is free from merchant alteration restrictions.",
                   "You can tell that the leather is as light as it can get.",
-                  "The crimson imflass leather will cost 40,000,000 coins.",
+                  "The crimson imflass leather will cost 30,900,000 coins.",
                   "It imparts a bonus of +35 more than usual.",
                   "It appears to weigh about 10 pounds.",
                   "It is estimated to be worth about 10,500,000 silvers.",
@@ -101,7 +140,7 @@
                 "material": "imflass, an uncommon metal",
                 "enchant": 35,
                 "weight": 10,
-                "cost": 40000000
+                "cost": 30900000
               }
             },
             {
@@ -328,28 +367,6 @@
                 "enchant": 25,
                 "weight": 2,
                 "cost": 5000000
-              }
-            },
-            {
-              "id": "127856",
-              "name": "a pitch black mithglin mantlet with sturdy ebonwood grips",
-              "details": {
-                "raw": [
-                  "It has a small enchanter's glyph.",
-                  "The mantlet is a tower shield that protects the bearer if carried in the left hand.",
-                  "The mantlet can be worn, slinging it across the shoulders and back.  The mantlet appears to serve some purpose.",
-                  "It looks like this item has been mainly crafted out of mithglin, a rare metal.",
-                  "Analysis of a pitch black mithglin mantlet with sturdy ebonwood grips indicates the item is free from merchant alteration restrictions.",
-                  "You might be able to have a talented merchant lighten the pitch black mantlet for you.",
-                  "The pitch black mantlet will cost 1,000,000 coins."
-                ],
-                "tags": [
-                  "purpose",
-                  "lightenable"
-                ],
-                "worn": "shoulders",
-                "material": "mithglin, a rare metal",
-                "cost": 1000000
               }
             },
             {
@@ -604,45 +621,6 @@
                 "material": "organic material, an extremely common material",
                 "cost": 1030000
               }
-            },
-            {
-              "id": "116815402",
-              "name": "some crimson gloves with sharp-cut rubies on the knuckles",
-              "details": {
-                "raw": [
-                  "It has a small enchanter's glyph.",
-                  "The crimson gloves are suitable for use in unarmed combat.",
-                  "The gloves can be worn on the hands.  The gloves appear to serve some purpose.",
-                  "It looks like this item has been mainly crafted out of leather, an extremely common material.",
-                  "Analysis of some crimson gloves with sharp-cut rubies on the knuckles indicates the creator has provided the following information:",
-                  "These are \"Elemental Gloves\", and are intended to be UCS Equipment which allows for temporary SMRv2 attacks a certain number of times per day.",
-                  "Alteration instructions:",
-                  "These crimson gloves MUST remain gloves (the noun cannot be changed for any reason, or the script will fail).  While the script can handle alterations aside from that (to include a SHOW), it's important to note that the script will always show (and use in the messaging) a buckle used to cinch the gloves around the wrist.  This means no forearm- or elbow-length gloves.  The material of the buckle can be changed by any merchant willing to do so.",
-                  "These crimson gloves are attuned to fire.  If your elemental ATTUNEment matches this, then your gloves will be more mechanically effective.  Note that water attunement syncs with cold flares, and both air and lightning attunement sync with electricity flares.",
-                  "These gloves can be activated 1 time a day using CLENCH.  When activated, the gloves can execute elemental attacks using WAVE.  This ability remains active for 45 seconds.  Once the last charge has been expended,  the gloves will be fully recharged the following day.",
-                  "These crimson gloves currently have 1 charge remaining.",
-                  "SNAP and CLAP are fluff verbs which only function when the wearer's attunement matches the element of the gloves.",
-                  "You can tell that the gloves are as light as they can get.",
-                  "This gloves has a Custom Flare Message script - messaging is not available.",
-                  "The crimson gloves will cost 10,300,000 coins.",
-                  "It imparts a bonus of +25 more than usual.",
-                  "It has been infused with the power of a fire elemental.",
-                  "It is a small item, under a pound.",
-                  "It is estimated to be worth about 47,000 silvers.",
-                  "It is predominantly crafted of leather.",
-                  "It is an involved project (238 difficulty) for an adventurer to modify.",
-                  "It has some unknown (scripted) benefit.",
-                  "It has a permanently unlocked loresong by Hiet."
-                ],
-                "tags": [
-                  "small"
-                ],
-                "worn": "hands",
-                "material": "leather, an extremely common material",
-                "enchant": 25,
-                "flare": "the power of a fire elemental",
-                "cost": 10300000
-              }
             }
           ],
           "sign": [
@@ -670,7 +648,7 @@
                   "It looks like this item has been mainly crafted out of wood, an extremely common material.",
                   "Analysis of a veniom-bound rolaren tower shield indicates the item is free from merchant alteration restrictions.",
                   "You might be able to have a talented merchant lighten the rolaren tower shield for you.",
-                  "The rolaren tower shield will cost 5,000,000 coins.",
+                  "The rolaren tower shield will cost 5,150,000 coins.",
                   "It imparts a bonus of +25 more than usual.",
                   "It appears to weigh about 10 pounds.",
                   "It is estimated to be worth about 150,000 silvers.",
@@ -686,7 +664,30 @@
                 "material": "wood, an extremely common material",
                 "enchant": 25,
                 "weight": 10,
-                "cost": 5000000
+                "cost": 5150000
+              }
+            },
+            {
+              "id": "127910",
+              "name": "a silver-lined supple leather thigh-quiver",
+              "details": {
+                "raw": [
+                  "It is estimated that a silver-lined supple leather thigh-quiver can store a slightly large amount with enough space for several items.",
+                  "The thigh-quiver can be worn anywhere on the body.  The thigh-quiver appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of leather, an extremely common material.",
+                  "Analysis of a silver-lined supple leather thigh-quiver indicates the creator has provided the following information:",
+                  "This item may be altered by a talented merchant, so long as the noun remains the same.",
+                  "You can try to PULL and CLENCH the thigh-quiver while ammo is in it.  You get the sense that only items like arrows and bolts can fit into it.",
+                  "You can tell that the thigh-quiver's pockets could not possibly get any deeper, but you might be able to have a talented merchant lighten the supple leather thigh-quiver for you.",
+                  "The supple leather thigh-quiver will cost 5,150,000 coins."
+                ],
+                "tags": [
+                  "purpose",
+                  "max_deep"
+                ],
+                "worn": "pin",
+                "material": "leather, an extremely common material",
+                "cost": 5150000
               }
             },
             {
@@ -913,28 +914,6 @@
               }
             },
             {
-              "id": "127913",
-              "name": "some stygian mithglin plate armor",
-              "details": {
-                "raw": [
-                  "It has a small enchanter's glyph.",
-                  "The armor is plate armor that covers the torso, arms, legs, neck, and head.",
-                  "The armor can be worn around the chest.  The armor appears to serve some purpose.",
-                  "It looks like this item has been mainly crafted out of mithglin, a rare metal.",
-                  "Analysis of some stygian mithglin plate armor indicates the item is free from merchant alteration restrictions.",
-                  "You might be able to have a talented merchant lighten the mithglin plate armor for you.",
-                  "The mithglin plate armor will cost 2,000,000 coins."
-                ],
-                "tags": [
-                  "purpose",
-                  "lightenable"
-                ],
-                "worn": "chest",
-                "material": "mithglin, a rare metal",
-                "cost": 2000000
-              }
-            },
-            {
               "id": "127912",
               "name": "a perfect maoral-hilted mithril greatsword",
               "details": {
@@ -984,29 +963,6 @@
                 "skill": "edged weapons",
                 "material": "glaes, a rare metal",
                 "cost": 250000
-              }
-            },
-            {
-              "id": "127910",
-              "name": "a silver-lined supple leather thigh-quiver",
-              "details": {
-                "raw": [
-                  "It is estimated that a silver-lined supple leather thigh-quiver can store a slightly large amount with enough space for several items.",
-                  "The thigh-quiver can be worn anywhere on the body.  The thigh-quiver appears to serve some purpose.",
-                  "It looks like this item has been mainly crafted out of leather, an extremely common material.",
-                  "Analysis of a silver-lined supple leather thigh-quiver indicates the creator has provided the following information:",
-                  "This item may be altered by a talented merchant, so long as the noun remains the same.",
-                  "You can try to PULL and CLENCH the thigh-quiver while ammo is in it.  You get the sense that only items like arrows and bolts can fit into it.",
-                  "You can tell that the thigh-quiver's pockets could not possibly get any deeper, but you might be able to have a talented merchant lighten the supple leather thigh-quiver for you.",
-                  "The supple leather thigh-quiver will cost 5,000,000 coins."
-                ],
-                "tags": [
-                  "purpose",
-                  "max_deep"
-                ],
-                "worn": "pin",
-                "material": "leather, an extremely common material",
-                "cost": 5000000
               }
             },
             {
@@ -1234,9 +1190,73 @@
           ]
         },
         {
-          "room_title": "Grimburn's Combat Gear",
+          "room_title": "Grimburn's Outfitting",
           "branch": "west",
           "items": [
+            {
+              "id": "127913",
+              "name": "some stygian mithglin plate armor",
+              "details": {
+                "raw": [
+                  "It has a small enchanter's glyph.",
+                  "The armor is plate armor that covers the torso, arms, legs, neck, and head.",
+                  "The armor can be worn around the chest.  The armor appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of mithglin, a rare metal.",
+                  "Analysis of some stygian mithglin plate armor indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the mithglin plate armor for you.",
+                  "The mithglin plate armor will cost 4,120,000 coins.",
+                  "It imparts a bonus of +20 more than usual.",
+                  "It has been infused with the power of a dark substance.",
+                  "It appears to weigh about 67 pounds.",
+                  "It is estimated to be worth about 1,750,000 silvers.",
+                  "It is predominantly crafted of mithglin.",
+                  "It is a basic project (121 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Hiet."
+                ],
+                "tags": [
+                  "purpose",
+                  "lightenable"
+                ],
+                "worn": "chest",
+                "material": "mithglin, a rare metal",
+                "enchant": 20,
+                "flare": "the power of a dark substance",
+                "weight": 67,
+                "cost": 4120000
+              }
+            },
+            {
+              "id": "127856",
+              "name": "a pitch black mithglin mantlet with sturdy ebonwood grips",
+              "details": {
+                "raw": [
+                  "It has a small enchanter's glyph.",
+                  "The mantlet is a tower shield that protects the bearer if carried in the left hand.",
+                  "The mantlet can be worn, slinging it across the shoulders and back.  The mantlet appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of mithglin, a rare metal.",
+                  "Analysis of a pitch black mithglin mantlet with sturdy ebonwood grips indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the pitch black mantlet for you.",
+                  "The pitch black mantlet will cost 2,060,000 coins.",
+                  "It imparts a bonus of +20 more than usual.",
+                  "It has been infused with the power of a dark substance.",
+                  "It appears to weigh about 11 pounds.",
+                  "It is estimated to be worth about 82,000 silvers.",
+                  "It is predominantly crafted of mithglin.",
+                  "It is a basic project (121 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Hiet."
+                ],
+                "tags": [
+                  "purpose",
+                  "lightenable"
+                ],
+                "worn": "shoulders",
+                "material": "mithglin, a rare metal",
+                "enchant": 20,
+                "flare": "the power of a dark substance",
+                "weight": 11,
+                "cost": 2060000
+              }
+            },
             {
               "id": "127891",
               "name": "a perfect maoral-hilted steel greatsword",
@@ -1247,7 +1267,7 @@
                   "It looks like this item has been mainly crafted out of steel, an extremely common metal.",
                   "Analysis of a perfect maoral-hilted steel greatsword indicates the item is free from merchant alteration restrictions.",
                   "You can tell that the greatsword is as light as it can get.",
-                  "The steel greatsword will cost 20,000,000 coins.",
+                  "The steel greatsword will cost 17,510,000 coins.",
                   "It imparts a bonus of +35 more than usual.",
                   "It is forged by Ugj and has increased (+3) effectiveness in combat.",
                   "It appears to weigh about 6 pounds.",
@@ -1267,7 +1287,7 @@
                 "material": "steel, an extremely common metal",
                 "enchant": 35,
                 "weight": 6,
-                "cost": 20000000
+                "cost": 17510000
               }
             },
             {
@@ -1606,13 +1626,13 @@
                   "The boots can be worn on the feet.",
                   "Analysis of some ora-plated eonake war boots indicates the item is free from merchant alteration restrictions.",
                   "You might be able to have a talented merchant lighten the eonake war boots for you or deepen their pockets.",
-                  "The eonake war boots will cost 15,449,000 coins."
+                  "The eonake war boots will cost 10,300,000 coins."
                 ],
                 "tags": [
                   "lightenable"
                 ],
                 "worn": "feet",
-                "cost": 15449000
+                "cost": 10300000
               }
             },
             {
@@ -3090,7 +3110,7 @@
       "id": "3",
       "inv": [
         {
-          "room_title": "Myharl's Imports",
+          "room_title": "Dark Tower Imports",
           "branch": "entry",
           "items": [
             {
@@ -5068,7 +5088,7 @@
       "id": "4",
       "inv": [
         {
-          "room_title": "Roscha",
+          "room_title": "Emporium of the Silver Veil",
           "branch": "entry",
           "items": [
             {
@@ -7114,7 +7134,7 @@
       "id": "5",
       "inv": [
         {
-          "room_title": "Witfog's Defence",
+          "room_title": "The Best Defence",
           "branch": "entry",
           "items": [
             {
@@ -8790,7 +8810,7 @@
               "name": "a tiny nacreous humanoid skeleton with bat wings and a scorpion tail",
               "details": {
                 "raw": [
-                  "It's hard to tell exactly what it looks like.",
+                  "You glance at the nacreous skeleton, wondering if it's possibly sideways.  Or upside down.  Or backwards.  It's really confusing you!",
                   "The skeleton can be worn anywhere on the body.",
                   "It looks like this item has been mainly crafted out of bone, an extremely common material.",
                   "Analysis of a tiny nacreous humanoid skeleton with bat wings and a scorpion tail indicates the creator has provided the following information:",
@@ -9425,7 +9445,7 @@
       "id": "6",
       "inv": [
         {
-          "room_title": "Dergoatean's Couture",
+          "room_title": "Goat Couture",
           "branch": "entry",
           "items": [
             {
@@ -13917,7 +13937,7 @@
               "name": "a faceted iridescent glob",
               "details": {
                 "raw": [
-                  "You do a double take, because for a moment, the iridescent glob looked exactly like a rotting corpse!",
+                  "You glance at the iridescent glob, wondering if it's possibly sideways.  Or upside down.  Or backwards.  It's really confusing you!",
                   "The glob can not be worn.",
                   "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
                   "Analysis of a faceted iridescent glob indicates the creator has provided the following information:",
@@ -13974,7 +13994,7 @@
               "name": "a desiccated eight-fingered claw",
               "details": {
                 "raw": [
-                  "Oddly enough, it looks like a desiccated eight-fingered claw.",
+                  "Are those eyes peering back at you?!  Oh, no.  It's just a desiccated eight-fingered claw.",
                   "The claw can not be worn.",
                   "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
                   "Analysis of a desiccated eight-fingered claw indicates the creator has provided the following information:",
@@ -15465,9 +15485,219 @@
       "id": "12",
       "inv": [
         {
-          "room_title": "Tolwynn",
+          "room_title": "Tolwynn's Treasures, Wanton",
           "branch": "entry",
           "items": [
+            {
+              "id": "125526583",
+              "name": "a blue sapphire",
+              "details": {
+                "raw": [
+                  "The sapphire can not be worn.",
+                  "Analysis of a blue sapphire indicates the item is free from merchant alteration restrictions.",
+                  "The blue sapphire will cost 7,500 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 7500
+              }
+            },
+            {
+              "id": "125526563",
+              "name": "an uncut emerald",
+              "details": {
+                "raw": [
+                  "The emerald can not be worn.",
+                  "Analysis of an uncut emerald indicates the item is free from merchant alteration restrictions.",
+                  "The uncut emerald will cost 12,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 12000
+              }
+            },
+            {
+              "id": "125526569",
+              "name": "an uncut diamond",
+              "details": {
+                "raw": [
+                  "The diamond can not be worn.",
+                  "Analysis of an uncut diamond indicates the item is free from merchant alteration restrictions.",
+                  "The uncut diamond will cost 12,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 12000
+              }
+            },
+            {
+              "id": "125732866",
+              "name": "an uncut diamond",
+              "details": {
+                "raw": [
+                  "The diamond can not be worn.",
+                  "Analysis of an uncut diamond indicates the item is free from merchant alteration restrictions.",
+                  "The uncut diamond will cost 12,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 12000
+              }
+            },
+            {
+              "id": "125732800",
+              "name": "an uncut diamond",
+              "details": {
+                "raw": [
+                  "The diamond can not be worn.",
+                  "Analysis of an uncut diamond indicates the item is free from merchant alteration restrictions.",
+                  "The uncut diamond will cost 12,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 12000
+              }
+            },
+            {
+              "id": "125732627",
+              "name": "an uncut diamond",
+              "details": {
+                "raw": [
+                  "The diamond can not be worn.",
+                  "Analysis of an uncut diamond indicates the item is free from merchant alteration restrictions.",
+                  "The uncut diamond will cost 12,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 12000
+              }
+            },
+            {
+              "id": "125732581",
+              "name": "an uncut diamond",
+              "details": {
+                "raw": [
+                  "The diamond can not be worn.",
+                  "Analysis of an uncut diamond indicates the item is free from merchant alteration restrictions.",
+                  "The uncut diamond will cost 12,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 12000
+              }
+            },
+            {
+              "id": "125732537",
+              "name": "an uncut diamond",
+              "details": {
+                "raw": [
+                  "The diamond can not be worn.",
+                  "Analysis of an uncut diamond indicates the item is free from merchant alteration restrictions.",
+                  "The uncut diamond will cost 12,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 12000
+              }
+            },
+            {
+              "id": "125732348",
+              "name": "an uncut diamond",
+              "details": {
+                "raw": [
+                  "The diamond can not be worn.",
+                  "Analysis of an uncut diamond indicates the item is free from merchant alteration restrictions.",
+                  "The uncut diamond will cost 12,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 12000
+              }
+            },
+            {
+              "id": "125732262",
+              "name": "an uncut diamond",
+              "details": {
+                "raw": [
+                  "The diamond can not be worn.",
+                  "Analysis of an uncut diamond indicates the item is free from merchant alteration restrictions.",
+                  "The uncut diamond will cost 12,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 12000
+              }
+            },
+            {
+              "id": "125732240",
+              "name": "an uncut diamond",
+              "details": {
+                "raw": [
+                  "The diamond can not be worn.",
+                  "Analysis of an uncut diamond indicates the item is free from merchant alteration restrictions.",
+                  "The uncut diamond will cost 12,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 12000
+              }
+            },
+            {
+              "id": "125732199",
+              "name": "an uncut diamond",
+              "details": {
+                "raw": [
+                  "The diamond can not be worn.",
+                  "Analysis of an uncut diamond indicates the item is free from merchant alteration restrictions.",
+                  "The uncut diamond will cost 12,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 12000
+              }
+            },
+            {
+              "id": "125732124",
+              "name": "an uncut diamond",
+              "details": {
+                "raw": [
+                  "The diamond can not be worn.",
+                  "Analysis of an uncut diamond indicates the item is free from merchant alteration restrictions.",
+                  "The uncut diamond will cost 12,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 12000
+              }
+            },
+            {
+              "id": "125731734",
+              "name": "an uncut diamond",
+              "details": {
+                "raw": [
+                  "The diamond can not be worn.",
+                  "Analysis of an uncut diamond indicates the item is free from merchant alteration restrictions.",
+                  "The uncut diamond will cost 12,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 12000
+              }
+            },
             {
               "id": "129005",
               "name": "a kelyn-tipped glaes longsword",
@@ -15617,6 +15847,51 @@
               }
             },
             {
+              "id": "125526580",
+              "name": "a banded sardonyx stone",
+              "details": {
+                "raw": [
+                  "The stone can not be worn.",
+                  "Analysis of a banded sardonyx stone indicates the item is free from merchant alteration restrictions.",
+                  "The sardonyx stone will cost 2,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 2000
+              }
+            },
+            {
+              "id": "125526586",
+              "name": "a piece of rose quartz",
+              "details": {
+                "raw": [
+                  "The quartz can not be worn.",
+                  "Analysis of a piece of rose quartz indicates the item is free from merchant alteration restrictions.",
+                  "The rose quartz will cost 2,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 2000
+              }
+            },
+            {
+              "id": "125526587",
+              "name": "a piece of carnelian quartz",
+              "details": {
+                "raw": [
+                  "The quartz can not be worn.",
+                  "Analysis of a piece of carnelian quartz indicates the item is free from merchant alteration restrictions.",
+                  "The carnelian quartz will cost 2,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 2000
+              }
+            },
+            {
               "id": "128997",
               "name": "an opalescent glass jar containing clear zircons",
               "details": {
@@ -15673,6 +15948,276 @@
           "branch": "northeast",
           "items": [
             {
+              "id": "125731683",
+              "name": "an uncut diamond",
+              "details": {
+                "raw": [
+                  "The diamond can not be worn.",
+                  "Analysis of an uncut diamond indicates the item is free from merchant alteration restrictions.",
+                  "The uncut diamond will cost 12,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 12000
+              }
+            },
+            {
+              "id": "125731661",
+              "name": "an uncut diamond",
+              "details": {
+                "raw": [
+                  "The diamond can not be worn.",
+                  "Analysis of an uncut diamond indicates the item is free from merchant alteration restrictions.",
+                  "The uncut diamond will cost 12,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 12000
+              }
+            },
+            {
+              "id": "125731271",
+              "name": "an uncut diamond",
+              "details": {
+                "raw": [
+                  "The diamond can not be worn.",
+                  "Analysis of an uncut diamond indicates the item is free from merchant alteration restrictions.",
+                  "The uncut diamond will cost 12,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 12000
+              }
+            },
+            {
+              "id": "125731171",
+              "name": "an uncut diamond",
+              "details": {
+                "raw": [
+                  "The diamond can not be worn.",
+                  "Analysis of an uncut diamond indicates the item is free from merchant alteration restrictions.",
+                  "The uncut diamond will cost 12,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 12000
+              }
+            },
+            {
+              "id": "125731141",
+              "name": "an uncut diamond",
+              "details": {
+                "raw": [
+                  "The diamond can not be worn.",
+                  "Analysis of an uncut diamond indicates the item is free from merchant alteration restrictions.",
+                  "The uncut diamond will cost 12,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 12000
+              }
+            },
+            {
+              "id": "125731107",
+              "name": "an uncut diamond",
+              "details": {
+                "raw": [
+                  "The diamond can not be worn.",
+                  "Analysis of an uncut diamond indicates the item is free from merchant alteration restrictions.",
+                  "The uncut diamond will cost 12,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 12000
+              }
+            },
+            {
+              "id": "125731019",
+              "name": "an uncut diamond",
+              "details": {
+                "raw": [
+                  "The diamond can not be worn.",
+                  "Analysis of an uncut diamond indicates the item is free from merchant alteration restrictions.",
+                  "The uncut diamond will cost 12,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 12000
+              }
+            },
+            {
+              "id": "125730925",
+              "name": "an uncut diamond",
+              "details": {
+                "raw": [
+                  "The diamond can not be worn.",
+                  "Analysis of an uncut diamond indicates the item is free from merchant alteration restrictions.",
+                  "The uncut diamond will cost 12,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 12000
+              }
+            },
+            {
+              "id": "125728805",
+              "name": "an uncut emerald",
+              "details": {
+                "raw": [
+                  "The emerald can not be worn.",
+                  "Analysis of an uncut emerald indicates the item is free from merchant alteration restrictions.",
+                  "The uncut emerald will cost 12,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 12000
+              }
+            },
+            {
+              "id": "125728708",
+              "name": "an uncut emerald",
+              "details": {
+                "raw": [
+                  "The emerald can not be worn.",
+                  "Analysis of an uncut emerald indicates the item is free from merchant alteration restrictions.",
+                  "The uncut emerald will cost 12,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 12000
+              }
+            },
+            {
+              "id": "125728572",
+              "name": "an uncut emerald",
+              "details": {
+                "raw": [
+                  "The emerald can not be worn.",
+                  "Analysis of an uncut emerald indicates the item is free from merchant alteration restrictions.",
+                  "The uncut emerald will cost 12,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 12000
+              }
+            },
+            {
+              "id": "125728519",
+              "name": "an uncut emerald",
+              "details": {
+                "raw": [
+                  "The emerald can not be worn.",
+                  "Analysis of an uncut emerald indicates the item is free from merchant alteration restrictions.",
+                  "The uncut emerald will cost 12,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 12000
+              }
+            },
+            {
+              "id": "125728343",
+              "name": "an uncut emerald",
+              "details": {
+                "raw": [
+                  "The emerald can not be worn.",
+                  "Analysis of an uncut emerald indicates the item is free from merchant alteration restrictions.",
+                  "The uncut emerald will cost 12,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 12000
+              }
+            },
+            {
+              "id": "125728333",
+              "name": "an uncut emerald",
+              "details": {
+                "raw": [
+                  "The emerald can not be worn.",
+                  "Analysis of an uncut emerald indicates the item is free from merchant alteration restrictions.",
+                  "The uncut emerald will cost 12,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 12000
+              }
+            },
+            {
+              "id": "125728320",
+              "name": "an uncut emerald",
+              "details": {
+                "raw": [
+                  "The emerald can not be worn.",
+                  "Analysis of an uncut emerald indicates the item is free from merchant alteration restrictions.",
+                  "The uncut emerald will cost 12,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 12000
+              }
+            },
+            {
+              "id": "125728271",
+              "name": "an uncut emerald",
+              "details": {
+                "raw": [
+                  "The emerald can not be worn.",
+                  "Analysis of an uncut emerald indicates the item is free from merchant alteration restrictions.",
+                  "The uncut emerald will cost 12,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 12000
+              }
+            },
+            {
+              "id": "125728147",
+              "name": "an uncut emerald",
+              "details": {
+                "raw": [
+                  "The emerald can not be worn.",
+                  "Analysis of an uncut emerald indicates the item is free from merchant alteration restrictions.",
+                  "The uncut emerald will cost 12,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 12000
+              }
+            },
+            {
+              "id": "125727918",
+              "name": "an uncut emerald",
+              "details": {
+                "raw": [
+                  "The emerald can not be worn.",
+                  "Analysis of an uncut emerald indicates the item is free from merchant alteration restrictions.",
+                  "The uncut emerald will cost 12,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 12000
+              }
+            },
+            {
               "id": "129020",
               "name": "an opalescent glass jar containing uncut emeralds",
               "details": {
@@ -15712,6 +16257,21 @@
                 ],
                 "material": "glass, an extremely common material",
                 "cost": 120000
+              }
+            },
+            {
+              "id": "125731708",
+              "name": "an uncut diamond",
+              "details": {
+                "raw": [
+                  "The diamond can not be worn.",
+                  "Analysis of an uncut diamond indicates the item is free from merchant alteration restrictions.",
+                  "The uncut diamond will cost 12,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 12000
               }
             },
             {
@@ -15805,6 +16365,28 @@
           "branch": "northwest",
           "items": [
             {
+              "id": "129031",
+              "name": "a tiny brass gear",
+              "details": {
+                "raw": [
+                  "A tiny brass gear is etched with an even tinier script reading, \"898 - This will increase a widget's maximum uses per day by 1 (4x/day max allowed)..\"",
+                  "The gear can not be worn.",
+                  "It looks like this item has been mainly crafted out of brass, a very common alloy.  This material cannot be dyed.",
+                  "Analysis of a tiny brass gear indicates the creator has provided the following information:",
+                  "~*~ Fizwixit's Wonderful Widgets ~*~",
+                  "This brass gear is used to update your Fizwixit's Wonderful Widget by increasing its total # of uses per day by 1, with a maximum total of 4x/day.",
+                  "If you do not already have what this gear offers and wish to add it, you need to hold your widget in one hand and this in the other and PUSH (WIDGET NOUN).  These gears may be freely sold/traded with others.  They cannot be altered.",
+                  "~*~ End Custom Analyze ~*~",
+                  "The brass gear will cost 1,500,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "material": "brass, a very common alloy",
+                "cost": 1500000
+              }
+            },
+            {
               "id": "129051",
               "name": "an opalescent glass jar containing pieces of black jasper",
               "details": {
@@ -15823,27 +16405,6 @@
                 ],
                 "material": "glass, an extremely common material",
                 "cost": 20000
-              }
-            },
-            {
-              "id": "129050",
-              "name": "a vaalin-rimmed glass bottle containing uncut emeralds",
-              "details": {
-                "raw": [
-                  "It is estimated that a vaalin-rimmed glass bottle containing uncut emeralds can store a very small amount with enough space for one item.",
-                  "The bottle can not be worn.",
-                  "It looks like this item has been mainly crafted out of glass, an extremely common material.",
-                  "Analysis of a vaalin-rimmed glass bottle containing uncut emeralds indicates the creator has provided the following information:",
-                  "This glass bottle is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
-                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
-                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the bottle to get them back out.",
-                  "The glass bottle will cost 120,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "material": "glass, an extremely common material",
-                "cost": 120000
               }
             },
             {
@@ -16057,6 +16618,58 @@
               }
             },
             {
+              "id": "125662697",
+              "name": "a small blackened smelter",
+              "details": {
+                "raw": [
+                  "You would need to be holding that to properly examine it.",
+                  "The smelter can not be worn.",
+                  "It looks like this item has been mainly crafted out of steel, an extremely common metal.",
+                  "Analysis of a small blackened smelter indicates the creator has provided the following information:",
+                  "You get the distinct feeling that this smelter cannot be altered.",
+                  "This is a coin smelter!  It slags off the impurities in coins in order to reduce the weight of coins.  The slagging, however, does reduce the value of the silvers.  The smelter is fueled by gold wands.",
+                  "To use the smelter:",
+                  "LOAD SMELTER WITH {amount} COINS : Loads silver in smelter.  Max 10K at a time.",
+                  "CLOSE SMELTER : close it before smelting!",
+                  "PUSH/PRESS SMELTER : to load a wand that you have in your other hand.",
+                  "TAP SMELTER   : ejects any stored wands.",
+                  "SHAKE SMELTER : activates smelting process.",
+                  "You can LOOK at your smelter for some information, as well.  For fun, you can TURN while coins are in the smelter.",
+                  "The blackened smelter will cost 300,000,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "material": "steel, an extremely common metal",
+                "cost": 300000000
+              }
+            },
+            {
+              "id": "125605943",
+              "name": "an olivine capacity slip",
+              "details": {
+                "raw": [
+                  "You should probably ANALYZE the slip for information.",
+                  "You should probably ANALYZE for information.",
+                  "The slip can not be worn.",
+                  "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
+                  "Analysis of an olivine capacity slip indicates the creator has provided the following information:",
+                  "*** The slip is not able to be altered by a merchant no matter what the below notes may say. ***",
+                  "This will provide you will additional storage in a container on your property.",
+                  "It will add +25 pounds of storage on the container.",
+                  "It will never increase an item beyond 200 lbs of storage.",
+                  "To use it, simply point it at a container on your property.",
+                  "An olivine capacity slip may be utilized by Loft Owners, Private Property Owners, and Bungalow Owners.",
+                  "The capacity slip will cost 100,000,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "material": "organic material, an extremely common material",
+                "cost": 100000000
+              }
+            },
+            {
               "id": "129035",
               "name": "a round metal trash bin slip",
               "details": {
@@ -16152,28 +16765,6 @@
                 "worn": "finger",
                 "material": "urglaes, an extraordinarily rare metal",
                 "cost": 100000000
-              }
-            },
-            {
-              "id": "129031",
-              "name": "a tiny brass gear",
-              "details": {
-                "raw": [
-                  "A tiny brass gear is etched with an even tinier script reading, \"898 - This will increase a widget's maximum uses per day by 1 (4x/day max allowed)..\"",
-                  "The gear can not be worn.",
-                  "It looks like this item has been mainly crafted out of brass, a very common alloy.  This material cannot be dyed.",
-                  "Analysis of a tiny brass gear indicates the creator has provided the following information:",
-                  "~*~ Fizwixit's Wonderful Widgets ~*~",
-                  "This brass gear is used to update your Fizwixit's Wonderful Widget by increasing its total # of uses per day by 1, with a maximum total of 4x/day.",
-                  "If you do not already have what this gear offers and wish to add it, you need to hold your widget in one hand and this in the other and PUSH (WIDGET NOUN).  These gears may be freely sold/traded with others.  They cannot be altered.",
-                  "~*~ End Custom Analyze ~*~",
-                  "The brass gear will cost 1,500,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "material": "brass, a very common alloy",
-                "cost": 1500000
               }
             },
             {
@@ -17299,7 +17890,7 @@
       "id": "14",
       "inv": [
         {
-          "room_title": "Maevie",
+          "room_title": "Marvelous Maevie's Merchandise",
           "branch": "entry",
           "items": [
             {
@@ -20624,6 +21215,119 @@
           "branch": "entry",
           "items": [
             {
+              "id": "120354687",
+              "name": "a gem-pommeled zorchar falchion",
+              "details": {
+                "raw": [
+                  "The falchion is a falchion that requires skill in edged weapons to use effectively.",
+                  "It looks like this item has been mainly crafted out of zorchar, a rare metal.  This material cannot be dyed.",
+                  "Analysis of a gem-pommeled zorchar falchion indicates the item has certain alteration restrictions.  This material cannot be dyed.",
+                  "You might be able to have a talented merchant lighten the zorchar falchion for you.",
+                  "The zorchar falchion will cost 20,000 coins.",
+                  "It imparts a bonus of +5 more than usual.",
+                  "It has been infused with the power of a lightning bolt.",
+                  "It appears to weigh about 5 pounds.",
+                  "It is estimated to be worth about 9,500 silvers.",
+                  "It is predominantly crafted of zorchar.",
+                  "It is a simple project (51 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Johanna."
+                ],
+                "tags": [
+                  "lightenable"
+                ],
+                "skill": "edged weapons",
+                "material": "zorchar, a rare metal",
+                "enchant": 5,
+                "flare": "the power of a lightning bolt",
+                "weight": 5,
+                "cost": 20000
+              }
+            },
+            {
+              "id": "120335550",
+              "name": "a silver-runed razern longsword",
+              "details": {
+                "raw": [
+                  "It has a small enchanter's glyph.",
+                  "The longsword is a longsword that requires skill in edged weapons to use effectively.",
+                  "It looks like this item has been mainly crafted out of razern, a very rare metal.  It would need to be supplied to be used in an alteration and may only be used as an accent.",
+                  "Analysis of a silver-runed razern longsword indicates the item has certain alteration restrictions.  It would need to be supplied to be used in an alteration and may only be used as an accent.",
+                  "You might be able to have a talented merchant lighten the razern longsword for you.",
+                  "The razern longsword will cost 50,000 coins.",
+                  "It imparts a bonus of +20 more than usual.",
+                  "It appears to weigh about 4 pounds.",
+                  "It is estimated to be worth about 100,000 silvers.",
+                  "It is weighted to inflict more critical wounds, but exactly how much requires assessment.",
+                  "It is predominantly crafted of razern.",
+                  "It is a simple project (56 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Johanna."
+                ],
+                "tags": [
+                  "lightenable"
+                ],
+                "skill": "edged weapons",
+                "material": "razern, a very rare metal",
+                "enchant": 20,
+                "weight": 4,
+                "cost": 50000
+              }
+            },
+            {
+              "id": "119418419",
+              "name": "an ora bastard sword",
+              "details": {
+                "raw": [
+                  "The sword is a bastard sword that requires skill in edged weapons to use effectively.",
+                  "It looks like this item has been mainly crafted out of ora, an uncommon metal.",
+                  "Analysis of an ora bastard sword indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the ora bastard sword for you.",
+                  "The ora bastard sword will cost 10,000 coins.",
+                  "It imparts a bonus of +10 more than usual.",
+                  "It appears to weigh about 9 pounds.",
+                  "It is estimated to be worth about 21,000 silvers.",
+                  "It is predominantly crafted of ora.",
+                  "It is a simple project (7 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Johanna."
+                ],
+                "tags": [
+                  "lightenable"
+                ],
+                "skill": "edged weapons",
+                "material": "ora, an uncommon metal",
+                "enchant": 10,
+                "weight": 9,
+                "cost": 10000
+              }
+            },
+            {
+              "id": "119125727",
+              "name": "a kelyn-edged vultite short sword",
+              "details": {
+                "raw": [
+                  "The sword is a short sword that requires skill in edged weapons to use effectively.",
+                  "It looks like this item has been mainly crafted out of vultite, an uncommon metal.",
+                  "Analysis of a kelyn-edged vultite short sword indicates the item is free from merchant alteration restrictions.",
+                  "You can tell that the sword is as light as it can get.",
+                  "The vultite short sword will cost 50,000 coins.",
+                  "It imparts a bonus of +20 more than usual.",
+                  "It appears to weigh about 2 pounds.",
+                  "It is estimated to be worth about 100,000 silvers.",
+                  "It is somewhat weighted to inflict more damage than a normal weapon of its type.",
+                  "It is predominantly crafted of vultite.",
+                  "It is a simple project (64 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Johanna."
+                ],
+                "tags": [
+                  "max_light"
+                ],
+                "skill": "edged weapons",
+                "material": "vultite, an uncommon metal",
+                "enchant": 20,
+                "weight": 2,
+                "cost": 50000
+              }
+            },
+            {
               "id": "77650178",
               "name": "an iron-wrought thorny briar circlet",
               "details": {
@@ -21345,120 +22049,13 @@
                 "weight": 4,
                 "cost": 100000
               }
-            },
-            {
-              "id": "119418419",
-              "name": "an ora bastard sword",
-              "details": {
-                "raw": [
-                  "The sword is a bastard sword that requires skill in edged weapons to use effectively.",
-                  "It looks like this item has been mainly crafted out of ora, an uncommon metal.",
-                  "Analysis of an ora bastard sword indicates the item is free from merchant alteration restrictions.",
-                  "You might be able to have a talented merchant lighten the ora bastard sword for you.",
-                  "The ora bastard sword will cost 10,000 coins.",
-                  "It imparts a bonus of +10 more than usual.",
-                  "It appears to weigh about 9 pounds.",
-                  "It is estimated to be worth about 21,000 silvers.",
-                  "It is predominantly crafted of ora.",
-                  "It is a simple project (7 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by Johanna."
-                ],
-                "tags": [
-                  "lightenable"
-                ],
-                "skill": "edged weapons",
-                "material": "ora, an uncommon metal",
-                "enchant": 10,
-                "weight": 9,
-                "cost": 10000
-              }
-            },
-            {
-              "id": "119125727",
-              "name": "a kelyn-edged vultite short sword",
-              "details": {
-                "raw": [
-                  "The sword is a short sword that requires skill in edged weapons to use effectively.",
-                  "It looks like this item has been mainly crafted out of vultite, an uncommon metal.",
-                  "Analysis of a kelyn-edged vultite short sword indicates the item is free from merchant alteration restrictions.",
-                  "You can tell that the sword is as light as it can get.",
-                  "The vultite short sword will cost 50,000 coins.",
-                  "It imparts a bonus of +20 more than usual.",
-                  "It appears to weigh about 2 pounds.",
-                  "It is estimated to be worth about 100,000 silvers.",
-                  "It is somewhat weighted to inflict more damage than a normal weapon of its type.",
-                  "It is predominantly crafted of vultite.",
-                  "It is a simple project (64 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by Johanna."
-                ],
-                "tags": [
-                  "max_light"
-                ],
-                "skill": "edged weapons",
-                "material": "vultite, an uncommon metal",
-                "enchant": 20,
-                "weight": 2,
-                "cost": 50000
-              }
-            },
-            {
-              "id": "120354687",
-              "name": "a gem-pommeled zorchar falchion",
-              "details": {
-                "raw": [
-                  "The falchion is a falchion that requires skill in edged weapons to use effectively.",
-                  "It looks like this item has been mainly crafted out of zorchar, a rare metal.  This material cannot be dyed.",
-                  "Analysis of a gem-pommeled zorchar falchion indicates the item has certain alteration restrictions.  This material cannot be dyed.",
-                  "You might be able to have a talented merchant lighten the zorchar falchion for you.",
-                  "The zorchar falchion will cost 20,000 coins.",
-                  "It imparts a bonus of +5 more than usual.",
-                  "It has been infused with the power of a lightning bolt.",
-                  "It appears to weigh about 5 pounds.",
-                  "It is estimated to be worth about 9,500 silvers.",
-                  "It is predominantly crafted of zorchar.",
-                  "It is a simple project (51 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by Johanna."
-                ],
-                "tags": [
-                  "lightenable"
-                ],
-                "skill": "edged weapons",
-                "material": "zorchar, a rare metal",
-                "enchant": 5,
-                "flare": "the power of a lightning bolt",
-                "weight": 5,
-                "cost": 20000
-              }
-            },
-            {
-              "id": "120335550",
-              "name": "a silver-runed razern longsword",
-              "details": {
-                "raw": [
-                  "It has a small enchanter's glyph.",
-                  "The longsword is a longsword that requires skill in edged weapons to use effectively.",
-                  "It looks like this item has been mainly crafted out of razern, a very rare metal.  It would need to be supplied to be used in an alteration and may only be used as an accent.",
-                  "Analysis of a silver-runed razern longsword indicates the item has certain alteration restrictions.  It would need to be supplied to be used in an alteration and may only be used as an accent.",
-                  "You might be able to have a talented merchant lighten the razern longsword for you.",
-                  "The razern longsword will cost 50,000 coins.",
-                  "It imparts a bonus of +20 more than usual.",
-                  "It appears to weigh about 4 pounds.",
-                  "It is estimated to be worth about 100,000 silvers.",
-                  "It is weighted to inflict more critical wounds, but exactly how much requires assessment.",
-                  "It is predominantly crafted of razern.",
-                  "It is a simple project (56 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by Johanna."
-                ],
-                "tags": [
-                  "lightenable"
-                ],
-                "skill": "edged weapons",
-                "material": "razern, a very rare metal",
-                "enchant": 20,
-                "weight": 4,
-                "cost": 50000
-              }
-            },
+            }
+          ]
+        },
+        {
+          "room_title": "Dara's Weaponry",
+          "branch": "north",
+          "items": [
             {
               "id": "120679685",
               "name": "a gold-hilted black ora rapier",
@@ -21486,13 +22083,7 @@
                 "weight": 3,
                 "cost": 12000
               }
-            }
-          ]
-        },
-        {
-          "room_title": "Dara's Weaponry",
-          "branch": "north",
-          "items": [
+            },
             {
               "id": "129190",
               "name": "a sapphire studded bronze pin",
@@ -22665,7 +23256,7 @@
       "id": "17",
       "inv": [
         {
-          "room_title": "Alarke",
+          "room_title": "Arkati Aided, Sheru's Strike",
           "branch": "entry",
           "items": [
             {
@@ -22977,6 +23568,42 @@
           "room_title": "Cosannie's Magic Shoppe",
           "branch": "entry",
           "items": [
+            {
+              "id": "116867305",
+              "name": "a bundle of rough faewood arrow shafts",
+              "details": {
+                "raw": [
+                  "You see a bundle of rough faewood arrow shafts, made from faewood, probably intended to be used with a bow.  Glancing over the projectiles, you quickly count 13 of them.",
+                  "The shafts can not be worn.",
+                  "The rough arrow shafts will cost 1,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 1000
+              }
+            },
+            {
+              "id": "117485014",
+              "name": "a bundle of faewood bolts",
+              "details": {
+                "raw": [
+                  "You quickly glance through a bundle of faewood bolts and count 15 with blue griffin feathers remaining.",
+                  "Individual projectiles from this bundle will have a long of \"a blue banded faewood bolt fletched with blue griffin feathers\"",
+                  "Each individual projectile will be \"a faewood bolt\".",
+                  "There doesn't seem to be anything on the bolts worth reading.",
+                  "You quickly glance through a bundle of faewood bolts and count 15 with blue griffin feathers remaining.",
+                  "Individual projectiles from this bundle will have a long of \"a blue banded faewood bolt fletched with blue griffin feathers\"",
+                  "Each individual projectile will be \"a faewood bolt\".",
+                  "Analysis of a bundle of faewood bolts indicates the item is free from merchant alteration restrictions.",
+                  "The faewood bolts will cost 3,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 3000
+              }
+            },
             {
               "id": "129681",
               "name": "a razor-sharp vultite longsword",
@@ -23420,42 +24047,6 @@
 
                 ],
                 "cost": 5000
-              }
-            },
-            {
-              "id": "116867305",
-              "name": "a bundle of rough faewood arrow shafts",
-              "details": {
-                "raw": [
-                  "You see a bundle of rough faewood arrow shafts, made from faewood, probably intended to be used with a bow.  Glancing over the projectiles, you quickly count 13 of them.",
-                  "The shafts can not be worn.",
-                  "The rough arrow shafts will cost 1,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "cost": 1000
-              }
-            },
-            {
-              "id": "117485014",
-              "name": "a bundle of faewood bolts",
-              "details": {
-                "raw": [
-                  "You quickly glance through a bundle of faewood bolts and count 15 with blue griffin feathers remaining.",
-                  "Individual projectiles from this bundle will have a long of \"a blue banded faewood bolt fletched with blue griffin feathers\"",
-                  "Each individual projectile will be \"a faewood bolt\".",
-                  "There doesn't seem to be anything on the bolts worth reading.",
-                  "You quickly glance through a bundle of faewood bolts and count 15 with blue griffin feathers remaining.",
-                  "Individual projectiles from this bundle will have a long of \"a blue banded faewood bolt fletched with blue griffin feathers\"",
-                  "Each individual projectile will be \"a faewood bolt\".",
-                  "Analysis of a bundle of faewood bolts indicates the item is free from merchant alteration restrictions.",
-                  "The faewood bolts will cost 3,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "cost": 3000
               }
             }
           ],
@@ -27026,7 +27617,7 @@
       "id": "20",
       "inv": [
         {
-          "room_title": "Xorus's Weaponry",
+          "room_title": "Xorus' Weaponry",
           "branch": "entry",
           "items": [
             {
@@ -30435,7 +31026,7 @@
       "id": "22",
       "inv": [
         {
-          "room_title": "Tarakan's Stash",
+          "room_title": "The Gravedigger's Stash",
           "branch": "entry",
           "items": [
             {
@@ -38187,7 +38778,7 @@
       "id": "28",
       "inv": [
         {
-          "room_title": "Nightpixie",
+          "room_title": "Curious Curiosities",
           "branch": "entry",
           "items": [
             {
@@ -40775,6 +41366,48 @@
           "branch": "entry",
           "items": [
             {
+              "id": "114766512",
+              "name": "an opalescent glass jar containing uncut diamonds",
+              "details": {
+                "raw": [
+                  "It is estimated that an opalescent glass jar containing uncut diamonds can store a very small amount with enough space for one item.",
+                  "The jar can not be worn.",
+                  "It looks like this item has been mainly crafted out of glass, an extremely common material.",
+                  "Analysis of an opalescent glass jar containing uncut diamonds indicates the creator has provided the following information:",
+                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
+                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
+                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
+                  "The glass jar will cost 100,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "material": "glass, an extremely common material",
+                "cost": 100000
+              }
+            },
+            {
+              "id": "114767402",
+              "name": "an opalescent glass jar containing uncut diamonds",
+              "details": {
+                "raw": [
+                  "It is estimated that an opalescent glass jar containing uncut diamonds can store a very small amount with enough space for one item.",
+                  "The jar can not be worn.",
+                  "It looks like this item has been mainly crafted out of glass, an extremely common material.",
+                  "Analysis of an opalescent glass jar containing uncut diamonds indicates the creator has provided the following information:",
+                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
+                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
+                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
+                  "The glass jar will cost 100,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "material": "glass, an extremely common material",
+                "cost": 100000
+              }
+            },
+            {
               "id": "131835",
               "name": "a scratched villswood aegis",
               "details": {
@@ -40942,49 +41575,17 @@
                 "material": "glass, an extremely common material",
                 "cost": 100000
               }
-            },
-            {
-              "id": "114766512",
-              "name": "an opalescent glass jar containing uncut diamonds",
-              "details": {
-                "raw": [
-                  "It is estimated that an opalescent glass jar containing uncut diamonds can store a very small amount with enough space for one item.",
-                  "The jar can not be worn.",
-                  "It looks like this item has been mainly crafted out of glass, an extremely common material.",
-                  "Analysis of an opalescent glass jar containing uncut diamonds indicates the creator has provided the following information:",
-                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
-                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
-                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
-                  "The glass jar will cost 100,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "material": "glass, an extremely common material",
-                "cost": 100000
-              }
-            },
-            {
-              "id": "114767402",
-              "name": "an opalescent glass jar containing uncut diamonds",
-              "details": {
-                "raw": [
-                  "It is estimated that an opalescent glass jar containing uncut diamonds can store a very small amount with enough space for one item.",
-                  "The jar can not be worn.",
-                  "It looks like this item has been mainly crafted out of glass, an extremely common material.",
-                  "Analysis of an opalescent glass jar containing uncut diamonds indicates the creator has provided the following information:",
-                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
-                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
-                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
-                  "The glass jar will cost 100,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "material": "glass, an extremely common material",
-                "cost": 100000
-              }
-            },
+            }
+          ],
+          "sign": [
+            "Written on an engraved ironwood sign:",
+            "Each Jar contains 10 Diamonds"
+          ]
+        },
+        {
+          "room_title": "Vindicate's Weaponry",
+          "branch": "northeast",
+          "items": [
             {
               "id": "114768160",
               "name": "an opalescent glass jar containing uncut emeralds",
@@ -41026,17 +41627,7 @@
                 "material": "glass, an extremely common material",
                 "cost": 100000
               }
-            }
-          ],
-          "sign": [
-            "Written on an engraved ironwood sign:",
-            "Each Jar contains 10 Diamonds"
-          ]
-        },
-        {
-          "room_title": "Vindicate's Weaponry",
-          "branch": "northeast",
-          "items": [
+            },
             {
               "id": "69328267",
               "name": "an opalescent glass jar containing uncut emeralds",
@@ -43770,7 +44361,7 @@
       "id": "34",
       "inv": [
         {
-          "room_title": "Leafiara's Confectionery Castle",
+          "room_title": "Leafi's Confectionery Castle",
           "branch": "entry",
           "items": [
             {
@@ -50840,7 +51431,17 @@
                 "material": "glass, an extremely common material",
                 "cost": 80000
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on an etched glass sign:",
+            "Chrisms in cabinet. 9k each."
+          ]
+        },
+        {
+          "room_title": "Lyracellan's Weaponry",
+          "branch": "east",
+          "items": [
             {
               "id": "103865606",
               "name": "a tanik-handled glaes-studded maul",
@@ -50870,17 +51471,7 @@
                 "weight": 12,
                 "cost": 3500000
               }
-            }
-          ],
-          "sign": [
-            "Written on an etched glass sign:",
-            "Chrisms in cabinet. 9k each."
-          ]
-        },
-        {
-          "room_title": "Lyracellan's Combat Gear",
-          "branch": "east",
-          "items": [
+            },
             {
               "id": "147008",
               "name": "some embossed vultite double chain",
@@ -51184,7 +51775,7 @@
           ],
           "sign": [
             "Written on an etched glass sign:",
-            "scepter - T2 sigil staff (dispel flares, can add a spell to the staff from a scroll) normally 11k bs"
+            "maul - 4x, 5 cer"
           ]
         },
         {
@@ -56766,7 +57357,7 @@
       "id": "44",
       "inv": [
         {
-          "room_title": "Palcron",
+          "room_title": "The Trading Post",
           "branch": "entry",
           "items": [
             {
@@ -64354,72 +64945,6 @@
                 "weight": 13,
                 "cost": 750000
               }
-            },
-            {
-              "id": "108968381",
-              "name": "a pair of multi-colored gloves of overlapping myklian scales",
-              "details": {
-                "raw": [
-                  "It has a small enchanter's glyph.",
-                  "The myklian gloves are suitable for use in unarmed combat.",
-                  "It is estimated that a pair of multi-colored gloves of overlapping myklian scales can store a very small amount with enough space for a couple of items.",
-                  "The gloves can be worn on the hands.  The gloves appear to serve some purpose.",
-                  "It looks like this item has been mainly crafted out of leather, an extremely common material.",
-                  "Analysis of a pair of multi-colored gloves of overlapping myklian scales indicates the creator has provided the following information:",
-                  "You get a strong sense that the gloves can be altered by any merchant, so long as the gloves remain(s) a glove or gloves with sharp scales.",
-                  "Currently, you are able to CLENCH, PULL, LICK/KISS, PUNCH, and RAISE the gloves.",
-                  "You can tell that the gloves are as light as they can get.",
-                  "The myklian gloves will cost 3,000,000 coins.",
-                  "It imparts a bonus of +25 more than usual.",
-                  "It has been infused with an unbalancing force.",
-                  "It is a small item, under a pound.",
-                  "It is estimated to be worth about 100,000 silvers.",
-                  "It is a container with a maximum interior capacity of 2 pounds with room for up to 2 items.",
-                  "It is predominantly crafted of leather.",
-                  "It is a basic project (168 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by Nitos."
-                ],
-                "tags": [
-                  "small"
-                ],
-                "worn": "hands",
-                "material": "leather, an extremely common material",
-                "enchant": 25,
-                "flare": "an unbalancing force",
-                "cost": 3000000
-              }
-            },
-            {
-              "id": "108968382",
-              "name": "a purple-veined black leather backpack",
-              "details": {
-                "raw": [
-                  "Supple leather forms the exterior of this backpack.  Slightly raised veins rise from the leather toward the top of the dual shoulder straps; the dark reddish purple ridges seem to pulse rhythmically and with fervor.  A large enruned bone clasp is placed in the center of the the backpack's flap, though there is no apparent way to secure it.",
-                  "It is estimated that a purple-veined black leather backpack can store a huge amount with enough space for any number of items.",
-                  "The backpack can be worn on the back.  The backpack appears to serve some purpose.",
-                  "It looks like this item has been mainly crafted out of leather, an extremely common material.",
-                  "Analysis of a purple-veined black leather backpack indicates the creator has provided the following information:",
-                  "You sense that the bulging veins lining the straps of your black leather backpack can infuse you with the surge you need to seemingly reduce your encumbrance once per day if you CLENCHed it.",
-                  "You also sense you could TOUCH, PROD, and RUB it.",
-                  "You don't think it should be altered at all except for the color of the leather.  You think you could probably get the noun changed to \"pack\" or \"knapsack\" but not much else.",
-                  "You can tell that the backpack is as light as it can get and that its pockets could not possibly get any deeper.",
-                  "The black leather backpack will cost 3,000,000 coins.",
-                  "It appears to weigh about 6 pounds.",
-                  "It is estimated to be worth about 100,000 silvers.",
-                  "It is a container with a maximum interior capacity of 140 pounds with room for any number of items.",
-                  "It is predominantly crafted of leather.",
-                  "It has a permanently unlocked loresong by Nitos."
-                ],
-                "tags": [
-                  "purpose",
-                  "max_deep",
-                  "max_light"
-                ],
-                "worn": "back",
-                "material": "leather, an extremely common material",
-                "weight": 6,
-                "cost": 3000000
-              }
             }
           ]
         },
@@ -64810,6 +65335,72 @@
           "room_title": "Loraek's Outfitting",
           "branch": "northwest",
           "items": [
+            {
+              "id": "108968381",
+              "name": "a pair of multi-colored gloves of overlapping myklian scales",
+              "details": {
+                "raw": [
+                  "It has a small enchanter's glyph.",
+                  "The myklian gloves are suitable for use in unarmed combat.",
+                  "It is estimated that a pair of multi-colored gloves of overlapping myklian scales can store a very small amount with enough space for a couple of items.",
+                  "The gloves can be worn on the hands.  The gloves appear to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of leather, an extremely common material.",
+                  "Analysis of a pair of multi-colored gloves of overlapping myklian scales indicates the creator has provided the following information:",
+                  "You get a strong sense that the gloves can be altered by any merchant, so long as the gloves remain(s) a glove or gloves with sharp scales.",
+                  "Currently, you are able to CLENCH, PULL, LICK/KISS, PUNCH, and RAISE the gloves.",
+                  "You can tell that the gloves are as light as they can get.",
+                  "The myklian gloves will cost 3,000,000 coins.",
+                  "It imparts a bonus of +25 more than usual.",
+                  "It has been infused with an unbalancing force.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 100,000 silvers.",
+                  "It is a container with a maximum interior capacity of 2 pounds with room for up to 2 items.",
+                  "It is predominantly crafted of leather.",
+                  "It is a basic project (168 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Nitos."
+                ],
+                "tags": [
+                  "small"
+                ],
+                "worn": "hands",
+                "material": "leather, an extremely common material",
+                "enchant": 25,
+                "flare": "an unbalancing force",
+                "cost": 3000000
+              }
+            },
+            {
+              "id": "108968382",
+              "name": "a purple-veined black leather backpack",
+              "details": {
+                "raw": [
+                  "Supple leather forms the exterior of this backpack.  Slightly raised veins rise from the leather toward the top of the dual shoulder straps; the dark reddish purple ridges seem to pulse rhythmically and with fervor.  A large enruned bone clasp is placed in the center of the the backpack's flap, though there is no apparent way to secure it.",
+                  "It is estimated that a purple-veined black leather backpack can store a huge amount with enough space for any number of items.",
+                  "The backpack can be worn on the back.  The backpack appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of leather, an extremely common material.",
+                  "Analysis of a purple-veined black leather backpack indicates the creator has provided the following information:",
+                  "You sense that the bulging veins lining the straps of your black leather backpack can infuse you with the surge you need to seemingly reduce your encumbrance once per day if you CLENCHed it.",
+                  "You also sense you could TOUCH, PROD, and RUB it.",
+                  "You don't think it should be altered at all except for the color of the leather.  You think you could probably get the noun changed to \"pack\" or \"knapsack\" but not much else.",
+                  "You can tell that the backpack is as light as it can get and that its pockets could not possibly get any deeper.",
+                  "The black leather backpack will cost 3,000,000 coins.",
+                  "It appears to weigh about 6 pounds.",
+                  "It is estimated to be worth about 100,000 silvers.",
+                  "It is a container with a maximum interior capacity of 140 pounds with room for any number of items.",
+                  "It is predominantly crafted of leather.",
+                  "It has a permanently unlocked loresong by Nitos."
+                ],
+                "tags": [
+                  "purpose",
+                  "max_deep",
+                  "max_light"
+                ],
+                "worn": "back",
+                "material": "leather, an extremely common material",
+                "weight": 6,
+                "cost": 3000000
+              }
+            },
             {
               "id": "148430",
               "name": "a low-cut pearly cloth-of-vaalin gown with narrow off-shoulder sleeves",
@@ -65916,7 +66507,7 @@
       "id": "49",
       "inv": [
         {
-          "room_title": "Baylis's Weaponry",
+          "room_title": "Baylis' Weaponry",
           "branch": "entry",
           "items": [
             {
@@ -78502,7 +79093,7 @@
       "id": "56",
       "inv": [
         {
-          "room_title": "Giantphang",
+          "room_title": "Phang and Mel's",
           "branch": "entry",
           "items": [
             {
@@ -81277,7 +81868,7 @@
       "id": "58",
       "inv": [
         {
-          "room_title": "Kristabel",
+          "room_title": "Heel Your Sole",
           "branch": "entry",
           "items": [
             {
@@ -82677,9 +83268,63 @@
       "id": "60",
       "inv": [
         {
-          "room_title": "Orenda",
+          "room_title": "House of Thorns, Atelier",
           "branch": "entry",
           "items": [
+            {
+              "id": "124291101",
+              "name": "a long-knotted knitted earthy green flannel scarf caught by rings of bistre leather",
+              "details": {
+                "raw": [
+                  "The scarf can be worn around the neck.",
+                  "It looks like this item has been mainly crafted out of cloth, an extremely common material.",
+                  "Analysis of a long-knotted knitted earthy green flannel scarf caught by rings of bistre leather indicates the item is free from merchant alteration restrictions.",
+                  "The flannel scarf will cost 10,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "worn": "neck",
+                "material": "cloth, an extremely common material",
+                "cost": 10000
+              }
+            },
+            {
+              "id": "124263458",
+              "name": "a long-fringed maedatha scarf clasped by a red-flecked pale cream poinsettia",
+              "details": {
+                "raw": [
+                  "The scarf can be worn around the neck.",
+                  "It looks like this item has been mainly crafted out of cloth, an extremely common material.",
+                  "Analysis of a long-fringed maedatha scarf clasped by a red-flecked pale cream poinsettia indicates the item is free from merchant alteration restrictions.",
+                  "The maedatha scarf will cost 7,500 coins."
+                ],
+                "tags": [
+
+                ],
+                "worn": "neck",
+                "material": "cloth, an extremely common material",
+                "cost": 7500
+              }
+            },
+            {
+              "id": "124271305",
+              "name": "a duo of rectangular resaeun earrings graced by vertical poinsettia cutouts",
+              "details": {
+                "raw": [
+                  "The earrings can be worn, hanging it from the ears.",
+                  "It looks like this item has been mainly crafted out of wood, an extremely common material.",
+                  "Analysis of a duo of rectangular resaeun earrings graced by vertical poinsettia cutouts indicates the item is free from merchant alteration restrictions.",
+                  "The rectangular earrings will cost 7,500 coins."
+                ],
+                "tags": [
+
+                ],
+                "worn": "ears",
+                "material": "wood, an extremely common material",
+                "cost": 7500
+              }
+            },
             {
               "id": "131748",
               "name": "a hand-painted blackish grey catbird cameo",
@@ -82937,60 +83582,6 @@
                 ],
                 "material": "bronze, a very common alloy",
                 "cost": 20000
-              }
-            },
-            {
-              "id": "124291101",
-              "name": "a long-knotted knitted earthy green flannel scarf caught by rings of bistre leather",
-              "details": {
-                "raw": [
-                  "The scarf can be worn around the neck.",
-                  "It looks like this item has been mainly crafted out of cloth, an extremely common material.",
-                  "Analysis of a long-knotted knitted earthy green flannel scarf caught by rings of bistre leather indicates the item is free from merchant alteration restrictions.",
-                  "The flannel scarf will cost 10,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "worn": "neck",
-                "material": "cloth, an extremely common material",
-                "cost": 10000
-              }
-            },
-            {
-              "id": "124263458",
-              "name": "a long-fringed maedatha scarf clasped by a red-flecked pale cream poinsettia",
-              "details": {
-                "raw": [
-                  "The scarf can be worn around the neck.",
-                  "It looks like this item has been mainly crafted out of cloth, an extremely common material.",
-                  "Analysis of a long-fringed maedatha scarf clasped by a red-flecked pale cream poinsettia indicates the item is free from merchant alteration restrictions.",
-                  "The maedatha scarf will cost 7,500 coins."
-                ],
-                "tags": [
-
-                ],
-                "worn": "neck",
-                "material": "cloth, an extremely common material",
-                "cost": 7500
-              }
-            },
-            {
-              "id": "124271305",
-              "name": "a duo of rectangular resaeun earrings graced by vertical poinsettia cutouts",
-              "details": {
-                "raw": [
-                  "The earrings can be worn, hanging it from the ears.",
-                  "It looks like this item has been mainly crafted out of wood, an extremely common material.",
-                  "Analysis of a duo of rectangular resaeun earrings graced by vertical poinsettia cutouts indicates the item is free from merchant alteration restrictions.",
-                  "The rectangular earrings will cost 7,500 coins."
-                ],
-                "tags": [
-
-                ],
-                "worn": "ears",
-                "material": "wood, an extremely common material",
-                "cost": 7500
               }
             }
           ],
@@ -84777,7 +85368,7 @@
               "name": "a tiny nacreous humanoid skeleton with bat wings and a scorpion tail",
               "details": {
                 "raw": [
-                  "You glance at the nacreous skeleton, wondering if it's possibly sideways.  Or upside down.  Or backwards.  It's really confusing you!",
+                  "The nacreous skeleton looks exactly like you'd expect it to look.",
                   "The skeleton can be worn anywhere on the body.",
                   "It looks like this item has been mainly crafted out of bone, an extremely common material.",
                   "Analysis of a tiny nacreous humanoid skeleton with bat wings and a scorpion tail indicates the creator has provided the following information:",
@@ -84836,7 +85427,7 @@
       "id": "62",
       "inv": [
         {
-          "room_title": "Tatterclaws",
+          "room_title": "Sales From The Crypt",
           "branch": "entry",
           "items": [
             {
@@ -84848,7 +85439,7 @@
                   "Analysis of some exquisite socks indicates the creator has provided the following information:",
                   "  ----------------------------------------------------------------------------------",
                   "                          This is a Lucky Item",
-                  " The socks = Bound for 6 more days and can renew bonding on its first use afterwards.",
+                  " The socks = Bound for 5 more days and can renew bonding on its first use afterwards.",
                   "                                .'`'.'`'.",
                   "                            .''.`.  :  .`.''.",
                   "                            '.    '. .'    .'",
@@ -84889,7 +85480,7 @@
                   "  4: Ardent Plea [RAISE] - Your attacks have a 100% chance to trigger Reckoning and unleash the power of the pennant's deity.  This effect lasts 30 seconds and has a 30 minute cooldown.  At tier 5 the cooldown is reduced to 15 minutes.",
                   "  5: Divine Bulwark - When you receive a blow, the pennant may summon an ethereal shield to lessen the severity of the blow.  If an ethereal shield is summoned in this way, the pennant's deity will unleash a retaliatory flare against the attacker.",
                   "  6: Final Stand [BESEECH] - The pennant's deity comes to your aid for 30 seconds, ensuring that all incoming blows will be subject to Divine Bulwark's abilities.  Can be activated while incapacitated or in roundtime.  1 use per day.",
-                  "           Attunement:                       Attuned to Tatterclaws (0 days remaining)",
+                  "           Attunement:                       Not Attuned",
                   "           Charges:                          81",
                   "           Deity:                            Koar",
                   "           Deity Primary Color:              Golden",
@@ -85605,7 +86196,7 @@
       "id": "63",
       "inv": [
         {
-          "room_title": "Altheren",
+          "room_title": "Wonderous Emporium, Delights",
           "branch": "entry",
           "items": [
             {
@@ -97891,38 +98482,6 @@
               }
             },
             {
-              "id": "129627",
-              "name": "some blackened vultite half plate",
-              "details": {
-                "raw": [
-                  "The plate is plate armor that covers the torso, arms, and legs.",
-                  "The plate can be worn around the chest.  The plate appears to serve some purpose.",
-                  "It looks like this item has been mainly crafted out of vultite, an uncommon metal.",
-                  "Analysis of some blackened vultite half plate indicates the item is free from merchant alteration restrictions.",
-                  "You might be able to have a talented merchant lighten the vultite half plate for you.",
-                  "The vultite half plate will cost 2,997,500 coins.",
-                  "It imparts a bonus of +20 more than usual.",
-                  "It protects against magical attacks with a bonus of 8.",
-                  "It is moderately resistant (17%) to frigid attacks.",
-                  "It appears to weigh about 36 pounds.",
-                  "It is estimated to be worth about 16,700,000 silvers.",
-                  "It is temporarily very heavily padded against critical blows.  Its temporary enhancement will degrade when the wearer is struck in combat.  It has quite a few uses left before the enhancement degrades away completely, which will cause the item to lose its ability to grant greater protection.",
-                  "It is predominantly crafted of vultite.",
-                  "It is an involved project (276 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by Florania."
-                ],
-                "tags": [
-                  "purpose",
-                  "lightenable"
-                ],
-                "worn": "chest",
-                "material": "vultite, an uncommon metal",
-                "enchant": 20,
-                "weight": 36,
-                "cost": 2997500
-              }
-            },
-            {
               "id": "129626",
               "name": "a heavy zorchar slab",
               "details": {
@@ -98242,7 +98801,7 @@
       "id": "73",
       "inv": [
         {
-          "room_title": "Eruheran",
+          "room_title": "Crystal Clove, Sovyn Shrine",
           "branch": "entry",
           "items": [
             {
@@ -99144,7 +99703,7 @@
       "id": "74",
       "inv": [
         {
-          "room_title": "Katara",
+          "room_title": "Stormwild's",
           "branch": "entry",
           "items": [
             {
@@ -99460,7 +100019,7 @@
       "id": "75",
       "inv": [
         {
-          "room_title": "Diablic",
+          "room_title": "Pearl and Ivy",
           "branch": "entry",
           "items": [
             {
@@ -100456,7 +101015,7 @@
       "id": "76",
       "inv": [
         {
-          "room_title": "Squish",
+          "room_title": "Spiraled Horn Consortium",
           "branch": "entry",
           "items": [
             {
@@ -102835,7 +103394,7 @@
       "id": "78",
       "inv": [
         {
-          "room_title": "Koops's Weaponry",
+          "room_title": "Koops' Weaponry",
           "branch": "entry",
           "items": [
             {
@@ -104275,7 +104834,7 @@
       "id": "79",
       "inv": [
         {
-          "room_title": "Fleurs",
+          "room_title": "Fleurs' Glowing Goods, Entry",
           "branch": "entry",
           "items": [
             {
@@ -111397,7 +111956,13 @@
                 ],
                 "cost": 1000000
               }
-            },
+            }
+          ]
+        },
+        {
+          "room_title": "Vendor's Magic Shoppe",
+          "branch": "east",
+          "items": [
             {
               "id": "111815930",
               "name": "a bronze and star sapphire ring",
@@ -111629,50 +112194,6 @@
                 "cost": 300000
               }
             },
-            {
-              "id": "111815913",
-              "name": "an opal-inset pewter circlet",
-              "details": {
-                "raw": [
-                  "The circlet can be worn on the head.  The circlet appears to serve some purpose.",
-                  "Analysis of an opal-inset pewter circlet indicates the item is free from merchant alteration restrictions.",
-                  "The pewter circlet will cost 1,500,000 coins.",
-                  "It is an enhancive item:",
-                  "    It provides a boost of 10 to Constitution Base.",
-                  "    This enhancement may not be used by adventurers who have not trained 55 times.",
-                  "    It provides a boost of 7 to Polearm Weapons Bonus.",
-                  "    This enhancement may not be used by adventurers who have not trained 28 times.",
-                  "    It seems to have a lot of enhancive charges remaining.",
-                  "It will crumble into dust after its last enhancive charge has been expended.",
-                  "It is a small item, under a pound.",
-                  "It is estimated to be worth about 350,000 silvers.",
-                  "It is magic resistant.",
-                  "It has a permanently unlocked loresong by Nitos."
-                ],
-                "tags": [
-                  "purpose",
-                  "small"
-                ],
-                "worn": "head",
-                "enhancives": [
-                  {
-                    "boost": 10,
-                    "ability": "Constitution Base"
-                  },
-                  {
-                    "boost": 7,
-                    "ability": "Polearm Weapons Bonus"
-                  }
-                ],
-                "cost": 1500000
-              }
-            }
-          ]
-        },
-        {
-          "room_title": "Vendor's General Store",
-          "branch": "east",
-          "items": [
             {
               "id": "136589",
               "name": "a lapis-inlaid platinum stickpin",
@@ -112561,6 +113082,44 @@
           "room_title": "Vendor's Magic Shoppe",
           "branch": "west",
           "items": [
+            {
+              "id": "111815913",
+              "name": "an opal-inset pewter circlet",
+              "details": {
+                "raw": [
+                  "The circlet can be worn on the head.  The circlet appears to serve some purpose.",
+                  "Analysis of an opal-inset pewter circlet indicates the item is free from merchant alteration restrictions.",
+                  "The pewter circlet will cost 1,500,000 coins.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 10 to Constitution Base.",
+                  "    This enhancement may not be used by adventurers who have not trained 55 times.",
+                  "    It provides a boost of 7 to Polearm Weapons Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 28 times.",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It will crumble into dust after its last enhancive charge has been expended.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 350,000 silvers.",
+                  "It is magic resistant.",
+                  "It has a permanently unlocked loresong by Nitos."
+                ],
+                "tags": [
+                  "purpose",
+                  "small"
+                ],
+                "worn": "head",
+                "enhancives": [
+                  {
+                    "boost": 10,
+                    "ability": "Constitution Base"
+                  },
+                  {
+                    "boost": 7,
+                    "ability": "Polearm Weapons Bonus"
+                  }
+                ],
+                "cost": 1500000
+              }
+            },
             {
               "id": "136560",
               "name": "a star emerald studded copper crown",
@@ -120814,6 +121373,29 @@
           "branch": "entry",
           "items": [
             {
+              "id": "112737159",
+              "name": "an alum nightmare steed-shaped stove inset with amber eyes",
+              "details": {
+                "raw": [
+                  "A circular drakar plate tops the stove, a banded circle of flowing runes running along its edge.  The grate on the steed-shaped stove is closed.",
+                  "The stove can not be worn.",
+                  "It looks like this item has been mainly crafted out of vaalin, a rare metal.",
+                  "Analysis of an alum nightmare steed-shaped stove inset with amber eyes indicates the creator has provided the following information:",
+                  "This is a portable stove.  This particular one is top tier and of the most wondrous magical quality.  You can LIGHT this steed-shaped stove at any time, without any need for fuel.  Being a wizard, you figure if you LIGHT it with the Minor Fire spell prepared you might be able to do it with some extra flair!  You can also cast Minor Water at it to instantly cool it off.",
+                  "You may TURN the stove to a number between 1 and 5 to change the speed of each heating pulse.",
+                  "The stove has one plate, which is not currently occupied.",
+                  "The stove is not lit.",
+                  "You could have a merchant lighten the stove by one down to a minimum of two pounds.",
+                  "The steed-shaped stove will cost 4,000,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "material": "vaalin, a rare metal",
+                "cost": 4000000
+              }
+            },
+            {
               "id": "19692568",
               "name": "an ash grey deer skin pack clasped with a petrified kakore tree",
               "details": {
@@ -121136,32 +121718,6 @@
               }
             },
             {
-              "id": "136340",
-              "name": "a crimson silk drawstring gem pouch shot through with elaborate blackworking",
-              "details": {
-                "raw": [
-                  "It is estimated that a crimson silk drawstring gem pouch shot through with elaborate blackworking can store a fairly small amount with enough space for any number of items.",
-                  "The pouch can be worn, attaching it to the belt.  The pouch appears to serve some purpose.",
-                  "It looks like this item has been mainly crafted out of cloth, an extremely common material.",
-                  "Analysis of a crimson silk drawstring gem pouch shot through with elaborate blackworking indicates the creator has provided the following information:",
-                  "This pouch makes your gems more secure by allowing you to slip gems into it while it is closed.  Alterations are fine, but the item must stay a small container intended for holding gems, and the script's messaging does refer to a drawstring.",
-                  "This pouch is sold without tiers, but it can be unlocked to add the gem-gather ability.",
-                  "This pouch's tier is NOT unlocked.  It has no gem-gather ability.",
-                  "Script Name: Super Secure Gem Pouch",
-                  "You can tell that the pouch is as light as it can get, but you might be able to have a talented merchant deepen its pockets for you.",
-                  "The drawstring gem pouch will cost 350,000 coins."
-                ],
-                "tags": [
-                  "purpose",
-                  "max_light",
-                  "deepenable"
-                ],
-                "worn": "belt",
-                "material": "cloth, an extremely common material",
-                "cost": 350000
-              }
-            },
-            {
               "id": "136336",
               "name": "a lump of alexandrite ore",
               "details": {
@@ -121340,29 +121896,6 @@
                 ],
                 "material": "gold, an uncommon metal",
                 "cost": 200000
-              }
-            },
-            {
-              "id": "112737159",
-              "name": "an alum nightmare steed-shaped stove inset with amber eyes",
-              "details": {
-                "raw": [
-                  "A circular drakar plate tops the stove, a banded circle of flowing runes running along its edge.  The grate on the steed-shaped stove is closed.",
-                  "The stove can not be worn.",
-                  "It looks like this item has been mainly crafted out of vaalin, a rare metal.",
-                  "Analysis of an alum nightmare steed-shaped stove inset with amber eyes indicates the creator has provided the following information:",
-                  "This is a portable stove.  This particular one is top tier and of the most wondrous magical quality.  You can LIGHT this steed-shaped stove at any time, without any need for fuel.  Being a wizard, you figure if you LIGHT it with the Minor Fire spell prepared you might be able to do it with some extra flair!  You can also cast Minor Water at it to instantly cool it off.",
-                  "You may TURN the stove to a number between 1 and 5 to change the speed of each heating pulse.",
-                  "The stove has one plate, which is not currently occupied.",
-                  "The stove is not lit.",
-                  "You could have a merchant lighten the stove by one down to a minimum of two pounds.",
-                  "The steed-shaped stove will cost 4,000,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "material": "vaalin, a rare metal",
-                "cost": 4000000
               }
             }
           ],
@@ -121994,7 +122527,7 @@
             "Written on an engraved ironwood sign:",
             "* Welcome to the Cigarist's Blind Tiger *",
             "Humidors hold cigars",
-            "Aromatic Cigar is Coffee and Bourbon",
+            "Gold-Banded Cigar is White Pepper",
             "Tobacco Jars contain 50 pinches of Handcrafted Cigar Tobacco. Read first tobacco, Read second tobacco, etc for blends",
             "You can also ANALYZE the jars to see what kind of cigar it will roll. Currently have: Coffee and Brandy | Scotch Apricot | Whiskey Oak | Vanilla and Hazelnut | Bourbon | Coffee and Scotch | Clove | Clove and Vanilla"
           ]
@@ -125915,7 +126448,7 @@
       "id": "96",
       "inv": [
         {
-          "room_title": "Xarian's Emporium",
+          "room_title": "Xarian's Extraordinary Emporium",
           "branch": "entry",
           "items": [
             {
@@ -135016,6 +135549,116 @@
           "branch": "entry",
           "items": [
             {
+              "id": "124760165",
+              "name": "a tiny brass gear",
+              "details": {
+                "raw": [
+                  "A tiny brass gear is etched with an even tinier script reading, \"46 - A beleria-strewn square.\"",
+                  "The gear can not be worn.",
+                  "It looks like this item has been mainly crafted out of brass, a very common alloy.  This material cannot be dyed.",
+                  "Analysis of a tiny brass gear indicates the creator has provided the following information:",
+                  "~*~ Fizwixit's Wonderful Widgets ~*~",
+                  "This brass gear is used to update your Fizwixit's Wonderful Widget with a new room theme.  The theme for this is \"46 - A beleria-strewn square.\"",
+                  "If you do not already have what this gear offers and wish to add it, you need to hold your widget in one hand and this in the other and PUSH (WIDGET NOUN).  These gears may be freely sold/traded with others.  They cannot be altered.",
+                  "~*~ End Custom Analyze ~*~",
+                  "The brass gear will cost 20,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "material": "brass, a very common alloy",
+                "cost": 20000
+              }
+            },
+            {
+              "id": "124760166",
+              "name": "a tiny brass gear",
+              "details": {
+                "raw": [
+                  "A tiny brass gear is etched with an even tinier script reading, \"899 - This will increase a widget's length of time per use from 30 minutes to 60 minutes..\"",
+                  "The gear can not be worn.",
+                  "It looks like this item has been mainly crafted out of brass, a very common alloy.  This material cannot be dyed.",
+                  "Analysis of a tiny brass gear indicates the creator has provided the following information:",
+                  "~*~ Fizwixit's Wonderful Widgets ~*~",
+                  "This brass gear is used to update your Fizwixit's Wonderful Widget by increasing its total minutes per use from 30 to 60 minutes.",
+                  "If you do not already have what this gear offers and wish to add it, you need to hold your widget in one hand and this in the other and PUSH (WIDGET NOUN).  These gears may be freely sold/traded with others.  They cannot be altered.",
+                  "~*~ End Custom Analyze ~*~",
+                  "The brass gear will cost 100,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "material": "brass, a very common alloy",
+                "cost": 100000
+              }
+            },
+            {
+              "id": "124760167",
+              "name": "a tiny brass gear",
+              "details": {
+                "raw": [
+                  "A tiny brass gear is etched with an even tinier script reading, \"15 - A cozy library.\"",
+                  "The gear can not be worn.",
+                  "It looks like this item has been mainly crafted out of brass, a very common alloy.  This material cannot be dyed.",
+                  "Analysis of a tiny brass gear indicates the creator has provided the following information:",
+                  "~*~ Fizwixit's Wonderful Widgets ~*~",
+                  "This brass gear is used to update your Fizwixit's Wonderful Widget with a new room theme.  The theme for this is \"15 - A cozy library.\"",
+                  "If you do not already have what this gear offers and wish to add it, you need to hold your widget in one hand and this in the other and PUSH (WIDGET NOUN).  These gears may be freely sold/traded with others.  They cannot be altered.",
+                  "~*~ End Custom Analyze ~*~",
+                  "The brass gear will cost 20,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "material": "brass, a very common alloy",
+                "cost": 20000
+              }
+            },
+            {
+              "id": "124760168",
+              "name": "a tiny brass gear",
+              "details": {
+                "raw": [
+                  "A tiny brass gear is etched with an even tinier script reading, \"64 - An outdoor theatre-in-the-round.\"",
+                  "The gear can not be worn.",
+                  "It looks like this item has been mainly crafted out of brass, a very common alloy.  This material cannot be dyed.",
+                  "Analysis of a tiny brass gear indicates the creator has provided the following information:",
+                  "~*~ Fizwixit's Wonderful Widgets ~*~",
+                  "This brass gear is used to update your Fizwixit's Wonderful Widget with a new room theme.  The theme for this is \"64 - An outdoor theatre-in-the-round.\"",
+                  "If you do not already have what this gear offers and wish to add it, you need to hold your widget in one hand and this in the other and PUSH (WIDGET NOUN).  These gears may be freely sold/traded with others.  They cannot be altered.",
+                  "~*~ End Custom Analyze ~*~",
+                  "The brass gear will cost 20,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "material": "brass, a very common alloy",
+                "cost": 20000
+              }
+            },
+            {
+              "id": "124760007",
+              "name": "a tiny brass gear",
+              "details": {
+                "raw": [
+                  "A tiny brass gear is etched with an even tinier script reading, \"17 - A dungeon stage.\"",
+                  "The gear can not be worn.",
+                  "It looks like this item has been mainly crafted out of brass, a very common alloy.  This material cannot be dyed.",
+                  "Analysis of a tiny brass gear indicates the creator has provided the following information:",
+                  "~*~ Fizwixit's Wonderful Widgets ~*~",
+                  "This brass gear is used to update your Fizwixit's Wonderful Widget with a new room theme.  The theme for this is \"17 - A dungeon stage.\"",
+                  "If you do not already have what this gear offers and wish to add it, you need to hold your widget in one hand and this in the other and PUSH (WIDGET NOUN).  These gears may be freely sold/traded with others.  They cannot be altered.",
+                  "~*~ End Custom Analyze ~*~",
+                  "The brass gear will cost 20,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "material": "brass, a very common alloy",
+                "cost": 20000
+              }
+            },
+            {
               "id": "85381175",
               "name": "an urchin guide contract",
               "details": {
@@ -135548,53 +136191,6 @@
                 "weight": 2,
                 "cost": 350000
               }
-            },
-            {
-              "id": "124759969",
-              "name": "a brass widget earring",
-              "details": {
-                "raw": [
-                  "An intricate and minuscule set of clockwork is evident within the earring.",
-                  "The earring can be worn, hanging it from the ear.",
-                  "It looks like this item has been mainly crafted out of brass, a very common alloy.  This material cannot be dyed.",
-                  "Analysis of a brass widget earring indicates the creator has provided the following information:",
-                  "~*~ Fizwixit's Wonderful Widgets ~*~",
-                  "Created for August 2025's Duskruin Arena Battle Vault, the earring is a widget that will allow you to set up a temporary area for roleplaying purposes.  Enjoy a single room setup or add in a viewing room to separate your audience from your peforming area.",
-                  "Whisper Setup:",
-                  "  * COLOR to set the color of your portals",
-                  "  * ROOMS to set a single-room or dual-room setup.  Single = everyone will go into the same room.  Dual = select people will go into one room and others will go into a viewing room.",
-                  "  * PORTAL sets up ANYONE (single only), RESTRICT (select who goes into the first room), DUAL (select who goes into the first room and who goes into the second)",
-                  "  * THEMES to list out available room themes and select one",
-                  "Fluff Verbs:  eat, fidget, lick, rub, twist",
-                  "Other:",
-                  "  * Break:  This will allow you to permanently destroy the widget in exchange for an EXP orb",
-                  "  * Poke:  This will allow you to permanently remove the ability to BREAK the widget",
-                  "  * Turn:  This opens up a portal to your roleplay area.  You get 4 uses per day for 60 minutes each, resetting at midnight Eastern time.",
-                  "    ** You can TURN again to kick everyone out and close your portal early.  REMINDER -- this gives everything on the ground to the janitor.  Give people time to clean up.",
-                  "  * Hug:  You can extend the timer on your portal if you have a charge left on your widget.  This adds 60 minutes to your remaining time and uses a charge",
-                  "  * Point:  For setups that are restricted, POINT your earring at individuals to go into the main room",
-                  "  * Wave:  For dual-room setups that have both rooms with restricted entry, WAVE to set individuals who are allowed into the viewing room",
-                  "  * Point and Wave give them 2 minutes to get through the portal.",
-                  "  * You must POINT or WAVE at yourself depending on what room you wish to enter and what your restrictions are (remember, it only lasts 2 minutes, so if you want to jump back and forth, just let it wear off, apply the new one, and head into the other room!",
-                  "Alteration Information:",
-                  "  * After you have used WHISPER to set its worn location, the earring may be freely altered",
-                  "  * It should remain a type of metal at its base, but you are able to have accents/inlays/etc of other materials",
-                  "  * It taks a base, long, and show (normal alteration rules, restrictions, etc. apply)",
-                  "  * There is a hard-coded line referencing a clockwork interior that must not be contradicted",
-                  "CURRENT SETTINGS:",
-                  "  * Theme is #1  - A stunning viridian-sanded cove",
-                  "  * Room setting is for a singleroom",
-                  "  * Restrictions are set for: no restrictions -- only valid for single room setups, anyone can enter",
-                  "~*~ End Custom Analyze ~*~",
-                  "The brass widget earring will cost 20,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "worn": "ear",
-                "material": "brass, a very common alloy",
-                "cost": 20000
-              }
             }
           ],
           "sign": [
@@ -135752,6 +136348,28 @@
                 ],
                 "weight": 4,
                 "cost": 200000
+              }
+            },
+            {
+              "id": "124760164",
+              "name": "a tiny brass gear",
+              "details": {
+                "raw": [
+                  "A tiny brass gear is etched with an even tinier script reading, \"13 - A fighting ring outside a ramshackle barn.\"",
+                  "The gear can not be worn.",
+                  "It looks like this item has been mainly crafted out of brass, a very common alloy.  This material cannot be dyed.",
+                  "Analysis of a tiny brass gear indicates the creator has provided the following information:",
+                  "~*~ Fizwixit's Wonderful Widgets ~*~",
+                  "This brass gear is used to update your Fizwixit's Wonderful Widget with a new room theme.  The theme for this is \"13 - A fighting ring outside a ramshackle barn.\"",
+                  "If you do not already have what this gear offers and wish to add it, you need to hold your widget in one hand and this in the other and PUSH (WIDGET NOUN).  These gears may be freely sold/traded with others.  They cannot be altered.",
+                  "~*~ End Custom Analyze ~*~",
+                  "The brass gear will cost 20,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "material": "brass, a very common alloy",
+                "cost": 20000
               }
             },
             {
@@ -139258,7 +139876,7 @@
       "id": "103",
       "inv": [
         {
-          "room_title": "Mogonis's Weaponry",
+          "room_title": "Mogonis' Weaponry",
           "branch": "entry",
           "items": [
             {
@@ -152271,7 +152889,7 @@
       "id": "116",
       "inv": [
         {
-          "room_title": "Severine",
+          "room_title": "Severine's Boutique, Solarium",
           "branch": "entry",
           "items": [
             {
@@ -160106,7 +160724,7 @@
       "id": "120",
       "inv": [
         {
-          "room_title": "Mikalmas's Shop",
+          "room_title": "Sphere And Scythe, Shop",
           "branch": "entry",
           "items": [
 
@@ -178947,290 +179565,6 @@
           "branch": "entry",
           "items": [
             {
-              "id": "151742",
-              "name": "some gold-lined green cotton robes",
-              "details": {
-                "raw": [
-                  "It has a small enchanter's glyph.",
-                  "The robes is cloth armor that covers the torso, arms, legs, neck, and head.",
-                  "The robes can be worn around the chest.  The robes appear to serve some purpose.",
-                  "It looks like this item has been mainly crafted out of cloth, an extremely common material.",
-                  "Analysis of some gold-lined green cotton robes indicates the item is free from merchant alteration restrictions.",
-                  "You might be able to have a talented merchant lighten the green cotton robes for you.",
-                  "The green cotton robes will cost 200,000 coins.",
-                  "It imparts a bonus of +25 more than usual.",
-                  "It appears to weigh about 8 pounds.",
-                  "It is estimated to be worth about 40,000 silvers.",
-                  "It is predominantly crafted of cloth.",
-                  "It is a simple project (58 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by a bard."
-                ],
-                "tags": [
-                  "lightenable"
-                ],
-                "worn": "chest",
-                "material": "cloth, an extremely common material",
-                "enchant": 25,
-                "weight": 8,
-                "cost": 200000
-              }
-            },
-            {
-              "id": "151740",
-              "name": "an ornate illthorn greatshield",
-              "details": {
-                "raw": [
-                  "It has a small enchanter's glyph.",
-                  "The greatshield is a tower shield that protects the bearer if carried in the left hand.",
-                  "The greatshield can be worn, slinging it across the shoulders and back.  The greatshield appears to serve some purpose.",
-                  "It looks like this item has been mainly crafted out of illthorn, an extremely rare wood.  It cannot be used in alterations.",
-                  "Analysis of an ornate illthorn greatshield indicates the item has certain alteration restrictions.  It cannot be used in alterations.",
-                  "You might be able to have a talented merchant lighten the illthorn greatshield for you.",
-                  "The illthorn greatshield will cost 2,500,000 coins.",
-                  "It imparts a bonus of +30 more than usual.",
-                  "It appears to weigh about 13 pounds.",
-                  "It is estimated to be worth about 200,000 silvers.",
-                  "It is predominantly crafted of illthorn.",
-                  "It is a simple project (87 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by Relay."
-                ],
-                "tags": [
-                  "purpose",
-                  "lightenable"
-                ],
-                "worn": "shoulders",
-                "material": "illthorn, an extremely rare wood",
-                "enchant": 30,
-                "weight": 13,
-                "cost": 2500000
-              }
-            },
-            {
-              "id": "151738",
-              "name": "a ruic long bow",
-              "details": {
-                "raw": [
-                  "It has a small enchanter's glyph.  A strange necrotic haze radiates from the bow.",
-                  "The bow is a long bow that requires skill in ranged weapons to use effectively.",
-                  "The bow can be worn, slinging it across the shoulders and back.  The bow appears to serve some purpose.",
-                  "It looks like this item has been mainly crafted out of ruic, an uncommon wood.",
-                  "Analysis of a ruic long bow indicates the item is free from merchant alteration restrictions.",
-                  "You might be able to have a talented merchant lighten the ruic long bow for you.",
-                  "The ruic long bow will cost 1,500,000 coins.",
-                  "It imparts a bonus of +25 more than usual.",
-                  "It appears to weigh about 3 pounds.",
-                  "It is estimated to be worth about 100,000 silvers.",
-                  "It is predominantly crafted of ruic.",
-                  "It has been ensorcelled 1 time.",
-                  "It is a basic project (168 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by Fayotae."
-                ],
-                "tags": [
-                  "purpose",
-                  "lightenable"
-                ],
-                "skill": "ranged weapons",
-                "worn": "shoulders",
-                "material": "ruic, an uncommon wood",
-                "enchant": 25,
-                "weight": 3,
-                "cost": 1500000
-              }
-            },
-            {
-              "id": "151737",
-              "name": "a blue diamond inset mithril bracer",
-              "details": {
-                "raw": [
-                  "The bracer can be worn around the wrist.  The bracer appears to serve some purpose.",
-                  "Analysis of a blue diamond inset mithril bracer indicates the item is free from merchant alteration restrictions.",
-                  "The inset mithril bracer will cost 450,000 coins.",
-                  "It is currently imbedded with the Eye Spy spell.",
-                  "It has 7 charges.  It is empowered and can be charged for an additional 322.",
-                  "It could be activated by rubbing it.",
-                  "It will persist after its last magical charge has been expended.",
-                  "It is an enhancive item:",
-                  "    It provides a boost of 4 to Spell Aiming Bonus.",
-                  "    This enhancement may not be used by adventurers who have not trained 10 times.",
-                  "    It seems to have more than your average dwarf could count enhancive charges remaining.",
-                  "It will crumble into dust after its last enhancive charge has been expended.",
-                  "It is a small item, under a pound.",
-                  "It is estimated to be worth about 73,000 silvers.",
-                  "It has a permanently unlocked loresong by Relay."
-                ],
-                "tags": [
-                  "purpose",
-                  "small"
-                ],
-                "worn": "wrist",
-                "spell": "Eye Spy",
-                "activator": "rubbing",
-                "enhancives": [
-                  {
-                    "boost": 4,
-                    "ability": "Spell Aiming Bonus"
-                  }
-                ],
-                "cost": 450000
-              }
-            },
-            {
-              "id": "151733",
-              "name": "an opalescent glass jar containing blue lapis lazuli",
-              "details": {
-                "raw": [
-                  "It is estimated that an opalescent glass jar containing blue lapis lazuli can store a very small amount with enough space for one item.",
-                  "The jar can not be worn.",
-                  "It looks like this item has been mainly crafted out of glass, an extremely common material.",
-                  "Analysis of an opalescent glass jar containing blue lapis lazuli indicates the creator has provided the following information:",
-                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
-                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
-                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
-                  "The glass jar will cost 70,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "material": "glass, an extremely common material",
-                "cost": 70000
-              }
-            },
-            {
-              "id": "35970985",
-              "name": "an agate-inset silver medallion",
-              "details": {
-                "raw": [
-                  "The medallion can be worn around the neck.  The medallion appears to serve some purpose.",
-                  "Analysis of an agate-inset silver medallion indicates the item is free from merchant alteration restrictions.",
-                  "The silver medallion will cost 2,000,000 coins.",
-                  "It is an enhancive item:",
-                  "    It provides a boost of 3 to Aura Bonus.",
-                  "    This enhancement may not be used by adventurers who have not trained 42 times.",
-                  "    It seems to have more than your average dwarf could count enhancive charges remaining.",
-                  "It will crumble into dust after its last enhancive charge has been expended.",
-                  "It is a small item, under a pound.",
-                  "It is estimated to be worth about 400,000 silvers.",
-                  "It is magic resistant.",
-                  "It has a permanently unlocked loresong by Gadiel."
-                ],
-                "tags": [
-                  "purpose",
-                  "small"
-                ],
-                "worn": "neck",
-                "enhancives": [
-                  {
-                    "boost": 3,
-                    "ability": "Aura Bonus"
-                  }
-                ],
-                "cost": 2000000
-              }
-            },
-            {
-              "id": "151728",
-              "name": "some golvern-spiked red thrak hide leathers",
-              "details": {
-                "raw": [
-                  "It has a small enchanter's glyph.",
-                  "The leathers is leather armor that covers the torso, arms, legs, neck, and head.  It is spiked.",
-                  "The leathers can be worn around the chest.  The leathers appear to serve some purpose.",
-                  "It looks like this item has been mainly crafted out of leather, an extremely common material.",
-                  "Analysis of some golvern-spiked red thrak hide leathers indicates the item is free from merchant alteration restrictions.",
-                  "You might be able to have a talented merchant lighten the red thrak hide leathers for you.",
-                  "The red thrak hide leathers will cost 6,000,000 coins.",
-                  "It imparts a bonus of +25 more than usual.",
-                  "It appears to weigh about 16 pounds.",
-                  "It is estimated to be worth about 400,000 silvers.",
-                  "It is somewhat padded against critical blows.",
-                  "It is spiked.",
-                  "It is predominantly crafted of leather.",
-                  "It is a simple project (93 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by Relay."
-                ],
-                "tags": [
-                  "lightenable"
-                ],
-                "worn": "chest",
-                "material": "leather, an extremely common material",
-                "enchant": 25,
-                "weight": 16,
-                "cost": 6000000
-              }
-            },
-            {
-              "id": "151725",
-              "name": "some reinforced leather",
-              "details": {
-                "raw": [
-                  "It has a small enchanter's glyph.",
-                  "The leather is leather armor that covers the torso, arms, and legs.",
-                  "The leather can be worn around the chest.  The leather appears to serve some purpose.",
-                  "It looks like this item has been mainly crafted out of leather, an extremely common material.",
-                  "Analysis of some reinforced leather indicates the item is free from merchant alteration restrictions.",
-                  "You might be able to have a talented merchant lighten the reinforced leather for you.",
-                  "The reinforced leather will cost 8,000,000 coins.",
-                  "It imparts a bonus of +35 more than usual.",
-                  "It appears to weigh about 15 pounds.",
-                  "It is estimated to be worth about 1,000,000 silvers.",
-                  "It is predominantly crafted of leather.",
-                  "It is a basic project (131 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by Xavanna."
-                ],
-                "tags": [
-                  "purpose",
-                  "lightenable"
-                ],
-                "worn": "chest",
-                "material": "leather, an extremely common material",
-                "enchant": 35,
-                "weight": 15,
-                "cost": 8000000
-              }
-            },
-            {
-              "id": "151722",
-              "name": "an opalescent glass jar containing pieces of golden amber",
-              "details": {
-                "raw": [
-                  "It is estimated that an opalescent glass jar containing pieces of golden amber can store a very small amount with enough space for one item.",
-                  "The jar can not be worn.",
-                  "It looks like this item has been mainly crafted out of glass, an extremely common material.",
-                  "Analysis of an opalescent glass jar containing pieces of golden amber indicates the creator has provided the following information:",
-                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
-                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
-                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
-                  "The glass jar will cost 70,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "material": "glass, an extremely common material",
-                "cost": 70000
-              }
-            },
-            {
-              "id": "151721",
-              "name": "an opalescent glass jar containing bright chrysoberyl gems",
-              "details": {
-                "raw": [
-                  "It is estimated that an opalescent glass jar containing bright chrysoberyl gems can store a very small amount with enough space for one item.",
-                  "The jar can not be worn.",
-                  "It looks like this item has been mainly crafted out of glass, an extremely common material.",
-                  "Analysis of an opalescent glass jar containing bright chrysoberyl gems indicates the creator has provided the following information:",
-                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
-                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
-                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
-                  "The glass jar will cost 70,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "material": "glass, an extremely common material",
-                "cost": 70000
-              }
-            },
-            {
               "id": "112343614",
               "name": "an opalescent glass jar containing yellow sapphires",
               "details": {
@@ -179560,6 +179894,155 @@
               }
             },
             {
+              "id": "151742",
+              "name": "some gold-lined green cotton robes",
+              "details": {
+                "raw": [
+                  "It has a small enchanter's glyph.",
+                  "The robes is cloth armor that covers the torso, arms, legs, neck, and head.",
+                  "The robes can be worn around the chest.  The robes appear to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of cloth, an extremely common material.",
+                  "Analysis of some gold-lined green cotton robes indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the green cotton robes for you.",
+                  "The green cotton robes will cost 200,000 coins.",
+                  "It imparts a bonus of +25 more than usual.",
+                  "It appears to weigh about 8 pounds.",
+                  "It is estimated to be worth about 40,000 silvers.",
+                  "It is predominantly crafted of cloth.",
+                  "It is a simple project (58 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by a bard."
+                ],
+                "tags": [
+                  "lightenable"
+                ],
+                "worn": "chest",
+                "material": "cloth, an extremely common material",
+                "enchant": 25,
+                "weight": 8,
+                "cost": 200000
+              }
+            },
+            {
+              "id": "151740",
+              "name": "an ornate illthorn greatshield",
+              "details": {
+                "raw": [
+                  "It has a small enchanter's glyph.",
+                  "The greatshield is a tower shield that protects the bearer if carried in the left hand.",
+                  "The greatshield can be worn, slinging it across the shoulders and back.  The greatshield appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of illthorn, an extremely rare wood.  It cannot be used in alterations.",
+                  "Analysis of an ornate illthorn greatshield indicates the item has certain alteration restrictions.  It cannot be used in alterations.",
+                  "You might be able to have a talented merchant lighten the illthorn greatshield for you.",
+                  "The illthorn greatshield will cost 2,500,000 coins.",
+                  "It imparts a bonus of +30 more than usual.",
+                  "It appears to weigh about 13 pounds.",
+                  "It is estimated to be worth about 200,000 silvers.",
+                  "It is predominantly crafted of illthorn.",
+                  "It is a simple project (87 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Relay."
+                ],
+                "tags": [
+                  "purpose",
+                  "lightenable"
+                ],
+                "worn": "shoulders",
+                "material": "illthorn, an extremely rare wood",
+                "enchant": 30,
+                "weight": 13,
+                "cost": 2500000
+              }
+            },
+            {
+              "id": "151738",
+              "name": "a ruic long bow",
+              "details": {
+                "raw": [
+                  "It has a small enchanter's glyph.  A strange necrotic haze radiates from the bow.",
+                  "The bow is a long bow that requires skill in ranged weapons to use effectively.",
+                  "The bow can be worn, slinging it across the shoulders and back.  The bow appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of ruic, an uncommon wood.",
+                  "Analysis of a ruic long bow indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the ruic long bow for you.",
+                  "The ruic long bow will cost 1,500,000 coins.",
+                  "It imparts a bonus of +25 more than usual.",
+                  "It appears to weigh about 3 pounds.",
+                  "It is estimated to be worth about 100,000 silvers.",
+                  "It is predominantly crafted of ruic.",
+                  "It has been ensorcelled 1 time.",
+                  "It is a basic project (168 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Fayotae."
+                ],
+                "tags": [
+                  "purpose",
+                  "lightenable"
+                ],
+                "skill": "ranged weapons",
+                "worn": "shoulders",
+                "material": "ruic, an uncommon wood",
+                "enchant": 25,
+                "weight": 3,
+                "cost": 1500000
+              }
+            },
+            {
+              "id": "151737",
+              "name": "a blue diamond inset mithril bracer",
+              "details": {
+                "raw": [
+                  "The bracer can be worn around the wrist.  The bracer appears to serve some purpose.",
+                  "Analysis of a blue diamond inset mithril bracer indicates the item is free from merchant alteration restrictions.",
+                  "The inset mithril bracer will cost 450,000 coins.",
+                  "It is currently imbedded with the Eye Spy spell.",
+                  "It has 7 charges.  It is empowered and can be charged for an additional 322.",
+                  "It could be activated by rubbing it.",
+                  "It will persist after its last magical charge has been expended.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 4 to Spell Aiming Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 10 times.",
+                  "    It seems to have more than your average dwarf could count enhancive charges remaining.",
+                  "It will crumble into dust after its last enhancive charge has been expended.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 73,000 silvers.",
+                  "It has a permanently unlocked loresong by Relay."
+                ],
+                "tags": [
+                  "purpose",
+                  "small"
+                ],
+                "worn": "wrist",
+                "spell": "Eye Spy",
+                "activator": "rubbing",
+                "enhancives": [
+                  {
+                    "boost": 4,
+                    "ability": "Spell Aiming Bonus"
+                  }
+                ],
+                "cost": 450000
+              }
+            },
+            {
+              "id": "151733",
+              "name": "an opalescent glass jar containing blue lapis lazuli",
+              "details": {
+                "raw": [
+                  "It is estimated that an opalescent glass jar containing blue lapis lazuli can store a very small amount with enough space for one item.",
+                  "The jar can not be worn.",
+                  "It looks like this item has been mainly crafted out of glass, an extremely common material.",
+                  "Analysis of an opalescent glass jar containing blue lapis lazuli indicates the creator has provided the following information:",
+                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
+                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
+                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
+                  "The glass jar will cost 70,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "material": "glass, an extremely common material",
+                "cost": 70000
+              }
+            },
+            {
               "id": "112343306",
               "name": "a moonstone studded bronze brooch",
               "details": {
@@ -179730,11 +180213,145 @@
                 "weight": 20,
                 "cost": 750000
               }
+            },
+            {
+              "id": "35970985",
+              "name": "an agate-inset silver medallion",
+              "details": {
+                "raw": [
+                  "The medallion can be worn around the neck.  The medallion appears to serve some purpose.",
+                  "Analysis of an agate-inset silver medallion indicates the item is free from merchant alteration restrictions.",
+                  "The silver medallion will cost 2,000,000 coins.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 3 to Aura Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 42 times.",
+                  "    It seems to have more than your average dwarf could count enhancive charges remaining.",
+                  "It will crumble into dust after its last enhancive charge has been expended.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 400,000 silvers.",
+                  "It is magic resistant.",
+                  "It has a permanently unlocked loresong by Gadiel."
+                ],
+                "tags": [
+                  "purpose",
+                  "small"
+                ],
+                "worn": "neck",
+                "enhancives": [
+                  {
+                    "boost": 3,
+                    "ability": "Aura Bonus"
+                  }
+                ],
+                "cost": 2000000
+              }
+            },
+            {
+              "id": "151728",
+              "name": "some golvern-spiked red thrak hide leathers",
+              "details": {
+                "raw": [
+                  "It has a small enchanter's glyph.",
+                  "The leathers is leather armor that covers the torso, arms, legs, neck, and head.  It is spiked.",
+                  "The leathers can be worn around the chest.  The leathers appear to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of leather, an extremely common material.",
+                  "Analysis of some golvern-spiked red thrak hide leathers indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the red thrak hide leathers for you.",
+                  "The red thrak hide leathers will cost 6,000,000 coins.",
+                  "It imparts a bonus of +25 more than usual.",
+                  "It appears to weigh about 16 pounds.",
+                  "It is estimated to be worth about 400,000 silvers.",
+                  "It is somewhat padded against critical blows.",
+                  "It is spiked.",
+                  "It is predominantly crafted of leather.",
+                  "It is a simple project (93 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Relay."
+                ],
+                "tags": [
+                  "lightenable"
+                ],
+                "worn": "chest",
+                "material": "leather, an extremely common material",
+                "enchant": 25,
+                "weight": 16,
+                "cost": 6000000
+              }
+            },
+            {
+              "id": "151725",
+              "name": "some reinforced leather",
+              "details": {
+                "raw": [
+                  "It has a small enchanter's glyph.",
+                  "The leather is leather armor that covers the torso, arms, and legs.",
+                  "The leather can be worn around the chest.  The leather appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of leather, an extremely common material.",
+                  "Analysis of some reinforced leather indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the reinforced leather for you.",
+                  "The reinforced leather will cost 8,000,000 coins.",
+                  "It imparts a bonus of +35 more than usual.",
+                  "It appears to weigh about 15 pounds.",
+                  "It is estimated to be worth about 1,000,000 silvers.",
+                  "It is predominantly crafted of leather.",
+                  "It is a basic project (131 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Xavanna."
+                ],
+                "tags": [
+                  "purpose",
+                  "lightenable"
+                ],
+                "worn": "chest",
+                "material": "leather, an extremely common material",
+                "enchant": 35,
+                "weight": 15,
+                "cost": 8000000
+              }
+            },
+            {
+              "id": "151722",
+              "name": "an opalescent glass jar containing pieces of golden amber",
+              "details": {
+                "raw": [
+                  "It is estimated that an opalescent glass jar containing pieces of golden amber can store a very small amount with enough space for one item.",
+                  "The jar can not be worn.",
+                  "It looks like this item has been mainly crafted out of glass, an extremely common material.",
+                  "Analysis of an opalescent glass jar containing pieces of golden amber indicates the creator has provided the following information:",
+                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
+                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
+                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
+                  "The glass jar will cost 70,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "material": "glass, an extremely common material",
+                "cost": 70000
+              }
+            },
+            {
+              "id": "151721",
+              "name": "an opalescent glass jar containing bright chrysoberyl gems",
+              "details": {
+                "raw": [
+                  "It is estimated that an opalescent glass jar containing bright chrysoberyl gems can store a very small amount with enough space for one item.",
+                  "The jar can not be worn.",
+                  "It looks like this item has been mainly crafted out of glass, an extremely common material.",
+                  "Analysis of an opalescent glass jar containing bright chrysoberyl gems indicates the creator has provided the following information:",
+                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
+                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
+                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
+                  "The glass jar will cost 70,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "material": "glass, an extremely common material",
+                "cost": 70000
+              }
             }
           ],
           "sign": [
             "Written on a large sign:",
-            "The storm grey robe is closable.",
             "Jars here contain 7 gems each.",
             "Buy anything you want."
           ]
@@ -180427,7 +181044,7 @@
       "id": "134",
       "inv": [
         {
-          "room_title": "Yavs",
+          "room_title": "Ghezreshian Curiosities",
           "branch": "entry",
           "items": [
             {
