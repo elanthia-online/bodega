@@ -81,6 +81,66 @@ header h1 {
     font-family: Arial, sans-serif;
 }
 
+/* Size Switcher */
+.size-switcher {
+    position: absolute;
+    top: 10px;
+    right: 340px;
+    display: flex;
+    gap: 4px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 4px;
+    border-radius: 20px;
+}
+
+.size-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.size-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.size-btn.active {
+    background: rgba(255, 255, 255, 0.25);
+    color: white;
+}
+
+/* Size scaling - zoom-like behavior for accessibility (WCAG 1.4.4) */
+/* Scale UP only (1.0/1.2/1.5) - no shrinking avoids empty space issues */
+[data-size="small"] #main-container {
+    zoom: 1.0;
+}
+
+[data-size="medium"] #main-container {
+    zoom: 1.2;
+}
+
+[data-size="large"] #main-container {
+    zoom: 1.5;
+}
+
+/* Firefox fallback (doesn't support zoom) */
+@supports not (zoom: 1) {
+    [data-size="medium"] #main-container {
+        transform: scale(1.2);
+        transform-origin: top left;
+    }
+    [data-size="large"] #main-container {
+        transform: scale(1.5);
+        transform-origin: top left;
+    }
+}
+
 /* Main Container */
 #main-container {
     display: flex;
@@ -110,7 +170,7 @@ header h1 {
     border-bottom: none;
 }
 
-.filter-section h3 {
+.filter-section h2 {
     font-size: 12px;
     font-weight: bold;
     margin-bottom: 6px;
@@ -125,6 +185,12 @@ header h1 {
     color: var(--text-primary);
     font-size: 11px;
     margin-bottom: 5px;
+}
+
+/* Placeholder contrast fix for accessibility */
+input::placeholder {
+    color: var(--text-secondary);
+    opacity: 1;  /* Prevent browser opacity reduction */
 }
 
 .filter-section select {
@@ -1271,9 +1337,9 @@ header h1 {
 .shop-card {
     background: var(--bg-secondary);
     border: 1px solid var(--border-primary);
-    border-radius: 8px;
-    margin: 8px 0;
-    padding: 20px;
+    border-radius: 6px;      /* was 8px */
+    margin: 6px 0;           /* was 8px 0 */
+    padding: 16px;           /* was 20px */
     transition: all 0.3s ease;
     cursor: pointer;
     box-shadow: var(--shadow-sm);
@@ -1289,21 +1355,21 @@ header h1 {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 12px;
+    margin-bottom: 10px;     /* was 12px */
 }
 
 .shop-card-name {
-    font-size: 18px;
+    font-size: 14px;         /* was 18px */
     font-weight: 600;
     color: var(--color-accent-darker);
     line-height: 1.2;
     flex: 1;
-    margin-right: 12px;
+    margin-right: 10px;      /* was 12px */
 }
 
 .shop-card-stats {
     display: flex;
-    gap: 8px;
+    gap: 6px;                /* was 8px */
     flex-wrap: wrap;
     align-items: center;
 }
@@ -1350,14 +1416,14 @@ header h1 {
 }
 
 .shop-card-footer {
-    margin-top: 12px;
+    margin-top: 10px;        /* was 12px */
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .shop-card-action {
-    font-size: 12px;
+    font-size: 10px;         /* was 12px */
     color: var(--text-secondary);
     font-weight: 500;
     opacity: 0.7;

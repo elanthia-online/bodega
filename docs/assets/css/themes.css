@@ -5,13 +5,13 @@
     --bg-secondary: #ffffff;
     --bg-tertiary: #e8e8e8;
     --text-primary: #333;
-    --text-secondary: #666;
-    --text-tertiary: #444;
+    --text-secondary: #555;    /* Was #666 - improved contrast 7:1 on white */
+    --text-tertiary: #333;     /* Was #444 - darker for headers */
 
-    /* Border colors */
-    --border-primary: #ddd;
-    --border-secondary: #ccc;
-    --border-tertiary: #bbb;
+    /* Border colors - improved visibility for WCAG AA */
+    --border-primary: #999;    /* Was #ddd - more visible */
+    --border-secondary: #888;  /* Was #ccc - more visible */
+    --border-tertiary: #777;   /* Was #bbb - more visible */
 
     /* Interactive colors */
     --color-accent: #4a90e2;
@@ -54,8 +54,8 @@
     --bg-secondary: #2a2a2a;
     --bg-tertiary: #333333;
     --text-primary: #e0e0e0;
-    --text-secondary: #a0a0a0;
-    --text-tertiary: #c0c0c0;
+    --text-secondary: #c0c0c0;  /* Was #a0a0a0 - improved contrast 7.5:1 */
+    --text-tertiary: #d0d0d0;   /* Was #c0c0c0 - improved */
 
     --border-primary: #404040;
     --border-secondary: #505050;
@@ -87,13 +87,13 @@
 
 /* Auto mode - respect OS dark preference */
 @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]):not([data-theme="gemstone"]):not([data-theme="dragonrealms"]) {
+    :root:not([data-theme="light"]):not([data-theme="gemstone"]):not([data-theme="dragonrealms"]):not([data-theme="high-contrast"]) {
         --bg-primary: #1a1a1a;
         --bg-secondary: #2a2a2a;
         --bg-tertiary: #333333;
         --text-primary: #e0e0e0;
-        --text-secondary: #a0a0a0;
-        --text-tertiary: #c0c0c0;
+        --text-secondary: #c0c0c0;  /* Was #a0a0a0 - improved contrast 7.5:1 */
+        --text-tertiary: #d0d0d0;   /* Was #c0c0c0 - improved */
 
         --border-primary: #404040;
         --border-secondary: #505050;
@@ -196,4 +196,66 @@
     --shadow-sm: 0 2px 4px rgba(0,0,0,0.5);
     --shadow-md: 0 4px 12px rgba(154, 90, 154, 0.2);
     --shadow-lg: 0 2px 8px rgba(0,0,0,0.7);
+}
+
+/* High Contrast Theme - WCAG AAA compliant for low vision users */
+[data-theme="high-contrast"] {
+    --bg-primary: #000000;
+    --bg-secondary: #000000;
+    --bg-tertiary: #1a1a1a;
+    --text-primary: #ffffff;
+    --text-secondary: #ffffff;
+    --text-tertiary: #ffff00;  /* Yellow for emphasis */
+
+    --border-primary: #ffffff;
+    --border-secondary: #ffffff;
+    --border-tertiary: #ffff00;
+
+    --color-accent: #00ffff;      /* Cyan - high visibility */
+    --color-accent-dark: #00cccc;
+    --color-accent-darker: #009999;
+    --color-accent-light: #003333;
+
+    --header-gradient: #000000;   /* Solid, no gradient */
+    --header-border: #ffffff;
+
+    --bg-sidebar: #000000;
+    --bg-hover: #333333;
+    --bg-alternate: #1a1a1a;
+    --bg-input: #000000;
+    --bg-button: #333333;
+    --bg-button-hover: #555555;
+    --bg-table-header: #1a1a1a;
+
+    --color-success: #00ff00;
+    --color-error: #ff6666;
+    --color-warning: #ffff00;
+    --color-info: #00ffff;
+
+    --modal-overlay: rgba(0, 0, 0, 0.95);
+    --modal-bg: #000000;
+
+    --shadow-sm: none;
+    --shadow-md: none;
+    --shadow-lg: none;
+}
+
+/* High contrast specific overrides */
+[data-theme="high-contrast"] a {
+    color: #00ffff;
+    text-decoration: underline;
+}
+[data-theme="high-contrast"] a:hover {
+    color: #ffff00;
+}
+[data-theme="high-contrast"] .theme-btn,
+[data-theme="high-contrast"] .size-btn {
+    border: 1px solid white;
+}
+[data-theme="high-contrast"] input,
+[data-theme="high-contrast"] select {
+    border: 2px solid white;
+}
+[data-theme="high-contrast"] button {
+    border: 2px solid white;
 }

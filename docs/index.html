@@ -28,6 +28,14 @@
                 <button class="theme-btn active" data-theme="auto" title="Auto (system)">
                     💻 <span>Auto</span>
                 </button>
+                <button class="theme-btn" data-theme="high-contrast" title="High contrast mode">
+                    ◐ <span>Contrast</span>
+                </button>
+            </div>
+            <div class="size-switcher">
+                <button class="size-btn" data-size="small" title="Small text">A-</button>
+                <button class="size-btn active" data-size="medium" title="Medium text">A</button>
+                <button class="size-btn" data-size="large" title="Large text">A+</button>
             </div>
         </header>
 
@@ -46,7 +54,7 @@
                 <!-- Search Mode -->
                 <div id="search-mode" class="mode-content">
                     <div class="filter-section">
-                        <h3>Search</h3>
+                        <h2>Search</h2>
                         <input type="text" id="search-input" placeholder="Search items..." />
                         <div class="search-controls">
                             <button id="search-btn">Search</button>
@@ -87,16 +95,16 @@
                 </div>
 
                 <div class="filter-section">
-                    <h3>Town</h3>
-                    <select id="town-filter" class="multi-select-dropdown">
+                    <h2>Town</h2>
+                    <select id="town-filter" class="multi-select-dropdown" aria-label="Filter by town">
                         <option value="" disabled selected>Select towns...</option>
                     </select>
                     <div id="town-tags" class="filter-tags"></div>
                 </div>
 
                 <div class="filter-section">
-                    <h3>Price Range</h3>
-                    <select id="price-filter" class="multi-select-dropdown">
+                    <h2>Price Range</h2>
+                    <select id="price-filter" class="multi-select-dropdown" aria-label="Filter by price range">
                         <option value="" disabled selected>Select price ranges...</option>
                         <option value="0-1000">Under 1k</option>
                         <option value="1000-10000">1k - 10k</option>
@@ -112,8 +120,8 @@
                 </div>
 
                 <div class="filter-section">
-                    <h3>Enchant</h3>
-                    <select id="enchant-filter" class="multi-select-dropdown">
+                    <h2>Enchant</h2>
+                    <select id="enchant-filter" class="multi-select-dropdown" aria-label="Filter by enchant level">
                         <option value="" disabled selected>Select enchant levels...</option>
                         <option value="15">+15 or higher</option>
                         <option value="20">+20 or higher</option>
@@ -128,8 +136,8 @@
                 </div>
 
                 <div class="filter-section">
-                    <h3>Item Type</h3>
-                    <select id="item-type-filter" class="multi-select-dropdown">
+                    <h2>Item Type</h2>
+                    <select id="item-type-filter" class="multi-select-dropdown" aria-label="Filter by item type">
                         <option value="" disabled selected>Select item types...</option>
                         <option value="weapon">Weapons</option>
                         <option value="armor">Armor</option>
@@ -142,8 +150,8 @@
                 </div>
 
                 <div class="filter-section">
-                    <h3>Capacity</h3>
-                    <select id="capacity-filter" class="multi-select-dropdown">
+                    <h2>Capacity</h2>
+                    <select id="capacity-filter" class="multi-select-dropdown" aria-label="Filter by container capacity">
                         <option value="" disabled selected>Select capacities...</option>
                         <option value="very small">Very Small</option>
                         <option value="small">Small</option>
@@ -164,8 +172,8 @@
                 </div>
 
                 <div class="filter-section">
-                    <h3>Armor Type</h3>
-                    <select id="armor-type-filter" class="multi-select-dropdown">
+                    <h2>Armor Type</h2>
+                    <select id="armor-type-filter" class="multi-select-dropdown" aria-label="Filter by armor type">
                         <option value="" disabled selected>Select armor types...</option>
                         <option value="cloth">Cloth</option>
                         <option value="leather">Leather</option>
@@ -177,8 +185,8 @@
                 </div>
 
                 <div class="filter-section">
-                    <h3>Shield Type</h3>
-                    <select id="shield-type-filter" class="multi-select-dropdown">
+                    <h2>Shield Type</h2>
+                    <select id="shield-type-filter" class="multi-select-dropdown" aria-label="Filter by shield type">
                         <option value="" disabled selected>Select shield types...</option>
                         <option value="small">Small Shield</option>
                         <option value="medium">Medium Shield</option>
@@ -189,8 +197,8 @@
                 </div>
 
                 <div class="filter-section">
-                    <h3>Wear Location</h3>
-                    <select id="wear-location-filter" class="multi-select-dropdown">
+                    <h2>Wear Location</h2>
+                    <select id="wear-location-filter" class="multi-select-dropdown" aria-label="Filter by wear location">
                         <option value="" disabled selected>Select wear locations...</option>
                         <option value="pin">Pin</option>
                         <option value="head">Head</option>
@@ -221,8 +229,8 @@
                 </div>
 
                 <div class="filter-section">
-                    <h3>Gemstone Rarity</h3>
-                    <select id="gemstone-rarity-filter" class="multi-select-dropdown">
+                    <h2>Gemstone Rarity</h2>
+                    <select id="gemstone-rarity-filter" class="multi-select-dropdown" aria-label="Filter by gemstone rarity">
                         <option value="" disabled selected>Select rarities...</option>
                         <option value="common">Common</option>
                         <option value="rare">Rare</option>
@@ -233,8 +241,8 @@
                 </div>
 
                 <div class="filter-section">
-                    <h3>Gemstone Property Count</h3>
-                    <select id="gemstone-properties-filter" class="multi-select-dropdown">
+                    <h2>Gemstone Property Count</h2>
+                    <select id="gemstone-properties-filter" class="multi-select-dropdown" aria-label="Filter by gemstone property count">
                         <option value="" disabled selected>Select property counts...</option>
                         <option value="1">1 Property</option>
                         <option value="2">2 Properties</option>
@@ -244,8 +252,8 @@
                 </div>
 
                 <div class="filter-section">
-                    <h3>Skill Required</h3>
-                    <select id="skill-filter" class="multi-select-dropdown">
+                    <h2>Skill Required</h2>
+                    <select id="skill-filter" class="multi-select-dropdown" aria-label="Filter by skill requirement">
                         <option value="" disabled selected>Select skills...</option>
                         <option value="edged weapons">Edged Weapons</option>
                         <option value="blunt weapons">Blunt Weapons</option>
@@ -262,8 +270,8 @@
                 </div>
 
                 <div class="filter-section">
-                    <h3>Special Properties</h3>
-                    <select id="special-properties-filter" class="multi-select-dropdown">
+                    <h2>Special Properties</h2>
+                    <select id="special-properties-filter" class="multi-select-dropdown" aria-label="Filter by special properties">
                         <option value="" disabled selected>Select special properties...</option>
                         <option value="enhancive">Enhancive</option>
                         <option value="persists">Persists</option>
@@ -287,14 +295,14 @@
                 <!-- Browse Mode -->
                 <div id="browse-mode" class="mode-content" style="display: none;">
                     <div class="filter-section">
-                        <h3>Select Town</h3>
-                        <select id="browse-town-select" size="10">
+                        <h2>Select Town</h2>
+                        <select id="browse-town-select" size="10" aria-label="Select town to browse">
                             <option value="">Loading towns...</option>
                         </select>
                     </div>
 
                     <div class="filter-section" id="shop-sign-search-section">
-                        <h3>Search Shop Signs</h3>
+                        <h2>Search Shop Signs</h2>
                         <input type="text" id="shop-sign-search-input" placeholder="Search shop signs..." />
                         <div class="search-controls">
                             <button id="shop-sign-search-btn">Search</button>
@@ -307,7 +315,7 @@
                     </div>
 
                     <div class="filter-section" id="room-list-section" style="display: none;">
-                        <h3>Rooms in <span id="selected-shop-name"></span></h3>
+                        <h2>Rooms in <span id="selected-shop-name"></span></h2>
                         <div id="room-list">
                             <!-- Rooms will be populated here -->
                         </div>
@@ -318,7 +326,7 @@
                 <!-- Added Mode -->
                 <div id="added-mode" class="mode-content" style="display: none;">
                     <div class="filter-section">
-                        <h3>Recently Added Items</h3>
+                        <h2>Recently Added Items</h2>
                         <p class="mode-description">Items added to shops within the last 24 hours</p>
 
                         <input type="text" id="added-search-input" placeholder="Search added items..." />
@@ -327,8 +335,8 @@
                     </div>
 
                     <div class="filter-section">
-                        <h3>Addition Date</h3>
-                        <select id="added-date-filter">
+                        <h2>Addition Date</h2>
+                        <select id="added-date-filter" aria-label="Filter by addition date">
                             <option value="1" selected>Last 24 hours</option>
                             <option value="3">Last 3 days</option>
                             <option value="7">Last 7 days</option>
@@ -339,15 +347,15 @@
                     </div>
 
                     <div class="filter-section">
-                        <h3>Town</h3>
-                        <select id="added-town-filter">
+                        <h2>Town</h2>
+                        <select id="added-town-filter" aria-label="Filter added items by town">
                             <option value="">All Towns</option>
                         </select>
                     </div>
 
                     <div class="filter-section">
-                        <h3>Price Range</h3>
-                        <select id="added-price-filter">
+                        <h2>Price Range</h2>
+                        <select id="added-price-filter" aria-label="Filter added items by price">
                             <option value="">Any Price</option>
                             <option value="0-1000">Under 1k</option>
                             <option value="1000-10000">1k - 10k</option>
@@ -370,7 +378,7 @@
                 <!-- Removed Mode -->
                 <div id="removed-mode" class="mode-content" style="display: none;">
                     <div class="filter-section">
-                        <h3>Removed Items</h3>
+                        <h2>Removed Items</h2>
                         <p class="mode-description">Items removed from shops (retained for 14-180 days based on data size)</p>
                         <p class="disclaimer"><strong>DISCLAIMER:</strong> Not a source of truth on sales price. Items listed have been removed from shops, by what means is unknown.</p>
 
@@ -380,8 +388,8 @@
                     </div>
 
                     <div class="filter-section">
-                        <h3>Removal Date</h3>
-                        <select id="removed-date-filter">
+                        <h2>Removal Date</h2>
+                        <select id="removed-date-filter" aria-label="Filter by removal date">
                             <option value="">Any Time</option>
                             <option value="1">Last 24 hours</option>
                             <option value="3">Last 3 days</option>
@@ -391,8 +399,8 @@
                     </div>
 
                     <div class="filter-section">
-                        <h3>Price Range</h3>
-                        <select id="removed-price-filter">
+                        <h2>Price Range</h2>
+                        <select id="removed-price-filter" aria-label="Filter removed items by price">
                             <option value="">Any Price</option>
                             <option value="0-1000">Under 1k</option>
                             <option value="1000-10000">1k - 10k</option>
