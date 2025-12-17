@@ -74,11 +74,60 @@ class ThemeManager {
     }
 }
 
-// Initialize theme manager when DOM is ready
+// Size Manager for text size accessibility (WCAG 1.4.4)
+class SizeManager {
+    constructor() {
+        this.size = localStorage.getItem('size') || 'medium';
+        this.init();
+    }
+
+    init() {
+        this.applySize();
+        this.setupEventListeners();
+        this.updateButtonStates();
+    }
+
+    setupEventListeners() {
+        const buttons = document.querySelectorAll('.size-btn');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const size = btn.getAttribute('data-size');
+                this.setSize(size);
+            });
+        });
+    }
+
+    setSize(size) {
+        this.size = size;
+        localStorage.setItem('size', size);
+        this.applySize();
+        this.updateButtonStates();
+    }
+
+    applySize() {
+        document.documentElement.setAttribute('data-size', this.size);
+    }
+
+    updateButtonStates() {
+        const buttons = document.querySelectorAll('.size-btn');
+        buttons.forEach(btn => {
+            const btnSize = btn.getAttribute('data-size');
+            if (btnSize === this.size) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+    }
+}
+
+// Initialize managers when DOM is ready
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
         window.themeManager = new ThemeManager();
+        window.sizeManager = new SizeManager();
     });
 } else {
     window.themeManager = new ThemeManager();
+    window.sizeManager = new SizeManager();
 }
