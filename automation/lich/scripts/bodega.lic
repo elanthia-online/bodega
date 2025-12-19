@@ -382,6 +382,9 @@ module Bodega
         elsif prop == :worn && line =~ /hanging it from the shoulders/i
           @props[:worn] = "cloak"
           true  # Return true to indicate a match was found
+        elsif prop == :worn && line =~ /leggings/i
+          @props[:worn] = "leggings"
+          true  # Return true to indicate a match was found
         elsif prop == :worn && line =~ /on the legs/i
           @props[:worn] = "pants"
           true  # Return true to indicate a match was found
@@ -615,6 +618,7 @@ module Bodega
       result = { preamble: preamble,
                  town: town,
                  id: id,
+                 shop_owner: extract_shop_name_from_preamble(preamble),
                  inv: parse_inv(inv.map(&:strip)) }
 
       result
@@ -847,32 +851,41 @@ module Bodega
         add_items_to_shop(existing_shop, new_items)
       end
 
-      # Step 9: Update room_title to match current preamble (handles shop ID swaps during maintenance)
+      # Step 9: Update room_title only if there's an actual owner mismatch (handles shop ID swaps during maintenance)
       # The preamble is always fresh from the game, but room_title comes from cached inv structure
-      # Extract the shop name from the preamble and update the entry room's title
+      # Only update if current room_title follows possessive pattern AND owner doesn't match preamble
+      # This preserves custom room names like "Nighthaven" that don't follow "Owner's Shop Type" pattern
       preamble_shop_name = extract_shop_name_from_preamble(preamble)
       if existing_shop['inv'] && existing_shop['inv'][0] && preamble_shop_name != 'unknown'
-        # Get the current room title to determine shop type
         current_room_title = existing_shop['inv'][0]['room_title']
 
-        # Extract shop type from current room_title (e.g., "Magic Shoppe", "Weaponry", etc.)
-        shop_type_match = current_room_title&.match(/(?:'s?\s+)?(Magic Shoppe|Weaponry|Armory|Outfitting|General Store|Combat Gear|Locksmith Shop|Shop|Boutique|Treasures|Cupboard|Pantry|Market|Tower|Stash|Castle|Eye|Claw|Kiss|Ransom|Den|Hoard|Goods|Emporium|Salon|Parlor|Boutique|Imports|Defence|Couture|Station|Things|Wares|Snack Pantry|Icemule Trade Station|Confectionery Castle|Smuggling Emporium|Arcane Antiquities|Fine Furs|Supply Center|Lost Things|Locksmith Shop|Lockpicks|Trade Station)$/i)
-        shop_type = shop_type_match ? shop_type_match[1] : nil
+        # Check if current room_title follows possessive pattern (e.g., "Owner's X")
+        current_has_possessive = current_room_title&.match(/^([^']+)'s\s/)
 
-        # Construct new room_title: "Owner's Shop Type" or just shop type for business names
-        new_room_title = if shop_type && !preamble_shop_name.match(/^(The|A)\s+/i)
-                           # Owner-possessive format: "Painz's Magic Shoppe"
-                           "#{preamble_shop_name}'s #{shop_type}"
-                         elsif shop_type
-                           # Business name format: "The Best Defence" or "Dark Tower Imports"
-                           "#{preamble_shop_name} #{shop_type}"
-                         else
-                           # Fallback: use preamble shop name as-is
-                           preamble_shop_name
-                         end
+        # Only sync if current room_title has possessive pattern
+        if current_has_possessive
+          current_owner = current_has_possessive[1]
 
-        existing_shop['inv'][0]['room_title'] = new_room_title
-        Log.out("Updated room_title from '#{current_room_title}' to '#{new_room_title}'", label: :smart)
+          # Only update if owner names don't match (actual shop ID swap occurred)
+          if current_owner.downcase != preamble_shop_name.downcase
+            # Extract shop type from current room_title (e.g., "Magic Shoppe", "Weaponry", etc.)
+            shop_type_match = current_room_title&.match(/(?:'s?\s+)?(Magic Shoppe|Weaponry|Armory|Outfitting|General Store|Combat Gear|Locksmith Shop|Shop|Boutique|Treasures|Cupboard|Pantry|Market|Tower|Stash|Castle|Eye|Claw|Kiss|Ransom|Den|Hoard|Goods|Emporium|Salon|Parlor|Boutique|Imports|Defence|Couture|Station|Things|Wares|Snack Pantry|Icemule Trade Station|Confectionery Castle|Smuggling Emporium|Arcane Antiquities|Fine Furs|Supply Center|Lost Things|Locksmith Shop|Lockpicks|Trade Station)$/i)
+            shop_type = shop_type_match ? shop_type_match[1] : nil
+
+            if shop_type
+              # Construct new room_title with correct owner
+              new_room_title = if !preamble_shop_name.match(/^(The|A)\s+/i)
+                                 "#{preamble_shop_name}'s #{shop_type}"
+                               else
+                                 "#{preamble_shop_name} #{shop_type}"
+                               end
+
+              existing_shop['inv'][0]['room_title'] = new_room_title
+              Log.out("Updated room_title from '#{current_room_title}' to '#{new_room_title}' (shop ID swap detected)", label: :smart)
+            end
+          end
+        end
+        # Custom room names like "Nighthaven" (no possessive) are preserved as-is
       end
 
       # Return the updated shop structure, preserving room_id if it exists
@@ -880,6 +893,7 @@ module Bodega
         preamble: preamble,
         town: town,
         id: shop_id,
+        shop_owner: extract_shop_name_from_preamble(preamble),
         inv: existing_shop['inv']
       }
 

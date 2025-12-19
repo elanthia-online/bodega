@@ -302,8 +302,8 @@ class BrowseEngine {
             const shop = item.shopName || 'Unknown Shop';
             const roomTitle = item.room || 'Main Room';
             const branch = item.branch || '';
-            // Create unique room key using branch (handles shops with multiple rooms having the same title)
-            const room = branch && branch !== 'entry' ? `${roomTitle} (${branch})` : roomTitle;
+            // Always include branch in room display for consistency with game output
+            const room = branch ? `${roomTitle} (${branch})` : roomTitle;
 
             // Initialize town
             if (!this.townData[town]) {
@@ -663,8 +663,8 @@ class BrowseEngine {
         itemsToShow.forEach(item => {
             const roomTitle = item.room || 'Main Room';
             const branch = item.branch || '';
-            // Create display name with branch if not "entry"
-            const roomKey = branch && branch !== 'entry' ? `${roomTitle} (${branch})` : roomTitle;
+            // Always include branch in room display for consistency with game output
+            const roomKey = branch ? `${roomTitle} (${branch})` : roomTitle;
             if (!itemsByRoom[roomKey]) {
                 itemsByRoom[roomKey] = [];
             }
