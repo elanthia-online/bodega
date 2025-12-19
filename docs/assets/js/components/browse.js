@@ -300,7 +300,10 @@ class BrowseEngine {
         items.forEach(item => {
             const town = item.town || 'Unknown Town';
             const shop = item.shopName || 'Unknown Shop';
-            const room = item.room || 'Main Room';
+            const roomTitle = item.room || 'Main Room';
+            const branch = item.branch || '';
+            // Create unique room key using branch (handles shops with multiple rooms having the same title)
+            const room = branch && branch !== 'entry' ? `${roomTitle} (${branch})` : roomTitle;
 
             // Initialize town
             if (!this.townData[town]) {
