@@ -306,6 +306,7 @@ class DataLoader {
                 town: townData.town.replace(/,\s*$/, ''),
                 shopId: shop.id,
                 shopName: this.extractShopName(shop),
+                shopOwner: shop.shop_owner || this.extractShopOwnerName(shop),
                 shopLocation: shop.preamble,
                 shopSign: this.extractShopSign(shop),
                 room: room.room_title,
@@ -630,6 +631,7 @@ class DataLoader {
             item.name,
             townData.town,
             shop.preamble || '',
+            shop.shop_owner || this.extractShopOwnerName(shop) || '',  // Shop owner for searching by owner name
             this.extractShopSign(shop) || '',
             room.room_title || '',
             ...(item.details?.raw || []),
