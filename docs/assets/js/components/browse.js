@@ -319,7 +319,8 @@ class BrowseEngine {
                 this.shopMetadata[town][shop] = {
                     preamble: item.shopLocation || '',
                     id: item.shopId || '',
-                    shopSign: item.shopSign || ''
+                    shopSign: item.shopSign || '',
+                    shopOwner: item.shopOwner || ''
                 };
             }
 
@@ -1136,7 +1137,7 @@ class BrowseEngine {
             return;
         }
 
-        // Search for shops with matching signs
+        // Search for shops with matching signs, names, or owners
         const matchingShops = [];
 
         townsToSearch.forEach(townName => {
@@ -1145,13 +1146,18 @@ class BrowseEngine {
 
             Object.entries(shops).forEach(([shopName, metadata]) => {
                 const shopSign = (metadata.shopSign || '').toLowerCase();
+                const shopNameLower = shopName.toLowerCase();
+                const shopOwner = (metadata.shopOwner || '').toLowerCase();
 
-                // Check if shop sign contains the search query
-                if (shopSign && shopSign.includes(searchQuery)) {
+                // Check if shop sign, name, or owner contains the search query
+                if ((shopSign && shopSign.includes(searchQuery)) ||
+                    shopNameLower.includes(searchQuery) ||
+                    (shopOwner && shopOwner.includes(searchQuery))) {
                     matchingShops.push({
                         town: townName,
                         shopName: shopName,
                         shopSign: metadata.shopSign,
+                        shopOwner: metadata.shopOwner,
                         preamble: metadata.preamble,
                         itemCount: this.getShopItemCount(townName, shopName),
                         roomCount: Object.keys(this.townData[townName][shopName] || {}).length
