@@ -655,13 +655,17 @@ class BrowseEngine {
         }
 
         // Group items by room for display
+        // Use both room title and branch to create unique keys (handles shops with multiple rooms having the same title)
         const itemsByRoom = {};
         itemsToShow.forEach(item => {
-            const room = item.room || 'Main Room';
-            if (!itemsByRoom[room]) {
-                itemsByRoom[room] = [];
+            const roomTitle = item.room || 'Main Room';
+            const branch = item.branch || '';
+            // Create display name with branch if not "entry"
+            const roomKey = branch && branch !== 'entry' ? `${roomTitle} (${branch})` : roomTitle;
+            if (!itemsByRoom[roomKey]) {
+                itemsByRoom[roomKey] = [];
             }
-            itemsByRoom[room].push(item);
+            itemsByRoom[roomKey].push(item);
         });
 
         if (this.sortMode === 'by-room') {
