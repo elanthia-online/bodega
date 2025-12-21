@@ -1,6 +1,6 @@
 {
-  "created_at": "2025-12-21 06:19:36 UTC",
-  "run_time": "14s",
+  "created_at": "2025-12-21 08:54:11 UTC",
+  "run_time": "06m 56s",
   "town": "Icemule Trace",
   "shops": [
     {
@@ -13175,7 +13175,7 @@
       "shop_owner": "Macillus",
       "inv": [
         {
-          "room_title": "Macillus's Den",
+          "room_title": "Da Badger's Den",
           "branch": "entry",
           "items": [
 
@@ -13229,7 +13229,7 @@
       "shop_owner": "Nonie",
       "inv": [
         {
-          "room_title": "Nonie's Market",
+          "room_title": "Maylan's Market",
           "branch": "entry",
           "items": [
             {
@@ -13499,7 +13499,17 @@
                 "material": "gemstone, an extremely common material",
                 "cost": 2000000
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on a honey gold oak sign:",
+            "~~ Fun and Fancy Clothes Sold Here! ~~"
+          ]
+        },
+        {
+          "room_title": "Maylan's Market",
+          "branch": "east",
+          "items": [
             {
               "id": "195456853",
               "name": "an ivory and star emerald bracelet",
@@ -13645,17 +13655,7 @@
                 "weight": 2,
                 "cost": 1000000
               }
-            }
-          ],
-          "sign": [
-            "Written on a honey gold oak sign:",
-            "~~ Fun and Fancy Clothes Sold Here! ~~"
-          ]
-        },
-        {
-          "room_title": "Maylan's Market",
-          "branch": "east",
-          "items": [
+            },
             {
               "id": "141803",
               "name": "a deathstone studded bronze crown",
@@ -21068,7 +21068,7 @@
       "shop_owner": "Aaerilon",
       "inv": [
         {
-          "room_title": "Aaerilon's Magic Shoppe",
+          "room_title": "Aanalar's Magic Shoppe",
           "branch": "entry",
           "items": [
             {
@@ -23607,21 +23607,6 @@
 
                 ],
                 "cost": 1500
-              }
-            },
-            {
-              "id": "142107",
-              "name": "a coffin-shaped blue sapphire",
-              "details": {
-                "raw": [
-                  "But you are not holding a coffin-shaped blue sapphire.",
-                  "The sapphire can not be worn.",
-                  "The blue sapphire will cost 11,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "cost": 11000
               }
             },
             {
@@ -27479,7 +27464,7 @@
       "shop_owner": "Rovvigen",
       "inv": [
         {
-          "room_title": "Rovvigen's Eye",
+          "room_title": "The Prophet's Eye",
           "branch": "entry",
           "items": [
             {
@@ -34890,6 +34875,81 @@
           "branch": "entry",
           "items": [
             {
+              "id": "201231376",
+              "name": "a delicate gold dancing maiden miniature",
+              "details": {
+                "raw": [
+                  "The miniature can not be worn.",
+                  "Analysis of a delicate gold dancing maiden miniature indicates the item is free from merchant alteration restrictions.",
+                  "The dancing maiden miniature will cost 15,000 coins.",
+                  "It is currently imbedded with the Elemental Wave spell.",
+                  "It has 7 charges.  It is empowered and can be charged for an additional 191.",
+                  "It could be activated by rubbing it.",
+                  "It will persist after its last magical charge has been expended.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 15,000 silvers.",
+                  "It has a permanently unlocked loresong by Jabalia."
+                ],
+                "tags": [
+                  "small"
+                ],
+                "spell": "Elemental Wave",
+                "activator": "rubbing",
+                "cost": 15000
+              }
+            },
+            {
+              "id": "201231377",
+              "name": "a gold and pink topaz earcuff",
+              "details": {
+                "raw": [
+                  "The earcuff can be worn, hanging it from the ear.  The earcuff appears to serve some purpose.",
+                  "Analysis of a gold and pink topaz earcuff indicates the item is free from merchant alteration restrictions.",
+                  "The pink topaz earcuff will cost 500,000 coins.",
+                  "It is currently imbedded with the Cone of Elements spell.",
+                  "It has 3 charges.",
+                  "It could be activated by rubbing it.",
+                  "It will persist after its last magical charge has been expended.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 2 to Wisdom Base.",
+                  "    This enhancement may not be used by adventurers who have not trained 5 times.",
+                  "    It provides a boost of 2 to Survival Ranks.",
+                  "    This enhancement may not be used by adventurers who have not trained 7 times.",
+                  "    It provides a boost of 7 to Intuition Base.",
+                  "    This enhancement may not be used by adventurers who have not trained 19 times.",
+                  "    It seems to have more than your average dwarf could count enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 500,000 silvers.",
+                  "It is magic resistant.",
+                  "It has a permanently unlocked loresong by Jabalia."
+                ],
+                "tags": [
+                  "purpose",
+                  "persists",
+                  "small"
+                ],
+                "worn": "ear",
+                "spell": "Cone of Elements",
+                "activator": "rubbing",
+                "enhancives": [
+                  {
+                    "boost": 2,
+                    "ability": "Wisdom Base"
+                  },
+                  {
+                    "boost": 2,
+                    "ability": "Survival Ranks"
+                  },
+                  {
+                    "boost": 7,
+                    "ability": "Intuition Base"
+                  }
+                ],
+                "cost": 500000
+              }
+            },
+            {
               "id": "143789",
               "name": "a glittering gold crown",
               "details": {
@@ -35233,81 +35293,6 @@
               }
             },
             {
-              "id": "201231376",
-              "name": "a delicate gold dancing maiden miniature",
-              "details": {
-                "raw": [
-                  "The miniature can not be worn.",
-                  "Analysis of a delicate gold dancing maiden miniature indicates the item is free from merchant alteration restrictions.",
-                  "The dancing maiden miniature will cost 15,000 coins.",
-                  "It is currently imbedded with the Elemental Wave spell.",
-                  "It has 7 charges.  It is empowered and can be charged for an additional 191.",
-                  "It could be activated by rubbing it.",
-                  "It will persist after its last magical charge has been expended.",
-                  "It is a small item, under a pound.",
-                  "It is estimated to be worth about 15,000 silvers.",
-                  "It has a permanently unlocked loresong by Jabalia."
-                ],
-                "tags": [
-                  "small"
-                ],
-                "spell": "Elemental Wave",
-                "activator": "rubbing",
-                "cost": 15000
-              }
-            },
-            {
-              "id": "201231377",
-              "name": "a gold and pink topaz earcuff",
-              "details": {
-                "raw": [
-                  "The earcuff can be worn, hanging it from the ear.  The earcuff appears to serve some purpose.",
-                  "Analysis of a gold and pink topaz earcuff indicates the item is free from merchant alteration restrictions.",
-                  "The pink topaz earcuff will cost 500,000 coins.",
-                  "It is currently imbedded with the Cone of Elements spell.",
-                  "It has 3 charges.",
-                  "It could be activated by rubbing it.",
-                  "It will persist after its last magical charge has been expended.",
-                  "It is an enhancive item:",
-                  "    It provides a boost of 2 to Wisdom Base.",
-                  "    This enhancement may not be used by adventurers who have not trained 5 times.",
-                  "    It provides a boost of 2 to Survival Ranks.",
-                  "    This enhancement may not be used by adventurers who have not trained 7 times.",
-                  "    It provides a boost of 7 to Intuition Base.",
-                  "    This enhancement may not be used by adventurers who have not trained 19 times.",
-                  "    It seems to have more than your average dwarf could count enhancive charges remaining.",
-                  "It will persist after its last enhancive charge has been expended.",
-                  "It is a small item, under a pound.",
-                  "It is estimated to be worth about 500,000 silvers.",
-                  "It is magic resistant.",
-                  "It has a permanently unlocked loresong by Jabalia."
-                ],
-                "tags": [
-                  "purpose",
-                  "persists",
-                  "small"
-                ],
-                "worn": "ear",
-                "spell": "Cone of Elements",
-                "activator": "rubbing",
-                "enhancives": [
-                  {
-                    "boost": 2,
-                    "ability": "Wisdom Base"
-                  },
-                  {
-                    "boost": 2,
-                    "ability": "Survival Ranks"
-                  },
-                  {
-                    "boost": 7,
-                    "ability": "Intuition Base"
-                  }
-                ],
-                "cost": 500000
-              }
-            },
-            {
               "id": "201231379",
               "name": "an elegant blue dreamstone headband",
               "details": {
@@ -35339,7 +35324,17 @@
                 ],
                 "cost": 999999
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on a laje-trimmed engraved fel sign:",
+            "Please excuse our dust while we remodel!"
+          ]
+        },
+        {
+          "room_title": "Pristeen's Weaponry",
+          "branch": "east",
+          "items": [
             {
               "id": "201231338",
               "name": "an elegant mossbark runestaff",
@@ -35428,87 +35423,6 @@
                 "cost": 2500000
               }
             },
-            {
-              "id": "201231342",
-              "name": "some dark leather scalemail",
-              "details": {
-                "raw": [
-                  "It has a small enchanter's glyph.  A strange necrotic haze radiates from the scalemail.",
-                  "The scalemail is scale armor that covers the torso, arms, legs, neck, and head.",
-                  "The scalemail can be worn around the chest.  The scalemail appears to serve some purpose.",
-                  "It looks like this item has been mainly crafted out of leather, an extremely common material.",
-                  "Analysis of some dark leather scalemail indicates the item is free from merchant alteration restrictions.",
-                  "You can tell that the scalemail is as light as it can get.",
-                  "The leather scalemail will cost 39,000,000 coins.",
-                  "It imparts a bonus of +32 more than usual.",
-                  "It appears to weigh about 13 pounds.",
-                  "It is estimated to be worth about 20,900,000 silvers.",
-                  "It is padded against critical blows, but exactly how much requires assessment.",
-                  "It is predominantly crafted of leather.",
-                  "It has been ensorcelled 4 times.",
-                  "It may be enchanted up to a bonus of 35 by a wizard and was last enchanted by Risoner.",
-                  "It is a tricky project (410 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by Masuda."
-                ],
-                "tags": [
-                  "purpose",
-                  "max_light"
-                ],
-                "worn": "chest",
-                "material": "leather, an extremely common material",
-                "enchant": 32,
-                "weight": 13,
-                "cost": 39000000
-              }
-            },
-            {
-              "id": "201231375",
-              "name": "a simple star ruby bracelet",
-              "details": {
-                "raw": [
-                  "The bracelet can be worn around the wrist.  The bracelet appears to serve some purpose.",
-                  "Analysis of a simple star ruby bracelet indicates the item is free from merchant alteration restrictions.",
-                  "The star ruby bracelet will cost 450,000 coins.",
-                  "It is an enhancive item:",
-                  "    It provides a boost of 5 to Arcane Symbols Bonus.",
-                  "    This enhancement may not be used by adventurers who have not trained 20 times.",
-                  "    It provides a boost of 4 to Spell Aiming Bonus.",
-                  "    This enhancement may not be used by adventurers who have not trained 10 times.",
-                  "    It seems to have a huge number of enhancive charges remaining.",
-                  "It will crumble into dust after its last enhancive charge has been expended.",
-                  "It is a small item, under a pound.",
-                  "It is estimated to be worth about 450,000 silvers.",
-                  "It is magic resistant.",
-                  "It has a permanently unlocked loresong by Jabalia."
-                ],
-                "tags": [
-                  "purpose",
-                  "small"
-                ],
-                "worn": "wrist",
-                "enhancives": [
-                  {
-                    "boost": 5,
-                    "ability": "Arcane Symbols Bonus"
-                  },
-                  {
-                    "boost": 4,
-                    "ability": "Spell Aiming Bonus"
-                  }
-                ],
-                "cost": 450000
-              }
-            }
-          ],
-          "sign": [
-            "Written on a laje-trimmed engraved fel sign:",
-            "Please excuse our dust while we remodel!"
-          ]
-        },
-        {
-          "room_title": "Pristeen's Combat Gear",
-          "branch": "east",
-          "items": [
             {
               "id": "143809",
               "name": "a scratched spiked vultite shield",
@@ -35818,6 +35732,39 @@
               }
             },
             {
+              "id": "201231342",
+              "name": "some dark leather scalemail",
+              "details": {
+                "raw": [
+                  "It has a small enchanter's glyph.  A strange necrotic haze radiates from the scalemail.",
+                  "The scalemail is scale armor that covers the torso, arms, legs, neck, and head.",
+                  "The scalemail can be worn around the chest.  The scalemail appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of leather, an extremely common material.",
+                  "Analysis of some dark leather scalemail indicates the item is free from merchant alteration restrictions.",
+                  "You can tell that the scalemail is as light as it can get.",
+                  "The leather scalemail will cost 39,000,000 coins.",
+                  "It imparts a bonus of +32 more than usual.",
+                  "It appears to weigh about 13 pounds.",
+                  "It is estimated to be worth about 20,900,000 silvers.",
+                  "It is padded against critical blows, but exactly how much requires assessment.",
+                  "It is predominantly crafted of leather.",
+                  "It has been ensorcelled 4 times.",
+                  "It may be enchanted up to a bonus of 35 by a wizard and was last enchanted by Risoner.",
+                  "It is a tricky project (410 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Masuda."
+                ],
+                "tags": [
+                  "purpose",
+                  "max_light"
+                ],
+                "worn": "chest",
+                "material": "leather, an extremely common material",
+                "enchant": 32,
+                "weight": 13,
+                "cost": 39000000
+              }
+            },
+            {
               "id": "143798",
               "name": "some thick double leather",
               "details": {
@@ -35953,9 +35900,47 @@
           ]
         },
         {
-          "room_title": "Pristeen's General Store",
+          "room_title": "Pristeen's Outfitting",
           "branch": "west",
           "items": [
+            {
+              "id": "201231375",
+              "name": "a simple star ruby bracelet",
+              "details": {
+                "raw": [
+                  "The bracelet can be worn around the wrist.  The bracelet appears to serve some purpose.",
+                  "Analysis of a simple star ruby bracelet indicates the item is free from merchant alteration restrictions.",
+                  "The star ruby bracelet will cost 450,000 coins.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 5 to Arcane Symbols Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 20 times.",
+                  "    It provides a boost of 4 to Spell Aiming Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 10 times.",
+                  "    It seems to have a huge number of enhancive charges remaining.",
+                  "It will crumble into dust after its last enhancive charge has been expended.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 450,000 silvers.",
+                  "It is magic resistant.",
+                  "It has a permanently unlocked loresong by Jabalia."
+                ],
+                "tags": [
+                  "purpose",
+                  "small"
+                ],
+                "worn": "wrist",
+                "enhancives": [
+                  {
+                    "boost": 5,
+                    "ability": "Arcane Symbols Bonus"
+                  },
+                  {
+                    "boost": 4,
+                    "ability": "Spell Aiming Bonus"
+                  }
+                ],
+                "cost": 450000
+              }
+            },
             {
               "id": "13430969",
               "name": "a blue diamond inset eonake necklace",
@@ -36492,7 +36477,7 @@
               "name": "a faceted iridescent glob",
               "details": {
                 "raw": [
-                  "Oddly enough, it looks like a faceted iridescent glob.",
+                  "You glance at the iridescent glob, wondering if it's possibly sideways.  Or upside down.  Or backwards.  It's really confusing you!",
                   "The glob can not be worn.",
                   "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
                   "Analysis of a faceted iridescent glob indicates the creator has provided the following information:",
@@ -39213,7 +39198,23 @@
                 "worn": "neck",
                 "cost": 6000000
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on a large sign:",
+            "Welcome to Miraia's shop!",
+            "Charged treasure system items:",
+            "Blue crystals = 20 rubs",
+            "Small statues = 22+ rubs",
+            "Quartz orbs = 25+ rubs",
+            "Dull gold coins = 40 rubs arcane decoy",
+            "Tree bark amulets and wiregrass bracelets/anklets hold 63 mana each"
+          ]
+        },
+        {
+          "room_title": "Miraia's General Store",
+          "branch": "north",
+          "items": [
             {
               "id": "203543734",
               "name": "a bundle of valravn plumes",
@@ -39349,23 +39350,6 @@
                 "cost": 30000
               }
             }
-          ],
-          "sign": [
-            "Written on a large sign:",
-            "Welcome to Miraia's shop!",
-            "Charged treasure system items:",
-            "Blue crystals = 20 rubs",
-            "Small statues = 22+ rubs",
-            "Quartz orbs = 25+ rubs",
-            "Dull gold coins = 40 rubs arcane decoy",
-            "Tree bark amulets and wiregrass bracelets/anklets hold 63 mana each"
-          ]
-        },
-        {
-          "room_title": "Miraia's General Store",
-          "branch": "north",
-          "items": [
-
           ],
           "sign": [
             "Written on a large sign:",
@@ -67632,7 +67616,7 @@
       "shop_owner": "Kakos",
       "inv": [
         {
-          "room_title": "Kakos' Armory",
+          "room_title": "Kakos' Weaponry",
           "branch": "entry",
           "items": [
             {
@@ -68314,7 +68298,7 @@
                   "It looks like this item has been mainly crafted out of ora, an uncommon metal.",
                   "Analysis of a thick ora greathelm indicates the item is free from merchant alteration restrictions.",
                   "You might be able to have a talented merchant lighten the ora greathelm for you.",
-                  "The ora greathelm will cost 48,000,000 coins.",
+                  "The ora greathelm will cost 47,500,000 coins.",
                   "It has been infused with the power of an ice elemental.",
                   "It is an enhancive item:",
                   "    It provides a boost of 4 to Strength Bonus.",
@@ -68348,7 +68332,7 @@
                   }
                 ],
                 "weight": 4,
-                "cost": 48000000
+                "cost": 47500000
               }
             }
           ],
