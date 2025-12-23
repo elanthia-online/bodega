@@ -1658,6 +1658,37 @@ input::placeholder {
     padding: 18px;
 }
 
+/* Modal size scaling to match site size setting */
+[data-size="small"] .modal-content {
+    padding: 20px;
+    max-width: 800px;
+}
+[data-size="small"] .modal-section h4 { font-size: 13px; }
+[data-size="small"] .modal-section p { font-size: 11px; }
+[data-size="small"] .raw-data { font-size: 10px; max-height: 200px; }
+[data-size="small"] .close { font-size: 28px; }
+[data-size="small"] #modal-item-name { font-size: 18px; }
+
+[data-size="medium"] .modal-content {
+    padding: 24px;
+    max-width: 900px;
+}
+[data-size="medium"] .modal-section h4 { font-size: 15px; }
+[data-size="medium"] .modal-section p { font-size: 13px; }
+[data-size="medium"] .raw-data { font-size: 12px; max-height: 240px; }
+[data-size="medium"] .close { font-size: 32px; }
+[data-size="medium"] #modal-item-name { font-size: 21px; }
+
+[data-size="large"] .modal-content {
+    padding: 30px;
+    max-width: 1000px;
+}
+[data-size="large"] .modal-section h4 { font-size: 19px; }
+[data-size="large"] .modal-section p { font-size: 16px; }
+[data-size="large"] .raw-data { font-size: 14px; max-height: 300px; }
+[data-size="large"] .close { font-size: 40px; }
+[data-size="large"] #modal-item-name { font-size: 27px; }
+
 /* ==================== */
 /* Mobile Layout Fix    */
 /* ==================== */
