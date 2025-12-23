@@ -493,19 +493,22 @@ class DataLoader {
                 properties.itemType = 'container';
             }
 
-            // Additional container detection by name - but only if not already identified as armor/weapon
-            if (!properties.isWeapon && !properties.isArmor && !properties.isShield &&
-                line.match(/\b(bag|sack|backpack|pouch|satchel|chest|strongbox|trunk|basket|belt|sheath|scabbard|harness|bandolier)\b/i) &&
-                !line.match(/robe|armor|mail|scale|chain|plate|leather|hide|skin/i)) {
-                properties.isContainer = true;
-                properties.itemType = 'container';
-            }
-
             // Blessing detection
             if (line.match(/blessed/i) || line.match(/holy/i)) {
                 properties.blessing = 'holy';
             }
         });
+
+        // Container detection by item name - check the item's name for container keywords
+        // This is separate from capacity detection above, which checks recall text for storage info
+        if (!properties.isContainer && item.name) {
+            const containerKeywords = /\b(bag|sack|backpack|pouch|satchel|chest|strongbox|trunk|basket|belt|sheath|scabbard|harness|bandolier)\b/i;
+            const armorExclusions = /robe|armor|mail|scale|chain|plate|leather|hide|skin/i;
+
+            if (containerKeywords.test(item.name) && !armorExclusions.test(item.name)) {
+                properties.isContainer = true;
+            }
+        }
 
         // Use existing skill field to determine weapons
         if (item.details?.skill) {

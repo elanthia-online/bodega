@@ -553,6 +553,11 @@ class SearchEngine {
         nameLink.textContent = item.name;
         nameLink.addEventListener('click', () => this.showItemDetails(item));
 
+        // Register for hover tooltip (raw recall preview)
+        if (window.tooltipManager) {
+            window.tooltipManager.register(nameLink, item);
+        }
+
         const urlButton = document.createElement('button');
         urlButton.className = 'url-button';
         urlButton.title = 'Copy link to this item';
