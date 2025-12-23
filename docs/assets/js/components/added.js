@@ -338,10 +338,24 @@ class AddedEngine {
         // Create the table cells manually to add event handlers properly
         const nameCell = document.createElement('td');
         nameCell.className = 'item-name';
-        nameCell.innerHTML = `
-            <span class="name">${item.name}</span>
-            ${item.enchant > 0 ? `<span class="enchant">+${item.enchant}</span>` : ''}
-        `;
+
+        const nameSpan = document.createElement('span');
+        nameSpan.className = 'name';
+        nameSpan.textContent = item.name;
+        nameCell.appendChild(nameSpan);
+
+        if (item.enchant > 0) {
+            const enchantSpan = document.createElement('span');
+            enchantSpan.className = 'enchant';
+            enchantSpan.textContent = `+${item.enchant}`;
+            nameCell.appendChild(enchantSpan);
+        }
+
+        // Register for hover tooltip (raw recall preview)
+        if (window.tooltipManager) {
+            window.tooltipManager.register(nameSpan, item);
+        }
+
         nameCell.addEventListener('click', () => this.showItemDetails(item));
 
         const priceCell = document.createElement('td');

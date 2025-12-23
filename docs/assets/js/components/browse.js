@@ -893,6 +893,12 @@ class BrowseEngine {
         const nameSpan = document.createElement('span');
         nameSpan.className = 'name';
         nameSpan.textContent = item.name;
+
+        // Register for hover tooltip (raw recall preview)
+        if (window.tooltipManager) {
+            window.tooltipManager.register(nameSpan, item);
+        }
+
         nameCell.appendChild(nameSpan);
 
         const priceCell = document.createElement('td');

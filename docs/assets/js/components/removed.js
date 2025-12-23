@@ -312,6 +312,12 @@ class RemovedEngine {
             <td class="item-shop">${item.lastSeenShop || 'Unknown'}</td>
         `;
 
+        // Register for hover tooltip (raw recall preview)
+        const nameSpan = row.querySelector('.name');
+        if (window.tooltipManager && nameSpan) {
+            window.tooltipManager.register(nameSpan, item);
+        }
+
         // Add click handler for item details
         row.addEventListener('click', () => this.showItemDetails(item));
 
