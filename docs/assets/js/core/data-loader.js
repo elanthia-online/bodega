@@ -402,11 +402,14 @@ class DataLoader {
 
             // No need to parse skill from raw - it's already in the data
 
-            // Shield specific parsing
-            if (line.match(/shield that protects/i) || line.match(/is a.*shield/i)) {
+            // Shield specific parsing - only for actual shields, not items that mention "shield" in descriptions
+            if (line.match(/shield that protects/i)) {
                 properties.isShield = true;
-                const shieldMatch = line.match(/is a (.*?) shield/i);
-                if (shieldMatch) {
+            } else if (line.match(/is a.*shield/i)) {
+                // Only match SHORT shield types (1-3 words), not entire sentences
+                const shieldMatch = line.match(/is a ((?:\w+\s+){0,2}\w+) shield/i);
+                if (shieldMatch && shieldMatch[1].length < 50) {
+                    properties.isShield = true;
                     properties.shieldType = shieldMatch[1].toLowerCase();
                 }
             }

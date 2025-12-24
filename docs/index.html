@@ -11,31 +11,40 @@
     <div id="wrapper">
         <!-- Header -->
         <header>
-            <h1>GemStone IV Playershops</h1>
-            <div class="stats" id="stats">
-                <span id="item-count">Loading...</span> items |
-                <span id="shop-count">0</span> shops |
-                <span id="town-count">0</span> towns |
-                Last updated: <span id="last-updated">Never</span>
-            </div>
-            <div class="theme-switcher">
-                <button class="theme-btn" data-theme="light" title="Light mode">
-                    ☀️ <span>Light</span>
-                </button>
-                <button class="theme-btn" data-theme="dark" title="Dark mode">
-                    🌙 <span>Dark</span>
-                </button>
-                <button class="theme-btn active" data-theme="auto" title="Auto (system)">
-                    💻 <span>Auto</span>
-                </button>
-                <button class="theme-btn" data-theme="high-contrast" title="High contrast mode">
-                    ◐ <span>Contrast</span>
-                </button>
-            </div>
-            <div class="size-switcher">
-                <button class="size-btn" data-size="small" title="Small text">A-</button>
-                <button class="size-btn active" data-size="medium" title="Medium text">A</button>
-                <button class="size-btn" data-size="large" title="Large text">A+</button>
+            <div class="header-content">
+                <div class="header-left">
+                    <h1>GemStone IV Playershops</h1>
+                    <div class="stats" id="stats">
+                        <span id="item-count">Loading...</span> items |
+                        <span id="shop-count">0</span> shops |
+                        <span id="town-count">0</span> towns |
+                        Last updated: <span id="last-updated">Never</span>
+                    </div>
+                </div>
+                <div class="header-controls">
+                    <div class="size-switcher">
+                        <button class="size-btn" data-size="small" title="Small text">A-</button>
+                        <button class="size-btn active" data-size="medium" title="Medium text">A</button>
+                        <button class="size-btn" data-size="large" title="Large text">A+</button>
+                    </div>
+                    <div class="theme-switcher">
+                        <button class="theme-btn" data-theme="light" title="Light mode">
+                            ☀️ <span>Light</span>
+                        </button>
+                        <button class="theme-btn" data-theme="dark" title="Dark mode">
+                            🌙 <span>Dark</span>
+                        </button>
+                        <button class="theme-btn active" data-theme="auto" title="Auto (system)">
+                            💻 <span>Auto</span>
+                        </button>
+                        <button class="theme-btn" data-theme="high-contrast" title="High contrast mode">
+                            ◐ <span>Contrast</span>
+                        </button>
+                    </div>
+                    <button id="tag-settings-btn" class="settings-btn" title="Tag Display Settings">
+                        <span class="settings-icon">&#9881;</span>
+                    </button>
+                </div>
             </div>
         </header>
 
@@ -480,6 +489,28 @@
             </div>
         </div>
 
+        <!-- Tag Settings Modal -->
+        <div id="tag-settings-modal" class="modal" hidden>
+            <div class="modal-backdrop"></div>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Tag Display Settings</h3>
+                    <button id="close-tag-settings" class="modal-close" aria-label="Close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-description">Toggle individual tags on/off, customize their colors, and reorder categories by dragging them up or down.</p>
+
+                    <div id="category-toggles" class="category-toggles">
+                        <!-- Generated dynamically from TAG_DEFINITIONS -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="reset-tag-settings" class="btn-secondary">Reset to Default</button>
+                    <button id="save-tag-settings" class="btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+
         <!-- Loading Overlay -->
         <div id="loading-overlay">
             <div class="spinner"></div>
@@ -490,6 +521,7 @@
         <div id="item-tooltip" class="item-tooltip" hidden></div>
     </div>
 
+    <script src="assets/js/config/tag-categories.js"></script>
     <script src="assets/js/core/theme.js"></script>
     <script src="assets/js/core/tooltip.js"></script>
     <script src="assets/js/core/data-loader.js"></script>

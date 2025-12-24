@@ -687,52 +687,112 @@ class SearchEngine {
             container.appendChild(tag);
         }
 
-        // Enhancives
-        if (item.enhancives && item.enhancives.length > 0) {
-            item.enhancives.forEach(enh => {
-                const tag = document.createElement('span');
-                tag.className = 'property-tag enhancive';
-                tag.textContent = `+${enh.boost} ${enh.ability}`;
-                container.appendChild(tag);
-            });
+        // Detect and display special properties from raw text and existing tags
+        const detectedProps = typeof detectPropertiesFromRaw === 'function'
+            ? detectPropertiesFromRaw(item.raw)
+            : {};
+
+        // Merge with existing extracted properties from the data
+        if (item.td_bonus) detectedProps.td_bonus = item.td_bonus;
+        if (item.sanctify) detectedProps.sanctify = item.sanctify;
+        if (item.ensorcell) detectedProps.ensorcell = item.ensorcell;
+        if (item.dmg_padding) detectedProps.dmg_padding = item.dmg_padding;
+        if (item.crit_padding) detectedProps.crit_padding = item.crit_padding;
+        if (item.dmg_weighting) detectedProps.dmg_weighting = item.dmg_weighting;
+        if (item.crit_weighting) detectedProps.crit_weighting = item.crit_weighting;
+        if (item.sighting) detectedProps.sighting = item.sighting;
+        if (item.blessing) detectedProps.holy = true;
+        if (item.flares && item.flares.length > 0) detectedProps.flares = true;
+        if (item.enhancives && item.enhancives.length > 0) detectedProps.enhancive = true;
+
+        // Chrism detection: price 1k-20k AND "But you are not holding" in raw text
+        if (item.price >= 1000 && item.price <= 20000 && item.raw && item.raw.some(line => line.includes('But you are not holding'))) {
+            detectedProps.chrism = true;
         }
 
-        // Flares
-        if (item.flares && item.flares.length > 0) {
-            const tag = document.createElement('span');
-            tag.className = 'property-tag special';
-            tag.textContent = 'Flares';
-            container.appendChild(tag);
-        }
-
-        // Spell
-        if (item.spell) {
-            const tag = document.createElement('span');
-            tag.className = 'property-tag special';
-            tag.textContent = 'Spell';
-            container.appendChild(tag);
-        }
-
-        // Blessing
-        if (item.blessing) {
-            const tag = document.createElement('span');
-            tag.className = 'property-tag special';
-            tag.textContent = 'Holy';
-            container.appendChild(tag);
-        }
-
-        // Special tags
+        // Check tags for boolean properties
         if (item.tags && item.tags.length > 0) {
-            const specialTags = ['max_light', 'max_deep', 'persists', 'crumbly', 'holy'];
+            const boolTags = ['spiked', 'magic_resistant', 'scripted', 'holy_fire',
+                              'max_light', 'max_deep', 'persists', 'crumbly', 'holy',
+                              'lightenable', 'deepenable', 'imbeddable'];
             item.tags.forEach(tag => {
-                if (specialTags.includes(tag)) {
-                    const tagEl = document.createElement('span');
-                    tagEl.className = 'property-tag special';
-                    tagEl.textContent = tag.replace('_', ' ');
-                    container.appendChild(tagEl);
+                // Skip any tag that's too long (likely invalid data)
+                if (typeof tag !== 'string' || tag.length > 30) return;
+                if (boolTags.includes(tag)) {
+                    detectedProps[tag] = true;
                 }
             });
         }
+
+        // Display detected properties respecting tag visibility and order
+        const orderedTags = typeof getOrderedTagIds === 'function'
+            ? getOrderedTagIds()
+            : (typeof TAG_DEFINITIONS !== 'undefined' ? Object.keys(TAG_DEFINITIONS) : []);
+
+        orderedTags.forEach(tagId => {
+            // Special handling for 'enhancive' - display individual enhancive stats
+            if (tagId === 'enhancive') {
+                const enhancivesVisible = typeof isTagEnabled === 'function' ? isTagEnabled('enhancive') : true;
+                if (enhancivesVisible && item.enhancives && item.enhancives.length > 0) {
+                    const enhColor = typeof getTagColor === 'function' ? getTagColor('enhancive') : '#27ae60';
+                    item.enhancives.forEach(enh => {
+                        const enhTag = document.createElement('span');
+                        enhTag.className = 'property-tag special';
+                        enhTag.dataset.category = 'enhancive';
+                        enhTag.style.color = enhColor;
+                        enhTag.style.borderColor = enhColor;
+                        enhTag.textContent = `+${enh.boost} ${enh.ability}`;
+                        container.appendChild(enhTag);
+                    });
+                }
+                return; // Don't show a generic "Enhancive" tag, we show the individual stats
+            }
+
+            // Special handling for 'flares' - we handle flares display separately
+            if (tagId === 'flares') {
+                if (item.flares && item.flares.length > 0) {
+                    if (typeof isTagVisible === 'function' && !isTagVisible('flares')) return;
+                    const flareColor = typeof getTagColor === 'function' ? getTagColor('flares') : '#9b59b6';
+                    const flareTag = document.createElement('span');
+                    flareTag.className = 'property-tag special';
+                    flareTag.dataset.category = 'magical';
+                    flareTag.style.color = flareColor;
+                    flareTag.style.borderColor = flareColor;
+                    flareTag.textContent = 'Flares';
+                    container.appendChild(flareTag);
+                }
+                return;
+            }
+
+            if (detectedProps[tagId] !== undefined && detectedProps[tagId] !== false) {
+                // Check tag visibility
+                if (typeof isTagVisible === 'function' && !isTagVisible(tagId)) return;
+
+                const tagEl = document.createElement('span');
+                const tagColor = typeof getTagColor === 'function' ? getTagColor(tagId) : null;
+                const tagCategory = typeof getCategoryForTag === 'function' ? getCategoryForTag(tagId) : null;
+                tagEl.className = 'property-tag special';
+                if (tagCategory) {
+                    tagEl.dataset.category = tagCategory;
+                }
+                if (tagColor) {
+                    tagEl.style.color = tagColor;
+                    tagEl.style.borderColor = tagColor;
+                }
+                const displayText = typeof formatPropertyDisplay === 'function'
+                    ? formatPropertyDisplay(tagId, detectedProps[tagId], detectedProps)
+                    : tagId.replace(/_/g, ' ');
+                // Skip if formatPropertyDisplay returns null (tag too long or invalid)
+                if (!displayText) return;
+                // Final safety check - skip any tag text longer than 50 characters
+                if (displayText.length > 50) {
+                    console.warn('Skipping long tag:', tagId, displayText.substring(0, 50) + '...');
+                    return;
+                }
+                tagEl.textContent = displayText;
+                container.appendChild(tagEl);
+            }
+        });
 
         // Gemstone tags
         if (item.gemstoneProperties && item.gemstoneProperties.length > 0) {
@@ -868,7 +928,10 @@ class SearchEngine {
             ${item.tags && item.tags.length > 0 ? `
             <div class="modal-section">
                 <h4>Special Properties</h4>
-                <p>${item.tags.map(tag => tag.replace('_', ' ')).join(', ')}</p>
+                <p>${item.tags
+                    .filter(tag => typeof isValidDisplayTag === 'function' ? isValidDisplayTag(tag) : typeof tag === 'string' && tag.length <= 30)
+                    .map(tag => tag.replace(/_/g, ' '))
+                    .join(', ')}</p>
             </div>
             ` : ''}
 
@@ -1190,4 +1253,291 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     setTimeout(checkDataLoaded, 100);
+
+    // Initialize Tag Settings Modal
+    initializeTagSettingsModal();
 });
+
+// Tag Settings Modal functionality
+function initializeTagSettingsModal() {
+    const settingsBtn = document.getElementById('tag-settings-btn');
+    const modal = document.getElementById('tag-settings-modal');
+    const closeBtn = document.getElementById('close-tag-settings');
+    const saveBtn = document.getElementById('save-tag-settings');
+    const resetBtn = document.getElementById('reset-tag-settings');
+    const togglesContainer = document.getElementById('category-toggles');
+
+    if (!settingsBtn || !modal || !togglesContainer) return;
+
+    // Build individual tag toggles grouped by category
+    function buildTagToggles() {
+        togglesContainer.innerHTML = '';
+
+        if (typeof TAG_DEFINITIONS === 'undefined' || typeof TAG_CATEGORIES === 'undefined') return;
+
+        // Get tags grouped by category
+        const tagsByCategory = typeof getTagsByCategory === 'function'
+            ? getTagsByCategory()
+            : {};
+
+        // Get ordered tag IDs for reordering
+        const orderedTagIds = typeof getOrderedTagIds === 'function'
+            ? getOrderedTagIds()
+            : Object.keys(TAG_DEFINITIONS);
+
+        // Get ordered category IDs
+        const orderedCategoryIds = typeof getOrderedCategoryIds === 'function'
+            ? getOrderedCategoryIds()
+            : Object.keys(TAG_CATEGORIES);
+
+        // Create a section for each category (in order)
+        orderedCategoryIds.forEach((catId, catIndex) => {
+            const catDef = TAG_CATEGORIES[catId];
+            if (!catDef) return;
+
+            const categorySection = document.createElement('div');
+            categorySection.className = 'tag-category-section';
+            categorySection.dataset.categoryId = catId;
+
+            // Category header with reorder buttons and symbol input
+            const header = document.createElement('div');
+            header.className = 'tag-category-header';
+
+            // Category reorder buttons
+            const catReorderBtns = document.createElement('div');
+            catReorderBtns.className = 'category-reorder-btns';
+
+            const catUpBtn = document.createElement('button');
+            catUpBtn.type = 'button';
+            catUpBtn.className = 'reorder-btn category-reorder';
+            catUpBtn.innerHTML = '▲';
+            catUpBtn.title = 'Move category up';
+            catUpBtn.addEventListener('click', () => moveCategory(catId, -1));
+
+            const catDownBtn = document.createElement('button');
+            catDownBtn.type = 'button';
+            catDownBtn.className = 'reorder-btn category-reorder';
+            catDownBtn.innerHTML = '▼';
+            catDownBtn.title = 'Move category down';
+            catDownBtn.addEventListener('click', () => moveCategory(catId, 1));
+
+            catReorderBtns.appendChild(catUpBtn);
+            catReorderBtns.appendChild(catDownBtn);
+
+            // Category name
+            const catName = document.createElement('span');
+            catName.className = 'category-name';
+            catName.textContent = catDef.label;
+
+            header.appendChild(catReorderBtns);
+            header.appendChild(catName);
+            categorySection.appendChild(header);
+
+            // Get tags for this category in order
+            const categoryTags = orderedTagIds.filter(tagId => {
+                const def = TAG_DEFINITIONS[tagId];
+                return def && def.category === catId;
+            });
+
+            // Tag rows container
+            const tagsContainer = document.createElement('div');
+            tagsContainer.className = 'tag-rows-container';
+
+            categoryTags.forEach((tagId, index) => {
+                const tagDef = TAG_DEFINITIONS[tagId];
+                if (!tagDef) return;
+
+                const row = document.createElement('div');
+                row.className = 'tag-toggle-row';
+                row.dataset.tagId = tagId;
+
+                // Reorder buttons
+                const reorderBtns = document.createElement('div');
+                reorderBtns.className = 'tag-reorder-btns';
+
+                const upBtn = document.createElement('button');
+                upBtn.type = 'button';
+                upBtn.className = 'reorder-btn';
+                upBtn.innerHTML = '▲';
+                upBtn.title = 'Move up';
+                upBtn.addEventListener('click', () => moveTag(tagId, -1));
+
+                const downBtn = document.createElement('button');
+                downBtn.type = 'button';
+                downBtn.className = 'reorder-btn';
+                downBtn.innerHTML = '▼';
+                downBtn.title = 'Move down';
+                downBtn.addEventListener('click', () => moveTag(tagId, 1));
+
+                reorderBtns.appendChild(upBtn);
+                reorderBtns.appendChild(downBtn);
+
+                // Checkbox
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.id = `tag-toggle-${tagId}`;
+                checkbox.checked = typeof isTagEnabled === 'function' ? isTagEnabled(tagId) : true;
+                checkbox.dataset.tagId = tagId;
+
+                // Color picker
+                const colorPicker = document.createElement('input');
+                colorPicker.type = 'color';
+                colorPicker.className = 'tag-color-picker';
+                colorPicker.id = `tag-color-${tagId}`;
+                colorPicker.value = typeof getTagColor === 'function' ? getTagColor(tagId) : catDef.defaultColor;
+                colorPicker.dataset.tagId = tagId;
+                colorPicker.title = `Change ${tagDef.label} color`;
+
+                // Label
+                const label = document.createElement('label');
+                label.htmlFor = `tag-toggle-${tagId}`;
+                label.textContent = tagDef.label;
+
+                // Description tooltip
+                const desc = document.createElement('span');
+                desc.className = 'tag-description';
+                desc.textContent = tagDef.description;
+                desc.title = tagDef.description;
+
+                row.appendChild(reorderBtns);
+                row.appendChild(checkbox);
+                row.appendChild(colorPicker);
+                row.appendChild(label);
+                row.appendChild(desc);
+                tagsContainer.appendChild(row);
+            });
+
+            categorySection.appendChild(tagsContainer);
+            togglesContainer.appendChild(categorySection);
+        });
+    }
+
+    // Move a tag up or down in the global order
+    function moveTag(tagId, direction) {
+        const settings = typeof loadTagSettings === 'function' ? loadTagSettings() : {};
+        const currentOrder = typeof getOrderedTagIds === 'function'
+            ? getOrderedTagIds()
+            : Object.keys(TAG_DEFINITIONS);
+
+        const currentIndex = currentOrder.indexOf(tagId);
+        const newIndex = currentIndex + direction;
+
+        if (newIndex < 0 || newIndex >= currentOrder.length) return;
+
+        // Swap positions
+        [currentOrder[currentIndex], currentOrder[newIndex]] = [currentOrder[newIndex], currentOrder[currentIndex]];
+
+        // Save new order
+        settings.tagOrder = currentOrder;
+        if (typeof saveTagSettings === 'function') {
+            saveTagSettings(settings);
+        }
+        buildTagToggles();
+    }
+
+    // Move a category up or down in the display order
+    function moveCategory(categoryId, direction) {
+        const settings = typeof loadTagSettings === 'function' ? loadTagSettings() : {};
+        const currentOrder = typeof getOrderedCategoryIds === 'function'
+            ? getOrderedCategoryIds()
+            : Object.keys(TAG_CATEGORIES);
+
+        const currentIndex = currentOrder.indexOf(categoryId);
+        const newIndex = currentIndex + direction;
+
+        if (newIndex < 0 || newIndex >= currentOrder.length) return;
+
+        // Swap positions
+        [currentOrder[currentIndex], currentOrder[newIndex]] = [currentOrder[newIndex], currentOrder[currentIndex]];
+
+        // Save new order
+        settings.categoryOrder = currentOrder;
+        if (typeof saveTagSettings === 'function') {
+            saveTagSettings(settings);
+        }
+        buildTagToggles();
+    }
+
+    // Open modal
+    settingsBtn.addEventListener('click', () => {
+        buildTagToggles();
+        modal.hidden = false;
+        modal.classList.add('active');
+    });
+
+    // Close modal
+    function closeModal() {
+        modal.hidden = true;
+        modal.classList.remove('active');
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.querySelector('.modal-backdrop').addEventListener('click', closeModal);
+
+    // Save settings
+    saveBtn.addEventListener('click', () => {
+        const settings = typeof loadTagSettings === 'function' ? loadTagSettings() : {};
+
+        // Initialize tags object if needed
+        if (!settings.tags) settings.tags = {};
+
+        // Save individual tag settings
+        togglesContainer.querySelectorAll('input[type="checkbox"][data-tag-id]').forEach(cb => {
+            const tagId = cb.dataset.tagId;
+            if (!settings.tags[tagId]) settings.tags[tagId] = {};
+            settings.tags[tagId].enabled = cb.checked;
+        });
+
+        togglesContainer.querySelectorAll('input[type="color"][data-tag-id]').forEach(cp => {
+            const tagId = cp.dataset.tagId;
+            if (!settings.tags[tagId]) settings.tags[tagId] = {};
+            settings.tags[tagId].color = cp.value;
+        });
+
+        // Save tag order
+        const orderedTags = typeof getOrderedTagIds === 'function' ? getOrderedTagIds() : [];
+        settings.tagOrder = orderedTags;
+
+        if (typeof saveTagSettings === 'function') {
+            saveTagSettings(settings);
+        }
+
+        // Apply custom colors to CSS
+        if (typeof applyTagColors === 'function') {
+            applyTagColors();
+        }
+
+        closeModal();
+
+        // Refresh display to apply new settings
+        if (window.searchEngine) {
+            window.searchEngine.displayResults();
+        }
+        if (window.browseEngine) {
+            window.browseEngine.displayItems();
+        }
+    });
+
+    // Reset to default
+    resetBtn.addEventListener('click', () => {
+        localStorage.removeItem('bodega-tag-settings');
+        buildTagToggles();
+        // Reset colors to defaults
+        if (typeof applyTagColors === 'function') {
+            applyTagColors();
+        }
+    });
+
+    // Apply saved settings on load
+    if (typeof applyTagColors === 'function') {
+        applyTagColors();
+    }
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !modal.hidden) {
+            closeModal();
+        }
+    });
+}
+

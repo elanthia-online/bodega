@@ -27,7 +27,18 @@ header {
     color: white;
     padding: 10px 20px;
     border-bottom: 2px solid var(--header-border);
-    position: relative;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.header-left {
+    flex: 1;
+    min-width: 0;
 }
 
 header h1 {
@@ -40,11 +51,16 @@ header h1 {
     opacity: 0.9;
 }
 
+/* Header Controls Container */
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
 /* Theme Switcher */
 .theme-switcher {
-    position: absolute;
-    top: 10px;
-    right: 20px;
     display: flex;
     gap: 4px;
     background: rgba(0, 0, 0, 0.2);
@@ -83,9 +99,6 @@ header h1 {
 
 /* Size Switcher */
 .size-switcher {
-    position: absolute;
-    top: 10px;
-    right: 340px;
     display: flex;
     gap: 4px;
     background: rgba(0, 0, 0, 0.2);
@@ -113,6 +126,30 @@ header h1 {
 .size-btn.active {
     background: rgba(255, 255, 255, 0.25);
     color: white;
+}
+
+/* Settings button in header */
+.settings-btn {
+    background: rgba(0, 0, 0, 0.2);
+    border: none;
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.settings-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+}
+
+.settings-icon {
+    font-size: 18px;
 }
 
 /* Size scaling - zoom-like behavior for accessibility (WCAG 1.4.4) */
@@ -404,6 +441,12 @@ input::placeholder {
     color: var(--color-accent);
 }
 
+.item-name .enchant {
+    margin-left: 4px;
+    font-weight: normal;
+    color: var(--text-secondary);
+}
+
 .price {
     font-weight: bold;
     color: var(--color-error);
@@ -510,6 +553,43 @@ input::placeholder {
     background: var(--bg-tertiary);
     color: var(--color-warning);
     border: 1px solid var(--color-warning);
+}
+
+/* Tag Category Styles - using CSS variables for configurability */
+.property-tag.cat-combat {
+    background: var(--bg-tertiary);
+    color: var(--cat-combat-color);
+    border: 1px solid var(--cat-combat-color);
+}
+
+.property-tag.cat-magical {
+    background: var(--bg-tertiary);
+    color: var(--cat-magical-color);
+    border: 1px solid var(--cat-magical-color);
+}
+
+.property-tag.cat-resistances {
+    background: var(--bg-tertiary);
+    color: var(--cat-resistances-color);
+    border: 1px solid var(--cat-resistances-color);
+}
+
+.property-tag.cat-enhancives {
+    background: var(--bg-tertiary);
+    color: var(--cat-enhancives-color);
+    border: 1px solid var(--cat-enhancives-color);
+}
+
+.property-tag.cat-properties {
+    background: var(--bg-tertiary);
+    color: var(--cat-properties-color);
+    border: 1px solid var(--cat-properties-color);
+}
+
+.property-tag.cat-special {
+    background: var(--bg-tertiary);
+    color: var(--cat-special-color);
+    border: 1px solid var(--cat-special-color);
 }
 
 .shop-location {
@@ -648,6 +728,359 @@ input::placeholder {
     padding: 8px;
     border-radius: 3px;
     margin: 5px 0;
+}
+
+/* Tag Settings Modal */
+#tag-settings-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#tag-settings-modal[hidden] {
+    display: none;
+}
+
+#tag-settings-modal .modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--modal-overlay);
+}
+
+#tag-settings-modal .modal-content {
+    position: relative;
+    background: var(--modal-bg);
+    padding: 0;
+    border: 1px solid var(--border-tertiary);
+    width: 90%;
+    max-width: 550px;
+    max-height: 85vh;
+    overflow-y: auto;
+    border-radius: 8px;
+    color: var(--text-primary);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+#tag-settings-modal .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border-primary);
+    background: var(--bg-tertiary);
+}
+
+#tag-settings-modal .modal-header h3 {
+    margin: 0;
+    font-size: 16px;
+    color: var(--text-primary);
+}
+
+#tag-settings-modal .modal-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+}
+
+#tag-settings-modal .modal-close:hover {
+    color: var(--text-primary);
+}
+
+#tag-settings-modal .modal-body {
+    padding: 20px;
+}
+
+#tag-settings-modal .modal-description {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+}
+
+#tag-settings-modal .category-toggles {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Category section with header */
+#tag-settings-modal .tag-category-section {
+    border: 1px solid var(--border-secondary);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+#tag-settings-modal .tag-category-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--bg-tertiary);
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border-secondary);
+}
+
+#tag-settings-modal .tag-category-header .category-name {
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--text-primary);
+    flex: 1;
+}
+
+#tag-settings-modal .tag-rows-container {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Individual tag toggle row */
+#tag-settings-modal .tag-toggle-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 12px;
+    border-bottom: 1px solid var(--border-primary);
+}
+
+#tag-settings-modal .tag-toggle-row:last-child {
+    border-bottom: none;
+}
+
+#tag-settings-modal .tag-toggle-row:hover {
+    background: var(--bg-hover);
+}
+
+#tag-settings-modal .tag-toggle-row input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+#tag-settings-modal .tag-toggle-row label {
+    flex: 1;
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--text-primary);
+    min-width: 100px;
+}
+
+#tag-settings-modal .tag-reorder-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+#tag-settings-modal .reorder-btn {
+    width: 18px;
+    height: 12px;
+    padding: 0;
+    border: 1px solid var(--border-secondary);
+    border-radius: 2px;
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    font-size: 7px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#tag-settings-modal .reorder-btn:hover:not(:disabled) {
+    background: var(--bg-hover);
+    color: var(--text-primary);
+}
+
+#tag-settings-modal .reorder-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+#tag-settings-modal .tag-color-picker {
+    width: 28px;
+    height: 20px;
+    padding: 0;
+    border: 1px solid var(--border-secondary);
+    border-radius: 3px;
+    cursor: pointer;
+    background: none;
+    flex-shrink: 0;
+}
+
+#tag-settings-modal .tag-color-picker::-webkit-color-swatch-wrapper {
+    padding: 1px;
+}
+
+#tag-settings-modal .tag-color-picker::-webkit-color-swatch {
+    border-radius: 2px;
+    border: none;
+}
+
+#tag-settings-modal .tag-description {
+    font-size: 10px;
+    color: var(--text-secondary);
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Legacy support for category rows */
+#tag-settings-modal .category-toggle-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 12px;
+    background: var(--bg-tertiary);
+    border-radius: 6px;
+}
+
+#tag-settings-modal .category-toggle-row input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+#tag-settings-modal .category-toggle-row label {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--text-primary);
+}
+
+#tag-settings-modal .category-reorder-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+#tag-settings-modal .category-reorder-btns .reorder-btn {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-secondary);
+    font-size: 10px;
+    line-height: 1;
+    padding: 2px 4px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+#tag-settings-modal .category-reorder-btns .reorder-btn:hover {
+    background: var(--accent-primary);
+    color: white;
+    border-color: var(--accent-primary);
+}
+
+#tag-settings-modal .category-color-picker {
+    width: 32px;
+    height: 24px;
+    padding: 0;
+    border: 1px solid var(--border-secondary);
+    border-radius: 4px;
+    cursor: pointer;
+    background: none;
+}
+
+#tag-settings-modal .category-color-picker::-webkit-color-swatch-wrapper {
+    padding: 2px;
+}
+
+#tag-settings-modal .category-color-picker::-webkit-color-swatch {
+    border-radius: 2px;
+    border: none;
+}
+
+#tag-settings-modal .category-tag-list {
+    font-size: 11px;
+    color: var(--text-secondary);
+}
+
+/* Accessibility options */
+#tag-settings-modal .accessibility-options {
+    margin-bottom: 16px;
+    padding: 12px;
+    background: var(--bg-tertiary);
+    border-radius: 6px;
+    border: 1px solid var(--border-secondary);
+}
+
+#tag-settings-modal .accessibility-toggle {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+#tag-settings-modal .accessibility-toggle input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+#tag-settings-modal .toggle-label {
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--text-primary);
+}
+
+#tag-settings-modal .toggle-description {
+    width: 100%;
+    font-size: 11px;
+    color: var(--text-secondary);
+    margin-left: 26px;
+}
+
+#tag-settings-modal .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 16px 20px;
+    border-top: 1px solid var(--border-primary);
+    background: var(--bg-tertiary);
+}
+
+#tag-settings-modal .btn-primary,
+#tag-settings-modal .btn-secondary {
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+#tag-settings-modal .btn-primary {
+    background: var(--color-accent);
+    color: white;
+    border: none;
+}
+
+#tag-settings-modal .btn-primary:hover {
+    background: var(--color-accent-dark);
+}
+
+#tag-settings-modal .btn-secondary {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-secondary);
+}
+
+#tag-settings-modal .btn-secondary:hover {
+    background: var(--bg-hover);
 }
 
 /* Gemstone Property Styles */
@@ -1616,8 +2049,6 @@ input::placeholder {
 .item-tooltip {
     position: fixed;
     max-width: 600px;
-    max-height: 400px;
-    overflow-y: auto;
     background: var(--bg-primary);
     border: 1px solid var(--border-primary);
     border-radius: 6px;
@@ -1640,21 +2071,18 @@ input::placeholder {
 [data-size="small"] .item-tooltip {
     font-size: 11px;
     max-width: 600px;
-    max-height: 400px;
     padding: 12px;
 }
 
 [data-size="medium"] .item-tooltip {
     font-size: 13px;
     max-width: 720px;
-    max-height: 480px;
     padding: 14px;
 }
 
 [data-size="large"] .item-tooltip {
     font-size: 16px;
     max-width: 900px;
-    max-height: 600px;
     padding: 18px;
 }
 
@@ -1694,11 +2122,17 @@ input::placeholder {
 /* ==================== */
 @media (max-width: 500px) {
     header {
-        position: relative;
-        display: flex;
+        padding: 10px 10px 15px;
+    }
+
+    .header-content {
         flex-direction: column;
         align-items: center;
-        padding: 10px 10px 15px;
+    }
+
+    .header-left {
+        text-align: center;
+        margin-bottom: 10px;
     }
 
     header h1 {
@@ -1709,13 +2143,11 @@ input::placeholder {
     .stats {
         font-size: 10px;
         text-align: center;
-        margin-bottom: 10px;
     }
 
-    .theme-switcher,
-    .size-switcher {
-        position: static;
-        margin: 4px 0;
+    .header-controls {
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     /* Hide text labels on mobile, show only icons */
@@ -1727,5 +2159,9 @@ input::placeholder {
     .size-btn {
         padding: 6px 10px;
         font-size: 12px;
+    }
+
+    .settings-btn {
+        padding: 6px 10px;
     }
 }
