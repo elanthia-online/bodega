@@ -258,6 +258,7 @@ module Bodega
       weight: %r[^It appears to weigh about (?<weight>\d+) pounds.],
       # flare: %r[^It has been infused with the power of an? (?<flare>.*?)\.],
       material: %r[^It looks like this item has been mainly crafted out of (?<material>.*?)\.],
+      material_enhanced: %r[^It is predominantly crafted of (?<material>.*?)\.\s*(?:It is (?<material_detail>(?:greater|lesser|pristine) .*?)\.)?],
       cost: %r[will cost (?<cost>\d+) coins\.$],
       worn: %r[The .*? can be worn(?:, slinging it across the |, hanging it from the |, attaching it to the | around the | in the | on the | over(?: the)? )(?<worn>[^.]+)(?=.)],
       activator: %r[^It could be activated by (?<activator>\w+) it\.$],
