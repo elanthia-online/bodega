@@ -550,12 +550,17 @@ class SearchEngine {
 
         const nameLink = document.createElement('span');
         nameLink.className = 'item-name';
-        // Append quantity to item name if it exists
-        const displayName = item.quantity
-            ? `${item.name} (${item.quantity})`
-            : item.name;
-        nameLink.textContent = displayName;
+        nameLink.textContent = item.name;
         nameLink.addEventListener('click', () => this.showItemDetails(item));
+
+        // Add quantity after name if it exists (with 2 spaces, not underlined)
+        if (item.quantity) {
+            const quantityText = document.createTextNode(`  (${item.quantity})`);
+            nameContainer.appendChild(nameLink);
+            nameContainer.appendChild(quantityText);
+        } else {
+            nameContainer.appendChild(nameLink);
+        }
 
         // Register for hover tooltip (raw recall preview)
         if (window.tooltipManager) {
@@ -580,7 +585,6 @@ class SearchEngine {
             this.openItemURL(item);
         });
 
-        nameContainer.appendChild(nameLink);
         nameContainer.appendChild(urlButton);
         nameContainer.appendChild(openButton);
         nameCell.appendChild(nameContainer);
@@ -866,11 +870,8 @@ class SearchEngine {
         const nameEl = document.getElementById('modal-item-name');
         const bodyEl = document.getElementById('modal-content-body');
 
-        // Append quantity to item name if it exists
-        const displayName = item.quantity
-            ? `${item.name} (${item.quantity})`
-            : item.name;
-        nameEl.textContent = displayName;
+        // Modal title shows just the item name (quantity is in Basic Information section)
+        nameEl.textContent = item.name;
 
         bodyEl.innerHTML = `
             <div class="modal-section">
