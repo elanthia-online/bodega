@@ -241,6 +241,14 @@ module Bodega
       not_wearable: %r[^You determine that you could not wear],
       holy: %r[^It is a holy item\.],
       is_gemstone: %r[^The jewel appears to be a powerful relic that can convey wondrous abilities on its wielder],
+      # Combat Modifiers
+      spiked: %r[It is spiked\.],
+      # Resistances
+      magic_resistant: %r[It is magic resistant\.],
+      # Special Features
+      scripted: %r[Additional scripts have been applied|has a Custom.*script|has a permanently unlocked loresong],
+      # Holy Fire (separate from sanctify tier)
+      holy_fire: %r[permanent Holy Fire flares],
     }
 
     PROPS = {
@@ -258,6 +266,20 @@ module Bodega
       armor_type: %r[ allows you to conclude that it is (?<armor_type>.*?)\.],
       flare: %r[It has been infused with (?<flare>.*?)\.$],
       gemstone_bound_to: %r[jewel is bound to (?<gemstone_bound_to>\w+),],
+      # TD Bonus
+      td_bonus: %r[protects against magical attacks with a bonus of (?<td_bonus>\d+)],
+      # Sanctification tier (1-5)
+      sanctify: %r[has been sanctified (?<sanctify>\d+) times?],
+      # Ensorcell tier (1-5)
+      ensorcell: %r[has been ensorcelled (?<ensorcell>\d+) times?],
+      # ARMOR: Padding (captures descriptor)
+      dmg_padding: %r[(?<dmg_padding>somewhat|fairly|heavily|very heavily|masterfully) padded to lessen the damage],
+      crit_padding: %r[(?<crit_padding>somewhat|fairly|heavily|very heavily|masterfully) padded against critical blows],
+      # WEAPON: Weighting (captures descriptor)
+      dmg_weighting: %r[(?<dmg_weighting>lightly|somewhat|fairly|heavily|very heavily|exceptionally) weighted to inflict more damage],
+      crit_weighting: %r[(?<crit_weighting>lightly|somewhat|fairly|heavily|very heavily|exceptionally) weighted to inflict more critical wounds],
+      # RANGED: Sighting (captures descriptor)
+      sighting: %r[(?<sighting>somewhat|fairly|heavily|very heavily) sighted to assist in aiming],
     }
 
     def self.of(details)
