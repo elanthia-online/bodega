@@ -313,9 +313,10 @@ class DataLoader {
                 roomSign: this.extractRoomSign(room),
                 branch: room.branch,
 
-                // Price and enchant
+                // Price, enchant, and quantity
                 price: price,
                 enchant: item.details?.enchant || null,
+                quantity: item.quantity || null,
 
                 // Materials and properties
                 material: item.details?.material || null,
