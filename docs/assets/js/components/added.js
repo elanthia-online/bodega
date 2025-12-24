@@ -341,7 +341,11 @@ class AddedEngine {
 
         const nameSpan = document.createElement('span');
         nameSpan.className = 'name';
-        nameSpan.textContent = item.name;
+        // Append quantity to item name if it exists
+        const displayName = item.quantity
+            ? `${item.name} (${item.quantity})`
+            : item.name;
+        nameSpan.textContent = displayName;
         nameCell.appendChild(nameSpan);
 
         // Register for hover tooltip (raw recall preview)

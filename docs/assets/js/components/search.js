@@ -550,7 +550,11 @@ class SearchEngine {
 
         const nameLink = document.createElement('span');
         nameLink.className = 'item-name';
-        nameLink.textContent = item.name;
+        // Append quantity to item name if it exists
+        const displayName = item.quantity
+            ? `${item.name} (${item.quantity})`
+            : item.name;
+        nameLink.textContent = displayName;
         nameLink.addEventListener('click', () => this.showItemDetails(item));
 
         // Register for hover tooltip (raw recall preview)
@@ -862,7 +866,11 @@ class SearchEngine {
         const nameEl = document.getElementById('modal-item-name');
         const bodyEl = document.getElementById('modal-content-body');
 
-        nameEl.textContent = item.name;
+        // Append quantity to item name if it exists
+        const displayName = item.quantity
+            ? `${item.name} (${item.quantity})`
+            : item.name;
+        nameEl.textContent = displayName;
 
         bodyEl.innerHTML = `
             <div class="modal-section">

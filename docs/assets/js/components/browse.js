@@ -892,7 +892,11 @@ class BrowseEngine {
         nameCell.className = 'item-name';
         const nameSpan = document.createElement('span');
         nameSpan.className = 'name';
-        nameSpan.textContent = item.name;
+        // Append quantity to item name if it exists
+        const displayName = item.quantity
+            ? `${item.name} (${item.quantity})`
+            : item.name;
+        nameSpan.textContent = displayName;
 
         // Register for hover tooltip (raw recall preview)
         if (window.tooltipManager) {
