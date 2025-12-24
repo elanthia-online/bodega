@@ -876,6 +876,7 @@ class SearchEngine {
             <div class="modal-section">
                 <h4>Basic Information</h4>
                 <p><strong>Price:</strong> ${DataLoader.formatPrice(item.price)}</p>
+                ${item.quantity ? `<p><strong>Quantity Available:</strong> ${item.quantity}</p>` : ''}
                 <p><strong>Town:</strong> ${item.town}</p>
                 <p><strong>Shop:</strong> ${item.shopName}</p>
                 <p><strong>Room:</strong> ${item.room}</p>
