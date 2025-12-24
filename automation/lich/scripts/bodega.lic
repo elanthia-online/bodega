@@ -246,7 +246,8 @@ module Bodega
       # Resistances
       magic_resistant: %r[It is magic resistant\.],
       # Special Features
-      scripted: %r[Additional scripts have been applied|has a Custom.*script|has a permanently unlocked loresong],
+      scripted: %r[Additional scripts have been applied|has a Custom.*script|Shield Cape Collection|It is Tier \d+|Blink Weapon|briar flare weapon|has some unknown \(scripted\) benefit],
+      flourish: %r[It has the .* Flourish],
       # Holy Fire (separate from sanctify tier)
       holy_fire: %r[permanent Holy Fire flares],
     }

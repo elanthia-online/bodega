@@ -617,12 +617,12 @@ function detectPropertiesFromRaw(rawLines) {
     // Boolean properties
     if (/It is spiked\./i.test(rawText)) props.spiked = true;
     if (/It is magic resistant\./i.test(rawText)) props.magic_resistant = true;
-    if (/Additional scripts have been applied|has a Custom.*script|Shield Cape Collection/i.test(rawText)) {
+    if (/Additional scripts have been applied|has a Custom.*script|Shield Cape Collection|It is Tier \d+|Blink Weapon|briar flare weapon|has some unknown \(scripted\) benefit/i.test(rawText)) {
         props.scripted = true;
     }
 
     // Flourish
-    if (/flourish|show off|dramatic flair/i.test(rawText)) {
+    if (/It has the .* Flourish/i.test(rawText)) {
         props.flourish = true;
     }
 
