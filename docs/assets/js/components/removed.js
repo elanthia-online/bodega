@@ -300,9 +300,14 @@ class RemovedEngine {
         const removedDate = new Date(item.removedDate);
         const properties = this.createPropertiesElement(item);
 
+        // Append quantity to item name if it exists
+        const displayName = item.quantity
+            ? `${item.name} (${item.quantity})`
+            : item.name;
+
         row.innerHTML = `
             <td class="item-name">
-                <span class="name">${item.name}</span>
+                <span class="name">${displayName}</span>
             </td>
             <td class="item-removed-time">${this.formatRelativeTime(removedDate)}</td>
             <td class="item-price">${this.formatPrice(item.price)}</td>
