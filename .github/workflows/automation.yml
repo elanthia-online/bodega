@@ -5,7 +5,22 @@ on:
     # Run every 2 hours: 00, 02, 04, 06, 08, 10, 12, 14, 16, 18, 20, 22 UTC
     # 08 UTC will trigger full scan, others will do smart scan
     - cron: '0 0,2,4,6,8,10,12,14,16,18,20,22 * * *'
-  workflow_dispatch: # Allow manual triggering
+  workflow_dispatch:
+    inputs:
+      scan_type:
+        description: 'Scan type to run'
+        required: true
+        default: 'auto'
+        type: choice
+        options:
+          - auto
+          - smart
+          - full
+
+# Prevent concurrent runs - queue new runs if one is in progress
+concurrency:
+  group: bodega-automation
+  cancel-in-progress: false
 
 env:
   SIMU_USERNAME: ${{ secrets.SIMU_USERNAME }}
@@ -47,10 +62,26 @@ jobs:
         chmod +x automation/bin/setup-environment
         ./automation/bin/setup-environment
 
+    - name: Determine scan type
+      id: scan_type
+      run: |
+        if [ "${{ github.event.inputs.scan_type }}" = "smart" ]; then
+          echo "type=smart" >> $GITHUB_OUTPUT
+        elif [ "${{ github.event.inputs.scan_type }}" = "full" ]; then
+          echo "type=full" >> $GITHUB_OUTPUT
+        else
+          # Auto mode: full scan at 08 UTC, smart scan otherwise
+          if [ "$(date -u +%H)" = "08" ]; then
+            echo "type=full" >> $GITHUB_OUTPUT
+          else
+            echo "type=smart" >> $GITHUB_OUTPUT
+          fi
+        fi
+
     - name: Run bodega automation
       run: |
         chmod +x automation/bin/run-scan
-        ./automation/bin/run-scan
+        ./automation/bin/run-scan ${{ steps.scan_type.outputs.type }}
 
     - name: Process and commit results
       run: |
@@ -97,7 +128,8 @@ jobs:
         echo "=== Automation Summary ==="
         echo "Timestamp: $(date '+%Y-%m-%d %H:%M:%S UTC')"
         echo "Character: $SIMU_CHARACTER"
-        echo "Scan type: $([ "$(date -u +%H)" = "08" ] && echo "Full" || echo "Smart")"
+        echo "Trigger: ${{ github.event_name == 'workflow_dispatch' && format('Manual ({0})', github.event.inputs.scan_type) || 'Scheduled' }}"
+        echo "Scan type: ${{ steps.scan_type.outputs.type }}"
         echo "Status: ${{ job.status }}"
 
         if [ -d "automation/logs" ]; then

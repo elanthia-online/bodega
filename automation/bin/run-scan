@@ -24,13 +24,23 @@ log "Starting bodega automation scan"
 log "Account: $SIMU_USERNAME"
 log "Character: $SIMU_CHARACTER"
 
-# Determine scan type
-current_hour=$(date -u +%H)
-if [ "$current_hour" = "08" ]; then
-    log "Scan type: FULL (8 AM UTC - comprehensive scan)"
+# Determine scan type from parameter or auto-detect
+SCAN_TYPE="${1:-auto}"
+if [ "$SCAN_TYPE" = "auto" ]; then
+    current_hour=$(date -u +%H)
+    if [ "$current_hour" = "08" ]; then
+        SCAN_TYPE="full"
+        log "Scan type: FULL (auto-detected - 8 AM UTC)"
+    else
+        SCAN_TYPE="smart"
+        log "Scan type: SMART (auto-detected - outside 8 AM UTC)"
+    fi
 else
-    log "Scan type: SMART (outside 8 AM - efficient scan)"
+    log "Scan type: ${SCAN_TYPE^^} (manually specified)"
 fi
+
+# Export for use by headless script
+export BODEGA_SCAN_TYPE="$SCAN_TYPE"
 
 # Validate setup
 LICH_DIR="automation/lich"
