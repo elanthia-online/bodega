@@ -791,6 +791,13 @@ module Bodega
       # Load added items tracking for smart scans (only on first shop)
       load_added_items if @smart_stats[:shops_scanned] == 0
 
+      # Load shop mapping for ownership detection (only on first shop)
+      if @smart_stats[:shops_scanned] == 0
+        load_shop_mapping
+        @shop_mapping_modified = false
+        @ownership_changes_log ||= []
+      end
+
       # Step 1: Get current browse IDs from shop scan
       coll = Collector.new(
         start: %[is located in],
@@ -842,6 +849,14 @@ module Bodega
       @smart_stats[:removed_items] += removed_ids.size
       @smart_stats[:unchanged_items] += unchanged_ids.size
       @smart_stats[:shops_scanned] += 1
+
+      # Detect and auto-update ownership changes
+      if existing_shop && @shop_mapping && @shop_mapping.any?
+        ownership_change = detect_ownership_change(town, shop_id, preamble, current_ids, existing_shop)
+        if ownership_change
+          @ownership_changes_log << ownership_change
+        end
+      end
 
       # Step 6: Capture and remove deleted items from existing shop structure
       if removed_ids.any?
@@ -1081,6 +1096,163 @@ module Bodega
               preamble.match(/^(.*?)\s+is\s+located/i)
 
       match ? match[1].strip : 'unknown'
+    end
+
+    def self.extract_location_from_preamble(preamble)
+      # Extract location like "[East Row, Ebonwood Way]" from preamble
+      return nil unless preamble
+
+      match = preamble.match(/is located in (\[.*?\])/)
+      match ? match[1] : nil
+    end
+
+    def self.extract_exterior_from_preamble(preamble)
+      # Extract exterior description from preamble
+      # Format: "... at a <exterior>, and is currently..."
+      return nil unless preamble
+
+      match = preamble.match(/at (?:a|an) (.*?), and is currently/)
+      match ? match[1].strip : nil
+    end
+
+    def self.find_shop_in_mapping_by_exterior(exterior, location = nil)
+      # Find shop in mapping by matching exterior description
+      # Returns [owner_name, shop_data] or nil
+      return nil unless @shop_mapping && exterior
+
+      # First try exact match
+      @shop_mapping.each do |owner, data|
+        if data["exterior"] == exterior
+          return [owner, data]
+        end
+      end
+
+      # Try partial match (handles minor variations)
+      @shop_mapping.each do |owner, data|
+        if data["exterior"].include?(exterior) || exterior.include?(data["exterior"])
+          return [owner, data]
+        end
+      end
+
+      nil
+    end
+
+    def self.calculate_item_overlap(current_ids, existing_shop)
+      # Calculate overlap between current shop items and cached items
+      return { count: 0, percentage: 0.0, total: 0 } unless existing_shop
+
+      existing_ids = extract_item_ids_from_shop(existing_shop)
+      return { count: 0, percentage: 0.0, total: 0 } if existing_ids.empty?
+
+      overlap_ids = current_ids & existing_ids
+      overlap_count = overlap_ids.size
+      total_cached = existing_ids.size
+      percentage = (overlap_count.to_f / total_cached * 100).round(1)
+
+      {
+        count: overlap_count,
+        percentage: percentage,
+        total: total_cached,
+        current_total: current_ids.size
+      }
+    end
+
+    def self.load_shop_mapping
+      # Load shop_mapping.json for ownership tracking
+      return @shop_mapping if @shop_mapping
+
+      file_path = Assets.local_path("../docs/data/shop_mapping.json")
+
+      if File.exist?(file_path)
+        begin
+          @shop_mapping = JSON.parse(File.read(file_path))
+          Log.out("Loaded shop_mapping.json with #{@shop_mapping.size} shops", label: :smart)
+        rescue JSON::ParserError => e
+          Log.out("Failed to load shop_mapping.json: #{e.message}", label: :smart)
+          @shop_mapping = {}
+        end
+      else
+        Log.out("No shop_mapping.json found, ownership detection disabled", label: :smart)
+        @shop_mapping = {}
+      end
+
+      @shop_mapping
+    end
+
+    def self.detect_ownership_change(town, shop_id, preamble, current_ids, existing_shop)
+      # Detect if shop ownership has changed
+      # Returns change details hash or nil
+      return nil unless @shop_mapping && preamble && existing_shop
+
+      # Extract metadata from preamble
+      current_owner = extract_shop_name_from_preamble(preamble)
+      exterior = extract_exterior_from_preamble(preamble)
+      location = extract_location_from_preamble(preamble)
+
+      return nil if current_owner == 'unknown' || exterior.nil?
+
+      # Find shop in mapping by exterior
+      mapping_entry = find_shop_in_mapping_by_exterior(exterior, location)
+      return nil unless mapping_entry # Shop not in mapping
+
+      (old_owner, shop_data) = mapping_entry
+
+      # Check if owner has changed
+      return nil if old_owner.downcase == current_owner.downcase
+
+      # Calculate item overlap
+      overlap = calculate_item_overlap(current_ids, existing_shop)
+
+      # Only flag if overlap >= 70%
+      if overlap[:percentage] >= 70.0
+        Log.out("OWNERSHIP CHANGE DETECTED: #{old_owner} -> #{current_owner} (#{overlap[:percentage]}% overlap)", label: :ownership)
+
+        # Auto-update shop_mapping.json
+        update_shop_mapping(old_owner, current_owner, shop_data)
+
+        # Return change details for logging
+        {
+          "town" => town,
+          "map_id" => shop_data["map_id"],
+          "old_owner" => old_owner,
+          "new_owner" => current_owner,
+          "overlap_percentage" => overlap[:percentage]
+        }
+      else
+        Log.out("Owner mismatch but insufficient overlap: #{old_owner} -> #{current_owner} (#{overlap[:percentage]}% < 70%)", label: :ownership)
+        nil
+      end
+    end
+
+    def self.update_shop_mapping(old_owner, new_owner, shop_data)
+      # Update shop_mapping in memory
+      return unless @shop_mapping
+
+      # Remove old entry
+      @shop_mapping.delete(old_owner)
+
+      # Add new entry with same map_id and exterior
+      @shop_mapping[new_owner] = shop_data
+
+      # Mark as modified for saving later
+      @shop_mapping_modified = true
+
+      Log.out("Updated shop_mapping: #{old_owner} -> #{new_owner} (map_id: #{shop_data['map_id']})", label: :ownership)
+    end
+
+    def self.save_shop_mapping
+      # Save updated shop_mapping.json to disk
+      return unless @shop_mapping && @shop_mapping_modified
+
+      file_path = Assets.local_path("../docs/data/shop_mapping.json")
+
+      begin
+        File.write(file_path, JSON.pretty_generate(@shop_mapping))
+        Log.out("Saved updated shop_mapping.json with #{@shop_mapping.size} shops", label: :ownership)
+        @shop_mapping_modified = false
+      rescue => e
+        Log.out("Failed to save shop_mapping.json: #{e.message}", label: :ownership)
+      end
     end
 
     def self.save_added_items
@@ -1346,6 +1518,21 @@ module Bodega
       if @removed_items_data && @removed_items_data.any?
         clean_removed_items_by_size
         save_removed_items
+      end
+
+      # Save updated shop_mapping.json after all towns processed (smart mode only)
+      if Opts.smart && @shop_mapping_modified
+        save_shop_mapping
+
+        # Log summary of ownership changes
+        if @ownership_changes_log && @ownership_changes_log.any?
+          Log.out("=" * 50, label: :ownership)
+          Log.out("OWNERSHIP CHANGES SUMMARY (#{@ownership_changes_log.size} changes)", label: :ownership)
+          @ownership_changes_log.each do |change|
+            Log.out("  #{change['old_owner']} -> #{change['new_owner']} (#{change['town']}, map_id: #{change['map_id']}, #{change['overlap_percentage']}% overlap)", label: :ownership)
+          end
+          Log.out("=" * 50, label: :ownership)
+        end
       end
 
       # Add removed_items.json to created files list for upload
