@@ -250,6 +250,8 @@ module Bodega
       flourish: %r[It has the .* Flourish],
       # Holy Fire (separate from sanctify tier)
       holy_fire: %r[permanent Holy Fire flares],
+      # Greater Undead Bane (GUB) - appears with sanctified weapons
+      gub: %r[provides an additional \+\d+ AS bonus against the undead],
     }
 
     PROPS = {

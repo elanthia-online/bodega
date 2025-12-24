@@ -141,6 +141,11 @@ const TAG_DEFINITIONS = {
         category: "magical",
         description: "Item is holy/blessed"
     },
+    gub: {
+        label: "GUB",
+        category: "magical",
+        description: "Greater Undead Bane - bonus AS against undead"
+    },
 
     // Defensive
     td_bonus: {
@@ -241,7 +246,7 @@ const DEFAULT_TAG_ORDER = [
     // Item Type (gray)
     'weapon', 'armor', 'shield', 'runestaff',
     // Magical (purple)
-    'enchant', 'flares', 'sanctify', 'ensorcell', 'holy',
+    'enchant', 'flares', 'sanctify', 'ensorcell', 'holy', 'gub',
     // Combat (red)
     'dmg_weighting', 'crit_weighting', 'dmg_padding', 'crit_padding', 'sighting', 'spiked',
     // Defensive (blue)
@@ -488,6 +493,8 @@ function formatPropertyDisplay(key, value, allProps) {
             return 'Crumbly';
         case 'holy':
             return 'Holy';
+        case 'gub':
+            return 'GUB';
         case 'imbeddable':
             return 'Imbeddable';
         case 'imbedded':
@@ -556,11 +563,12 @@ function detectPropertiesFromRaw(rawLines) {
     const defenderMatch = rawText.match(/provides a bonus of \+(\d+) more than usual/i);
     if (defenderMatch) props.defender = parseInt(defenderMatch[1]);
 
-    // Sanctify + Holy Fire
+    // Sanctify + Holy Fire + GUB
     const sanctMatch = rawText.match(/has been sanctified (\d+) times?/i);
     if (sanctMatch) {
         props.sanctify = parseInt(sanctMatch[1]);
         props.holy_fire = /permanent Holy Fire flares/i.test(rawText);
+        props.gub = /provides an additional \+\d+ AS bonus against the undead/i.test(rawText);
     }
 
     // Ensorcell
