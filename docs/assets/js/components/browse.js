@@ -580,7 +580,6 @@ class BrowseEngine {
             <div class="shop-detail-header">
                 <div class="shop-detail-name-row">
                     <div class="shop-detail-name">${shopName}</div>
-                    <button class="copy-link-btn shop-header-copy-btn" title="Copy link to this shop">🔗 Copy Link</button>
                 </div>
                 ${shopMappingData ? `
                     <div class="shop-navigation-info">
@@ -593,9 +592,14 @@ class BrowseEngine {
             </div>
         `;
 
-        // Add copy link button handler
-        const copyButton = selectedShopName.querySelector('.copy-link-btn');
-        copyButton.addEventListener('click', (e) => this.copyShopLink(townName, shopName, e));
+        // Setup copy link button in header (it's in the browse-sort-mode-toggle div)
+        const copyButton = document.getElementById('browse-copy-link-btn');
+        if (copyButton) {
+            // Remove any existing listeners to avoid duplicates
+            const newCopyButton = copyButton.cloneNode(true);
+            copyButton.parentNode.replaceChild(newCopyButton, copyButton);
+            newCopyButton.addEventListener('click', (e) => this.copyShopLink(townName, shopName, e));
+        }
 
         roomList.innerHTML = '';
 
