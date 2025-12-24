@@ -596,35 +596,35 @@ function detectPropertiesFromRaw(rawLines) {
     }
 
     // ARMOR: Damage Padding
-    const dmgPadMatch = rawText.match(/(temporarily )?(somewhat|fairly|heavily|very heavily|masterfully )?padded to lessen the damage/i);
+    const dmgPadMatch = rawText.match(/(temporarily )?(somewhat |fairly |heavily |very heavily |masterfully )?padded to lessen the damage/i);
     if (dmgPadMatch) {
         props.dmg_padding = dmgPadMatch[2] ? dmgPadMatch[2].trim().toLowerCase() : 'unknown';
         props.dmg_padding_temp = !!dmgPadMatch[1];
     }
 
     // ARMOR: Crit Padding
-    const critPadMatch = rawText.match(/(temporarily )?(somewhat|fairly|heavily|very heavily|masterfully )?padded against critical blows/i);
+    const critPadMatch = rawText.match(/(temporarily )?(somewhat |fairly |heavily |very heavily |masterfully )?padded against critical blows/i);
     if (critPadMatch) {
         props.crit_padding = critPadMatch[2] ? critPadMatch[2].trim().toLowerCase() : 'unknown';
         props.crit_padding_temp = !!critPadMatch[1];
     }
 
     // WEAPON: Damage Weighting
-    const dmgWgtMatch = rawText.match(/(temporarily )?(lightly|somewhat|fairly|heavily|very heavily|exceptionally )?weighted to inflict more damage/i);
+    const dmgWgtMatch = rawText.match(/(temporarily )?(lightly |somewhat |fairly |heavily |very heavily |exceptionally )?weighted to inflict more damage/i);
     if (dmgWgtMatch) {
         props.dmg_weighting = dmgWgtMatch[2] ? dmgWgtMatch[2].trim().toLowerCase() : 'unknown';
         props.dmg_weighting_temp = !!dmgWgtMatch[1];
     }
 
     // WEAPON: Crit Weighting
-    const critWgtMatch = rawText.match(/(temporarily )?(lightly|somewhat|fairly|heavily|very heavily|exceptionally )?weighted to inflict more critical wounds/i);
+    const critWgtMatch = rawText.match(/(temporarily )?(lightly |somewhat |fairly |heavily |very heavily |exceptionally )?weighted to inflict more critical wounds/i);
     if (critWgtMatch) {
         props.crit_weighting = critWgtMatch[2] ? critWgtMatch[2].trim().toLowerCase() : 'unknown';
         props.crit_weighting_temp = !!critWgtMatch[1];
     }
 
     // RANGED: Sighting
-    const sightMatch = rawText.match(/(temporarily )?(somewhat|fairly|heavily|very heavily )?sighted to assist in aiming/i);
+    const sightMatch = rawText.match(/(temporarily )?(somewhat |fairly |heavily |very heavily )?sighted to assist in aiming/i);
     if (sightMatch) {
         props.sighting = sightMatch[2] ? sightMatch[2].trim().toLowerCase() : 'unknown';
         props.sighting_temp = !!sightMatch[1];
