@@ -98,26 +98,41 @@ jobs:
 
     - name: Push changes
       run: |
-        # Only push if there are changes
-        if ! git diff --quiet HEAD~1; then
-          echo "Fetching latest changes before push..."
-          git fetch origin master
+        # Check if there are any uncommitted changes and commit them
+        if ! git diff --quiet || ! git diff --cached --quiet; then
+          echo "Found uncommitted changes, committing..."
+          git add -A
+          git commit -m "Update shop data - $(date -u +%Y-%m-%d\ %H:%M:%S) UTC" || true
+        fi
 
-          # Rebase our changes on top of any new commits
-          # This handles the case where another scan pushed while we were running
-          if ! git rebase origin/master; then
-            echo "Rebase failed, attempting to resolve with our changes..."
-            # If there are conflicts, always take our version (we have the latest data)
-            git rebase --abort
-            git reset --soft origin/master
-            git commit -m "Update shop data - $(date -u +%Y-%m-%d\ %H:%M:%S) UTC"
+        # Check if we have new commits to push (compare with remote)
+        git fetch origin master
+
+        if [ "$(git rev-parse HEAD)" != "$(git rev-parse origin/master)" ]; then
+          echo "Local commits detected, preparing to push..."
+
+          # Check if we're ahead or diverged from origin
+          if git merge-base --is-ancestor origin/master HEAD; then
+            # We're ahead, can push directly
+            echo "Branch is ahead of origin, pushing..."
+          else
+            # Branches have diverged, need to rebase
+            echo "Branches diverged, rebasing our changes..."
+            if ! git rebase origin/master; then
+              echo "Rebase had conflicts, resolving with our version..."
+              git rebase --abort
+              # Create a clean merge commit that takes all our changes
+              git reset --soft origin/master
+              git add -A
+              git commit -m "Update shop data - $(date -u +%Y-%m-%d\ %H:%M:%S) UTC"
+            fi
           fi
 
-          echo "Pushing updated data to repository..."
+          echo "Pushing changes to repository..."
           git push origin master
           echo "CHANGES_PUSHED=true" >> $GITHUB_ENV
         else
-          echo "No changes to push"
+          echo "No new commits to push"
           echo "CHANGES_PUSHED=false" >> $GITHUB_ENV
         fi
 

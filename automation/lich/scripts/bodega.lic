@@ -1161,7 +1161,7 @@ module Bodega
       # Load shop_mapping.json for ownership tracking
       return @shop_mapping if @shop_mapping
 
-      file_path = Assets.local_path("../docs/data/shop_mapping.json")
+      file_path = "docs/data/shop_mapping.json"
 
       if File.exist?(file_path)
         begin
@@ -1244,7 +1244,7 @@ module Bodega
       # Save updated shop_mapping.json to disk
       return unless @shop_mapping && @shop_mapping_modified
 
-      file_path = Assets.local_path("../docs/data/shop_mapping.json")
+      file_path = "docs/data/shop_mapping.json"
 
       begin
         File.write(file_path, JSON.pretty_generate(@shop_mapping))
