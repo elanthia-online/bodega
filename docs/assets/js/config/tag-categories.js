@@ -567,14 +567,22 @@ function detectPropertiesFromRaw(rawLines) {
     const ensMatch = rawText.match(/has been ensorcelled (\d+) times?/i);
     if (ensMatch) props.ensorcell = parseInt(ensMatch[1]);
 
-    // Flares detection
-    const flareTypes = ['fire', 'ice', 'lightning', 'steam', 'acid', 'plasma', 'disruption', 'vacuum', 'holy', 'unholy', 'grapple', 'impact'];
-    for (const flareType of flareTypes) {
-        if (new RegExp(`${flareType} flares`, 'i').test(rawText)) {
-            props.flares = flareType.charAt(0).toUpperCase() + flareType.slice(1);
-            break;
+    // Flares detection - check "infused with" pattern first
+    const infusedMatch = rawText.match(/It has been infused with (?:the (?:power|essence) of )?(?:an? )?(.+?)\./i);
+    if (infusedMatch) {
+        props.flares = infusedMatch[1];
+    }
+    // Then check for specific flare types in "X flares" format
+    if (!props.flares) {
+        const flareTypes = ['fire', 'ice', 'lightning', 'steam', 'acid', 'plasma', 'disruption', 'vacuum', 'holy', 'unholy', 'grapple', 'impact'];
+        for (const flareType of flareTypes) {
+            if (new RegExp(`${flareType} flares`, 'i').test(rawText)) {
+                props.flares = flareType.charAt(0).toUpperCase() + flareType.slice(1);
+                break;
+            }
         }
     }
+    // Fallback: generic flares detection
     if (!props.flares && /\bflares\b/i.test(rawText)) {
         props.flares = true;
     }
