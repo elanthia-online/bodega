@@ -892,11 +892,7 @@ class BrowseEngine {
         nameCell.className = 'item-name';
         const nameSpan = document.createElement('span');
         nameSpan.className = 'name';
-        // Append quantity to item name if it exists
-        const displayName = item.quantity
-            ? `${item.name} (${item.quantity})`
-            : item.name;
-        nameSpan.textContent = displayName;
+        nameSpan.textContent = item.name;
 
         // Register for hover tooltip (raw recall preview)
         if (window.tooltipManager) {
@@ -904,6 +900,12 @@ class BrowseEngine {
         }
 
         nameCell.appendChild(nameSpan);
+
+        // Add quantity after name if it exists (with 2 spaces, not underlined)
+        if (item.quantity) {
+            const quantityText = document.createTextNode(`  (${item.quantity})`);
+            nameCell.appendChild(quantityText);
+        }
 
         const priceCell = document.createElement('td');
         priceCell.className = 'item-price';

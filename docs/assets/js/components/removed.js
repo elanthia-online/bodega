@@ -300,14 +300,9 @@ class RemovedEngine {
         const removedDate = new Date(item.removedDate);
         const properties = this.createPropertiesElement(item);
 
-        // Append quantity to item name if it exists
-        const displayName = item.quantity
-            ? `${item.name} (${item.quantity})`
-            : item.name;
-
         row.innerHTML = `
             <td class="item-name">
-                <span class="name">${displayName}</span>
+                <span class="name">${item.name}</span>
             </td>
             <td class="item-removed-time">${this.formatRelativeTime(removedDate)}</td>
             <td class="item-price">${this.formatPrice(item.price)}</td>
@@ -315,6 +310,13 @@ class RemovedEngine {
             <td class="item-town">${item.lastSeenTown || 'Unknown'}</td>
             <td class="item-shop">${item.lastSeenShop || 'Unknown'}</td>
         `;
+
+        // Add quantity after name if it exists (with 2 spaces, not underlined)
+        if (item.quantity) {
+            const nameCell = row.querySelector('.item-name');
+            const quantityText = document.createTextNode(`  (${item.quantity})`);
+            nameCell.appendChild(quantityText);
+        }
 
         // Register for hover tooltip (raw recall preview)
         const nameSpan = row.querySelector('.name');
