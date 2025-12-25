@@ -870,8 +870,7 @@ class SearchEngine {
 
         // Merge forged quality
         if (item.forgedQuality) {
-            const qualityTagId = `forged_${item.forgedQuality.replace(/\s+/g, '_')}`;
-            detectedProps[qualityTagId] = true;
+            detectedProps.forged = item.forgedQuality;
         }
 
         // Chrism detection: price 1k-20k AND "But you are not holding" in raw text

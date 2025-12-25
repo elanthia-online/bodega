@@ -115,81 +115,11 @@ const TAG_DEFINITIONS = {
         description: "Shield or armor is spiked"
     },
 
-    // Forged quality tiers (compact labels - just quality name)
-    forged_perfect: {
-        label: "Perfect",
+    // Forged quality (single tag with dynamic quality name display)
+    forged: {
+        label: "Forged",
         category: "combat",
-        description: "Perfect quality forging (+3 AvD, 6% DF)"
-    },
-    forged_superior: {
-        label: "Superior",
-        category: "combat",
-        description: "Superior quality forging (+2 AvD, 4% DF)"
-    },
-    forged_hefty: {
-        label: "Hefty",
-        category: "combat",
-        description: "Hefty quality forging (+2 AvD, 4% DF)"
-    },
-    forged_nifty: {
-        label: "Nifty",
-        category: "combat",
-        description: "Nifty quality forging (+2 AvD, 4% DF)"
-    },
-    forged_exquisite: {
-        label: "Exquisite",
-        category: "combat",
-        description: "Exquisite quality forging (+2 AvD, 4% DF)"
-    },
-    'forged_well-crafted': {
-        label: "Well-crafted",
-        category: "combat",
-        description: "Well-crafted quality forging (+2 AvD, 4% DF)"
-    },
-    forged_elegant: {
-        label: "Elegant",
-        category: "combat",
-        description: "Elegant quality forging (+1 AvD, 2% DF)"
-    },
-    'forged_well-made': {
-        label: "Well-made",
-        category: "combat",
-        description: "Well-made quality forging (+1 AvD, 2% DF)"
-    },
-    forged_fine: {
-        label: "Fine",
-        category: "combat",
-        description: "Fine quality forging (no bonus)"
-    },
-    forged_nice: {
-        label: "Nice",
-        category: "combat",
-        description: "Nice quality forging (no bonus)"
-    },
-    forged_plain: {
-        label: "Plain",
-        category: "combat",
-        description: "Plain quality forging (no bonus)"
-    },
-    forged_simple: {
-        label: "Simple",
-        category: "combat",
-        description: "Simple quality forging (-1 AvD, -2% DF)"
-    },
-    forged_crude: {
-        label: "Crude",
-        category: "combat",
-        description: "Crude quality forging (-2 AvD, -4% DF)"
-    },
-    forged_flimsy: {
-        label: "Flimsy",
-        category: "combat",
-        description: "Flimsy quality forging (-3 AvD, -6% DF)"
-    },
-    'forged_lop-sided': {
-        label: "Lop-sided",
-        category: "combat",
-        description: "Lop-sided quality forging (-3 AvD, -6% DF)"
+        description: "Forged weapon quality (Perfect, Superior, Elegant, etc.)"
     },
 
     // Magical properties
@@ -325,10 +255,7 @@ const DEFAULT_TAG_ORDER = [
     // Magical (purple)
     'enchant', 'flares', 'sanctify', 'ensorcell', 'holy', 'gub',
     // Combat (red)
-    'dmg_weighting', 'crit_weighting', 'dmg_padding', 'crit_padding', 'sighting', 'spiked',
-    'forged_perfect', 'forged_superior', 'forged_hefty', 'forged_nifty', 'forged_exquisite', 'forged_well-crafted',
-    'forged_elegant', 'forged_well-made', 'forged_fine', 'forged_nice', 'forged_plain',
-    'forged_simple', 'forged_crude', 'forged_flimsy', 'forged_lop-sided',
+    'dmg_weighting', 'crit_weighting', 'dmg_padding', 'crit_padding', 'sighting', 'spiked', 'forged',
     // Defensive (blue)
     'td_bonus', 'defender', 'db_bonus', 'magic_resistant',
     // Enhancive (green)
@@ -553,36 +480,12 @@ function formatPropertyDisplay(key, value, allProps) {
             return `Sight: ${desc}${tempSuffix}`;
         case 'spiked':
             return 'Spiked';
-        case 'forged_perfect':
-            return 'Perfect';
-        case 'forged_superior':
-            return 'Superior';
-        case 'forged_hefty':
-            return 'Hefty';
-        case 'forged_nifty':
-            return 'Nifty';
-        case 'forged_exquisite':
-            return 'Exquisite';
-        case 'forged_well-crafted':
-            return 'Well-crafted';
-        case 'forged_elegant':
-            return 'Elegant';
-        case 'forged_well-made':
-            return 'Well-made';
-        case 'forged_fine':
-            return 'Fine';
-        case 'forged_nice':
-            return 'Nice';
-        case 'forged_plain':
-            return 'Plain';
-        case 'forged_simple':
-            return 'Simple';
-        case 'forged_crude':
-            return 'Crude';
-        case 'forged_flimsy':
-            return 'Flimsy';
-        case 'forged_lop-sided':
-            return 'Lop-sided';
+        case 'forged':
+            // Capitalize quality name (handles hyphenated names like "well-crafted", "lop-sided")
+            if (!value || typeof value !== 'string') return 'Forged';
+            return value.split(/[\s-]/).map(word =>
+                word.charAt(0).toUpperCase() + word.slice(1)
+            ).join(value.includes('-') ? '-' : ' ');
         case 'magic_resistant':
             return 'Magic Resistant';
         case 'scripted':
@@ -709,18 +612,18 @@ function detectPropertiesFromRaw(rawLines) {
     const forgedMatch = rawText.match(/It is forged by (.*?) and has (?:increased|decreased) \(([+-]?\d+)\) effectiveness in combat\./i);
     if (forgedMatch) {
         const forgedAvd = parseInt(forgedMatch[2]);
-        const qualityTagMap = {
-            3: 'forged_perfect',
-            2: 'forged_superior',
-            1: 'forged_elegant',
-            0: 'forged_fine',
-            '-1': 'forged_simple',
-            '-2': 'forged_crude',
-            '-3': 'forged_flimsy'
+        const qualityNameMap = {
+            3: 'perfect',
+            2: 'superior',
+            1: 'elegant',
+            0: 'fine',
+            '-1': 'simple',
+            '-2': 'crude',
+            '-3': 'flimsy'
         };
-        const qualityTag = qualityTagMap[forgedAvd];
-        if (qualityTag) {
-            props[qualityTag] = true;
+        const qualityName = qualityNameMap[forgedAvd];
+        if (qualityName) {
+            props.forged = qualityName;
         }
     }
 
