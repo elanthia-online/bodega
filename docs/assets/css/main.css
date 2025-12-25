@@ -214,6 +214,33 @@ header h1 {
     color: var(--text-tertiary);
 }
 
+/* Compact filter layout - label and dropdown on same row */
+.filter-section.compact-filter {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+}
+
+.filter-section.compact-filter h2 {
+    margin-bottom: 0;
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-size: 11px;
+}
+
+.filter-section.compact-filter select {
+    flex: 1;
+    min-width: 0;
+}
+
+.filter-section.compact-filter .filter-tags {
+    width: 100%;
+    flex-basis: 100%;
+}
+
 .filter-section input[type="text"] {
     width: 100%;
     padding: 4px 6px;
@@ -285,6 +312,24 @@ input::placeholder {
 
 .checkbox-label input[type="checkbox"] {
     margin-right: 5px;
+}
+
+.search-field-filters {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+    padding: 8px;
+    background: var(--bg-alternate);
+    border-radius: 4px;
+    flex-wrap: wrap;
+}
+
+.field-filter-label {
+    font-size: 11px;
+    font-weight: bold;
+    color: var(--text-primary);
+    margin: 0;
 }
 
 #apply-filters, #reset-filters, #apply-filters-bottom, #reset-filters-bottom {

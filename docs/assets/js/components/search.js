@@ -100,6 +100,20 @@ class SearchEngine {
             this.clearSearch();
         });
 
+        // Field filter checkboxes
+        document.getElementById('search-field-name').addEventListener('change', () => {
+            this.performSearch();
+        });
+        document.getElementById('search-field-material').addEventListener('change', () => {
+            this.performSearch();
+        });
+        document.getElementById('search-field-properties').addEventListener('change', () => {
+            this.performSearch();
+        });
+        document.getElementById('search-shop-signs').addEventListener('change', () => {
+            this.performSearch();
+        });
+
         // Filter controls
         document.getElementById('apply-filters').addEventListener('click', () => {
             this.performSearch();
@@ -207,6 +221,9 @@ class SearchEngine {
         return {
             search: document.getElementById('search-input').value.toLowerCase().trim(),
             searchShopSigns: document.getElementById('search-shop-signs').checked,
+            searchFieldName: document.getElementById('search-field-name').checked,
+            searchFieldMaterial: document.getElementById('search-field-material').checked,
+            searchFieldProperties: document.getElementById('search-field-properties').checked,
             towns: this.multiSelectFilters.town.getSelectedValues(),
             priceRanges: this.multiSelectFilters.price.getSelectedValues(),
             enchantLevels: this.multiSelectFilters.enchant.getSelectedValues(),
@@ -277,27 +294,29 @@ class SearchEngine {
     }
 
     matchesAllFilters(item, filters) {
-        // Advanced search text filter
+        // Advanced search text filter with field-specific filtering
         if (filters.search) {
-            // If checkbox is unchecked, use searchText that excludes shop signs
-            // If checkbox is checked, use the full searchText (default behavior)
-            const useFullSearch = filters.searchShopSigns;
+            // Build search text based on selected fields
+            const searchFields = [];
 
-            if (useFullSearch) {
-                // Original behavior - search everything including shop signs
-                if (!this.matchesSearchText(item.searchText, filters.search)) {
-                    return false;
-                }
-            } else {
-                // New behavior - exclude shop signs from search
-                // We'll rebuild the search text without the shop sign
-                const searchTextWithoutShopSign = [
-                    item.name,
-                    item.town,
-                    item.room || '',
+            // Always include town and room for context
+            searchFields.push(item.town, item.room || '');
+
+            // Add item name if checkbox is checked
+            if (filters.searchFieldName) {
+                searchFields.push(item.name);
+            }
+
+            // Add material if checkbox is checked
+            if (filters.searchFieldMaterial) {
+                searchFields.push(item.material || '');
+            }
+
+            // Add properties (raw, tags, enhancives, gemstones) if checkbox is checked
+            if (filters.searchFieldProperties) {
+                searchFields.push(
                     ...(item.raw || []),
                     ...(item.tags || []),
-                    item.material || '',
                     // Index enhancives in multiple formats for better searchability
                     ...(item.enhancives || []).flatMap(e => [
                         `${e.boost} to ${e.ability}`,  // "9 to Armor Use Bonus"
@@ -305,11 +324,18 @@ class SearchEngine {
                         `${e.ability} ${e.boost}`       // "Armor Use Bonus 9"
                     ]),
                     ...(item.gemstoneProperties || []).map(p => `${p.name} ${p.rarity} ${p.mnemonic} ${p.description}`)
-                ].join(' ').toLowerCase();
+                );
+            }
 
-                if (!this.matchesSearchText(searchTextWithoutShopSign, filters.search)) {
-                    return false;
-                }
+            // Add shop sign if checkbox is checked
+            if (filters.searchShopSigns && item.shopSign) {
+                searchFields.push(item.shopSign);
+            }
+
+            const customSearchText = searchFields.join(' ').toLowerCase();
+
+            if (!this.matchesSearchText(customSearchText, filters.search)) {
+                return false;
             }
         }
 
