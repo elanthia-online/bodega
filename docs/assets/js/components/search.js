@@ -1053,6 +1053,16 @@ class SearchEngine {
             </div>
             ` : ''}
 
+            ${item.forgedQuality && item.forgedAvd !== undefined ? `
+            <div class="modal-section">
+                <h4>Forged Weapon Quality</h4>
+                <p><strong>Quality:</strong> ${item.forgedQuality.split(/[\s-]/).map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(item.forgedQuality.includes('-') ? '-' : ' ')}</p>
+                <p><strong>AvD Bonus:</strong> ${item.forgedAvd >= 0 ? '+' : ''}${item.forgedAvd}</p>
+                <p><strong>DF Bonus:</strong> ${item.forgedAvd * 2 >= 0 ? '+' : ''}${item.forgedAvd * 2}%</p>
+                ${item.forgedBy ? `<p><strong>Forged by:</strong> ${item.forgedBy}</p>` : ''}
+            </div>
+            ` : ''}
+
             ${item.flares && item.flares.length > 0 ? `
             <div class="modal-section">
                 <h4>Flares</h4>
