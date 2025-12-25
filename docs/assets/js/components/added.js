@@ -114,6 +114,11 @@ class AddedEngine {
         } else {
             this.performSearch();
         }
+
+        // Update URL to added mode
+        if (window.urlStateManager) {
+            this.updateURLState();
+        }
     }
 
     initializeAddedData() {
@@ -157,6 +162,18 @@ class AddedEngine {
         this.currentPage = 1; // Reset to first page when searching
         this.displayResults();
         this.updateResultsHeader();
+        this.updateURLState();
+    }
+
+    updateURLState() {
+        if (!window.urlStateManager) return;
+
+        window.urlStateManager.updateAddedURL({
+            days: document.getElementById('added-date-filter')?.value,
+            query: document.getElementById('added-search-input')?.value,
+            town: document.getElementById('added-town-filter')?.value,
+            priceRange: document.getElementById('added-price-filter')?.value
+        });
     }
 
     getFilters() {

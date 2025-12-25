@@ -94,6 +94,7 @@ class SearchEngine {
         // Search and clear buttons
         document.getElementById('search-btn').addEventListener('click', () => {
             this.performSearch();
+            this.updateURLState();
         });
 
         document.getElementById('clear-btn').addEventListener('click', () => {
@@ -102,9 +103,6 @@ class SearchEngine {
 
         // Field filter checkboxes
         document.getElementById('search-field-name').addEventListener('change', () => {
-            this.performSearch();
-        });
-        document.getElementById('search-field-material').addEventListener('change', () => {
             this.performSearch();
         });
         document.getElementById('search-field-properties').addEventListener('change', () => {
@@ -117,6 +115,7 @@ class SearchEngine {
         // Filter controls
         document.getElementById('apply-filters').addEventListener('click', () => {
             this.performSearch();
+            this.updateURLState();
         });
 
         document.getElementById('reset-filters').addEventListener('click', () => {
@@ -126,6 +125,7 @@ class SearchEngine {
         // Bottom filter controls (duplicates for mobile)
         document.getElementById('apply-filters-bottom').addEventListener('click', () => {
             this.performSearch();
+            this.updateURLState();
         });
 
         document.getElementById('reset-filters-bottom').addEventListener('click', () => {
@@ -217,12 +217,39 @@ class SearchEngine {
         this.updatePagination();
     }
 
+    updateURLState() {
+        if (!window.urlStateManager) return;
+
+        const filters = this.getFilters();
+
+        window.urlStateManager.updateSearchURL({
+            query: filters.search,
+            searchFieldName: filters.searchFieldName,
+            searchFieldProperties: filters.searchFieldProperties,
+            searchShopSigns: filters.searchShopSigns,
+            towns: filters.towns,
+            priceRanges: filters.priceRanges,
+            itemTypes: filters.itemTypes,
+            enchantLevels: filters.enchantLevels,
+            capacityLevels: filters.capacityLevels,
+            armorTypes: filters.armorTypes,
+            shieldTypes: filters.shieldTypes,
+            wearLocations: filters.wearLocations,
+            skills: filters.skills,
+            specialProperties: filters.specialProperties,
+            gemstoneRarities: filters.gemstoneRarities,
+            gemstonePropertyCounts: filters.gemstonePropertyCounts,
+            sortField: this.currentSort.field,
+            sortDirection: this.currentSort.direction,
+            page: this.currentPage
+        });
+    }
+
     getFilters() {
         return {
             search: document.getElementById('search-input').value.toLowerCase().trim(),
             searchShopSigns: document.getElementById('search-shop-signs').checked,
             searchFieldName: document.getElementById('search-field-name').checked,
-            searchFieldMaterial: document.getElementById('search-field-material').checked,
             searchFieldProperties: document.getElementById('search-field-properties').checked,
             towns: this.multiSelectFilters.town.getSelectedValues(),
             priceRanges: this.multiSelectFilters.price.getSelectedValues(),
@@ -239,8 +266,105 @@ class SearchEngine {
         };
     }
 
+    /**
+     * Parse advanced search query with OR and NOT operations
+     * Returns structured query object or null if no operators
+     */
+    parseAdvancedQuery(query) {
+        if (!query) return null;
+
+        // Check if query contains OR or NOT operators
+        const hasOR = /\bOR\b/i.test(query);
+        const hasNOT = /-\S+/.test(query);
+
+        if (!hasOR && !hasNOT) {
+            return null; // Use simple matching
+        }
+
+        // Split by OR first (lowest precedence)
+        const orParts = query.split(/\s+OR\s+/i);
+
+        if (orParts.length > 1) {
+            // Query has OR operator
+            return {
+                type: 'OR',
+                parts: orParts.map(part => this.parseAndTerms(part.trim()))
+            };
+        } else {
+            // No OR, just AND/NOT
+            return this.parseAndTerms(query);
+        }
+    }
+
+    /**
+     * Parse AND/NOT terms from a query part
+     */
+    parseAndTerms(queryPart) {
+        const terms = [];
+        const words = queryPart.split(/\s+/);
+
+        for (const word of words) {
+            if (!word) continue;
+
+            if (word.startsWith('-')) {
+                // NOT term
+                const term = word.substring(1).toLowerCase();
+                if (term) {
+                    terms.push({ type: 'NOT', value: term });
+                }
+            } else {
+                // MUST term
+                terms.push({ type: 'MUST', value: word.toLowerCase() });
+            }
+        }
+
+        return {
+            type: 'AND',
+            terms: terms
+        };
+    }
+
+    /**
+     * Match text against parsed advanced query
+     */
+    matchesAdvancedQuery(text, parsedQuery) {
+        if (!parsedQuery) return true;
+
+        text = text.toLowerCase();
+
+        if (parsedQuery.type === 'OR') {
+            // At least one OR part must match
+            return parsedQuery.parts.some(part =>
+                this.matchesAdvancedQuery(text, part)
+            );
+        }
+
+        if (parsedQuery.type === 'AND') {
+            // All terms must satisfy their conditions
+            return parsedQuery.terms.every(term => {
+                if (term.type === 'MUST') {
+                    return text.includes(term.value);
+                } else if (term.type === 'NOT') {
+                    return !text.includes(term.value);
+                }
+                return true;
+            });
+        }
+
+        return false;
+    }
+
     matchesSearchText(itemText, searchQuery) {
         if (!searchQuery) return true;
+
+        // Try advanced query parsing first (OR/NOT operators)
+        const parsedQuery = this.parseAdvancedQuery(searchQuery);
+        if (parsedQuery) {
+            return this.matchesAdvancedQuery(itemText, parsedQuery);
+        }
+
+        // Fall back to existing simple search logic
+        // (exact phrases, wildcards, enhancive search, AND terms)
 
         // Handle exact phrase search with quotes
         const quotedPhrases = searchQuery.match(/"([^"]+)"/g);
@@ -299,17 +423,9 @@ class SearchEngine {
             // Build search text based on selected fields
             const searchFields = [];
 
-            // Always include town and room for context
-            searchFields.push(item.town, item.room || '');
-
-            // Add item name if checkbox is checked
+            // Only search in selected fields (no automatic town/room)
             if (filters.searchFieldName) {
                 searchFields.push(item.name);
-            }
-
-            // Add material if checkbox is checked
-            if (filters.searchFieldMaterial) {
-                searchFields.push(item.material || '');
             }
 
             // Add properties (raw, tags, enhancives, gemstones) if checkbox is checked
@@ -330,6 +446,15 @@ class SearchEngine {
             // Add shop sign if checkbox is checked
             if (filters.searchShopSigns && item.shopSign) {
                 searchFields.push(item.shopSign);
+            }
+
+            // If no fields selected, fallback to searching everything
+            if (searchFields.length === 0) {
+                searchFields.push(
+                    item.name,
+                    ...(item.raw || []),
+                    ...(item.tags || [])
+                );
             }
 
             const customSearchText = searchFields.join(' ').toLowerCase();
@@ -483,6 +608,7 @@ class SearchEngine {
 
         this.updateSortIndicators();
         this.performSearch();
+        this.updateURLState();
     }
 
     updateSortIndicators() {
@@ -1111,6 +1237,7 @@ class SearchEngine {
             this.currentPage--;
             this.displayResults();
             this.updatePagination();
+            this.updateURLState();
         }
     }
 
@@ -1120,6 +1247,7 @@ class SearchEngine {
             this.currentPage++;
             this.displayResults();
             this.updatePagination();
+            this.updateURLState();
         }
     }
 

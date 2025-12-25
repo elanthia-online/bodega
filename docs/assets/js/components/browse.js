@@ -163,6 +163,11 @@ class BrowseEngine {
         document.getElementById('pagination').style.display = 'flex';
         document.getElementById('pagination-top').style.display = 'flex';
 
+        // Update URL to search mode (clear to base path or set mode=search)
+        if (window.urlStateManager && window.searchEngine) {
+            window.searchEngine.updateURLState();
+        }
+
         // Hide browse sort mode toggle
         const sortModeToggle = document.getElementById('browse-sort-mode-toggle');
         if (sortModeToggle) sortModeToggle.style.display = 'none';
@@ -223,6 +228,14 @@ class BrowseEngine {
         } else {
             // Ensure a town is selected when switching to browse mode
             this.ensureTownSelected();
+        }
+
+        // Update URL to browse mode
+        if (window.urlStateManager) {
+            window.urlStateManager.updateBrowseURL({
+                town: this.currentTown,
+                shop: this.currentShop
+            });
         }
     }
 
@@ -415,6 +428,13 @@ class BrowseEngine {
         this.currentShop = null;
         this.showShopList(townName);
         this.hideRoomList();
+
+        // Update URL with town only
+        if (window.urlStateManager) {
+            window.urlStateManager.updateBrowseURL({
+                town: townName
+            });
+        }
     }
 
     showShopList(townName) {
@@ -559,8 +579,16 @@ class BrowseEngine {
         this.showRoomList(townName, shopName);
         this.showRoomInventory(townName, shopName);
 
-        // Update URL hash
-        this.updateUrlHash(townName, shopName);
+        // Update URL using state manager
+        if (window.urlStateManager) {
+            window.urlStateManager.updateBrowseURL({
+                town: townName,
+                shop: shopName
+            });
+        } else {
+            // Fallback to hash for backward compatibility
+            this.updateUrlHash(townName, shopName);
+        }
     }
 
     showRoomList(townName, shopName) {
@@ -1160,8 +1188,15 @@ class BrowseEngine {
         // Hide the room list sidebar
         this.hideRoomList();
 
-        // Clear URL hash
-        this.clearUrlHash();
+        // Clear shop from URL
+        if (window.urlStateManager && this.currentTown) {
+            window.urlStateManager.updateBrowseURL({
+                town: this.currentTown
+            });
+        } else {
+            // Fallback to hash for backward compatibility
+            this.clearUrlHash();
+        }
 
         // Check if we have an active search
         const searchQuery = document.getElementById('shop-sign-search-input').value.trim();
