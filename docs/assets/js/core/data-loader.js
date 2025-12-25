@@ -501,6 +501,45 @@ class DataLoader {
             }
         });
 
+        // Forged quality detection
+        if (item.details?.forged_avd && item.details?.forged_by) {
+            properties.forgedAvd = parseInt(item.details.forged_avd);
+            properties.forgedBy = item.details.forged_by;
+
+            // Extract quality from item name (check all possible quality names)
+            const name = item.name?.toLowerCase() || '';
+            const qualityTiers = [
+                'perfect',                                    // +3 AvD
+                'superior', 'hefty', 'nifty', 'exquisite', 'well-crafted',  // +2 AvD (race-dependent)
+                'elegant', 'well-made',                      // +1 AvD
+                'fine', 'nice', 'plain',                     // 0 AvD
+                'simple',                                     // -1 AvD
+                'crude',                                      // -2 AvD
+                'flimsy', 'lop-sided'                        // -3 AvD
+            ];
+
+            for (const tier of qualityTiers) {
+                if (name.includes(tier)) {
+                    properties.forgedQuality = tier;
+                    break;
+                }
+            }
+
+            // Fallback: derive default quality name from AvD if name doesn't contain quality
+            if (!properties.forgedQuality) {
+                const avidMap = {
+                    3: 'perfect',
+                    2: 'superior',
+                    1: 'elegant',
+                    0: 'fine',
+                    '-1': 'simple',
+                    '-2': 'crude',
+                    '-3': 'flimsy'
+                };
+                properties.forgedQuality = avidMap[properties.forgedAvd] || 'unknown';
+            }
+        }
+
         // Container detection by item name - check the item's name for container keywords
         // This is separate from capacity detection above, which checks recall text for storage info
         if (!properties.isContainer && item.name) {

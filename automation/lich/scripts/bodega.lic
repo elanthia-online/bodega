@@ -284,6 +284,8 @@ module Bodega
       crit_weighting: %r[(?<crit_weighting>lightly|somewhat|fairly|heavily|very heavily|exceptionally) weighted to inflict more critical wounds],
       # RANGED: Sighting (captures descriptor)
       sighting: %r[(?<sighting>somewhat|fairly|heavily|very heavily) sighted to assist in aiming],
+      # FORGED: Quality tier from forging (captures forger name and AvD bonus, can be negative)
+      forged_by: %r[It is forged by (?<forged_by>.*?) and has (?:increased|decreased) \((?<forged_avd>[+-]?\d+)\) effectiveness in combat],
     }
 
     def self.of(details)
