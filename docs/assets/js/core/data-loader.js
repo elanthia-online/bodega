@@ -150,7 +150,6 @@ class DataLoader {
         this.removedItems = [];
         this.addedItems = [];
         this.towns = [];
-        this.townTimestamps = {};
         this.totalShops = 0;
         let oldestUpdate = null;
 
@@ -162,12 +161,11 @@ class DataLoader {
             this.towns.push(cleanTownName);
             this.totalShops += townData.shops.length;
 
-            // Track per-town update time
+            // Track oldest update time
             if (townData.created_at) {
                 // Convert "2025-10-06 00:50:25 UTC" to ISO 8601 format for Safari compatibility
                 const isoDate = townData.created_at.replace(' UTC', 'Z').replace(' ', 'T');
                 const updateTime = new Date(isoDate);
-                this.townTimestamps[townData.town] = updateTime;
 
                 if (!oldestUpdate || updateTime < oldestUpdate) {
                     oldestUpdate = updateTime;
@@ -695,125 +693,6 @@ class DataLoader {
             document.getElementById('last-updated').textContent =
                 this.lastUpdated.toLocaleDateString() + ' ' + this.lastUpdated.toLocaleTimeString();
         }
-
-        // Add detailed town timestamp info
-        this.updateTownTimestamps();
-    }
-
-    updateTownTimestamps() {
-        const timestampContainer = document.getElementById('town-timestamps') || this.createTimestampContainer();
-
-        // Sort towns by most recent update
-        const sortedTowns = Object.keys(this.townTimestamps)
-            .sort((a, b) => this.townTimestamps[b] - this.townTimestamps[a]);
-
-        if (sortedTowns.length === 0) {
-            timestampContainer.innerHTML = '<div class="ticker-content">No town data available</div>';
-            return;
-        }
-
-        // Build ticker content - each town with proper spacing
-        const tickerItems = sortedTowns.map((town) => {
-            const timestamp = this.townTimestamps[town];
-            const timeAgo = this.getTimeAgo(timestamp);
-            return `<span class="ticker-item"><strong>${town}:</strong> ${timeAgo}</span>`;
-        }).join('');
-
-        // Create ticker with 3 duplicates for seamless JavaScript-controlled loop
-        const duplicatedContent = Array(3).fill(tickerItems).join('');
-
-        timestampContainer.innerHTML = `
-            <div class="ticker-wrapper">
-                <div class="ticker-label">Town Updates:</div>
-                <div class="ticker-scroll-wrapper">
-                    <div class="ticker-content" id="ticker-content">
-                        ${duplicatedContent}
-                    </div>
-                </div>
-            </div>
-        `;
-
-        // Start JavaScript-based smooth scrolling
-        this.startSmoothTicker();
-    }
-
-    startSmoothTicker() {
-        const tickerContent = document.getElementById('ticker-content');
-        if (!tickerContent) return;
-
-        let position = 0;
-        const speed = 0.125; // pixels per frame - adjust for speed
-        let animationId;
-        let isPaused = false;
-
-        // Calculate reset point: when set 2 reaches where set 1 started
-        // With 3 duplicates, reset when we've scrolled 1/3 of the total width
-        const measureWidth = () => {
-            const totalWidth = tickerContent.scrollWidth;
-            return totalWidth / 3; // Reset point: one set width
-        };
-
-        let resetPoint = measureWidth();
-
-        const animate = () => {
-            if (!isPaused) {
-                position += speed;
-
-                // Reset when second set reaches start position (seamless)
-                if (position >= resetPoint) {
-                    position = 0;
-                }
-
-                tickerContent.style.transform = `translateX(-${position}px)`;
-            }
-
-            animationId = requestAnimationFrame(animate);
-        };
-
-        // Pause on hover
-        const wrapper = tickerContent.closest('.ticker-scroll-wrapper');
-        if (wrapper) {
-            wrapper.addEventListener('mouseenter', () => { isPaused = true; });
-            wrapper.addEventListener('mouseleave', () => { isPaused = false; });
-        }
-
-        // Handle window resize - recalculate reset point
-        window.addEventListener('resize', () => {
-            resetPoint = measureWidth();
-        });
-
-        // Start animation
-        animate();
-
-        // Store animation ID for cleanup if needed
-        this.tickerAnimationId = animationId;
-    }
-
-    createTimestampContainer() {
-        const container = document.createElement('div');
-        container.id = 'town-timestamps';
-        container.className = 'town-timestamps-ticker';
-
-        // Insert after the main stats
-        const stats = document.getElementById('stats');
-        stats.parentNode.insertBefore(container, stats.nextSibling);
-
-        return container;
-    }
-
-    getTimeAgo(date) {
-        const now = new Date();
-        const diffMs = now - date;
-        const diffMins = Math.floor(diffMs / 60000);
-        const diffHours = Math.floor(diffMs / 3600000);
-        const diffDays = Math.floor(diffMs / 86400000);
-
-        if (diffMins < 1) return 'just now';
-        if (diffMins < 60) return `${diffMins}m ago`;
-        if (diffHours < 24) return `${diffHours}h ago`;
-        if (diffDays < 7) return `${diffDays}d ago`;
-
-        return date.toLocaleDateString();
     }
 
     populateTownFilter() {
