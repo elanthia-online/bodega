@@ -502,11 +502,26 @@ class DataLoader {
         });
 
         // Forged quality detection
+        // Try details first (from bodega.lic extraction), then fall back to raw text parsing
         if (item.details?.forged_avd && item.details?.forged_by) {
             properties.forgedAvd = parseInt(item.details.forged_avd);
             properties.forgedBy = item.details.forged_by;
+        } else if (item.details?.raw) {
+            // Fallback: parse raw text for forging info (for data scanned before forged_by regex was added)
+            const forgedLine = item.details.raw.find(line =>
+                line.match(/It is forged by (.*?) and has (?:increased|decreased) \(([+-]?\d+)\) effectiveness in combat/i)
+            );
+            if (forgedLine) {
+                const match = forgedLine.match(/It is forged by (.*?) and has (?:increased|decreased) \(([+-]?\d+)\) effectiveness in combat/i);
+                if (match) {
+                    properties.forgedBy = match[1];
+                    properties.forgedAvd = parseInt(match[2]);
+                }
+            }
+        }
 
-            // Extract quality from item name (check all possible quality names)
+        // Extract quality tier from name or derive from AvD
+        if (properties.forgedAvd !== undefined) {
             const name = item.name?.toLowerCase() || '';
             const qualityTiers = [
                 'perfect',                                    // +3 AvD
