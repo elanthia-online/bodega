@@ -566,6 +566,9 @@ class SearchEngine {
                     const hasNotHoldingText = item.raw && item.raw.some(line => line.includes('But you are not holding'));
                     if (!priceInRange || !hasNotHoldingText) return false;
                 }
+                if (prop === 'forged') {
+                    if (!item.forgedQuality && !item.forgedAvd) return false;
+                }
             }
         }
 
@@ -864,6 +867,12 @@ class SearchEngine {
         if (item.blessing) detectedProps.holy = true;
         if (item.flares && item.flares.length > 0) detectedProps.flares = true;
         if (item.enhancives && item.enhancives.length > 0) detectedProps.enhancive = true;
+
+        // Merge forged quality
+        if (item.forgedQuality) {
+            const qualityTagId = `forged_${item.forgedQuality.replace(/\s+/g, '_')}`;
+            detectedProps[qualityTagId] = true;
+        }
 
         // Chrism detection: price 1k-20k AND "But you are not holding" in raw text
         if (item.price >= 1000 && item.price <= 20000 && item.raw && item.raw.some(line => line.includes('But you are not holding'))) {
