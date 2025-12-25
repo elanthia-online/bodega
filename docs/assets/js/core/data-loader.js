@@ -559,7 +559,8 @@ class DataLoader {
                 'edged weapons', 'blunt weapons', 'two handed weapons', 'twohanded weapons',
                 'polearms', 'ranged weapons', 'thrown weapons', 'brawling'
             ];
-            if (weaponSkills.includes(properties.skill)) {
+            // Check if skill contains any weapon skill keyword (handles combined skills like "brawling and one-handed edged weapons")
+            if (weaponSkills.some(weaponSkill => properties.skill.includes(weaponSkill))) {
                 properties.isWeapon = true;
                 properties.weaponType = properties.skill;
             }
