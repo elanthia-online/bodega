@@ -114,6 +114,11 @@ class RemovedEngine {
         } else {
             this.performSearch();
         }
+
+        // Update URL to removed mode
+        if (window.urlStateManager) {
+            this.updateURLState();
+        }
     }
 
     initializeRemovedData() {
@@ -136,6 +141,17 @@ class RemovedEngine {
         this.currentPage = 1; // Reset to first page when searching
         this.displayResults();
         this.updateResultsHeader();
+        this.updateURLState();
+    }
+
+    updateURLState() {
+        if (!window.urlStateManager) return;
+
+        window.urlStateManager.updateRemovedURL({
+            days: document.getElementById('removed-date-filter')?.value,
+            query: document.getElementById('removed-search-input')?.value,
+            priceRange: document.getElementById('removed-price-filter')?.value
+        });
     }
 
     getFilters() {

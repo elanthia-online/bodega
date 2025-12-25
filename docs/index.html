@@ -71,18 +71,13 @@
                         </div>
 
                         <div class="search-field-filters">
-                            <label class="field-filter-label">Search in:</label>
                             <label class="checkbox-label">
                                 <input type="checkbox" id="search-field-name" checked />
-                                Item Name
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" id="search-field-material" checked />
-                                Material
+                                Names
                             </label>
                             <label class="checkbox-label">
                                 <input type="checkbox" id="search-field-properties" checked />
-                                Properties
+                                Details
                             </label>
                             <label class="checkbox-label">
                                 <input type="checkbox" id="search-shop-signs" />
@@ -105,10 +100,16 @@
                                     <strong>multiple terms</strong> - All terms must match (AND search)
                                 </div>
                                 <div class="search-tip">
-                                    <strong>Field Filters</strong> - Use checkboxes to search specific fields only
+                                    <strong>OR Search</strong> - Use "fire OR ice" to match either term
                                 </div>
                                 <div class="search-tip">
-                                    Uncheck "Item Name" to exclude name from search (useful for finding "paint" items without "painted" in name)
+                                    <strong>NOT Search</strong> - Use "fire -cursed" to exclude terms
+                                </div>
+                                <div class="search-tip">
+                                    <strong>Field Filters</strong> - Enable Details to search in item descriptions, tags, and stats
+                                </div>
+                                <div class="search-tip">
+                                    Enable Shop Signs to search shop sign text
                                 </div>
                             </div>
                         </div>
@@ -541,6 +542,7 @@
     <script src="assets/js/config/tag-categories.js"></script>
     <script src="assets/js/core/theme.js"></script>
     <script src="assets/js/core/tooltip.js"></script>
+    <script src="assets/js/core/url-state-manager.js"></script>
     <script src="assets/js/core/data-loader.js"></script>
     <script src="assets/js/components/search.js"></script>
     <script src="assets/js/components/browse.js"></script>
