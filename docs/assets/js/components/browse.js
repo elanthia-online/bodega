@@ -1036,6 +1036,7 @@ class BrowseEngine {
                     if (tagColor) {
                         tag.style.color = tagColor;
                         tag.style.borderColor = tagColor;
+                        tag.style.backgroundColor = 'transparent';
                     }
                     tag.textContent = tagId.charAt(0).toUpperCase() + tagId.slice(1);
                     container.appendChild(tag);
