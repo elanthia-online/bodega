@@ -66,6 +66,16 @@ const TAG_DEFINITIONS = {
         category: "item_type",
         description: "Item is a shield"
     },
+    container: {
+        label: "Container",
+        category: "item_type",
+        description: "Item is a container"
+    },
+    jewelry: {
+        label: "Jewelry",
+        category: "item_type",
+        description: "Item is jewelry (ring, necklace, etc.)"
+    },
     runestaff: {
         label: "Runestaff",
         category: "item_type",
@@ -268,7 +278,7 @@ const TAG_DEFINITIONS = {
  */
 const DEFAULT_TAG_ORDER = [
     // Item Type (gray)
-    'weapon', 'armor', 'shield', 'runestaff', 'weapon_type', 'armor_type', 'shield_type',
+    'weapon', 'armor', 'shield', 'container', 'jewelry', 'runestaff', 'weapon_type', 'armor_type', 'shield_type',
     // Magical (purple)
     'enchant', 'flares', 'sanctify', 'ensorcell', 'holy', 'gub',
     // Combat (red)
