@@ -600,6 +600,12 @@ input::placeholder {
 }
 
 /* Tag Category Styles - using CSS variables for configurability */
+.property-tag.cat-item_type {
+    background: var(--bg-tertiary);
+    color: var(--cat-item_type-color);
+    border: 1px solid var(--cat-item_type-color);
+}
+
 .property-tag.cat-combat {
     background: var(--bg-tertiary);
     color: var(--cat-combat-color);

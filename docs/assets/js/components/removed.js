@@ -400,7 +400,7 @@ class RemovedEngine {
             if (['weapon', 'armor', 'shield', 'container', 'jewelry'].includes(tagId)) {
                 if (detectedProps[tagId] && (typeof isTagVisible !== 'function' || isTagVisible(tagId))) {
                     const tag = document.createElement('span');
-                    tag.className = 'property-tag';
+                    tag.className = 'property-tag cat-item_type';
                     tag.dataset.category = 'item_type';
                     const tagColor = typeof getTagColor === 'function' ? getTagColor(tagId) : null;
                     if (tagColor) {
@@ -418,12 +418,13 @@ class RemovedEngine {
             if (tagId === 'enchant') {
                 if (detectedProps.enchant && (typeof isTagVisible !== 'function' || isTagVisible('enchant'))) {
                     const tag = document.createElement('span');
-                    tag.className = 'property-tag';
+                    tag.className = 'property-tag cat-magical';
                     tag.dataset.category = 'magical';
                     const tagColor = typeof getTagColor === 'function' ? getTagColor('enchant') : null;
                     if (tagColor) {
                         tag.style.color = tagColor;
                         tag.style.borderColor = tagColor;
+                        tag.style.backgroundColor = 'transparent';
                     }
                     tag.textContent = `+${detectedProps.enchant}`;
                     container.appendChild(tag);
