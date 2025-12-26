@@ -350,37 +350,14 @@ class RemovedEngine {
         // Use the same property element creation as search engine
         const container = document.createElement('div');
 
-        // Basic tags
-        if (item.itemType && (typeof isTagVisible !== 'function' || isTagVisible(item.itemType))) {
-            const tag = document.createElement('span');
-            tag.className = 'property-tag';
-            tag.dataset.category = 'item_type';
-            const tagColor = typeof getTagColor === 'function' ? getTagColor(item.itemType) : null;
-            if (tagColor) {
-                tag.style.color = tagColor;
-                tag.style.borderColor = tagColor;
-            }
-            tag.textContent = item.itemType.charAt(0).toUpperCase() + item.itemType.slice(1);
-            container.appendChild(tag);
-        }
-
-        if (item.enchant && (typeof isTagVisible !== 'function' || isTagVisible('enchant'))) {
-            const tag = document.createElement('span');
-            tag.className = 'property-tag';
-            tag.dataset.category = 'magical';
-            const tagColor = typeof getTagColor === 'function' ? getTagColor('enchant') : null;
-            if (tagColor) {
-                tag.style.color = tagColor;
-                tag.style.borderColor = tagColor;
-            }
-            tag.textContent = `+${item.enchant}`;
-            container.appendChild(tag);
-        }
-
-        // Detect and display special properties from raw text
+        // Collect all properties that should be displayed
         const detectedProps = typeof detectPropertiesFromRaw === 'function'
             ? detectPropertiesFromRaw(item.raw)
             : {};
+
+        // Add item type tags to detectedProps
+        if (item.itemType) detectedProps[item.itemType] = true;
+        if (item.enchant) detectedProps.enchant = item.enchant;
 
         // Merge with existing extracted properties from the data
         if (item.td_bonus) detectedProps.td_bonus = item.td_bonus;
@@ -419,6 +396,40 @@ class RemovedEngine {
             : (typeof TAG_DEFINITIONS !== 'undefined' ? Object.keys(TAG_DEFINITIONS) : []);
 
         orderedTags.forEach(tagId => {
+            // Special handling for item type tags (weapon, armor, shield, container, jewelry)
+            if (['weapon', 'armor', 'shield', 'container', 'jewelry'].includes(tagId)) {
+                if (detectedProps[tagId] && (typeof isTagVisible !== 'function' || isTagVisible(tagId))) {
+                    const tag = document.createElement('span');
+                    tag.className = 'property-tag';
+                    tag.dataset.category = 'item_type';
+                    const tagColor = typeof getTagColor === 'function' ? getTagColor(tagId) : null;
+                    if (tagColor) {
+                        tag.style.color = tagColor;
+                        tag.style.borderColor = tagColor;
+                    }
+                    tag.textContent = tagId.charAt(0).toUpperCase() + tagId.slice(1);
+                    container.appendChild(tag);
+                }
+                return;
+            }
+
+            // Special handling for enchant
+            if (tagId === 'enchant') {
+                if (detectedProps.enchant && (typeof isTagVisible !== 'function' || isTagVisible('enchant'))) {
+                    const tag = document.createElement('span');
+                    tag.className = 'property-tag';
+                    tag.dataset.category = 'magical';
+                    const tagColor = typeof getTagColor === 'function' ? getTagColor('enchant') : null;
+                    if (tagColor) {
+                        tag.style.color = tagColor;
+                        tag.style.borderColor = tagColor;
+                    }
+                    tag.textContent = `+${detectedProps.enchant}`;
+                    container.appendChild(tag);
+                }
+                return;
+            }
+
             // Special handling for 'enhancive' - display individual enhancive stats
             if (tagId === 'enhancive') {
                 const enhancivesVisible = typeof isTagEnabled === 'function' ? isTagEnabled('enhancive') : true;
