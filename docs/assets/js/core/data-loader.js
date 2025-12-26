@@ -395,7 +395,12 @@ class DataLoader {
                              line.match(/robe.*covers/i) ||
                              line.match(/robes.*cover/i);
             if (armorMatch) {
-                properties.armorType = armorMatch[1] ? armorMatch[1].toLowerCase() : 'armor';
+                let armorType = armorMatch[1] ? armorMatch[1].toLowerCase() : 'armor';
+                // Rename miscellaneous to accessory
+                if (armorType === 'miscellaneous') {
+                    armorType = 'accessory';
+                }
+                properties.armorType = armorType;
                 properties.isArmor = true;
             }
 
@@ -405,9 +410,9 @@ class DataLoader {
             if (line.match(/shield that protects/i)) {
                 properties.isShield = true;
             } else if (line.match(/is a.*shield/i)) {
-                // Only match SHORT shield types (1-3 words), not entire sentences
-                const shieldMatch = line.match(/is a ((?:\w+\s+){0,2}\w+) shield/i);
-                if (shieldMatch && shieldMatch[1].length < 50) {
+                // Extract shield size (small, medium, large, tower)
+                const shieldMatch = line.match(/is a (small|medium|large|tower) shield/i);
+                if (shieldMatch) {
                     properties.isShield = true;
                     properties.shieldType = shieldMatch[1].toLowerCase();
                 }
@@ -477,13 +482,6 @@ class DataLoader {
                                line.match(/looks to have (.*?) charges/i);
             if (chargesMatch) {
                 properties.charges = chargesMatch[1];
-            }
-
-            // Item type detection - be more specific
-            if (line.match(/is.*jewelry/i) ||
-                line.match(/\b(ring|necklace|bracelet|earring|pendant|amulet|brooch|pin)\b/i)) {
-                properties.isJewelry = true;
-                properties.itemType = 'jewelry';
             }
 
             // Container detection - only if it has storage capacity
@@ -586,11 +584,11 @@ class DataLoader {
             const skill = item.details.skill.toLowerCase();
             if (skill === 'shield use') {
                 properties.isShield = true;
-                properties.shieldType = 'shield';
+                // Don't set a generic fallback - we want specific sizes only
             }
             if (skill === 'armor use') {
                 properties.isArmor = true;
-                properties.armorType = 'armor';
+                // Don't set generic 'armor' - we want specific types only
             }
         }
 
@@ -601,15 +599,14 @@ class DataLoader {
 
         // Determine primary item type with proper priority
         if (!properties.itemType) {
-            // Priority order: Weapon > Armor > Shield > Container > Jewelry > Gemstone > Misc
+            // Priority order: Weapon > Armor > Shield > Container > Gemstone
             // Weapons and armor should take precedence over container classification
             if (properties.isWeapon) properties.itemType = 'weapon';
             else if (properties.isArmor) properties.itemType = 'armor';
             else if (properties.isShield) properties.itemType = 'shield';
             else if (properties.isContainer) properties.itemType = 'container';
-            else if (properties.isJewelry) properties.itemType = 'jewelry';
             else if (properties.isGemstone) properties.itemType = 'gemstone';
-            // No default itemType assignment
+            // No default itemType assignment - jewelry items will not have an itemType
         }
 
         return properties;

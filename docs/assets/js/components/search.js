@@ -69,15 +69,13 @@ class SearchEngine {
         this.multiSelectFilters = {
             town: new MultiSelectFilter('town-filter', 'town-tags'),
             price: new MultiSelectFilter('price-filter', 'price-tags'),
-            itemType: new MultiSelectFilter('item-type-filter', 'item-type-tags'),
             enchant: new MultiSelectFilter('enchant-filter', 'enchant-tags'),
             capacity: new MultiSelectFilter('capacity-filter', 'capacity-tags'),
             armorType: new MultiSelectFilter('armor-type-filter', 'armor-type-tags'),
             shieldType: new MultiSelectFilter('shield-type-filter', 'shield-type-tags'),
             wearLocation: new MultiSelectFilter('wear-location-filter', 'wear-location-tags'),
             skill: new MultiSelectFilter('skill-filter', 'skill-tags'),
-            gemstoneRarity: new MultiSelectFilter('gemstone-rarity-filter', 'gemstone-rarity-tags'),
-            gemstoneProperties: new MultiSelectFilter('gemstone-properties-filter', 'gemstone-properties-tags'),
+            gemstone: new MultiSelectFilter('gemstone-filter', 'gemstone-tags'),
             specialProperties: new MultiSelectFilter('special-properties-filter', 'special-properties-tags')
         };
 
@@ -229,7 +227,6 @@ class SearchEngine {
             searchShopSigns: filters.searchShopSigns,
             towns: filters.towns,
             priceRanges: filters.priceRanges,
-            itemTypes: filters.itemTypes,
             enchantLevels: filters.enchantLevels,
             capacityLevels: filters.capacityLevels,
             armorTypes: filters.armorTypes,
@@ -237,8 +234,7 @@ class SearchEngine {
             wearLocations: filters.wearLocations,
             skills: filters.skills,
             specialProperties: filters.specialProperties,
-            gemstoneRarities: filters.gemstoneRarities,
-            gemstonePropertyCounts: filters.gemstonePropertyCounts,
+            gemstones: filters.gemstones,
             sortField: this.currentSort.field,
             sortDirection: this.currentSort.direction,
             page: this.currentPage
@@ -254,15 +250,13 @@ class SearchEngine {
             towns: this.multiSelectFilters.town.getSelectedValues(),
             priceRanges: this.multiSelectFilters.price.getSelectedValues(),
             enchantLevels: this.multiSelectFilters.enchant.getSelectedValues(),
-            itemTypes: this.multiSelectFilters.itemType.getSelectedValues(),
             capacityLevels: this.multiSelectFilters.capacity.getSelectedValues(),
             armorTypes: this.multiSelectFilters.armorType.getSelectedValues(),
             shieldTypes: this.multiSelectFilters.shieldType.getSelectedValues(),
             wearLocations: this.multiSelectFilters.wearLocation.getSelectedValues(),
             skills: this.multiSelectFilters.skill.getSelectedValues(),
             specialProperties: this.multiSelectFilters.specialProperties.getSelectedValues(),
-            gemstoneRarities: this.multiSelectFilters.gemstoneRarity.getSelectedValues(),
-            gemstonePropertyCounts: this.multiSelectFilters.gemstoneProperties.getSelectedValues()
+            gemstones: this.multiSelectFilters.gemstone.getSelectedValues()
         };
     }
 
@@ -482,72 +476,170 @@ class SearchEngine {
             if (!matchesAnyRange) return false;
         }
 
-        // Enchant filter - now supports multiple selections
+        // Enchant filter - supports levels and boolean enchanted/not enchanted
         if (filters.enchantLevels.length > 0) {
             let matchesEnchant = false;
             for (const level of filters.enchantLevels) {
-                const minEnchant = parseInt(level);
-                if (item.enchant && item.enchant >= minEnchant) {
-                    matchesEnchant = true;
-                    break;
+                if (level === 'enchanted') {
+                    // Any enchantment
+                    if (item.enchant && item.enchant > 0) {
+                        matchesEnchant = true;
+                        break;
+                    }
+                } else if (level === '!enchanted') {
+                    // No enchantment
+                    if (!item.enchant || item.enchant === 0) {
+                        matchesEnchant = true;
+                        break;
+                    }
+                } else {
+                    // Level-based (existing logic)
+                    const minEnchant = parseInt(level);
+                    if (item.enchant && item.enchant >= minEnchant) {
+                        matchesEnchant = true;
+                        break;
+                    }
                 }
             }
             if (!matchesEnchant) return false;
         }
 
-        // Item type filter - now supports multiple selections
-        if (filters.itemTypes.length > 0) {
-            let matchesType = false;
-            for (const type of filters.itemTypes) {
-                if (type === 'gemstone') {
-                    // For gemstone filter, check if item has gemstone properties or itemType is gemstone
-                    if ((item.gemstoneProperties && item.gemstoneProperties.length > 0) || item.itemType === 'gemstone') {
-                        matchesType = true;
+        // Container filter - supports multiple selections and negation
+        if (filters.capacityLevels.length > 0) {
+            let matchesContainer = false;
+            for (const level of filters.capacityLevels) {
+                if (level.startsWith('!')) {
+                    // "!container" means exclude all containers
+                    if (item.itemType !== 'container') {
+                        matchesContainer = true;
+                        break;
+                    }
+                } else if (level === 'container') {
+                    // "container" means any container
+                    if (item.itemType === 'container') {
+                        matchesContainer = true;
                         break;
                     }
                 } else {
-                    // For other item types, use normal filtering
-                    if (item.itemType === type) {
-                        matchesType = true;
+                    // Specific capacity level
+                    if (item.capacityLevel === level) {
+                        matchesContainer = true;
                         break;
                     }
                 }
             }
-            if (!matchesType) return false;
+            if (!matchesContainer) return false;
         }
 
-        // Capacity filter - now supports multiple selections
-        if (filters.capacityLevels.length > 0 && !filters.capacityLevels.includes(item.capacityLevel)) {
-            return false;
+        // Armor type filter - now supports multiple selections and negation
+        if (filters.armorTypes.length > 0) {
+            let matchesArmor = false;
+            for (const type of filters.armorTypes) {
+                // Handle negated filters (e.g., "!armor" means "not armor")
+                if (type.startsWith('!')) {
+                    const excludeType = type.substring(1);
+                    if (item.itemType !== excludeType) {
+                        matchesArmor = true;
+                        break;
+                    }
+                } else if (type === 'armor') {
+                    // "armor" means any armor
+                    if (item.itemType === 'armor') {
+                        matchesArmor = true;
+                        break;
+                    }
+                } else {
+                    // Specific armor type
+                    if (item.armorType === type) {
+                        matchesArmor = true;
+                        break;
+                    }
+                }
+            }
+            if (!matchesArmor) return false;
         }
 
-        // Armor type filter - now supports multiple selections
-        if (filters.armorTypes.length > 0 && !filters.armorTypes.includes(item.armorType)) {
-            return false;
-        }
-
-        // Shield type filter - now supports multiple selections
+        // Shield type filter - now supports multiple selections and negation
         if (filters.shieldTypes.length > 0) {
-            if (!item.shieldType) return false;
-            const matchesShield = filters.shieldTypes.some(type => item.shieldType.includes(type));
+            let matchesShield = false;
+            for (const type of filters.shieldTypes) {
+                // Handle negated filters (e.g., "!shield" means "not a shield")
+                if (type.startsWith('!')) {
+                    const excludeType = type.substring(1);
+                    if (item.itemType !== excludeType) {
+                        matchesShield = true;
+                        break;
+                    }
+                } else if (type === 'shield') {
+                    // "shield" means any shield
+                    if (item.itemType === 'shield') {
+                        matchesShield = true;
+                        break;
+                    }
+                } else {
+                    // Specific shield size
+                    if (item.shieldType && item.shieldType.includes(type)) {
+                        matchesShield = true;
+                        break;
+                    }
+                }
+            }
             if (!matchesShield) return false;
         }
 
-        // Wear location filter - now supports multiple selections
+        // Worn filter - supports multiple selections and negation
         if (filters.wearLocations.length > 0) {
-            if (!item.wearLocation && !item.worn) return false;
-            const itemLoc = (item.wearLocation || item.worn || '').toLowerCase();
-            const matchesWear = filters.wearLocations.some(loc => itemLoc.includes(loc.toLowerCase()));
-            if (!matchesWear) return false;
+            let matchesWorn = false;
+            for (const loc of filters.wearLocations) {
+                if (loc.startsWith('!')) {
+                    // "!worn" means item is not worn anywhere
+                    if (!item.wearLocation && !item.worn) {
+                        matchesWorn = true;
+                        break;
+                    }
+                } else if (loc === 'worn') {
+                    // "worn" means worn anywhere
+                    if (item.wearLocation || item.worn) {
+                        matchesWorn = true;
+                        break;
+                    }
+                } else {
+                    // Specific wear location
+                    const itemLoc = (item.wearLocation || item.worn || '').toLowerCase();
+                    if (itemLoc.includes(loc.toLowerCase())) {
+                        matchesWorn = true;
+                        break;
+                    }
+                }
+            }
+            if (!matchesWorn) return false;
         }
 
-        // Skill filter - now supports multiple selections
+        // Weapon filter - supports multiple selections and negation
         if (filters.skills.length > 0) {
-            if (!item.skill) return false;
-            const matchesSkill = filters.skills.some(skill =>
-                item.skill.toLowerCase().includes(skill.toLowerCase())
-            );
-            if (!matchesSkill) return false;
+            let matchesWeapon = false;
+            for (const skill of filters.skills) {
+                if (skill.startsWith('!')) {
+                    // "!weapon" means exclude all weapons
+                    if (item.itemType !== 'weapon') {
+                        matchesWeapon = true;
+                        break;
+                    }
+                } else if (skill === 'weapon') {
+                    // "weapon" means any weapon
+                    if (item.itemType === 'weapon') {
+                        matchesWeapon = true;
+                        break;
+                    }
+                } else {
+                    // Specific weapon skill
+                    if (item.skill && item.skill.toLowerCase().includes(skill.toLowerCase())) {
+                        matchesWeapon = true;
+                        break;
+                    }
+                }
+            }
+            if (!matchesWeapon) return false;
         }
 
         // Special properties - now supports multiple selections (ALL must match)
@@ -557,6 +649,7 @@ class SearchEngine {
                 if (prop === 'persists' && (!item.tags || !item.tags.includes('persists'))) return false;
                 if (prop === 'crumbly' && (!item.tags || !item.tags.includes('crumbly'))) return false;
                 if (prop === 'flares' && (!item.flares || item.flares.length === 0)) return false;
+                if (prop === 'spiked' && (!item.tags || !item.tags.includes('spiked'))) return false;
                 if (prop === 'holy' && !item.blessing) return false;
                 if (prop === 'max_light' && (!item.tags || !item.tags.includes('max_light'))) return false;
                 if (prop === 'max_deep' && (!item.tags || !item.tags.includes('max_deep'))) return false;
@@ -572,23 +665,40 @@ class SearchEngine {
             }
         }
 
-        // Gemstone rarity filter - now supports multiple selections
-        if (filters.gemstoneRarities.length > 0) {
-            if (!item.gemstoneProperties || item.gemstoneProperties.length === 0) return false;
-            const hasMatchingRarity = item.gemstoneProperties.some(prop =>
-                prop.rarity && filters.gemstoneRarities.includes(prop.rarity.toLowerCase())
-            );
-            if (!hasMatchingRarity) return false;
-        }
-
-        // Gemstone property count filter - now supports multiple selections
-        if (filters.gemstonePropertyCounts.length > 0) {
-            if (!item.gemstoneProperties) return false;
-            const itemPropCount = item.gemstoneProperties.length;
-            const matchesCount = filters.gemstonePropertyCounts.some(count =>
-                itemPropCount === parseInt(count)
-            );
-            if (!matchesCount) return false;
+        // Gemstone filter - combines rarity and property count with negation
+        if (filters.gemstones.length > 0) {
+            let matchesGemstone = false;
+            for (const filter of filters.gemstones) {
+                if (filter.startsWith('!')) {
+                    // "!gemstone" means exclude all gemstones
+                    if (!item.gemstoneProperties || item.gemstoneProperties.length === 0) {
+                        matchesGemstone = true;
+                        break;
+                    }
+                } else if (filter === 'gemstone') {
+                    // "gemstone" means any gemstone
+                    if (item.gemstoneProperties && item.gemstoneProperties.length > 0) {
+                        matchesGemstone = true;
+                        break;
+                    }
+                } else if (filter.endsWith('prop')) {
+                    // Property count filter (e.g., "1prop", "2prop", "3prop")
+                    const count = parseInt(filter);
+                    if (item.gemstoneProperties && item.gemstoneProperties.length === count) {
+                        matchesGemstone = true;
+                        break;
+                    }
+                } else {
+                    // Rarity filter (common, rare, regional, legendary)
+                    if (item.gemstoneProperties && item.gemstoneProperties.some(prop =>
+                        prop.rarity && prop.rarity.toLowerCase() === filter.toLowerCase()
+                    )) {
+                        matchesGemstone = true;
+                        break;
+                    }
+                }
+            }
+            if (!matchesGemstone) return false;
         }
 
         return true;
@@ -820,24 +930,44 @@ class SearchEngine {
             container.appendChild(tag);
         }
 
-        // Armor/Weapon type
-        if (item.armorType) {
+        // Armor type (check tag visibility)
+        if (item.armorType && (typeof isTagVisible !== 'function' || isTagVisible('armor_type'))) {
             const tag = document.createElement('span');
             tag.className = 'property-tag';
+            tag.dataset.category = 'item_type';
+            const tagColor = typeof getTagColor === 'function' ? getTagColor('armor_type') : null;
+            if (tagColor) {
+                tag.style.color = tagColor;
+                tag.style.borderColor = tagColor;
+            }
             tag.textContent = item.armorType.charAt(0).toUpperCase() + item.armorType.slice(1);
             container.appendChild(tag);
         }
 
-        if (item.weaponType) {
+        // Weapon type (check tag visibility)
+        if (item.weaponType && (typeof isTagVisible !== 'function' || isTagVisible('weapon_type'))) {
             const tag = document.createElement('span');
             tag.className = 'property-tag';
+            tag.dataset.category = 'item_type';
+            const tagColor = typeof getTagColor === 'function' ? getTagColor('weapon_type') : null;
+            if (tagColor) {
+                tag.style.color = tagColor;
+                tag.style.borderColor = tagColor;
+            }
             tag.textContent = item.weaponType.charAt(0).toUpperCase() + item.weaponType.slice(1);
             container.appendChild(tag);
         }
 
-        if (item.shieldType) {
+        // Shield size (check tag visibility)
+        if (item.shieldType && (typeof isTagVisible !== 'function' || isTagVisible('shield_type'))) {
             const tag = document.createElement('span');
             tag.className = 'property-tag';
+            tag.dataset.category = 'item_type';
+            const tagColor = typeof getTagColor === 'function' ? getTagColor('shield_type') : null;
+            if (tagColor) {
+                tag.style.color = tagColor;
+                tag.style.borderColor = tagColor;
+            }
             tag.textContent = item.shieldType.charAt(0).toUpperCase() + item.shieldType.slice(1);
             container.appendChild(tag);
         }

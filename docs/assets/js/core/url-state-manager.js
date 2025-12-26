@@ -98,9 +98,6 @@ class URLStateManager {
         if (params.price) {
             this.restoreMultiSelectFilter('price', params.price);
         }
-        if (params.itemType) {
-            this.restoreMultiSelectFilter('itemType', params.itemType);
-        }
         if (params.enchant) {
             this.restoreMultiSelectFilter('enchant', params.enchant);
         }
@@ -122,11 +119,8 @@ class URLStateManager {
         if (params.specialProps) {
             this.restoreMultiSelectFilter('specialProperties', params.specialProps);
         }
-        if (params.gemRarity) {
-            this.restoreMultiSelectFilter('gemstoneRarity', params.gemRarity);
-        }
-        if (params.gemProps) {
-            this.restoreMultiSelectFilter('gemstoneProperties', params.gemProps);
+        if (params.gemstone) {
+            this.restoreMultiSelectFilter('gemstone', params.gemstone);
         }
 
         // Restore sort
@@ -266,7 +260,6 @@ class URLStateManager {
         // Multi-select filters
         if (state.towns?.length > 0) params.set('town', state.towns.join(','));
         if (state.priceRanges?.length > 0) params.set('price', state.priceRanges.join(','));
-        if (state.itemTypes?.length > 0) params.set('itemType', state.itemTypes.join(','));
         if (state.enchantLevels?.length > 0) params.set('enchant', state.enchantLevels.join(','));
         if (state.capacityLevels?.length > 0) params.set('capacity', state.capacityLevels.join(','));
         if (state.armorTypes?.length > 0) params.set('armorType', state.armorTypes.join(','));
@@ -274,8 +267,7 @@ class URLStateManager {
         if (state.wearLocations?.length > 0) params.set('wearLocation', state.wearLocations.join(','));
         if (state.skills?.length > 0) params.set('skill', state.skills.join(','));
         if (state.specialProperties?.length > 0) params.set('specialProps', state.specialProperties.join(','));
-        if (state.gemstoneRarities?.length > 0) params.set('gemRarity', state.gemstoneRarities.join(','));
-        if (state.gemstonePropertyCounts?.length > 0) params.set('gemProps', state.gemstonePropertyCounts.join(','));
+        if (state.gemstones?.length > 0) params.set('gemstone', state.gemstones.join(','));
 
         // Sort
         if (state.sortField && state.sortField !== 'name') {
