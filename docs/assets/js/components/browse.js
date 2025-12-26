@@ -1017,24 +1017,44 @@ class BrowseEngine {
             container.appendChild(tag);
         }
 
-        // Armor/Weapon/Shield type
-        if (item.armorType) {
+        // Armor type (check tag visibility)
+        if (item.armorType && (typeof isTagVisible !== 'function' || isTagVisible('armor_type'))) {
             const tag = document.createElement('span');
             tag.className = 'property-tag';
+            tag.dataset.category = 'item_type';
+            const tagColor = typeof getTagColor === 'function' ? getTagColor('armor_type') : null;
+            if (tagColor) {
+                tag.style.color = tagColor;
+                tag.style.borderColor = tagColor;
+            }
             tag.textContent = item.armorType.charAt(0).toUpperCase() + item.armorType.slice(1);
             container.appendChild(tag);
         }
 
-        if (item.weaponType) {
+        // Weapon type (check tag visibility)
+        if (item.weaponType && (typeof isTagVisible !== 'function' || isTagVisible('weapon_type'))) {
             const tag = document.createElement('span');
             tag.className = 'property-tag';
+            tag.dataset.category = 'item_type';
+            const tagColor = typeof getTagColor === 'function' ? getTagColor('weapon_type') : null;
+            if (tagColor) {
+                tag.style.color = tagColor;
+                tag.style.borderColor = tagColor;
+            }
             tag.textContent = item.weaponType.charAt(0).toUpperCase() + item.weaponType.slice(1);
             container.appendChild(tag);
         }
 
-        if (item.shieldType) {
+        // Shield size (check tag visibility)
+        if (item.shieldType && (typeof isTagVisible !== 'function' || isTagVisible('shield_type'))) {
             const tag = document.createElement('span');
             tag.className = 'property-tag';
+            tag.dataset.category = 'item_type';
+            const tagColor = typeof getTagColor === 'function' ? getTagColor('shield_type') : null;
+            if (tagColor) {
+                tag.style.color = tagColor;
+                tag.style.borderColor = tagColor;
+            }
             tag.textContent = item.shieldType.charAt(0).toUpperCase() + item.shieldType.slice(1);
             container.appendChild(tag);
         }

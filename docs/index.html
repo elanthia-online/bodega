@@ -121,28 +121,21 @@
                 </div>
 
                 <div class="filter-section compact-filter">
-                    <h2>Town</h2>
-                    <select id="town-filter" class="multi-select-dropdown" aria-label="Filter by town">
-                        <option value="" disabled selected>Select towns...</option>
+                    <h2>Special Properties</h2>
+                    <select id="special-properties-filter" class="multi-select-dropdown" aria-label="Filter by special properties">
+                        <option value="" disabled selected>Select special properties...</option>
+                        <option value="enhancive">Enhancive</option>
+                        <option value="persists">Persists</option>
+                        <option value="crumbly">Crumbly</option>
+                        <option value="flares">Flares</option>
+                        <option value="spiked">Spiked</option>
+                        <option value="holy">Holy</option>
+                        <option value="max_light">Max Light</option>
+                        <option value="max_deep">Max Deep</option>
+                        <option value="chrism">Chrism</option>
+                        <option value="forged">Forged Quality</option>
                     </select>
-                    <div id="town-tags" class="filter-tags"></div>
-                </div>
-
-                <div class="filter-section compact-filter">
-                    <h2>Price Range</h2>
-                    <select id="price-filter" class="multi-select-dropdown" aria-label="Filter by price range">
-                        <option value="" disabled selected>Select price ranges...</option>
-                        <option value="0-1000">Under 1k</option>
-                        <option value="1000-10000">1k - 10k</option>
-                        <option value="10000-100000">10k - 100k</option>
-                        <option value="100000-500000">100k - 500k</option>
-                        <option value="500000-1000000">500k - 1M</option>
-                        <option value="1000000-5000000">1M - 5M</option>
-                        <option value="5000000-10000000">5M - 10M</option>
-                        <option value="10000000-50000000">10M - 50M</option>
-                        <option value="50000000-999999999">Over 50M</option>
-                    </select>
-                    <div id="price-tags" class="filter-tags"></div>
+                    <div id="special-properties-tags" class="filter-tags"></div>
                 </div>
 
                 <div class="filter-section compact-filter">
@@ -157,92 +150,18 @@
                         <option value="40">+40 or higher</option>
                         <option value="45">+45 or higher</option>
                         <option value="50">+50 or higher</option>
+                        <option value="enchanted">Enchanted</option>
+                        <option value="!enchanted">Not Enchanted</option>
                     </select>
                     <div id="enchant-tags" class="filter-tags"></div>
                 </div>
 
                 <div class="filter-section compact-filter">
-                    <h2>Special Properties</h2>
-                    <select id="special-properties-filter" class="multi-select-dropdown" aria-label="Filter by special properties">
-                        <option value="" disabled selected>Select special properties...</option>
-                        <option value="enhancive">Enhancive</option>
-                        <option value="persists">Persists</option>
-                        <option value="crumbly">Crumbly</option>
-                        <option value="flares">Has Flares</option>
-                        <option value="holy">Holy</option>
-                        <option value="max_light">Max Light</option>
-                        <option value="max_deep">Max Deep</option>
-                        <option value="chrism">Chrism</option>
-                        <option value="forged">Forged Quality</option>
-                    </select>
-                    <div id="special-properties-tags" class="filter-tags"></div>
-                </div>
-
-                <div class="filter-section compact-filter">
-                    <h2>Item Type</h2>
-                    <select id="item-type-filter" class="multi-select-dropdown" aria-label="Filter by item type">
-                        <option value="" disabled selected>Select item types...</option>
-                        <option value="weapon">Weapons</option>
-                        <option value="armor">Armor</option>
-                        <option value="shield">Shields</option>
-                        <option value="container">Containers</option>
-                        <option value="jewelry">Jewelry</option>
-                        <option value="gemstone">Gemstones</option>
-                    </select>
-                    <div id="item-type-tags" class="filter-tags"></div>
-                </div>
-
-                <div class="filter-section compact-filter">
-                    <h2>Capacity</h2>
-                    <select id="capacity-filter" class="multi-select-dropdown" aria-label="Filter by container capacity">
-                        <option value="" disabled selected>Select capacities...</option>
-                        <option value="very small">Very Small</option>
-                        <option value="small">Small</option>
-                        <option value="fairly small">Fairly Small</option>
-                        <option value="slightly small">Slightly Small</option>
-                        <option value="somewhat small">Somewhat Small</option>
-                        <option value="medium">Medium</option>
-                        <option value="slightly large">Slightly Large</option>
-                        <option value="fairly large">Fairly Large</option>
-                        <option value="large">Large</option>
-                        <option value="significant">Significant</option>
-                        <option value="particularly large">Particularly Large</option>
-                        <option value="very large">Very Large</option>
-                        <option value="huge">Huge</option>
-                        <option value="gigantic">Gigantic</option>
-                    </select>
-                    <div id="capacity-tags" class="filter-tags"></div>
-                </div>
-
-                <div class="filter-section compact-filter">
-                    <h2>Armor Type</h2>
-                    <select id="armor-type-filter" class="multi-select-dropdown" aria-label="Filter by armor type">
-                        <option value="" disabled selected>Select armor types...</option>
-                        <option value="cloth">Cloth</option>
-                        <option value="leather">Leather</option>
-                        <option value="scale">Scale</option>
-                        <option value="chain">Chain</option>
-                        <option value="plate">Plate</option>
-                    </select>
-                    <div id="armor-type-tags" class="filter-tags"></div>
-                </div>
-
-                <div class="filter-section compact-filter">
-                    <h2>Shield Type</h2>
-                    <select id="shield-type-filter" class="multi-select-dropdown" aria-label="Filter by shield type">
-                        <option value="" disabled selected>Select shield types...</option>
-                        <option value="small">Small Shield</option>
-                        <option value="medium">Medium Shield</option>
-                        <option value="large">Large Shield</option>
-                        <option value="tower">Tower Shield</option>
-                    </select>
-                    <div id="shield-type-tags" class="filter-tags"></div>
-                </div>
-
-                <div class="filter-section compact-filter">
-                    <h2>Wear Location</h2>
-                    <select id="wear-location-filter" class="multi-select-dropdown" aria-label="Filter by wear location">
-                        <option value="" disabled selected>Select wear locations...</option>
+                    <h2>Worn</h2>
+                    <select id="wear-location-filter" class="multi-select-dropdown" aria-label="Filter by worn location">
+                        <option value="" disabled selected>Select worn locations...</option>
+                        <option value="worn">Worn Anywhere</option>
+                        <option value="!worn">Not Worn</option>
                         <option value="pin">Pin</option>
                         <option value="head">Head</option>
                         <option value="hair">Hair</option>
@@ -272,32 +191,64 @@
                 </div>
 
                 <div class="filter-section compact-filter">
-                    <h2>Gemstone Rarity</h2>
-                    <select id="gemstone-rarity-filter" class="multi-select-dropdown" aria-label="Filter by gemstone rarity">
-                        <option value="" disabled selected>Select rarities...</option>
-                        <option value="common">Common</option>
-                        <option value="rare">Rare</option>
-                        <option value="regional">Regional</option>
-                        <option value="legendary">Legendary</option>
+                    <h2>Container</h2>
+                    <select id="capacity-filter" class="multi-select-dropdown" aria-label="Filter by container">
+                        <option value="" disabled selected>Select container sizes...</option>
+                        <option value="container">Any Container</option>
+                        <option value="!container">Not a Container</option>
+                        <option value="very small">Very Small</option>
+                        <option value="small">Small</option>
+                        <option value="fairly small">Fairly Small</option>
+                        <option value="slightly small">Slightly Small</option>
+                        <option value="somewhat small">Somewhat Small</option>
+                        <option value="medium">Medium</option>
+                        <option value="slightly large">Slightly Large</option>
+                        <option value="fairly large">Fairly Large</option>
+                        <option value="large">Large</option>
+                        <option value="significant">Significant</option>
+                        <option value="particularly large">Particularly Large</option>
+                        <option value="very large">Very Large</option>
+                        <option value="huge">Huge</option>
+                        <option value="gigantic">Gigantic</option>
                     </select>
-                    <div id="gemstone-rarity-tags" class="filter-tags"></div>
+                    <div id="capacity-tags" class="filter-tags"></div>
                 </div>
 
                 <div class="filter-section compact-filter">
-                    <h2>Gemstone Property Count</h2>
-                    <select id="gemstone-properties-filter" class="multi-select-dropdown" aria-label="Filter by gemstone property count">
-                        <option value="" disabled selected>Select property counts...</option>
-                        <option value="1">1 Property</option>
-                        <option value="2">2 Properties</option>
-                        <option value="3">3 Properties</option>
+                    <h2>Armor</h2>
+                    <select id="armor-type-filter" class="multi-select-dropdown" aria-label="Filter by armor">
+                        <option value="" disabled selected>Select armor types...</option>
+                        <option value="armor">Any Armor</option>
+                        <option value="!armor">Not Armor</option>
+                        <option value="cloth">Cloth</option>
+                        <option value="leather">Leather</option>
+                        <option value="scale">Scale</option>
+                        <option value="chain">Chain</option>
+                        <option value="plate">Plate</option>
                     </select>
-                    <div id="gemstone-properties-tags" class="filter-tags"></div>
+                    <div id="armor-type-tags" class="filter-tags"></div>
                 </div>
 
                 <div class="filter-section compact-filter">
-                    <h2>Skill Required</h2>
-                    <select id="skill-filter" class="multi-select-dropdown" aria-label="Filter by skill requirement">
-                        <option value="" disabled selected>Select skills...</option>
+                    <h2>Shield</h2>
+                    <select id="shield-type-filter" class="multi-select-dropdown" aria-label="Filter by shield">
+                        <option value="" disabled selected>Select shield sizes...</option>
+                        <option value="shield">Any Shield</option>
+                        <option value="!shield">Not a Shield</option>
+                        <option value="small">Small Shield</option>
+                        <option value="medium">Medium Shield</option>
+                        <option value="large">Large Shield</option>
+                        <option value="tower">Tower Shield</option>
+                    </select>
+                    <div id="shield-type-tags" class="filter-tags"></div>
+                </div>
+
+                <div class="filter-section compact-filter">
+                    <h2>Weapon</h2>
+                    <select id="skill-filter" class="multi-select-dropdown" aria-label="Filter by weapon type">
+                        <option value="" disabled selected>Select weapon types...</option>
+                        <option value="weapon">Any Weapon</option>
+                        <option value="!weapon">Not a Weapon</option>
                         <option value="edged weapons">Edged Weapons</option>
                         <option value="blunt weapons">Blunt Weapons</option>
                         <option value="two handed weapons">Two Handed Weapons</option>
@@ -310,6 +261,48 @@
                         <option value="armor use">Armor Use</option>
                     </select>
                     <div id="skill-tags" class="filter-tags"></div>
+                </div>
+
+                <div class="filter-section compact-filter">
+                    <h2>Gemstone</h2>
+                    <select id="gemstone-filter" class="multi-select-dropdown" aria-label="Filter by gemstone">
+                        <option value="" disabled selected>Select gemstone filters...</option>
+                        <option value="gemstone">Any Gemstone</option>
+                        <option value="!gemstone">Not a Gemstone</option>
+                        <option value="common">Common</option>
+                        <option value="rare">Rare</option>
+                        <option value="regional">Regional</option>
+                        <option value="legendary">Legendary</option>
+                        <option value="1prop">1 Property</option>
+                        <option value="2prop">2 Properties</option>
+                        <option value="3prop">3 Properties</option>
+                    </select>
+                    <div id="gemstone-tags" class="filter-tags"></div>
+                </div>
+
+                <div class="filter-section compact-filter">
+                    <h2>Town</h2>
+                    <select id="town-filter" class="multi-select-dropdown" aria-label="Filter by town">
+                        <option value="" disabled selected>Select towns...</option>
+                    </select>
+                    <div id="town-tags" class="filter-tags"></div>
+                </div>
+
+                <div class="filter-section compact-filter">
+                    <h2>Price Range</h2>
+                    <select id="price-filter" class="multi-select-dropdown" aria-label="Filter by price range">
+                        <option value="" disabled selected>Select price ranges...</option>
+                        <option value="0-1000">Under 1k</option>
+                        <option value="1000-10000">1k - 10k</option>
+                        <option value="10000-100000">10k - 100k</option>
+                        <option value="100000-500000">100k - 500k</option>
+                        <option value="500000-1000000">500k - 1M</option>
+                        <option value="1000000-5000000">1M - 5M</option>
+                        <option value="5000000-10000000">5M - 10M</option>
+                        <option value="10000000-50000000">10M - 50M</option>
+                        <option value="50000000-999999999">Over 50M</option>
+                    </select>
+                    <div id="price-tags" class="filter-tags"></div>
                 </div>
 
                 <!-- Duplicate Filter Buttons at Bottom of Sidebar (for mobile) -->

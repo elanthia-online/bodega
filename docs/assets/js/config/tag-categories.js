@@ -72,6 +72,23 @@ const TAG_DEFINITIONS = {
         description: "Item is a runestaff"
     },
 
+    // Specific type subcategories (weapon types, armor types, shield sizes)
+    weapon_type: {
+        label: "Weapon Type",
+        category: "item_type",
+        description: "Specific weapon skill type (e.g., Edged Weapons, Blunt Weapons)"
+    },
+    armor_type: {
+        label: "Armor Type",
+        category: "item_type",
+        description: "Specific armor type (e.g., Leather, Chain, Plate, Accessory)"
+    },
+    shield_type: {
+        label: "Shield Size",
+        category: "item_type",
+        description: "Shield size (Small, Medium, Large, Tower)"
+    },
+
     // Container properties
     capacity: {
         label: "Capacity",
@@ -251,7 +268,7 @@ const TAG_DEFINITIONS = {
  */
 const DEFAULT_TAG_ORDER = [
     // Item Type (gray)
-    'weapon', 'armor', 'shield', 'runestaff',
+    'weapon', 'armor', 'shield', 'runestaff', 'weapon_type', 'armor_type', 'shield_type',
     // Magical (purple)
     'enchant', 'flares', 'sanctify', 'ensorcell', 'holy', 'gub',
     // Combat (red)
