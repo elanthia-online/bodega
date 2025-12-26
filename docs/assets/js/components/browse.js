@@ -970,119 +970,23 @@ class BrowseEngine {
     createPropertiesElement(item) {
         const container = document.createElement('div');
 
-        // Item type tag (check tag visibility and apply custom colors)
-        if (item.itemType && (typeof isTagVisible !== 'function' || isTagVisible(item.itemType))) {
-            const tag = document.createElement('span');
-            tag.className = 'property-tag';
-            tag.dataset.category = 'item_type';
-            const tagColor = typeof getTagColor === 'function' ? getTagColor(item.itemType) : null;
-            if (tagColor) {
-                tag.style.color = tagColor;
-                tag.style.borderColor = tagColor;
-            }
-            tag.textContent = item.itemType.charAt(0).toUpperCase() + item.itemType.slice(1);
-            container.appendChild(tag);
-        }
-
-        // Enchant tag (check tag visibility and apply custom colors)
-        if (item.enchant && (typeof isTagVisible !== 'function' || isTagVisible('enchant'))) {
-            const tag = document.createElement('span');
-            tag.className = 'property-tag';
-            tag.dataset.category = 'magical';
-            const tagColor = typeof getTagColor === 'function' ? getTagColor('enchant') : null;
-            if (tagColor) {
-                tag.style.color = tagColor;
-                tag.style.borderColor = tagColor;
-            }
-            tag.textContent = `+${item.enchant}`;
-            container.appendChild(tag);
-        }
-
-        // Gemstone rarity tags
-        if (item.gemstoneProperties && item.gemstoneProperties.length > 0) {
-            const rarityOrder = ['regional', 'common', 'rare', 'legendary'];
-            const rarities = new Set();
-
-            // Collect all unique rarities
-            item.gemstoneProperties.forEach(prop => {
-                if (prop.rarity) {
-                    rarities.add(prop.rarity.toLowerCase());
-                }
-            });
-
-            // Add rarity tags in the correct order
-            rarityOrder.forEach(rarity => {
-                if (rarities.has(rarity)) {
-                    const rarityTag = document.createElement('span');
-                    rarityTag.className = `property-tag rarity rarity-${rarity}`;
-                    rarityTag.textContent = rarity.charAt(0).toUpperCase() + rarity.slice(1);
-                    container.appendChild(rarityTag);
-                }
-            });
-        }
-
-        // Capacity tag
-        if (item.capacityLevel) {
-            const tag = document.createElement('span');
-            tag.className = 'property-tag special';
-            tag.textContent = item.capacityLevel.charAt(0).toUpperCase() + item.capacityLevel.slice(1);
-            container.appendChild(tag);
-        }
-
-        // Armor type (check tag visibility)
-        if (item.armorType && (typeof isTagVisible !== 'function' || isTagVisible('armor_type'))) {
-            const tag = document.createElement('span');
-            tag.className = 'property-tag';
-            tag.dataset.category = 'item_type';
-            const tagColor = typeof getTagColor === 'function' ? getTagColor('armor_type') : null;
-            if (tagColor) {
-                tag.style.color = tagColor;
-                tag.style.borderColor = tagColor;
-            }
-            tag.textContent = item.armorType.charAt(0).toUpperCase() + item.armorType.slice(1);
-            container.appendChild(tag);
-        }
-
-        // Weapon type (check tag visibility)
-        if (item.weaponType && (typeof isTagVisible !== 'function' || isTagVisible('weapon_type'))) {
-            const tag = document.createElement('span');
-            tag.className = 'property-tag';
-            tag.dataset.category = 'item_type';
-            const tagColor = typeof getTagColor === 'function' ? getTagColor('weapon_type') : null;
-            if (tagColor) {
-                tag.style.color = tagColor;
-                tag.style.borderColor = tagColor;
-            }
-            tag.textContent = item.weaponType.charAt(0).toUpperCase() + item.weaponType.slice(1);
-            container.appendChild(tag);
-        }
-
-        // Shield size (check tag visibility)
-        if (item.shieldType && (typeof isTagVisible !== 'function' || isTagVisible('shield_type'))) {
-            const tag = document.createElement('span');
-            tag.className = 'property-tag';
-            tag.dataset.category = 'item_type';
-            const tagColor = typeof getTagColor === 'function' ? getTagColor('shield_type') : null;
-            if (tagColor) {
-                tag.style.color = tagColor;
-                tag.style.borderColor = tagColor;
-            }
-            tag.textContent = item.shieldType.charAt(0).toUpperCase() + item.shieldType.slice(1);
-            container.appendChild(tag);
-        }
-
-        // Skill required (but don't duplicate weapon type)
-        if (item.skill && (!item.weaponType || item.skill !== item.weaponType)) {
-            const tag = document.createElement('span');
-            tag.className = 'property-tag';
-            tag.textContent = item.skill.charAt(0).toUpperCase() + item.skill.slice(1);
-            container.appendChild(tag);
-        }
-
-        // Detect and display special properties from raw text and existing tags
+        // Collect all properties that should be displayed
         const detectedProps = typeof detectPropertiesFromRaw === 'function'
             ? detectPropertiesFromRaw(item.raw)
             : {};
+
+        // Add item type tags to detectedProps
+        if (item.itemType) detectedProps[item.itemType] = true;
+        if (item.armorType) detectedProps.armor_type = item.armorType;
+        if (item.weaponType) detectedProps.weapon_type = item.weaponType;
+        if (item.shieldType) detectedProps.shield_type = item.shieldType;
+        if (item.capacityLevel) detectedProps.capacity = item.capacityLevel;
+        if (item.enchant) detectedProps.enchant = item.enchant;
+
+        // Add skill (but don't duplicate weapon type)
+        if (item.skill && (!item.weaponType || item.skill !== item.weaponType)) {
+            detectedProps._skill = item.skill; // Use _skill to avoid conflicts
+        }
 
         // Merge with existing extracted properties from the data
         if (item.td_bonus) detectedProps.td_bonus = item.td_bonus;
@@ -1122,6 +1026,102 @@ class BrowseEngine {
             : (typeof TAG_DEFINITIONS !== 'undefined' ? Object.keys(TAG_DEFINITIONS) : []);
 
         orderedTags.forEach(tagId => {
+            // Special handling for item type tags (weapon, armor, shield, container, jewelry)
+            if (['weapon', 'armor', 'shield', 'container', 'jewelry'].includes(tagId)) {
+                if (detectedProps[tagId] && (typeof isTagVisible !== 'function' || isTagVisible(tagId))) {
+                    const tag = document.createElement('span');
+                    tag.className = 'property-tag';
+                    tag.dataset.category = 'item_type';
+                    const tagColor = typeof getTagColor === 'function' ? getTagColor(tagId) : null;
+                    if (tagColor) {
+                        tag.style.color = tagColor;
+                        tag.style.borderColor = tagColor;
+                    }
+                    tag.textContent = tagId.charAt(0).toUpperCase() + tagId.slice(1);
+                    container.appendChild(tag);
+                }
+                return;
+            }
+
+            // Special handling for enchant
+            if (tagId === 'enchant') {
+                if (detectedProps.enchant && (typeof isTagVisible !== 'function' || isTagVisible('enchant'))) {
+                    const tag = document.createElement('span');
+                    tag.className = 'property-tag';
+                    tag.dataset.category = 'magical';
+                    const tagColor = typeof getTagColor === 'function' ? getTagColor('enchant') : null;
+                    if (tagColor) {
+                        tag.style.color = tagColor;
+                        tag.style.borderColor = tagColor;
+                    }
+                    tag.textContent = `+${detectedProps.enchant}`;
+                    container.appendChild(tag);
+                }
+                return;
+            }
+
+            // Special handling for capacity
+            if (tagId === 'capacity') {
+                if (detectedProps.capacity) {
+                    const tag = document.createElement('span');
+                    tag.className = 'property-tag special';
+                    tag.textContent = detectedProps.capacity.charAt(0).toUpperCase() + detectedProps.capacity.slice(1);
+                    container.appendChild(tag);
+                }
+                return;
+            }
+
+            // Special handling for armor_type
+            if (tagId === 'armor_type') {
+                if (detectedProps.armor_type && (typeof isTagVisible !== 'function' || isTagVisible('armor_type'))) {
+                    const tag = document.createElement('span');
+                    tag.className = 'property-tag';
+                    tag.dataset.category = 'item_type';
+                    const tagColor = typeof getTagColor === 'function' ? getTagColor('armor_type') : null;
+                    if (tagColor) {
+                        tag.style.color = tagColor;
+                        tag.style.borderColor = tagColor;
+                    }
+                    tag.textContent = detectedProps.armor_type.charAt(0).toUpperCase() + detectedProps.armor_type.slice(1);
+                    container.appendChild(tag);
+                }
+                return;
+            }
+
+            // Special handling for weapon_type
+            if (tagId === 'weapon_type') {
+                if (detectedProps.weapon_type && (typeof isTagVisible !== 'function' || isTagVisible('weapon_type'))) {
+                    const tag = document.createElement('span');
+                    tag.className = 'property-tag';
+                    tag.dataset.category = 'item_type';
+                    const tagColor = typeof getTagColor === 'function' ? getTagColor('weapon_type') : null;
+                    if (tagColor) {
+                        tag.style.color = tagColor;
+                        tag.style.borderColor = tagColor;
+                    }
+                    tag.textContent = detectedProps.weapon_type.charAt(0).toUpperCase() + detectedProps.weapon_type.slice(1);
+                    container.appendChild(tag);
+                }
+                return;
+            }
+
+            // Special handling for shield_type
+            if (tagId === 'shield_type') {
+                if (detectedProps.shield_type && (typeof isTagVisible !== 'function' || isTagVisible('shield_type'))) {
+                    const tag = document.createElement('span');
+                    tag.className = 'property-tag';
+                    tag.dataset.category = 'item_type';
+                    const tagColor = typeof getTagColor === 'function' ? getTagColor('shield_type') : null;
+                    if (tagColor) {
+                        tag.style.color = tagColor;
+                        tag.style.borderColor = tagColor;
+                    }
+                    tag.textContent = detectedProps.shield_type.charAt(0).toUpperCase() + detectedProps.shield_type.slice(1);
+                    container.appendChild(tag);
+                }
+                return;
+            }
+
             // Special handling for 'enhancive' - display individual enhancive stats
             if (tagId === 'enhancive') {
                 const enhancivesVisible = typeof isTagEnabled === 'function' ? isTagEnabled('enhancive') : true;
@@ -1185,6 +1185,37 @@ class BrowseEngine {
                 container.appendChild(tagEl);
             }
         });
+
+        // Skill tag (rendered after ordered tags if it's not a duplicate of weapon type)
+        if (detectedProps._skill) {
+            const tag = document.createElement('span');
+            tag.className = 'property-tag';
+            tag.textContent = detectedProps._skill.charAt(0).toUpperCase() + detectedProps._skill.slice(1);
+            container.appendChild(tag);
+        }
+
+        // Gemstone rarity tags
+        if (item.gemstoneProperties && item.gemstoneProperties.length > 0) {
+            const rarityOrder = ['regional', 'common', 'rare', 'legendary'];
+            const rarities = new Set();
+
+            // Collect all unique rarities
+            item.gemstoneProperties.forEach(prop => {
+                if (prop.rarity) {
+                    rarities.add(prop.rarity.toLowerCase());
+                }
+            });
+
+            // Add rarity tags in the correct order
+            rarityOrder.forEach(rarity => {
+                if (rarities.has(rarity)) {
+                    const rarityTag = document.createElement('span');
+                    rarityTag.className = `property-tag rarity rarity-${rarity}`;
+                    rarityTag.textContent = rarity.charAt(0).toUpperCase() + rarity.slice(1);
+                    container.appendChild(rarityTag);
+                }
+            });
+        }
 
         return container;
     }
