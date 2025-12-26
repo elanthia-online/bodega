@@ -375,6 +375,12 @@ class DataLoader {
             properties.flares.push(item.details.flare);
         }
 
+        // Use shieldType from JSON if it exists (pre-parsed by extraction script)
+        if (item.details?.shieldType) {
+            properties.shieldType = item.details.shieldType;
+            properties.isShield = true;
+        }
+
         (item.details?.raw || []).forEach(line => {
             // Capacity parsing
             const capacityMatch = line.match(/can store a (.*?) amount/i);
@@ -406,15 +412,17 @@ class DataLoader {
 
             // No need to parse skill from raw - it's already in the data
 
-            // Shield specific parsing - only for actual shields, not items that mention "shield" in descriptions
-            if (line.match(/shield that protects/i)) {
-                properties.isShield = true;
-            } else if (line.match(/is a.*shield/i)) {
-                // Extract shield size (small, medium, large, tower)
-                const shieldMatch = line.match(/is a (small|medium|large|tower) shield/i);
-                if (shieldMatch) {
+            // Shield specific parsing - only if we don't already have shieldType from JSON
+            if (!properties.shieldType) {
+                if (line.match(/shield that protects/i)) {
                     properties.isShield = true;
-                    properties.shieldType = shieldMatch[1].toLowerCase();
+                } else if (line.match(/is a.*shield/i)) {
+                    // Extract shield size (small, medium, large, tower, parma, buckler)
+                    const shieldMatch = line.match(/is a (tower|large|medium|small|parma|buckler) shield/i);
+                    if (shieldMatch) {
+                        properties.isShield = true;
+                        properties.shieldType = shieldMatch[1].toLowerCase();
+                    }
                 }
             }
 
