@@ -69,6 +69,7 @@ class SearchEngine {
         this.multiSelectFilters = {
             town: new MultiSelectFilter('town-filter', 'town-tags'),
             price: new MultiSelectFilter('price-filter', 'price-tags'),
+            itemType: new MultiSelectFilter('item-type-filter', 'item-type-tags'),
             enchant: new MultiSelectFilter('enchant-filter', 'enchant-tags'),
             capacity: new MultiSelectFilter('capacity-filter', 'capacity-tags'),
             armorType: new MultiSelectFilter('armor-type-filter', 'armor-type-tags'),
@@ -227,6 +228,7 @@ class SearchEngine {
             searchShopSigns: filters.searchShopSigns,
             towns: filters.towns,
             priceRanges: filters.priceRanges,
+            itemTypes: filters.itemTypes,
             enchantLevels: filters.enchantLevels,
             capacityLevels: filters.capacityLevels,
             armorTypes: filters.armorTypes,
@@ -249,6 +251,7 @@ class SearchEngine {
             searchFieldProperties: document.getElementById('search-field-properties').checked,
             towns: this.multiSelectFilters.town.getSelectedValues(),
             priceRanges: this.multiSelectFilters.price.getSelectedValues(),
+            itemTypes: this.multiSelectFilters.itemType.getSelectedValues(),
             enchantLevels: this.multiSelectFilters.enchant.getSelectedValues(),
             capacityLevels: this.multiSelectFilters.capacity.getSelectedValues(),
             armorTypes: this.multiSelectFilters.armorType.getSelectedValues(),
@@ -476,6 +479,28 @@ class SearchEngine {
             if (!matchesAnyRange) return false;
         }
 
+        // Item Type filter - supports multiple selections and negation
+        if (filters.itemTypes.length > 0) {
+            let matchesItemType = false;
+            for (const type of filters.itemTypes) {
+                if (type.startsWith('!')) {
+                    // Negation: "!weapon" means exclude weapons
+                    const excludeType = type.substring(1);
+                    if (item.itemType !== excludeType) {
+                        matchesItemType = true;
+                        break;
+                    }
+                } else {
+                    // Positive match: item.itemType must equal the filter value
+                    if (item.itemType === type) {
+                        matchesItemType = true;
+                        break;
+                    }
+                }
+            }
+            if (!matchesItemType) return false;
+        }
+
         // Enchant filter - supports levels and boolean enchanted/not enchanted
         if (filters.enchantLevels.length > 0) {
             let matchesEnchant = false;
@@ -509,14 +534,9 @@ class SearchEngine {
             let matchesContainer = false;
             for (const level of filters.capacityLevels) {
                 if (level.startsWith('!')) {
-                    // "!container" means exclude all containers
-                    if (item.itemType !== 'container') {
-                        matchesContainer = true;
-                        break;
-                    }
-                } else if (level === 'container') {
-                    // "container" means any container
-                    if (item.itemType === 'container') {
+                    // Negation for specific capacity level
+                    const excludeLevel = level.substring(1);
+                    if (item.capacityLevel !== excludeLevel) {
                         matchesContainer = true;
                         break;
                     }
@@ -535,16 +555,10 @@ class SearchEngine {
         if (filters.armorTypes.length > 0) {
             let matchesArmor = false;
             for (const type of filters.armorTypes) {
-                // Handle negated filters (e.g., "!armor" means "not armor")
+                // Handle negated filters for specific armor types
                 if (type.startsWith('!')) {
                     const excludeType = type.substring(1);
-                    if (item.itemType !== excludeType) {
-                        matchesArmor = true;
-                        break;
-                    }
-                } else if (type === 'armor') {
-                    // "armor" means any armor
-                    if (item.itemType === 'armor') {
+                    if (item.armorType !== excludeType) {
                         matchesArmor = true;
                         break;
                     }
@@ -563,16 +577,10 @@ class SearchEngine {
         if (filters.shieldTypes.length > 0) {
             let matchesShield = false;
             for (const type of filters.shieldTypes) {
-                // Handle negated filters (e.g., "!shield" means "not a shield")
+                // Handle negated filters for specific shield types
                 if (type.startsWith('!')) {
                     const excludeType = type.substring(1);
-                    if (item.itemType !== excludeType) {
-                        matchesShield = true;
-                        break;
-                    }
-                } else if (type === 'shield') {
-                    // "shield" means any shield
-                    if (item.itemType === 'shield') {
+                    if (!item.shieldType || !item.shieldType.includes(excludeType)) {
                         matchesShield = true;
                         break;
                     }
@@ -592,14 +600,10 @@ class SearchEngine {
             let matchesWorn = false;
             for (const loc of filters.wearLocations) {
                 if (loc.startsWith('!')) {
-                    // "!worn" means item is not worn anywhere
-                    if (!item.wearLocation && !item.worn) {
-                        matchesWorn = true;
-                        break;
-                    }
-                } else if (loc === 'worn') {
-                    // "worn" means worn anywhere
-                    if (item.wearLocation || item.worn) {
+                    // Negation for specific wear location
+                    const excludeLoc = loc.substring(1);
+                    const itemLoc = (item.wearLocation || item.worn || '').toLowerCase();
+                    if (!itemLoc.includes(excludeLoc.toLowerCase())) {
                         matchesWorn = true;
                         break;
                     }
@@ -620,14 +624,9 @@ class SearchEngine {
             let matchesWeapon = false;
             for (const skill of filters.skills) {
                 if (skill.startsWith('!')) {
-                    // "!weapon" means exclude all weapons
-                    if (item.itemType !== 'weapon') {
-                        matchesWeapon = true;
-                        break;
-                    }
-                } else if (skill === 'weapon') {
-                    // "weapon" means any weapon
-                    if (item.itemType === 'weapon') {
+                    // Negation for specific weapon skill
+                    const excludeSkill = skill.substring(1);
+                    if (!item.skill || !item.skill.toLowerCase().includes(excludeSkill.toLowerCase())) {
                         matchesWeapon = true;
                         break;
                     }
@@ -665,21 +664,27 @@ class SearchEngine {
             }
         }
 
-        // Gemstone filter - combines rarity and property count with negation
+        // Gemstone filter - combines rarity and property count
         if (filters.gemstones.length > 0) {
             let matchesGemstone = false;
             for (const filter of filters.gemstones) {
                 if (filter.startsWith('!')) {
-                    // "!gemstone" means exclude all gemstones
-                    if (!item.gemstoneProperties || item.gemstoneProperties.length === 0) {
-                        matchesGemstone = true;
-                        break;
-                    }
-                } else if (filter === 'gemstone') {
-                    // "gemstone" means any gemstone
-                    if (item.gemstoneProperties && item.gemstoneProperties.length > 0) {
-                        matchesGemstone = true;
-                        break;
+                    // Negation for specific rarity or property count
+                    const excludeFilter = filter.substring(1);
+                    if (excludeFilter.endsWith('prop')) {
+                        const count = parseInt(excludeFilter);
+                        if (!item.gemstoneProperties || item.gemstoneProperties.length !== count) {
+                            matchesGemstone = true;
+                            break;
+                        }
+                    } else {
+                        // Negation for rarity
+                        if (!item.gemstoneProperties || !item.gemstoneProperties.some(prop =>
+                            prop.rarity && prop.rarity.toLowerCase() === excludeFilter.toLowerCase()
+                        )) {
+                            matchesGemstone = true;
+                            break;
+                        }
                     }
                 } else if (filter.endsWith('prop')) {
                     // Property count filter (e.g., "1prop", "2prop", "3prop")
@@ -906,18 +911,30 @@ class SearchEngine {
     createPropertiesElement(item) {
         const container = document.createElement('div');
 
-        // Item type
-        if (item.itemType) {
+        // Item type (check tag visibility and apply custom colors)
+        if (item.itemType && (typeof isTagVisible !== 'function' || isTagVisible(item.itemType))) {
             const tag = document.createElement('span');
             tag.className = 'property-tag';
+            tag.dataset.category = 'item_type';
+            const tagColor = typeof getTagColor === 'function' ? getTagColor(item.itemType) : null;
+            if (tagColor) {
+                tag.style.color = tagColor;
+                tag.style.borderColor = tagColor;
+            }
             tag.textContent = item.itemType.charAt(0).toUpperCase() + item.itemType.slice(1);
             container.appendChild(tag);
         }
 
-        // Enchant
-        if (item.enchant) {
+        // Enchant (check tag visibility and apply custom colors)
+        if (item.enchant && (typeof isTagVisible !== 'function' || isTagVisible('enchant'))) {
             const tag = document.createElement('span');
             tag.className = 'property-tag';
+            tag.dataset.category = 'magical';
+            const tagColor = typeof getTagColor === 'function' ? getTagColor('enchant') : null;
+            if (tagColor) {
+                tag.style.color = tagColor;
+                tag.style.borderColor = tagColor;
+            }
             tag.textContent = `+${item.enchant}`;
             container.appendChild(tag);
         }

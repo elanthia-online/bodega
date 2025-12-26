@@ -493,6 +493,12 @@ class DataLoader {
                 properties.itemType = 'container';
             }
 
+            // Jewelry detection
+            if (line.match(/is.*jewelry/i) ||
+                line.match(/\b(ring|necklace|bracelet|earring|pendant|amulet|brooch|pin)\b/i)) {
+                properties.isJewelry = true;
+            }
+
             // Blessing detection
             if (line.match(/blessed/i) || line.match(/holy/i)) {
                 properties.blessing = 'holy';
@@ -599,14 +605,14 @@ class DataLoader {
 
         // Determine primary item type with proper priority
         if (!properties.itemType) {
-            // Priority order: Weapon > Armor > Shield > Container > Gemstone
+            // Priority order: Weapon > Armor > Shield > Container > Jewelry > Gemstone
             // Weapons and armor should take precedence over container classification
             if (properties.isWeapon) properties.itemType = 'weapon';
             else if (properties.isArmor) properties.itemType = 'armor';
             else if (properties.isShield) properties.itemType = 'shield';
             else if (properties.isContainer) properties.itemType = 'container';
+            else if (properties.isJewelry) properties.itemType = 'jewelry';
             else if (properties.isGemstone) properties.itemType = 'gemstone';
-            // No default itemType assignment - jewelry items will not have an itemType
         }
 
         return properties;

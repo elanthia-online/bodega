@@ -98,6 +98,9 @@ class URLStateManager {
         if (params.price) {
             this.restoreMultiSelectFilter('price', params.price);
         }
+        if (params.itemType) {
+            this.restoreMultiSelectFilter('itemType', params.itemType);
+        }
         if (params.enchant) {
             this.restoreMultiSelectFilter('enchant', params.enchant);
         }
@@ -260,6 +263,7 @@ class URLStateManager {
         // Multi-select filters
         if (state.towns?.length > 0) params.set('town', state.towns.join(','));
         if (state.priceRanges?.length > 0) params.set('price', state.priceRanges.join(','));
+        if (state.itemTypes?.length > 0) params.set('itemType', state.itemTypes.join(','));
         if (state.enchantLevels?.length > 0) params.set('enchant', state.enchantLevels.join(','));
         if (state.capacityLevels?.length > 0) params.set('capacity', state.capacityLevels.join(','));
         if (state.armorTypes?.length > 0) params.set('armorType', state.armorTypes.join(','));

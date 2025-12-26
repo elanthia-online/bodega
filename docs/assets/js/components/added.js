@@ -446,16 +446,28 @@ class AddedEngine {
         const container = document.createElement('div');
 
         // Basic tags
-        if (item.itemType) {
+        if (item.itemType && (typeof isTagVisible !== 'function' || isTagVisible(item.itemType))) {
             const tag = document.createElement('span');
             tag.className = 'property-tag';
+            tag.dataset.category = 'item_type';
+            const tagColor = typeof getTagColor === 'function' ? getTagColor(item.itemType) : null;
+            if (tagColor) {
+                tag.style.color = tagColor;
+                tag.style.borderColor = tagColor;
+            }
             tag.textContent = item.itemType.charAt(0).toUpperCase() + item.itemType.slice(1);
             container.appendChild(tag);
         }
 
-        if (item.enchant) {
+        if (item.enchant && (typeof isTagVisible !== 'function' || isTagVisible('enchant'))) {
             const tag = document.createElement('span');
             tag.className = 'property-tag';
+            tag.dataset.category = 'magical';
+            const tagColor = typeof getTagColor === 'function' ? getTagColor('enchant') : null;
+            if (tagColor) {
+                tag.style.color = tagColor;
+                tag.style.borderColor = tagColor;
+            }
             tag.textContent = `+${item.enchant}`;
             container.appendChild(tag);
         }
