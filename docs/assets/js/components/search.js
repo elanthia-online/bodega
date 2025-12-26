@@ -976,7 +976,7 @@ class SearchEngine {
             if (['weapon', 'armor', 'shield', 'container', 'jewelry'].includes(tagId)) {
                 if (detectedProps[tagId] && (typeof isTagVisible !== 'function' || isTagVisible(tagId))) {
                     const tag = document.createElement('span');
-                    tag.className = 'property-tag';
+                    tag.className = 'property-tag cat-item_type';
                     tag.dataset.category = 'item_type';
                     const tagColor = typeof getTagColor === 'function' ? getTagColor(tagId) : null;
                     if (tagColor) {
@@ -994,12 +994,13 @@ class SearchEngine {
             if (tagId === 'enchant') {
                 if (detectedProps.enchant && (typeof isTagVisible !== 'function' || isTagVisible('enchant'))) {
                     const tag = document.createElement('span');
-                    tag.className = 'property-tag';
+                    tag.className = 'property-tag cat-magical';
                     tag.dataset.category = 'magical';
                     const tagColor = typeof getTagColor === 'function' ? getTagColor('enchant') : null;
                     if (tagColor) {
                         tag.style.color = tagColor;
                         tag.style.borderColor = tagColor;
+                        tag.style.backgroundColor = 'transparent';
                     }
                     tag.textContent = `+${detectedProps.enchant}`;
                     container.appendChild(tag);
@@ -1022,12 +1023,13 @@ class SearchEngine {
             if (tagId === 'armor_type') {
                 if (detectedProps.armor_type && (typeof isTagVisible !== 'function' || isTagVisible('armor_type'))) {
                     const tag = document.createElement('span');
-                    tag.className = 'property-tag';
+                    tag.className = 'property-tag cat-item_type';
                     tag.dataset.category = 'item_type';
                     const tagColor = typeof getTagColor === 'function' ? getTagColor('armor_type') : null;
                     if (tagColor) {
                         tag.style.color = tagColor;
                         tag.style.borderColor = tagColor;
+                        tag.style.backgroundColor = 'transparent';
                     }
                     tag.textContent = detectedProps.armor_type.charAt(0).toUpperCase() + detectedProps.armor_type.slice(1);
                     container.appendChild(tag);
@@ -1039,12 +1041,13 @@ class SearchEngine {
             if (tagId === 'weapon_type') {
                 if (detectedProps.weapon_type && (typeof isTagVisible !== 'function' || isTagVisible('weapon_type'))) {
                     const tag = document.createElement('span');
-                    tag.className = 'property-tag';
+                    tag.className = 'property-tag cat-item_type';
                     tag.dataset.category = 'item_type';
                     const tagColor = typeof getTagColor === 'function' ? getTagColor('weapon_type') : null;
                     if (tagColor) {
                         tag.style.color = tagColor;
                         tag.style.borderColor = tagColor;
+                        tag.style.backgroundColor = 'transparent';
                     }
                     tag.textContent = detectedProps.weapon_type.charAt(0).toUpperCase() + detectedProps.weapon_type.slice(1);
                     container.appendChild(tag);
@@ -1056,12 +1059,13 @@ class SearchEngine {
             if (tagId === 'shield_type') {
                 if (detectedProps.shield_type && (typeof isTagVisible !== 'function' || isTagVisible('shield_type'))) {
                     const tag = document.createElement('span');
-                    tag.className = 'property-tag';
+                    tag.className = 'property-tag cat-item_type';
                     tag.dataset.category = 'item_type';
                     const tagColor = typeof getTagColor === 'function' ? getTagColor('shield_type') : null;
                     if (tagColor) {
                         tag.style.color = tagColor;
                         tag.style.borderColor = tagColor;
+                        tag.style.backgroundColor = 'transparent';
                     }
                     tag.textContent = detectedProps.shield_type.charAt(0).toUpperCase() + detectedProps.shield_type.slice(1);
                     container.appendChild(tag);
