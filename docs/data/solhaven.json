@@ -1,6 +1,6 @@
 {
-  "created_at": "2025-12-27 06:20:07 UTC",
-  "run_time": "15s",
+  "created_at": "2025-12-27 08:44:34 UTC",
+  "run_time": "06m 56s",
   "town": "Solhaven",
   "shops": [
     {
@@ -1103,13 +1103,13 @@
               "name": "a gnome travel brochure",
               "details": {
                 "raw": [
-                  "   Current Time: 17:35   Current Flight Schedule",
+                  "   Current Time: 03:37   Current Flight Schedule",
                   "   Depart| From                    | To                      |Arrive",
                   "    -----+-------------------------+-------------------------+------",
                   "    22:46|Gnome Homeland           |Gnome Homeland           |22:46",
                   "    ---------------------------------------------------------------",
                   "Times be estimates only!  Subject ta change by headwinds an' tailwinds an' sidewinds an' stuff!  Deal wit' it!",
-                  "   Current Time: 17:35   Current Flight Schedule",
+                  "   Current Time: 03:37   Current Flight Schedule",
                   "   Depart| From                    | To                      |Arrive",
                   "    -----+-------------------------+-------------------------+------",
                   "    22:46|Gnome Homeland           |Gnome Homeland           |22:46",
@@ -4583,7 +4583,7 @@
       "shop_owner": "Eiadh",
       "inv": [
         {
-          "room_title": "Eiadh's Fine Furs",
+          "room_title": "E and S's Fine Furs",
           "branch": "entry",
           "items": [
 
@@ -9793,21 +9793,6 @@
                 "cost": 2250000
               },
               "quantity": 2
-            },
-            {
-              "id": "299396827",
-              "name": "a key-shaped emerald",
-              "details": {
-                "raw": [
-                  "But you are not holding a key-shaped emerald.",
-                  "The emerald can not be worn.",
-                  "The emerald will cost 10,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "cost": 10000
-              }
             }
           ]
         },
@@ -10426,6 +10411,21 @@
           "room_title": "Charlet's General Store",
           "branch": "west",
           "items": [
+            {
+              "id": "299396827",
+              "name": "a key-shaped emerald",
+              "details": {
+                "raw": [
+                  "But you are not holding a key-shaped emerald.",
+                  "The emerald can not be worn.",
+                  "The emerald will cost 10,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 10000
+              }
+            },
             {
               "id": "188895238",
               "name": "a key-shaped emerald",
@@ -35088,7 +35088,7 @@
               "name": "a tiny nacreous humanoid skeleton with bat wings and a scorpion tail",
               "details": {
                 "raw": [
-                  "You glance at the nacreous skeleton, wondering if it's possibly sideways.  Or upside down.  Or backwards.  It's really confusing you!",
+                  "Are those eyes peering back at you?!  Oh, no.  It's just a tiny nacreous humanoid skeleton with bat wings and a scorpion tail.",
                   "The skeleton can be worn anywhere on the body.",
                   "It looks like this item has been mainly crafted out of bone, an extremely common material.",
                   "Analysis of a tiny nacreous humanoid skeleton with bat wings and a scorpion tail indicates the creator has provided the following information:",
@@ -37301,13 +37301,34 @@
                   "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
                   "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
                   "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
-                  "The glass jar will cost 24,999 coins."
+                  "The glass jar will cost 19,999 coins."
                 ],
                 "tags": [
 
                 ],
                 "material": "gemstone, an extremely common material",
-                "cost": 24999
+                "cost": 19999
+              }
+            },
+            {
+              "id": "303811009",
+              "name": "an opalescent glass jar containing pieces of brown jade",
+              "details": {
+                "raw": [
+                  "It is estimated that an opalescent glass jar containing pieces of brown jade can store a very small amount with enough space for one item.",
+                  "The jar can not be worn.",
+                  "It looks like this item has been mainly crafted out of glass, an extremely common material.",
+                  "Analysis of an opalescent glass jar containing pieces of brown jade indicates the creator has provided the following information:",
+                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
+                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
+                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
+                  "The glass jar will cost 34,999 coins."
+                ],
+                "tags": [
+
+                ],
+                "material": "glass, an extremely common material",
+                "cost": 34999
               }
             },
             {
@@ -37750,28 +37771,17 @@
                 "material": "glass, an extremely common material",
                 "cost": 49999
               }
-            },
-            {
-              "id": "303811009",
-              "name": "an opalescent glass jar containing pieces of brown jade",
-              "details": {
-                "raw": [
-                  "It is estimated that an opalescent glass jar containing pieces of brown jade can store a very small amount with enough space for one item.",
-                  "The jar can not be worn.",
-                  "It looks like this item has been mainly crafted out of glass, an extremely common material.",
-                  "Analysis of an opalescent glass jar containing pieces of brown jade indicates the creator has provided the following information:",
-                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
-                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
-                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
-                  "The glass jar will cost 34,999 coins."
-                ],
-                "tags": [
-
-                ],
-                "material": "glass, an extremely common material",
-                "cost": 34999
-              }
-            },
+            }
+          ],
+          "sign": [
+            "Written on a simple driftwood sign:",
+            "All jars have 10 count gems"
+          ]
+        },
+        {
+          "room_title": "Zephyryl's General Store",
+          "branch": "east",
+          "items": [
             {
               "id": "303811011",
               "name": "an opalescent glass jar containing chunks of dark blue amber",
@@ -37813,17 +37823,28 @@
                 "material": "gemstone, an extremely common material",
                 "cost": 49999
               }
-            }
-          ],
-          "sign": [
-            "Written on a simple driftwood sign:",
-            "All jars have 10 count gems"
-          ]
-        },
-        {
-          "room_title": "Zephyryl's General Store",
-          "branch": "east",
-          "items": [
+            },
+            {
+              "id": "244618596",
+              "name": "an opalescent glass jar containing star rubies",
+              "details": {
+                "raw": [
+                  "It is estimated that an opalescent glass jar containing star rubies can store a very small amount with enough space for one item.",
+                  "The jar can not be worn.",
+                  "It looks like this item has been mainly crafted out of gemstone, an extremely common material.",
+                  "Analysis of an opalescent glass jar containing star rubies indicates the creator has provided the following information:",
+                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
+                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
+                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
+                  "The glass jar will cost 23,999 coins."
+                ],
+                "tags": [
+
+                ],
+                "material": "gemstone, an extremely common material",
+                "cost": 23999
+              }
+            },
             {
               "id": "244618603",
               "name": "an opalescent glass jar containing green alexandrite stones",
@@ -37885,27 +37906,6 @@
                 ],
                 "material": "gemstone, an extremely common material",
                 "cost": 34999
-              }
-            },
-            {
-              "id": "244618596",
-              "name": "an opalescent glass jar containing star rubies",
-              "details": {
-                "raw": [
-                  "It is estimated that an opalescent glass jar containing star rubies can store a very small amount with enough space for one item.",
-                  "The jar can not be worn.",
-                  "It looks like this item has been mainly crafted out of gemstone, an extremely common material.",
-                  "Analysis of an opalescent glass jar containing star rubies indicates the creator has provided the following information:",
-                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
-                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
-                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
-                  "The glass jar will cost 24,999 coins."
-                ],
-                "tags": [
-
-                ],
-                "material": "gemstone, an extremely common material",
-                "cost": 24999
               }
             },
             {
@@ -40985,7 +40985,7 @@
       "shop_owner": "Zhagen",
       "inv": [
         {
-          "room_title": "Zhagen's Den",
+          "room_title": "The Serpent's Den",
           "branch": "entry",
           "items": [
             {
@@ -66486,90 +66486,6 @@
                 "material": "pewter, an infrequent alloy",
                 "cost": 20000000
               }
-            },
-            {
-              "id": "302235519",
-              "name": "a light yellow note",
-              "details": {
-                "raw": [
-                  "In the Common language, it reads:",
-                  "This note can be REDEEMed to reduce an appropriate item's encumbrance by 1 pound.  Most worn containers, armor, and weapons are eligible for this service.",
-                  "The note can not be worn.",
-                  "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
-                  "Analysis of a light yellow note indicates the creator has provided the following information:",
-                  "This yellow note can be REDEEMed to reduce the encumbrance of a worn container, armor, or weapon by 1 pounds.  Normal restrictions will apply and may vary from item to item.",
-                  "Some scripted items are eligible for redemption with this yellow note.",
-                  "A light yellow note is a single-use note.",
-                  "HUG your note to see a list of denied scripts.",
-                  "The yellow note will cost 30,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "material": "organic material, an extremely common material",
-                "cost": 30000
-              },
-              "quantity": 50
-            },
-            {
-              "id": "302118046",
-              "name": "a bright pink note",
-              "details": {
-                "raw": [
-                  "In the Common language, it reads:",
-                  "This note can be REDEEMed to increase an appropriate item's capacity by 10 pounds up to a maximum of:",
-                  "Back and shoulder containers: 180 pounds",
-                  "Slung on shoulder containers: 80 pounds",
-                  "Torso, attached to belt, and front containers: 60 pounds",
-                  "NOTE: If your item's capacity limit is lower than the service amount, the item is ineligible.",
-                  "Tiny and extremely tiny containers are also ineligible for use with this note.",
-                  "The note can not be worn.",
-                  "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
-                  "Analysis of a bright pink note indicates the creator has provided the following information:",
-                  "This pink note can be REDEEMed to increase the capacity of a worn container (back, shoulder, slung on shoulder, torso, attached to belt, and front) by 10 pounds.  Containers worn in other locations are not eligible for this note.",
-                  "Please note that in some cases, this increase may change your item from non-functional to functional.  In addition, any items restricted to hold a specific number of items (ie: your container will only hold one item) will still only hold X number of items.  This note will not change that.  Normal restrictions will apply and may vary from item to item.",
-                  "Some scripted items are eligible for redemption with this pink note.",
-                  "A bright pink note is a single-use note.",
-                  "HUG your note to see a list of denied scripts.",
-                  "The pink note will cost 175,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "material": "organic material, an extremely common material",
-                "cost": 175000
-              },
-              "quantity": 25
-            },
-            {
-              "id": "302076424",
-              "name": "a vivid pink note",
-              "details": {
-                "raw": [
-                  "In the Common language, it reads:",
-                  "This note can be REDEEMed to increase an appropriate item's capacity by 10 pounds up to a maximum of:",
-                  "Back and shoulder containers: 200 pounds",
-                  "Slung on shoulder containers: 100 pounds",
-                  "Torso, attached to belt, and front containers: 60 pounds",
-                  "NOTE: If your item's capacity limit is lower than the service amount, the item is ineligible.",
-                  "Tiny and extremely tiny containers are also ineligible for use with this note.",
-                  "The note can not be worn.",
-                  "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
-                  "Analysis of a vivid pink note indicates the creator has provided the following information:",
-                  "This pink note can be REDEEMed to increase the capacity of a worn container (back, shoulder, slung on shoulder, torso, attached to belt, and front) by 10 pounds.  Containers worn in other locations are not eligible for this note.",
-                  "Please note that in some cases, this increase may change your item from non-functional to functional.  In addition, any items restricted to hold a specific number of items (ie: your container will only hold one item) will still only hold X number of items.  This note will not change that.  Normal restrictions will apply and may vary from item to item.",
-                  "Some scripted items are eligible for redemption with this pink note.",
-                  "A vivid pink note is a single-use note.",
-                  "HUG your note to see a list of denied scripts.",
-                  "The pink note will cost 2,000,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "material": "organic material, an extremely common material",
-                "cost": 2000000
-              },
-              "quantity": 10
             }
           ],
           "sign": [
@@ -67021,6 +66937,90 @@
                 "material_detail": "",
                 "cost": 150000
               }
+            },
+            {
+              "id": "302235519",
+              "name": "a light yellow note",
+              "details": {
+                "raw": [
+                  "In the Common language, it reads:",
+                  "This note can be REDEEMed to reduce an appropriate item's encumbrance by 1 pound.  Most worn containers, armor, and weapons are eligible for this service.",
+                  "The note can not be worn.",
+                  "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
+                  "Analysis of a light yellow note indicates the creator has provided the following information:",
+                  "This yellow note can be REDEEMed to reduce the encumbrance of a worn container, armor, or weapon by 1 pounds.  Normal restrictions will apply and may vary from item to item.",
+                  "Some scripted items are eligible for redemption with this yellow note.",
+                  "A light yellow note is a single-use note.",
+                  "HUG your note to see a list of denied scripts.",
+                  "The yellow note will cost 30,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "material": "organic material, an extremely common material",
+                "cost": 30000
+              },
+              "quantity": 50
+            },
+            {
+              "id": "302118046",
+              "name": "a bright pink note",
+              "details": {
+                "raw": [
+                  "In the Common language, it reads:",
+                  "This note can be REDEEMed to increase an appropriate item's capacity by 10 pounds up to a maximum of:",
+                  "Back and shoulder containers: 180 pounds",
+                  "Slung on shoulder containers: 80 pounds",
+                  "Torso, attached to belt, and front containers: 60 pounds",
+                  "NOTE: If your item's capacity limit is lower than the service amount, the item is ineligible.",
+                  "Tiny and extremely tiny containers are also ineligible for use with this note.",
+                  "The note can not be worn.",
+                  "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
+                  "Analysis of a bright pink note indicates the creator has provided the following information:",
+                  "This pink note can be REDEEMed to increase the capacity of a worn container (back, shoulder, slung on shoulder, torso, attached to belt, and front) by 10 pounds.  Containers worn in other locations are not eligible for this note.",
+                  "Please note that in some cases, this increase may change your item from non-functional to functional.  In addition, any items restricted to hold a specific number of items (ie: your container will only hold one item) will still only hold X number of items.  This note will not change that.  Normal restrictions will apply and may vary from item to item.",
+                  "Some scripted items are eligible for redemption with this pink note.",
+                  "A bright pink note is a single-use note.",
+                  "HUG your note to see a list of denied scripts.",
+                  "The pink note will cost 175,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "material": "organic material, an extremely common material",
+                "cost": 175000
+              },
+              "quantity": 25
+            },
+            {
+              "id": "302076424",
+              "name": "a vivid pink note",
+              "details": {
+                "raw": [
+                  "In the Common language, it reads:",
+                  "This note can be REDEEMed to increase an appropriate item's capacity by 10 pounds up to a maximum of:",
+                  "Back and shoulder containers: 200 pounds",
+                  "Slung on shoulder containers: 100 pounds",
+                  "Torso, attached to belt, and front containers: 60 pounds",
+                  "NOTE: If your item's capacity limit is lower than the service amount, the item is ineligible.",
+                  "Tiny and extremely tiny containers are also ineligible for use with this note.",
+                  "The note can not be worn.",
+                  "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
+                  "Analysis of a vivid pink note indicates the creator has provided the following information:",
+                  "This pink note can be REDEEMed to increase the capacity of a worn container (back, shoulder, slung on shoulder, torso, attached to belt, and front) by 10 pounds.  Containers worn in other locations are not eligible for this note.",
+                  "Please note that in some cases, this increase may change your item from non-functional to functional.  In addition, any items restricted to hold a specific number of items (ie: your container will only hold one item) will still only hold X number of items.  This note will not change that.  Normal restrictions will apply and may vary from item to item.",
+                  "Some scripted items are eligible for redemption with this pink note.",
+                  "A vivid pink note is a single-use note.",
+                  "HUG your note to see a list of denied scripts.",
+                  "The pink note will cost 2,000,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "material": "organic material, an extremely common material",
+                "cost": 2000000
+              },
+              "quantity": 10
             },
             {
               "id": "178241083",
