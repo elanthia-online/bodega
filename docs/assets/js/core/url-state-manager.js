@@ -328,14 +328,18 @@ class URLStateManager {
 
     updateURL(params) {
         const url = params.toString();
-        const newURL = url ? `?${url}` : window.location.pathname;
+        // Always include pathname to ensure we clear any existing hash
+        const newURL = url ? `${window.location.pathname}?${url}` : window.location.pathname;
 
         if (newURL.length > 1500) {
             console.warn('URL too long:', newURL.length, 'chars');
         }
 
-        if (window.location.search !== `?${url}`) {
-            window.history.pushState({ timestamp: Date.now() }, '', newURL);
+        // Compare full path+search+hash to determine if update is needed
+        const currentURL = window.location.pathname + window.location.search + window.location.hash;
+        if (currentURL !== newURL) {
+            // Use replaceState to ensure hash is cleared (pushState can be unreliable for hash clearing)
+            window.history.replaceState({ timestamp: Date.now() }, '', newURL);
         }
     }
 }

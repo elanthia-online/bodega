@@ -146,6 +146,8 @@ class RemovedEngine {
 
     updateURLState() {
         if (!window.urlStateManager) return;
+        // Only update URL if removed tab is actually active
+        if (!this.isActiveMode()) return;
 
         window.urlStateManager.updateRemovedURL({
             days: document.getElementById('removed-date-filter')?.value,
