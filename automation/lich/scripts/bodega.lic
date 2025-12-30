@@ -690,7 +690,12 @@ module Bodega
         max_item_depth = (Opts["max-item-depth"] || 100).to_i
         room.items = room.items.take(max_item_depth).map do |item_data|
           # item_data is now a hash with {id: ..., browse_price: ..., quantity: ... (optional)}
-          Parser.scan_item(item_data[:id] || item_data, item_data[:browse_price], item_data[:quantity])
+          # Use raw mode if --raw-only flag is set
+          if Opts.raw_only || Opts["raw-only"]
+            Parser.scan_item_raw(item_data[:id] || item_data, item_data[:browse_price], item_data[:quantity])
+          else
+            Parser.scan_item(item_data[:id] || item_data, item_data[:browse_price], item_data[:quantity])
+          end
         end
         room
       end
@@ -795,9 +800,6 @@ module Bodega
       @smart_stats ||= { new_items: 0, removed_items: 0, unchanged_items: 0, shops_scanned: 0 }
       @removed_items_tracker ||= {}
 
-      # Load added items tracking for smart scans (only on first shop)
-      load_added_items if @smart_stats[:shops_scanned] == 0
-
       # Load shop mapping for ownership detection (only on first shop)
       if @smart_stats[:shops_scanned] == 0
         load_shop_mapping
@@ -865,9 +867,9 @@ module Bodega
         end
       end
 
-      # Step 6: Capture and remove deleted items from existing shop structure
+      # Step 6: Remove deleted items from existing shop structure
+      # (Tracking moved to processor.rb)
       if removed_ids.any?
-        capture_removed_items(town, existing_shop, removed_ids, name)
         remove_items_from_shop(existing_shop, removed_ids)
       end
 
@@ -884,12 +886,14 @@ module Bodega
             item_info = current_items[item_id]
             browse_price = item_info[:price]
             quantity = item_info[:quantity]
-            item_data = scan_item(item_id, browse_price, quantity)
+            # Use raw mode if --raw-only flag is set
+            item_data = if Opts.raw_only || Opts["raw-only"]
+              scan_item_raw(item_id, browse_price, quantity)
+            else
+              scan_item(item_id, browse_price, quantity)
+            end
             new_items << item_data
-
-            # Track in added_items.json for persistence across full scans
-            # Pass town, preamble, and item_data for hash-based tracking
-            track_added_item(item_id, current_time, town: town, preamble: preamble, item_data: item_data)
+            # Item tracking moved to processor.rb
           rescue => e
             Log.out("Failed to inspect item #{item_id}: #{e.message}", label: :smart)
           end
@@ -968,152 +972,8 @@ module Bodega
       result
     end
 
-    def self.load_removed_items
-      # Load the global removed items file with migration support
-      return @removed_items_data if @removed_items_data
-
-      file_path = Assets.local_path("removed_items.json")
-
-      if File.exist?(file_path)
-        begin
-          @removed_items_data = JSON.parse(File.read(file_path))
-          Log.out("Loaded removed_items.json", label: :smart)
-        rescue JSON::ParserError => e
-          Log.out("Failed to load removed_items.json: #{e.message}", label: :smart)
-          @removed_items_data = {}
-        end
-      else
-        # First run - migrate from existing town files if they have removed_items
-        Log.out("No removed_items.json found, checking for migration...", label: :migrate)
-        migrated_data = {}
-
-        towns.each do |town|
-          begin
-            town_data = load_and_validate_town_json(town)
-            if town_data && town_data['removed_items'] && town_data['removed_items'].any?
-              migrated_data[town] = town_data['removed_items']
-              Log.out("Migrating #{town_data['removed_items'].size} removed items from #{town}.json", label: :migrate)
-            end
-          rescue => e
-            Log.out("Error checking #{town} for migration: #{e.message}", label: :migrate)
-          end
-        end
-
-        @removed_items_data = migrated_data
-
-        if migrated_data.any?
-          save_removed_items
-          Log.out("Migration complete - saved to removed_items.json", label: :migrate)
-        else
-          Log.out("No existing removed_items to migrate", label: :migrate)
-        end
-      end
-
-      @removed_items_data ||= {}
-    end
-
-    def self.save_removed_items
-      # Save the global removed items file with server reboot safeguard
-      return if @removed_items_data.nil? || @removed_items_data.empty?
-
-      # Server reboot safeguard: check for mass additions that indicate ID reset
-      original_file_path = Assets.local_path("removed_items.json")
-      if File.exist?(original_file_path)
-        begin
-          original_data = JSON.parse(File.read(original_file_path))
-
-          # Count items added in current session only
-          new_items_count = 0
-          @removed_items_data.each do |town, items|
-            original_town_items = original_data[town] || []
-            original_ids = original_town_items.map { |item| item['id'].to_s }.to_set
-
-            new_items_count += items.count { |item| !original_ids.include?(item['id'].to_s) }
-          end
-
-          # Safeguard threshold: reject if adding more than 750 items in one session
-          # This indicates likely server reboot (all item IDs changed)
-          max_new_items = (Opts["removed-max-new"] || 750).to_i
-
-          if new_items_count > max_new_items
-            Log.out("SAFEGUARD: Rejecting #{new_items_count} new removed items (threshold: #{max_new_items})", label: :safeguard)
-            Log.out("This likely indicates a server reboot with ID reset - keeping existing data", label: :safeguard)
-            return
-          elsif new_items_count > 100
-            Log.out("Adding #{new_items_count} new removed items (threshold: #{max_new_items})", label: :safeguard)
-          end
-        rescue => e
-          Log.out("Warning: Could not check original removed_items.json: #{e.message}", label: :safeguard)
-        end
-      end
-
-      begin
-        Assets.write_local_json(@removed_items_data, "removed_items")
-        Log.out("Saved removed_items.json", label: :smart)
-      rescue => e
-        Log.out("Failed to save removed_items.json: #{e.message}", label: :smart)
-      end
-    end
-
-    def self.load_added_items
-      # Load the global added items file (only during smart scans)
-      return @added_items_data if @added_items_data
-
-      file_path = Assets.local_path("added_items.json")
-
-      if File.exist?(file_path)
-        begin
-          @added_items_data = JSON.parse(File.read(file_path))
-          Log.out("Loaded added_items.json with #{@added_items_data.size} items", label: :smart)
-        rescue JSON::ParserError => e
-          Log.out("Failed to load added_items.json: #{e.message}", label: :smart)
-          @added_items_data = {}
-        end
-      else
-        Log.out("No added_items.json found, creating new tracking", label: :smart)
-        @added_items_data = {}
-      end
-
-      @added_items_data
-    end
-
-    def self.track_added_item(item_id, timestamp, town: nil, preamble: nil, item_data: nil)
-      # Initialize added items tracking if needed
-      load_added_items
-
-      # Only store by hash signature (not by ID which can be recycled)
-      # If we don't have the data needed for hash, skip tracking
-      if town && preamble && item_data
-        signature = create_item_signature(town, preamble, item_data)
-        if signature
-          @added_items_data[signature] = timestamp
-        else
-          Log.out("Warning: Could not create signature for item #{item_id}", label: :smart)
-        end
-      else
-        Log.out("Warning: Missing data to track item #{item_id} (town: #{town.nil?}, preamble: #{preamble.nil?}, item_data: #{item_data.nil?})", label: :smart)
-      end
-    end
-
-    def self.create_item_signature(town, preamble, item_data)
-      # Create a unique signature for the item based on stable attributes
-      # This matches the JavaScript implementation in data-loader.js
-      return nil unless item_data && item_data[:name]
-
-      # Extract shop name from preamble
-      shop_name = extract_shop_name_from_preamble(preamble)
-
-      # Extract price from item details
-      price = item_data.dig(:details, :cost) || 0
-
-      # Create signature using safe_string
-      safe_town = Utils.safe_string(town)
-      safe_shop = Utils.safe_string(shop_name)
-      safe_item = item_data[:name].to_s.downcase.strip
-      safe_price = price.to_s
-
-      "#{safe_town}:#{safe_shop}:#{safe_item}:#{safe_price}"
-    end
+    # Item tracking (load/save added_items.json and removed_items.json)
+    # has been moved to processor.rb for the scrape -> process -> display architecture
 
     def self.extract_shop_name_from_preamble(preamble)
       # Extract shop name from preamble like "Starsworn's Shop is located in..."
@@ -1282,125 +1142,6 @@ module Bodega
       end
     end
 
-    def self.save_added_items
-      # Save added_items.json (only called during smart scans)
-      return unless @added_items_data
-
-      # Remove items with invalid timestamps only
-      @added_items_data = @added_items_data.select do |_item_id, timestamp_str|
-        begin
-          Time.parse(timestamp_str)
-          true
-        rescue
-          false # Remove items with invalid timestamps
-        end
-      end
-
-      begin
-        Assets.write_local_json(@added_items_data, "added_items")
-        Log.out("Saved added_items.json with #{@added_items_data.size} items", label: :smart)
-      rescue => e
-        Log.out("Failed to save added_items.json: #{e.message}", label: :smart)
-      end
-    end
-
-    def self.clean_removed_items_by_size
-      # Configurable size-based cleanup
-      max_size_mb = (Opts["removed-max-size"] || 10).to_f
-      min_days = (Opts["removed-min-days"] || 14).to_i
-      max_days = (Opts["removed-max-days"] || 180).to_i
-
-      file_path = Assets.local_path("removed_items.json")
-
-      # First pass: remove anything older than max_days
-      max_cutoff = Time.now.utc - (max_days * 24 * 60 * 60)
-
-      @removed_items_data.each do |town, items|
-        @removed_items_data[town] = items.select do |item|
-          begin
-            Time.parse(item['removed_date']) >= max_cutoff
-          rescue
-            false # Remove items with invalid dates
-          end
-        end
-      end
-
-      # Remove empty town entries
-      @removed_items_data.delete_if { |_town, items| items.empty? }
-
-      # Save and check file size
-      save_removed_items
-      return unless File.exist?(file_path)
-
-      file_size_mb = File.size(file_path) / (1024.0 * 1024.0)
-
-      if file_size_mb > max_size_mb
-        Log.out("removed_items.json is #{file_size_mb.round(2)}MB, trimming to #{max_size_mb}MB", label: :cleanup)
-
-        # Second pass: trim to size while respecting min_days
-        min_cutoff = Time.now.utc - (min_days * 24 * 60 * 60)
-
-        # Get all items sorted by date (newest first)
-        all_items = []
-        @removed_items_data.each do |_town, items|
-          items.each { |item| all_items << item }
-        end
-        all_items.sort_by! { |item| item['removed_date'] }.reverse!
-
-        # Calculate how many items to keep
-        reduction_ratio = max_size_mb / file_size_mb
-        target_count = (all_items.size * reduction_ratio * 0.9).to_i # 90% of target to leave buffer
-
-        # Keep newest items that are also within min_days
-        items_to_keep = all_items.select do |item|
-          begin
-            Time.parse(item['removed_date']) >= min_cutoff
-          rescue
-            false
-          end
-        end
-
-        # If we still have too many, take only the newest
-        items_to_keep = items_to_keep.first(target_count) if items_to_keep.size > target_count
-
-        # Rebuild by town
-        @removed_items_data = {}
-        items_to_keep.each do |item|
-          town = item['town'] || item['last_seen_shop'] # fallback for old data
-          @removed_items_data[town] ||= []
-          @removed_items_data[town] << item
-        end
-
-        save_removed_items
-        new_size = File.size(file_path) / (1024.0 * 1024.0)
-        Log.out("Trimmed removed_items.json from #{file_size_mb.round(2)}MB to #{new_size.round(2)}MB", label: :cleanup)
-      end
-    end
-
-    def self.capture_removed_items(town, shop_data, item_ids_to_remove, shop_name)
-      # Capture removed items before deleting them
-      return unless shop_data && shop_data['inv']
-
-      # Load existing data if not loaded
-      load_removed_items
-
-      @removed_items_data[town] ||= []
-      current_time = Time.now.utc.iso8601
-
-      shop_data['inv'].each do |room|
-        next unless room['items']
-        room['items'].each do |item|
-          if item_ids_to_remove.include?(item['id'].to_s)
-            removed_item = item.dup
-            removed_item['removed_date'] = current_time
-            removed_item['last_seen_shop'] = shop_name
-            removed_item['town'] = town
-            @removed_items_data[town] << removed_item
-          end
-        end
-      end
-    end
-
     def self.remove_items_from_shop(shop_data, item_ids_to_remove)
       # Remove specific item IDs from shop's inventory structure
       return unless shop_data && shop_data['inv']
@@ -1424,25 +1165,6 @@ module Bodega
       first_room = shop_data['inv'].first
       first_room['items'] ||= []
       first_room['items'].concat(new_items)
-    end
-
-    def self.get_removed_items_for_town(town)
-      # Load the global removed items data if not loaded
-      load_removed_items
-
-      # Get all removed items for this town
-      all_removed = @removed_items_data[town] || []
-
-      # Remove duplicates by item ID (keep most recent)
-      unique_removed = {}
-      all_removed.each do |item|
-        item_id = item['id'].to_s
-        if !unique_removed[item_id] || Time.parse(item['removed_date']) > Time.parse(unique_removed[item_id]['removed_date'])
-          unique_removed[item_id] = item
-        end
-      end
-
-      unique_removed.values.sort_by { |item| item['removed_date'] }.reverse
     end
 
     def self.display_smart_summary
@@ -1489,6 +1211,29 @@ module Bodega
         id: id,
         name: details.first.gsub("You request a thorough inspection of ", "").gsub(%r[\sfrom [A-Z].*?\.$], ""),
         details: extracted_details
+      }
+
+      # Preserve quantity from browse data if it exists
+      result[:quantity] = quantity if quantity
+
+      result
+    end
+
+    # Raw capture mode - minimal processing, just stores raw INSPECT output
+    def self.scan_item_raw(id, browse_price = nil, quantity = nil)
+      coll = Collector.new(
+        command: %[shop inspect #{id}],
+        start: %[You request a thorough inspection of],
+        close: %[You can use SHOP PURCHASE #{id} to purchase]
+      )
+
+      details = coll.run()
+
+      result = {
+        id: id,
+        name: details.first.gsub("You request a thorough inspection of ", "").gsub(%r[\sfrom [A-Z].*?\.$], ""),
+        browse_price: browse_price,
+        raw_inspect: details.slice(1..-2) # Just the raw lines, no Extractor processing
       }
 
       # Preserve quantity from browse data if it exists
@@ -1545,14 +1290,7 @@ module Bodega
       # Display smart parsing summary if we were in smart mode
       display_smart_summary if Opts.smart
 
-      # Save added items file after all towns are processed (smart mode only)
-      save_added_items if Opts.smart
-
-      # Clean and save the global removed items file after all towns are processed
-      if @removed_items_data && @removed_items_data.any?
-        clean_removed_items_by_size
-        save_removed_items
-      end
+      # Item tracking (added/removed) is now handled by processor.rb
 
       # Save updated shop_mapping.json after all towns processed (smart mode only)
       if Opts.smart && @shop_mapping_modified
@@ -1584,6 +1322,17 @@ module Bodega
     def self.save_json(name:, data:)
       return Utils.pp(data) if Opts["dry-run"]
       filename = Utils.safe_string(Opts.to_h.fetch(:shop, name))
+
+      # Add format_version for raw mode
+      if Opts.raw_only || Opts["raw-only"]
+        data[:format_version] = "raw_v1"
+        # Prefix filename with raw/ subdirectory
+        filename = "raw/#{filename}"
+        # Ensure raw directory exists
+        raw_dir = Assets::LOCAL_FS_ROOT + "raw"
+        FileUtils.mkdir_p(raw_dir) unless File.directory?(raw_dir)
+      end
+
       Assets.write_local_json(data, filename)
       return "#{filename}.json"
     end
@@ -2002,6 +1751,9 @@ module Bodega
                                 automatically removes deleted items and adds new ones
                                 first run still full speed, subsequent runs are much faster
 
+        raw mode:
+          --raw-only            capture raw INSPECT output without local extraction
+                                processing is deferred to server-side processor.rb
 
         upload mode:
           --upload              upload existing JSON files from local filesystem
@@ -2055,14 +1807,14 @@ module Bodega
   module Parser
     def self.smart_scan
       Log.out("Starting smart scan mode", label: :automation)
-      Script.run("bodega", "--parser", "--smart", "--save")
+      Script.run("bodega", "--parser", "--smart", "--save", "--raw-only")
     end
 
     def self.full_scan
       Log.out("Starting full scan mode", label: :automation)
-      # Full scan does smart scan first, then full scan
-      Script.run("bodega", "--parser", "--smart", "--save")
-      Script.run("bodega", "--parser", "--save")
+      # Full scan does smart scan first (to catch removals), then full scan
+      Script.run("bodega", "--parser", "--smart", "--save", "--raw-only")
+      Script.run("bodega", "--parser", "--save", "--raw-only")
     end
   end
 end

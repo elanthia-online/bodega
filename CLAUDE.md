@@ -4,94 +4,116 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a consolidated repository for GemStone IV Bodega (player shop browser) that combines:
-- **Web Application**: Static site served via GitHub Pages at `docs/` directory
-- **Ruby Automation System**: Automated data collection using Lich (GemStone IV Ruby framework)
-- **CI/CD Pipeline**: GitHub Actions for automated scanning and deployment
+GemStone IV Bodega is a player shop browser that combines a static web application with automated data collection from the game using the Lich Ruby framework.
 
 ## Development Commands
 
 ### Local Web Development
 ```bash
-# Start local web server for testing UI
-cd docs
-python -m http.server 8000
+cd docs && python -m http.server 8000
 ```
 
-### Automation Testing (requires credentials)
+### Automation Testing (requires game credentials)
 ```bash
-# Setup environment variables first
-export SIMU_USERNAME="your-username"
-export SIMU_PASSWORD="your-password"
-export SIMU_CHARACTER="your-character"
-
-# Setup local environment
+export SIMU_USERNAME="username" SIMU_PASSWORD="password" SIMU_CHARACTER="character"
 ./automation/bin/setup-environment
-
-# Run local scan
-./automation/bin/run-scan
+./automation/bin/run-scan          # Auto-detects scan type (full at 8AM UTC, smart otherwise)
+./automation/bin/run-scan smart    # Force smart scan
+./automation/bin/run-scan full     # Force full scan
 ```
 
-### Key Scripts
-- `automation/bin/setup-environment` - Creates authentication files and installs Ruby gems
-- `automation/bin/run-scan` - Executes the data collection automation
-- `automation/bin/deploy-results` - Processes and commits scan results
-- `scripts/bodega.lic` - Core Ruby automation script (single source of truth)
+### Local Data Processing (Windows)
+```bash
+ruby automation/ruby/processor.rb --mode=reprocess
+```
 
 ## Architecture
 
-### Web Application (`docs/`)
-- **Frontend**: Vanilla JavaScript with modular design
-- **Components**: `search.js`, `browse.js`, `added.js`, `removed.js`, `data-loader.js`
-- **Styling**: Responsive CSS in `style.css`
-- **API Functions**: Netlify serverless functions in `docs/netlify/`
+### Separation of Responsibilities
 
-### Data Layer (`docs/data/`)
-- **Town Data**: JSON files per town (`wehnimers_landing.json`, `solhaven.json`, etc.)
-- **Removed Items**: Centralized tracking in `removed_items.json`
-- **Metadata**: `last_updated.txt`, `shop_mapping.json`
+| Component | Responsibility |
+|-----------|---------------|
+| **bodega.lic** | Raw data capture ONLY - saves `raw_inspect` text to `docs/data/raw/*.json` |
+| **processor.rb** | ALL extraction - tags, properties, item types → outputs to `docs/data/*.json` |
+| **data-loader.js** | Display ONLY - loads processed data, no parsing/fallback |
 
-### Automation System (`automation/`)
-- **Lich Framework**: Ruby environment in `automation/lich/`
-- **Ruby Scripts**: Enhanced automation with proper module structure
-- **Scan Types**: Smart scans (2-3 min) vs Full scans (65 min at 8 AM UTC)
-- **Logging**: Comprehensive logs in `automation/logs/`
-
-### CI/CD (`.github/workflows/`)
-- **automation.yml**: Runs every 2 hours, executes data collection
-- **deploy.yml**: Deploys web application to GitHub Pages
-- **api-upload-processor.yml**: Handles manual data uploads
-
-## Important Code Patterns
-
-### Ruby Automation
-The automation follows clean module patterns:
-```ruby
-# Time-based scan selection
-if current_hour == 8
-  Bodega::Parser.smart_scan()  # Smart pass first
-  Bodega::Parser.full_scan()   # Then full pass
-else
-  Bodega::Parser.smart_scan()  # Smart only
-end
+### Data Pipeline
+```
+bodega.lic (in-game) → docs/data/raw/*.json
+                            ↓
+processor.rb (server) → docs/data/*.json
+                            ↓
+data-loader.js (browser) → Web UI
 ```
 
-### Data Structure
-Town data follows consistent JSON schema with shops containing rooms with items. Items include `added_date` for tracking and detailed metadata.
+### Key Files
+| File | Purpose |
+|------|---------|
+| `automation/lich/scripts/bodega.lic` | In-game raw capture (`;bodega` or `;bodega --smart`) |
+| `automation/lich/scripts/headless.lic` | Headless automation entry point |
+| `automation/ruby/processor.rb` | Extracts ALL properties from raw data |
+| `automation/ruby/bodega_extractor.rb` | Pattern matching and extraction logic |
+| `docs/assets/js/core/data-loader.js` | Loads and displays processed data |
 
-### Error Handling
-- Ruby automation includes comprehensive logging and cleanup procedures
-- Web application handles missing data gracefully with progress indicators
-- GitHub Actions include artifact retention and timeout handling
+### Data Directories
+- `docs/data/raw/` - Raw JSON from bodega.lic (per-town files)
+- `docs/data/` - Processed JSON consumed by web app
+- `docs/data/added_items.json` - Tracks when items were first seen
+- `docs/data/removed_items.json` - Tracks removed items
 
-## Security Considerations
-- Credentials stored as GitHub Secrets (never in code)
-- Authentication files generated dynamically at runtime
-- Logs automatically scrub sensitive information
-- Repository access controlled via GitHub permissions
+### Scan Types
+- **Full scan**: `;bodega` - Complete shop inventory inspection (~65 min)
+- **Smart scan**: `;bodega --smart` - Only inspects new/changed items (~2-3 min)
+- Automation runs full scan at 8 AM UTC, smart scans every 2 hours otherwise
 
-## Development Notes
-- No package.json or traditional build system - this is a static site with Ruby automation
-- Web assets are served directly from GitHub Pages
-- Ruby dependencies managed via gem install in setup scripts
-- All paths assume repository root as working directory
+## Extracted Properties
+
+processor.rb extracts these fields from raw inspection text:
+- **Basic**: cost, enchant, material, skill, weight, worn
+- **Combat**: flare/flares, sanctify, ensorcell, dmg_padding, crit_padding, dmg_weighting, crit_weighting
+- **Type flags**: is_weapon, is_armor, is_shield, is_container, is_jewelry, is_gemstone
+- **Classification**: item_type, armor_type, weapon_type, shield_type, wear_location
+- **Special**: enhancives, gemstone_properties, forged_quality, blessing, charges, spell, tags
+
+## Code Patterns
+
+### Item Signature Generation
+Items are tracked using signatures (used in `added_items.json`):
+```ruby
+# Ruby (bodega.lic)
+"#{safe_town}:#{safe_shop}:#{item_name}:#{price}"
+```
+
+### Processed JSON Schema
+```json
+{
+  "town": "Wehnimer's Landing",
+  "created_at": "2025-01-01T00:00:00Z",
+  "processing_version": "v2.0",
+  "shops": [{
+    "id": "12345",
+    "preamble": "Shop location description",
+    "inv": [{
+      "room_title": "Room Name",
+      "items": [{
+        "id": "67890",
+        "name": "a vultite sword",
+        "details": {
+          "raw": ["inspection text..."],
+          "tags": ["scripted"],
+          "cost": 50000,
+          "enchant": 25,
+          "is_weapon": true,
+          "item_type": "weapon",
+          "weapon_type": "edged weapons"
+        }
+      }]
+    }]
+  }]
+}
+```
+
+## CI/CD
+- `automation.yml`: Runs every 2 hours (cron), full scan at 08:00 UTC
+- `deploy.yml`: Deploys to GitHub Pages on push
+- `process-data.yml`: Processes raw data after automation runs

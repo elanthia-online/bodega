@@ -278,26 +278,9 @@ class DataLoader {
 
     processItem(item, shop, room, townData) {
         try {
-            // Extract price from multiple possible sources
-            let price = null;
-            if (item.details?.cost) {
-                price = parseInt(item.details.cost);
-            } else if (item.details?.raw) {
-                const priceLine = item.details.raw.find(line =>
-                    line.includes('will cost') && line.includes('coins')
-                );
-                if (priceLine) {
-                    const match = priceLine.match(/will cost ([\d,]+) coins/);
-                    if (match) {
-                        price = parseInt(match[1].replace(/,/g, ''));
-                    }
-                }
-            }
+            // All extraction is done by processor.rb - just map fields
+            const details = item.details || {};
 
-            // Parse advanced properties from raw text
-            const advancedProps = this.parseAdvancedProperties(item);
-
-            // Build enhanced item object
             return {
                 id: item.id,
                 name: item.name,
@@ -312,32 +295,69 @@ class DataLoader {
                 branch: room.branch,
 
                 // Price, enchant, and quantity
-                price: price,
-                enchant: item.details?.enchant || null,
+                price: details.cost ? parseInt(details.cost) : null,
+                enchant: details.enchant || null,
                 quantity: item.quantity || null,
 
                 // Materials and properties
-                material: item.details?.material || null,
-                weight: item.details?.weight || null,
+                material: details.material || null,
+                weight: details.weight || null,
+                skill: details.skill || null,
+                flare: details.flare || null,
 
                 // Enhancives
-                enhancives: item.details?.enhancives || [],
+                enhancives: details.enhancives || [],
 
                 // Tags and properties
-                tags: item.details?.tags || [],
+                tags: details.tags || [],
 
-                // Gemstone properties (handle both old and new field names)
-                gemstoneProperties: item.details?.gemstone_properties || item.details?.jewel_properties || [],
-                gemstoneBoundTo: item.details?.gemstone_bound_to || item.details?.jewel_bound_to || null,
+                // Gemstone properties
+                gemstoneProperties: details.gemstone_properties || [],
+                gemstoneBoundTo: details.gemstone_bound_to || null,
 
                 // Raw text for searching
-                raw: item.details?.raw || [],
+                raw: details.raw || [],
 
-                // Advanced parsed properties
-                ...advancedProps,
+                // All properties from processor.rb
+                capacityLevel: details.capacity_level || null,
+                armorType: details.armor_type || null,
+                weaponType: details.weapon_type || null,
+                shieldType: details.shield_type || null,
+                wearLocation: details.worn || details.wear_location || null,
+                isWeapon: details.is_weapon || false,
+                isArmor: details.is_armor || false,
+                isShield: details.is_shield || false,
+                isContainer: details.is_container || false,
+                isJewelry: details.is_jewelry || false,
+                isGemstone: details.is_gemstone || false,
+                forgedQuality: details.forged_quality || null,
+                forgedAvd: details.forged_avd || null,
+                forgedBy: details.forged_by || null,
+                itemType: details.item_type || null,
+                flares: details.flares || [],
+                charges: details.charges || null,
+                spell: details.spell || null,
+                blessing: details.blessing || null,
+                activator: details.activator || null,
 
-                // Use worn field from bodega.lic if available
-                wearLocation: item.details?.worn || advancedProps.wearLocation,
+                // Combat modifiers
+                td_bonus: details.td_bonus || null,
+                db_bonus: details.db_bonus || null,
+                sanctify: details.sanctify || null,
+                ensorcell: details.ensorcell || null,
+                sighting: details.sighting || null,
+
+                // Padding (armor)
+                dmg_padding: details.dmg_padding || null,
+                crit_padding: details.crit_padding || null,
+                temporary_dmg_padding: details.temporary_dmg_padding || false,
+                temporary_crit_padding: details.temporary_crit_padding || false,
+
+                // Weighting (weapons)
+                dmg_weighting: details.dmg_weighting || null,
+                crit_weighting: details.crit_weighting || null,
+                temporary_dmg_weighting: details.temporary_dmg_weighting || false,
+                temporary_crit_weighting: details.temporary_crit_weighting || false,
 
                 // Search text (for fast filtering)
                 searchText: this.buildSearchText(item, shop, room, townData)
@@ -347,283 +367,6 @@ class DataLoader {
             console.warn('Error processing item:', item.name, error);
             return null;
         }
-    }
-
-    parseAdvancedProperties(item) {
-        const properties = {
-            capacity: null,
-            capacityLevel: null,
-            armorType: null,
-            weaponType: null,
-            shieldType: null,
-            itemType: null,
-            wearLocation: null,
-            flares: [],
-            isWeapon: false,
-            isArmor: false,
-            isShield: false,
-            isContainer: false,
-            isJewelry: false,
-            isGemstone: false,
-            charges: null,
-            spell: null,
-            blessing: null
-        };
-
-        // Add the already parsed flare from bodega.lic if it exists
-        if (item.details?.flare) {
-            properties.flares.push(item.details.flare);
-        }
-
-        // Use shieldType from JSON if it exists (pre-parsed by extraction script)
-        if (item.details?.shieldType) {
-            properties.shieldType = item.details.shieldType;
-            properties.isShield = true;
-        }
-
-        (item.details?.raw || []).forEach(line => {
-            // Capacity parsing
-            const capacityMatch = line.match(/can store a (.*?) amount/i);
-            if (capacityMatch) {
-                properties.capacity = line.trim();
-                properties.capacityLevel = capacityMatch[1].toLowerCase();
-                properties.isContainer = true;
-            }
-
-            // Armor type parsing - improved to catch robes and other armor
-            const armorMatch = line.match(/is (.*?) armor that/i) ||
-                             line.match(/The .* is (.*?) armor/i) ||
-                             line.match(/covers.*torso/i) ||
-                             line.match(/covers.*chest/i) ||
-                             line.match(/covers.*body/i) ||
-                             line.match(/protects.*body/i) ||
-                             line.match(/armor.*covers/i) ||
-                             line.match(/robe.*covers/i) ||
-                             line.match(/robes.*cover/i);
-            if (armorMatch) {
-                let armorType = armorMatch[1] ? armorMatch[1].toLowerCase() : 'armor';
-                // Rename miscellaneous to accessory
-                if (armorType === 'miscellaneous') {
-                    armorType = 'accessory';
-                }
-                properties.armorType = armorType;
-                properties.isArmor = true;
-            }
-
-            // No need to parse skill from raw - it's already in the data
-
-            // Shield specific parsing - only if we don't already have shieldType from JSON
-            if (!properties.shieldType) {
-                if (line.match(/shield that protects/i)) {
-                    properties.isShield = true;
-                } else if (line.match(/is a.*shield/i)) {
-                    // Extract shield size (small, medium, large, tower, parma, buckler)
-                    const shieldMatch = line.match(/is a (tower|large|medium|small|parma|buckler) shield/i);
-                    if (shieldMatch) {
-                        properties.isShield = true;
-                        properties.shieldType = shieldMatch[1].toLowerCase();
-                    }
-                }
-            }
-
-            // Wear location parsing based on GemStone messaging patterns
-            const wearPatterns = [
-                // Armor coverage
-                { pattern: /covers the (.*?)[\.,]/i, location: '$1' },
-                { pattern: /worn (.*?)[\.,]/i, location: '$1' },
-                { pattern: /around the (.*?)[\.,]/i, location: '$1' },
-                { pattern: /over the (.*?)[\.,]/i, location: '$1' },
-
-                // Specific GS messaging patterns
-                { pattern: /put on.*as a (helm|hat|cap|crown)/i, location: 'head' },
-                { pattern: /put on.*as (boots|shoes|sandals)/i, location: 'feet' },
-                { pattern: /put on.*as (gloves|gauntlets)/i, location: 'hands' },
-                { pattern: /put on.*as a (belt)/i, location: 'waist' },
-                { pattern: /hung around.*as (necklace|pendant)/i, location: 'neck' },
-                { pattern: /slid onto.*as a (ring)/i, location: 'finger' },
-                { pattern: /attached to.*as a (bracelet)/i, location: 'wrist' },
-                { pattern: /attached to.*as an (anklet)/i, location: 'ankle' },
-                { pattern: /hung from.*as.*earring/i, location: 'earlobe' },
-                { pattern: /draped from.*as a (cloak|cape)/i, location: 'shoulders' },
-                { pattern: /slung over.*as a (shield)/i, location: 'shoulder' },
-                { pattern: /worked into.*as (armor)/i, location: 'torso' },
-                { pattern: /put over.*as an (apron)/i, location: 'front' },
-                { pattern: /put in.*as.*barrette/i, location: 'hair' },
-                { pattern: /attached to.*as.*pouch/i, location: 'belt' }
-            ];
-
-            for (const wp of wearPatterns) {
-                const match = line.match(wp.pattern);
-                if (match) {
-                    properties.wearLocation = wp.location.replace('$1', match[1]?.trim());
-                    break;
-                }
-            }
-
-            // Flare parsing - be more specific to avoid matching gemstone descriptions
-            // Skip lines that start with "Description:" (gemstone properties)
-            // Also check if we already have this flare from item.details.flare
-            if (!line.match(/^Description:/i) &&
-                (line.match(/infused.*power/i) ||
-                 line.match(/infused.*mana/i) ||  // Add pattern for mana flares
-                 line.match(/\b(fire|ice|lightning|vacuum|impact|acid|plasma|steam|grapple|unbalance|disrupt|disruption)\s+flares?\b/i) ||
-                 line.match(/holy.*fire/i) ||
-                 line.match(/blessed.*undead/i))) {
-                // Extract just the flare type if the line matches a pattern like "It has been infused with..."
-                const infusedMatch = line.match(/has been infused with (.+)\.?$/i);
-                const flareText = infusedMatch ? infusedMatch[1].replace(/\.$/, '') : line.trim();
-
-                // Don't add if we already have this flare
-                if (!properties.flares.some(f => f.toLowerCase() === flareText.toLowerCase())) {
-                    properties.flares.push(flareText);
-                }
-            }
-
-            // Spell parsing
-            const spellMatch = line.match(/imbedded with the (.*?) spell/i);
-            if (spellMatch) {
-                properties.spell = spellMatch[1];
-            }
-
-            // Charges parsing
-            const chargesMatch = line.match(/(\d+) charges? remaining/i) ||
-                               line.match(/looks to have (.*?) charges/i);
-            if (chargesMatch) {
-                properties.charges = chargesMatch[1];
-            }
-
-            // Container detection - only if it has storage capacity
-            if (line.match(/can store.*amount/i) ||
-                line.match(/container.*capacity/i) ||
-                line.match(/holds.*amount/i) ||
-                line.match(/storage.*capacity/i)) {
-                properties.isContainer = true;
-                properties.itemType = 'container';
-            }
-
-            // Jewelry detection
-            if (line.match(/is.*jewelry/i) ||
-                line.match(/\b(ring|necklace|bracelet|earring|pendant|amulet|brooch|pin)\b/i)) {
-                properties.isJewelry = true;
-            }
-
-            // Blessing detection
-            if (line.match(/blessed/i) || line.match(/holy/i)) {
-                properties.blessing = 'holy';
-            }
-        });
-
-        // Forged quality detection
-        // Try details first (from bodega.lic extraction), then fall back to raw text parsing
-        if (item.details?.forged_avd && item.details?.forged_by) {
-            properties.forgedAvd = parseInt(item.details.forged_avd);
-            properties.forgedBy = item.details.forged_by;
-        } else if (item.details?.raw) {
-            // Fallback: parse raw text for forging info (for data scanned before forged_by regex was added)
-            const forgedLine = item.details.raw.find(line =>
-                line.match(/It is forged by (.*?) and has (?:increased|decreased) \(([+-]?\d+)\) effectiveness in combat/i)
-            );
-            if (forgedLine) {
-                const match = forgedLine.match(/It is forged by (.*?) and has (?:increased|decreased) \(([+-]?\d+)\) effectiveness in combat/i);
-                if (match) {
-                    properties.forgedBy = match[1];
-                    properties.forgedAvd = parseInt(match[2]);
-                }
-            }
-        }
-
-        // Extract quality tier from name or derive from AvD
-        if (properties.forgedAvd !== undefined) {
-            const name = item.name?.toLowerCase() || '';
-            const qualityTiers = [
-                'perfect',                                    // +3 AvD
-                'superior', 'hefty', 'nifty', 'exquisite', 'well-crafted',  // +2 AvD (race-dependent)
-                'elegant', 'well-made',                      // +1 AvD
-                'fine', 'nice', 'plain',                     // 0 AvD
-                'simple',                                     // -1 AvD
-                'crude',                                      // -2 AvD
-                'flimsy', 'lop-sided'                        // -3 AvD
-            ];
-
-            for (const tier of qualityTiers) {
-                if (name.includes(tier)) {
-                    properties.forgedQuality = tier;
-                    break;
-                }
-            }
-
-            // Fallback: derive default quality name from AvD if name doesn't contain quality
-            if (!properties.forgedQuality) {
-                const avidMap = {
-                    3: 'perfect',
-                    2: 'superior',
-                    1: 'elegant',
-                    0: 'fine',
-                    '-1': 'simple',
-                    '-2': 'crude',
-                    '-3': 'flimsy'
-                };
-                properties.forgedQuality = avidMap[properties.forgedAvd] || 'unknown';
-            }
-        }
-
-        // Container detection by item name - check the item's name for container keywords
-        // This is separate from capacity detection above, which checks recall text for storage info
-        if (!properties.isContainer && item.name) {
-            const containerKeywords = /\b(bag|sack|backpack|pouch|satchel|chest|strongbox|trunk|basket|belt|sheath|scabbard|harness|bandolier)\b/i;
-            const armorExclusions = /robe|armor|mail|scale|chain|plate|leather|hide|skin/i;
-
-            if (containerKeywords.test(item.name) && !armorExclusions.test(item.name)) {
-                properties.isContainer = true;
-            }
-        }
-
-        // Use existing skill field to determine weapons
-        if (item.details?.skill) {
-            properties.skill = item.details.skill.toLowerCase();
-            // Only items with weapon skills are weapons (expanded list)
-            const weaponSkills = [
-                'edged weapons', 'blunt weapons', 'two handed weapons', 'twohanded weapons',
-                'polearms', 'ranged weapons', 'thrown weapons', 'brawling'
-            ];
-            // Check if skill contains any weapon skill keyword (handles combined skills like "brawling and one-handed edged weapons")
-            if (weaponSkills.some(weaponSkill => properties.skill.includes(weaponSkill))) {
-                properties.isWeapon = true;
-                properties.weaponType = properties.skill;
-            }
-        }
-
-        // Also check for shield use and armor use skills
-        if (item.details?.skill) {
-            const skill = item.details.skill.toLowerCase();
-            if (skill === 'shield use') {
-                properties.isShield = true;
-                // Don't set a generic fallback - we want specific sizes only
-            }
-            if (skill === 'armor use') {
-                properties.isArmor = true;
-                // Don't set generic 'armor' - we want specific types only
-            }
-        }
-
-        // Check for gemstone properties from the parser
-        if (item.details?.gemstone_properties && item.details.gemstone_properties.length > 0) {
-            properties.isGemstone = true;
-        }
-
-        // Determine primary item type with proper priority
-        if (!properties.itemType) {
-            // Priority order: Weapon > Armor > Shield > Container > Jewelry > Gemstone
-            // Weapons and armor should take precedence over container classification
-            if (properties.isWeapon) properties.itemType = 'weapon';
-            else if (properties.isArmor) properties.itemType = 'armor';
-            else if (properties.isShield) properties.itemType = 'shield';
-            else if (properties.isContainer) properties.itemType = 'container';
-            else if (properties.isJewelry) properties.itemType = 'jewelry';
-            else if (properties.isGemstone) properties.itemType = 'gemstone';
-        }
-
-        return properties;
     }
 
     extractShopName(shop) {
