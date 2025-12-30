@@ -37,6 +37,11 @@ class BrowseEngine {
         window.addEventListener('hashchange', () => this.handleHashChange());
     }
 
+    isActiveMode() {
+        const browseMode = document.getElementById('browse-mode');
+        return browseMode && browseMode.style.display !== 'none';
+    }
+
     handleHashChange() {
         const hash = window.location.hash;
         if (!hash || hash === '#') return;
@@ -163,9 +168,10 @@ class BrowseEngine {
         document.getElementById('pagination').style.display = 'flex';
         document.getElementById('pagination-top').style.display = 'flex';
 
-        // Update URL to search mode (clear to base path or set mode=search)
-        if (window.urlStateManager && window.searchEngine) {
-            window.searchEngine.updateURLState();
+        // Update URL to search mode - clear browse hash and set mode=search
+        if (window.urlStateManager) {
+            // Direct URL update to ensure browse hash is cleared
+            window.urlStateManager.updateSearchURL({});
         }
 
         // Hide browse sort mode toggle
@@ -429,8 +435,8 @@ class BrowseEngine {
         this.showShopList(townName);
         this.hideRoomList();
 
-        // Update URL with town only
-        if (window.urlStateManager) {
+        // Update URL with town only (but only if browse tab is active)
+        if (window.urlStateManager && this.isActiveMode()) {
             window.urlStateManager.updateBrowseURL({
                 town: townName
             });
@@ -579,13 +585,13 @@ class BrowseEngine {
         this.showRoomList(townName, shopName);
         this.showRoomInventory(townName, shopName);
 
-        // Update URL using state manager
-        if (window.urlStateManager) {
+        // Update URL using state manager (but only if browse tab is active)
+        if (window.urlStateManager && this.isActiveMode()) {
             window.urlStateManager.updateBrowseURL({
                 town: townName,
                 shop: shopName
             });
-        } else {
+        } else if (this.isActiveMode()) {
             // Fallback to hash for backward compatibility
             this.updateUrlHash(townName, shopName);
         }
@@ -1256,12 +1262,12 @@ class BrowseEngine {
         // Hide the room list sidebar
         this.hideRoomList();
 
-        // Clear shop from URL
-        if (window.urlStateManager && this.currentTown) {
+        // Clear shop from URL (but only if browse tab is active)
+        if (window.urlStateManager && this.currentTown && this.isActiveMode()) {
             window.urlStateManager.updateBrowseURL({
                 town: this.currentTown
             });
-        } else {
+        } else if (this.isActiveMode()) {
             // Fallback to hash for backward compatibility
             this.clearUrlHash();
         }

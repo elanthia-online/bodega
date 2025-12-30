@@ -1,0 +1,90 @@
+name: Process
+
+on:
+  workflow_dispatch:
+    inputs:
+      town:
+        description: 'Specific town to process (leave empty for all)'
+        required: false
+        default: ''
+        type: string
+
+# Prevent concurrent processing
+concurrency:
+  group: bodega-processing
+  cancel-in-progress: false
+
+jobs:
+  process:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.1'
+
+    - name: Process raw data
+      run: |
+        chmod +x automation/bin/process-data
+        ./automation/bin/process-data "${{ github.event.inputs.town }}"
+
+    - name: Commit and push processed data
+      run: |
+        git config user.name "Bodega Processing"
+        git config user.email "processing@bodega.local"
+
+        # Add processed data files (not raw)
+        git add docs/data/*.json
+        git add docs/data/removed_items.json || true
+        git add docs/data/last_updated.txt || true
+
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+          echo "CHANGES_PUSHED=false" >> $GITHUB_ENV
+          exit 0
+        fi
+
+        git commit -m "Process data - $(date '+%Y-%m-%d %H:%M UTC')"
+
+        # Fetch and push
+        git fetch origin master
+
+        if git merge-base --is-ancestor origin/master HEAD; then
+          echo "Pushing processed data..."
+          git push origin master
+        else
+          echo "Branches diverged, rebasing..."
+          git rebase origin/master || {
+            git rebase --abort
+            git reset --soft origin/master
+            git add docs/data/*.json
+            git commit -m "Process data (rebased): $(date '+%Y-%m-%d %H:%M UTC')"
+          }
+          git push origin master
+        fi
+
+        echo "CHANGES_PUSHED=true" >> $GITHUB_ENV
+
+    - name: Trigger deployment
+      if: env.CHANGES_PUSHED == 'true'
+      run: |
+        curl -X POST \
+          -H "Accept: application/vnd.github.v3+json" \
+          -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          https://api.github.com/repos/${{ github.repository }}/actions/workflows/deploy.yml/dispatches \
+          -d '{"ref":"master"}'
+
+    - name: Archive processing logs
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: processing-logs-${{ github.run_number }}
+        path: automation/logs/
+        retention-days: 30

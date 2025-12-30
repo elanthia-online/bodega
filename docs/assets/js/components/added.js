@@ -167,6 +167,8 @@ class AddedEngine {
 
     updateURLState() {
         if (!window.urlStateManager) return;
+        // Only update URL if added tab is actually active
+        if (!this.isActiveMode()) return;
 
         window.urlStateManager.updateAddedURL({
             days: document.getElementById('added-date-filter')?.value,

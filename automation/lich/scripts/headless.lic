@@ -4,15 +4,18 @@ Script.start("log")
 fput("go table")
 
 # Get scan type from environment variable or auto-detect from time
-scan_type = ENV['BODEGA_SCAN_TYPE'] || (Time.now.hour == 8 ? 'full' : 'smart')
+# 8 AM UTC = full scan, all other hours = smart scan
+scan_type = ENV['BODEGA_SCAN_TYPE'] || (Time.now.utc.hour == 8 ? 'full' : 'smart')
 
 if scan_type == 'full'
-  Lich.log("Starting Full Bodega Scan (scan type: #{scan_type})")
-  Script.run("bodega", "--parser --smart --save")
-  Script.run("bodega", "--parser --save")
+  Lich.log("Starting Full Bodega Scan")
+  # Full scan: smart first (to catch removals), then full inspection
+  # --raw-only defers extraction to server-side processor.rb
+  Script.run("bodega", "--parser --smart --save --raw-only")
+  Script.run("bodega", "--parser --save --raw-only")
 else
-  Lich.log("Starting Smart Bodega Scan (scan type: #{scan_type})")
-  Script.run("bodega", "--parser --smart --save")
+  Lich.log("Starting Smart Bodega Scan")
+  Script.run("bodega", "--parser --smart --save --raw-only")
 end
 
 Lich.log("Bodega out -- quitting!")
