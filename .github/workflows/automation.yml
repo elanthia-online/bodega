@@ -1,4 +1,4 @@
-name: Bodega Consolidated Automation
+name: Scrape
 
 on:
   schedule:
@@ -16,6 +16,11 @@ on:
           - auto
           - smart
           - full
+      town:
+        description: 'Specific town to process (leave empty for all)'
+        required: false
+        default: ''
+        type: string
 
 # Prevent concurrent runs - queue new runs if one is in progress
 concurrency:
@@ -91,59 +96,53 @@ jobs:
         chmod +x automation/bin/run-scan
         ./automation/bin/run-scan ${{ steps.scan_type.outputs.type }}
 
-    - name: Process and commit results
+    - name: Commit and push raw data
       run: |
-        chmod +x automation/bin/deploy-results
-        ./automation/bin/deploy-results
+        # Configure git
+        git config user.name "Bodega Automation"
+        git config user.email "automation@bodega.local"
 
-    - name: Push changes
-      run: |
-        # Check if there are any uncommitted changes and commit them
-        if ! git diff --quiet || ! git diff --cached --quiet; then
-          echo "Found uncommitted changes, committing..."
-          git add -A
-          git commit -m "Update shop data - $(date -u +%Y-%m-%d\ %H:%M:%S) UTC" || true
+        # Add raw data files
+        git add docs/data/raw/*.json
+
+        # Check if there are changes
+        if git diff --staged --quiet; then
+          echo "No changes in raw data"
+          echo "CHANGES_PUSHED=false" >> $GITHUB_ENV
+          exit 0
         fi
 
-        # Check if we have new commits to push (compare with remote)
+        # Commit raw data
+        git commit -m "Raw scan data: ${{ steps.scan_type.outputs.type }} - $(date '+%Y-%m-%d %H:%M UTC')"
+
+        # Fetch and push
         git fetch origin master
 
-        if [ "$(git rev-parse HEAD)" != "$(git rev-parse origin/master)" ]; then
-          echo "Local commits detected, preparing to push..."
-
-          # Check if we're ahead or diverged from origin
-          if git merge-base --is-ancestor origin/master HEAD; then
-            # We're ahead, can push directly
-            echo "Branch is ahead of origin, pushing..."
-          else
-            # Branches have diverged, need to rebase
-            echo "Branches diverged, rebasing our changes..."
-            if ! git rebase origin/master; then
-              echo "Rebase had conflicts, resolving with our version..."
-              git rebase --abort
-              # Create a clean merge commit that takes all our changes
-              git reset --soft origin/master
-              git add -A
-              git commit -m "Update shop data - $(date -u +%Y-%m-%d\ %H:%M:%S) UTC"
-            fi
-          fi
-
-          echo "Pushing changes to repository..."
+        if git merge-base --is-ancestor origin/master HEAD; then
+          echo "Pushing raw data..."
           git push origin master
-          echo "CHANGES_PUSHED=true" >> $GITHUB_ENV
         else
-          echo "No new commits to push"
-          echo "CHANGES_PUSHED=false" >> $GITHUB_ENV
+          echo "Branches diverged, rebasing..."
+          git rebase origin/master || {
+            git rebase --abort
+            git reset --soft origin/master
+            git add docs/data/raw/*.json
+            git commit -m "Raw scan data (rebased): $(date '+%Y-%m-%d %H:%M UTC')"
+          }
+          git push origin master
         fi
 
-    - name: Trigger deployment
+        echo "CHANGES_PUSHED=true" >> $GITHUB_ENV
+
+    - name: Trigger data processing
       if: env.CHANGES_PUSHED == 'true'
       run: |
+        TOWN_INPUT="${{ github.event.inputs.town }}"
         curl -X POST \
           -H "Accept: application/vnd.github.v3+json" \
           -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-          https://api.github.com/repos/${{ github.repository }}/actions/workflows/deploy.yml/dispatches \
-          -d '{"ref":"master"}'
+          https://api.github.com/repos/${{ github.repository }}/actions/workflows/process-data.yml/dispatches \
+          -d "{\"ref\":\"master\",\"inputs\":{\"town\":\"$TOWN_INPUT\"}}"
 
     - name: Archive automation logs
       if: always()

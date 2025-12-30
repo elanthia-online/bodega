@@ -661,6 +661,7 @@ class SearchEngine {
                 if (prop === 'forged') {
                     if (!item.forgedQuality && !item.forgedAvd) return false;
                 }
+                if (prop === 'scripted' && (!item.tags || !item.tags.includes('scripted'))) return false;
             }
         }
 
@@ -855,8 +856,18 @@ class SearchEngine {
             this.openItemURL(item);
         });
 
+        const purchaseButton = document.createElement('button');
+        purchaseButton.className = 'url-button';
+        purchaseButton.title = 'Copy purchase command';
+        purchaseButton.innerHTML = '🛒';
+        purchaseButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            this.copyPurchaseCommand(item);
+        });
+
         nameContainer.appendChild(urlButton);
         nameContainer.appendChild(openButton);
+        nameContainer.appendChild(purchaseButton);
         nameCell.appendChild(nameContainer);
 
         // Price
@@ -1513,6 +1524,36 @@ class SearchEngine {
     openItemURL(item) {
         const url = this.generateItemURL(item);
         window.open(url, '_blank');
+    }
+
+    copyPurchaseCommand(item) {
+        const command = `SHOP PURCHASE ${item.id}`;
+
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(command).then(() => {
+                this.showToast('Purchase command copied!');
+            }).catch(() => {
+                this.fallbackCopyText(command, 'Purchase command copied!');
+            });
+        } else {
+            this.fallbackCopyText(command, 'Purchase command copied!');
+        }
+    }
+
+    fallbackCopyText(text, successMessage) {
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.opacity = '0';
+        document.body.appendChild(textArea);
+        textArea.select();
+        try {
+            document.execCommand('copy');
+            this.showToast(successMessage);
+        } catch (err) {
+            this.showToast('Failed to copy. Please copy manually: ' + text);
+        }
+        document.body.removeChild(textArea);
     }
 
     fallbackCopyURL(url) {
