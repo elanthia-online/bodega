@@ -53,8 +53,8 @@ class BodegaProcessor
     # Tracking state
     @added_items = load_added_items
     @removed_items = load_removed_items
-    @previous_signatures = {}  # town => Set of signatures
-    @current_signatures = {}   # town => { signature => item_data }
+    @previous_signatures = {}  # town => { signature => {item:, preamble:} }
+    @current_signatures = {}   # town => { signature => {item:, preamble:} }
     @items_added_this_run = 0
     @items_removed_this_run = 0
   end
@@ -521,14 +521,19 @@ class BodegaProcessor
         town = data[:town]
         next unless town
 
-        @previous_signatures[town] = Set.new
+        @previous_signatures[town] = {}
 
         data[:shops]&.each do |shop|
           preamble = shop[:preamble]
           shop[:inv]&.each do |room|
             room[:items]&.each do |item|
               sig = create_item_signature(town, preamble, item)
-              @previous_signatures[town].add(sig) if sig
+              if sig
+                @previous_signatures[town][sig] = {
+                  item: item,
+                  preamble: preamble
+                }
+              end
             end
           end
         end
@@ -537,7 +542,7 @@ class BodegaProcessor
       end
     end
 
-    puts "Loaded previous state: #{@previous_signatures.values.map(&:size).sum} item signatures across #{@previous_signatures.size} towns"
+    puts "Loaded previous state: #{@previous_signatures.values.sum { |h| h.size }} item signatures across #{@previous_signatures.size} towns"
   end
 
   def create_item_signature(town, preamble, item)
@@ -590,7 +595,8 @@ class BodegaProcessor
 
     # Process each town that has current data
     @current_signatures.each do |town, current_items|
-      previous_sigs = @previous_signatures[town] || Set.new
+      previous_items = @previous_signatures[town] || {}
+      previous_sigs = Set.new(previous_items.keys)
       current_sigs = Set.new(current_items.keys)
 
       # Find new items (in current but not in previous)
@@ -613,14 +619,14 @@ class BodegaProcessor
 
     # Also check for towns that existed before but have no current data
     # (This handles the case where a town file wasn't processed this run)
-    @previous_signatures.each do |town, previous_sigs|
+    @previous_signatures.each do |town, previous_items|
       next if @current_signatures.key?(town)  # Already handled above
 
       # If we processed this town's raw file but got no items, they're all removed
       raw_file = RAW_DATA_DIR + "#{safe_string(town)}.json"
       if File.exist?(raw_file) && File.mtime(raw_file) > (Time.now - 3600)
         # Raw file was recently modified - items may have been removed
-        previous_sigs.each do |sig|
+        previous_items.keys.each do |sig|
           track_removed_item(town, sig, current_time)
         end
       end
@@ -630,40 +636,30 @@ class BodegaProcessor
   end
 
   def track_removed_item(town, signature, timestamp)
-    # Find the item in the previous processed data
-    processed_file = find_processed_file_for_town(town)
-    return unless processed_file && File.exist?(processed_file)
+    # Get item data from cached previous state (not from file, which may be overwritten)
+    previous_items = @previous_signatures[town]
+    return unless previous_items
 
-    begin
-      data = JSON.parse(File.read(processed_file), symbolize_names: true)
+    cached_data = previous_items[signature]
+    return unless cached_data
 
-      data[:shops]&.each do |shop|
-        preamble = shop[:preamble]
-        shop[:inv]&.each do |room|
-          room[:items]&.each do |item|
-            sig = create_item_signature(town, preamble, item)
-            next unless sig == signature
+    item = cached_data[:item]
+    preamble = cached_data[:preamble]
+    return unless item
 
-            # Found the item - add to removed items
-            removed_item = {
-              'id' => item[:id]&.to_s || item['id']&.to_s,
-              'name' => item[:name] || item['name'],
-              'details' => deep_stringify_keys(item[:details] || item['details'] || {}),
-              'removed_date' => timestamp,
-              'last_seen_shop' => extract_shop_name_from_preamble(preamble),
-              'town' => town
-            }
+    # Build removed item record
+    removed_item = {
+      'id' => item[:id]&.to_s || item['id']&.to_s,
+      'name' => item[:name] || item['name'],
+      'details' => deep_stringify_keys(item[:details] || item['details'] || {}),
+      'removed_date' => timestamp,
+      'last_seen_shop' => extract_shop_name_from_preamble(preamble),
+      'town' => town
+    }
 
-            @removed_items[town] ||= []
-            @removed_items[town] << removed_item
-            @items_removed_this_run += 1
-            return  # Found it, we're done
-          end
-        end
-      end
-    rescue => e
-      puts "Warning: Could not find removed item in #{town}: #{e.message}"
-    end
+    @removed_items[town] ||= []
+    @removed_items[town] << removed_item
+    @items_removed_this_run += 1
   end
 
   def find_processed_file_for_town(town)
