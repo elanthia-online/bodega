@@ -1,0 +1,46 @@
+#!/bin/bash
+set -e
+
+echo "=== Bodega Data Processor ==="
+
+# Logging
+LOG_DIR="automation/logs"
+LOG_FILE="$LOG_DIR/process-$(date +%Y%m%d-%H%M%S).log"
+mkdir -p "$LOG_DIR"
+
+log() {
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" | tee -a "$LOG_FILE"
+}
+
+# Optional town filter
+TOWN="${1:-}"
+
+if [ -n "$TOWN" ]; then
+    log "Town filter: $TOWN"
+else
+    log "Processing all towns"
+fi
+
+# Create raw data directory if it doesn't exist
+mkdir -p docs/data/raw
+
+# Run Ruby processor
+log "Running processor..."
+cd "$(dirname "$0")/../.."
+
+TOWN_ARG=""
+if [ -n "$TOWN" ]; then
+    TOWN_ARG="--town=$TOWN"
+fi
+
+ruby automation/ruby/processor.rb $TOWN_ARG >> "$LOG_FILE" 2>&1
+
+exit_code=$?
+
+if [ $exit_code -eq 0 ]; then
+    log "Processing completed successfully"
+else
+    log "Processing failed with exit code: $exit_code"
+fi
+
+exit $exit_code
