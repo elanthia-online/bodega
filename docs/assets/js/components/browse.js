@@ -492,10 +492,13 @@ class BrowseEngine {
 
                 // Count items in shop
                 let itemCount = 0;
-                let roomCount = Object.keys(shop).length;
                 Object.values(shop).forEach(room => {
                     itemCount += room.length;
                 });
+
+                // Get accurate room count from rawShopData (includes empty rooms)
+                const rawShopInfo = window.dataLoader?.rawShopData?.[townName]?.find(s => s.shopName === shopName);
+                let roomCount = rawShopInfo?.rooms?.length || Object.keys(shop).length;
 
                 // Create shop card row
                 const shopRow = document.createElement('tr');
@@ -637,21 +640,51 @@ class BrowseEngine {
 
         roomList.innerHTML = '';
 
-        const rooms = Object.keys(this.townData[townName][shopName]).sort();
+        // Get rooms from rawShopData (includes empty rooms) or fall back to townData
+        const rawShopInfo = window.dataLoader?.rawShopData?.[townName]?.find(s => s.shopName === shopName);
+        const populatedRooms = this.townData[townName][shopName] || {};
+
+        let allRooms = [];
         let totalItems = 0;
 
-        rooms.forEach(roomName => {
-            const room = this.townData[townName][shopName][roomName];
-            totalItems += room.length;
+        if (rawShopInfo && rawShopInfo.rooms) {
+            // Use rawShopData for complete room list (includes empty rooms)
+            allRooms = rawShopInfo.rooms.map(room => {
+                const branch = room.branch || '';
+                const roomKey = branch ? `${room.roomTitle} (${branch})` : room.roomTitle;
+                const itemCount = populatedRooms[roomKey]?.length || 0;
+                totalItems += itemCount;
+                return {
+                    name: roomKey,
+                    itemCount: itemCount,
+                    isEmpty: itemCount === 0,
+                    sign: room.sign
+                };
+            });
+        } else {
+            // Fall back to populated rooms only (backward compatibility)
+            Object.keys(populatedRooms).sort().forEach(roomName => {
+                const itemCount = populatedRooms[roomName].length;
+                totalItems += itemCount;
+                allRooms.push({
+                    name: roomName,
+                    itemCount: itemCount,
+                    isEmpty: false
+                });
+            });
+        }
 
+        allRooms.forEach(room => {
             const roomDiv = document.createElement('div');
-            roomDiv.className = 'room-item';
+            roomDiv.className = 'room-item' + (room.isEmpty ? ' empty-room' : '');
             roomDiv.innerHTML = `
-                <div class="room-name">${roomName}</div>
-                <div class="room-stats">${room.length} items</div>
+                <div class="room-name">${room.name}</div>
+                <div class="room-stats">${room.isEmpty ? '(nothing for sale)' : `${room.itemCount} items`}</div>
             `;
 
-            roomDiv.addEventListener('click', () => this.showRoomInventory(townName, shopName, roomName));
+            if (!room.isEmpty) {
+                roomDiv.addEventListener('click', () => this.showRoomInventory(townName, shopName, room.name));
+            }
             roomList.appendChild(roomDiv);
         });
 
@@ -661,7 +694,7 @@ class BrowseEngine {
         summaryDiv.innerHTML = `
             <div class="shop-summary-stats">
                 <span class="stat-item">${totalItems} total items</span>
-                <span class="stat-item">${rooms.length} rooms</span>
+                <span class="stat-item">${allRooms.length} rooms</span>
                 ${metadata.id ? `<span class="stat-item">Shop ID: ${metadata.id}</span>` : ''}
             </div>
         `;

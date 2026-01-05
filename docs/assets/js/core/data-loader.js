@@ -9,6 +9,7 @@ class DataLoader {
         this.lastUpdated = null;
         this.isLoading = false;
         this.shopMapping = {};  // Store shop name to map ID mapping
+        this.rawShopData = {};  // Store raw shop structure for all towns (includes empty rooms)
 
         // List of JSON files to load
         this.dataFiles = [
@@ -160,6 +161,20 @@ class DataLoader {
             const cleanTownName = townData.town.replace(/,\s*$/, '');
             this.towns.push(cleanTownName);
             this.totalShops += townData.shops.length;
+
+            // Store raw shop data structure (includes empty rooms)
+            this.rawShopData[cleanTownName] = townData.shops.map(shop => ({
+                id: shop.id,
+                preamble: shop.preamble,
+                shopOwner: shop.shop_owner,
+                shopName: this.extractShopName(shop),
+                rooms: shop.inv.map(room => ({
+                    roomTitle: room.room_title,
+                    branch: room.branch,
+                    sign: room.sign,
+                    itemCount: room.items ? room.items.length : 0
+                }))
+            }));
 
             // Track oldest update time
             if (townData.created_at) {
