@@ -79658,6 +79658,57 @@
       "removed_date": "2026-01-07T18:24:01Z",
       "last_seen_shop": "Donteric",
       "town": "Wehnimer's Landing"
+    },
+    {
+      "id": "147674",
+      "name": "an uncut emerald",
+      "details": {
+        "raw": [
+          "The emerald can not be worn.",
+          "Analysis of an uncut emerald indicates the item is free from merchant alteration restrictions.",
+          "The uncut emerald will cost 10,000 coins."
+        ],
+        "tags": [
+
+        ],
+        "cost": 10000,
+        "item_type": null
+      },
+      "removed_date": "2026-01-07T20:18:44Z",
+      "last_seen_shop": "Hathus",
+      "town": "Wehnimer's Landing"
+    },
+    {
+      "id": "148199",
+      "name": "a thick glass jar containing uncut emeralds",
+      "details": {
+        "raw": [
+          "It is estimated that a thick glass jar containing uncut emeralds can store a very small amount with enough space for one item.",
+          "The jar can not be worn.",
+          "It looks like this item has been mainly crafted out of glass, an extremely common material.",
+          "Analysis of a thick glass jar containing uncut emeralds indicates the creator has provided the following information:",
+          "This thick glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
+          "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
+          "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
+          "The thick glass jar will cost 100,000 coins."
+        ],
+        "tags": [
+          "container",
+          "container",
+          "container",
+          "container",
+          "container",
+          "container"
+        ],
+        "cost": 100000,
+        "material": "glass, an extremely common material",
+        "capacity_level": "very small",
+        "is_container": true,
+        "item_type": "container"
+      },
+      "removed_date": "2026-01-07T20:18:44Z",
+      "last_seen_shop": "Retrone",
+      "town": "Wehnimer's Landing"
     }
   ],
   "Mist Harbor": [
@@ -99092,6 +99143,99 @@
       },
       "removed_date": "2026-01-07T16:23:04Z",
       "last_seen_shop": "Annarosa",
+      "town": "Mist Harbor"
+    },
+    {
+      "id": "135924",
+      "name": "a vultite longsword",
+      "details": {
+        "raw": [
+          "It has a small enchanter's glyph.",
+          "The longsword is a longsword that requires skill in edged weapons to use effectively.",
+          "It looks like this item has been mainly crafted out of vultite, an uncommon metal.",
+          "Analysis of a vultite longsword indicates the item is free from merchant alteration restrictions.",
+          "You might be able to have a talented merchant lighten the vultite longsword for you.",
+          "The vultite longsword will cost 1,000,000 coins.",
+          "It imparts a bonus of +25 more than usual.",
+          "It is an enhancive item:",
+          "    It provides a boost of 10 to Stamina Recovery.",
+          "    This enhancement may not be used by adventurers who have not trained 33 times.",
+          "    It seems to have a lot of enhancive charges remaining.",
+          "It will persist after its last enhancive charge has been expended.",
+          "It appears to weigh about 4 pounds.",
+          "It is estimated to be worth about 400,000 silvers.",
+          "It is predominantly crafted of vultite.",
+          "It is a simple project (67 difficulty) for an adventurer to modify.",
+          "It has a permanently unlocked loresong by Folksinger."
+        ],
+        "tags": [
+          "lightenable",
+          "persists"
+        ],
+        "cost": 1000000,
+        "enchant": 25,
+        "material": "vultite",
+        "skill": "edged weapons",
+        "weight": 4,
+        "enhancives": [
+          {
+            "boost": 10,
+            "ability": "Stamina Recovery",
+            "level": 33
+          }
+        ],
+        "is_weapon": true,
+        "weapon_type": "edged weapons",
+        "item_type": "weapon"
+      },
+      "removed_date": "2026-01-07T20:18:44Z",
+      "last_seen_shop": "Kinjaro",
+      "town": "Mist Harbor"
+    },
+    {
+      "id": "151149",
+      "name": "an etched verdant green jewel streaked with kelyn",
+      "details": {
+        "raw": [
+          "A mirage-like haze of arcane influence clings to the jewel, alight with half-glimpsed glyphs refracting across its facets from within.  The effect is dizzying and makes further visual inspection difficult.",
+          "The jewel appears to be a powerful relic that can convey wondrous abilities on its wielder.  It has the following properties:",
+          "Rarity:      Common",
+          "Mnemonic:    hightolerance",
+          "Description: You do not become intoxicated from drinking alcoholic beverages.  Instead, an alcoholic beverage increases your Strength and Influence by 10 and reduces all other stats by 5.  This effect lasts 20 minutes, after which your stats remain reduced for an additional 10 minutes.  Cooldown: 1 hour.",
+          "Rarity:      Rare",
+          "Mnemonic:    hunterafter",
+          "Description: When you fire an arrow or crossbow, there is a 3/6/9/12/15% chance that a second arrow will fire at your target if the target survives your first shot.",
+          "You note the telltale filaments of a lesser binding shimmering around the verdant green jewel.  You can sense that the jewel is bound to Gweneivia, but a sufficiently skilled artificer should be able to dispel the binding.",
+          "The jewel can not be worn.",
+          "It looks like this item has been mainly crafted out of gemstone, an extremely common material.",
+          "The verdant green jewel will cost 12,345,600 coins."
+        ],
+        "tags": [
+          "is_gemstone"
+        ],
+        "cost": 12345678,
+        "material": "gemstone, an extremely common material",
+        "gemstone_properties": [
+          {
+            "name": "High Tolerance",
+            "rarity": "Common",
+            "mnemonic": "hightolerance",
+            "description": "You do not become intoxicated from drinking alcoholic beverages.  Instead, an alcoholic beverage increases your Strength and Influence by 10 and reduces all other stats by 5.  This effect lasts 20 minutes, after which your stats remain reduced for an additional 10 minutes.  Cooldown: 1 hour."
+          },
+          {
+            "name": "Hunter's Afterimage (Rank 1 of 5)",
+            "rarity": "Rare",
+            "mnemonic": "hunterafter",
+            "description": "When you fire an arrow or crossbow, there is a 3/6/9/12/15% chance that a second arrow will fire at your target if the target survives your first shot."
+          }
+        ],
+        "gemstone_bound_to": "Gweneivia",
+        "wear_location": "verdant green jewel",
+        "is_gemstone": true,
+        "item_type": "gemstone"
+      },
+      "removed_date": "2026-01-07T20:18:44Z",
+      "last_seen_shop": "Keiyn",
       "town": "Mist Harbor"
     }
   ],
@@ -131377,6 +131521,115 @@
       "removed_date": "2026-01-07T18:24:01Z",
       "last_seen_shop": "Kontii",
       "town": "Icemule Trace"
+    },
+    {
+      "id": "144158",
+      "name": "a beryl-inset mithril ring",
+      "details": {
+        "raw": [
+          "The ring can be worn around the finger.  The ring appears to serve some purpose.",
+          "Analysis of a beryl-inset mithril ring indicates the item is free from merchant alteration restrictions.",
+          "The mithril ring will cost 500,000 coins.",
+          "It is a magical item which could be imbedded with a spell.",
+          "It has 0 charges.  It is rechargeable.",
+          "It could be activated by waving it.",
+          "It will persist after its last magical charge has been expended.",
+          "It is an enhancive item:",
+          "    It provides a boost of 6 to Stamina Recovery.",
+          "    This enhancement may not be used by adventurers who have not trained 21 times.",
+          "    It seems to have a huge number of enhancive charges remaining.",
+          "It will crumble into dust after its last enhancive charge has been expended.",
+          "It is a small item, under a pound.",
+          "It is estimated to be worth about 250,000 silvers.",
+          "It has a permanently unlocked loresong by Imrys."
+        ],
+        "tags": [
+          "purpose",
+          "imbeddable",
+          "small"
+        ],
+        "cost": 500000,
+        "worn": "finger",
+        "activator": "waving",
+        "enhancives": [
+          {
+            "boost": 6,
+            "ability": "Stamina Recovery",
+            "level": 21
+          }
+        ],
+        "wear_location": "around the finger",
+        "is_jewelry": true,
+        "item_type": "jewelry"
+      },
+      "removed_date": "2026-01-07T20:18:44Z",
+      "last_seen_shop": "Destrian",
+      "town": "Icemule Trace"
+    },
+    {
+      "id": "7728545",
+      "name": "a pink topaz",
+      "details": {
+        "raw": [
+          "The topaz can not be worn.",
+          "Analysis of a pink topaz indicates the item is free from merchant alteration restrictions.",
+          "The pink topaz will cost 1,600 coins."
+        ],
+        "tags": [
+
+        ],
+        "cost": 1600,
+        "item_type": null
+      },
+      "removed_date": "2026-01-07T20:18:44Z",
+      "last_seen_shop": "Medulis",
+      "town": "Icemule Trace"
+    },
+    {
+      "id": "146766",
+      "name": "a rolaren-edged vultite handaxe",
+      "details": {
+        "raw": [
+          "The handaxe is a handaxe that requires skill in edged weapons to use effectively.",
+          "It looks like this item has been mainly crafted out of vultite, an uncommon metal.",
+          "Analysis of a rolaren-edged vultite handaxe indicates the item is free from merchant alteration restrictions.",
+          "You might be able to have a talented merchant lighten the vultite handaxe for you.",
+          "The vultite handaxe will cost 1,000,000 coins.",
+          "It imparts a bonus of +20 more than usual.",
+          "It is an enhancive item:",
+          "    It provides a boost of 16 to Influence Base.",
+          "    This enhancement may not be used by adventurers who have not trained 55 times.",
+          "    It seems to have more than your average dwarf could count enhancive charges remaining.",
+          "It will persist after its last enhancive charge has been expended.",
+          "It appears to weigh about 5 pounds.",
+          "It is estimated to be worth about 800,000 silvers.",
+          "It is predominantly crafted of vultite.",
+          "It is a simple project (52 difficulty) for an adventurer to modify.",
+          "It has a permanently unlocked loresong by Jaskier."
+        ],
+        "tags": [
+          "lightenable",
+          "persists"
+        ],
+        "cost": 1000000,
+        "enchant": 20,
+        "material": "vultite",
+        "skill": "edged weapons",
+        "weight": 5,
+        "enhancives": [
+          {
+            "boost": 16,
+            "ability": "Influence Base",
+            "level": 55
+          }
+        ],
+        "is_weapon": true,
+        "weapon_type": "edged weapons",
+        "item_type": "weapon"
+      },
+      "removed_date": "2026-01-07T20:18:44Z",
+      "last_seen_shop": "Kontii",
+      "town": "Icemule Trace"
     }
   ],
   "River's Rest": [
@@ -143876,6 +144129,30 @@
       },
       "removed_date": "2026-01-07T18:24:01Z",
       "last_seen_shop": "Stigs",
+      "town": "Teras Isle"
+    },
+    {
+      "id": "135459",
+      "name": "a square crystal flacon filled with bubbling vermilion liquid",
+      "details": {
+        "raw": [
+          "Squat and square, the small flacon is formed of crystal clear lead glass.  A dark-stained burlwood stopper corks its mouth, the curling grain drawing the eye and providing a visual echo of the constant flow of bubbles through the vermilion liquid within the vessel.",
+          "The flacon can not be worn.",
+          "It looks like this item has been mainly crafted out of glass, an extremely common material.",
+          "Analysis of a square crystal flacon filled with bubbling vermilion liquid indicates the creator has provided the following information:",
+          "The crystal flacon is a Polymorph Potion.  When consumed, it will allow you to permanently change your race.  Use TURN to toggle between all available races.  It is currently set to a human.  This process is irreversible except with another polymorph potion.",
+          "[Please review the full details and implications of the flacon at https://gswiki.play.net/Polymorph_Potion#Polymorph:_Race ]",
+          "The crystal flacon will cost 49,000,000 coins."
+        ],
+        "tags": [
+
+        ],
+        "cost": 49000000,
+        "material": "glass, an extremely common material",
+        "item_type": null
+      },
+      "removed_date": "2026-01-07T20:18:44Z",
+      "last_seen_shop": "Googly",
       "town": "Teras Isle"
     }
   ],
@@ -166940,6 +167217,67 @@
       "removed_date": "2026-01-07T18:24:01Z",
       "last_seen_shop": "Nucky",
       "town": "Solhaven"
+    },
+    {
+      "id": "20514201",
+      "name": "a gleaming vultite helm",
+      "details": {
+        "raw": [
+          "The helm is miscellaneous armor that covers the head.",
+          "The helm can be worn on the head.  The helm appears to serve some purpose.",
+          "It looks like this item has been mainly crafted out of vultite, an uncommon metal.",
+          "Analysis of a gleaming vultite helm indicates the item is free from merchant alteration restrictions.",
+          "You might be able to have a talented merchant lighten the vultite helm for you.",
+          "The vultite helm will cost 5,000,000 coins.",
+          "It is an enhancive item:",
+          "    It provides a boost of 8 to Two-Handed Weapons Bonus.",
+          "    This enhancement may not be used by adventurers who have not trained 22 times.",
+          "    It provides a boost of 6 to Two-Handed Weapons Bonus.",
+          "    This enhancement may not be used by adventurers who have not trained 13 times.",
+          "    It provides a boost of 4 to Logic Bonus.",
+          "    This enhancement may not be used by adventurers who have not trained 14 times.",
+          "    It seems to have quite a few enhancive charges remaining.",
+          "It will persist after its last enhancive charge has been expended.",
+          "It appears to weigh about 3 pounds.",
+          "It is estimated to be worth about 350,000 silvers.",
+          "It is predominantly crafted of vultite.",
+          "It is a simple project (14 difficulty) for an adventurer to modify.",
+          "It has a permanently unlocked loresong by Rantic."
+        ],
+        "tags": [
+          "purpose",
+          "lightenable",
+          "persists"
+        ],
+        "cost": 5000000,
+        "material": "vultite",
+        "weight": 3,
+        "worn": "head",
+        "enhancives": [
+          {
+            "boost": 8,
+            "ability": "Two-Handed Weapons Bonus",
+            "level": 22
+          },
+          {
+            "boost": 6,
+            "ability": "Two-Handed Weapons Bonus",
+            "level": 13
+          },
+          {
+            "boost": 4,
+            "ability": "Logic Bonus",
+            "level": 14
+          }
+        ],
+        "is_armor": true,
+        "armor_type": "accessory",
+        "wear_location": "head",
+        "item_type": "armor"
+      },
+      "removed_date": "2026-01-07T20:18:44Z",
+      "last_seen_shop": "Stormfleet",
+      "town": "Solhaven"
     }
   ],
   "Zul Logoth": [
@@ -172942,6 +173280,58 @@
       },
       "removed_date": "2026-01-07T03:27:08Z",
       "last_seen_shop": "Ayaeron",
+      "town": "Ta'Illistim"
+    },
+    {
+      "id": "150483",
+      "name": "a mithril-runed zorchar kidney shield",
+      "details": {
+        "raw": [
+          "It has a small enchanter's glyph.",
+          "The shield is a small shield that protects the bearer if carried in the left hand.",
+          "The shield can be worn, slinging it across the shoulders and back.  The shield appears to serve some purpose.",
+          "It looks like this item has been mainly crafted out of zorchar, a rare metal.  This item is intended to be supplied for an alteration.  This material cannot be dyed.",
+          "Analysis of a mithril-runed zorchar kidney shield indicates the item is flagged as Alteration Fodder.",
+          "You might be able to have a talented merchant lighten the zorchar kidney shield for you.",
+          "The zorchar kidney shield will cost 2,000,000 coins.",
+          "It imparts a bonus of +25 more than usual.",
+          "It has been infused with the power of a lightning bolt.",
+          "It is an enhancive item:",
+          "    It provides a boost of 5 to Strength Base.",
+          "    It seems to have a lot of enhancive charges remaining.",
+          "It will persist after its last enhancive charge has been expended.",
+          "It appears to weigh about 6 pounds.",
+          "It is estimated to be worth about 200,000 silvers.",
+          "It is predominantly crafted of zorchar.",
+          "It is a basic project (111 difficulty) for an adventurer to modify.",
+          "It has a permanently unlocked loresong by Serazaen."
+        ],
+        "tags": [
+          "purpose",
+          "lightenable",
+          "persists"
+        ],
+        "cost": 2000000,
+        "enchant": 25,
+        "material": "zorchar",
+        "flare": "the power of a lightning bolt",
+        "weight": 6,
+        "worn": "shoulders",
+        "enhancives": [
+          {
+            "boost": 5,
+            "ability": "Strength Base"
+          }
+        ],
+        "shield_type": "small",
+        "is_shield": true,
+        "flares": [
+          "the power of a lightning bolt"
+        ],
+        "item_type": "shield"
+      },
+      "removed_date": "2026-01-07T20:18:44Z",
+      "last_seen_shop": "Eob",
       "town": "Ta'Illistim"
     }
   ]
