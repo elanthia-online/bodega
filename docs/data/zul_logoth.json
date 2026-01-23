@@ -1,5 +1,5 @@
 {
-  "created_at": "2026-01-23 10:18:16 UTC",
+  "created_at": "2026-01-23 12:28:23 UTC",
   "run_time": "03s",
   "town": "Zul Logoth",
   "shops": [
@@ -1614,6 +1614,7 @@
                   "small",
                   "magic_resistant",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 9999999,
@@ -1646,6 +1647,7 @@
                 "tags": [
                   "small",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 149999,
@@ -1677,6 +1679,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container"
                 ],
@@ -1889,6 +1892,7 @@
                 "tags": [
                   "lightenable",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 9999999,
@@ -1921,6 +1925,7 @@
                   "max_light",
                   "deepenable",
                   "small",
+                  "container",
                   "container",
                   "container"
                 ],
@@ -1955,6 +1960,7 @@
                   "lightenable",
                   "magic_resistant",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 499999,
@@ -1988,6 +1994,7 @@
                 "tags": [
                   "lightenable",
                   "magic_resistant",
+                  "container",
                   "container",
                   "container"
                 ],
@@ -2734,6 +2741,7 @@
                   "max_light",
                   "deepenable",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 999999,
@@ -2765,6 +2773,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container"
                 ],
@@ -4483,6 +4492,104 @@
                 "cost": 1000000,
                 "material": "glass, an extremely common material",
                 "item_type": null
+              }
+            },
+            {
+              "id": "348621778",
+              "name": "an onyx-hafted imflass battle axe",
+              "details": {
+                "raw": [
+                  "The axe is a battle axe that requires skill in twohanded weapons to use effectively.",
+                  "It looks like this item has been mainly crafted out of imflass, an uncommon metal.",
+                  "Analysis of an onyx-hafted imflass battle axe indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the imflass battle axe for you.",
+                  "The imflass battle axe will cost 10,000,000 coins.",
+                  "It imparts a bonus of +12 more than usual.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 6 to Two-Handed Weapons Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 13 times.",
+                  "    It provides a boost of 10 to Max Health.",
+                  "    This enhancement may not be used by adventurers who have not trained 22 times.",
+                  "    It provides a boost of 4 to Influence Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 14 times.",
+                  "    It provides a boost of 5 to Dexterity Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 33 times.",
+                  "    It seems to have a fair amount of enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It appears to weigh about 6 pounds.",
+                  "It is estimated to be worth about 400,000 silvers.",
+                  "It is predominantly crafted of imflass.",
+                  "It is a simple project (65 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Broyles."
+                ],
+                "tags": [
+                  "lightenable",
+                  "persists"
+                ],
+                "cost": 10000000,
+                "enchant": 12,
+                "material": "imflass",
+                "skill": "twohanded weapons",
+                "weight": 6,
+                "enhancives": [
+                  {
+                    "boost": 6,
+                    "ability": "Two-Handed Weapons Bonus",
+                    "level": 13
+                  },
+                  {
+                    "boost": 10,
+                    "ability": "Max Health",
+                    "level": 22
+                  },
+                  {
+                    "boost": 4,
+                    "ability": "Influence Bonus",
+                    "level": 14
+                  },
+                  {
+                    "boost": 5,
+                    "ability": "Dexterity Bonus",
+                    "level": 33
+                  }
+                ],
+                "is_weapon": true,
+                "weapon_type": "twohanded weapons",
+                "item_type": "weapon"
+              }
+            },
+            {
+              "id": "348621756",
+              "name": "a fitted leather corselet with dark-krodera trimmed mail tassets",
+              "details": {
+                "raw": [
+                  "It has a small enchanter's glyph.",
+                  "The corselet is scale armor that covers the torso, arms, legs, neck, and head.",
+                  "The corselet can be worn around the chest.  The corselet appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of steel, an extremely common metal.",
+                  "Analysis of a fitted leather corselet with dark-krodera trimmed mail tassets indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the leather corselet for you.",
+                  "The leather corselet will cost 5,000,000 coins.",
+                  "It imparts a bonus of +30 more than usual.",
+                  "It appears to weigh about 21 pounds.",
+                  "It is estimated to be worth about 1,000,000 silvers.",
+                  "It is predominantly crafted of steel.",
+                  "It is a simple project (97 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Femereff."
+                ],
+                "tags": [
+                  "purpose",
+                  "lightenable"
+                ],
+                "cost": 5000000,
+                "enchant": 30,
+                "material": "steel",
+                "weight": 21,
+                "worn": "chest",
+                "is_armor": true,
+                "armor_type": "scale",
+                "wear_location": "torso",
+                "item_type": "armor"
               }
             }
           ],
@@ -8538,6 +8645,7 @@
                   "max_light",
                   "deepenable",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 2749999,
@@ -8784,6 +8892,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 200000,
@@ -8979,6 +9088,7 @@
                   "The tall glass jar will cost 200,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -12206,6 +12316,6 @@
       ]
     }
   ],
-  "processed_at": "2026-01-23 10:21:08 UTC",
+  "processed_at": "2026-01-23 12:31:06 UTC",
   "processing_version": "v2.0"
 }
