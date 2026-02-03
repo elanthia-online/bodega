@@ -574,8 +574,12 @@ class BodegaProcessor
   end
 
   def safe_string(str)
+    # Must match bodega.lic Utils.safe_string and data-loader.js safeString
     return '' unless str
-    str.to_s.downcase.strip.gsub(/[^a-z0-9]+/, '_').gsub(/^_|_$/, '')
+    str.to_s.downcase
+       .gsub("ta'", "ta_")
+       .gsub(/'|,/, "")
+       .gsub(/-|\s/, "_")
   end
 
   def track_current_item(town, preamble, item)
