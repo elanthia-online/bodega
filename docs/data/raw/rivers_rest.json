@@ -1,6 +1,6 @@
 {
-  "created_at": "2026-02-04 22:19:30 UTC",
-  "run_time": "05s",
+  "created_at": "2026-02-05 01:10:14 UTC",
+  "run_time": "04s",
   "town": "River's Rest",
   "shops": [
     {
@@ -424,6 +424,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 5000000,
@@ -624,6 +625,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -1041,6 +1043,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -1112,6 +1115,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 20000,
@@ -1144,6 +1148,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -1169,6 +1174,7 @@
                   "The thrak hide boots will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -1228,6 +1234,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -1255,6 +1262,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -1289,6 +1297,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -2266,6 +2275,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 3500000,
@@ -2362,46 +2372,107 @@
             {
               "id": "19357637",
               "name": "a topaz-inset platinum talisman",
-              "browse_price": 150000,
-              "raw_inspect": [
-                "The talisman can be worn around the neck.  The talisman appears to serve some purpose.",
-                "Analysis of a topaz-inset platinum talisman indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the talisman may be further lightened.",
-                "The platinum talisman will cost 150,000 coins.",
-                "It is a magical item which could be imbedded with a spell.",
-                "It has 0 charges.  It is rechargeable.",
-                "It could be activated by waving it.",
-                "It will persist after its last magical charge has been expended.",
-                "It is an enhancive item:",
-                "    It provides a boost of 4 to Intuition Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 24 times.",
-                "    It provides a boost of 1 to Spiritual Lore - Summoning Ranks.",
-                "    This enhancement may not be used by adventurers who have not trained 6 times.",
-                "    It seems to have a lot of enhancive charges remaining.",
-                "It will crumble into dust after its last enhancive charge has been expended.",
-                "It is a small item, under a pound.",
-                "It is estimated to be worth about 150,000 silvers.",
-                "It has a permanently unlocked loresong by Selvren."
-              ]
+              "details": {
+                "raw": [
+                  "The talisman can be worn around the neck.  The talisman appears to serve some purpose.",
+                  "Analysis of a topaz-inset platinum talisman indicates the item is free from merchant alteration restrictions.",
+                  "The platinum talisman will cost 150,000 coins.",
+                  "It is a magical item which could be imbedded with a spell.",
+                  "It has 0 charges.  It is rechargeable.",
+                  "It could be activated by waving it.",
+                  "It will persist after its last magical charge has been expended.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 4 to Intuition Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 24 times.",
+                  "    It provides a boost of 1 to Spiritual Lore - Summoning Ranks.",
+                  "    This enhancement may not be used by adventurers who have not trained 6 times.",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It will crumble into dust after its last enhancive charge has been expended.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 150,000 silvers.",
+                  "It has a permanently unlocked loresong by Selvren."
+                ],
+                "tags": [
+                  "purpose",
+                  "imbeddable",
+                  "small"
+                ],
+                "cost": 150000,
+                "worn": "neck",
+                "activator": "waving",
+                "enhancives": [
+                  {
+                    "boost": 4,
+                    "ability": "Intuition Bonus",
+                    "level": 24
+                  },
+                  {
+                    "boost": 1,
+                    "ability": "Spiritual Lore - Summoning Ranks",
+                    "level": 6
+                  }
+                ],
+                "wear_location": "around the neck",
+                "item_type": null
+              }
             },
             {
               "id": "19357640",
               "name": "some vultite arm greaves",
-              "browse_price": 900000,
+              "details": {
+                "raw": [
+                  "The greaves is miscellaneous armor that covers the arms.",
+                  "The greaves can be worn around the arms.  The greaves appear to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of vultite, an uncommon metal.",
+                  "Analysis of some vultite arm greaves indicates the item is free from merchant alteration restrictions.",
+                  "You can tell that the greaves are as light as they can get.",
+                  "The vultite arm greaves will cost 900,000 coins.",
+                  "It is moderately resistant (15%) to disrupting attacks.",
+                  "It appears to weigh about 3 pounds.",
+                  "It is estimated to be worth about 150,000 silvers.",
+                  "It is padded against critical blows, but exactly how much requires assessment.",
+                  "It is predominantly crafted of vultite.",
+                  "It is a simple project (34 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Selvren."
+                ],
+                "tags": [
+
+                ],
+                "cost": 900000,
+                "material": "vultite",
+                "weight": 3,
+                "worn": "arms",
+                "is_armor": true,
+                "armor_type": "accessory",
+                "wear_location": "arms",
+                "crit_padding": "unknown",
+                "item_type": "armor"
+              }
+            },
+            {
+              "id": "19357701",
+              "name": "a scratched spiked veil iron buckler",
+              "browse_price": 2500000,
               "raw_inspect": [
-                "The greaves is miscellaneous armor that covers the arms.",
-                "The greaves can be worn around the arms.  The greaves appear to serve some purpose.",
-                "It looks like this item has been mainly crafted out of vultite, an uncommon metal.",
-                "Analysis of some vultite arm greaves indicates the item is free from merchant alteration restrictions.",
-                "You can tell that the greaves are as light as they can get.",
-                "The vultite arm greaves will cost 900,000 coins.",
-                "It is moderately resistant (15%) to disrupting attacks.",
+                "A thin layer of dull greyish substance is visible on the buckler.",
+                "The buckler is a small shield that protects the bearer if carried in the left hand.  It is spiked.",
+                "The buckler can be worn, slinging it across the shoulders and back.  The buckler appears to serve some purpose.",
+                "It looks like this item has been mainly crafted out of veil iron, an extraordinarily rare metal.  It would need to be supplied to be used in an alteration and may only be used as an accent.  This material cannot be dyed.",
+                "Analysis of a scratched spiked veil iron buckler indicates the item has certain alteration restrictions.  It would need to be supplied to be used in an alteration and may only be used as an accent.  This material cannot be dyed.",
+                "You can tell that the buckler is as light as it can get.",
+                "The veil iron buckler will cost 2,500,000 coins.",
+                "It imparts a bonus of +25 more than usual.",
+                "It is a holy item.",
+                "It protects against magical attacks with a bonus of 9.",
+                "It has a temporary enhancement that will degrade when the wearer is struck in combat.  It has an incredible amount of uses left before the enhancement degrades away completely, which will cause the item to lose its special ability.",
                 "It appears to weigh about 3 pounds.",
-                "It is estimated to be worth about 150,000 silvers.",
-                "It is padded against critical blows, but exactly how much requires assessment.",
-                "It is predominantly crafted of vultite.",
-                "It is a simple project (34 difficulty) for an adventurer to modify.",
-                "It has a permanently unlocked loresong by Selvren."
+                "It is estimated to be worth about 800,000 silvers.",
+                "It is spiked.",
+                "It is magic resistant.",
+                "It is predominantly crafted of veil iron.",
+                "It is coated with 339 charges of Dullard's Folly poison.",
+                "It is a basic project (189 difficulty) for an adventurer to modify.",
+                "It has a permanently unlocked loresong by Florania."
               ]
             }
           ],
@@ -3238,6 +3309,7 @@
                   "max_light",
                   "small",
                   "magic_resistant",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -4644,6 +4716,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 10000000,
@@ -4671,6 +4744,7 @@
                   "The rhimar ice wizard will cost 10,000,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -4724,6 +4798,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -4996,6 +5071,7 @@
                   "The black cigar will cost 1,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -5917,6 +5993,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 1500000,
@@ -6274,6 +6351,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 20000,
@@ -6351,6 +6429,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 200000,
@@ -6380,6 +6459,7 @@
                   "The flyrsilk gloves will cost 200,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -6451,6 +6531,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 150000,
@@ -6494,6 +6575,7 @@
                   "The charcoal envelope will cost 10,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -6747,6 +6829,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -6775,6 +6858,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -6815,6 +6899,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -6844,6 +6929,7 @@
                 "tags": [
                   "max_deep",
                   "small",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -7061,6 +7147,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 20000,
@@ -7238,6 +7325,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -7409,6 +7497,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 20000,
@@ -7516,6 +7605,7 @@
                 "tags": [
                   "small",
                   "magic_resistant",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -7672,6 +7762,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 60000,
@@ -7732,6 +7823,7 @@
                   "max_light",
                   "deepenable",
                   "small",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -7802,6 +7894,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -7832,6 +7925,7 @@
                   "purpose",
                   "max_deep",
                   "max_light",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -11155,6 +11249,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 1900000,
@@ -11305,6 +11400,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -11338,6 +11434,7 @@
                 ],
                 "tags": [
                   "purpose",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -11383,6 +11480,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -11413,6 +11511,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -11472,6 +11571,7 @@
                   "purpose",
                   "max_deep",
                   "max_light",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -16603,6 +16703,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 500000,
@@ -20661,6 +20762,7 @@
                   "max_deep",
                   "max_light",
                   "persists",
+                  "container",
                   "container",
                   "container",
                   "container",
