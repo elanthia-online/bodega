@@ -1,5 +1,5 @@
 {
-  "created_at": "2026-02-08 18:31:37 UTC",
+  "created_at": "2026-02-08 20:19:13 UTC",
   "run_time": "05s",
   "town": "Ta'Vaalor,",
   "shops": [
@@ -1242,6 +1242,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -1574,6 +1575,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -1758,6 +1760,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -1781,6 +1784,7 @@
                   "The beehive-shaped bag will cost 50,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -3964,6 +3968,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -3987,6 +3992,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -4015,6 +4021,7 @@
                   "The black leather pants will cost 15,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -4049,6 +4056,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -4074,6 +4082,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -4107,6 +4116,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -4132,6 +4142,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -4165,6 +4176,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -4194,6 +4206,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -4219,6 +4232,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -4253,6 +4267,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -4279,6 +4294,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -4836,6 +4852,7 @@
                   "purpose",
                   "lightenable",
                   "persists",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -6649,44 +6666,80 @@
             {
               "id": "95210661",
               "name": "some burnished double leather",
-              "browse_price": 100000,
-              "raw_inspect": [
-                "It has a small enchanter's glyph.",
-                "The leather is leather armor that covers the torso, arms, legs, neck, and head.",
-                "The leather can be worn around the chest.  The leather appears to serve some purpose.",
-                "It looks like this item has been mainly crafted out of leather, an extremely common material.",
-                "Analysis of some burnished double leather indicates the item is free from merchant alteration restrictions.",
-                "You might be able to have a talented merchant lighten the double leather for you.",
-                "The double leather will cost 100,000 coins.",
-                "It imparts a bonus of +15 more than usual.",
-                "It has been infused with the power of a corrosive substance.",
-                "It appears to weigh about 14 pounds.",
-                "It is estimated to be worth about 150,000 silvers.",
-                "It is predominantly crafted of leather.",
-                "It is a basic project (128 difficulty) for an adventurer to modify.",
-                "It has a temporarily unlocked loresong by a bard for 29 days, 22 hours and 55 minutes."
-              ]
+              "details": {
+                "raw": [
+                  "It has a small enchanter's glyph.",
+                  "The leather is leather armor that covers the torso, arms, legs, neck, and head.",
+                  "The leather can be worn around the chest.  The leather appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of leather, an extremely common material.",
+                  "Analysis of some burnished double leather indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the double leather for you.",
+                  "The double leather will cost 100,000 coins.",
+                  "It imparts a bonus of +15 more than usual.",
+                  "It has been infused with the power of a corrosive substance.",
+                  "It appears to weigh about 14 pounds.",
+                  "It is estimated to be worth about 150,000 silvers.",
+                  "It is predominantly crafted of leather.",
+                  "It is a basic project (128 difficulty) for an adventurer to modify.",
+                  "It has a temporarily unlocked loresong by a bard for 29 days, 22 hours and 55 minutes."
+                ],
+                "tags": [
+                  "purpose",
+                  "lightenable"
+                ],
+                "cost": 100000,
+                "enchant": 15,
+                "material": "leather",
+                "flare": "the power of a corrosive substance",
+                "weight": 14,
+                "worn": "chest",
+                "is_armor": true,
+                "armor_type": "leather",
+                "wear_location": "torso",
+                "flares": [
+                  "the power of a corrosive substance"
+                ],
+                "item_type": "armor"
+              }
             },
             {
               "id": "95881157",
               "name": "a mithril augmented breastplate",
-              "browse_price": 250000,
-              "raw_inspect": [
-                "The breastplate is plate armor that covers the torso and arms.",
-                "The breastplate can be worn around the chest.  The breastplate appears to serve some purpose.",
-                "It looks like this item has been mainly crafted out of mithril, an uncommon metal.",
-                "Analysis of a mithril augmented breastplate indicates the item is free from merchant alteration restrictions.",
-                "You might be able to have a talented merchant lighten the augmented breastplate for you.",
-                "The augmented breastplate will cost 250,000 coins.",
-                "It imparts a bonus of +5 more than usual.",
-                "It has been infused with the power of a lightning bolt.",
-                "It is moderately resistant (16%) to puncturing attacks.",
-                "It appears to weigh about 22 pounds.",
-                "It is estimated to be worth about 1,300,000 silvers.",
-                "It is predominantly crafted of mithril.",
-                "It is a simple project (89 difficulty) for an adventurer to modify.",
-                "It has a temporarily unlocked loresong by a bard for 29 days, 23 hours and 32 minutes."
-              ]
+              "details": {
+                "raw": [
+                  "The breastplate is plate armor that covers the torso and arms.",
+                  "The breastplate can be worn around the chest.  The breastplate appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of mithril, an uncommon metal.",
+                  "Analysis of a mithril augmented breastplate indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the augmented breastplate for you.",
+                  "The augmented breastplate will cost 250,000 coins.",
+                  "It imparts a bonus of +5 more than usual.",
+                  "It has been infused with the power of a lightning bolt.",
+                  "It is moderately resistant (16%) to puncturing attacks.",
+                  "It appears to weigh about 22 pounds.",
+                  "It is estimated to be worth about 1,300,000 silvers.",
+                  "It is predominantly crafted of mithril.",
+                  "It is a simple project (89 difficulty) for an adventurer to modify.",
+                  "It has a temporarily unlocked loresong by a bard for 29 days, 23 hours and 32 minutes."
+                ],
+                "tags": [
+                  "purpose",
+                  "lightenable"
+                ],
+                "cost": 250000,
+                "enchant": 5,
+                "material": "mithril",
+                "flare": "the power of a lightning bolt",
+                "weight": 22,
+                "worn": "chest",
+                "is_armor": true,
+                "armor_type": "plate",
+                "wear_location": "torso and arms",
+                "flares": [
+                  "the power of a lightning bolt"
+                ],
+                "item_type": "armor"
+              }
             }
           ],
           "sign": [
@@ -6836,6 +6889,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -6991,6 +7045,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -8878,6 +8933,54 @@
                 "is_shield": true,
                 "item_type": "shield"
               }
+            },
+            {
+              "id": "98320730",
+              "name": "a strand of veniom thread",
+              "browse_price": 1000000,
+              "raw_inspect": [
+                "You see nothing unusual.",
+                "The thread can not be worn.",
+                "It looks like this item has been mainly crafted out of veniom, a very rare metal.  It would need to be supplied to be used in an alteration and may only be used as an accent.  Veniom is so thin and light, crumpling easily, that it would be unsuitable for use as anything with substance, lending itself better as an accent, like threading and tracery.",
+                "Analysis of a strand of veniom thread indicates the creator has provided the following information:",
+                "This is an expander item for the Bag of Holding (a large treasure sack) from Duskruin Arena.  (NOTE: This will NOT work with the \"a treasure chest\", the first level of reward from the OC ringleader.)  These expanders will adjust one of these containers in one of four ways -- overall unique capacity, per-item capacity, max allowed weight, and weight reduction.  This item, a strand of veniom thread, will expand \"a treasure sack\" as follows:",
+                "  - WEAVE (a strand of veniom thread) with the container to add weight reduction of 5%",
+                "This item can NOT be used as alter fodder and may not be altered in any way.",
+                "You get no sense of whether or not the thread may be further lightened.",
+                "The veniom thread will cost 1,000,000 coins."
+              ]
+            },
+            {
+              "id": "98320714",
+              "name": "a handful of sparkling dust",
+              "browse_price": 60000,
+              "raw_inspect": [
+                "You see nothing unusual.",
+                "The dust can not be worn.",
+                "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
+                "Analysis of a handful of sparkling dust indicates the creator has provided the following information:",
+                "This is an expander item for the Bag of Holding (a large treasure sack) from Duskruin Arena.  (NOTE: This will NOT work with the \"a treasure chest\", the first level of reward from the OC ringleader.)  These expanders will adjust one of these containers in one of four ways -- overall unique capacity, per-item capacity, max allowed weight, and weight reduction.  This item, a handful of sparkling dust, will expand \"a treasure sack\" as follows:",
+                "  - SPRINKLE (a handful of sparkling dust) on a container to increase total weight allowance by 5 pounds",
+                "This item can NOT be used as alter fodder and may not be altered in any way.",
+                "You get no sense of whether or not the dust may be further lightened.",
+                "The sparkling dust will cost 60,000 coins."
+              ]
+            },
+            {
+              "id": "98320729",
+              "name": "a handful of sparkling dust",
+              "browse_price": 60000,
+              "raw_inspect": [
+                "You see nothing unusual.",
+                "The dust can not be worn.",
+                "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
+                "Analysis of a handful of sparkling dust indicates the creator has provided the following information:",
+                "This is an expander item for the Bag of Holding (a large treasure sack) from Duskruin Arena.  (NOTE: This will NOT work with the \"a treasure chest\", the first level of reward from the OC ringleader.)  These expanders will adjust one of these containers in one of four ways -- overall unique capacity, per-item capacity, max allowed weight, and weight reduction.  This item, a handful of sparkling dust, will expand \"a treasure sack\" as follows:",
+                "  - SPRINKLE (a handful of sparkling dust) on a container to increase total weight allowance by 5 pounds",
+                "This item can NOT be used as alter fodder and may not be altered in any way.",
+                "You get no sense of whether or not the dust may be further lightened.",
+                "The sparkling dust will cost 60,000 coins."
+              ]
             }
           ],
           "sign": [
@@ -9273,6 +9376,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 11111111,
@@ -9355,6 +9459,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -13361,6 +13466,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -15406,6 +15512,7 @@
                   "The glass jar will cost 180,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
