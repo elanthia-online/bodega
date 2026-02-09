@@ -385,11 +385,38 @@ class DataLoader {
     }
 
     extractShopName(shop) {
-        // Use the first room's title as the shop name
-        if (!shop.inv || shop.inv.length === 0) return 'Unknown Shop';
+        // IMPORTANT: Use preamble or shop_owner, NOT room_title
+        // room_title can be stale when shop ownership changes (e.g., Faulkil's shop showing as "Kizalia's Armory")
 
-        const entryRoom = shop.inv[0]; // First room is usually the entry
-        return entryRoom.room_title || 'Unknown Shop';
+        // Try shop_owner first (most reliable for display)
+        if (shop.shop_owner) {
+            return `${shop.shop_owner}'s Shop`;
+        }
+
+        // Try extracting from preamble
+        if (shop.preamble) {
+            const ownerMatch = shop.preamble.match(/^(.*?)'s?\s+Shop\s+is\s+located/i);
+            if (ownerMatch) {
+                return `${ownerMatch[1]}'s Shop`;
+            }
+
+            // Handle business names (e.g., "Dark Tower Imports is located...")
+            const businessMatch = shop.preamble.match(/^([^,]+?)\s+is\s+located/i);
+            if (businessMatch) {
+                return businessMatch[1].trim();
+            }
+        }
+
+        // Fallback to room title (legacy behavior, but can be stale)
+        if (shop.inv && shop.inv.length > 0) {
+            const entryRoom = shop.inv[0];
+            if (entryRoom.room_title) {
+                console.warn(`Using potentially stale room_title for shop: ${entryRoom.room_title}`);
+                return entryRoom.room_title;
+            }
+        }
+
+        return 'Unknown Shop';
     }
 
     extractShopOwnerName(shop) {
