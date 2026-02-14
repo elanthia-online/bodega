@@ -1,5 +1,5 @@
 {
-  "created_at": "2026-02-14 14:21:35 UTC",
+  "created_at": "2026-02-14 16:21:16 UTC",
   "run_time": "04s",
   "town": "Ta'Vaalor,",
   "shops": [
@@ -1240,6 +1240,7 @@
                   "lightenable",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -1570,6 +1571,7 @@
                   "max_light",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -1752,6 +1754,7 @@
                   "deepenable",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -1775,6 +1778,7 @@
                   "The beehive-shaped bag will cost 50,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container"
@@ -4138,6 +4142,7 @@
                   "deepenable",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -4161,6 +4166,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container"
@@ -4187,6 +4193,7 @@
                   "The black leather pants will cost 15,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container"
@@ -4217,6 +4224,7 @@
                   "lightenable",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -4242,6 +4250,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container"
@@ -4271,6 +4280,7 @@
                   "lightenable",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -4296,6 +4306,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container"
@@ -4325,6 +4336,7 @@
                   "deepenable",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -4352,6 +4364,7 @@
                   "deepenable",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -4377,6 +4390,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container"
@@ -4407,6 +4421,7 @@
                   "deepenable",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -4433,6 +4448,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container"
@@ -4956,6 +4972,7 @@
                   "purpose",
                   "lightenable",
                   "persists",
+                  "container",
                   "container",
                   "container",
                   "container"
@@ -6767,141 +6784,258 @@
             {
               "id": "197099583",
               "name": "some polished reinforced leather",
-              "browse_price": 500000,
-              "raw_inspect": [
-                "It has a small enchanter's glyph.",
-                "The leather is leather armor that covers the torso, arms, and legs.",
-                "The leather can be worn around the chest.  The leather appears to serve some purpose.",
-                "It looks like this item has been mainly crafted out of leather, an extremely common material.",
-                "Analysis of some polished reinforced leather indicates the item is free from merchant alteration restrictions.",
-                "You might be able to have a talented merchant lighten the reinforced leather for you.",
-                "The reinforced leather will cost 500,000 coins.",
-                "It imparts a bonus of +30 more than usual.",
-                "It has been infused with the power of a corrosive substance.",
-                "It is temporarily and moderately resistant (16%) to impact attacks, provided by a temporary enhancement and will degrade when the wearer is struck in combat.  It has an incredible amount of uses left before the enhancement degrades away completely, which will cause the item to simply return to normal.",
-                "It appears to weigh about 11 pounds.",
-                "It is estimated to be worth about 2,050,000 silvers.",
-                "It is predominantly crafted of leather.",
-                "It is an involved project (205 difficulty) for an adventurer to modify.",
-                "It has a temporarily unlocked loresong by a bard for 26 days, 3 hours and 26 minutes."
-              ]
+              "details": {
+                "raw": [
+                  "It has a small enchanter's glyph.",
+                  "The leather is leather armor that covers the torso, arms, and legs.",
+                  "The leather can be worn around the chest.  The leather appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of leather, an extremely common material.",
+                  "Analysis of some polished reinforced leather indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the reinforced leather for you.",
+                  "The reinforced leather will cost 500,000 coins.",
+                  "It imparts a bonus of +30 more than usual.",
+                  "It has been infused with the power of a corrosive substance.",
+                  "It is temporarily and moderately resistant (16%) to impact attacks, provided by a temporary enhancement and will degrade when the wearer is struck in combat.  It has an incredible amount of uses left before the enhancement degrades away completely, which will cause the item to simply return to normal.",
+                  "It appears to weigh about 11 pounds.",
+                  "It is estimated to be worth about 2,050,000 silvers.",
+                  "It is predominantly crafted of leather.",
+                  "It is an involved project (205 difficulty) for an adventurer to modify.",
+                  "It has a temporarily unlocked loresong by a bard for 26 days, 3 hours and 26 minutes."
+                ],
+                "tags": [
+                  "purpose",
+                  "lightenable"
+                ],
+                "cost": 500000,
+                "enchant": 30,
+                "material": "leather",
+                "flare": "the power of a corrosive substance",
+                "weight": 11,
+                "worn": "chest",
+                "is_armor": true,
+                "armor_type": "leather",
+                "wear_location": "torso",
+                "flares": [
+                  "the power of a corrosive substance"
+                ],
+                "item_type": "armor"
+              }
             },
             {
               "id": "197099589",
               "name": "a red garnet studded mithril crown",
-              "browse_price": 100000,
-              "raw_inspect": [
-                "The crown can be worn on the head.  The crown appears to serve some purpose.",
-                "Analysis of a red garnet studded mithril crown indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the crown may be further lightened.",
-                "The studded mithril crown will cost 100,000 coins.",
-                "It is a holy item.",
-                "It is currently imbedded with the Mantle of Faith spell.",
-                "It has 10 charges.  It is empowered and can be charged for an additional 867.",
-                "It could be activated by rubbing it.",
-                "It will persist after its last magical charge has been expended.",
-                "It is an enhancive item:",
-                "    It provides a boost of 3 to Agility Base.",
-                "    This enhancement may not be used by adventurers who have not trained 6 times.",
-                "    It provides a boost of 7 to Influence Base.",
-                "    This enhancement may not be used by adventurers who have not trained 19 times.",
-                "    It seems to have a few enhancive charges remaining.",
-                "It will crumble into dust after its last enhancive charge has been expended.",
-                "It appears to weigh about 2 pounds.",
-                "It is estimated to be worth about 73,000 silvers.",
-                "It has a temporarily unlocked loresong by a bard for 26 days, 5 hours and 6 minutes."
-              ]
+              "details": {
+                "raw": [
+                  "The crown can be worn on the head.  The crown appears to serve some purpose.",
+                  "Analysis of a red garnet studded mithril crown indicates the item is free from merchant alteration restrictions.",
+                  "The studded mithril crown will cost 100,000 coins.",
+                  "It is a holy item.",
+                  "It is currently imbedded with the Mantle of Faith spell.",
+                  "It has 10 charges.  It is empowered and can be charged for an additional 867.",
+                  "It could be activated by rubbing it.",
+                  "It will persist after its last magical charge has been expended.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 3 to Agility Base.",
+                  "    This enhancement may not be used by adventurers who have not trained 6 times.",
+                  "    It provides a boost of 7 to Influence Base.",
+                  "    This enhancement may not be used by adventurers who have not trained 19 times.",
+                  "    It seems to have a few enhancive charges remaining.",
+                  "It will crumble into dust after its last enhancive charge has been expended.",
+                  "It appears to weigh about 2 pounds.",
+                  "It is estimated to be worth about 73,000 silvers.",
+                  "It has a temporarily unlocked loresong by a bard for 26 days, 5 hours and 6 minutes."
+                ],
+                "tags": [
+                  "purpose",
+                  "holy",
+                  "imbedded"
+                ],
+                "cost": 100000,
+                "weight": 2,
+                "worn": "head",
+                "activator": "rubbing",
+                "spell": "Mantle of Faith",
+                "enhancives": [
+                  {
+                    "boost": 3,
+                    "ability": "Agility Base",
+                    "level": 6
+                  },
+                  {
+                    "boost": 7,
+                    "ability": "Influence Base",
+                    "level": 19
+                  }
+                ],
+                "wear_location": "on the head",
+                "blessing": "holy",
+                "item_type": null
+              }
             },
             {
               "id": "197327935",
               "name": "a carmiln hand crossbow",
-              "browse_price": 50000,
-              "raw_inspect": [
-                "The crossbow is a hand crossbow that requires skill in ranged weapons to use effectively.",
-                "The crossbow can be worn, slinging it across the shoulders and back.  The crossbow appears to serve some purpose.",
-                "It looks like this item has been mainly crafted out of carmiln, an uncommon wood.",
-                "Analysis of a carmiln hand crossbow indicates the item is free from merchant alteration restrictions.",
-                "You can tell that the crossbow is as light as it can get.",
-                "The carmiln hand crossbow will cost 50,000 coins.",
-                "It imparts a bonus of +6 more than usual.",
-                "It is an enhancive item:",
-                "    It provides a boost of 6 to Dexterity Base.",
-                "    This enhancement may not be used by adventurers who have not trained 13 times.",
-                "    It seems to have several enhancive charges remaining.",
-                "It will persist after its last enhancive charge has been expended.",
-                "It appears to weigh about 2 pounds.",
-                "It is estimated to be worth about 200,000 silvers.",
-                "It is temporarily sighted to assist in aiming, but exactly how much requires assessment.  Its temporary enhancement will degrade when it scores a successful strike.  It has quite a few uses left before the enhancement degrades away completely, which will cause the item to lose its ability to inflict greater damage.",
-                "It is predominantly crafted of carmiln.",
-                "It is a basic project (164 difficulty) for an adventurer to modify.",
-                "It has a temporarily unlocked loresong by a bard for 28 days, 4 hours and 48 minutes."
-              ]
+              "details": {
+                "raw": [
+                  "The crossbow is a hand crossbow that requires skill in ranged weapons to use effectively.",
+                  "The crossbow can be worn, slinging it across the shoulders and back.  The crossbow appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of carmiln, an uncommon wood.",
+                  "Analysis of a carmiln hand crossbow indicates the item is free from merchant alteration restrictions.",
+                  "You can tell that the crossbow is as light as it can get.",
+                  "The carmiln hand crossbow will cost 50,000 coins.",
+                  "It imparts a bonus of +6 more than usual.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 6 to Dexterity Base.",
+                  "    This enhancement may not be used by adventurers who have not trained 13 times.",
+                  "    It seems to have several enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It appears to weigh about 2 pounds.",
+                  "It is estimated to be worth about 200,000 silvers.",
+                  "It is temporarily sighted to assist in aiming, but exactly how much requires assessment.  Its temporary enhancement will degrade when it scores a successful strike.  It has quite a few uses left before the enhancement degrades away completely, which will cause the item to lose its ability to inflict greater damage.",
+                  "It is predominantly crafted of carmiln.",
+                  "It is a basic project (164 difficulty) for an adventurer to modify.",
+                  "It has a temporarily unlocked loresong by a bard for 28 days, 4 hours and 48 minutes."
+                ],
+                "tags": [
+                  "purpose",
+                  "max_light",
+                  "persists"
+                ],
+                "cost": 50000,
+                "enchant": 6,
+                "material": "carmiln",
+                "skill": "ranged weapons",
+                "weight": 2,
+                "worn": "shoulders",
+                "enhancives": [
+                  {
+                    "boost": 6,
+                    "ability": "Dexterity Base",
+                    "level": 13
+                  }
+                ],
+                "is_weapon": true,
+                "weapon_type": "ranged weapons",
+                "sighting": "unknown",
+                "item_type": "weapon"
+              }
             },
             {
               "id": "197595356",
               "name": "a tarnished steel katana",
-              "browse_price": 100000,
-              "raw_inspect": [
-                "The katana is a katana that requires skill in two-handed and one-handed edged weapons to use effectively.",
-                "It looks like this item has been mainly crafted out of steel, an extremely common metal.",
-                "Analysis of a tarnished steel katana indicates the item is free from merchant alteration restrictions.",
-                "You might be able to have a talented merchant lighten the steel katana for you.",
-                "The steel katana will cost 100,000 coins.",
-                "It imparts no bonus more than usual.",
-                "It helps defend its wielder with a bonus of 2.",
-                "It appears to weigh about 4 pounds.",
-                "It is estimated to be worth about 200,000 silvers.",
-                "It is weighted to inflict more critical wounds, but exactly how much requires assessment.",
-                "It is predominantly crafted of steel.",
-                "It is a basic project (114 difficulty) for an adventurer to modify.",
-                "It has a temporarily unlocked loresong by a bard for 24 days, 5 hours and 48 minutes."
-              ]
+              "details": {
+                "raw": [
+                  "The katana is a katana that requires skill in two-handed and one-handed edged weapons to use effectively.",
+                  "It looks like this item has been mainly crafted out of steel, an extremely common metal.",
+                  "Analysis of a tarnished steel katana indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the steel katana for you.",
+                  "The steel katana will cost 100,000 coins.",
+                  "It helps defend its wielder with a bonus of 2.",
+                  "It appears to weigh about 4 pounds.",
+                  "It is estimated to be worth about 200,000 silvers.",
+                  "It is weighted to inflict more critical wounds, but exactly how much requires assessment.",
+                  "It is predominantly crafted of steel.",
+                  "It is a basic project (114 difficulty) for an adventurer to modify.",
+                  "It has a temporarily unlocked loresong by a bard for 24 days, 5 hours and 48 minutes."
+                ],
+                "tags": [
+                  "lightenable"
+                ],
+                "cost": 100000,
+                "material": "steel",
+                "skill": "two-handed and one-handed edged weapons",
+                "weight": 4,
+                "is_weapon": true,
+                "weapon_type": "two-handed and one-handed edged weapons",
+                "crit_weighting": "unknown",
+                "item_type": "weapon"
+              }
             },
             {
               "id": "197595351",
               "name": "a scratched vultite buckler",
-              "browse_price": 100000,
-              "raw_inspect": [
-                "The buckler is a small shield that protects the bearer if carried in the left hand.",
-                "The buckler can be worn, slinging it across the shoulders and back.  The buckler appears to serve some purpose.",
-                "It looks like this item has been mainly crafted out of vultite, an uncommon metal.",
-                "Analysis of a scratched vultite buckler indicates the item is free from merchant alteration restrictions.",
-                "You might be able to have a talented merchant lighten the vultite buckler for you.",
-                "The vultite buckler will cost 100,000 coins.",
-                "It imparts a bonus of +20 more than usual.",
-                "It protects against magical attacks with a bonus of 6.",
-                "It has a temporary enhancement that will degrade when the wearer is struck in combat.  It has an incredible amount of uses left before the enhancement degrades away completely, which will cause the item to lose its special ability.",
-                "It appears to weigh about 5 pounds.",
-                "It is estimated to be worth about 250,000 silvers.",
-                "It is predominantly crafted of vultite.",
-                "It is a simple project (72 difficulty) for an adventurer to modify.",
-                "It has a temporarily unlocked loresong by a bard for 24 days, 5 hours and 25 minutes."
-              ]
+              "details": {
+                "raw": [
+                  "The buckler is a small shield that protects the bearer if carried in the left hand.",
+                  "The buckler can be worn, slinging it across the shoulders and back.  The buckler appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of vultite, an uncommon metal.",
+                  "Analysis of a scratched vultite buckler indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the vultite buckler for you.",
+                  "The vultite buckler will cost 100,000 coins.",
+                  "It imparts a bonus of +20 more than usual.",
+                  "It protects against magical attacks with a bonus of 6.",
+                  "It has a temporary enhancement that will degrade when the wearer is struck in combat.  It has an incredible amount of uses left before the enhancement degrades away completely, which will cause the item to lose its special ability.",
+                  "It appears to weigh about 5 pounds.",
+                  "It is estimated to be worth about 250,000 silvers.",
+                  "It is predominantly crafted of vultite.",
+                  "It is a simple project (72 difficulty) for an adventurer to modify.",
+                  "It has a temporarily unlocked loresong by a bard for 24 days, 5 hours and 25 minutes."
+                ],
+                "tags": [
+                  "purpose",
+                  "lightenable"
+                ],
+                "cost": 100000,
+                "enchant": 20,
+                "material": "vultite",
+                "weight": 5,
+                "worn": "shoulders",
+                "td_bonus": 6,
+                "shield_type": "small",
+                "is_shield": true,
+                "item_type": "shield"
+              }
             },
             {
               "id": "197327938",
               "name": "a baby blue rolaren broadsword",
-              "browse_price": 50000,
-              "raw_inspect": [
-                "The broadsword is a broadsword that requires skill in edged weapons to use effectively.",
-                "It looks like this item has been mainly crafted out of rolaren, a very rare alloy.  It would need to be supplied to be used in an alteration and may only be used as an accent.",
-                "Analysis of a baby blue rolaren broadsword indicates the item has certain alteration restrictions.  It would need to be supplied to be used in an alteration and may only be used as an accent.",
-                "You can tell that the broadsword is as light as it can get.",
-                "The rolaren broadsword will cost 50,000 coins.",
-                "It imparts a bonus of +20 more than usual.",
-                "It has been infused with a disrupting substance.",
-                "It is an enhancive item:",
-                "    It provides a boost of 5 to Agility Base.",
-                "    This enhancement may not be used by adventurers who have not trained 9 times.",
-                "    It seems to have a lot of enhancive charges remaining.",
-                "It will persist after its last enhancive charge has been expended.",
-                "It appears to weigh about 3 pounds.",
-                "It is estimated to be worth about 2,300,000 silvers.",
-                "It is temporarily weighted to inflict more critical wounds, but exactly how much requires assessment.  Its temporary enhancement will degrade when it scores a successful strike.  It has quite a few uses left before the enhancement degrades away completely, which will cause the item to lose its ability to inflict greater damage.",
-                "It is predominantly crafted of rolaren.",
-                "It is a complicated project (317 difficulty) for an adventurer to modify.",
-                "It has a temporarily unlocked loresong by a bard for 28 days, 4 hours and 37 minutes."
-              ]
+              "details": {
+                "raw": [
+                  "The broadsword is a broadsword that requires skill in edged weapons to use effectively.",
+                  "It looks like this item has been mainly crafted out of rolaren, a very rare alloy.  It would need to be supplied to be used in an alteration and may only be used as an accent.",
+                  "Analysis of a baby blue rolaren broadsword indicates the item has certain alteration restrictions.  It would need to be supplied to be used in an alteration and may only be used as an accent.",
+                  "You can tell that the broadsword is as light as it can get.",
+                  "The rolaren broadsword will cost 50,000 coins.",
+                  "It imparts a bonus of +20 more than usual.",
+                  "It has been infused with a disrupting substance.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 5 to Agility Base.",
+                  "    This enhancement may not be used by adventurers who have not trained 9 times.",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It appears to weigh about 3 pounds.",
+                  "It is estimated to be worth about 2,300,000 silvers.",
+                  "It is temporarily weighted to inflict more critical wounds, but exactly how much requires assessment.  Its temporary enhancement will degrade when it scores a successful strike.  It has quite a few uses left before the enhancement degrades away completely, which will cause the item to lose its ability to inflict greater damage.",
+                  "It is predominantly crafted of rolaren.",
+                  "It is a complicated project (317 difficulty) for an adventurer to modify.",
+                  "It has a temporarily unlocked loresong by a bard for 28 days, 4 hours and 37 minutes."
+                ],
+                "tags": [
+                  "max_light",
+                  "persists"
+                ],
+                "cost": 50000,
+                "enchant": 20,
+                "material": "rolaren",
+                "skill": "edged weapons",
+                "flare": "a disrupting substance",
+                "weight": 3,
+                "enhancives": [
+                  {
+                    "boost": 5,
+                    "ability": "Agility Base",
+                    "level": 9
+                  }
+                ],
+                "is_weapon": true,
+                "weapon_type": "edged weapons",
+                "flares": [
+                  "a disrupting substance"
+                ],
+                "crit_weighting": "unknown",
+                "temporary_crit_weighting": true,
+                "item_type": "weapon"
+              }
             }
           ],
           "sign": [
@@ -7131,6 +7265,7 @@
                   "lightenable",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 5000,
@@ -7282,6 +7417,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container"
@@ -9589,6 +9725,7 @@
                   "max_light",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 11111111,
@@ -9671,6 +9808,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container"
@@ -13673,6 +13811,7 @@
                   "small",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -15773,6 +15912,7 @@
                   "The glass jar will cost 180,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container"
