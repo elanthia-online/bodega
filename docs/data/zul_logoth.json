@@ -1,6 +1,6 @@
 {
-  "created_at": "2026-03-02 20:28:27 UTC",
-  "run_time": "03s",
+  "created_at": "2026-03-03 01:14:56 UTC",
+  "run_time": "05s",
   "town": "Zul Logoth",
   "shops": [
     {
@@ -1525,6 +1525,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 9999999,
@@ -1562,6 +1563,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 149999,
@@ -1593,6 +1595,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -1781,6 +1784,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 9999999,
@@ -1813,6 +1817,7 @@
                   "max_light",
                   "deepenable",
                   "small",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -1857,6 +1862,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 499999,
@@ -1890,6 +1896,7 @@
                 "tags": [
                   "lightenable",
                   "magic_resistant",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -2646,6 +2653,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 999999,
@@ -2677,6 +2685,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -3417,65 +3426,138 @@
               }
             },
             {
-              "id": "33156",
-              "name": "a vibrant scholar's card",
-              "quantity": 16,
+              "id": "496408849",
+              "name": "a stylish leather shirt",
               "details": {
                 "raw": [
-                  "The scholar's card is pitch black with a vibrant cerulean swirl displaying the Rings of Lumnis.  This card grants travel to the trials on Liabo.  It is valid for 5 trips.  It has not been used yet.",
-                  "The card can not be worn.",
-                  "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
-                  "Analysis of a vibrant scholar's card indicates the creator has provided the following information:",
-                  "This card is used to travel to the Rings of Lumnis.  LOOK at it for more details.",
-                  "The scholar's card will cost 1,300,000 coins."
+                  "Sewn from a grey-hued hide, the natural marbled pattern in the leather of this shirt has been skillfully emphasised through the use of oils and resins to effect an almost luminescent sheen.  Pearl buttons, perfectly consistent in size and coloration, secure the piece from the front.  The overzealous attention to detail, nearly seemless lines, and a perfect fit throughout, indicate an exceptional degree of quality.  It has a small enchanter's glyph.  A strange necrotic haze radiates from the shirt.",
+                  "The shirt is leather armor that covers the torso and arms.",
+                  "The shirt can be worn around the chest.  The shirt appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of leather, an extremely common material.",
+                  "Analysis of a stylish leather shirt indicates the item is free from merchant alteration restrictions.",
+                  "You can tell that the shirt is as light as it can get.",
+                  "The leather shirt will cost 50,000,000 coins.",
+                  "It imparts a bonus of +35 more than usual.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 5 to Intuition Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 21 times.",
+                  "    It provides a boost of 7 to Spell Aiming Ranks.",
+                  "    This enhancement may not be used by adventurers who have not trained 56 times.",
+                  "    It seems to be out of enhancive charges.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It appears to weigh about 7 pounds.",
+                  "It is estimated to be worth about 14,700,000 silvers.",
+                  "It is padded against critical blows, but exactly how much requires assessment.",
+                  "It is predominantly crafted of leather.",
+                  "It has been ensorcelled 5 times.",
+                  "It may be enchanted up to a bonus of 35 by a wizard and was last enchanted by Coutl.",
+                  "It is a tricky project (473 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Folksinger."
+                ],
+                "tags": [
+                  "purpose",
+                  "max_light",
+                  "persists"
+                ],
+                "cost": 50000000,
+                "enchant": 35,
+                "material": "leather",
+                "weight": 7,
+                "worn": "chest",
+                "ensorcell": 5,
+                "enhancives": [
+                  {
+                    "boost": 5,
+                    "ability": "Intuition Bonus",
+                    "level": 21
+                  },
+                  {
+                    "boost": 7,
+                    "ability": "Spell Aiming Ranks",
+                    "level": 56
+                  }
+                ],
+                "is_armor": true,
+                "armor_type": "leather",
+                "wear_location": "torso and arms",
+                "crit_padding": "unknown",
+                "item_type": "armor"
+              }
+            },
+            {
+              "id": "496408762",
+              "name": "a leather survival kit",
+              "details": {
+                "raw": [
+                  "It is estimated that a leather survival kit can store a medium amount with enough space for any number of items.",
+                  "The kit can be worn, attaching it to the belt.  The kit appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of leather, an extremely common material.",
+                  "Analysis of a leather survival kit indicates the creator has provided the following information:",
+                  "This is an Herb Kit.  It has special GET and DROP messaging for potions, herbs, and tending bandages.  ATTEND will list items stored in the survival kit.",
+                  "This container does not have the auto-bundling unlock.",
+                  "This item may be altered normally.",
+                  "You can tell that the kit is as light as it can get, but you might be able to have a talented merchant deepen its pockets for you.",
+                  "The survival kit will cost 10,000,000 coins.",
+                  "It appears to weigh about 2 pounds.",
+                  "It is estimated to be worth about 50,000 silvers.",
+                  "It is a container with a maximum interior capacity of 20 pounds with room for any number of items.",
+                  "It is predominantly crafted of leather.",
+                  "It has a permanently unlocked loresong by Ardenas."
+                ],
+                "tags": [
+                  "purpose",
+                  "max_light",
+                  "deepenable",
+                  "container"
+                ],
+                "cost": 10000000,
+                "material": "leather",
+                "weight": 2,
+                "worn": "belt",
+                "capacity_level": "medium",
+                "is_container": true,
+                "item_type": "container"
+              }
+            },
+            {
+              "id": "496299304",
+              "name": "a shimmering green orb",
+              "quantity": 28,
+              "details": {
+                "raw": [
+                  "Green tendrils writhe within the orb.  Your desire to rub and caress it is nearly overwhelming.  You sense there is 1 use within the orb.",
+                  "The orb can not be worn.",
+                  "It looks like this item has been mainly crafted out of gemstone, an extremely common material.",
+                  "Analysis of a shimmering green orb indicates the creator has provided the following information:",
+                  "This is a 1.5x modifier with 250 flat experience award orb.  It is not currently attuned to any character.",
+                  "The green orb will cost 250,000 coins."
                 ],
                 "tags": [
 
                 ],
-                "cost": 1300000,
-                "material": "organic material, an extremely common material",
+                "cost": 250000,
+                "material": "gemstone, an extremely common material",
                 "item_type": null
               }
             },
             {
-              "id": "33154",
-              "name": "a vibrant scholar's card",
-              "quantity": 50,
+              "id": "496299277",
+              "name": "a shimmering blue orb",
+              "quantity": 26,
               "details": {
                 "raw": [
-                  "The scholar's card is pitch black with a vibrant cerulean swirl displaying the Rings of Lumnis.  This card grants travel to the trials on Liabo.  It is valid for 5 trips.  It has not been used yet.",
-                  "The card can not be worn.",
-                  "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
-                  "Analysis of a vibrant scholar's card indicates the creator has provided the following information:",
-                  "This card is used to travel to the Rings of Lumnis.  LOOK at it for more details.",
-                  "The scholar's card will cost 1,300,000 coins."
+                  "Blue tendrils writhe within the orb.  Your desire to rub and caress it is nearly overwhelming.  You sense there is 1 use within the orb.",
+                  "The orb can not be worn.",
+                  "It looks like this item has been mainly crafted out of gemstone, an extremely common material.",
+                  "Analysis of a shimmering blue orb indicates the creator has provided the following information:",
+                  "This is a 2x modifier with 500 flat experience award orb.  It is not currently attuned to any character.",
+                  "The blue orb will cost 2,300,000 coins."
                 ],
                 "tags": [
 
                 ],
-                "cost": 1300000,
-                "material": "organic material, an extremely common material",
-                "item_type": null
-              }
-            },
-            {
-              "id": "33153",
-              "name": "a vibrant scholar's card",
-              "quantity": 50,
-              "details": {
-                "raw": [
-                  "The scholar's card is pitch black with a vibrant cerulean swirl displaying the Rings of Lumnis.  This card grants travel to the trials on Liabo.  It is valid for 5 trips.  It has not been used yet.",
-                  "The card can not be worn.",
-                  "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
-                  "Analysis of a vibrant scholar's card indicates the creator has provided the following information:",
-                  "This card is used to travel to the Rings of Lumnis.  LOOK at it for more details.",
-                  "The scholar's card will cost 1,300,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "cost": 1300000,
-                "material": "organic material, an extremely common material",
+                "cost": 2300000,
+                "material": "gemstone, an extremely common material",
                 "item_type": null
               }
             }
@@ -8140,6 +8222,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 2749999,
@@ -10934,6 +11017,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 160000,
@@ -10958,6 +11042,7 @@
                   "The glass jar will cost 160,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -12595,6 +12680,6 @@
       ]
     }
   ],
-  "processed_at": "2026-03-02 20:32:22 UTC",
+  "processed_at": "2026-03-03 01:19:01 UTC",
   "processing_version": "v2.0"
 }
