@@ -1,6 +1,6 @@
 {
-  "created_at": "2026-03-04 06:38:08 UTC",
-  "run_time": "02s",
+  "created_at": "2026-03-04 09:07:30 UTC",
+  "run_time": "56s",
   "town": "Zul Logoth",
   "shops": [
     {
@@ -10,7 +10,7 @@
       "shop_owner": "Ichiran",
       "inv": [
         {
-          "room_title": "Jheu's Armory",
+          "room_title": "Ichiran's Magic Shoppe",
           "branch": "entry",
           "items": [
             {
@@ -985,7 +985,18 @@
                 "material": "gemstone, an extremely common material",
                 "item_type": null
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on a simple oak sign:",
+            "the potent blue-green potion has 1,000 pours each",
+            "The canarywood whistle summons a Mandrake Pet - This one is from herb hunt"
+          ]
+        },
+        {
+          "room_title": "Ichiran's Magic Shoppe",
+          "branch": "north",
+          "items": [
             {
               "id": "149174",
               "name": "a fitted leather corselet with dark-krodera trimmed mail tassets",
@@ -2046,7 +2057,18 @@
                 "blessing": "holy",
                 "item_type": null
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on an engraved modwir sign:",
+            "the dark jadewood flute is master quality instrument",
+            "the pyrographed ghostwood auction is fully unlocked"
+          ]
+        },
+        {
+          "room_title": "Ichiran's Magic Shoppe",
+          "branch": "east",
+          "items": [
             {
               "id": "149202",
               "name": "a swirling yellow-green potion",
@@ -3122,15 +3144,9 @@
             }
           ],
           "sign": [
-            "Written on a hand-carved mahogany sign:",
-            "Jheu's Antique Wares"
-          ]
-        },
-        {
-          "room_title": "Jheu's Weaponry",
-          "branch": "east",
-          "items": [
-
+            "Written on an engraved modwir sign:",
+            "The following items in the cabinet are mage empowerables.",
+            "an ivory and red sunstone necklace"
           ]
         }
       ]
@@ -3142,7 +3158,7 @@
       "shop_owner": "Ghrath",
       "inv": [
         {
-          "room_title": "Vurp's General Store",
+          "room_title": "Ghrath's Outfitting",
           "branch": "entry",
           "items": [
             {
@@ -3317,11 +3333,11 @@
               "details": {
                 "raw": [
                   "In neat caligraphy, it reads:",
-                  "This form entitles the bearer to initiate a data1 second period where all all profession guild training awards throughout Elanthia become doubled.  Upon redemption and until expiry, the bearer's name will be publicized as the benefactor that initiated the training boost.",
+                  "This form entitles the bearer to initiate a data1-second period where all profession guild training awards throughout Elanthia become doubled.  Upon redemption and until expiry, the bearer's name will be publicized as the benefactor that initiated the training boost.",
                   "The bearer may optionally WRITE an alternate attribution on this , if they would prefer to remain anonymous or otherwise share attribution.",
                   "To redeem this, please GIVE it to any profession guild training administrator.",
                   "In neat caligraphy, it reads:",
-                  "This form entitles the bearer to initiate a 7 hour period where all all profession guild training awards throughout Elanthia become doubled.  Upon redemption and until expiry, the bearer's name will be publicized as the benefactor that initiated the training boost.",
+                  "This form entitles the bearer to initiate a 7-hour period where all profession guild training awards throughout Elanthia become doubled.  Upon redemption and until expiry, the bearer's name will be publicized as the benefactor that initiated the training boost.",
                   "The bearer may optionally WRITE an alternate attribution on this form, if they would prefer to remain anonymous or otherwise share attribution.",
                   "To redeem this, please GIVE it to any profession guild training administrator.",
                   "The form can not be worn.",
@@ -3391,11 +3407,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 10000000,
@@ -3491,11 +3502,6 @@
                   "purpose",
                   "max_deep",
                   "max_light",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 15000000,
@@ -3507,20 +3513,11 @@
                 "item_type": "container"
               }
             }
-          ]
-        },
-        {
-          "room_title": "Vurp's Outfitting",
-          "branch": "north",
-          "items": [
-
-          ]
-        },
-        {
-          "room_title": "Vurp's Magic Shoppe",
-          "branch": "east",
-          "items": [
-
+          ],
+          "sign": [
+            "Written on a scrollworked silver sign:",
+            "Under New Management",
+            "Goods to arrive soon!"
           ]
         }
       ]
@@ -3532,7 +3529,7 @@
       "shop_owner": "Vurp",
       "inv": [
         {
-          "room_title": "Ghrath's Outfitting",
+          "room_title": "Vurp's General Store",
           "branch": "entry",
           "items": [
             {
@@ -3667,11 +3664,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 7500000,
@@ -3704,11 +3696,6 @@
                 ],
                 "tags": [
                   "small",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 149999,
@@ -3742,11 +3729,6 @@
                   "deepenable",
                   "small",
                   "magic_resistant",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 9999999,
@@ -4313,7 +4295,13 @@
                 "wear_location": "around the neck",
                 "item_type": null
               }
-            },
+            }
+          ]
+        },
+        {
+          "room_title": "Vurp's Outfitting",
+          "branch": "north",
+          "items": [
             {
               "id": "147676",
               "name": "a sturdy veil iron backsword",
@@ -5036,11 +5024,6 @@
                 "tags": [
                   "lightenable",
                   "magic_resistant",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 399999,
@@ -5074,11 +5057,6 @@
                 "tags": [
                   "lightenable",
                   "magic_resistant",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 499999,
@@ -5112,11 +5090,6 @@
                   "max_light",
                   "deepenable",
                   "small",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 2999999,
@@ -5145,11 +5118,6 @@
                 ],
                 "tags": [
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 9999999,
@@ -5190,7 +5158,13 @@
                 "wear_location": "on the feet",
                 "item_type": "armor"
               }
-            },
+            }
+          ]
+        },
+        {
+          "room_title": "Vurp's Magic Shoppe",
+          "branch": "east",
+          "items": [
             {
               "id": "147645",
               "name": "a dancing kobold marionette",
@@ -5740,11 +5714,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 1249999,
@@ -5780,11 +5749,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 999999,
@@ -5796,11 +5760,6 @@
                 "item_type": "container"
               }
             }
-          ],
-          "sign": [
-            "Written on a scrollworked silver sign:",
-            "Under New Management",
-            "Goods to arrive soon!"
           ]
         }
       ]
@@ -5812,7 +5771,7 @@
       "shop_owner": "Jheu",
       "inv": [
         {
-          "room_title": "Ichiran's Magic Shoppe",
+          "room_title": "Jheu's Armory",
           "branch": "entry",
           "items": [
             {
@@ -6140,7 +6099,17 @@
                 "wear_location": "torso",
                 "item_type": "armor"
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on a hand-carved mahogany sign:",
+            "Jheu's Antique Wares"
+          ]
+        },
+        {
+          "room_title": "Jheu's Weaponry",
+          "branch": "east",
+          "items": [
             {
               "id": "147536",
               "name": "a well-crafted oak-hilted invar falchion",
@@ -6691,35 +6660,6 @@
                 "item_type": "weapon"
               }
             }
-          ],
-          "sign": [
-            "Written on a simple oak sign:",
-            "the potent blue-green potion has 1,000 pours each",
-            "The canarywood whistle summons a Mandrake Pet - This one is from herb hunt"
-          ]
-        },
-        {
-          "room_title": "Ichiran's Magic Shoppe",
-          "branch": "north",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on an engraved modwir sign:",
-            "the dark jadewood flute is master quality instrument",
-            "the pyrographed ghostwood auction is fully unlocked"
-          ]
-        },
-        {
-          "room_title": "Ichiran's Magic Shoppe",
-          "branch": "east",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on an engraved modwir sign:",
-            "The following items in the cabinet are mage empowerables.",
-            "an ivory and red sunstone necklace"
           ]
         }
       ]
@@ -6731,28 +6671,14 @@
       "shop_owner": "Painz",
       "inv": [
         {
-          "room_title": "Jhernish's Weaponry",
+          "room_title": "Painz's General Store",
           "branch": "entry",
           "items": [
 
           ],
           "sign": [
-            "Written on a small singed sign:",
-            "Some things here are priced for storage."
-          ]
-        },
-        {
-          "room_title": "Jhernish's Outfitting",
-          "branch": "north",
-          "items": [
-
-          ]
-        },
-        {
-          "room_title": "Jhernish's Combat Gear",
-          "branch": "east",
-          "items": [
-
+            "Written on a scroll-etched eahnor sign:",
+            "All jars are filled with 20 orb gems for 200k each."
           ]
         }
       ]
@@ -6764,7 +6690,7 @@
       "shop_owner": "Bolos",
       "inv": [
         {
-          "room_title": "Frorin's General Store",
+          "room_title": "Bolos' General Store",
           "branch": "entry",
           "items": [
             {
@@ -6786,35 +6712,8 @@
             }
           ],
           "sign": [
-            "Written on a speckled granite sign:",
-            "Welcome to shop of Frorin and Clunk, Dwarven Blade Makers",
-            "Blades to North and South rooms",
-            "This room is for things other than blades"
-          ]
-        },
-        {
-          "room_title": "Frorin's General Store",
-          "branch": "north",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on a speckled granite sign:",
-            "This room has wares forged by Frorin Felagun",
-            "Good blades all over the place"
-          ]
-        },
-        {
-          "room_title": "Frorin's Weaponry",
-          "branch": "south",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on a speckled granite sign:",
-            "This room has wares forged by Clunk LikeARockSon",
-            "Good blades in chest",
-            "Better blades on the rack"
+            "Written on an etched glass sign:",
+            "Welcome to Bolos Magic Emporium"
           ]
         }
       ]
@@ -7007,11 +6906,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 2749999,
@@ -7056,8 +6950,33 @@
       "shop_owner": "Frorin",
       "inv": [
         {
-          "room_title": "Bolos' General Store",
+          "room_title": "Frorin's General Store",
           "branch": "entry",
+          "items": [
+
+          ],
+          "sign": [
+            "Written on a speckled granite sign:",
+            "Welcome to shop of Frorin and Clunk, Dwarven Blade Makers",
+            "Blades to North and South rooms",
+            "This room is for things other than blades"
+          ]
+        },
+        {
+          "room_title": "Frorin's General Store",
+          "branch": "north",
+          "items": [
+
+          ],
+          "sign": [
+            "Written on a speckled granite sign:",
+            "This room has wares forged by Frorin Felagun",
+            "Good blades all over the place"
+          ]
+        },
+        {
+          "room_title": "Frorin's Weaponry",
+          "branch": "south",
           "items": [
             {
               "id": "144676",
@@ -7337,8 +7256,10 @@
             }
           ],
           "sign": [
-            "Written on an etched glass sign:",
-            "Welcome to Bolos Magic Emporium"
+            "Written on a speckled granite sign:",
+            "This room has wares forged by Clunk LikeARockSon",
+            "Good blades in chest",
+            "Better blades on the rack"
           ]
         }
       ]
@@ -7350,7 +7271,7 @@
       "shop_owner": "Jhernish",
       "inv": [
         {
-          "room_title": "Painz's General Store",
+          "room_title": "Jhernish's Weaponry",
           "branch": "entry",
           "items": [
             {
@@ -7593,6 +7514,9 @@
                 ],
                 "is_weapon": true,
                 "weapon_type": "twohanded weapons",
+                "flares": [
+                  "a disrupting substance"
+                ],
                 "item_type": "weapon"
               }
             },
@@ -7887,7 +7811,17 @@
                 "material": "copper, an extremely common metal",
                 "item_type": null
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on a small singed sign:",
+            "Some things here are priced for storage."
+          ]
+        },
+        {
+          "room_title": "Jhernish's Outfitting",
+          "branch": "north",
+          "items": [
             {
               "id": "171869",
               "name": "a fir-hafted faenor battle axe",
@@ -8254,7 +8188,13 @@
                 "temporary_dmg_weighting": true,
                 "item_type": null
               }
-            },
+            }
+          ]
+        },
+        {
+          "room_title": "Jhernish's Combat Gear",
+          "branch": "east",
+          "items": [
             {
               "id": "171856",
               "name": "a silver-sheened snowy glass bottle",
@@ -8460,10 +8400,6 @@
                 "item_type": "armor"
               }
             }
-          ],
-          "sign": [
-            "Written on a scroll-etched eahnor sign:",
-            "All jars are filled with 20 orb gems for 200k each."
           ]
         }
       ]
@@ -9426,7 +9362,17 @@
                 "wear_location": "anywhere on the body",
                 "item_type": null
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on a chiseled black marble plaque:",
+            "Shields/Weapons/Fluff Zone"
+          ]
+        },
+        {
+          "room_title": "Althaz's Magic Shoppe",
+          "branch": "east",
+          "items": [
             {
               "id": "149419",
               "name": "a burnished ora neckchain",
@@ -10513,7 +10459,17 @@
                 "wear_location": "around the finger",
                 "item_type": null
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on an etched faenor sign:",
+            "Common wares for your everyday needs"
+          ]
+        },
+        {
+          "room_title": "Althaz's Magic Shoppe",
+          "branch": "west",
+          "items": [
             {
               "id": "149434",
               "name": "a hollowed quartz orb",
@@ -10641,28 +10597,6 @@
           ],
           "sign": [
             "Written on a chiseled black marble plaque:",
-            "Shields/Weapons/Fluff Zone"
-          ]
-        },
-        {
-          "room_title": "Althaz's Magic Shoppe",
-          "branch": "east",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on an etched faenor sign:",
-            "Common wares for your everyday needs"
-          ]
-        },
-        {
-          "room_title": "Althaz's Magic Shoppe",
-          "branch": "west",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on a chiseled black marble plaque:",
             "Hollowed Statues in chest are 32 charges. Hollowed Orbs are 35 charges."
           ]
         }
@@ -10675,34 +10609,24 @@
       "shop_owner": "Deleu",
       "inv": [
         {
-          "room_title": "Serysia's General Store",
+          "room_title": "Deleu's General Store",
           "branch": "entry",
           "items": [
 
           ]
         },
         {
-          "room_title": "Serysia's Outfitting",
+          "room_title": "Deleu's General Store",
           "branch": "north",
           "items": [
 
           ]
         },
         {
-          "room_title": "Serysia's General Store",
+          "room_title": "Deleu's General Store",
           "branch": "east",
           "items": [
 
-          ],
-          "sign": [
-            "Written on an oak-framed parchment sign:",
-            "--- On The Table ---",
-            "Yellow notes are singles",
-            "Pink notes are bundles of 10",
-            "Blue notes are bundles of 4",
-            "--- On The Shelf ---",
-            "All jars are 10 count and are",
-            "from before the value changes."
           ]
         }
       ]
@@ -10714,7 +10638,7 @@
       "shop_owner": "Serysia",
       "inv": [
         {
-          "room_title": "Deleu's General Store",
+          "room_title": "Serysia's General Store",
           "branch": "entry",
           "items": [
             {
@@ -10725,7 +10649,7 @@
                   "The black firework is a long tube with a cone-like point at one end and a fuse protruding from the other.",
                   "The firework can not be worn.",
                   "Analysis of a black firework indicates the creator has provided the following information:",
-                  "This is a firework.  You can place it on the ground and LIGHT it to set it off, creating the following burst: Glittering points of black light erupt in the daytime sky to form a huge scintillating tomb spider before slowly winking out.",
+                  "This is a firework.  You can place it on the ground and LIGHT it to set it off, creating the following burst: Glittering points of black light erupt in the nighttime sky to form a huge scintillating tomb spider before slowly winking out.",
                   "The black firework will cost 100,000 coins."
                 ],
                 "tags": [
@@ -10930,7 +10854,13 @@
                 "material": "stone, an extremely common material",
                 "item_type": null
               }
-            },
+            }
+          ]
+        },
+        {
+          "room_title": "Serysia's Outfitting",
+          "branch": "north",
+          "items": [
             {
               "id": "147444",
               "name": "an indigo jacket",
@@ -11030,7 +10960,13 @@
                 "blessing": "holy",
                 "item_type": null
               }
-            },
+            }
+          ]
+        },
+        {
+          "room_title": "Serysia's General Store",
+          "branch": "east",
+          "items": [
             {
               "id": "147436",
               "name": "a stack of pale blue notes",
@@ -11111,11 +11047,6 @@
                   "The glass jar will cost 160,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 160000,
@@ -11140,11 +11071,6 @@
                   "The glass jar will cost 160,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 160000,
@@ -11154,20 +11080,16 @@
                 "item_type": "container"
               }
             }
-          ]
-        },
-        {
-          "room_title": "Deleu's General Store",
-          "branch": "north",
-          "items": [
-
-          ]
-        },
-        {
-          "room_title": "Deleu's General Store",
-          "branch": "east",
-          "items": [
-
+          ],
+          "sign": [
+            "Written on an oak-framed parchment sign:",
+            "--- On The Table ---",
+            "Yellow notes are singles",
+            "Pink notes are bundles of 10",
+            "Blue notes are bundles of 4",
+            "--- On The Shelf ---",
+            "All jars are 10 count and are",
+            "from before the value changes."
           ]
         }
       ]
@@ -11179,7 +11101,7 @@
       "shop_owner": "Tugdug",
       "inv": [
         {
-          "room_title": "Mageriah's Weaponry",
+          "room_title": "Tugdug's General Store",
           "branch": "entry",
           "items": [
             {
@@ -11222,20 +11144,6 @@
                 "item_type": null
               }
             }
-          ]
-        },
-        {
-          "room_title": "Mageriah's Armory",
-          "branch": "north",
-          "items": [
-
-          ]
-        },
-        {
-          "room_title": "Mageriah's General Store",
-          "branch": "east",
-          "items": [
-
           ]
         }
       ]
@@ -12381,7 +12289,7 @@
       "shop_owner": "Mageriah",
       "inv": [
         {
-          "room_title": "Tugdug's General Store",
+          "room_title": "Mageriah's Weaponry",
           "branch": "entry",
           "items": [
             {
@@ -12616,7 +12524,13 @@
                 "weapon_type": "edged weapons",
                 "item_type": "weapon"
               }
-            },
+            }
+          ]
+        },
+        {
+          "room_title": "Mageriah's Armory",
+          "branch": "north",
+          "items": [
             {
               "id": "168221",
               "name": "some old spiked mithril half plate",
@@ -12657,10 +12571,17 @@
               }
             }
           ]
+        },
+        {
+          "room_title": "Mageriah's General Store",
+          "branch": "east",
+          "items": [
+
+          ]
         }
       ]
     }
   ],
-  "processed_at": "2026-03-04 06:41:41 UTC",
+  "processed_at": "2026-03-04 09:22:29 UTC",
   "processing_version": "v2.0"
 }
