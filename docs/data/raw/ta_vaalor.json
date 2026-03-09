@@ -1,6 +1,6 @@
 {
-  "created_at": "2026-03-09 01:14:14 UTC",
-  "run_time": "04s",
+  "created_at": "2026-03-09 04:10:59 UTC",
+  "run_time": "05s",
   "town": "Ta'Vaalor,",
   "shops": [
     {
@@ -1216,6 +1216,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -1521,6 +1522,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -1548,6 +1550,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -1734,6 +1737,7 @@
                 "tags": [
                   "max_deep",
                   "max_light",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -3022,6 +3026,7 @@
                   "purpose",
                   "lightenable",
                   "persists",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -5840,6 +5845,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -5866,6 +5872,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -5906,6 +5913,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -5931,6 +5939,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -5970,6 +5979,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -6002,6 +6012,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -6026,6 +6037,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -6065,6 +6077,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -6097,6 +6110,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -6120,6 +6134,7 @@
                   "The black leather pants will cost 15,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -6159,6 +6174,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 15000,
@@ -6185,6 +6201,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -8149,6 +8166,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -12578,7 +12596,7 @@
             {
               "id": "163473",
               "name": "a scorched branch of fireleaf",
-              "quantity": 5,
+              "quantity": 4,
               "details": {
                 "raw": [
                   "The fireleaf can not be worn.",
@@ -15292,6 +15310,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 99999,
@@ -15378,6 +15397,7 @@
                   "purpose",
                   "max_deep",
                   "max_light",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -16424,6 +16444,7 @@
                   "max_deep",
                   "max_light",
                   "small",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -18041,36 +18062,62 @@
             {
               "id": "101993092",
               "name": "some burnished full leather",
-              "browse_price": 100000,
-              "raw_inspect": [
-                "It has a small enchanter's glyph.",
-                "The leather is leather armor that covers the torso and arms.",
-                "The leather can be worn around the chest.  The leather appears to serve some purpose.",
-                "It looks like this item has been mainly crafted out of leather, an extremely common material.",
-                "Analysis of some burnished full leather indicates the item is free from merchant alteration restrictions.",
-                "You might be able to have a talented merchant lighten the full leather for you.",
-                "The full leather will cost 100,000 coins."
-              ]
+              "details": {
+                "raw": [
+                  "It has a small enchanter's glyph.",
+                  "The leather is leather armor that covers the torso and arms.",
+                  "The leather can be worn around the chest.  The leather appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of leather, an extremely common material.",
+                  "Analysis of some burnished full leather indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the full leather for you.",
+                  "The full leather will cost 100,000 coins."
+                ],
+                "tags": [
+                  "purpose",
+                  "lightenable"
+                ],
+                "cost": 100000,
+                "material": "leather, an extremely common material",
+                "worn": "chest",
+                "is_armor": true,
+                "armor_type": "leather",
+                "wear_location": "torso and arms",
+                "item_type": "armor"
+              }
             },
             {
               "id": "101906137",
               "name": "an etched vultite chain hauberk",
-              "browse_price": 1000000,
-              "raw_inspect": [
-                "It has a small enchanter's glyph.",
-                "The hauberk is chain armor that covers the torso, arms, legs, neck, and head.",
-                "The hauberk can be worn around the chest.  The hauberk appears to serve some purpose.",
-                "It looks like this item has been mainly crafted out of vultite, an uncommon metal.",
-                "Analysis of an etched vultite chain hauberk indicates the item is free from merchant alteration restrictions.",
-                "You might be able to have a talented merchant lighten the vultite chain hauberk for you.",
-                "The vultite chain hauberk will cost 1,000,000 coins.",
-                "It imparts a bonus of +25 more than usual.",
-                "It appears to weigh about 22 pounds.",
-                "It is estimated to be worth about 550,000 silvers.",
-                "It is predominantly crafted of vultite.",
-                "It is a simple project (58 difficulty) for an adventurer to modify.",
-                "It has a permanently unlocked loresong by Krayze."
-              ]
+              "details": {
+                "raw": [
+                  "It has a small enchanter's glyph.",
+                  "The hauberk is chain armor that covers the torso, arms, legs, neck, and head.",
+                  "The hauberk can be worn around the chest.  The hauberk appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of vultite, an uncommon metal.",
+                  "Analysis of an etched vultite chain hauberk indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the vultite chain hauberk for you.",
+                  "The vultite chain hauberk will cost 1,000,000 coins.",
+                  "It imparts a bonus of +25 more than usual.",
+                  "It appears to weigh about 22 pounds.",
+                  "It is estimated to be worth about 550,000 silvers.",
+                  "It is predominantly crafted of vultite.",
+                  "It is a simple project (58 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Krayze."
+                ],
+                "tags": [
+                  "purpose",
+                  "lightenable"
+                ],
+                "cost": 1000000,
+                "enchant": 25,
+                "material": "vultite",
+                "weight": 22,
+                "worn": "chest",
+                "is_armor": true,
+                "armor_type": "chain",
+                "wear_location": "torso",
+                "item_type": "armor"
+              }
             }
           ]
         },
@@ -19337,6 +19384,7 @@
                   "The glass jar will cost 180,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
