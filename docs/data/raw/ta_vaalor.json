@@ -1,5 +1,5 @@
 {
-  "created_at": "2026-03-10 18:39:08 UTC",
+  "created_at": "2026-03-10 20:26:55 UTC",
   "run_time": "04s",
   "town": "Ta'Vaalor,",
   "shops": [
@@ -1212,6 +1212,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -1513,6 +1514,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -1540,6 +1542,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -1722,6 +1725,7 @@
                 "tags": [
                   "max_deep",
                   "max_light",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -3006,6 +3010,7 @@
                   "purpose",
                   "lightenable",
                   "persists",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -5816,6 +5821,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -5842,6 +5848,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -5874,6 +5881,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -5899,6 +5907,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -5930,6 +5939,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -5958,6 +5968,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -5982,6 +5993,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -6013,6 +6025,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -6041,6 +6054,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -6064,6 +6078,7 @@
                   "The black leather pants will cost 15,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -6095,6 +6110,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 15000,
@@ -6121,6 +6137,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -7387,22 +7404,37 @@
             {
               "id": "147668",
               "name": "a wyrwood hand crossbow",
-              "browse_price": 2000000,
-              "raw_inspect": [
-                "The crossbow is a hand crossbow that requires skill in ranged weapons to use effectively.",
-                "The crossbow can be worn, slinging it across the shoulders and back.  The crossbow appears to serve some purpose.",
-                "It looks like this item has been mainly crafted out of wyrwood, an extraordinarily rare wood.  It would need to be supplied to be used in an alteration and may only be used as an accent.",
-                "Analysis of a wyrwood hand crossbow indicates the item has certain alteration restrictions.  It would need to be supplied to be used in an alteration and may only be used as an accent.",
-                "You can tell that the crossbow is as light as it can get.",
-                "The wyrwood hand crossbow will cost 2,000,000 coins.",
-                "It imparts a bonus of +24 more than usual.",
-                "It appears to weigh about 2 pounds.",
-                "It is estimated to be worth about 100,000 silvers.",
-                "It is weighted to inflict more critical wounds, but exactly how much requires assessment.",
-                "It is predominantly crafted of wyrwood.",
-                "It is a basic project (124 difficulty) for an adventurer to modify.",
-                "It has a permanently unlocked loresong by Xolanthe."
-              ]
+              "details": {
+                "raw": [
+                  "The crossbow is a hand crossbow that requires skill in ranged weapons to use effectively.",
+                  "The crossbow can be worn, slinging it across the shoulders and back.  The crossbow appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of wyrwood, an extraordinarily rare wood.  It would need to be supplied to be used in an alteration and may only be used as an accent.",
+                  "Analysis of a wyrwood hand crossbow indicates the item has certain alteration restrictions.  It would need to be supplied to be used in an alteration and may only be used as an accent.",
+                  "You can tell that the crossbow is as light as it can get.",
+                  "The wyrwood hand crossbow will cost 2,000,000 coins.",
+                  "It imparts a bonus of +24 more than usual.",
+                  "It appears to weigh about 2 pounds.",
+                  "It is estimated to be worth about 100,000 silvers.",
+                  "It is weighted to inflict more critical wounds, but exactly how much requires assessment.",
+                  "It is predominantly crafted of wyrwood.",
+                  "It is a basic project (124 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Xolanthe."
+                ],
+                "tags": [
+                  "purpose",
+                  "max_light"
+                ],
+                "cost": 2000000,
+                "enchant": 24,
+                "material": "wyrwood",
+                "skill": "ranged weapons",
+                "weight": 2,
+                "worn": "shoulders",
+                "is_weapon": true,
+                "weapon_type": "ranged weapons",
+                "crit_weighting": "unknown",
+                "item_type": "weapon"
+              }
             }
           ],
           "sign": [
@@ -8101,6 +8133,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -15207,6 +15240,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 99999,
@@ -15293,6 +15327,7 @@
                   "purpose",
                   "max_deep",
                   "max_light",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -16335,6 +16370,7 @@
                   "max_deep",
                   "max_light",
                   "small",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -19311,6 +19347,7 @@
                   "The glass jar will cost 180,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
