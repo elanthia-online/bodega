@@ -1,6 +1,6 @@
 {
-  "created_at": "2026-03-12 01:06:33 UTC",
-  "run_time": "04s",
+  "created_at": "2026-03-12 04:08:38 UTC",
+  "run_time": "12s",
   "town": "Zul Logoth",
   "shops": [
     {
@@ -3277,6 +3277,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 10000000,
@@ -3372,6 +3373,7 @@
                   "purpose",
                   "max_deep",
                   "max_light",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -3550,6 +3552,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 7500000,
@@ -3582,6 +3585,7 @@
                 ],
                 "tags": [
                   "small",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -3623,6 +3627,7 @@
                   "deepenable",
                   "small",
                   "magic_resistant",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -4899,6 +4904,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 399999,
@@ -4932,6 +4938,7 @@
                 "tags": [
                   "lightenable",
                   "magic_resistant",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -4981,6 +4988,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 2999999,
@@ -5009,6 +5017,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -5571,6 +5580,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 1249999,
@@ -5606,6 +5616,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -6801,6 +6812,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 2749999,
@@ -7702,6 +7714,52 @@
                 "cost": 2000000,
                 "material": "copper, an extremely common metal",
                 "item_type": null
+              }
+            },
+            {
+              "id": "161555825",
+              "name": "an oval of black lightning opal",
+              "details": {
+                "raw": [
+                  "The opal can not be worn.",
+                  "Analysis of an oval of black lightning opal indicates the item has certain alteration restrictions.  It would need to be supplied to be used in an alteration.",
+                  "The black lightning opal will cost 15,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 15000,
+                "item_type": null
+              }
+            },
+            {
+              "id": "161555816",
+              "name": "a scorched illthorn runestaff",
+              "details": {
+                "raw": [
+                  "The runestaff is a rune staff that requires skill in twohanded weapons to use effectively.",
+                  "It looks like this item has been mainly crafted out of illthorn, an extremely rare wood.  It cannot be used in alterations.",
+                  "Analysis of a scorched illthorn runestaff indicates the item has certain alteration restrictions.  It cannot be used in alterations.",
+                  "You might be able to have a talented merchant lighten the illthorn runestaff for you.",
+                  "The illthorn runestaff will cost 100,000 coins.",
+                  "It imparts a bonus of +25 more than usual.",
+                  "It appears to weigh about 4 pounds.",
+                  "It is estimated to be worth about 200,000 silvers.",
+                  "It is predominantly crafted of illthorn.",
+                  "It is a simple project (58 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Jhernish."
+                ],
+                "tags": [
+                  "lightenable"
+                ],
+                "cost": 100000,
+                "enchant": 25,
+                "material": "illthorn",
+                "skill": "twohanded weapons",
+                "weight": 4,
+                "is_weapon": true,
+                "weapon_type": "twohanded weapons",
+                "item_type": "weapon"
               }
             }
           ],
@@ -10449,42 +10507,13 @@
       ]
     },
     {
-      "preamble": "Deleu's Shop is located in [Zul Logoth, Opal Tunnel] at a simple shop, and is currently open for business.",
-      "town": "Zul Logoth",
-      "id": "11",
-      "shop_owner": "Deleu",
-      "inv": [
-        {
-          "room_title": "Deleu's General Store",
-          "branch": "entry",
-          "items": [
-
-          ]
-        },
-        {
-          "room_title": "Deleu's General Store",
-          "branch": "north",
-          "items": [
-
-          ]
-        },
-        {
-          "room_title": "Deleu's General Store",
-          "branch": "east",
-          "items": [
-
-          ]
-        }
-      ]
-    },
-    {
       "preamble": "Serysia's Shop is located in [Zul Logoth, Opal Tunnel] at a simple shop with a low-hanging rich oak roof, and is currently open for business.",
       "town": "Zul Logoth",
-      "id": "12",
+      "id": "11",
       "shop_owner": "Serysia",
       "inv": [
         {
-          "room_title": "Serysia's General Store",
+          "room_title": "Deleu's General Store",
           "branch": "entry",
           "items": [
             {
@@ -10700,13 +10729,7 @@
                 "material": "stone, an extremely common material",
                 "item_type": null
               }
-            }
-          ]
-        },
-        {
-          "room_title": "Serysia's Outfitting",
-          "branch": "north",
-          "items": [
+            },
             {
               "id": "147444",
               "name": "an indigo jacket",
@@ -10806,13 +10829,7 @@
                 "blessing": "holy",
                 "item_type": null
               }
-            }
-          ]
-        },
-        {
-          "room_title": "Serysia's General Store",
-          "branch": "east",
-          "items": [
+            },
             {
               "id": "147436",
               "name": "a stack of pale blue notes",
@@ -10861,14 +10878,6 @@
                   "The glass jar will cost 160,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 160000,
@@ -10893,14 +10902,6 @@
                   "The glass jar will cost 160,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 160000,
@@ -10910,16 +10911,20 @@
                 "item_type": "container"
               }
             }
-          ],
-          "sign": [
-            "Written on an oak-framed parchment sign:",
-            "--- On The Table ---",
-            "Yellow notes are singles",
-            "Pink notes are bundles of 10",
-            "Blue notes are bundles of 4",
-            "--- On The Shelf ---",
-            "All jars are 10 count and are",
-            "from before the value changes."
+          ]
+        },
+        {
+          "room_title": "Deleu's General Store",
+          "branch": "north",
+          "items": [
+
+          ]
+        },
+        {
+          "room_title": "Deleu's General Store",
+          "branch": "east",
+          "items": [
+
           ]
         }
       ]
@@ -10927,11 +10932,11 @@
     {
       "preamble": "Tugdug's Shop is located in [Zul Logoth, Opal Tunnel] at a simple shop, and is currently open for business.",
       "town": "Zul Logoth",
-      "id": "13",
+      "id": "12",
       "shop_owner": "Tugdug",
       "inv": [
         {
-          "room_title": "Tugdug's General Store",
+          "room_title": "Serysia's General Store",
           "branch": "entry",
           "items": [
             {
@@ -10975,17 +10980,41 @@
               }
             }
           ]
+        },
+        {
+          "room_title": "Serysia's Outfitting",
+          "branch": "north",
+          "items": [
+
+          ]
+        },
+        {
+          "room_title": "Serysia's General Store",
+          "branch": "east",
+          "items": [
+
+          ],
+          "sign": [
+            "Written on an oak-framed parchment sign:",
+            "--- On The Table ---",
+            "Yellow notes are singles",
+            "Pink notes are bundles of 10",
+            "Blue notes are bundles of 4",
+            "--- On The Shelf ---",
+            "All jars are 10 count and are",
+            "from before the value changes."
+          ]
         }
       ]
     },
     {
       "preamble": "Pradwik's Shop is located in [Zul Logoth, Opal Tunnel] at a simple shop, and is currently open for business.",
       "town": "Zul Logoth",
-      "id": "14",
+      "id": "13",
       "shop_owner": "Pradwik",
       "inv": [
         {
-          "room_title": "Pradwik's Magic Shoppe",
+          "room_title": "Tugdug's General Store",
           "branch": "entry",
           "items": [
             {
@@ -12104,10 +12133,6 @@
                 "item_type": "jewelry"
               }
             }
-          ],
-          "sign": [
-            "Written on a large sign:",
-            "Please READ all items for details"
           ]
         }
       ]
@@ -12115,11 +12140,11 @@
     {
       "preamble": "Mageriah's Shop is located in [Zul Logoth, Opal Tunnel] at a bright snail-etched door with a vividly painted awning, and is currently open for business.",
       "town": "Zul Logoth",
-      "id": "15",
+      "id": "14",
       "shop_owner": "Mageriah",
       "inv": [
         {
-          "room_title": "Mageriah's Weaponry",
+          "room_title": "Pradwik's Magic Shoppe",
           "branch": "entry",
           "items": [
             {
@@ -12354,13 +12379,7 @@
                 "weapon_type": "edged weapons",
                 "item_type": "weapon"
               }
-            }
-          ]
-        },
-        {
-          "room_title": "Mageriah's Armory",
-          "branch": "north",
-          "items": [
+            },
             {
               "id": "168221",
               "name": "some old spiked mithril half plate",
@@ -12400,18 +12419,15 @@
                 "item_type": "armor"
               }
             }
-          ]
-        },
-        {
-          "room_title": "Mageriah's General Store",
-          "branch": "east",
-          "items": [
-
+          ],
+          "sign": [
+            "Written on a large sign:",
+            "Please READ all items for details"
           ]
         }
       ]
     }
   ],
-  "processed_at": "2026-03-12 01:10:32 UTC",
+  "processed_at": "2026-03-12 04:20:27 UTC",
   "processing_version": "v2.0"
 }
