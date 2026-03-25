@@ -1,6 +1,6 @@
 {
-  "created_at": "2026-03-25 06:55:21 UTC",
-  "run_time": "03s",
+  "created_at": "2026-03-25 09:08:37 UTC",
+  "run_time": "01m 25s",
   "town": "River's Rest",
   "shops": [
     {
@@ -126,14 +126,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 2500000,
@@ -182,14 +174,6 @@
                   "The rhimar ice wizard will cost 10,000,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 10000000,
@@ -217,14 +201,6 @@
                   "The veniom air wizard will cost 10,000,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 10000000,
@@ -277,14 +253,6 @@
                   "The black cigar will cost 1,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 1000,
@@ -1356,14 +1324,6 @@
                   "max_light",
                   "small",
                   "magic_resistant",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -2117,9 +2077,73 @@
       "shop_owner": "Olivianne",
       "inv": [
         {
-          "room_title": "Olivianne's Combat Gear",
+          "room_title": "Olivianne's Weaponry",
           "branch": "entry",
           "items": [
+            {
+              "id": "379231167",
+              "name": "an etched imflass shield",
+              "details": {
+                "raw": [
+                  "The shield is a medium shield that protects the bearer if carried in the left hand.",
+                  "The shield can be worn, slinging it across the shoulders and back.  The shield appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of imflass, an uncommon metal.",
+                  "Analysis of an etched imflass shield indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the imflass shield for you.",
+                  "The imflass shield will cost 75,000 coins.",
+                  "It imparts a bonus of +12 more than usual.",
+                  "It has been infused with the power of an ice elemental.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 3 to Logic Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 9 times.",
+                  "    It provides a boost of 5 to Max Mana.",
+                  "    This enhancement may not be used by adventurers who have not trained 9 times.",
+                  "    It provides a boost of 4 to Influence Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 14 times.",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It appears to weigh about 6 pounds.",
+                  "It is estimated to be worth about 400,000 silvers.",
+                  "It is predominantly crafted of imflass.",
+                  "It is a basic project (150 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Selvren."
+                ],
+                "tags": [
+                  "purpose",
+                  "lightenable",
+                  "persists"
+                ],
+                "cost": 75000,
+                "enchant": 12,
+                "material": "imflass",
+                "flare": "the power of an ice elemental",
+                "weight": 6,
+                "worn": "shoulders",
+                "enhancives": [
+                  {
+                    "boost": 3,
+                    "ability": "Logic Bonus",
+                    "level": 9
+                  },
+                  {
+                    "boost": 5,
+                    "ability": "Max Mana",
+                    "level": 9
+                  },
+                  {
+                    "boost": 4,
+                    "ability": "Influence Bonus",
+                    "level": 14
+                  }
+                ],
+                "shield_type": "medium",
+                "is_shield": true,
+                "flares": [
+                  "the power of an ice elemental"
+                ],
+                "item_type": "shield"
+              }
+            },
             {
               "id": "202061318",
               "name": "a glittering gold headband",
@@ -2275,7 +2299,7 @@
                   "It looks like this item has been mainly crafted out of villswood, an infrequent wood.",
                   "Analysis of a fine villswood runestaff indicates the item is free from merchant alteration restrictions.",
                   "You can tell that the runestaff is as light as it can get.",
-                  "The villswood runestaff will cost 250,000 coins.",
+                  "The villswood runestaff will cost 150,000 coins.",
                   "It imparts a bonus of +18 more than usual.",
                   "It has been infused with mana (+1).",
                   "It is an enhancive item:",
@@ -2289,13 +2313,13 @@
                   "It is estimated to be worth about 450,000 silvers.",
                   "It is predominantly crafted of villswood.",
                   "It is a simple project (54 difficulty) for an adventurer to modify.",
-                  "It has a temporarily unlocked loresong by a bard for 7 days, 3 hours and 45 minutes."
+                  "It has a temporarily unlocked loresong by a bard for 6 days, 3 hours and 50 minutes."
                 ],
                 "tags": [
                   "max_light",
                   "persists"
                 ],
-                "cost": 250000,
+                "cost": 150000,
                 "enchant": 18,
                 "material": "villswood",
                 "skill": "twohanded weapons",
@@ -2394,7 +2418,7 @@
                   "It is estimated to be worth about 600,000 silvers.",
                   "It is predominantly crafted of vultite.",
                   "It is a simple project (58 difficulty) for an adventurer to modify.",
-                  "It has a temporarily unlocked loresong by a bard for 7 days, 3 hours and 38 minutes."
+                  "It has a temporarily unlocked loresong by a bard for 6 days, 3 hours and 42 minutes."
                 ],
                 "tags": [
                   "purpose",
@@ -2420,7 +2444,7 @@
                   "It looks like this item has been mainly crafted out of mithril, an uncommon metal.",
                   "Analysis of a vaalorn-edged mithril short sword indicates the item is free from merchant alteration restrictions.",
                   "You might be able to have a talented merchant lighten the mithril short sword for you.",
-                  "The mithril short sword will cost 250,000 coins.",
+                  "The mithril short sword will cost 75,000 coins.",
                   "It imparts a bonus of +5 more than usual.",
                   "It is an enhancive item:",
                   "    It provides a boost of 10 to Mental Mana Control Bonus.",
@@ -2439,7 +2463,7 @@
                   "lightenable",
                   "persists"
                 ],
-                "cost": 250000,
+                "cost": 75000,
                 "enchant": 5,
                 "material": "mithril",
                 "skill": "edged weapons",
@@ -2470,7 +2494,7 @@
                   "It looks like this item has been mainly crafted out of illthorn, an extremely rare wood.  It cannot be used in alterations.",
                   "Analysis of a gnarled illthorn runestaff indicates the item has certain alteration restrictions.  It cannot be used in alterations.",
                   "You might be able to have a talented merchant lighten the illthorn runestaff for you.",
-                  "The illthorn runestaff will cost 190,000 coins.",
+                  "The illthorn runestaff will cost 75,000 coins.",
                   "It imparts a bonus of +25 more than usual.",
                   "It appears to weigh about 4 pounds.",
                   "It is estimated to be worth about 200,000 silvers.",
@@ -2481,7 +2505,7 @@
                 "tags": [
                   "lightenable"
                 ],
-                "cost": 190000,
+                "cost": 75000,
                 "enchant": 25,
                 "material": "illthorn",
                 "skill": "twohanded weapons",
@@ -2504,7 +2528,7 @@
                   "Analysis of a pair of thick leather gauntlets with polished eonake studs indicates the item is free from merchant alteration restrictions.",
                   "You can tell that the gauntlets are as light as they can get.",
                   "A talented merchant may be able to deepen the eonake-studded gauntlets's pockets.",
-                  "The eonake-studded gauntlets will cost 3,500,000 coins.",
+                  "The eonake-studded gauntlets will cost 2,000,000 coins.",
                   "It imparts a bonus of +20 more than usual.",
                   "It is a holy item.",
                   "It is a small item, under a pound.",
@@ -2517,17 +2541,9 @@
                 "tags": [
                   "holy",
                   "small",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
-                "cost": 3500000,
+                "cost": 2000000,
                 "enchant": 20,
                 "material": "leather",
                 "worn": "hands",
@@ -2547,7 +2563,7 @@
                   "It looks like this item has been mainly crafted out of fireleaf, a very rare wood.  It would need to be supplied to be used in an alteration and may only be used as an accent.",
                   "Analysis of a pea green fireleaf runestaff indicates the item has certain alteration restrictions.  It would need to be supplied to be used in an alteration and may only be used as an accent.",
                   "You can tell that the runestaff is as light as it can get.",
-                  "The fireleaf runestaff will cost 175,000 coins.",
+                  "The fireleaf runestaff will cost 75,000 coins.",
                   "It imparts a bonus of +22 more than usual.",
                   "It has been infused with the power of a flaming substance.",
                   "It is an enhancive item:",
@@ -2567,7 +2583,7 @@
                   "max_light",
                   "persists"
                 ],
-                "cost": 175000,
+                "cost": 75000,
                 "enchant": 22,
                 "material": "fireleaf",
                 "skill": "twohanded weapons",
@@ -2602,7 +2618,7 @@
                   "It looks like this item has been mainly crafted out of rowan, an uncommon wood.",
                   "Analysis of a gnarled rowan runestaff indicates the item is free from merchant alteration restrictions.",
                   "You can tell that the runestaff is as light as it can get.",
-                  "The rowan runestaff will cost 175,000 coins.",
+                  "The rowan runestaff will cost 50,000 coins.",
                   "It imparts a bonus of +5 more than usual.",
                   "It allows a caster to occasionally focus their magical prowess (+5 AS/+3 CS) for a single cast.",
                   "It is an enhancive item:",
@@ -2620,7 +2636,7 @@
                   "max_light",
                   "persists"
                 ],
-                "cost": 175000,
+                "cost": 50000,
                 "enchant": 5,
                 "material": "rowan",
                 "skill": "twohanded weapons",
@@ -2705,7 +2721,7 @@
                   "It looks like this item has been mainly crafted out of vultite, an uncommon metal.",
                   "Analysis of some gleaming vultite double chain indicates the item is free from merchant alteration restrictions.",
                   "You can tell that the chain is as light as it can get.",
-                  "The vultite double chain will cost 4,500,000 coins.",
+                  "The vultite double chain will cost 2,000,000 coins.",
                   "It imparts a bonus of +29 more than usual.",
                   "It protects against magical attacks with a bonus of 6.",
                   "It is temporarily and slightly resistant (9%) to disrupting attacks, provided by a temporary enhancement and will degrade when the wearer is struck in combat.  It has an incredible amount of uses left before the enhancement degrades away completely, which will cause the item to simply return to normal.",
@@ -2720,7 +2736,7 @@
                   "purpose",
                   "max_light"
                 ],
-                "cost": 4500000,
+                "cost": 2000000,
                 "enchant": 29,
                 "material": "vultite",
                 "weight": 13,
@@ -2742,7 +2758,7 @@
                   "It looks like this item has been mainly crafted out of vultite, an uncommon metal.",
                   "Analysis of some vultite full plate indicates the item is free from merchant alteration restrictions.",
                   "You might be able to have a talented merchant lighten the vultite full plate for you.",
-                  "The vultite full plate will cost 200,000 coins.",
+                  "The vultite full plate will cost 100,000 coins.",
                   "It imparts a bonus of +20 more than usual.",
                   "It appears to weigh about 60 pounds.",
                   "It is estimated to be worth about 600,000 silvers.",
@@ -2754,7 +2770,7 @@
                   "purpose",
                   "lightenable"
                 ],
-                "cost": 200000,
+                "cost": 100000,
                 "enchant": 20,
                 "material": "vultite",
                 "weight": 60,
@@ -2774,7 +2790,7 @@
                   "It looks like this item has been mainly crafted out of mithglin, a rare metal.",
                   "Analysis of a chipped mithglin hook-knife indicates the item is free from merchant alteration restrictions.",
                   "You can tell that the hook-knife is as light as it can get.",
-                  "The mithglin hook-knife will cost 1,500,000 coins.",
+                  "The mithglin hook-knife will cost 750,000 coins.",
                   "It imparts a bonus of +15 more than usual.",
                   "It is a holy item.",
                   "It is an enhancive item:",
@@ -2798,7 +2814,7 @@
                   "persists",
                   "small"
                 ],
-                "cost": 1500000,
+                "cost": 750000,
                 "enchant": 15,
                 "material": "mithglin",
                 "skill": "brawling",
@@ -2897,7 +2913,7 @@
                   "It looks like this item has been mainly crafted out of eonake, an extraordinarily rare metal.  It would need to be supplied to be used in an alteration and may only be used as an accent.  This material cannot be dyed.",
                   "Analysis of an engraved eonake flamberge indicates the item has certain alteration restrictions.  It would need to be supplied to be used in an alteration and may only be used as an accent.  This material cannot be dyed.",
                   "You can tell that the flamberge is as light as it can get.",
-                  "The eonake flamberge will cost 2,000,000 coins.",
+                  "The eonake flamberge will cost 900,000 coins.",
                   "It imparts a bonus of +20 more than usual.",
                   "It is a holy item.",
                   "It appears to weigh about 5 pounds.",
@@ -2911,7 +2927,7 @@
                   "max_light",
                   "holy"
                 ],
-                "cost": 2000000,
+                "cost": 900000,
                 "enchant": 20,
                 "material": "eonake",
                 "skill": "twohanded weapons",
@@ -2932,7 +2948,7 @@
                   "It looks like this item has been mainly crafted out of glaes, a rare metal.",
                   "Analysis of a white glaes mace indicates the item is free from merchant alteration restrictions.",
                   "You might be able to have a talented merchant lighten the glaes mace for you.",
-                  "The glaes mace will cost 200,000 coins.",
+                  "The glaes mace will cost 75,000 coins.",
                   "It imparts a bonus of +15 more than usual.",
                   "It is an enhancive item:",
                   "    It provides a boost of 5 to Spiritual Lore - Blessings Bonus.",
@@ -2952,7 +2968,7 @@
                   "lightenable",
                   "persists"
                 ],
-                "cost": 200000,
+                "cost": 75000,
                 "enchant": 15,
                 "material": "glaes",
                 "skill": "blunt weapons",
@@ -2984,12 +3000,12 @@
                   "The tiny pink vial appears to be flawlessly crafted from glass.",
                   "The vial can not be worn.",
                   "It looks like this item has been mainly crafted out of glass, an extremely common material.",
-                  "The tiny pink vial will cost 5,000,000 coins."
+                  "The tiny pink vial will cost 2,000,000 coins."
                 ],
                 "tags": [
 
                 ],
-                "cost": 5000000,
+                "cost": 2000000,
                 "material": "glass, an extremely common material",
                 "item_type": null
               }
@@ -3005,7 +3021,7 @@
                   "It looks like this item has been mainly crafted out of mithril, an uncommon metal.",
                   "Analysis of a scratched mithril shield indicates the item is free from merchant alteration restrictions.",
                   "You might be able to have a talented merchant lighten the mithril shield for you.",
-                  "The mithril shield will cost 250,000 coins.",
+                  "The mithril shield will cost 100,000 coins.",
                   "It imparts a bonus of +10 more than usual.",
                   "It has been infused with a disrupting substance.",
                   "It is an enhancive item:",
@@ -3028,7 +3044,7 @@
                   "lightenable",
                   "persists"
                 ],
-                "cost": 250000,
+                "cost": 100000,
                 "enchant": 10,
                 "material": "mithril",
                 "flare": "a disrupting substance",
@@ -3053,6 +3069,9 @@
                 ],
                 "shield_type": "medium",
                 "is_shield": true,
+                "flares": [
+                  "a disrupting substance"
+                ],
                 "item_type": "shield"
               }
             },
@@ -3103,7 +3122,7 @@
                   "It looks like this item has been mainly crafted out of vultite, an uncommon metal.",
                   "Analysis of some vultite arm greaves indicates the item is free from merchant alteration restrictions.",
                   "You can tell that the greaves are as light as they can get.",
-                  "The vultite arm greaves will cost 900,000 coins.",
+                  "The vultite arm greaves will cost 300,000 coins.",
                   "It is moderately resistant (15%) to disrupting attacks.",
                   "It appears to weigh about 3 pounds.",
                   "It is estimated to be worth about 150,000 silvers.",
@@ -3115,7 +3134,7 @@
                 "tags": [
 
                 ],
-                "cost": 900000,
+                "cost": 300000,
                 "material": "vultite",
                 "weight": 3,
                 "worn": "arms",
@@ -3133,7 +3152,7 @@
                 "raw": [
                   "The talisman can be worn around the neck.  The talisman appears to serve some purpose.",
                   "Analysis of a topaz-inset platinum talisman indicates the item is free from merchant alteration restrictions.",
-                  "The platinum talisman will cost 150,000 coins.",
+                  "The platinum talisman will cost 50,000 coins.",
                   "It is a magical item which could be imbedded with a spell.",
                   "It has 0 charges.  It is rechargeable.",
                   "It could be activated by waving it.",
@@ -3154,7 +3173,7 @@
                   "imbeddable",
                   "small"
                 ],
-                "cost": 150000,
+                "cost": 50000,
                 "worn": "neck",
                 "activator": "waving",
                 "enhancives": [
@@ -3172,75 +3191,7 @@
                 "wear_location": "around the neck",
                 "item_type": null
               }
-            },
-            {
-              "id": "379231167",
-              "name": "an etched imflass shield",
-              "details": {
-                "raw": [
-                  "The shield is a medium shield that protects the bearer if carried in the left hand.",
-                  "The shield can be worn, slinging it across the shoulders and back.  The shield appears to serve some purpose.",
-                  "It looks like this item has been mainly crafted out of imflass, an uncommon metal.",
-                  "Analysis of an etched imflass shield indicates the item is free from merchant alteration restrictions.",
-                  "You might be able to have a talented merchant lighten the imflass shield for you.",
-                  "The imflass shield will cost 75,000 coins.",
-                  "It imparts a bonus of +12 more than usual.",
-                  "It has been infused with the power of an ice elemental.",
-                  "It is an enhancive item:",
-                  "    It provides a boost of 3 to Logic Bonus.",
-                  "    This enhancement may not be used by adventurers who have not trained 9 times.",
-                  "    It provides a boost of 5 to Max Mana.",
-                  "    This enhancement may not be used by adventurers who have not trained 9 times.",
-                  "    It provides a boost of 4 to Influence Bonus.",
-                  "    This enhancement may not be used by adventurers who have not trained 14 times.",
-                  "    It seems to have a lot of enhancive charges remaining.",
-                  "It will persist after its last enhancive charge has been expended.",
-                  "It appears to weigh about 6 pounds.",
-                  "It is estimated to be worth about 400,000 silvers.",
-                  "It is predominantly crafted of imflass.",
-                  "It is a basic project (150 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by Selvren."
-                ],
-                "tags": [
-                  "purpose",
-                  "lightenable",
-                  "persists"
-                ],
-                "cost": 75000,
-                "enchant": 12,
-                "material": "imflass",
-                "flare": "the power of an ice elemental",
-                "weight": 6,
-                "worn": "shoulders",
-                "enhancives": [
-                  {
-                    "boost": 3,
-                    "ability": "Logic Bonus",
-                    "level": 9
-                  },
-                  {
-                    "boost": 5,
-                    "ability": "Max Mana",
-                    "level": 9
-                  },
-                  {
-                    "boost": 4,
-                    "ability": "Influence Bonus",
-                    "level": 14
-                  }
-                ],
-                "shield_type": "medium",
-                "is_shield": true,
-                "flares": [
-                  "the power of an ice elemental"
-                ],
-                "item_type": "shield"
-              }
             }
-          ],
-          "sign": [
-            "Written on an oak plank sign:",
-            "The spiral-carved slender orase staff is a wand-holding staff."
           ]
         },
         {
@@ -3254,7 +3205,7 @@
                 "raw": [
                   "The crown can be worn on the head.  The crown appears to serve some purpose.",
                   "Analysis of an oval-cut pink topaz crown indicates the item is free from merchant alteration restrictions.",
-                  "The pink topaz crown will cost 100,000 coins.",
+                  "The pink topaz crown will cost 50,000 coins.",
                   "It is a holy item.",
                   "It is currently imbedded with the Censure spell.",
                   "It has 9 charges.  It is empowered and can be charged for an additional 142.",
@@ -3276,7 +3227,7 @@
                   "holy",
                   "imbedded"
                 ],
-                "cost": 100000,
+                "cost": 50000,
                 "weight": 2,
                 "worn": "head",
                 "activator": "tapping",
@@ -3307,7 +3258,7 @@
                   "It looks like this item has been mainly crafted out of orase, an uncommon wood.",
                   "Analysis of an engraved orase runestaff indicates the item is free from merchant alteration restrictions.",
                   "You can tell that the runestaff is as light as it can get.",
-                  "The orase runestaff will cost 250,000 coins.",
+                  "The orase runestaff will cost 50,000 coins.",
                   "It imparts a bonus of +20 more than usual.",
                   "It has been infused with the power of a disintegrating substance.",
                   "It appears to weigh about 2 pounds.",
@@ -3319,7 +3270,7 @@
                 "tags": [
                   "max_light"
                 ],
-                "cost": 250000,
+                "cost": 50000,
                 "enchant": 20,
                 "material": "orase",
                 "skill": "twohanded weapons",
@@ -3342,7 +3293,7 @@
                   "It looks like this item has been mainly crafted out of orase, an uncommon wood.",
                   "Analysis of a scorched orase runestaff indicates the item is free from merchant alteration restrictions.",
                   "You can tell that the runestaff is as light as it can get.",
-                  "The orase runestaff will cost 250,000 coins.",
+                  "The orase runestaff will cost 75,000 coins.",
                   "It imparts a bonus of +20 more than usual.",
                   "It has been infused with mana (+2).",
                   "It is an enhancive item:",
@@ -3360,7 +3311,7 @@
                   "max_light",
                   "persists"
                 ],
-                "cost": 250000,
+                "cost": 75000,
                 "enchant": 20,
                 "material": "orase",
                 "skill": "twohanded weapons",
@@ -3393,7 +3344,7 @@
                   "It looks like this item has been mainly crafted out of yew, an uncommon wood.",
                   "Analysis of an elegant yew light crossbow indicates the item is free from merchant alteration restrictions.",
                   "You might be able to have a talented merchant lighten the yew light crossbow for you.",
-                  "The yew light crossbow will cost 1,500,000 coins.",
+                  "The yew light crossbow will cost 100,000 coins.",
                   "It imparts a bonus of +7 more than usual.",
                   "It is an enhancive item:",
                   "    It provides a boost of 7 to Logic Bonus.",
@@ -3414,7 +3365,7 @@
                   "lightenable",
                   "persists"
                 ],
-                "cost": 1500000,
+                "cost": 100000,
                 "enchant": 7,
                 "material": "yew",
                 "skill": "ranged weapons",
@@ -3447,7 +3398,7 @@
                   "It looks like this item has been mainly crafted out of faewood, an unusual wood.",
                   "Analysis of an exquisite faewood runestaff indicates the item is free from merchant alteration restrictions.",
                   "You can tell that the runestaff is as light as it can get.",
-                  "The faewood runestaff will cost 550,000 coins.",
+                  "The faewood runestaff will cost 250,000 coins.",
                   "It imparts a bonus of +20 more than usual.",
                   "It is a holy item.",
                   "It is an enhancive item:",
@@ -3466,7 +3417,7 @@
                   "holy",
                   "persists"
                 ],
-                "cost": 550000,
+                "cost": 250000,
                 "enchant": 20,
                 "material": "faewood",
                 "skill": "twohanded weapons",
@@ -3494,7 +3445,7 @@
                   "It looks like this item has been mainly crafted out of imflass, an uncommon metal.",
                   "Analysis of a scratched imflass aegis indicates the item is free from merchant alteration restrictions.",
                   "You might be able to have a talented merchant lighten the imflass aegis for you.",
-                  "The imflass aegis will cost 450,000 coins.",
+                  "The imflass aegis will cost 100,000 coins.",
                   "It imparts a bonus of +12 more than usual.",
                   "It is an enhancive item:",
                   "    It provides a boost of 10 to Ambush Bonus.",
@@ -3516,7 +3467,7 @@
                   "lightenable",
                   "persists"
                 ],
-                "cost": 450000,
+                "cost": 100000,
                 "enchant": 12,
                 "material": "imflass",
                 "weight": 7,
@@ -3576,12 +3527,12 @@
                   "You see: You stand before Brodega, methodically chanting the chain of mystic phrases you were taught to summon the energy of life to your aid.  After the energy builds to a frenetic level, you ball your fist and slam it down onto the center of Brodega's chest, filling him with the life force your words summoned.",
                   "Target sees: Brodega stands before you, methodically chanting a chain of mystic phrases as energy in the air gathers around him.  After the energy builds to a frenetic level, Brodega makes a fist and slams it down onto your chest, filling you with the life force they summoned with their words.",
                   "Others see: Brodega stands before Brodega, methodically chanting a chain of mystic phrases as energy in the air gathers around him.  After the energy builds to a frenetic level, Brodega makes a fist and slams it down onto Brodega's chest, filling him with the life force Brodega summoned with their words.",
-                  "The marble fist will cost 250,000 coins."
+                  "The marble fist will cost 100,000 coins."
                 ],
                 "tags": [
 
                 ],
-                "cost": 250000,
+                "cost": 100000,
                 "material": "stone, an extremely common material",
                 "item_type": null
               }
@@ -3593,7 +3544,7 @@
                 "raw": [
                   "The earcuff can be worn, hanging it from the ear.  The earcuff appears to serve some purpose.",
                   "Analysis of a beryl-inset mithril earcuff indicates the item is free from merchant alteration restrictions.",
-                  "The mithril earcuff will cost 75,000 coins.",
+                  "The mithril earcuff will cost 50,000 coins.",
                   "It is a magical item which could be imbedded with a spell.",
                   "It has 0 charges.  It is rechargeable.",
                   "It could be activated by waving it.",
@@ -3612,7 +3563,7 @@
                   "imbeddable",
                   "small"
                 ],
-                "cost": 75000,
+                "cost": 50000,
                 "worn": "ear",
                 "activator": "waving",
                 "enhancives": [
@@ -3634,7 +3585,7 @@
                   "It looks like this item has been mainly crafted out of vultite, an uncommon metal.",
                   "Analysis of an onyx-hafted vultite mace indicates the item is free from merchant alteration restrictions.",
                   "You can tell that the mace is as light as it can get.",
-                  "The vultite mace will cost 100,000 coins.",
+                  "The vultite mace will cost 50,000 coins.",
                   "It imparts a bonus of +20 more than usual.",
                   "It has been infused with the power of a lightning bolt.",
                   "It is an enhancive item:",
@@ -3653,7 +3604,7 @@
                   "max_light",
                   "persists"
                 ],
-                "cost": 100000,
+                "cost": 50000,
                 "enchant": 20,
                 "material": "vultite",
                 "skill": "blunt weapons",
@@ -3696,12 +3647,12 @@
                   "It looks like this item has been mainly crafted out of wood, an extremely common material.",
                   "Analysis of a cylindrical wooden canister indicates the creator has provided the following information:",
                   "This is wig powder that will suppress the itchy messaging you would normally get while wearing a wig.  It has 18 applications remaining before it will run out.",
-                  "The wooden canister will cost 20,000 coins."
+                  "The wooden canister will cost 10,000 coins."
                 ],
                 "tags": [
 
                 ],
-                "cost": 20000,
+                "cost": 10000,
                 "material": "wood, an extremely common material",
                 "item_type": null
               }
@@ -3716,7 +3667,7 @@
                   "It looks like this item has been mainly crafted out of vultite, an uncommon metal.",
                   "Analysis of a gleaming vultite aegis indicates the item is free from merchant alteration restrictions.",
                   "You might be able to have a talented merchant lighten the vultite aegis for you.",
-                  "The vultite aegis will cost 250,000 coins.",
+                  "The vultite aegis will cost 75,000 coins.",
                   "It imparts a bonus of +20 more than usual.",
                   "It is an enhancive item:",
                   "    It provides a boost of 1 to Multi Opponent Combat Bonus.",
@@ -3736,7 +3687,7 @@
                   "lightenable",
                   "persists"
                 ],
-                "cost": 250000,
+                "cost": 75000,
                 "enchant": 20,
                 "material": "vultite",
                 "weight": 8,
@@ -3767,7 +3718,7 @@
                   "It looks like this item has been mainly crafted out of hoarbeam, an unusual wood.",
                   "Analysis of a grey hoarbeam runestaff indicates the item is free from merchant alteration restrictions.",
                   "You can tell that the runestaff is as light as it can get.",
-                  "The hoarbeam runestaff will cost 100,000 coins.",
+                  "The hoarbeam runestaff will cost 75,000 coins.",
                   "It imparts a bonus of +12 more than usual.",
                   "It has been infused with the power of a fire elemental.",
                   "It is an enhancive item:",
@@ -3787,7 +3738,7 @@
                   "max_light",
                   "persists"
                 ],
-                "cost": 100000,
+                "cost": 75000,
                 "enchant": 12,
                 "material": "hoarbeam",
                 "skill": "twohanded weapons",
@@ -3822,7 +3773,7 @@
                   "It looks like this item has been mainly crafted out of mossbark, an uncommon wood.",
                   "Analysis of a heavy mossbark runestaff indicates the item is free from merchant alteration restrictions.",
                   "You might be able to have a talented merchant lighten the mossbark runestaff for you.",
-                  "The mossbark runestaff will cost 150,000 coins.",
+                  "The mossbark runestaff will cost 75,000 coins.",
                   "It imparts a bonus of +15 more than usual.",
                   "It is an enhancive item:",
                   "    It provides a boost of 3 to Aura Base.",
@@ -3843,7 +3794,7 @@
                   "lightenable",
                   "persists"
                 ],
-                "cost": 150000,
+                "cost": 75000,
                 "enchant": 15,
                 "material": "mossbark",
                 "skill": "twohanded weapons",
@@ -3879,7 +3830,7 @@
                   "It looks like this item has been mainly crafted out of mossbark, an uncommon wood.",
                   "Analysis of a burnished mossbark runestaff indicates the item is free from merchant alteration restrictions.",
                   "You can tell that the runestaff is as light as it can get.",
-                  "The mossbark runestaff will cost 150,000 coins.",
+                  "The mossbark runestaff will cost 75,000 coins.",
                   "It imparts a bonus of +15 more than usual.",
                   "It is an enhancive item:",
                   "    It provides a boost of 4 to Spiritual Lore - Summoning Bonus.",
@@ -3898,7 +3849,7 @@
                   "max_light",
                   "persists"
                 ],
-                "cost": 150000,
+                "cost": 75000,
                 "enchant": 15,
                 "material": "mossbark",
                 "skill": "twohanded weapons",
@@ -3930,7 +3881,7 @@
                   "It looks like this item has been mainly crafted out of deringo, an uncommon wood.",
                   "Analysis of a burnished deringo shield indicates the item is free from merchant alteration restrictions.",
                   "You might be able to have a talented merchant lighten the deringo shield for you.",
-                  "The deringo shield will cost 500,000 coins.",
+                  "The deringo shield will cost 100,000 coins.",
                   "It imparts a bonus of +8 more than usual.",
                   "It is an enhancive item:",
                   "    It provides a boost of 3 to Physical Fitness Ranks.",
@@ -3952,7 +3903,7 @@
                   "lightenable",
                   "persists"
                 ],
-                "cost": 500000,
+                "cost": 100000,
                 "enchant": 8,
                 "material": "deringo",
                 "weight": 6,
@@ -3989,7 +3940,7 @@
                   "It looks like this item has been mainly crafted out of glaes, a rare metal.",
                   "Analysis of a thick glaes shield indicates the item is free from merchant alteration restrictions.",
                   "You might be able to have a talented merchant lighten the glaes shield for you.",
-                  "The glaes shield will cost 350,000 coins.",
+                  "The glaes shield will cost 75,000 coins.",
                   "It imparts a bonus of +15 more than usual.",
                   "It is an enhancive item:",
                   "    It provides a boost of 2 to Constitution Bonus.",
@@ -4011,7 +3962,7 @@
                   "lightenable",
                   "persists"
                 ],
-                "cost": 350000,
+                "cost": 75000,
                 "enchant": 15,
                 "material": "glaes",
                 "weight": 12,
@@ -4047,7 +3998,7 @@
                   "It looks like this item has been mainly crafted out of imflass, an uncommon metal.",
                   "Analysis of an imflass ball and chain indicates the item is free from merchant alteration restrictions.",
                   "You can tell that the ball and chain is as light as it can get.",
-                  "The imflass ball and chain will cost 350,000 coins.",
+                  "The imflass ball and chain will cost 100,000 coins.",
                   "It imparts a bonus of +12 more than usual.",
                   "It is an enhancive item:",
                   "    It provides a boost of 6 to Spell Aiming Bonus.",
@@ -4068,7 +4019,7 @@
                   "max_light",
                   "persists"
                 ],
-                "cost": 350000,
+                "cost": 100000,
                 "enchant": 12,
                 "material": "imflass",
                 "skill": "blunt weapons",
@@ -4124,12 +4075,12 @@
                   "Analysis of a tiny driftwood wave symbol indicates the creator has provided the following information:",
                   "When REDEEMed, this symbol will grant a custom well of life to your character:",
                   "Both players see: [...] a wave of ocean breezes washes over you.",
-                  "The driftwood wave symbol will cost 250,000 coins."
+                  "The driftwood wave symbol will cost 100,000 coins."
                 ],
                 "tags": [
 
                 ],
-                "cost": 250000,
+                "cost": 100000,
                 "material": "wood, an extremely common material",
                 "item_type": null
               }
@@ -4243,14 +4194,6 @@
                   "purpose",
                   "max_deep",
                   "max_light",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 4000000,
@@ -5002,14 +4945,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 40000,
@@ -5156,14 +5091,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -5192,14 +5119,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -5227,14 +5146,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -5279,14 +5190,6 @@
                   "The thrak hide boots will cost 25,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -5315,14 +5218,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -5349,14 +5244,6 @@
                   "The glass jar will cost 20,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 20000,
@@ -5419,14 +5306,6 @@
                   "The thrak hide gloves will cost 25,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -6714,14 +6593,6 @@
                   "purpose",
                   "lightenable",
                   "persists",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 1900000,
@@ -8134,14 +8005,6 @@
                   "max_light",
                   "deepenable",
                   "small",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -8434,14 +8297,6 @@
                 "tags": [
                   "max_deep",
                   "small",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -8469,14 +8324,6 @@
                 ],
                 "tags": [
                   "max_deep",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -8505,14 +8352,6 @@
                 ],
                 "tags": [
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -8541,14 +8380,6 @@
                 ],
                 "tags": [
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -8585,14 +8416,6 @@
                   "purpose",
                   "max_deep",
                   "max_light",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -8623,14 +8446,6 @@
                   "purpose",
                   "max_deep",
                   "max_light",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -8690,14 +8505,6 @@
                   "max_light",
                   "deepenable",
                   "small",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -8764,14 +8571,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -8893,14 +8692,6 @@
                 "tags": [
                   "small",
                   "magic_resistant",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -9035,7 +8826,7 @@
                   "It is estimated to be worth about 150,000 silvers.",
                   "It is predominantly crafted of lor.",
                   "It is a simple project (83 difficulty) for an adventurer to modify.",
-                  "It has a temporarily unlocked loresong by a bard for 4 days, 5 hours and 18 minutes."
+                  "It has a temporarily unlocked loresong by a bard for 3 days, 5 hours and 23 minutes."
                 ],
                 "tags": [
                   "lightenable"
@@ -10361,14 +10152,6 @@
                   "purpose",
                   "scripted",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 1500000,
@@ -10731,14 +10514,6 @@
                   "The charcoal envelope will cost 10,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -10791,14 +10566,6 @@
                   "The card case will cost 150,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 150000,
@@ -10851,14 +10618,6 @@
                   "The flyrsilk gloves will cost 200,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 200000,
@@ -10888,14 +10647,6 @@
                   "The lotus silk gloves will cost 200,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 200000,
@@ -10969,14 +10720,6 @@
                   "The instrument case will cost 20,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 20000,
@@ -14422,6 +14165,9 @@
                 ],
                 "is_weapon": true,
                 "weapon_type": "twohanded weapons",
+                "flares": [
+                  "a disrupting substance"
+                ],
                 "item_type": "weapon"
               }
             },
@@ -14579,14 +14325,6 @@
                 "tags": [
                   "scripted",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 40000,
@@ -14619,14 +14357,6 @@
                   "purpose",
                   "max_deep",
                   "max_light",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -14660,14 +14390,6 @@
                 ],
                 "tags": [
                   "purpose",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 150000,
@@ -14694,14 +14416,6 @@
                   "The grey elesine sandals will cost 100,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -14889,14 +14603,6 @@
                   "purpose",
                   "max_deep",
                   "max_light",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 5000,
@@ -16146,14 +15852,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 500000,
@@ -18766,14 +18464,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 350000,
@@ -18829,6 +18519,9 @@
                 ],
                 "is_weapon": true,
                 "weapon_type": "edged weapons",
+                "flares": [
+                  "a disrupting substance"
+                ],
                 "item_type": "weapon"
               }
             },
@@ -19672,6 +19365,6 @@
       ]
     }
   ],
-  "processed_at": "2026-03-25 06:59:40 UTC",
+  "processed_at": "2026-03-25 09:29:38 UTC",
   "processing_version": "v2.0"
 }
