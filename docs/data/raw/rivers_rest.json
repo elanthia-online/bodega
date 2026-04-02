@@ -1,5 +1,5 @@
 {
-  "created_at": "2026-04-02 04:24:21 UTC",
+  "created_at": "2026-04-02 07:04:05 UTC",
   "run_time": "04s",
   "town": "River's Rest",
   "shops": [
@@ -134,6 +134,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 2500000,
@@ -190,6 +191,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 10000000,
@@ -217,6 +219,7 @@
                   "The veniom air wizard will cost 10,000,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -277,6 +280,7 @@
                   "The black cigar will cost 1,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -1356,6 +1360,7 @@
                   "max_light",
                   "small",
                   "magic_resistant",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -2550,6 +2555,7 @@
                 "tags": [
                   "holy",
                   "small",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -4216,6 +4222,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 4000000,
@@ -4611,53 +4618,103 @@
             {
               "id": "518928074",
               "name": "a brilliant pink tourmaline brooch",
-              "browse_price": 200000,
-              "raw_inspect": [
-                "The brooch can be worn anywhere on the body.  The brooch appears to serve some purpose.",
-                "Analysis of a brilliant pink tourmaline brooch indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the brooch may be further lightened.",
-                "The pink tourmaline brooch will cost 200,000 coins.",
-                "It is a holy item.",
-                "It is currently imbedded with the Sneaking spell.",
-                "It has 5 charges.  It is empowered and can be charged for an additional 110.",
-                "It could be activated by tapping it.",
-                "It will disintegrate after its last magical charge has been expended.",
-                "It is an enhancive item:",
-                "    It provides a boost of 2 to Discipline Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 11 times.",
-                "    It provides a boost of 1 to Strength Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 5 times.",
-                "    It seems to have a lot of enhancive charges remaining.",
-                "It will crumble into dust after its last enhancive charge has been expended.",
-                "It is a small item, under a pound.",
-                "It is estimated to be worth about 100,000 silvers.",
-                "It has a permanently unlocked loresong by Relay."
-              ]
+              "details": {
+                "raw": [
+                  "The brooch can be worn anywhere on the body.  The brooch appears to serve some purpose.",
+                  "Analysis of a brilliant pink tourmaline brooch indicates the item is free from merchant alteration restrictions.",
+                  "The pink tourmaline brooch will cost 200,000 coins.",
+                  "It is a holy item.",
+                  "It is currently imbedded with the Sneaking spell.",
+                  "It has 5 charges.  It is empowered and can be charged for an additional 110.",
+                  "It could be activated by tapping it.",
+                  "It will disintegrate after its last magical charge has been expended.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 2 to Discipline Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 11 times.",
+                  "    It provides a boost of 1 to Strength Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 5 times.",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It will crumble into dust after its last enhancive charge has been expended.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 100,000 silvers.",
+                  "It has a permanently unlocked loresong by Relay."
+                ],
+                "tags": [
+                  "purpose",
+                  "holy",
+                  "imbedded",
+                  "small"
+                ],
+                "cost": 200000,
+                "worn": "pin",
+                "activator": "tapping",
+                "spell": "Sneaking",
+                "enhancives": [
+                  {
+                    "boost": 2,
+                    "ability": "Discipline Bonus",
+                    "level": 11
+                  },
+                  {
+                    "boost": 1,
+                    "ability": "Strength Bonus",
+                    "level": 5
+                  }
+                ],
+                "wear_location": "anywhere on the body",
+                "is_jewelry": true,
+                "blessing": "holy",
+                "item_type": "jewelry"
+              }
             },
             {
               "id": "518928077",
               "name": "an elegant silver bracelet",
-              "browse_price": 75000,
-              "raw_inspect": [
-                "The bracelet can be worn around the wrist.  The bracelet appears to serve some purpose.",
-                "Analysis of an elegant silver bracelet indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the bracelet may be further lightened.",
-                "The silver bracelet will cost 75,000 coins.",
-                "It is a magical item which could be imbedded with a spell.",
-                "It has 0 charges.  It is rechargeable.",
-                "It could be activated by waving it.",
-                "It will persist after its last magical charge has been expended.",
-                "It is an enhancive item:",
-                "    It provides a boost of 1 to Discipline Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 4 times.",
-                "    It provides a boost of 2 to First Aid Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 2 times.",
-                "    It seems to have more than your average dwarf could count enhancive charges remaining.",
-                "It will persist after its last enhancive charge has been expended.",
-                "It is a small item, under a pound.",
-                "It is estimated to be worth about 62,000 silvers.",
-                "It has a permanently unlocked loresong by a bard."
-              ]
+              "details": {
+                "raw": [
+                  "The bracelet can be worn around the wrist.  The bracelet appears to serve some purpose.",
+                  "Analysis of an elegant silver bracelet indicates the item is free from merchant alteration restrictions.",
+                  "The silver bracelet will cost 75,000 coins.",
+                  "It is a magical item which could be imbedded with a spell.",
+                  "It has 0 charges.  It is rechargeable.",
+                  "It could be activated by waving it.",
+                  "It will persist after its last magical charge has been expended.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 1 to Discipline Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 4 times.",
+                  "    It provides a boost of 2 to First Aid Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 2 times.",
+                  "    It seems to have more than your average dwarf could count enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 62,000 silvers.",
+                  "It has a permanently unlocked loresong by a bard."
+                ],
+                "tags": [
+                  "purpose",
+                  "imbeddable",
+                  "persists",
+                  "small"
+                ],
+                "cost": 75000,
+                "worn": "wrist",
+                "activator": "waving",
+                "enhancives": [
+                  {
+                    "boost": 1,
+                    "ability": "Discipline Bonus",
+                    "level": 4
+                  },
+                  {
+                    "boost": 2,
+                    "ability": "First Aid Bonus",
+                    "level": 2
+                  }
+                ],
+                "wear_location": "around the wrist",
+                "is_jewelry": true,
+                "item_type": "jewelry"
+              }
             }
           ],
           "sign": [
@@ -4984,6 +5041,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 40000,
@@ -5138,6 +5196,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -5174,6 +5233,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -5201,6 +5261,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -5261,6 +5322,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -5297,6 +5359,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -5323,6 +5386,7 @@
                   "The glass jar will cost 20,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -5393,6 +5457,7 @@
                   "The thrak hide gloves will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -6688,6 +6753,7 @@
                   "purpose",
                   "lightenable",
                   "persists",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -8116,6 +8182,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -8416,6 +8483,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -8443,6 +8511,7 @@
                 ],
                 "tags": [
                   "max_deep",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -8487,6 +8556,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -8515,6 +8585,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -8567,6 +8638,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -8597,6 +8669,7 @@
                   "purpose",
                   "max_deep",
                   "max_light",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -8664,6 +8737,7 @@
                   "max_light",
                   "deepenable",
                   "small",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -8822,6 +8896,7 @@
                 "tags": [
                   "small",
                   "magic_resistant",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -10298,6 +10373,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 1500000,
@@ -10668,6 +10744,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -10720,6 +10797,7 @@
                   "The card case will cost 150,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -10788,6 +10866,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 200000,
@@ -10817,6 +10896,7 @@
                   "The lotus silk gloves will cost 200,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -10898,6 +10978,7 @@
                   "The instrument case will cost 20,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -14442,6 +14523,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 40000,
@@ -14474,6 +14556,7 @@
                   "purpose",
                   "max_deep",
                   "max_light",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -14523,6 +14606,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 150000,
@@ -14549,6 +14633,7 @@
                   "The grey elesine sandals will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -14744,6 +14829,7 @@
                   "purpose",
                   "max_deep",
                   "max_light",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -15931,6 +16017,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -18551,6 +18638,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
