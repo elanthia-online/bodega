@@ -711,7 +711,9 @@ function detectPropertiesFromRaw(rawLines) {
 
     // Enhancive persistence - check if item has enhancives and whether they persist or crumble
     if (/enhancive|bonus.*will|properties.*permanent|properties.*crumble|properties.*decay/i.test(rawText)) {
-        if (/properties are permanent|will persist|permanently/i.test(rawText)) {
+        if (/It will crumble into dust after its last enhancive charge has been expended/i.test(rawText)) {
+            props.crumbly = true
+        } else if (/properties are permanent|will persist|permanently/i.test(rawText)) {
             props.persists = true;
         } else if (/will crumble|will decay|crumbly|uses remaining/i.test(rawText)) {
             props.crumbly = true;
