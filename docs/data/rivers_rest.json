@@ -1,6 +1,6 @@
 {
-  "created_at": "2026-04-19 04:48:32 UTC",
-  "run_time": "04s",
+  "created_at": "2026-04-19 09:16:49 UTC",
+  "run_time": "01m 40s",
   "town": "River's Rest",
   "shops": [
     {
@@ -126,15 +126,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 2500000,
@@ -183,15 +174,6 @@
                   "The rhimar ice wizard will cost 10,000,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 10000000,
@@ -219,15 +201,6 @@
                   "The veniom air wizard will cost 10,000,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 10000000,
@@ -280,15 +253,6 @@
                   "The black cigar will cost 1,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 1000,
@@ -1360,15 +1324,6 @@
                   "max_light",
                   "small",
                   "magic_resistant",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -2100,9 +2055,102 @@
       "shop_owner": "Olivianne",
       "inv": [
         {
-          "room_title": "Olivianne's Combat Gear",
+          "room_title": "Olivianne's Weaponry",
           "branch": "entry",
           "items": [
+            {
+              "id": "812343534",
+              "name": "a topaz-inset platinum tiara",
+              "details": {
+                "raw": [
+                  "The tiara can be worn on the head.  The tiara appears to serve some purpose.",
+                  "Analysis of a topaz-inset platinum tiara indicates the item is free from merchant alteration restrictions.",
+                  "The platinum tiara will cost 200,000 coins.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 7 to Spell Aiming Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 28 times.",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 200,000 silvers.",
+                  "It is magic resistant.",
+                  "It has a permanently unlocked loresong by Selvren."
+                ],
+                "tags": [
+                  "purpose",
+                  "persists",
+                  "small",
+                  "magic_resistant"
+                ],
+                "cost": 200000,
+                "worn": "head",
+                "enhancives": [
+                  {
+                    "boost": 7,
+                    "ability": "Spell Aiming Bonus",
+                    "level": 28
+                  }
+                ],
+                "wear_location": "on the head",
+                "item_type": null
+              }
+            },
+            {
+              "id": "812343533",
+              "name": "a vaalorn longsword",
+              "details": {
+                "raw": [
+                  "The longsword is a longsword that requires skill in edged weapons to use effectively.",
+                  "It looks like this item has been mainly crafted out of vaalorn, a rare metal.  This material cannot be dyed.",
+                  "Analysis of a vaalorn longsword indicates the item has certain alteration restrictions.  This material cannot be dyed.",
+                  "You might be able to have a talented merchant lighten the vaalorn longsword for you.",
+                  "The vaalorn longsword will cost 3,000,000 coins.",
+                  "It imparts a bonus of +18 more than usual.",
+                  "It is a holy item.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 7 to Edged Weapons Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 17 times.",
+                  "    It provides a boost of 10 to Stamina Recovery.",
+                  "    This enhancement may not be used by adventurers who have not trained 33 times.",
+                  "    It seems to have more than your average dwarf could count enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It appears to weigh about 4 pounds.",
+                  "It is estimated to be worth about 1,500,000 silvers.",
+                  "It is temporarily weighted to inflict more critical wounds, but exactly how much requires assessment.  Its temporary enhancement will degrade when it scores a successful strike.  It has quite a few uses left before the enhancement degrades away completely, which will cause the item to lose its ability to inflict greater damage.",
+                  "It is predominantly crafted of vaalorn.",
+                  "It is an involved project (223 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Selvren."
+                ],
+                "tags": [
+                  "lightenable",
+                  "holy",
+                  "persists"
+                ],
+                "cost": 3000000,
+                "enchant": 18,
+                "material": "vaalorn",
+                "skill": "edged weapons",
+                "weight": 4,
+                "enhancives": [
+                  {
+                    "boost": 7,
+                    "ability": "Edged Weapons Bonus",
+                    "level": 17
+                  },
+                  {
+                    "boost": 10,
+                    "ability": "Stamina Recovery",
+                    "level": 33
+                  }
+                ],
+                "is_weapon": true,
+                "weapon_type": "edged weapons",
+                "blessing": "holy",
+                "crit_weighting": "unknown",
+                "temporary_crit_weighting": true,
+                "item_type": "weapon"
+              }
+            },
             {
               "id": "410094956",
               "name": "a thick imflass aventail",
@@ -2533,15 +2581,6 @@
                 "tags": [
                   "holy",
                   "small",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 2000000,
@@ -3070,6 +3109,9 @@
                 ],
                 "shield_type": "medium",
                 "is_shield": true,
+                "flares": [
+                  "a disrupting substance"
+                ],
                 "item_type": "shield"
               }
             },
@@ -3188,99 +3230,6 @@
                 ],
                 "wear_location": "around the neck",
                 "item_type": null
-              }
-            },
-            {
-              "id": "812343534",
-              "name": "a topaz-inset platinum tiara",
-              "details": {
-                "raw": [
-                  "The tiara can be worn on the head.  The tiara appears to serve some purpose.",
-                  "Analysis of a topaz-inset platinum tiara indicates the item is free from merchant alteration restrictions.",
-                  "The platinum tiara will cost 200,000 coins.",
-                  "It is an enhancive item:",
-                  "    It provides a boost of 7 to Spell Aiming Bonus.",
-                  "    This enhancement may not be used by adventurers who have not trained 28 times.",
-                  "    It seems to have a lot of enhancive charges remaining.",
-                  "It will persist after its last enhancive charge has been expended.",
-                  "It is a small item, under a pound.",
-                  "It is estimated to be worth about 200,000 silvers.",
-                  "It is magic resistant.",
-                  "It has a permanently unlocked loresong by Selvren."
-                ],
-                "tags": [
-                  "purpose",
-                  "persists",
-                  "small",
-                  "magic_resistant"
-                ],
-                "cost": 200000,
-                "worn": "head",
-                "enhancives": [
-                  {
-                    "boost": 7,
-                    "ability": "Spell Aiming Bonus",
-                    "level": 28
-                  }
-                ],
-                "wear_location": "on the head",
-                "item_type": null
-              }
-            },
-            {
-              "id": "812343533",
-              "name": "a vaalorn longsword",
-              "details": {
-                "raw": [
-                  "The longsword is a longsword that requires skill in edged weapons to use effectively.",
-                  "It looks like this item has been mainly crafted out of vaalorn, a rare metal.  This material cannot be dyed.",
-                  "Analysis of a vaalorn longsword indicates the item has certain alteration restrictions.  This material cannot be dyed.",
-                  "You might be able to have a talented merchant lighten the vaalorn longsword for you.",
-                  "The vaalorn longsword will cost 3,000,000 coins.",
-                  "It imparts a bonus of +18 more than usual.",
-                  "It is a holy item.",
-                  "It is an enhancive item:",
-                  "    It provides a boost of 7 to Edged Weapons Bonus.",
-                  "    This enhancement may not be used by adventurers who have not trained 17 times.",
-                  "    It provides a boost of 10 to Stamina Recovery.",
-                  "    This enhancement may not be used by adventurers who have not trained 33 times.",
-                  "    It seems to have more than your average dwarf could count enhancive charges remaining.",
-                  "It will persist after its last enhancive charge has been expended.",
-                  "It appears to weigh about 4 pounds.",
-                  "It is estimated to be worth about 1,500,000 silvers.",
-                  "It is temporarily weighted to inflict more critical wounds, but exactly how much requires assessment.  Its temporary enhancement will degrade when it scores a successful strike.  It has quite a few uses left before the enhancement degrades away completely, which will cause the item to lose its ability to inflict greater damage.",
-                  "It is predominantly crafted of vaalorn.",
-                  "It is an involved project (223 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by Selvren."
-                ],
-                "tags": [
-                  "lightenable",
-                  "holy",
-                  "persists"
-                ],
-                "cost": 3000000,
-                "enchant": 18,
-                "material": "vaalorn",
-                "skill": "edged weapons",
-                "weight": 4,
-                "enhancives": [
-                  {
-                    "boost": 7,
-                    "ability": "Edged Weapons Bonus",
-                    "level": 17
-                  },
-                  {
-                    "boost": 10,
-                    "ability": "Stamina Recovery",
-                    "level": 33
-                  }
-                ],
-                "is_weapon": true,
-                "weapon_type": "edged weapons",
-                "blessing": "holy",
-                "crit_weighting": "unknown",
-                "temporary_crit_weighting": true,
-                "item_type": "weapon"
               }
             }
           ]
@@ -4183,15 +4132,6 @@
                   "purpose",
                   "max_deep",
                   "max_light",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 4000000,
@@ -4940,15 +4880,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 40000,
@@ -5095,15 +5026,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -5132,15 +5054,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -5168,15 +5081,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -5221,15 +5125,6 @@
                   "The thrak hide boots will cost 25,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -5258,15 +5153,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -5293,15 +5179,6 @@
                   "The glass jar will cost 20,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 20000,
@@ -5364,15 +5241,6 @@
                   "The thrak hide gloves will cost 25,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -6660,15 +6528,6 @@
                   "purpose",
                   "lightenable",
                   "persists",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 1900000,
@@ -7919,7 +7778,7 @@
       "shop_owner": "Sixle",
       "inv": [
         {
-          "room_title": "Sixle's Outfitting",
+          "room_title": "Sixle's General Store",
           "branch": "entry",
           "items": [
             {
@@ -8081,15 +7940,6 @@
                   "max_light",
                   "deepenable",
                   "small",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -8362,15 +8212,6 @@
                 "tags": [
                   "max_deep",
                   "small",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -8398,15 +8239,6 @@
                 ],
                 "tags": [
                   "max_deep",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -8435,15 +8267,6 @@
                 ],
                 "tags": [
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -8480,15 +8303,6 @@
                   "purpose",
                   "max_deep",
                   "max_light",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -8519,15 +8333,6 @@
                   "purpose",
                   "max_deep",
                   "max_light",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -8587,15 +8392,6 @@
                   "max_light",
                   "deepenable",
                   "small",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -8746,15 +8542,6 @@
                 "tags": [
                   "small",
                   "magic_resistant",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -10272,15 +10059,6 @@
                   "purpose",
                   "scripted",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 1500000,
@@ -10643,15 +10421,6 @@
                   "The charcoal envelope will cost 10,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -10704,15 +10473,6 @@
                   "The card case will cost 150,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 150000,
@@ -10765,15 +10525,6 @@
                   "The flyrsilk gloves will cost 200,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 200000,
@@ -10803,15 +10554,6 @@
                   "The lotus silk gloves will cost 200,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 200000,
@@ -10885,15 +10627,6 @@
                   "The instrument case will cost 20,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 20000,
@@ -15085,6 +14818,9 @@
                 ],
                 "is_weapon": true,
                 "weapon_type": "twohanded weapons",
+                "flares": [
+                  "a disrupting substance"
+                ],
                 "item_type": "weapon"
               }
             },
@@ -15242,15 +14978,6 @@
                 "tags": [
                   "scripted",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 40000,
@@ -15283,15 +15010,6 @@
                   "purpose",
                   "max_deep",
                   "max_light",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -15325,15 +15043,6 @@
                 ],
                 "tags": [
                   "purpose",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 150000,
@@ -15360,15 +15069,6 @@
                   "The grey elesine sandals will cost 100,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -15556,15 +15256,6 @@
                   "purpose",
                   "max_deep",
                   "max_light",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 5000,
@@ -16521,52 +16212,6 @@
                 "sighting": "unknown",
                 "item_type": "weapon"
               }
-            },
-            {
-              "id": "160152",
-              "name": "an onyx-inlaid gold earcuff",
-              "details": {
-                "raw": [
-                  "The earcuff can be worn, hanging it from the ear.  The earcuff appears to serve some purpose.",
-                  "Analysis of an onyx-inlaid gold earcuff indicates the item is free from merchant alteration restrictions.",
-                  "The gold earcuff will cost 50,000 coins.",
-                  "It is a magical item which could be imbedded with a spell.",
-                  "It has 0 charges.  It is rechargeable.",
-                  "It could be activated by waving it.",
-                  "It will persist after its last magical charge has been expended.",
-                  "It is an enhancive item:",
-                  "    It provides a boost of 2 to Agility Bonus.",
-                  "    This enhancement may not be used by adventurers who have not trained 11 times.",
-                  "    It provides a boost of 3 to Stalking and Hiding Bonus.",
-                  "    This enhancement may not be used by adventurers who have not trained 4 times.",
-                  "    It seems to have a lot of enhancive charges remaining.",
-                  "It will crumble into dust after its last enhancive charge has been expended.",
-                  "It is a small item, under a pound.",
-                  "It is estimated to be worth about 88,000 silvers.",
-                  "It has a temporarily unlocked loresong by a bard."
-                ],
-                "tags": [
-                  "purpose",
-                  "imbeddable",
-                  "small"
-                ],
-                "cost": 50000,
-                "worn": "ear",
-                "activator": "waving",
-                "enhancives": [
-                  {
-                    "boost": 2,
-                    "ability": "Agility Bonus",
-                    "level": 11
-                  },
-                  {
-                    "boost": 3,
-                    "ability": "Stalking and Hiding Bonus",
-                    "level": 4
-                  }
-                ],
-                "item_type": null
-              }
             }
           ]
         }
@@ -16778,15 +16423,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 500000,
@@ -19351,15 +18987,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 350000,
@@ -19415,6 +19042,9 @@
                 ],
                 "is_weapon": true,
                 "weapon_type": "edged weapons",
+                "flares": [
+                  "a disrupting substance"
+                ],
                 "item_type": "weapon"
               }
             },
@@ -20800,6 +20430,6 @@
       ]
     }
   ],
-  "processed_at": "2026-04-19 04:53:30 UTC",
+  "processed_at": "2026-04-19 09:40:40 UTC",
   "processing_version": "v2.0"
 }
