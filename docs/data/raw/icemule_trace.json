@@ -1,6 +1,6 @@
 {
-  "created_at": "2026-04-19 10:35:37 UTC",
-  "run_time": "13s",
+  "created_at": "2026-04-19 12:41:55 UTC",
+  "run_time": "15s",
   "town": "Icemule Trace",
   "shops": [
     {
@@ -2037,6 +2037,7 @@
                   "The sycamore coffin will cost 10,000,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 10000000,
@@ -4257,6 +4258,7 @@
                   "The glass jar will cost 5,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 5000,
@@ -5147,6 +5149,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 200000,
@@ -5209,6 +5212,7 @@
                   "max_light",
                   "persists",
                   "small",
+                  "container",
                   "container"
                 ],
                 "cost": 5000000,
@@ -7918,9 +7922,6 @@
                 ],
                 "is_weapon": true,
                 "weapon_type": "twohanded weapons",
-                "flares": [
-                  "a disrupting substance"
-                ],
                 "item_type": "weapon"
               }
             },
@@ -8807,9 +8808,6 @@
                 "is_armor": true,
                 "armor_type": "leather",
                 "wear_location": "torso",
-                "flares": [
-                  "a disrupting substance"
-                ],
                 "dmg_padding": "unknown",
                 "temporary_dmg_padding": true,
                 "item_type": "armor"
@@ -11585,54 +11583,6 @@
               }
             },
             {
-              "id": "162936",
-              "name": "an enruned mithglin main gauche",
-              "details": {
-                "raw": [
-                  "The gauche is a main gauche that requires skill in edged weapons to use effectively.",
-                  "It looks like this item has been mainly crafted out of mithglin, a rare metal.",
-                  "Analysis of an enruned mithglin main gauche indicates the item is free from merchant alteration restrictions.",
-                  "You might be able to have a talented merchant lighten the mithglin main gauche for you.",
-                  "The mithglin main gauche will cost 500,000 coins.",
-                  "It imparts a bonus of +15 more than usual.",
-                  "It has been infused with the power of a steaming substance.",
-                  "It is an enhancive item:",
-                  "    It provides a boost of 11 to Stalking and Hiding Bonus.",
-                  "    This enhancement may not be used by adventurers who have not trained 27 times.",
-                  "    It seems to have a huge number of enhancive charges remaining.",
-                  "It will persist after its last enhancive charge has been expended.",
-                  "It appears to weigh about 2 pounds.",
-                  "It is estimated to be worth about 700,000 silvers.",
-                  "It is predominantly crafted of mithglin.",
-                  "It is a basic project (110 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by Amalynne."
-                ],
-                "tags": [
-                  "lightenable",
-                  "persists"
-                ],
-                "cost": 500000,
-                "enchant": 15,
-                "material": "mithglin",
-                "skill": "edged weapons",
-                "flare": "the power of a steaming substance",
-                "weight": 2,
-                "enhancives": [
-                  {
-                    "boost": 11,
-                    "ability": "Stalking and Hiding Bonus",
-                    "level": 27
-                  }
-                ],
-                "is_weapon": true,
-                "weapon_type": "edged weapons",
-                "flares": [
-                  "the power of a steaming substance"
-                ],
-                "item_type": "weapon"
-              }
-            },
-            {
               "id": "162940",
               "name": "some polished vaalorn leg greaves",
               "details": {
@@ -12279,114 +12229,6 @@
               }
             },
             {
-              "id": "162939",
-              "name": "a monir-hilted ora broadsword",
-              "details": {
-                "raw": [
-                  "The broadsword is a broadsword that requires skill in edged weapons to use effectively.",
-                  "It looks like this item has been mainly crafted out of ora, an uncommon metal.",
-                  "Analysis of a monir-hilted ora broadsword indicates the item is free from merchant alteration restrictions.",
-                  "You can tell that the broadsword is as light as it can get.",
-                  "The ora broadsword will cost 1,000,000 coins.",
-                  "It imparts a bonus of +10 more than usual.",
-                  "It is an enhancive item:",
-                  "    It provides a boost of 8 to Dexterity Base.",
-                  "    This enhancement may not be used by adventurers who have not trained 22 times.",
-                  "    It provides a boost of 3 to Edged Weapons Ranks.",
-                  "    This enhancement may not be used by adventurers who have not trained 12 times.",
-                  "    It seems to have a lot of enhancive charges remaining.",
-                  "It will persist after its last enhancive charge has been expended.",
-                  "It appears to weigh about 3 pounds.",
-                  "It is estimated to be worth about 750,000 silvers.",
-                  "It is temporarily weighted to inflict more damage, but exactly how much requires assessment.  Its temporary enhancement will degrade when it scores a successful strike.  It has quite a few uses left before the enhancement degrades away completely, which will cause the item to lose its ability to inflict greater damage.",
-                  "It is predominantly crafted of ora.",
-                  "It is a basic project (168 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by Amalynne."
-                ],
-                "tags": [
-                  "max_light",
-                  "persists"
-                ],
-                "cost": 1000000,
-                "enchant": 10,
-                "material": "ora",
-                "skill": "edged weapons",
-                "weight": 3,
-                "enhancives": [
-                  {
-                    "boost": 8,
-                    "ability": "Dexterity Base",
-                    "level": 22
-                  },
-                  {
-                    "boost": 3,
-                    "ability": "Edged Weapons Ranks",
-                    "level": 12
-                  }
-                ],
-                "is_weapon": true,
-                "weapon_type": "edged weapons",
-                "dmg_weighting": "unknown",
-                "temporary_dmg_weighting": true,
-                "item_type": "weapon"
-              }
-            },
-            {
-              "id": "162937",
-              "name": "some scarred light leather",
-              "details": {
-                "raw": [
-                  "It has a small enchanter's glyph.",
-                  "The leather is leather armor that covers the torso only.",
-                  "The leather can be worn around the chest.  The leather appears to serve some purpose.",
-                  "It looks like this item has been mainly crafted out of leather, an extremely common material.",
-                  "Analysis of some scarred light leather indicates the item is free from merchant alteration restrictions.",
-                  "You might be able to have a talented merchant lighten the light leather for you.",
-                  "The light leather will cost 1,000,000 coins.",
-                  "It imparts a bonus of +20 more than usual.",
-                  "It is an enhancive item:",
-                  "    It provides a boost of 13 to Intuition Base.",
-                  "    This enhancement may not be used by adventurers who have not trained 37 times.",
-                  "    It provides a boost of 10 to First Aid Bonus.",
-                  "    This enhancement may not be used by adventurers who have not trained 22 times.",
-                  "    It seems to have a lot of enhancive charges remaining.",
-                  "It will persist after its last enhancive charge has been expended.",
-                  "It is moderately resistant (14%) to vacuum attacks.",
-                  "It appears to weigh about 8 pounds.",
-                  "It is estimated to be worth about 750,000 silvers.",
-                  "It is predominantly crafted of leather.",
-                  "It is a simple project (70 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by Amalynne."
-                ],
-                "tags": [
-                  "purpose",
-                  "lightenable",
-                  "persists"
-                ],
-                "cost": 1000000,
-                "enchant": 20,
-                "material": "leather",
-                "weight": 8,
-                "worn": "chest",
-                "enhancives": [
-                  {
-                    "boost": 13,
-                    "ability": "Intuition Base",
-                    "level": 37
-                  },
-                  {
-                    "boost": 10,
-                    "ability": "First Aid Bonus",
-                    "level": 22
-                  }
-                ],
-                "is_armor": true,
-                "armor_type": "leather",
-                "wear_location": "torso only",
-                "item_type": "armor"
-              }
-            },
-            {
               "id": "162935",
               "name": "a delicate platinum crown",
               "details": {
@@ -12481,6 +12323,115 @@
                 "wear_location": "anywhere on the body",
                 "item_type": null
               }
+            },
+            {
+              "id": "824396605",
+              "name": "a golden imflass scroll tube",
+              "browse_price": 1500000,
+              "raw_inspect": [
+                "It is estimated that a golden imflass scroll tube can store a large amount with enough space for a number of items.",
+                "The tube can be worn, attaching it to the belt.  The tube appears to serve some purpose.",
+                "Analysis of a golden imflass scroll tube indicates the item is free from merchant alteration restrictions.",
+                "You can tell that the tube is as light as it can get and that its pockets could not possibly get any deeper.",
+                "The imflass scroll tube will cost 1,500,000 coins."
+              ]
+            },
+            {
+              "id": "824386127",
+              "name": "some fractured black doomstone skull-buttoned dark ice blue lich boots",
+              "browse_price": 500000,
+              "raw_inspect": [
+                "You notice the crafting mark of The Infamous Darrgo Brimholt the Epic Adventurer on the sole.",
+                "There is nothing there to read.",
+                "You carefully inspect the ice blue lich boots.",
+                "It is estimated that some fractured black doomstone skull-buttoned dark ice blue lich boots can store a very small amount with enough space for a couple of items.",
+                "The boots can be worn on the feet.  The boots appear to serve some purpose.",
+                "Analysis of some fractured black doomstone skull-buttoned dark ice blue lich boots indicates the creator has provided the following information:",
+                "This is footwear crafted by a skilled artisan.",
+                "Additional scripts have been applied to the ice blue lich boots and may have separate alteration restrictions.",
+                "Some fractured black doomstone skull-buttoned dark ice blue lich boots has been modified by a fully unlocked metal punch to allow you to TAP, RUB, KICK, RAISE, TURN, BOW, TOUCH, or POKE the boots.  If you're wedded, target AT your spouse for alternative messaging.",
+                "You might be able to have a talented merchant lighten the ice blue lich boots for you or deepen their pockets.",
+                "The ice blue lich boots will cost 500,000 coins."
+              ]
+            },
+            {
+              "id": "824387855",
+              "name": "a pair of midnight blue leather gauntlets sporting rolaren talons",
+              "browse_price": 1500000,
+              "raw_inspect": [
+                "It has a small enchanter's glyph.",
+                "The blue leather gauntlets are suitable for use in unarmed combat.",
+                "The gauntlets can be worn on the hands.  The gauntlets appear to serve some purpose.",
+                "It looks like this item has been mainly crafted out of leather, an extremely common material.",
+                "Analysis of a pair of midnight blue leather gauntlets sporting rolaren talons indicates the creator has provided the following information:",
+                "Realm Weapon - This is a realm weapon that has the ability to change its flare based on what realm you are in.  It may be freely altered by any willing merchant.",
+                "You can tell that the gauntlets are as light as they can get.",
+                "The blue leather gauntlets will cost 1,500,000 coins."
+              ]
+            },
+            {
+              "id": "824386069",
+              "name": "an adamantine greatshield",
+              "browse_price": 45000000,
+              "raw_inspect": [
+                "You see nothing unusual.",
+                "The greatshield is a tower shield that protects the bearer if carried in the left hand.  It is spiked.",
+                "It appears to be of perfect craftmanship.",
+                "The greatshield can be worn, slinging it across the shoulders and back.  The greatshield appears to serve some purpose.",
+                "It looks like this item has been mainly crafted out of adamantine, an extremely rare metal.  It cannot be used in alterations.  Adamantine cannot be added as an adornment due to its unique and innate qualities, with the exception of being used as an accent for combat items that share the material's innate qualities.",
+                "Analysis of an adamantine greatshield indicates the creator has provided the following information:",
+                "This adamantine greatshield may be altered by any merchant who is comfortable doing so.  Each form (shield and wrist worn) may have its own individual long description OR a short description (15/15/15) and a SHOW.  Each form may also have something in the READ area.  The material the greatshield is made of MAY NOT be altered for any reason, in either form.  Alterations must adhere to alteration guidelines and be appropriate for each items.  It is strongly suggested that EACH form be REGISTERED.  While in wristworn form, the shield will be weightless.",
+                "This adamantine greatshield is AUCTION quality and is a very limited release.  The following verbs are available:",
+                "ATTEND, BOW, CLEAN, CLENCH, DUST, HOLD, PULL, PUSH, RAISE, REMOVE, RUB, SLAP, TILT, TOUCH, WAVE, and WEAR",
+                "You can tell that the greatshield is as light as it can get.",
+                "The adamantine greatshield will cost 45,000,000 coins.",
+                "It imparts a bonus of +7 more than usual.",
+                "It is a holy item.",
+                "It appears to weigh about 6 pounds.",
+                "It is estimated to be worth about 61,000 silvers.",
+                "It is spiked.",
+                "It is predominantly crafted of purified adamantine of perfect quality.",
+                "It is an involved project (222 difficulty) for an adventurer to modify.",
+                "It has some unknown (scripted) benefit.",
+                "It has a permanently unlocked loresong by Vonaq."
+              ]
+            },
+            {
+              "id": "824386068",
+              "name": "some dark leather scalemail",
+              "browse_price": 7500000,
+              "raw_inspect": [
+                "It has a small enchanter's glyph.  A strange necrotic haze radiates from the scalemail.",
+                "The scalemail is scale armor that covers the torso, arms, legs, neck, and head.",
+                "The scalemail can be worn around the chest.  The scalemail appears to serve some purpose.",
+                "It looks like this item has been mainly crafted out of leather, an extremely common material.",
+                "Analysis of some dark leather scalemail indicates the item is free from merchant alteration restrictions.",
+                "You can tell that the scalemail is as light as it can get.",
+                "The leather scalemail will cost 7,500,000 coins.",
+                "It imparts a bonus of +25 more than usual.",
+                "It appears to weigh about 13 pounds.",
+                "It is estimated to be worth about 2,000,000 silvers.",
+                "It is padded against critical blows, but exactly how much requires assessment.",
+                "It is predominantly crafted of leather.",
+                "It has been ensorcelled 1 time.",
+                "It is a basic project (154 difficulty) for an adventurer to modify.",
+                "It has a permanently unlocked loresong by Zoru."
+              ]
+            },
+            {
+              "id": "824386129",
+              "name": "a pair of leather gauntlets with reticulated eonake fingers",
+              "browse_price": 1500000,
+              "raw_inspect": [
+                "It has a small enchanter's glyph.",
+                "The leather gauntlets are suitable for use in unarmed combat.",
+                "The gauntlets can be worn on the hands.  The gauntlets appear to serve some purpose.",
+                "It looks like this item has been mainly crafted out of leather, an extremely common material.",
+                "Analysis of a pair of leather gauntlets with reticulated eonake fingers indicates the creator has provided the following information:",
+                "Realm Weapon - This is a realm weapon that has the ability to change its flare based on what realm you are in.  It may be freely altered by any willing merchant.",
+                "You can tell that the gauntlets are as light as they can get.",
+                "The leather gauntlets will cost 1,500,000 coins."
+              ]
             }
           ]
         },
@@ -13244,58 +13195,6 @@
               }
             },
             {
-              "id": "162961",
-              "name": "a haon-handled ora handaxe",
-              "details": {
-                "raw": [
-                  "The handaxe is a handaxe that requires skill in edged weapons to use effectively.",
-                  "It looks like this item has been mainly crafted out of ora, an uncommon metal.",
-                  "Analysis of a haon-handled ora handaxe indicates the item is free from merchant alteration restrictions.",
-                  "You might be able to have a talented merchant lighten the ora handaxe for you.",
-                  "The ora handaxe will cost 500,000 coins.",
-                  "It imparts a bonus of +10 more than usual.",
-                  "It is an enhancive item:",
-                  "    It provides a boost of 4 to Dodging Bonus.",
-                  "    This enhancement may not be used by adventurers who have not trained 6 times.",
-                  "    It provides a boost of 5 to Strength Bonus.",
-                  "    This enhancement may not be used by adventurers who have not trained 42 times.",
-                  "    It seems to have more than your average dwarf could count enhancive charges remaining.",
-                  "It will persist after its last enhancive charge has been expended.",
-                  "It appears to weigh about 6 pounds.",
-                  "It is estimated to be worth about 850,000 silvers.",
-                  "It is weighted to inflict more damage, but exactly how much requires assessment.",
-                  "It is predominantly crafted of ora.",
-                  "It is a simple project (49 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by Imrys."
-                ],
-                "tags": [
-                  "lightenable",
-                  "persists"
-                ],
-                "cost": 500000,
-                "enchant": 10,
-                "material": "ora",
-                "skill": "edged weapons",
-                "weight": 6,
-                "enhancives": [
-                  {
-                    "boost": 4,
-                    "ability": "Dodging Bonus",
-                    "level": 6
-                  },
-                  {
-                    "boost": 5,
-                    "ability": "Strength Bonus",
-                    "level": 42
-                  }
-                ],
-                "is_weapon": true,
-                "weapon_type": "edged weapons",
-                "dmg_weighting": "unknown",
-                "item_type": "weapon"
-              }
-            },
-            {
               "id": "162965",
               "name": "a star-cut dragonfire opal crown",
               "details": {
@@ -13669,66 +13568,6 @@
                 ],
                 "wear_location": "around the neck",
                 "item_type": null
-              }
-            },
-            {
-              "id": "425494526",
-              "name": "some spiked ora arm greaves",
-              "details": {
-                "raw": [
-                  "The greaves is miscellaneous armor that covers the arms.  It is spiked.",
-                  "The greaves can be worn around the arms.  The greaves appear to serve some purpose.",
-                  "It looks like this item has been mainly crafted out of ora, an uncommon metal.",
-                  "Analysis of some spiked ora arm greaves indicates the item is free from merchant alteration restrictions.",
-                  "You might be able to have a talented merchant lighten the ora arm greaves for you.",
-                  "The ora arm greaves will cost 750,000 coins.",
-                  "It is an enhancive item:",
-                  "    It provides a boost of 4 to Influence Bonus.",
-                  "    This enhancement may not be used by adventurers who have not trained 14 times.",
-                  "    It provides a boost of 4 to Perception Ranks.",
-                  "    This enhancement may not be used by adventurers who have not trained 14 times.",
-                  "    It provides a boost of 1 to Strength Bonus.",
-                  "    This enhancement may not be used by adventurers who have not trained 3 times.",
-                  "    It seems to have a lot of enhancive charges remaining.",
-                  "It will persist after its last enhancive charge has been expended.",
-                  "It appears to weigh about 5 pounds.",
-                  "It is estimated to be worth about 500,000 silvers.",
-                  "It is spiked.",
-                  "It is predominantly crafted of ora.",
-                  "It is a simple project (17 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by Gouvilent."
-                ],
-                "tags": [
-                  "spiked",
-                  "lightenable",
-                  "persists",
-                  "spiked"
-                ],
-                "cost": 750000,
-                "material": "ora",
-                "weight": 5,
-                "worn": "arms",
-                "enhancives": [
-                  {
-                    "boost": 4,
-                    "ability": "Influence Bonus",
-                    "level": 14
-                  },
-                  {
-                    "boost": 4,
-                    "ability": "Perception Ranks",
-                    "level": 14
-                  },
-                  {
-                    "boost": 1,
-                    "ability": "Strength Bonus",
-                    "level": 3
-                  }
-                ],
-                "is_armor": true,
-                "armor_type": "accessory",
-                "wear_location": "arms",
-                "item_type": "armor"
               }
             },
             {
@@ -16247,6 +16086,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -16272,6 +16112,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -16297,6 +16138,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -16322,6 +16164,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -16350,6 +16193,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -16381,6 +16225,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -16410,6 +16255,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -16438,6 +16284,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -16466,6 +16313,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -16494,6 +16342,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -16519,6 +16368,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -16548,6 +16398,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -16572,6 +16423,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -17422,6 +17274,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 250000,
@@ -17708,6 +17561,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 1000000,
@@ -18815,6 +18669,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -20898,9 +20753,6 @@
                 ],
                 "is_weapon": true,
                 "weapon_type": "edged weapons",
-                "flares": [
-                  "a disrupting substance"
-                ],
                 "item_type": "weapon"
               }
             },
@@ -23468,9 +23320,6 @@
                 ],
                 "is_weapon": true,
                 "weapon_type": "twohanded weapons",
-                "flares": [
-                  "a disrupting substance"
-                ],
                 "item_type": "weapon"
               }
             }
@@ -25295,9 +25144,6 @@
                 ],
                 "is_weapon": true,
                 "weapon_type": "twohanded weapons",
-                "flares": [
-                  "a disrupting substance"
-                ],
                 "item_type": "weapon"
               }
             },
@@ -26377,6 +26223,7 @@
                   "max_deep",
                   "max_light",
                   "small",
+                  "container",
                   "container"
                 ],
                 "cost": 750000,
@@ -26406,6 +26253,7 @@
                   "max_deep",
                   "max_light",
                   "small",
+                  "container",
                   "container"
                 ],
                 "cost": 750000,
@@ -26435,6 +26283,7 @@
                   "max_deep",
                   "max_light",
                   "small",
+                  "container",
                   "container"
                 ],
                 "cost": 750000,
@@ -26464,6 +26313,7 @@
                   "max_deep",
                   "max_light",
                   "small",
+                  "container",
                   "container"
                 ],
                 "cost": 750000,
@@ -26517,6 +26367,7 @@
                   "The yellow clay vase will cost 500,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 500000,
@@ -28542,6 +28393,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 299999,
@@ -28572,6 +28424,7 @@
                 "tags": [
                   "max_deep",
                   "max_light",
+                  "container",
                   "container"
                 ],
                 "cost": 499999,
@@ -28604,6 +28457,7 @@
                 ],
                 "tags": [
                   "small",
+                  "container",
                   "container"
                 ],
                 "cost": 2999999,
@@ -28968,6 +28822,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 999999,
@@ -29773,6 +29628,7 @@
                   "purpose",
                   "lightenable",
                   "magic_resistant",
+                  "container",
                   "container"
                 ],
                 "cost": 1000000,
@@ -30168,6 +30024,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container"
                 ],
                 "cost": 14999999,
@@ -30238,6 +30095,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container"
                 ],
                 "cost": 4999999,
@@ -30628,6 +30486,7 @@
                   "The glass jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -30652,6 +30511,7 @@
                   "The tall glass jar will cost 220,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 220000,
@@ -30676,6 +30536,7 @@
                   "The glass jar will cost 220,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 220000,
@@ -30700,6 +30561,7 @@
                   "The glass jar will cost 220,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 220000,
@@ -30724,6 +30586,7 @@
                   "The glass jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -30748,6 +30611,7 @@
                   "The glass jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -30809,6 +30673,7 @@
                   "The glass jar will cost 2,000,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 2000000,
@@ -30833,6 +30698,7 @@
                   "The glass jar will cost 2,000,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 2000000,
@@ -30967,6 +30833,7 @@
                   "The yellow clay vase will cost 1,000,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 1000000,
@@ -33148,9 +33015,6 @@
                 "worn": "shoulders",
                 "shield_type": "small",
                 "is_shield": true,
-                "flares": [
-                  "a grappling force"
-                ],
                 "item_type": "shield"
               }
             },
@@ -34443,9 +34307,6 @@
                 ],
                 "is_weapon": true,
                 "weapon_type": "twohanded weapons",
-                "flares": [
-                  "a disrupting substance"
-                ],
                 "item_type": "weapon"
               }
             },
@@ -36247,6 +36108,7 @@
                 "tags": [
                   "holy",
                   "small",
+                  "container",
                   "container"
                 ],
                 "cost": 20000000,
@@ -41150,6 +41012,7 @@
                   "The shimmering pink bottle will cost 449,999 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 449999,
@@ -41175,6 +41038,7 @@
                   "The skull-shaped jar will cost 449,999 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 449999,
@@ -41512,6 +41376,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 500000,
@@ -41534,6 +41399,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 30000,
@@ -41599,6 +41465,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 2000000,
@@ -41627,6 +41494,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 1000000,
@@ -41687,6 +41555,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -41710,6 +41579,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -41751,6 +41621,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -41774,6 +41645,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 200000,
@@ -42745,6 +42617,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -42931,6 +42804,7 @@
                   "The brown glass jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -46781,6 +46655,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container"
                 ],
                 "cost": 15000,
@@ -46918,6 +46793,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container"
                 ],
                 "cost": 1000000,
@@ -46941,6 +46817,7 @@
                 ],
                 "tags": [
                   "max_deep",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -46964,6 +46841,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 15000,
@@ -46990,6 +46868,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -47044,6 +46923,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -47069,6 +46949,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 5000,
@@ -47095,6 +46976,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -47122,6 +47004,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container"
                 ],
                 "cost": 80000,
@@ -47146,6 +47029,7 @@
                 ],
                 "tags": [
                   "max_deep",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -47169,6 +47053,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 35000,
@@ -47812,6 +47697,7 @@
                   "The square glass bottle will cost 15,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 15000,
@@ -47836,6 +47722,7 @@
                   "The square glass bottle will cost 15,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 15000,
@@ -49712,9 +49599,6 @@
                 ],
                 "is_weapon": true,
                 "weapon_type": "twohanded weapons",
-                "flares": [
-                  "a disrupting substance"
-                ],
                 "item_type": "weapon"
               }
             },
@@ -51674,6 +51558,7 @@
                 "tags": [
                   "small",
                   "magic_resistant",
+                  "container",
                   "container"
                 ],
                 "cost": 200000,
@@ -51706,6 +51591,7 @@
                 "tags": [
                   "small",
                   "magic_resistant",
+                  "container",
                   "container"
                 ],
                 "cost": 200000,
@@ -51738,6 +51624,7 @@
                 "tags": [
                   "small",
                   "magic_resistant",
+                  "container",
                   "container"
                 ],
                 "cost": 200000,
@@ -51770,6 +51657,7 @@
                 "tags": [
                   "small",
                   "magic_resistant",
+                  "container",
                   "container"
                 ],
                 "cost": 200000,
@@ -51802,6 +51690,7 @@
                 "tags": [
                   "small",
                   "magic_resistant",
+                  "container",
                   "container"
                 ],
                 "cost": 200000,
@@ -51834,6 +51723,7 @@
                 "tags": [
                   "small",
                   "magic_resistant",
+                  "container",
                   "container"
                 ],
                 "cost": 200000,
@@ -51891,6 +51781,7 @@
                 ],
                 "tags": [
                   "small",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -53049,6 +52940,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -53294,6 +53186,7 @@
                   "The vaalin-sigiled gloves will cost 750,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 750000,
@@ -53344,6 +53237,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 4500000,
@@ -53389,6 +53283,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 12000,
@@ -53743,9 +53638,6 @@
                 "weight": 12,
                 "is_weapon": true,
                 "weapon_type": "twohanded weapons",
-                "flares": [
-                  "a disrupting substance"
-                ],
                 "dmg_weighting": "unknown",
                 "temporary_dmg_weighting": true,
                 "item_type": "weapon"
@@ -54019,6 +53911,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -54045,6 +53938,7 @@
                   "purpose",
                   "max_deep",
                   "max_light",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -54068,6 +53962,7 @@
                   "The ruddy stouthide poulaines will cost 50,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -54095,6 +53990,7 @@
                   "purpose",
                   "max_deep",
                   "max_light",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -54122,6 +54018,7 @@
                   "purpose",
                   "max_deep",
                   "max_light",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -54149,6 +54046,7 @@
                   "purpose",
                   "max_deep",
                   "max_light",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -54195,6 +54093,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -54443,6 +54342,7 @@
                 "tags": [
                   "purpose",
                   "max_deep",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -54519,6 +54419,7 @@
                 ],
                 "tags": [
                   "max_deep",
+                  "container",
                   "container"
                 ],
                 "cost": 5000,
@@ -54544,6 +54445,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container"
                 ],
                 "cost": 5000,
@@ -55756,6 +55658,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container"
                 ],
                 "cost": 3000000,
@@ -56335,6 +56238,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 950000,
@@ -56366,6 +56270,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 950000,
@@ -56432,6 +56337,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 950000,
@@ -56467,6 +56373,7 @@
                 "tags": [
                   "purpose",
                   "max_deep",
+                  "container",
                   "container"
                 ],
                 "cost": 750000,
@@ -56500,6 +56407,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 750000,
@@ -56536,6 +56444,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 750000,
@@ -56775,6 +56684,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container"
                 ],
                 "cost": 150000,
@@ -56837,6 +56747,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 3250000,
@@ -56921,6 +56832,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 2500000,
@@ -56971,6 +56883,7 @@
                 "tags": [
                   "purpose",
                   "max_deep",
+                  "container",
                   "container"
                 ],
                 "cost": 1500000,
@@ -57033,9 +56946,6 @@
                 ],
                 "is_weapon": true,
                 "weapon_type": "twohanded weapons",
-                "flares": [
-                  "a disrupting substance"
-                ],
                 "item_type": "weapon"
               }
             }
@@ -57117,6 +57027,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -57165,6 +57076,7 @@
                 "tags": [
                   "purpose",
                   "max_deep",
+                  "container",
                   "container"
                 ],
                 "cost": 750000,
@@ -57224,6 +57136,7 @@
                   "purpose",
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 2500000,
@@ -57631,6 +57544,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -57655,6 +57569,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -57679,6 +57594,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -57703,6 +57619,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -57804,6 +57721,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -57827,6 +57745,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -57879,6 +57798,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container"
                 ],
                 "cost": 35000,
@@ -58023,6 +57943,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -58046,6 +57967,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 15000,
@@ -58265,6 +58187,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 5000,
@@ -58505,9 +58428,6 @@
                 "worn": "shoulders",
                 "shield_type": "medium",
                 "is_shield": true,
-                "flares": [
-                  "a disrupting substance"
-                ],
                 "item_type": "shield"
               }
             },
@@ -59090,6 +59010,7 @@
                   "The skull-shaped jar will cost 600,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 600000,
@@ -59115,6 +59036,7 @@
                   "The skull-shaped jar will cost 4,000,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 4000000,
@@ -60041,6 +59963,7 @@
                   "The glass jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -60065,6 +59988,7 @@
                   "The glass jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -61155,6 +61079,7 @@
                 "tags": [
                   "holy",
                   "small",
+                  "container",
                   "container"
                 ],
                 "cost": 5000000,
@@ -61710,6 +61635,7 @@
                   "The tall glass jar will cost 180,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 180000,
@@ -61734,6 +61660,7 @@
                   "The tall glass jar will cost 180,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 180000,
@@ -61758,6 +61685,7 @@
                   "The tall glass jar will cost 180,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 180000,
@@ -61782,6 +61710,7 @@
                   "The tall glass jar will cost 180,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 180000,
@@ -61806,6 +61735,7 @@
                   "The tall glass jar will cost 180,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 180000,
@@ -61830,6 +61760,7 @@
                   "The tall glass jar will cost 180,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 180000,
@@ -61854,6 +61785,7 @@
                   "The tall glass jar will cost 180,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 180000,
@@ -61878,6 +61810,7 @@
                   "The tall glass jar will cost 180,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 180000,
@@ -62252,6 +62185,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 2000000,
@@ -62297,9 +62231,6 @@
                 "is_armor": true,
                 "armor_type": "accessory",
                 "wear_location": "head",
-                "flares": [
-                  "a disrupting substance"
-                ],
                 "blessing": "holy",
                 "item_type": "armor"
               }
@@ -63225,6 +63156,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container"
                 ],
                 "cost": 1000000,
@@ -65560,6 +65492,33 @@
                 "is_jewelry": true,
                 "item_type": "jewelry"
               }
+            },
+            {
+              "id": "823604671",
+              "name": "a tooled alexandrite earcuff",
+              "browse_price": 1500000,
+              "raw_inspect": [
+                "It is difficult to see the alexandrite earcuff clearly from this distance.",
+                "The earcuff can be worn, hanging it from the ear.  The earcuff appears to serve some purpose.",
+                "Analysis of a tooled alexandrite earcuff indicates the item is free from merchant alteration restrictions.",
+                "You get no sense of whether or not the earcuff may be further lightened.",
+                "The alexandrite earcuff will cost 1,500,000 coins.",
+                "It is an enhancive item:",
+                "    It provides a boost of 6 to Arcane Symbols Bonus.",
+                "    This enhancement may not be used by adventurers who have not trained 28 times.",
+                "    It provides a boost of 6 to Multi Opponent Combat Bonus.",
+                "    This enhancement may not be used by adventurers who have not trained 42 times.",
+                "    It provides a boost of 2 to First Aid Bonus.",
+                "    This enhancement may not be used by adventurers who have not trained 2 times.",
+                "    It provides a boost of 3 to Brawling Bonus.",
+                "    This enhancement may not be used by adventurers who have not trained 6 times.",
+                "    It seems to have a lot of enhancive charges remaining.",
+                "It will crumble into dust after its last enhancive charge has been expended.",
+                "It is a small item, under a pound.",
+                "It is estimated to be worth about 350,000 silvers.",
+                "It is magic resistant.",
+                "It has a permanently unlocked loresong by Sarowyn."
+              ]
             }
           ],
           "sign": [
@@ -71359,6 +71318,7 @@
                   "purpose",
                   "max_deep",
                   "max_light",
+                  "container",
                   "container"
                 ],
                 "cost": 20000000,
@@ -72007,9 +71967,6 @@
                 ],
                 "is_weapon": true,
                 "weapon_type": "twohanded weapons",
-                "flares": [
-                  "a disrupting substance"
-                ],
                 "blessing": "holy",
                 "item_type": "weapon"
               }
@@ -73823,6 +73780,7 @@
                   "The tall glass jar will cost 44,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 44000,
@@ -73847,6 +73805,7 @@
                   "The tall glass jar will cost 44,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 44000,
@@ -73871,6 +73830,7 @@
                   "The tall glass jar will cost 44,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 44000,
@@ -73895,6 +73855,7 @@
                   "The tall glass jar will cost 44,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 44000,
@@ -73964,6 +73925,7 @@
                   "The tall glass jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -74000,6 +73962,7 @@
                   "The tall glass jar will cost 39,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 39000,
@@ -74024,6 +73987,7 @@
                   "The glaes jar will cost 39,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 39000,
@@ -74048,6 +74012,7 @@
                   "The tall glass jar will cost 20,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 20000,
@@ -75240,6 +75205,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -75268,6 +75234,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -75296,6 +75263,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -75324,6 +75292,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -76120,6 +76089,7 @@
                   "The jadewood basket will cost 3,750,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 3750000,
@@ -76519,6 +76489,7 @@
                   "The teadragon box will cost 5,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 5000,
@@ -77116,6 +77087,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 300000,
@@ -77142,6 +77114,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 300000,
@@ -77168,6 +77141,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 300000,
@@ -77197,6 +77171,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -77225,6 +77200,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 200000,
@@ -77253,6 +77229,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 200000,
@@ -77281,6 +77258,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 200000,
@@ -77309,6 +77287,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 150000,
@@ -77337,6 +77316,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 150000,
@@ -77365,6 +77345,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 150000,
@@ -77393,6 +77374,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 150000,
@@ -77421,6 +77403,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 150000,
@@ -77449,6 +77432,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 150000,
@@ -77477,6 +77461,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 150000,
@@ -77505,6 +77490,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 150000,
@@ -77533,6 +77519,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 150000,
@@ -77561,6 +77548,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 150000,
@@ -77589,6 +77577,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 150000,
@@ -77714,6 +77703,7 @@
                   "The mahogany box will cost 10,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -77739,6 +77729,7 @@
                   "The charcoal-drawn box will cost 10,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -77776,6 +77767,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -77804,6 +77796,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 150000,
@@ -77832,6 +77825,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -77860,6 +77854,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -77888,6 +77883,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 150000,
@@ -77916,6 +77912,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 150000,
@@ -77944,6 +77941,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 150000,
@@ -77972,6 +77970,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -78000,6 +77999,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -78028,6 +78028,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -78056,6 +78057,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -78148,6 +78150,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 10000000,
@@ -80814,6 +80817,7 @@
                   "The glass jar will cost 20,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 20000,
@@ -80838,6 +80842,7 @@
                   "The glass jar will cost 20,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 20000,
@@ -80862,6 +80867,7 @@
                   "The glass jar will cost 20,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 20000,
@@ -80886,6 +80892,7 @@
                   "The glass jar will cost 20,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 20000,
@@ -82451,6 +82458,7 @@
                   "max_deep",
                   "max_light",
                   "magic_resistant",
+                  "container",
                   "container"
                 ],
                 "cost": 5000000,
@@ -82599,6 +82607,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container"
                 ],
                 "cost": 250000,
@@ -82929,6 +82938,7 @@
                   "The thick glass jar will cost 95,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 95000,
@@ -83160,6 +83170,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -83908,6 +83919,7 @@
                   "purpose",
                   "max_deep",
                   "max_light",
+                  "container",
                   "container"
                 ],
                 "cost": 500000,
@@ -83932,6 +83944,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 1000000,
@@ -83959,6 +83972,7 @@
                   "purpose",
                   "max_deep",
                   "max_light",
+                  "container",
                   "container"
                 ],
                 "cost": 4000000,
@@ -85414,6 +85428,7 @@
                   "The thick glass jar will cost 550 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 550,
