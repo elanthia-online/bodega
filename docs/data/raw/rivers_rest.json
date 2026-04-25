@@ -1,6 +1,6 @@
 {
-  "created_at": "2026-04-25 14:40:44 UTC",
-  "run_time": "05s",
+  "created_at": "2026-04-25 16:35:20 UTC",
+  "run_time": "03s",
   "town": "River's Rest",
   "shops": [
     {
@@ -128,6 +128,7 @@
                   "lightenable",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 2500000,
@@ -178,6 +179,7 @@
                 "tags": [
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 10000000,
@@ -205,6 +207,7 @@
                   "The veniom air wizard will cost 10,000,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container"
@@ -259,6 +262,7 @@
                   "The black cigar will cost 1,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container"
@@ -1332,6 +1336,7 @@
                   "max_light",
                   "small",
                   "magic_resistant",
+                  "container",
                   "container",
                   "container",
                   "container"
@@ -2591,6 +2596,7 @@
                 "tags": [
                   "holy",
                   "small",
+                  "container",
                   "container",
                   "container",
                   "container"
@@ -4143,6 +4149,7 @@
                   "max_light",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 4000000,
@@ -4893,6 +4900,7 @@
                   "deepenable",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 40000,
@@ -5019,6 +5027,7 @@
                   "deepenable",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -5049,6 +5058,7 @@
                   "deepenable",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -5076,6 +5086,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container"
@@ -5124,6 +5135,7 @@
                 "tags": [
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -5154,6 +5166,7 @@
                   "deepenable",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -5180,6 +5193,7 @@
                   "The glass jar will cost 20,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container"
@@ -5244,6 +5258,7 @@
                   "The thrak hide gloves will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container"
@@ -6380,6 +6395,7 @@
                   "purpose",
                   "lightenable",
                   "persists",
+                  "container",
                   "container",
                   "container",
                   "container"
@@ -7701,6 +7717,7 @@
                   "small",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -7957,6 +7974,7 @@
                   "small",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -7984,6 +8002,7 @@
                 ],
                 "tags": [
                   "max_deep",
+                  "container",
                   "container",
                   "container",
                   "container"
@@ -8016,6 +8035,7 @@
                   "lightenable",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -8030,66 +8050,90 @@
             {
               "id": "12437293",
               "name": "a circular iron sunburst marker",
-              "browse_price": 1000000,
-              "raw_inspect": [
-                "A iron sunburst swirls out from the center of the marker toward runic writing around the circular edge.  Bearer entitled to entry into Rumor Woods.  It currently has 3 entries left.",
-                "The marker can not be worn.",
-                "It looks like this item has been mainly crafted out of metal, an extremely common material.",
-                "Analysis of a circular iron sunburst marker indicates the creator has provided the following information:",
-                "REDEEM this as this isn't valid anymore!",
-                "You get no sense of whether or not the marker may be further lightened.",
-                "The iron sunburst marker will cost 1,000,000 coins."
-              ]
+              "details": {
+                "raw": [
+                  "A iron sunburst swirls out from the center of the marker toward runic writing around the circular edge.  Bearer entitled to entry into Rumor Woods.  It currently has 3 entries left.",
+                  "The marker can not be worn.",
+                  "It looks like this item has been mainly crafted out of metal, an extremely common material.",
+                  "Analysis of a circular iron sunburst marker indicates the creator has provided the following information:",
+                  "REDEEM this as this isn't valid anymore!",
+                  "The iron sunburst marker will cost 1,000,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 1000000,
+                "material": "metal, an extremely common material",
+                "wear_location": "circular edge",
+                "item_type": null
+              }
             },
             {
               "id": "12437294",
               "name": "a dull scholar's card",
-              "browse_price": 500000,
-              "raw_inspect": [
-                "The scholar's card is pitch black with a dull cerulean swirl displaying the Rings of Lumnis.  This card grants travel to the trials on Liabo.  It is valid for 3 trips.  It has not been used yet.",
-                "The card can not be worn.",
-                "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
-                "Analysis of a dull scholar's card indicates the creator has provided the following information:",
-                "This card is used to travel to the Rings of Lumnis.  LOOK at it for more details.",
-                "You get no sense of whether or not the card may be further lightened.",
-                "The scholar's card will cost 500,000 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The scholar's card is pitch black with a dull cerulean swirl displaying the Rings of Lumnis.  This card grants travel to the trials on Liabo.  It is valid for 3 trips.  It has not been used yet.",
+                  "The card can not be worn.",
+                  "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
+                  "Analysis of a dull scholar's card indicates the creator has provided the following information:",
+                  "This card is used to travel to the Rings of Lumnis.  LOOK at it for more details.",
+                  "The scholar's card will cost 500,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 500000,
+                "material": "organic material, an extremely common material",
+                "item_type": null
+              }
             },
             {
               "id": "12437296",
               "name": "a stability contract",
-              "browse_price": 60000,
-              "raw_inspect": [
-                "You see nothing unusual.",
-                "Bold calligraphy states, \"This contract entitles the bearer to stabilize one's continuous presence within the lands of Elanthia.  If in agreement with this legally binding contract, please WRITE your acceptance on the contract.\"",
-                "[This will grant you 5 login bridges for use with the Login Rewards system.]",
-                "The contract can not be worn.",
-                "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
-                "Analysis of a stability contract indicates the creator has provided the following information:",
-                "This contract grants 5 login bridges.",
-                "WRITE CONTRACT to activate it and add the bridges to your total in BOOST.",
-                "BUNDLE it with other contracts like it to combine uses.",
-                "It cannot be altered.",
-                "You get no sense of whether or not the contract may be further lightened.",
-                "The stability contract will cost 60,000 coins."
-              ]
+              "details": {
+                "raw": [
+                  "Bold calligraphy states, \"This contract entitles the bearer to stabilize one's continuous presence within the lands of Elanthia.  If in agreement with this legally binding contract, please WRITE your acceptance on the contract.\"",
+                  "[This will grant you 5 login bridges for use with the Login Rewards system.]",
+                  "The contract can not be worn.",
+                  "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
+                  "Analysis of a stability contract indicates the creator has provided the following information:",
+                  "This contract grants 5 login bridges.",
+                  "WRITE CONTRACT to activate it and add the bridges to your total in BOOST.",
+                  "BUNDLE it with other contracts like it to combine uses.",
+                  "It cannot be altered.",
+                  "The stability contract will cost 60,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 60000,
+                "material": "organic material, an extremely common material",
+                "item_type": null
+              }
             },
             {
               "id": "12437297",
               "name": "a Lumnis schedule",
-              "browse_price": 150000,
-              "raw_inspect": [
-                "This delightfully colorful schedule is very eye-catching.",
-                "[This is a Gift of Lumnis Scheduling Pass.  By redeeming this, you will be able to schedule your weekly Gift of Lumnis start time for 1 use.  To redeem this, please enter REDEEM schedule.]",
-                "The schedule can not be worn.",
-                "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
-                "Analysis of a Lumnis schedule indicates the creator has provided the following information:",
-                "This schedule is a Gift of Lumnis Scheduling Pass redeemable by Free To Play characters to be able to schedule their weekly Gift of Lumnis start time  It has 1 use.",
-                "REDEEM it to activate the benefit.",
-                "It cannot be altered.",
-                "You get no sense of whether or not the schedule may be further lightened.",
-                "The Lumnis schedule will cost 150,000 coins."
-              ]
+              "details": {
+                "raw": [
+                  "This delightfully colorful schedule is very eye-catching.",
+                  "[This is a Gift of Lumnis Scheduling Pass.  By redeeming this, you will be able to schedule your weekly Gift of Lumnis start time for 1 use.  To redeem this, please enter REDEEM schedule.]",
+                  "The schedule can not be worn.",
+                  "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
+                  "Analysis of a Lumnis schedule indicates the creator has provided the following information:",
+                  "This schedule is a Gift of Lumnis Scheduling Pass redeemable by Free To Play characters to be able to schedule their weekly Gift of Lumnis start time  It has 1 use.",
+                  "REDEEM it to activate the benefit.",
+                  "It cannot be altered.",
+                  "The Lumnis schedule will cost 150,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 150000,
+                "material": "organic material, an extremely common material",
+                "item_type": null
+              }
             }
           ]
         },
@@ -8268,6 +8312,7 @@
                   "max_light",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -8298,6 +8343,7 @@
                   "purpose",
                   "max_deep",
                   "max_light",
+                  "container",
                   "container",
                   "container",
                   "container"
@@ -8359,6 +8405,7 @@
                   "max_light",
                   "deepenable",
                   "small",
+                  "container",
                   "container",
                   "container",
                   "container"
@@ -9845,6 +9892,7 @@
                   "lightenable",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 1500000,
@@ -10189,6 +10237,7 @@
                 "tags": [
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -10241,6 +10290,7 @@
                   "The card case will cost 150,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container"
@@ -10297,6 +10347,7 @@
                 "tags": [
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 200000,
@@ -10326,6 +10377,7 @@
                   "The lotus silk gloves will cost 200,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container"
@@ -10401,6 +10453,7 @@
                   "The instrument case will cost 20,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container"
@@ -14748,6 +14801,7 @@
                   "lightenable",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -14795,6 +14849,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container"
@@ -14890,6 +14945,7 @@
                   "purpose",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -14976,6 +15032,7 @@
                   "purpose",
                   "max_deep",
                   "max_light",
+                  "container",
                   "container",
                   "container",
                   "container"
@@ -15070,6 +15127,7 @@
                 "tags": [
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 90000,
@@ -15120,6 +15178,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container"
@@ -16053,6 +16112,7 @@
                 "tags": [
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 65000,
@@ -16077,6 +16137,7 @@
                   "The glass jar will cost 65,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container"
@@ -16298,6 +16359,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container"
@@ -18866,6 +18928,7 @@
                   "lightenable",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 350000,
@@ -19143,48 +19206,6 @@
                   }
                 ],
                 "wear_location": "on the head",
-                "item_type": null
-              }
-            },
-            {
-              "id": "10641610",
-              "name": "a step-cut emerald buckle",
-              "details": {
-                "raw": [
-                  "The buckle can be worn anywhere on the body.  The buckle appears to serve some purpose.",
-                  "Analysis of a step-cut emerald buckle indicates the item is free from merchant alteration restrictions.",
-                  "The emerald buckle will cost 1,500,000 coins.",
-                  "It is a magical item which could be imbedded with a spell.",
-                  "It has 0 charges.",
-                  "It could be activated by waving it.",
-                  "It will disintegrate after its last magical charge has been expended.",
-                  "It is an enhancive item:",
-                  "    It provides a boost of 4 to Strength Bonus.",
-                  "    This enhancement may not be used by adventurers who have not trained 47 times.",
-                  "    It seems to have more than your average dwarf could count enhancive charges remaining.",
-                  "It will crumble into dust after its last enhancive charge has been expended.",
-                  "It is a small item, under a pound.",
-                  "It is estimated to be worth about 600,000 silvers.",
-                  "It is magic resistant.",
-                  "It has a permanently unlocked loresong by Sarowyn."
-                ],
-                "tags": [
-                  "purpose",
-                  "imbeddable",
-                  "small",
-                  "magic_resistant"
-                ],
-                "cost": 1500000,
-                "worn": "pin",
-                "activator": "waving",
-                "enhancives": [
-                  {
-                    "boost": 4,
-                    "ability": "Strength Bonus",
-                    "level": 47
-                  }
-                ],
-                "wear_location": "anywhere on the body",
                 "item_type": null
               }
             }
