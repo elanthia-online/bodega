@@ -1,5 +1,5 @@
 {
-  "created_at": "2026-04-30 11:27:45 UTC",
+  "created_at": "2026-04-30 13:23:58 UTC",
   "run_time": "04s",
   "town": "River's Rest",
   "shops": [
@@ -126,6 +126,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 2500000,
@@ -174,6 +175,7 @@
                   "The rhimar ice wizard will cost 10,000,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 10000000,
@@ -201,6 +203,7 @@
                   "The veniom air wizard will cost 10,000,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 10000000,
@@ -253,6 +256,7 @@
                   "The black cigar will cost 1,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 1000,
@@ -1293,6 +1297,7 @@
                   "max_light",
                   "small",
                   "magic_resistant",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -2521,6 +2526,7 @@
                 "tags": [
                   "holy",
                   "small",
+                  "container",
                   "container"
                 ],
                 "cost": 2000000,
@@ -3049,9 +3055,6 @@
                 ],
                 "shield_type": "medium",
                 "is_shield": true,
-                "flares": [
-                  "a disrupting substance"
-                ],
                 "item_type": "shield"
               }
             },
@@ -3175,58 +3178,124 @@
             {
               "id": "92084575",
               "name": "some blackened ora leg greaves",
-              "browse_price": 5000000,
-              "raw_inspect": [
-                "The greaves is miscellaneous armor that covers the legs.",
-                "The greaves can be worn around the legs.  The greaves appear to serve some purpose.",
-                "It looks like this item has been mainly crafted out of ora, an uncommon metal.",
-                "Analysis of some blackened ora leg greaves indicates the item is free from merchant alteration restrictions.",
-                "You might be able to have a talented merchant lighten the ora leg greaves for you.",
-                "The ora leg greaves will cost 5,000,000 coins.",
-                "It is an enhancive item:",
-                "    It provides a boost of 11 to Intuition Base.",
-                "    This enhancement may not be used by adventurers who have not trained 27 times.",
-                "    It provides a boost of 8 to Stamina Recovery.",
-                "    This enhancement may not be used by adventurers who have not trained 22 times.",
-                "    It provides a boost of 6 to Armor Use Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 21 times.",
-                "    It seems to have a lot of enhancive charges remaining.",
-                "It will persist after its last enhancive charge has been expended.",
-                "It appears to weigh about 5 pounds.",
-                "It is estimated to be worth about 1,650,000 silvers.",
-                "It is temporarily padded against critical blows, but exactly how much requires assessment.  Its temporary enhancement will degrade when the wearer is struck in combat.  It has quite a few uses left before the enhancement degrades away completely, which will cause the item to lose its ability to grant greater protection.",
-                "It is predominantly crafted of ora.",
-                "It is a basic project (196 difficulty) for an adventurer to modify.",
-                "It has a permanently unlocked loresong by Selvren."
-              ]
+              "details": {
+                "raw": [
+                  "The greaves is miscellaneous armor that covers the legs.",
+                  "The greaves can be worn around the legs.  The greaves appear to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of ora, an uncommon metal.",
+                  "Analysis of some blackened ora leg greaves indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the ora leg greaves for you.",
+                  "The ora leg greaves will cost 5,000,000 coins.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 11 to Intuition Base.",
+                  "    This enhancement may not be used by adventurers who have not trained 27 times.",
+                  "    It provides a boost of 8 to Stamina Recovery.",
+                  "    This enhancement may not be used by adventurers who have not trained 22 times.",
+                  "    It provides a boost of 6 to Armor Use Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 21 times.",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It appears to weigh about 5 pounds.",
+                  "It is estimated to be worth about 1,650,000 silvers.",
+                  "It is temporarily padded against critical blows, but exactly how much requires assessment.  Its temporary enhancement will degrade when the wearer is struck in combat.  It has quite a few uses left before the enhancement degrades away completely, which will cause the item to lose its ability to grant greater protection.",
+                  "It is predominantly crafted of ora.",
+                  "It is a basic project (196 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Selvren."
+                ],
+                "tags": [
+                  "lightenable",
+                  "persists"
+                ],
+                "cost": 5000000,
+                "material": "ora",
+                "weight": 5,
+                "worn": "legs",
+                "enhancives": [
+                  {
+                    "boost": 11,
+                    "ability": "Intuition Base",
+                    "level": 27
+                  },
+                  {
+                    "boost": 8,
+                    "ability": "Stamina Recovery",
+                    "level": 22
+                  },
+                  {
+                    "boost": 6,
+                    "ability": "Armor Use Bonus",
+                    "level": 21
+                  }
+                ],
+                "is_armor": true,
+                "armor_type": "accessory",
+                "wear_location": "legs",
+                "crit_padding": "unknown",
+                "temporary_crit_padding": true,
+                "item_type": "armor"
+              }
             },
             {
               "id": "92084577",
               "name": "some ora leg greaves",
-              "browse_price": 500000,
-              "raw_inspect": [
-                "The greaves is miscellaneous armor that covers the legs.",
-                "The greaves can be worn around the legs.  The greaves appear to serve some purpose.",
-                "It looks like this item has been mainly crafted out of ora, an uncommon metal.",
-                "Analysis of some ora leg greaves indicates the item is free from merchant alteration restrictions.",
-                "You might be able to have a talented merchant lighten the ora leg greaves for you.",
-                "The ora leg greaves will cost 500,000 coins.",
-                "It has been infused with the power of a lightning bolt.",
-                "It is an enhancive item:",
-                "    It provides a boost of 6 to Shield Use Ranks.",
-                "    This enhancement may not be used by adventurers who have not trained 42 times.",
-                "    It provides a boost of 4 to Constitution Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 22 times.",
-                "    It provides a boost of 2 to Mana Recovery.",
-                "    This enhancement may not be used by adventurers who have not trained 6 times.",
-                "    It seems to have a lot of enhancive charges remaining.",
-                "It will persist after its last enhancive charge has been expended.",
-                "It appears to weigh about 5 pounds.",
-                "It is estimated to be worth about 1,550,000 silvers.",
-                "It is predominantly crafted of ora.",
-                "It is a basic project (146 difficulty) for an adventurer to modify.",
-                "It has a permanently unlocked loresong by Selvren."
-              ]
+              "details": {
+                "raw": [
+                  "The greaves is miscellaneous armor that covers the legs.",
+                  "The greaves can be worn around the legs.  The greaves appear to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of ora, an uncommon metal.",
+                  "Analysis of some ora leg greaves indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the ora leg greaves for you.",
+                  "The ora leg greaves will cost 500,000 coins.",
+                  "It has been infused with the power of a lightning bolt.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 6 to Shield Use Ranks.",
+                  "    This enhancement may not be used by adventurers who have not trained 42 times.",
+                  "    It provides a boost of 4 to Constitution Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 22 times.",
+                  "    It provides a boost of 2 to Mana Recovery.",
+                  "    This enhancement may not be used by adventurers who have not trained 6 times.",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It appears to weigh about 5 pounds.",
+                  "It is estimated to be worth about 1,550,000 silvers.",
+                  "It is predominantly crafted of ora.",
+                  "It is a basic project (146 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Selvren."
+                ],
+                "tags": [
+                  "lightenable",
+                  "persists"
+                ],
+                "cost": 500000,
+                "material": "ora",
+                "flare": "the power of a lightning bolt",
+                "weight": 5,
+                "worn": "legs",
+                "enhancives": [
+                  {
+                    "boost": 6,
+                    "ability": "Shield Use Ranks",
+                    "level": 42
+                  },
+                  {
+                    "boost": 4,
+                    "ability": "Constitution Bonus",
+                    "level": 22
+                  },
+                  {
+                    "boost": 2,
+                    "ability": "Mana Recovery",
+                    "level": 6
+                  }
+                ],
+                "is_armor": true,
+                "armor_type": "accessory",
+                "wear_location": "legs",
+                "flares": [
+                  "the power of a lightning bolt"
+                ],
+                "item_type": "armor"
+              }
             }
           ]
         },
@@ -4148,6 +4217,7 @@
                   "purpose",
                   "max_deep",
                   "max_light",
+                  "container",
                   "container"
                 ],
                 "cost": 4000000,
@@ -4896,6 +4966,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container"
                 ],
                 "cost": 40000,
@@ -5020,6 +5091,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -5048,6 +5120,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -5075,6 +5148,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -5119,6 +5193,7 @@
                   "The thrak hide boots will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -5147,6 +5222,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -5173,6 +5249,7 @@
                   "The glass jar will cost 20,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 20000,
@@ -5235,6 +5312,7 @@
                   "The thrak hide gloves will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -6369,6 +6447,7 @@
                   "purpose",
                   "lightenable",
                   "persists",
+                  "container",
                   "container"
                 ],
                 "cost": 1900000,
@@ -7678,34 +7757,6 @@
               }
             },
             {
-              "id": "90093396",
-              "name": "a speckled chainsil shift stitched with a cloth-of-silver prancing doe",
-              "details": {
-                "raw": [
-                  "The shift can be worn around the chest, beneath another garment.",
-                  "It looks like this item has been mainly crafted out of cloth, an extremely common material.",
-                  "Analysis of a speckled chainsil shift stitched with a cloth-of-silver prancing doe indicates the creator has provided the following information:",
-                  "This item allows you to transfer its appearance onto another compatible worn item by using the TRANSFER verb.  Hold this item in one hand and the target item in your other.  You must repeat the command within 30 seconds to confirm.",
-                  "Rules:",
-                  "   - Both items must be worn in the same location",
-                  "   - Both items must either be containers or both be non-containers",
-                  "   - If this item is a container, it must be empty before transfer",
-                  "   - The source item is destroyed after a successful transfer",
-                  "   - If the target item has a script, it must be one approved for transmogrification",
-                  "You may also use CLEAN to remove this script from the item.",
-                  "The chainsil shift will cost 30,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "cost": 30000,
-                "material": "cloth, an extremely common material",
-                "worn": "undershirt",
-                "wear_location": "around the chest",
-                "item_type": null
-              }
-            },
-            {
               "id": "31578",
               "name": "a ruby amulet",
               "details": {
@@ -7818,6 +7869,7 @@
                   "max_light",
                   "deepenable",
                   "small",
+                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -8049,6 +8101,7 @@
                 "tags": [
                   "max_deep",
                   "small",
+                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -8076,6 +8129,7 @@
                 ],
                 "tags": [
                   "max_deep",
+                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -8104,6 +8158,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -8313,6 +8368,7 @@
                   "purpose",
                   "max_deep",
                   "max_light",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -8343,6 +8399,7 @@
                   "purpose",
                   "max_deep",
                   "max_light",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -8402,6 +8459,7 @@
                   "max_light",
                   "deepenable",
                   "small",
+                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -9860,6 +9918,7 @@
                   "purpose",
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 1500000,
@@ -10202,6 +10261,7 @@
                   "The charcoal envelope will cost 10,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -10254,6 +10314,7 @@
                   "The card case will cost 150,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 150000,
@@ -10306,6 +10367,7 @@
                   "The flyrsilk gloves will cost 200,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 200000,
@@ -10335,6 +10397,7 @@
                   "The lotus silk gloves will cost 200,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 200000,
@@ -10408,6 +10471,7 @@
                   "The instrument case will cost 20,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 20000,
@@ -14566,9 +14630,6 @@
                 ],
                 "is_weapon": true,
                 "weapon_type": "twohanded weapons",
-                "flares": [
-                  "a disrupting substance"
-                ],
                 "item_type": "weapon"
               }
             },
@@ -14721,6 +14782,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -14768,6 +14830,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -14859,6 +14922,7 @@
                 ],
                 "tags": [
                   "purpose",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -14907,6 +14971,7 @@
                   "purpose",
                   "max_deep",
                   "max_light",
+                  "container",
                   "container"
                 ],
                 "cost": 1000,
@@ -14997,6 +15062,7 @@
                   "The grey elesine sandals will cost 90,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 90000,
@@ -15047,6 +15113,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 30000,
@@ -15976,6 +16043,7 @@
                   "The tall glass jar will cost 65,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 65000,
@@ -16000,6 +16068,7 @@
                   "The glass jar will cost 65,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 65000,
@@ -16219,6 +16288,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container"
                 ],
                 "cost": 500000,
@@ -18806,9 +18876,6 @@
                 ],
                 "is_weapon": true,
                 "weapon_type": "edged weapons",
-                "flares": [
-                  "a disrupting substance"
-                ],
                 "item_type": "weapon"
               }
             },
