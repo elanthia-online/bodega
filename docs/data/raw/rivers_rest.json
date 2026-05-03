@@ -1,5 +1,5 @@
 {
-  "created_at": "2026-05-03 16:41:42 UTC",
+  "created_at": "2026-05-03 18:47:31 UTC",
   "run_time": "05s",
   "town": "River's Rest",
   "shops": [
@@ -143,6 +143,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 2500000,
@@ -208,6 +209,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 10000000,
@@ -235,6 +237,7 @@
                   "The veniom air wizard will cost 10,000,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -298,6 +301,7 @@
                   "The black cigar will cost 1,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -1363,6 +1367,7 @@
                   "max_light",
                   "small",
                   "magic_resistant",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -2633,6 +2638,7 @@
                 "tags": [
                   "holy",
                   "small",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -4044,98 +4050,188 @@
             {
               "id": "28578050",
               "name": "a dented rolaren falchion",
-              "browse_price": 7500000,
-              "raw_inspect": [
-                "The falchion is a falchion that requires skill in edged weapons to use effectively.",
-                "It looks like this item has been mainly crafted out of rolaren, a very rare alloy.  It would need to be supplied to be used in an alteration and may only be used as an accent.",
-                "Analysis of a dented rolaren falchion indicates the item has certain alteration restrictions.  It would need to be supplied to be used in an alteration and may only be used as an accent.",
-                "You might be able to have a talented merchant lighten the rolaren falchion for you.",
-                "The rolaren falchion will cost 7,500,000 coins.",
-                "It imparts a bonus of +20 more than usual.",
-                "It is an enhancive item:",
-                "    It provides a boost of 16 to Intuition Base.",
-                "    This enhancement may not be used by adventurers who have not trained 55 times.",
-                "    It provides a boost of 2 to Mana Recovery.",
-                "    This enhancement may not be used by adventurers who have not trained 6 times.",
-                "    It provides a boost of 9 to Constitution Base.",
-                "    This enhancement may not be used by adventurers who have not trained 27 times.",
-                "    It provides a boost of 4 to Health Recovery.",
-                "    This enhancement may not be used by adventurers who have not trained 20 times.",
-                "    It seems to have a lot of enhancive charges remaining.",
-                "It will persist after its last enhancive charge has been expended.",
-                "It appears to weigh about 5 pounds.",
-                "It is estimated to be worth about 850,000 silvers.",
-                "It is predominantly crafted of rolaren.",
-                "It is a basic project (108 difficulty) for an adventurer to modify.",
-                "It has a permanently unlocked loresong by Selvren."
-              ]
+              "details": {
+                "raw": [
+                  "The falchion is a falchion that requires skill in edged weapons to use effectively.",
+                  "It looks like this item has been mainly crafted out of rolaren, a very rare alloy.  It would need to be supplied to be used in an alteration and may only be used as an accent.",
+                  "Analysis of a dented rolaren falchion indicates the item has certain alteration restrictions.  It would need to be supplied to be used in an alteration and may only be used as an accent.",
+                  "You might be able to have a talented merchant lighten the rolaren falchion for you.",
+                  "The rolaren falchion will cost 7,500,000 coins.",
+                  "It imparts a bonus of +20 more than usual.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 16 to Intuition Base.",
+                  "    This enhancement may not be used by adventurers who have not trained 55 times.",
+                  "    It provides a boost of 2 to Mana Recovery.",
+                  "    This enhancement may not be used by adventurers who have not trained 6 times.",
+                  "    It provides a boost of 9 to Constitution Base.",
+                  "    This enhancement may not be used by adventurers who have not trained 27 times.",
+                  "    It provides a boost of 4 to Health Recovery.",
+                  "    This enhancement may not be used by adventurers who have not trained 20 times.",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It appears to weigh about 5 pounds.",
+                  "It is estimated to be worth about 850,000 silvers.",
+                  "It is predominantly crafted of rolaren.",
+                  "It is a basic project (108 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Selvren."
+                ],
+                "tags": [
+                  "lightenable",
+                  "persists"
+                ],
+                "cost": 7500000,
+                "enchant": 20,
+                "material": "rolaren",
+                "skill": "edged weapons",
+                "weight": 5,
+                "enhancives": [
+                  {
+                    "boost": 16,
+                    "ability": "Intuition Base",
+                    "level": 55
+                  },
+                  {
+                    "boost": 2,
+                    "ability": "Mana Recovery",
+                    "level": 6
+                  },
+                  {
+                    "boost": 9,
+                    "ability": "Constitution Base",
+                    "level": 27
+                  },
+                  {
+                    "boost": 4,
+                    "ability": "Health Recovery",
+                    "level": 20
+                  }
+                ],
+                "is_weapon": true,
+                "weapon_type": "edged weapons",
+                "item_type": "weapon"
+              }
             },
             {
               "id": "27945711",
               "name": "a vultite augmented breastplate",
-              "browse_price": 75000,
-              "raw_inspect": [
-                "It has a small enchanter's glyph.",
-                "The breastplate is plate armor that covers the torso and arms.",
-                "The breastplate can be worn around the chest.  The breastplate appears to serve some purpose.",
-                "It looks like this item has been mainly crafted out of vultite, an uncommon metal.",
-                "Analysis of a vultite augmented breastplate indicates the item is free from merchant alteration restrictions.",
-                "You might be able to have a talented merchant lighten the augmented breastplate for you.",
-                "The augmented breastplate will cost 75,000 coins.",
-                "It imparts a bonus of +25 more than usual.",
-                "It appears to weigh about 20 pounds.",
-                "It is estimated to be worth about 650,000 silvers.",
-                "It is predominantly crafted of vultite.",
-                "It is a simple project (58 difficulty) for an adventurer to modify.",
-                "It has a permanently unlocked loresong by Selvren."
-              ]
+              "details": {
+                "raw": [
+                  "It has a small enchanter's glyph.",
+                  "The breastplate is plate armor that covers the torso and arms.",
+                  "The breastplate can be worn around the chest.  The breastplate appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of vultite, an uncommon metal.",
+                  "Analysis of a vultite augmented breastplate indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the augmented breastplate for you.",
+                  "The augmented breastplate will cost 75,000 coins.",
+                  "It imparts a bonus of +25 more than usual.",
+                  "It appears to weigh about 20 pounds.",
+                  "It is estimated to be worth about 650,000 silvers.",
+                  "It is predominantly crafted of vultite.",
+                  "It is a simple project (58 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Selvren."
+                ],
+                "tags": [
+                  "purpose",
+                  "lightenable"
+                ],
+                "cost": 75000,
+                "enchant": 25,
+                "material": "vultite",
+                "weight": 20,
+                "worn": "chest",
+                "is_armor": true,
+                "armor_type": "plate",
+                "wear_location": "torso and arms",
+                "item_type": "armor"
+              }
             },
             {
               "id": "28577785",
               "name": "an engraved beryl earring",
-              "browse_price": 10000000,
-              "raw_inspect": [
-                "The earring can be worn, hanging it from the ear.  The earring appears to serve some purpose.",
-                "Analysis of an engraved beryl earring indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the earring may be further lightened.",
-                "The beryl earring will cost 10,000,000 coins.",
-                "It is a magical item which could be imbedded with a spell.",
-                "It has 0 charges.",
-                "It could be activated by waving it.",
-                "It will disintegrate after its last magical charge has been expended.",
-                "It is an enhancive item:",
-                "    It provides a boost of 10 to Logic Base.",
-                "    This enhancement may not be used by adventurers who have not trained 37 times.",
-                "    It provides a boost of 3 to Mana Recovery.",
-                "    This enhancement may not be used by adventurers who have not trained 20 times.",
-                "    It provides a boost of 2 to Harness Power Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 3 times.",
-                "    It seems to have a lot of enhancive charges remaining.",
-                "It will crumble into dust after its last enhancive charge has been expended.",
-                "It is a small item, under a pound.",
-                "It is estimated to be worth about 300,000 silvers.",
-                "It is magic resistant.",
-                "It has a permanently unlocked loresong by Selvren."
-              ]
+              "details": {
+                "raw": [
+                  "The earring can be worn, hanging it from the ear.  The earring appears to serve some purpose.",
+                  "Analysis of an engraved beryl earring indicates the item is free from merchant alteration restrictions.",
+                  "The beryl earring will cost 10,000,000 coins.",
+                  "It is a magical item which could be imbedded with a spell.",
+                  "It has 0 charges.",
+                  "It could be activated by waving it.",
+                  "It will disintegrate after its last magical charge has been expended.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 10 to Logic Base.",
+                  "    This enhancement may not be used by adventurers who have not trained 37 times.",
+                  "    It provides a boost of 3 to Mana Recovery.",
+                  "    This enhancement may not be used by adventurers who have not trained 20 times.",
+                  "    It provides a boost of 2 to Harness Power Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 3 times.",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It will crumble into dust after its last enhancive charge has been expended.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 300,000 silvers.",
+                  "It is magic resistant.",
+                  "It has a permanently unlocked loresong by Selvren."
+                ],
+                "tags": [
+                  "purpose",
+                  "imbeddable",
+                  "small",
+                  "magic_resistant"
+                ],
+                "cost": 10000000,
+                "worn": "ear",
+                "activator": "waving",
+                "enhancives": [
+                  {
+                    "boost": 10,
+                    "ability": "Logic Base",
+                    "level": 37
+                  },
+                  {
+                    "boost": 3,
+                    "ability": "Mana Recovery",
+                    "level": 20
+                  },
+                  {
+                    "boost": 2,
+                    "ability": "Harness Power Bonus",
+                    "level": 3
+                  }
+                ],
+                "is_jewelry": true,
+                "item_type": "jewelry"
+              }
             },
             {
               "id": "28577788",
               "name": "a serrated invar claidhmore set with a black opal pommel",
-              "browse_price": 500000,
-              "raw_inspect": [
-                "The claidhmore is a claidhmore that requires skill in twohanded weapons to use effectively.",
-                "It looks like this item has been mainly crafted out of invar, an unusual metal.",
-                "Analysis of a serrated invar claidhmore set with a black opal pommel indicates the item is free from merchant alteration restrictions.",
-                "You might be able to have a talented merchant lighten the invar claidhmore for you.",
-                "The invar claidhmore will cost 500,000 coins.",
-                "It imparts a bonus of +2 more than usual.",
-                "It appears to weigh about 13 pounds.",
-                "It is estimated to be worth about 59,000 silvers.",
-                "It is weighted to inflict more critical wounds, but exactly how much requires assessment.",
-                "It is predominantly crafted of invar.",
-                "It is an overwhelming project (1,600 difficulty) for an adventurer to modify.",
-                "It has a permanently unlocked loresong by Selvren."
-              ]
+              "details": {
+                "raw": [
+                  "The claidhmore is a claidhmore that requires skill in twohanded weapons to use effectively.",
+                  "It looks like this item has been mainly crafted out of invar, an unusual metal.",
+                  "Analysis of a serrated invar claidhmore set with a black opal pommel indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the invar claidhmore for you.",
+                  "The invar claidhmore will cost 500,000 coins.",
+                  "It imparts a bonus of +2 more than usual.",
+                  "It appears to weigh about 13 pounds.",
+                  "It is estimated to be worth about 59,000 silvers.",
+                  "It is weighted to inflict more critical wounds, but exactly how much requires assessment.",
+                  "It is predominantly crafted of invar.",
+                  "It is an overwhelming project (1,600 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Selvren."
+                ],
+                "tags": [
+                  "lightenable"
+                ],
+                "cost": 500000,
+                "enchant": 2,
+                "material": "invar",
+                "skill": "twohanded weapons",
+                "weight": 13,
+                "is_weapon": true,
+                "weapon_type": "twohanded weapons",
+                "crit_weighting": "unknown",
+                "item_type": "weapon"
+              }
             }
           ]
         },
@@ -4260,6 +4356,7 @@
                   "purpose",
                   "max_deep",
                   "max_light",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -4970,6 +5067,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 40000,
@@ -5090,6 +5188,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -5135,6 +5234,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -5162,6 +5262,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -5240,6 +5341,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -5285,6 +5387,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -5311,6 +5414,7 @@
                   "The glass jar will cost 20,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -5390,6 +5494,7 @@
                   "The thrak hide gloves will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -6631,6 +6736,7 @@
                   "purpose",
                   "lightenable",
                   "persists",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -8103,6 +8209,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -8351,6 +8458,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -8378,6 +8486,7 @@
                 ],
                 "tags": [
                   "max_deep",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -8423,6 +8532,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -8660,6 +8770,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -8690,6 +8801,7 @@
                   "purpose",
                   "max_deep",
                   "max_light",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -8766,6 +8878,7 @@
                   "max_light",
                   "deepenable",
                   "small",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -9519,59 +9632,6 @@
               }
             },
             {
-              "id": "87717",
-              "name": "a mesille long bow",
-              "details": {
-                "raw": [
-                  "The bow is a long bow that requires skill in ranged weapons to use effectively.",
-                  "The bow can be worn, slinging it across the shoulders and back.  The bow appears to serve some purpose.",
-                  "It looks like this item has been mainly crafted out of mesille, an unusual wood.",
-                  "Analysis of a mesille long bow indicates the item is free from merchant alteration restrictions.",
-                  "You can tell that the bow is as light as it can get.",
-                  "The mesille long bow will cost 300,000 coins.",
-                  "It imparts a bonus of +15 more than usual.",
-                  "It is an enhancive item:",
-                  "    It provides a boost of 4 to Dodging Ranks.",
-                  "    This enhancement may not be used by adventurers who have not trained 20 times.",
-                  "    It provides a boost of 5 to Logic Bonus.",
-                  "    This enhancement may not be used by adventurers who have not trained 21 times.",
-                  "    It seems to have a lot of enhancive charges remaining.",
-                  "It will persist after its last enhancive charge has been expended.",
-                  "It appears to weigh about 2 pounds.",
-                  "It is estimated to be worth about 700,000 silvers.",
-                  "It is predominantly crafted of mesille.",
-                  "It is a simple project (42 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by Rottgut."
-                ],
-                "tags": [
-                  "purpose",
-                  "max_light",
-                  "persists"
-                ],
-                "cost": 300000,
-                "enchant": 15,
-                "material": "mesille",
-                "skill": "ranged weapons",
-                "weight": 2,
-                "worn": "shoulders",
-                "enhancives": [
-                  {
-                    "boost": 4,
-                    "ability": "Dodging Ranks",
-                    "level": 20
-                  },
-                  {
-                    "boost": 5,
-                    "ability": "Logic Bonus",
-                    "level": 21
-                  }
-                ],
-                "is_weapon": true,
-                "weapon_type": "ranged weapons",
-                "item_type": "weapon"
-              }
-            },
-            {
               "id": "87716",
               "name": "a thick leather breastplate",
               "details": {
@@ -10249,6 +10309,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 1500000,
@@ -10593,6 +10654,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -10645,6 +10707,7 @@
                   "The card case will cost 150,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -10731,6 +10794,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 200000,
@@ -10760,6 +10824,7 @@
                   "The lotus silk gloves will cost 200,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -10849,6 +10914,7 @@
                   "The instrument case will cost 20,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -15230,6 +15296,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -15277,6 +15344,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -15386,6 +15454,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -15434,6 +15503,7 @@
                   "purpose",
                   "max_deep",
                   "max_light",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -15558,6 +15628,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 90000,
@@ -15625,6 +15696,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 30000,
@@ -15638,77 +15710,125 @@
             {
               "id": "29715357",
               "name": "a draped indigo kid leather half-cape with an electrum clasp",
-              "browse_price": 25000,
-              "raw_inspect": [
-                "You see nothing unusual.",
-                "It is estimated that a draped indigo kid leather half-cape with an electrum clasp can store a huge amount with enough space for any number of items.",
-                "The half-cape can be worn, hanging it from the shoulders.  The half-cape appears to serve some purpose.",
-                "It looks like this item has been mainly crafted out of leather, an extremely common material.",
-                "Analysis of a draped indigo kid leather half-cape with an electrum clasp indicates the creator has provided the following information:",
-                "This is a special half-cape that was attained through a wedding.  Available verbs are:  ATTEND, BOW, CLEAN, CLENCH, DUST, GAZE, HUG, LEAN, PINCH, PULL, PUSH, RAISE, REMOVE, RUB, SHAKE, SLAP, TICKLE, TOUCH, WAIT, and WEAR.",
-                "You must set a description for the half-cape's fabric (for example, rose-motif snow white silk), which can be seen in CLEAN, CLENCH, PINCH, and TICKLE.  The half-cape's fabric is \"indigo kid leather\".",
-                "Alterations must consider that jackets reference lapels, long sleeves, and buttons.",
-                "You can tell that the half-cape is as light as it can get and that its pockets could not possibly get any deeper.",
-                "The kid leather half-cape will cost 25,000 coins."
-              ]
+              "details": {
+                "raw": [
+                  "It is estimated that a draped indigo kid leather half-cape with an electrum clasp can store a huge amount with enough space for any number of items.",
+                  "The half-cape can be worn, hanging it from the shoulders.  The half-cape appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of leather, an extremely common material.",
+                  "Analysis of a draped indigo kid leather half-cape with an electrum clasp indicates the creator has provided the following information:",
+                  "This is a special half-cape that was attained through a wedding.  Available verbs are:  ATTEND, BOW, CLEAN, CLENCH, DUST, GAZE, HUG, LEAN, PINCH, PULL, PUSH, RAISE, REMOVE, RUB, SHAKE, SLAP, TICKLE, TOUCH, WAIT, and WEAR.",
+                  "You must set a description for the half-cape's fabric (for example, rose-motif snow white silk), which can be seen in CLEAN, CLENCH, PINCH, and TICKLE.  The half-cape's fabric is \"indigo kid leather\".",
+                  "Alterations must consider that jackets reference lapels, long sleeves, and buttons.",
+                  "You can tell that the half-cape is as light as it can get and that its pockets could not possibly get any deeper.",
+                  "The kid leather half-cape will cost 25,000 coins."
+                ],
+                "tags": [
+                  "purpose",
+                  "max_deep",
+                  "max_light",
+                  "container"
+                ],
+                "cost": 25000,
+                "material": "leather, an extremely common material",
+                "worn": "cloak",
+                "capacity_level": "huge",
+                "is_container": true,
+                "item_type": "container"
+              }
             },
             {
               "id": "29751455",
               "name": "an open-laced white silk shirt with intricate blackworking",
-              "browse_price": 10000,
-              "raw_inspect": [
-                "The shirt can be worn around the chest.",
-                "It looks like this item has been mainly crafted out of cloth, an extremely common material.",
-                "Analysis of an open-laced white silk shirt with intricate blackworking indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the shirt may be further lightened.",
-                "The white silk shirt will cost 10,000 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The shirt can be worn around the chest.",
+                  "It looks like this item has been mainly crafted out of cloth, an extremely common material.",
+                  "Analysis of an open-laced white silk shirt with intricate blackworking indicates the item is free from merchant alteration restrictions.",
+                  "The white silk shirt will cost 10,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 10000,
+                "material": "cloth, an extremely common material",
+                "worn": "chest",
+                "wear_location": "around the chest",
+                "item_type": null
+              }
             },
             {
               "id": "29725534",
               "name": "a pair of aubergine silk gloves fastened with ivory buttons",
-              "browse_price": 25000,
-              "raw_inspect": [
-                "You see nothing unusual.",
-                "The gloves can be worn anywhere on the body.",
-                "It looks like this item has been mainly crafted out of cloth, an extremely common material.",
-                "Analysis of a pair of aubergine silk gloves fastened with ivory buttons indicates the creator has provided the following information:",
-                "These are Nifty Gloves,  You can WEAR, REMOVE, WAVE, and PUSH these gloves.  WAVE and PUSH can be used at targets.  There are no tiers to unlock.",
-                "The only acceptable nouns are \"gloves\" and \"mittens\".  Gloves must be nice-looking; no battle gear or ratty alterations.  Gloves must be made from fabric or very nice leather.  Think elegant.  No half or fingerless gloves are allowed.  Mittens can be made from just about anything, but not battle-oriented.  Mittens are more comical, so they can look goofy or ratty.",
-                "You get no sense of whether or not the gloves may be further lightened.",
-                "The aubergine silk gloves will cost 25,000 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The gloves can be worn anywhere on the body.",
+                  "It looks like this item has been mainly crafted out of cloth, an extremely common material.",
+                  "Analysis of a pair of aubergine silk gloves fastened with ivory buttons indicates the creator has provided the following information:",
+                  "These are Nifty Gloves,  You can WEAR, REMOVE, WAVE, and PUSH these gloves.  WAVE and PUSH can be used at targets.  There are no tiers to unlock.",
+                  "The only acceptable nouns are \"gloves\" and \"mittens\".  Gloves must be nice-looking; no battle gear or ratty alterations.  Gloves must be made from fabric or very nice leather.  Think elegant.  No half or fingerless gloves are allowed.  Mittens can be made from just about anything, but not battle-oriented.  Mittens are more comical, so they can look goofy or ratty.",
+                  "The aubergine silk gloves will cost 25,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 25000,
+                "material": "cloth, an extremely common material",
+                "worn": "pin",
+                "wear_location": "anywhere on the body",
+                "item_type": null
+              }
             },
             {
               "id": "29782362",
               "name": "some charcoal velvet breeches slashed over ivory silk",
-              "browse_price": 10000,
-              "raw_inspect": [
-                "It is estimated that some charcoal velvet breeches slashed over ivory silk can store a very small amount with enough space for a couple of items.",
-                "The breeches can be worn on the legs.",
-                "It looks like this item has been mainly crafted out of cloth, an extremely common material.",
-                "Analysis of some charcoal velvet breeches slashed over ivory silk indicates the item is free from merchant alteration restrictions.",
-                "You can tell that the breeches are as light as they can get, but you might be able to have a talented merchant deepen their pockets for you.",
-                "The charcoal velvet breeches will cost 10,000 coins."
-              ]
+              "details": {
+                "raw": [
+                  "It is estimated that some charcoal velvet breeches slashed over ivory silk can store a very small amount with enough space for a couple of items.",
+                  "The breeches can be worn on the legs.",
+                  "It looks like this item has been mainly crafted out of cloth, an extremely common material.",
+                  "Analysis of some charcoal velvet breeches slashed over ivory silk indicates the item is free from merchant alteration restrictions.",
+                  "You can tell that the breeches are as light as they can get, but you might be able to have a talented merchant deepen their pockets for you.",
+                  "The charcoal velvet breeches will cost 10,000 coins."
+                ],
+                "tags": [
+                  "container"
+                ],
+                "cost": 10000,
+                "material": "cloth, an extremely common material",
+                "worn": "pants",
+                "capacity_level": "very small",
+                "is_container": true,
+                "wear_location": "on the legs",
+                "item_type": "container"
+              }
             },
             {
               "id": "29802190",
               "name": "some austere grey brogue-punched nubuck boots",
-              "browse_price": 30000,
-              "raw_inspect": [
-                "Imprinted on the sole, you see a peach wreathed by wyrwood leaves, the crafter's personal hallmark.",
-                "There is nothing there to read.",
-                "You carefully inspect the nubuck boots.",
-                "It is estimated that some austere grey brogue-punched nubuck boots can store a very small amount with enough space for a couple of items.",
-                "The boots can be worn on the feet.",
-                "Analysis of some austere grey brogue-punched nubuck boots indicates the creator has provided the following information:",
-                "This is footwear crafted by a skilled artisan.",
-                "Additional scripts have been applied to the nubuck boots and may have separate alteration restrictions.",
-                "Some austere grey brogue-punched nubuck boots has been modified by a fully unlocked metal punch to allow you to TAP, PULL, POKE, STARE, DANCE, RUB, TURN, or PUSH the boots.",
-                "You might be able to have a talented merchant lighten the nubuck boots for you or deepen their pockets.",
-                "The nubuck boots will cost 30,000 coins."
-              ]
+              "details": {
+                "raw": [
+                  "Imprinted on the sole, you see a peach wreathed by wyrwood leaves, the crafter's personal hallmark.",
+                  "It is estimated that some austere grey brogue-punched nubuck boots can store a very small amount with enough space for a couple of items.",
+                  "The boots can be worn on the feet.",
+                  "Analysis of some austere grey brogue-punched nubuck boots indicates the creator has provided the following information:",
+                  "This is footwear crafted by a skilled artisan.",
+                  "Additional scripts have been applied to the nubuck boots and may have separate alteration restrictions.",
+                  "Some austere grey brogue-punched nubuck boots has been modified by a fully unlocked metal punch to allow you to TAP, PULL, POKE, STARE, DANCE, RUB, TURN, or PUSH the boots.",
+                  "You might be able to have a talented merchant lighten the nubuck boots for you or deepen their pockets.",
+                  "The nubuck boots will cost 30,000 coins."
+                ],
+                "tags": [
+                  "scripted",
+                  "lightenable",
+                  "container"
+                ],
+                "cost": 30000,
+                "worn": "feet",
+                "capacity_level": "very small",
+                "is_container": true,
+                "wear_location": "on the feet",
+                "item_type": "container"
+              }
             }
           ],
           "sign": [
@@ -16658,6 +16778,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 65000,
@@ -16758,6 +16879,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -16832,6 +16954,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -16895,6 +17018,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -17155,6 +17279,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -18886,41 +19011,6 @@
                 "dmg_padding": "unknown",
                 "temporary_dmg_padding": true,
                 "item_type": "armor"
-              }
-            },
-            {
-              "id": "110432",
-              "name": "a mithglin bastard sword",
-              "details": {
-                "raw": [
-                  "The sword is a bastard sword that requires skill in edged weapons to use effectively.",
-                  "It looks like this item has been mainly crafted out of mithglin, a rare metal.",
-                  "Analysis of a mithglin bastard sword indicates the item is free from merchant alteration restrictions.",
-                  "You might be able to have a talented merchant lighten the bastard sword for you.",
-                  "The bastard sword will cost 40,000 coins.",
-                  "It imparts a bonus of +15 more than usual.",
-                  "It has been infused with the power of a lightning bolt.",
-                  "It appears to weigh about 8 pounds.",
-                  "It is estimated to be worth about 150,000 silvers.",
-                  "It is predominantly crafted of mithglin.",
-                  "It is a basic project (103 difficulty) for an adventurer to modify.",
-                  "It has a temporarily unlocked loresong by a bard."
-                ],
-                "tags": [
-                  "lightenable"
-                ],
-                "cost": 40000,
-                "enchant": 15,
-                "material": "mithglin",
-                "skill": "edged weapons",
-                "flare": "the power of a lightning bolt",
-                "weight": 8,
-                "is_weapon": true,
-                "weapon_type": "edged weapons",
-                "flares": [
-                  "the power of a lightning bolt"
-                ],
-                "item_type": "weapon"
               }
             },
             {
