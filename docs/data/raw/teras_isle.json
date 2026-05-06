@@ -1,6 +1,6 @@
 {
-  "created_at": "2026-05-06 01:54:50 UTC",
-  "run_time": "06s",
+  "created_at": "2026-05-06 05:23:43 UTC",
+  "run_time": "03s",
   "town": "Teras Isle",
   "shops": [
     {
@@ -28,6 +28,7 @@
                   "The glass jar will cost 40,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -522,6 +523,7 @@
                   "purpose",
                   "max_deep",
                   "max_light",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -2828,6 +2830,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -2852,6 +2855,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -5804,28 +5808,54 @@
             {
               "id": "35832803",
               "name": "a double bit razern battle axe decorated with a brushed finish",
-              "browse_price": 28750000,
-              "raw_inspect": [
-                "The axe is a battle axe that requires skill in twohanded weapons to use effectively.",
-                "It looks like this item has been mainly crafted out of razern, a very rare metal.  It would need to be supplied to be used in an alteration and may only be used as an accent.",
-                "Analysis of a double bit razern battle axe decorated with a brushed finish indicates the item has certain alteration restrictions.  It would need to be supplied to be used in an alteration and may only be used as an accent.",
-                "You might be able to have a talented merchant lighten the razern battle axe for you.",
-                "The razern battle axe will cost 28,750,000 coins.",
-                "It imparts a bonus of +10 more than usual.",
-                "It is an enhancive item:",
-                "    It provides a boost of 15 to Stamina Recovery.",
-                "    This enhancement may not be used by adventurers who have not trained 72 times.",
-                "    It provides a boost of 4 to Combat Maneuvers Ranks.",
-                "    This enhancement may not be used by adventurers who have not trained 20 times.",
-                "    It seems to have a lot of enhancive charges remaining.",
-                "It will persist after its last enhancive charge has been expended.",
-                "It appears to weigh about 8 pounds.",
-                "It is estimated to be worth about 1,350,000 silvers.",
-                "It is weighted to inflict more critical wounds, but exactly how much requires assessment.",
-                "It is predominantly crafted of razern.",
-                "It is a simple project (66 difficulty) for an adventurer to modify.",
-                "It has a permanently unlocked loresong by Vonaq."
-              ]
+              "details": {
+                "raw": [
+                  "The axe is a battle axe that requires skill in twohanded weapons to use effectively.",
+                  "It looks like this item has been mainly crafted out of razern, a very rare metal.  It would need to be supplied to be used in an alteration and may only be used as an accent.",
+                  "Analysis of a double bit razern battle axe decorated with a brushed finish indicates the item has certain alteration restrictions.  It would need to be supplied to be used in an alteration and may only be used as an accent.",
+                  "You might be able to have a talented merchant lighten the razern battle axe for you.",
+                  "The razern battle axe will cost 28,750,000 coins.",
+                  "It imparts a bonus of +10 more than usual.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 15 to Stamina Recovery.",
+                  "    This enhancement may not be used by adventurers who have not trained 72 times.",
+                  "    It provides a boost of 4 to Combat Maneuvers Ranks.",
+                  "    This enhancement may not be used by adventurers who have not trained 20 times.",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It appears to weigh about 8 pounds.",
+                  "It is estimated to be worth about 1,350,000 silvers.",
+                  "It is weighted to inflict more critical wounds, but exactly how much requires assessment.",
+                  "It is predominantly crafted of razern.",
+                  "It is a simple project (66 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Vonaq."
+                ],
+                "tags": [
+                  "lightenable",
+                  "persists"
+                ],
+                "cost": 28750000,
+                "enchant": 10,
+                "material": "razern",
+                "skill": "twohanded weapons",
+                "weight": 8,
+                "enhancives": [
+                  {
+                    "boost": 15,
+                    "ability": "Stamina Recovery",
+                    "level": 72
+                  },
+                  {
+                    "boost": 4,
+                    "ability": "Combat Maneuvers Ranks",
+                    "level": 20
+                  }
+                ],
+                "is_weapon": true,
+                "weapon_type": "twohanded weapons",
+                "crit_weighting": "unknown",
+                "item_type": "weapon"
+              }
             }
           ]
         },
@@ -6743,6 +6773,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 88888888,
@@ -6943,6 +6974,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 88888888,
@@ -7028,6 +7060,7 @@
                 "tags": [
                   "max_deep",
                   "max_light",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -7564,6 +7597,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 55555555,
@@ -7750,6 +7784,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 699999999,
@@ -7851,27 +7886,51 @@
             {
               "id": "23911009",
               "name": "a perfect rusalkoren war-hammer",
-              "browse_price": 777777777,
-              "raw_inspect": [
-                "It has a small enchanter's glyph and Morgwwyn's crafting mark.  A strange necrotic haze radiates from the war-hammer.  A strong aura of holy light radiates from the war-hammer.",
-                "The war-hammer is a war hammer that requires skill in blunt weapons to use effectively.",
-                "It looks like this item has been mainly crafted out of rusalkoren, an extremely rare metal.  It cannot be used in alterations.  This material cannot be dyed.",
-                "Analysis of a perfect rusalkoren war-hammer indicates the item has certain alteration restrictions.  It cannot be used in alterations.  This material cannot be dyed.",
-                "You can tell that the war-hammer is as light as it can get.",
-                "The rusalkoren war-hammer will cost 777,777,700 coins.",
-                "It imparts a bonus of +50 more than usual.",
-                "It is forged by Morgwwyn and has increased (+3) effectiveness in combat.",
-                "It appears to weigh about 4 pounds.",
-                "It is estimated to be worth about 1,000,000,000 silvers.",
-                "It is weighted to inflict more damage, but exactly how much requires assessment.",
-                "It is weighted to inflict more critical wounds, but exactly how much requires assessment.",
-                "It is predominantly crafted of rusalkoren.",
-                "It has been ensorcelled 5 times.",
-                "It has been sanctified 5 times.  It has permanent Holy Fire flares.",
-                "It may be enchanted up to a bonus of 50 by a wizard and was last enchanted by Omind.",
-                "It is an overwhelming project (1,097 difficulty) for an adventurer to modify.",
-                "It has a permanently unlocked loresong by Dorwyn."
-              ]
+              "details": {
+                "raw": [
+                  "It has a small enchanter's glyph and Morgwwyn's crafting mark.  A strange necrotic haze radiates from the war-hammer.  A strong aura of holy light radiates from the war-hammer.",
+                  "The war-hammer is a war hammer that requires skill in blunt weapons to use effectively.",
+                  "It looks like this item has been mainly crafted out of rusalkoren, an extremely rare metal.  It cannot be used in alterations.  This material cannot be dyed.",
+                  "Analysis of a perfect rusalkoren war-hammer indicates the item has certain alteration restrictions.  It cannot be used in alterations.  This material cannot be dyed.",
+                  "You can tell that the war-hammer is as light as it can get.",
+                  "The rusalkoren war-hammer will cost 777,777,700 coins.",
+                  "It imparts a bonus of +50 more than usual.",
+                  "It is forged by Morgwwyn and has increased (+3) effectiveness in combat.",
+                  "It appears to weigh about 4 pounds.",
+                  "It is estimated to be worth about 1,000,000,000 silvers.",
+                  "It is weighted to inflict more damage, but exactly how much requires assessment.",
+                  "It is weighted to inflict more critical wounds, but exactly how much requires assessment.",
+                  "It is predominantly crafted of rusalkoren.",
+                  "It has been ensorcelled 5 times.",
+                  "It has been sanctified 5 times.  It has permanent Holy Fire flares.",
+                  "It may be enchanted up to a bonus of 50 by a wizard and was last enchanted by Omind.",
+                  "It is an overwhelming project (1,097 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Dorwyn."
+                ],
+                "tags": [
+                  "max_light",
+                  "holy_fire"
+                ],
+                "cost": 777777777,
+                "enchant": 50,
+                "material": "rusalkoren",
+                "skill": "blunt weapons",
+                "weight": 4,
+                "sanctify": 5,
+                "ensorcell": 5,
+                "forged_by": "Morgwwyn",
+                "forged_avd": 3,
+                "is_weapon": true,
+                "weapon_type": "blunt weapons",
+                "flares": [
+                  "It has been sanctified 5 times.  It has permanent Holy Fire flares."
+                ],
+                "blessing": "holy",
+                "dmg_weighting": "unknown",
+                "crit_weighting": "unknown",
+                "forged_quality": "perfect",
+                "item_type": "weapon"
+              }
             }
           ],
           "sign": [
@@ -9537,6 +9596,7 @@
                   "purpose",
                   "max_deep",
                   "max_light",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -12674,6 +12734,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 99999999,
@@ -12693,6 +12754,7 @@
                   "The silver candy tin will cost 20,000,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -12754,6 +12816,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 99999999,
@@ -12796,6 +12859,7 @@
                   "The metal pie machine will cost 99,999,900 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -13336,172 +13400,256 @@
             {
               "id": "36777437",
               "name": "a polished ora bangle engraved with a flower and heart",
-              "browse_price": 35000,
-              "raw_inspect": [
-                "You see nothing unusual.",
-                "The bangle can be worn around the wrist.",
-                "It looks like this item has been mainly crafted out of ora, an uncommon metal.",
-                "Analysis of a polished ora bangle engraved with a flower and heart indicates the creator has provided the following information:",
-                "This item allows you to transfer its appearance onto another compatible worn item by using the TRANSFER verb.  Hold this item in one hand and the target item in your other.  You must repeat the command within 30 seconds to confirm.",
-                "Rules:",
-                "   - Both items must be worn in the same location",
-                "   - Both items must either be containers or both be non-containers",
-                "   - If this item is a container, it must be empty before transfer",
-                "   - The source item is destroyed after a successful transfer",
-                "   - If the target item has a script, it must be one approved for transmogrification",
-                "You may also use CLEAN to remove this script from the item, or use DUST to remove its long description, turning it into a polished ora bangle.",
-                "You get no sense of whether or not the bangle may be further lightened.",
-                "The ora bangle will cost 35,000 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The bangle can be worn around the wrist.",
+                  "It looks like this item has been mainly crafted out of ora, an uncommon metal.",
+                  "Analysis of a polished ora bangle engraved with a flower and heart indicates the creator has provided the following information:",
+                  "This item allows you to transfer its appearance onto another compatible worn item by using the TRANSFER verb.  Hold this item in one hand and the target item in your other.  You must repeat the command within 30 seconds to confirm.",
+                  "Rules:",
+                  "   - Both items must be worn in the same location",
+                  "   - Both items must either be containers or both be non-containers",
+                  "   - If this item is a container, it must be empty before transfer",
+                  "   - The source item is destroyed after a successful transfer",
+                  "   - If the target item has a script, it must be one approved for transmogrification",
+                  "You may also use CLEAN to remove this script from the item, or use DUST to remove its long description, turning it into a polished ora bangle.",
+                  "The ora bangle will cost 35,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 35000,
+                "material": "ora, an uncommon metal",
+                "worn": "wrist",
+                "wear_location": "around the wrist",
+                "item_type": null
+              }
             },
             {
               "id": "36777438",
               "name": "a pair of old copper earrings with a cut purple stormcloud diamond centerpiece",
-              "browse_price": 35000,
-              "raw_inspect": [
-                "You see nothing unusual.",
-                "The earrings can be worn, hanging it from the ears.",
-                "It looks like this item has been mainly crafted out of copper, an extremely common metal.  This material cannot be dyed.",
-                "Analysis of a pair of old copper earrings with a cut purple stormcloud diamond centerpiece indicates the creator has provided the following information:",
-                "This item allows you to transfer its appearance onto another compatible worn item by using the TRANSFER verb.  Hold this item in one hand and the target item in your other.  You must repeat the command within 30 seconds to confirm.",
-                "Rules:",
-                "   - Both items must be worn in the same location",
-                "   - Both items must either be containers or both be non-containers",
-                "   - If this item is a container, it must be empty before transfer",
-                "   - The source item is destroyed after a successful transfer",
-                "   - If the target item has a script, it must be one approved for transmogrification",
-                "You may also use CLEAN to remove this script from the item, or use DUST to remove its long description, turning it into a pair of old copper earrings.",
-                "You get no sense of whether or not the earrings may be further lightened.",
-                "The copper earrings will cost 35,000 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The earrings can be worn, hanging it from the ears.",
+                  "It looks like this item has been mainly crafted out of copper, an extremely common metal.  This material cannot be dyed.",
+                  "Analysis of a pair of old copper earrings with a cut purple stormcloud diamond centerpiece indicates the creator has provided the following information:",
+                  "This item allows you to transfer its appearance onto another compatible worn item by using the TRANSFER verb.  Hold this item in one hand and the target item in your other.  You must repeat the command within 30 seconds to confirm.",
+                  "Rules:",
+                  "   - Both items must be worn in the same location",
+                  "   - Both items must either be containers or both be non-containers",
+                  "   - If this item is a container, it must be empty before transfer",
+                  "   - The source item is destroyed after a successful transfer",
+                  "   - If the target item has a script, it must be one approved for transmogrification",
+                  "You may also use CLEAN to remove this script from the item, or use DUST to remove its long description, turning it into a pair of old copper earrings.",
+                  "The copper earrings will cost 35,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 35000,
+                "material": "copper, an extremely common metal",
+                "worn": "ears",
+                "wear_location": "item by using the TRANSFER verb",
+                "item_type": null
+              }
             },
             {
               "id": "36777444",
               "name": "a coral red satin ribbon embroidered with a band of intricate sunbursts",
-              "browse_price": 35000,
-              "raw_inspect": [
-                "You see nothing unusual.",
-                "The ribbon can be worn anywhere on the body.",
-                "It looks like this item has been mainly crafted out of cloth, an extremely common material.",
-                "Analysis of a coral red satin ribbon embroidered with a band of intricate sunbursts indicates the creator has provided the following information:",
-                "This item allows you to transfer its appearance onto another compatible worn item by using the TRANSFER verb.  Hold this item in one hand and the target item in your other.  You must repeat the command within 30 seconds to confirm.",
-                "Rules:",
-                "   - Both items must be worn in the same location",
-                "   - Both items must either be containers or both be non-containers",
-                "   - If this item is a container, it must be empty before transfer",
-                "   - The source item is destroyed after a successful transfer",
-                "   - If the target item has a script, it must be one approved for transmogrification",
-                "You may also use CLEAN to remove this script from the item, or use DUST to remove its long description, turning it into a coral red satin ribbon.",
-                "You get no sense of whether or not the ribbon may be further lightened.",
-                "The satin ribbon will cost 35,000 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The ribbon can be worn anywhere on the body.",
+                  "It looks like this item has been mainly crafted out of cloth, an extremely common material.",
+                  "Analysis of a coral red satin ribbon embroidered with a band of intricate sunbursts indicates the creator has provided the following information:",
+                  "This item allows you to transfer its appearance onto another compatible worn item by using the TRANSFER verb.  Hold this item in one hand and the target item in your other.  You must repeat the command within 30 seconds to confirm.",
+                  "Rules:",
+                  "   - Both items must be worn in the same location",
+                  "   - Both items must either be containers or both be non-containers",
+                  "   - If this item is a container, it must be empty before transfer",
+                  "   - The source item is destroyed after a successful transfer",
+                  "   - If the target item has a script, it must be one approved for transmogrification",
+                  "You may also use CLEAN to remove this script from the item, or use DUST to remove its long description, turning it into a coral red satin ribbon.",
+                  "The satin ribbon will cost 35,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 35000,
+                "material": "cloth, an extremely common material",
+                "worn": "pin",
+                "wear_location": "anywhere on the body",
+                "item_type": null
+              }
             },
             {
               "id": "36777442",
               "name": "a well-made gak hide pouch embossed with a sickle",
-              "browse_price": 35000,
-              "raw_inspect": [
-                "You see nothing unusual.",
-                "It is estimated that a well-made gak hide pouch embossed with a sickle can store a medium amount with enough space for any number of items.",
-                "The pouch can be worn, attaching it to the belt.  The pouch appears to serve some purpose.",
-                "It looks like this item has been mainly crafted out of leather, an extremely common material.",
-                "Analysis of a well-made gak hide pouch embossed with a sickle indicates the creator has provided the following information:",
-                "This item allows you to transfer its appearance onto another compatible worn item by using the TRANSFER verb.  Hold this item in one hand and the target item in your other.  You must repeat the command within 30 seconds to confirm.",
-                "Rules:",
-                "   - Both items must be worn in the same location",
-                "   - Both items must either be containers or both be non-containers",
-                "   - If this item is a container, it must be empty before transfer",
-                "   - The source item is destroyed after a successful transfer",
-                "   - If the target item has a script, it must be one approved for transmogrification",
-                "You may also use CLEAN to remove this script from the item, or use DUST to remove its long description, turning it into a well-made gak hide pouch.",
-                "You can tell that the pouch is as light as it can get, but you might be able to have a talented merchant deepen its pockets for you.",
-                "The gak hide pouch will cost 35,000 coins."
-              ]
+              "details": {
+                "raw": [
+                  "It is estimated that a well-made gak hide pouch embossed with a sickle can store a medium amount with enough space for any number of items.",
+                  "The pouch can be worn, attaching it to the belt.  The pouch appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of leather, an extremely common material.",
+                  "Analysis of a well-made gak hide pouch embossed with a sickle indicates the creator has provided the following information:",
+                  "This item allows you to transfer its appearance onto another compatible worn item by using the TRANSFER verb.  Hold this item in one hand and the target item in your other.  You must repeat the command within 30 seconds to confirm.",
+                  "Rules:",
+                  "   - Both items must be worn in the same location",
+                  "   - Both items must either be containers or both be non-containers",
+                  "   - If this item is a container, it must be empty before transfer",
+                  "   - The source item is destroyed after a successful transfer",
+                  "   - If the target item has a script, it must be one approved for transmogrification",
+                  "You may also use CLEAN to remove this script from the item, or use DUST to remove its long description, turning it into a well-made gak hide pouch.",
+                  "You can tell that the pouch is as light as it can get, but you might be able to have a talented merchant deepen its pockets for you.",
+                  "The gak hide pouch will cost 35,000 coins."
+                ],
+                "tags": [
+                  "purpose",
+                  "max_light",
+                  "deepenable",
+                  "container"
+                ],
+                "cost": 35000,
+                "material": "leather, an extremely common material",
+                "worn": "belt",
+                "capacity_level": "medium",
+                "is_container": true,
+                "wear_location": "item by using the TRANSFER verb",
+                "item_type": "container"
+              }
             },
             {
               "id": "36777445",
               "name": "an old wolfskin pack set with streaked blue spectrolite cabochons forming waves",
-              "browse_price": 35000,
-              "raw_inspect": [
-                "You see nothing unusual.",
-                "It is estimated that an old wolfskin pack set with streaked blue spectrolite cabochons forming waves can store a significant amount with enough space for any number of items.",
-                "The pack can be worn on the back.  The pack appears to serve some purpose.",
-                "It looks like this item has been mainly crafted out of leather, an extremely common material.",
-                "Analysis of an old wolfskin pack set with streaked blue spectrolite cabochons forming waves indicates the creator has provided the following information:",
-                "This item allows you to transfer its appearance onto another compatible worn item by using the TRANSFER verb.  Hold this item in one hand and the target item in your other.  You must repeat the command within 30 seconds to confirm.",
-                "Rules:",
-                "   - Both items must be worn in the same location",
-                "   - Both items must either be containers or both be non-containers",
-                "   - If this item is a container, it must be empty before transfer",
-                "   - The source item is destroyed after a successful transfer",
-                "   - If the target item has a script, it must be one approved for transmogrification",
-                "You may also use CLEAN to remove this script from the item, or use DUST to remove its long description, turning it into an old wolfskin pack.",
-                "You might be able to have a talented merchant lighten the wolfskin pack for you or deepen its pockets.",
-                "The wolfskin pack will cost 35,000 coins."
-              ]
+              "details": {
+                "raw": [
+                  "It is estimated that an old wolfskin pack set with streaked blue spectrolite cabochons forming waves can store a significant amount with enough space for any number of items.",
+                  "The pack can be worn on the back.  The pack appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of leather, an extremely common material.",
+                  "Analysis of an old wolfskin pack set with streaked blue spectrolite cabochons forming waves indicates the creator has provided the following information:",
+                  "This item allows you to transfer its appearance onto another compatible worn item by using the TRANSFER verb.  Hold this item in one hand and the target item in your other.  You must repeat the command within 30 seconds to confirm.",
+                  "Rules:",
+                  "   - Both items must be worn in the same location",
+                  "   - Both items must either be containers or both be non-containers",
+                  "   - If this item is a container, it must be empty before transfer",
+                  "   - The source item is destroyed after a successful transfer",
+                  "   - If the target item has a script, it must be one approved for transmogrification",
+                  "You may also use CLEAN to remove this script from the item, or use DUST to remove its long description, turning it into an old wolfskin pack.",
+                  "You might be able to have a talented merchant lighten the wolfskin pack for you or deepen its pockets.",
+                  "The wolfskin pack will cost 35,000 coins."
+                ],
+                "tags": [
+                  "purpose",
+                  "lightenable",
+                  "container"
+                ],
+                "cost": 35000,
+                "material": "leather, an extremely common material",
+                "worn": "back",
+                "capacity_level": "significant",
+                "is_container": true,
+                "wear_location": "on the back",
+                "item_type": "container"
+              }
             },
             {
               "id": "36777382",
               "name": "a faenor nugget",
-              "browse_price": 35000000,
-              "raw_inspect": [
-                "Studying the faenor nugget, you notice it is set to the FINGER worn location (ring).",
-                "The nugget can not be worn.",
-                "It looks like this item has been mainly crafted out of faenor, a rare metal.",
-                "Analysis of a faenor nugget indicates the creator has provided the following information:",
-                "------------------------------------------------------------------------------------------------",
-                " This Unlock Certificate applies an improvement or service as described below.  It may not be changed in any way.",
-                " Unless otherwise stated, it may be used at any time and does not expire.  Additional usage may apply.",
-                " Usage:  APPRAISE       Check eligibility",
-                "         REDEEM         Apply the improvement",
-                "------------------------------------------------------------------------------------------------",
-                " A faenor nugget grants the ability to transmute an eligible enhancive armament into a jewelry item.",
-                " DETAILS:",
-                "   > Eligible armaments include armor, weapons, shields, armor accessories, and UCS gloves/boots.",
-                "   > The armament must be unscripted.  Looted feras items are permitted.",
-                "   > In most cases, the resulting jewelry item is \"a/an/some <material> <noun>.\"",
-                "   > Wooden belts will be \"a/an <material>-linked belt.\"",
-                "   > Enhancive, attunement, and loresong recall properties will transfer.",
-                "   > The source item will be destroyed.",
-                "   > Nouns are dictated by the selected worn location for the transmute.",
-                "   > Use LOOK to view the current setting.",
-                "   > Use TURN [to #] to toggle the desired worn location.  Currently: FINGER (ring)",
-                "     (1) pin  [pin]             (7)  arms   [armbands]",
-                "     (2) head [crown]           (8)  wrist  [bracelet]",
-                "     (3) hair [barrette]        (9)  finger [ring]",
-                "     (4) ear  [earring]         (10) waist  [belt]",
-                "     (5) ears [earrings]        (11) ankle  [anklet]",
-                "     (6) neck [necklace]",
-                "The faenor nugget will cost 35,000,000 coins."
-              ]
+              "details": {
+                "raw": [
+                  "Studying the faenor nugget, you notice it is set to the FINGER worn location (ring).",
+                  "The nugget can not be worn.",
+                  "It looks like this item has been mainly crafted out of faenor, a rare metal.",
+                  "Analysis of a faenor nugget indicates the creator has provided the following information:",
+                  "------------------------------------------------------------------------------------------------",
+                  " This Unlock Certificate applies an improvement or service as described below.  It may not be changed in any way.",
+                  " Unless otherwise stated, it may be used at any time and does not expire.  Additional usage may apply.",
+                  " Usage:  APPRAISE       Check eligibility",
+                  "         REDEEM         Apply the improvement",
+                  "------------------------------------------------------------------------------------------------",
+                  " A faenor nugget grants the ability to transmute an eligible enhancive armament into a jewelry item.",
+                  " DETAILS:",
+                  "   > Eligible armaments include armor, weapons, shields, armor accessories, and UCS gloves/boots.",
+                  "   > The armament must be unscripted.  Looted feras items are permitted.",
+                  "   > In most cases, the resulting jewelry item is \"a/an/some <material> <noun>.\"",
+                  "   > Wooden belts will be \"a/an <material>-linked belt.\"",
+                  "   > Enhancive, attunement, and loresong recall properties will transfer.",
+                  "   > The source item will be destroyed.",
+                  "   > Nouns are dictated by the selected worn location for the transmute.",
+                  "   > Use LOOK to view the current setting.",
+                  "   > Use TURN [to #] to toggle the desired worn location.  Currently: FINGER (ring)",
+                  "     (1) pin  [pin]             (7)  arms   [armbands]",
+                  "     (2) head [crown]           (8)  wrist  [bracelet]",
+                  "     (3) hair [barrette]        (9)  finger [ring]",
+                  "     (4) ear  [earring]         (10) waist  [belt]",
+                  "     (5) ears [earrings]        (11) ankle  [anklet]",
+                  "     (6) neck [necklace]",
+                  "The faenor nugget will cost 35,000,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 35000000,
+                "material": "faenor, a rare metal",
+                "wear_location": "location (ring)",
+                "item_type": null
+              }
             },
             {
               "id": "36777453",
               "name": "a tourmaline inset eonake pendant",
-              "browse_price": 90000,
-              "raw_inspect": [
-                "The pendant can be worn around the neck.  The pendant appears to serve some purpose.",
-                "Analysis of a tourmaline inset eonake pendant indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the pendant may be further lightened.",
-                "The inset eonake pendant will cost 90,000 coins.",
-                "It is a magical item which could be imbedded with a spell.",
-                "It has 0 charges.",
-                "It could be activated by waving it.",
-                "It will persist after its last magical charge has been expended.",
-                "It is an enhancive item:",
-                "    It provides a boost of 2 to Agility Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 11 times.",
-                "    It provides a boost of 2 to Mana Recovery.",
-                "    This enhancement may not be used by adventurers who have not trained 10 times.",
-                "    It provides a boost of 2 to Harness Power Ranks.",
-                "    This enhancement may not be used by adventurers who have not trained 10 times.",
-                "    It seems to have a lot of enhancive charges remaining.",
-                "It will persist after its last enhancive charge has been expended.",
-                "It is a small item, under a pound.",
-                "It is estimated to be worth about 350,000 silvers.",
-                "It is magic resistant.",
-                "It has a permanently unlocked loresong by Burlin."
-              ]
+              "details": {
+                "raw": [
+                  "The pendant can be worn around the neck.  The pendant appears to serve some purpose.",
+                  "Analysis of a tourmaline inset eonake pendant indicates the item is free from merchant alteration restrictions.",
+                  "The inset eonake pendant will cost 90,000 coins.",
+                  "It is a magical item which could be imbedded with a spell.",
+                  "It has 0 charges.",
+                  "It could be activated by waving it.",
+                  "It will persist after its last magical charge has been expended.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 2 to Agility Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 11 times.",
+                  "    It provides a boost of 2 to Mana Recovery.",
+                  "    This enhancement may not be used by adventurers who have not trained 10 times.",
+                  "    It provides a boost of 2 to Harness Power Ranks.",
+                  "    This enhancement may not be used by adventurers who have not trained 10 times.",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 350,000 silvers.",
+                  "It is magic resistant.",
+                  "It has a permanently unlocked loresong by Burlin."
+                ],
+                "tags": [
+                  "purpose",
+                  "imbeddable",
+                  "persists",
+                  "small",
+                  "magic_resistant"
+                ],
+                "cost": 90000,
+                "worn": "neck",
+                "activator": "waving",
+                "enhancives": [
+                  {
+                    "boost": 2,
+                    "ability": "Agility Bonus",
+                    "level": 11
+                  },
+                  {
+                    "boost": 2,
+                    "ability": "Mana Recovery",
+                    "level": 10
+                  },
+                  {
+                    "boost": 2,
+                    "ability": "Harness Power Ranks",
+                    "level": 10
+                  }
+                ],
+                "wear_location": "around the neck",
+                "is_jewelry": true,
+                "item_type": "jewelry"
+              }
             }
           ],
           "sign": [
@@ -14178,6 +14326,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -14219,6 +14368,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -14243,6 +14393,7 @@
                   "The glaes jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -14413,6 +14564,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -14437,6 +14589,7 @@
                   "The glaes jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -14495,6 +14648,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -14519,6 +14673,7 @@
                   "The glaes jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -14577,6 +14732,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -14601,6 +14757,7 @@
                   "The glaes jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -14659,6 +14816,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -14683,6 +14841,7 @@
                   "The glaes jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -17715,6 +17874,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 7000000,
@@ -18335,6 +18495,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 2500000,
@@ -18410,6 +18571,7 @@
                   "The gold and teal bottle will cost 200,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
