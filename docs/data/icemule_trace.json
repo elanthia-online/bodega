@@ -1,6 +1,6 @@
 {
-  "created_at": "2026-05-07 05:27:17 UTC",
-  "run_time": "13s",
+  "created_at": "2026-05-07 08:58:29 UTC",
+  "run_time": "07m 38s",
   "town": "Icemule Trace",
   "shops": [
     {
@@ -1240,6 +1240,17 @@
           "room_title": "Emislity's General Store",
           "branch": "entry",
           "items": [
+
+          ],
+          "sign": [
+            "Written on a large sign:",
+            "full chrisms for your pleasure"
+          ]
+        },
+        {
+          "room_title": "Emislity's Armory",
+          "branch": "north",
+          "items": [
             {
               "id": "43569716",
               "name": "an uncut emerald",
@@ -1371,17 +1382,7 @@
                 "cost": 15000,
                 "item_type": null
               }
-            }
-          ],
-          "sign": [
-            "Written on a large sign:",
-            "full chrisms for your pleasure"
-          ]
-        },
-        {
-          "room_title": "Emislity's Armory",
-          "branch": "north",
-          "items": [
+            },
             {
               "id": "102110",
               "name": "some vultite augmented chain",
@@ -1434,6 +1435,7 @@
             {
               "id": "3653384",
               "name": "an uncut diamond",
+              "quantity": 3,
               "details": {
                 "raw": [
                   "The diamond can not be worn.",
@@ -1445,8 +1447,7 @@
                 ],
                 "cost": 15000,
                 "item_type": null
-              },
-              "quantity": 3
+              }
             },
             {
               "id": "3421078",
@@ -2220,15 +2221,6 @@
                   "The sycamore coffin will cost 10,000,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 10000000,
@@ -2545,7 +2537,17 @@
                 "weapon_type": "twohanded weapons",
                 "item_type": "weapon"
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on a painted black oak sign:",
+            "Welcome!"
+          ]
+        },
+        {
+          "room_title": "Sharth's Magic Shoppe",
+          "branch": "east",
+          "items": [
             {
               "id": "44864522",
               "name": "a flimsy kakore runestaff",
@@ -2602,17 +2604,7 @@
                 "weapon_type": "twohanded weapons",
                 "item_type": "weapon"
               }
-            }
-          ],
-          "sign": [
-            "Written on a painted black oak sign:",
-            "Welcome!"
-          ]
-        },
-        {
-          "room_title": "Sharth's Magic Shoppe",
-          "branch": "east",
-          "items": [
+            },
             {
               "id": "103125",
               "name": "a bloodjewel inset silver clasp",
@@ -4528,15 +4520,6 @@
                   "The glass jar will cost 5,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 5000,
@@ -5407,15 +5390,6 @@
                 ],
                 "tags": [
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 200000,
@@ -5478,15 +5452,6 @@
                   "max_light",
                   "persists",
                   "small",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 5000000,
@@ -7212,6 +7177,40 @@
           "branch": "entry",
           "items": [
             {
+              "id": "44748984",
+              "name": "a studded eonake mace",
+              "details": {
+                "raw": [
+                  "It has a small enchanter's glyph.",
+                  "The mace is a mace that requires skill in blunt weapons to use effectively.",
+                  "It looks like this item has been mainly crafted out of eonake, an extraordinarily rare metal.  It would need to be supplied to be used in an alteration and may only be used as an accent.  This material cannot be dyed.",
+                  "Analysis of a studded eonake mace indicates the item has certain alteration restrictions.  It would need to be supplied to be used in an alteration and may only be used as an accent.  This material cannot be dyed.",
+                  "You might be able to have a talented merchant lighten the eonake mace for you.",
+                  "The eonake mace will cost 1,000,000 coins.",
+                  "It imparts a bonus of +30 more than usual.",
+                  "It is a holy item.",
+                  "It appears to weigh about 6 pounds.",
+                  "It is estimated to be worth about 600,000 silvers.",
+                  "It is predominantly crafted of eonake.",
+                  "It is a simple project (87 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Griffik."
+                ],
+                "tags": [
+                  "lightenable",
+                  "holy"
+                ],
+                "cost": 1000000,
+                "enchant": 30,
+                "material": "eonake",
+                "skill": "blunt weapons",
+                "weight": 6,
+                "is_weapon": true,
+                "weapon_type": "blunt weapons",
+                "blessing": "holy",
+                "item_type": "weapon"
+              }
+            },
+            {
               "id": "105410",
               "name": "a golden leather breastplate",
               "details": {
@@ -8122,6 +8121,9 @@
                 ],
                 "is_weapon": true,
                 "weapon_type": "twohanded weapons",
+                "flares": [
+                  "a disrupting substance"
+                ],
                 "item_type": "weapon"
               }
             },
@@ -8508,40 +8510,6 @@
                 "armor_type": "leather",
                 "wear_location": "torso",
                 "item_type": "armor"
-              }
-            },
-            {
-              "id": "44748984",
-              "name": "a studded eonake mace",
-              "details": {
-                "raw": [
-                  "It has a small enchanter's glyph.",
-                  "The mace is a mace that requires skill in blunt weapons to use effectively.",
-                  "It looks like this item has been mainly crafted out of eonake, an extraordinarily rare metal.  It would need to be supplied to be used in an alteration and may only be used as an accent.  This material cannot be dyed.",
-                  "Analysis of a studded eonake mace indicates the item has certain alteration restrictions.  It would need to be supplied to be used in an alteration and may only be used as an accent.  This material cannot be dyed.",
-                  "You might be able to have a talented merchant lighten the eonake mace for you.",
-                  "The eonake mace will cost 1,000,000 coins.",
-                  "It imparts a bonus of +30 more than usual.",
-                  "It is a holy item.",
-                  "It appears to weigh about 6 pounds.",
-                  "It is estimated to be worth about 600,000 silvers.",
-                  "It is predominantly crafted of eonake.",
-                  "It is a simple project (87 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by Griffik."
-                ],
-                "tags": [
-                  "lightenable",
-                  "holy"
-                ],
-                "cost": 1000000,
-                "enchant": 30,
-                "material": "eonake",
-                "skill": "blunt weapons",
-                "weight": 6,
-                "is_weapon": true,
-                "weapon_type": "blunt weapons",
-                "blessing": "holy",
-                "item_type": "weapon"
               }
             }
           ],
@@ -9031,6 +8999,9 @@
                 "is_armor": true,
                 "armor_type": "leather",
                 "wear_location": "torso",
+                "flares": [
+                  "a disrupting substance"
+                ],
                 "dmg_padding": "unknown",
                 "temporary_dmg_padding": true,
                 "item_type": "armor"
@@ -11510,15 +11481,6 @@
                   "purpose",
                   "max_deep",
                   "max_light",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 1500000,
@@ -11546,15 +11508,6 @@
                 "tags": [
                   "scripted",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 500000,
@@ -16092,15 +16045,6 @@
                 "tags": [
                   "scripted",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -16126,15 +16070,6 @@
                 ],
                 "tags": [
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -16160,15 +16095,6 @@
                 ],
                 "tags": [
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -16194,15 +16120,6 @@
                 ],
                 "tags": [
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -16228,15 +16145,6 @@
                 ],
                 "tags": [
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -16265,15 +16173,6 @@
                 "tags": [
                   "scripted",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -16305,15 +16204,6 @@
                 "tags": [
                   "scripted",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -16343,15 +16233,6 @@
                 "tags": [
                   "scripted",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -16380,15 +16261,6 @@
                 "tags": [
                   "scripted",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -16417,15 +16289,6 @@
                 "tags": [
                   "scripted",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -16454,15 +16317,6 @@
                 "tags": [
                   "scripted",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -16488,15 +16342,6 @@
                 ],
                 "tags": [
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -16526,15 +16371,6 @@
                 "tags": [
                   "scripted",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -16559,15 +16395,6 @@
                 ],
                 "tags": [
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -17906,15 +17733,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 250000,
@@ -18069,15 +17887,6 @@
                 "tags": [
                   "scripted",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 1000000,
@@ -18465,15 +18274,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -19125,15 +18925,6 @@
                 ],
                 "tags": [
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -21106,6 +20897,9 @@
                 ],
                 "is_weapon": true,
                 "weapon_type": "edged weapons",
+                "flares": [
+                  "a disrupting substance"
+                ],
                 "item_type": "weapon"
               }
             },
@@ -23673,6 +23467,9 @@
                 ],
                 "is_weapon": true,
                 "weapon_type": "twohanded weapons",
+                "flares": [
+                  "a disrupting substance"
+                ],
                 "item_type": "weapon"
               }
             }
@@ -25497,6 +25294,9 @@
                 ],
                 "is_weapon": true,
                 "weapon_type": "twohanded weapons",
+                "flares": [
+                  "a disrupting substance"
+                ],
                 "item_type": "weapon"
               }
             },
@@ -26583,15 +26383,6 @@
                   "max_deep",
                   "max_light",
                   "small",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 750000,
@@ -26621,15 +26412,6 @@
                   "max_deep",
                   "max_light",
                   "small",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 750000,
@@ -26683,15 +26465,6 @@
                   "The yellow clay vase will cost 500,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 500000,
@@ -28086,7 +27859,35 @@
                 "wear_location": "around the neck",
                 "item_type": null
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on a silk-draped haon sign:",
+            "Welcome to ICICLE's Dispensary.",
+            "Portrait Lockets on counter",
+            "lace-edged: Unique Feature",
+            "oval-shaped: Curmudgeon",
+            "rune-etched: Curmudgeon",
+            "gold heart-shaped: Giggly",
+            "rose-patterned: Giggly",
+            "fairy: Giggly",
+            "heart-etched: Haughty",
+            "dark steel: Haughty",
+            "thunderbolt: Moody",
+            "key-etched: Flirt",
+            "shell-shaped: Joyful, Adventurous",
+            "pair of dice: Gambler",
+            "ship's wheel: Confident",
+            "glass heart-shaped: Romantic",
+            "dagger: Eeeevil",
+            "candle: Bookworm",
+            "Alchemical dye additives are located in the maple cabinet."
+          ]
+        },
+        {
+          "room_title": "Dirvy's Magic Shoppe",
+          "branch": "east",
+          "items": [
             {
               "id": "46891481",
               "name": "a note-shaped niveous snowdrop",
@@ -28176,35 +27977,7 @@
                 "material": "gemstone, a very rare gemstone",
                 "item_type": null
               }
-            }
-          ],
-          "sign": [
-            "Written on a silk-draped haon sign:",
-            "Welcome to ICICLE's Dispensary.",
-            "Portrait Lockets on counter",
-            "lace-edged: Unique Feature",
-            "oval-shaped: Curmudgeon",
-            "rune-etched: Curmudgeon",
-            "gold heart-shaped: Giggly",
-            "rose-patterned: Giggly",
-            "fairy: Giggly",
-            "heart-etched: Haughty",
-            "dark steel: Haughty",
-            "thunderbolt: Moody",
-            "key-etched: Flirt",
-            "shell-shaped: Joyful, Adventurous",
-            "pair of dice: Gambler",
-            "ship's wheel: Confident",
-            "glass heart-shaped: Romantic",
-            "dagger: Eeeevil",
-            "candle: Bookworm",
-            "Alchemical dye additives are located in the maple cabinet."
-          ]
-        },
-        {
-          "room_title": "Dirvy's Magic Shoppe",
-          "branch": "east",
-          "items": [
+            },
             {
               "id": "106134",
               "name": "a crystalline flask containing a light blue potion",
@@ -28244,7 +28017,6 @@
             "Written on a silk-draped haon sign:",
             "Welcome to ICICLE's Dispensary.",
             "All proceeds from this shop are used for ICICLE.",
-            "Merry Thrakmas, Everyone!",
             "Full/Ordinary chrisms are in the cabinet."
           ]
         },
@@ -28680,15 +28452,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 299999,
@@ -28719,15 +28482,6 @@
                 "tags": [
                   "max_deep",
                   "max_light",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 499999,
@@ -28760,15 +28514,6 @@
                 ],
                 "tags": [
                   "small",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 2999999,
@@ -29133,15 +28878,6 @@
                 ],
                 "tags": [
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 999999,
@@ -29947,15 +29683,6 @@
                   "purpose",
                   "lightenable",
                   "magic_resistant",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 1000000,
@@ -30351,15 +30078,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 14999999,
@@ -30430,15 +30148,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 4999999,
@@ -30829,15 +30538,6 @@
                   "The glass jar will cost 100,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -30862,15 +30562,6 @@
                   "The tall glass jar will cost 220,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 220000,
@@ -30895,15 +30586,6 @@
                   "The glass jar will cost 220,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 220000,
@@ -30928,15 +30610,6 @@
                   "The glass jar will cost 220,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 220000,
@@ -30961,15 +30634,6 @@
                   "The glass jar will cost 100,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -30994,15 +30658,6 @@
                   "The glass jar will cost 100,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -31064,15 +30719,6 @@
                   "The glass jar will cost 2,000,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 2000000,
@@ -31097,15 +30743,6 @@
                   "The glass jar will cost 2,000,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 2000000,
@@ -31240,15 +30877,6 @@
                   "The yellow clay vase will cost 1,000,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 1000000,
@@ -33357,6 +32985,9 @@
                 "worn": "shoulders",
                 "shield_type": "small",
                 "is_shield": true,
+                "flares": [
+                  "a grappling force"
+                ],
                 "item_type": "shield"
               }
             },
@@ -34561,6 +34192,9 @@
                 ],
                 "is_weapon": true,
                 "weapon_type": "twohanded weapons",
+                "flares": [
+                  "a disrupting substance"
+                ],
                 "item_type": "weapon"
               }
             },
@@ -36298,15 +35932,6 @@
                 "tags": [
                   "holy",
                   "small",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 20000000,
@@ -41147,15 +40772,6 @@
                   "The shimmering pink bottle will cost 449,999 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 449999,
@@ -41181,15 +40797,6 @@
                   "The skull-shaped jar will cost 449,999 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 449999,
@@ -41446,15 +41053,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 500000,
@@ -41477,15 +41075,6 @@
                 ],
                 "tags": [
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 30000,
@@ -41551,15 +41140,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 2000000,
@@ -41588,15 +41168,6 @@
                 "tags": [
                   "scripted",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 1000000,
@@ -41657,15 +41228,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -41689,15 +41251,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -41739,15 +41292,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -42503,7 +42047,7 @@
               "name": "a bifurcated dog tail",
               "details": {
                 "raw": [
-                  "You glance at the bifurcated dog tail, wondering if it's possibly sideways.  Or upside down.  Or backwards.  It's really confusing you!",
+                  "Are those eyes peering back at you?!  Oh, no.  It's just a bifurcated dog tail.",
                   "The tail can not be worn.",
                   "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
                   "Analysis of a bifurcated dog tail indicates the creator has provided the following information:",
@@ -42718,15 +42262,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -46453,15 +45988,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 15000,
@@ -46579,15 +46105,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 1000000,
@@ -46611,15 +46128,6 @@
                 ],
                 "tags": [
                   "max_deep",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -46643,15 +46151,6 @@
                 ],
                 "tags": [
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 15000,
@@ -46678,15 +46177,6 @@
                 ],
                 "tags": [
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -46733,15 +46223,6 @@
                 ],
                 "tags": [
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 5000,
@@ -46768,15 +46249,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -46804,15 +46276,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 80000,
@@ -46837,15 +46300,6 @@
                 ],
                 "tags": [
                   "max_deep",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -46869,15 +46323,6 @@
                 ],
                 "tags": [
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 35000,
@@ -47521,15 +46966,6 @@
                   "The square glass bottle will cost 15,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 15000,
@@ -47554,15 +46990,6 @@
                   "The square glass bottle will cost 15,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 15000,
@@ -49486,6 +48913,9 @@
                 ],
                 "is_weapon": true,
                 "weapon_type": "twohanded weapons",
+                "flares": [
+                  "a disrupting substance"
+                ],
                 "item_type": "weapon"
               }
             },
@@ -51732,15 +51162,6 @@
                 "tags": [
                   "small",
                   "magic_resistant",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 200000,
@@ -51773,15 +51194,6 @@
                 "tags": [
                   "small",
                   "magic_resistant",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 200000,
@@ -51814,15 +51226,6 @@
                 "tags": [
                   "small",
                   "magic_resistant",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 200000,
@@ -51855,15 +51258,6 @@
                 "tags": [
                   "small",
                   "magic_resistant",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 200000,
@@ -51896,15 +51290,6 @@
                 "tags": [
                   "small",
                   "magic_resistant",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 200000,
@@ -51937,15 +51322,6 @@
                 "tags": [
                   "small",
                   "magic_resistant",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 200000,
@@ -52003,15 +51379,6 @@
                 ],
                 "tags": [
                   "small",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -53147,15 +52514,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -53337,15 +52695,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -53413,15 +52762,6 @@
                   "The vaalin-sigiled gloves will cost 750,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 750000,
@@ -53472,15 +52812,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 4500000,
@@ -53506,15 +52837,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 12000,
@@ -53869,6 +53191,9 @@
                 "weight": 12,
                 "is_weapon": true,
                 "weapon_type": "twohanded weapons",
+                "flares": [
+                  "a disrupting substance"
+                ],
                 "dmg_weighting": "unknown",
                 "temporary_dmg_weighting": true,
                 "item_type": "weapon"
@@ -53938,15 +53263,6 @@
                   "The tall glass jar will cost 200,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 200000,
@@ -53971,15 +53287,6 @@
                   "The tall glass jar will cost 200,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 200000,
@@ -54152,15 +53459,6 @@
                 "tags": [
                   "purpose",
                   "max_deep",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -54188,15 +53486,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -54223,15 +53512,6 @@
                 "tags": [
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -54258,15 +53538,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -54313,15 +53584,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -54346,15 +53608,6 @@
                   "The ruddy stouthide poulaines will cost 50,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -54382,15 +53635,6 @@
                   "purpose",
                   "max_deep",
                   "max_light",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -54437,15 +53681,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -54694,15 +53929,6 @@
                 "tags": [
                   "purpose",
                   "max_deep",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -54755,15 +53981,6 @@
                 ],
                 "tags": [
                   "max_deep",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 5000,
@@ -54789,15 +54006,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 5000,
@@ -56047,15 +55255,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 3000000,
@@ -56353,7 +55552,7 @@
           ]
         },
         {
-          "room_title": "Bhast's General Store",
+          "room_title": "Bhast's Weaponry",
           "branch": "west",
           "items": [
             {
@@ -56593,15 +55792,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 950000,
@@ -56633,15 +55823,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 950000,
@@ -56708,15 +55889,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 950000,
@@ -56752,15 +55924,6 @@
                 "tags": [
                   "purpose",
                   "max_deep",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 750000,
@@ -56794,15 +55957,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 750000,
@@ -56839,15 +55993,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 750000,
@@ -57087,15 +56232,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 150000,
@@ -57158,15 +56294,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 3250000,
@@ -57251,15 +56378,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 2500000,
@@ -57310,15 +56428,6 @@
                 "tags": [
                   "purpose",
                   "max_deep",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 1500000,
@@ -57381,6 +56490,9 @@
                 ],
                 "is_weapon": true,
                 "weapon_type": "twohanded weapons",
+                "flares": [
+                  "a disrupting substance"
+                ],
                 "item_type": "weapon"
               }
             }
@@ -57462,15 +56574,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -57519,15 +56622,6 @@
                 "tags": [
                   "purpose",
                   "max_deep",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 750000,
@@ -57587,15 +56681,6 @@
                   "purpose",
                   "scripted",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 2500000,
@@ -58003,15 +57088,6 @@
                 ],
                 "tags": [
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -58036,15 +57112,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -58069,15 +57136,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -58102,15 +57160,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -58212,15 +57261,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -58273,15 +57313,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 35000,
@@ -58426,15 +57457,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -58458,15 +57480,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 15000,
@@ -58686,15 +57699,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 5000,
@@ -58892,15 +57896,6 @@
                 ],
                 "tags": [
                   "max_deep",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 55000,
@@ -59032,6 +58027,9 @@
                 "worn": "shoulders",
                 "shield_type": "medium",
                 "is_shield": true,
+                "flares": [
+                  "a disrupting substance"
+                ],
                 "item_type": "shield"
               }
             },
@@ -59590,15 +58588,6 @@
                   "The skull-shaped jar will cost 600,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 600000,
@@ -59624,15 +58613,6 @@
                   "The skull-shaped jar will cost 4,000,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 4000000,
@@ -59664,15 +58644,6 @@
                   "It has a permanently unlocked loresong by Myrkate."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 65000,
@@ -59705,15 +58676,6 @@
                 ],
                 "tags": [
                   "max_deep",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 65000,
@@ -60389,15 +59351,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -60428,15 +59381,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 250000,
@@ -60466,15 +59410,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 120000,
@@ -60511,15 +59446,6 @@
                   "scripted",
                   "max_deep",
                   "max_light",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 5000000,
@@ -60702,15 +59628,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -60742,15 +59659,6 @@
                   "scripted",
                   "max_deep",
                   "max_light",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 5000000,
@@ -60794,15 +59702,6 @@
                   "The ring box will cost 75,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -60830,15 +59729,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -60980,15 +59870,6 @@
                   "The glass jar will cost 100,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -61013,15 +59894,6 @@
                   "The glass jar will cost 100,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -61797,15 +60669,6 @@
                 "tags": [
                   "holy",
                   "small",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 5000000,
@@ -62351,15 +61214,6 @@
                   "The glass jar will cost 156,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 156000,
@@ -62394,15 +61248,6 @@
                   "The glass jar will cost 180,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 180000,
@@ -62427,15 +61272,6 @@
                   "The tall glass jar will cost 180,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 180000,
@@ -62460,15 +61296,6 @@
                   "The tall glass jar will cost 180,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 180000,
@@ -62493,15 +61320,6 @@
                   "The tall glass jar will cost 180,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 180000,
@@ -62526,15 +61344,6 @@
                   "The tall glass jar will cost 180,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 180000,
@@ -62909,15 +61718,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 2000000,
@@ -62963,6 +61763,9 @@
                 "is_armor": true,
                 "armor_type": "accessory",
                 "wear_location": "head",
+                "flares": [
+                  "a disrupting substance"
+                ],
                 "blessing": "holy",
                 "item_type": "armor"
               }
@@ -63124,15 +61927,6 @@
                   "The glass jar will cost 176,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 176000,
@@ -63157,15 +61951,6 @@
                   "The tall glass jar will cost 156,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 156000,
@@ -63190,15 +61975,6 @@
                   "The tall glass jar will cost 156,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 156000,
@@ -63223,15 +61999,6 @@
                   "The glass jar will cost 176,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 176000,
@@ -63946,15 +62713,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 1000000,
@@ -72144,15 +70902,6 @@
                   "purpose",
                   "max_deep",
                   "max_light",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 20000000,
@@ -72869,6 +71618,9 @@
                 ],
                 "is_weapon": true,
                 "weapon_type": "twohanded weapons",
+                "flares": [
+                  "a disrupting substance"
+                ],
                 "blessing": "holy",
                 "item_type": "weapon"
               }
@@ -74671,15 +73423,6 @@
                   "The tall glass jar will cost 44,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 44000,
@@ -74704,15 +73447,6 @@
                   "The tall glass jar will cost 44,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 44000,
@@ -74737,15 +73471,6 @@
                   "The tall glass jar will cost 44,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 44000,
@@ -74770,15 +73495,6 @@
                   "The tall glass jar will cost 44,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 44000,
@@ -74848,15 +73564,6 @@
                   "The tall glass jar will cost 100,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -74893,15 +73600,6 @@
                   "The glaes jar will cost 39,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 39000,
@@ -74926,15 +73624,6 @@
                   "The tall glass jar will cost 20,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 20000,
@@ -76127,15 +74816,6 @@
                 "tags": [
                   "scripted",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -76164,15 +74844,6 @@
                 "tags": [
                   "scripted",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -76201,15 +74872,6 @@
                 "tags": [
                   "scripted",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -76238,15 +74900,6 @@
                 "tags": [
                   "scripted",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -76958,6 +75611,36 @@
           "branch": "entry",
           "items": [
             {
+              "id": "57571831",
+              "name": "a trio of balenite crescent moon lanterns limned in frosted silver",
+              "details": {
+                "raw": [
+                  "The lantern can not be worn.",
+                  "It looks like this item has been mainly crafted out of cloth, an extremely common material.",
+                  "Analysis of a trio of balenite crescent moon lanterns limned in frosted silver indicates the creator has provided the following information:",
+                  "This lantern is a Deck the Halls room decoration and is designed to be decorated with a gem, feather, flower, insects and sea creatures, pointed items, ribbons, or other miscellaneous items and PLACEd out in a room or private property to decorate the area.  Miscellany includes other foraged items, skins, shells, and other larger non-gem treasure items.  The lantern has several distinct descriptions, depending on what item is inserted.  To insert an item, hold the lantern in one hand, the item you'd like to insert in the opposite hand, and PUSH lantern.  PULLing the lantern will remove the item and restore the lantern to its empty description.",
+                  "Alteration Guidelines:",
+                  "While each side is highly customizable, both the noun and material need to remain the same for all sides.  Sides not displayed below cannot be used until a description is added by a merchant.",
+                  "The sides currently are:",
+                  "           Short: lantern",
+                  "             Gem: a circular lantern formed from vaalin-bound <adj> cabochons",
+                  "         Feather: a large globe lantern surrounded by layers of downy <adj>s",
+                  "          Flower: a branch-handled blush lantern painted with a bunny amid <adj>s",
+                  "  Insect/Aquatic: a fanciful blue vellum narwhal lantern with <adj>s circling the long horn",
+                  "         Pointed: an iceblossom-draped milky quartz lantern perched on a stand of spiraled <noun>s",
+                  "          Ribbon: a star-shaped lantern of <adj>s woven in an open lattice",
+                  "This item has Stay-Put qualities.  If you PLACE it, it will be moved to the ground in your current room and stay there, unable to be picked up by others or taken by the janitor, for 4 hours.  After the duration expires, the item is fair game for others and for the janitor.  Alternately, the item may be PLACEd by the owner of a private property within the grounds of the property or by the owner of a stall or loft in and will stay there until PLACEd again.",
+                  "The lantern will cost 20,000,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 20000000,
+                "material": "cloth, an extremely common material",
+                "item_type": null
+              }
+            },
+            {
               "id": "44728283",
               "name": "a celestial blue glass teacup",
               "quantity": 2,
@@ -77379,11 +76062,6 @@
                   "The teadragon box will cost 5,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 5000,
@@ -77411,7 +76089,26 @@
                 "material": "organic material, an extremely common material",
                 "item_type": null
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on an etched glass sign:",
+            "+.- The Spiraled Horn -.+",
+            "Stove: Standard Quality. ANALYZE for info",
+            "Kettle/Coffee Press: Tea/Coffee Brewing",
+            "Erithi Teabowls (pricier set has starveil inlay)",
+            "Charms: for Charm Jewelry/Unlocked Piercing Jewelry.",
+            "Any \"charm\" less than 1 pound works regardless of its function.",
+            "Cloud Bottle: Bubbles.",
+            "Lamp Oil: Sacred Oil Lamps.",
+            "Frosting Bucket: LOOK to see 16 frostings inside. Gingerbread/Pumpkin Spice/Salted Caramel are unlimited tubes.",
+            "Boxes: Reusable."
+          ]
+        },
+        {
+          "room_title": "Laelithonel's Outfitting",
+          "branch": "east",
+          "items": [
             {
               "id": "1656530",
               "name": "a smooth glowbark stick dangling auroral crystal blossoms",
@@ -77626,6 +76323,31 @@
                 "worn": "hair",
                 "wear_location": "in the hair",
                 "item_type": null
+              }
+            },
+            {
+              "id": "57725551",
+              "name": "a miniscule gargoyle ring",
+              "details": {
+                "raw": [
+                  "The gargoyle on this ring is hunched, its wings flag against its back.  Its eyes blaze with an unnatural light, and it's rhythmically clenching and unclenching its front talons as it gazes about, a snarl on its face.",
+                  "The ring can be worn around the finger.",
+                  "It looks like this item has been mainly crafted out of stone, an extremely common material.",
+                  "Analysis of a miniscule gargoyle ring indicates the creator has provided the following information:",
+                  "This gargoyle ring is a wearable, living(ish) gargoyle.  When worn, it acts much like a ring.",
+                  "Due to the special nature of these gargoyles, they cannot be altered in the typical sense.  However certain merchants may be willing to change which \"type\" you have, changing what it pretends to be when you wear it.  The options are: Earring, Necklace, Ring, and Bracelet.  Not all merchants will be willing to do this!",
+                  " This ring is currently UNLOCKED, which means that you can use WEAR, REMOVE, TOUCH, PULL, PROD, and also POINT it at people!",
+                  "The gargoyle ring will cost 15,000,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 15000000,
+                "material": "stone, an extremely common material",
+                "worn": "finger",
+                "wear_location": "around the finger",
+                "is_jewelry": true,
+                "item_type": "jewelry"
               }
             },
             {
@@ -77956,617 +76678,24 @@
                 "material": "cloth, an extremely common material",
                 "item_type": null
               }
-            },
-            {
-              "id": "102673",
-              "name": "a knitted teadragon-patterned auroralaen carryall",
-              "details": {
-                "raw": [
-                  "It is estimated that a knitted teadragon-patterned auroralaen carryall can store a significant amount with enough space for any number of items.",
-                  "The carryall can be worn on the back.  The carryall appears to serve some purpose.",
-                  "It looks like this item has been mainly crafted out of cloth, an extremely common material.",
-                  "Analysis of a knitted teadragon-patterned auroralaen carryall indicates the item is free from merchant alteration restrictions.",
-                  "You might be able to have a talented merchant lighten the  knitted carryall for you or deepen its pockets.",
-                  "The  knitted carryall will cost 300,000 coins."
-                ],
-                "tags": [
-                  "purpose",
-                  "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container"
-                ],
-                "cost": 300000,
-                "material": "cloth, an extremely common material",
-                "worn": "back",
-                "capacity_level": "significant",
-                "is_container": true,
-                "wear_location": "on the back",
-                "item_type": "container"
-              }
-            },
-            {
-              "id": "102672",
-              "name": "a jade-beaded knitted dark starsilk carryall",
-              "details": {
-                "raw": [
-                  "It is estimated that a jade-beaded knitted dark starsilk carryall can store a significant amount with enough space for any number of items.",
-                  "The carryall can be worn on the back.  The carryall appears to serve some purpose.",
-                  "It looks like this item has been mainly crafted out of cloth, an extremely common material.",
-                  "Analysis of a jade-beaded knitted dark starsilk carryall indicates the item is free from merchant alteration restrictions.",
-                  "You might be able to have a talented merchant lighten the dark starsilk carryall for you or deepen its pockets.",
-                  "The dark starsilk carryall will cost 300,000 coins."
-                ],
-                "tags": [
-                  "purpose",
-                  "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container"
-                ],
-                "cost": 300000,
-                "material": "cloth, an extremely common material",
-                "worn": "back",
-                "capacity_level": "significant",
-                "is_container": true,
-                "wear_location": "on the back",
-                "item_type": "container"
-              }
-            },
-            {
-              "id": "102671",
-              "name": "a graphite leather carrycase traced with flora-burnt arabesques",
-              "details": {
-                "raw": [
-                  "It is estimated that a graphite leather carrycase traced with flora-burnt arabesques can store a significant amount with enough space for any number of items.",
-                  "The carrycase can be worn on the back.  The carrycase appears to serve some purpose.",
-                  "It looks like this item has been mainly crafted out of leather, an extremely common material.",
-                  "Analysis of a graphite leather carrycase traced with flora-burnt arabesques indicates the item is free from merchant alteration restrictions.",
-                  "You might be able to have a talented merchant lighten the leather carrycase for you or deepen its pockets.",
-                  "The leather carrycase will cost 300,000 coins."
-                ],
-                "tags": [
-                  "purpose",
-                  "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container"
-                ],
-                "cost": 300000,
-                "material": "leather, an extremely common material",
-                "worn": "back",
-                "capacity_level": "significant",
-                "is_container": true,
-                "wear_location": "on the back",
-                "item_type": "container"
-              }
-            },
-            {
-              "id": "102666",
-              "name": "some cream nubuck shoes buttoned with rose gold wire stars",
-              "details": {
-                "raw": [
-                  "Imprinted on the sole, you see a nacre-inlaid leaping narwhal, the crafter's personal hallmark.",
-                  "It is estimated that some cream nubuck shoes buttoned with rose gold wire stars can store a very small amount with enough space for a couple of items.",
-                  "The shoes can be worn on the feet.  The shoes appear to serve some purpose.",
-                  "Analysis of some cream nubuck shoes buttoned with rose gold wire stars indicates the creator has provided the following information:",
-                  "This is footwear crafted by a skilled artisan.",
-                  "Additional scripts have been applied to the cream nubuck shoes and may have separate alteration restrictions.",
-                  "Some cream nubuck shoes buttoned with rose gold wire stars has been modified by a fully unlocked metal punch to allow you to PUSH, DANCE, BOW, STOMP, ATTEND, NUDGE, TURN, or LEAN the shoes.",
-                  "You might be able to have a talented merchant lighten the cream nubuck shoes for you or deepen their pockets.",
-                  "The cream nubuck shoes will cost 100,000 coins."
-                ],
-                "tags": [
-                  "scripted",
-                  "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container"
-                ],
-                "cost": 100000,
-                "worn": "feet",
-                "capacity_level": "very small",
-                "is_container": true,
-                "wear_location": "on the feet",
-                "item_type": "container"
-              }
-            },
-            {
-              "id": "102665",
-              "name": "a pair of dark iriswood sandals inset with lavender teapot loti",
-              "details": {
-                "raw": [
-                  "Imprinted on the sole, you see a crescent moon encircled by meviriels, the crafter's personal hallmark.",
-                  "It is estimated that a pair of dark iriswood sandals inset with lavender teapot loti can store a very small amount with enough space for a couple of items.",
-                  "The sandals can be worn on the feet.",
-                  "Analysis of a pair of dark iriswood sandals inset with lavender teapot loti indicates the creator has provided the following information:",
-                  "This is footwear crafted by a skilled artisan.",
-                  "Additional scripts have been applied to the dark iriswood sandals and may have separate alteration restrictions.",
-                  "A pair of dark iriswood sandals inset with lavender teapot loti has been modified by a fully unlocked metal punch to allow you to TAP, PULL, POKE, STARE, DANCE, RUB, TURN, or PUSH the sandals.",
-                  "You might be able to have a talented merchant lighten the dark iriswood sandals for you or deepen their pockets.",
-                  "The dark iriswood sandals will cost 200,000 coins."
-                ],
-                "tags": [
-                  "scripted",
-                  "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container"
-                ],
-                "cost": 200000,
-                "worn": "feet",
-                "capacity_level": "very small",
-                "is_container": true,
-                "wear_location": "on the feet",
-                "item_type": "container"
-              }
-            },
-            {
-              "id": "102664",
-              "name": "a pair of ombre pink milk glass wedge-heeled sandals",
-              "details": {
-                "raw": [
-                  "Imprinted on the sole, you see a crescent moon encircled by meviriels, the crafter's personal hallmark.",
-                  "It is estimated that a pair of ombre pink milk glass wedge-heeled sandals can store a very small amount with enough space for a couple of items.",
-                  "The sandals can be worn on the feet.",
-                  "Analysis of a pair of ombre pink milk glass wedge-heeled sandals indicates the creator has provided the following information:",
-                  "This is footwear crafted by a skilled artisan.",
-                  "Additional scripts have been applied to the wedge-heeled sandals and may have separate alteration restrictions.",
-                  "A pair of ombre pink milk glass wedge-heeled sandals has been modified by a fully unlocked metal punch to allow you to TAP, PULL, POKE, STARE, DANCE, RUB, TURN, or PUSH the sandals.",
-                  "You might be able to have a talented merchant lighten the wedge-heeled sandals for you or deepen their pockets.",
-                  "The wedge-heeled sandals will cost 200,000 coins."
-                ],
-                "tags": [
-                  "scripted",
-                  "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container"
-                ],
-                "cost": 200000,
-                "worn": "feet",
-                "capacity_level": "very small",
-                "is_container": true,
-                "wear_location": "on the feet",
-                "item_type": "container"
-              }
-            },
-            {
-              "id": "102663",
-              "name": "a pair of loden brocade yatane beaded with pink-plum loti",
-              "details": {
-                "raw": [
-                  "Imprinted on the sole, you see a crescent moon encircled by meviriels, the crafter's personal hallmark.",
-                  "It is estimated that a pair of loden brocade yatane beaded with pink-plum loti can store a very small amount with enough space for a couple of items.",
-                  "The yatane can be worn on the feet.",
-                  "Analysis of a pair of loden brocade yatane beaded with pink-plum loti indicates the creator has provided the following information:",
-                  "This is footwear crafted by a skilled artisan.",
-                  "Additional scripts have been applied to the loden brocade yatane and may have separate alteration restrictions.",
-                  "A pair of loden brocade yatane beaded with pink-plum loti has been modified by a fully unlocked metal punch to allow you to TAP, PULL, POKE, STARE, DANCE, RUB, TURN, or PUSH the yatane.",
-                  "You might be able to have a talented merchant lighten the loden brocade yatane for you or deepen its pockets.",
-                  "The loden brocade yatane will cost 150,000 coins."
-                ],
-                "tags": [
-                  "scripted",
-                  "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container"
-                ],
-                "cost": 150000,
-                "worn": "feet",
-                "capacity_level": "very small",
-                "is_container": true,
-                "wear_location": "on the feet",
-                "item_type": "container"
-              }
-            },
-            {
-              "id": "102662",
-              "name": "a pair of pale celadon petal-inked naraina yatane",
-              "details": {
-                "raw": [
-                  "Imprinted on the sole, you see a crescent moon encircled by meviriels, the crafter's personal hallmark.",
-                  "It is estimated that a pair of pale celadon petal-inked naraina yatane can store a very small amount with enough space for a couple of items.",
-                  "The yatane can be worn on the feet.",
-                  "Analysis of a pair of pale celadon petal-inked naraina yatane indicates the creator has provided the following information:",
-                  "This is footwear crafted by a skilled artisan.",
-                  "Additional scripts have been applied to the naraina yatane and may have separate alteration restrictions.",
-                  "A pair of pale celadon petal-inked naraina yatane has been modified by a fully unlocked metal punch to allow you to TAP, PULL, POKE, STARE, DANCE, RUB, TURN, or PUSH the yatane.",
-                  "You might be able to have a talented merchant lighten the naraina yatane for you or deepen its pockets.",
-                  "The naraina yatane will cost 150,000 coins."
-                ],
-                "tags": [
-                  "scripted",
-                  "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container"
-                ],
-                "cost": 150000,
-                "worn": "feet",
-                "capacity_level": "very small",
-                "is_container": true,
-                "wear_location": "on the feet",
-                "item_type": "container"
-              }
-            },
-            {
-              "id": "102661",
-              "name": "a pair of dark teal starsilk yatane beaded with ivory water lilies",
-              "details": {
-                "raw": [
-                  "Imprinted on the sole, you see a crescent moon encircled by meviriels, the crafter's personal hallmark.",
-                  "It is estimated that a pair of dark teal starsilk yatane beaded with ivory water lilies can store a very small amount with enough space for a couple of items.",
-                  "The yatane can be worn on the feet.",
-                  "Analysis of a pair of dark teal starsilk yatane beaded with ivory water lilies indicates the creator has provided the following information:",
-                  "This is footwear crafted by a skilled artisan.",
-                  "Additional scripts have been applied to the teal starsilk yatane and may have separate alteration restrictions.",
-                  "A pair of dark teal starsilk yatane beaded with ivory water lilies has been modified by a fully unlocked metal punch to allow you to TAP, PULL, POKE, STARE, DANCE, RUB, TURN, or PUSH the yatane.",
-                  "You might be able to have a talented merchant lighten the teal starsilk yatane for you or deepen its pockets.",
-                  "The teal starsilk yatane will cost 150,000 coins."
-                ],
-                "tags": [
-                  "scripted",
-                  "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container"
-                ],
-                "cost": 150000,
-                "worn": "feet",
-                "capacity_level": "very small",
-                "is_container": true,
-                "wear_location": "on the feet",
-                "item_type": "container"
-              }
-            },
-            {
-              "id": "102660",
-              "name": "a pair of gilded charcoal calligraphy-set silk yatane",
-              "details": {
-                "raw": [
-                  "Imprinted on the sole, you see a crescent moon encircled by meviriels, the crafter's personal hallmark.",
-                  "It is estimated that a pair of gilded charcoal calligraphy-set silk yatane can store a very small amount with enough space for a couple of items.",
-                  "The yatane can be worn on the feet.",
-                  "Analysis of a pair of gilded charcoal calligraphy-set silk yatane indicates the creator has provided the following information:",
-                  "This is footwear crafted by a skilled artisan.",
-                  "Additional scripts have been applied to the silk yatane and may have separate alteration restrictions.",
-                  "A pair of gilded charcoal calligraphy-set silk yatane has been modified by a fully unlocked metal punch to allow you to TAP, PULL, POKE, STARE, DANCE, RUB, TURN, or PUSH the yatane.",
-                  "You might be able to have a talented merchant lighten the silk yatane for you or deepen its pockets.",
-                  "The silk yatane will cost 150,000 coins."
-                ],
-                "tags": [
-                  "scripted",
-                  "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container"
-                ],
-                "cost": 150000,
-                "worn": "feet",
-                "capacity_level": "very small",
-                "is_container": true,
-                "wear_location": "on the feet",
-                "item_type": "container"
-              }
-            },
-            {
-              "id": "102659",
-              "name": "a pair of chromed pink leather sandals laced with starsilk ribbon",
-              "details": {
-                "raw": [
-                  "Imprinted on the sole, you see a crescent moon encircled by meviriels, the crafter's personal hallmark.",
-                  "It is estimated that a pair of chromed pink leather sandals laced with starsilk ribbon can store a very small amount with enough space for a couple of items.",
-                  "The sandals can be worn on the feet.",
-                  "Analysis of a pair of chromed pink leather sandals laced with starsilk ribbon indicates the creator has provided the following information:",
-                  "This is footwear crafted by a skilled artisan.",
-                  "Additional scripts have been applied to the pink leather sandals and may have separate alteration restrictions.",
-                  "A pair of chromed pink leather sandals laced with starsilk ribbon has been modified by a fully unlocked metal punch to allow you to TAP, PULL, POKE, STARE, DANCE, RUB, TURN, or PUSH the sandals.",
-                  "You might be able to have a talented merchant lighten the pink leather sandals for you or deepen their pockets.",
-                  "The pink leather sandals will cost 150,000 coins."
-                ],
-                "tags": [
-                  "scripted",
-                  "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container"
-                ],
-                "cost": 150000,
-                "worn": "feet",
-                "capacity_level": "very small",
-                "is_container": true,
-                "wear_location": "on the feet",
-                "item_type": "container"
-              }
-            },
-            {
-              "id": "102658",
-              "name": "a pair of mazarine floral motif chambray wedge-heeled sandals",
-              "details": {
-                "raw": [
-                  "Imprinted on the sole, you see a crescent moon encircled by meviriels, the crafter's personal hallmark.",
-                  "It is estimated that a pair of mazarine floral motif chambray wedge-heeled sandals can store a very small amount with enough space for a couple of items.",
-                  "The sandals can be worn on the feet.",
-                  "Analysis of a pair of mazarine floral motif chambray wedge-heeled sandals indicates the creator has provided the following information:",
-                  "This is footwear crafted by a skilled artisan.",
-                  "Additional scripts have been applied to the wedge-heeled sandals and may have separate alteration restrictions.",
-                  "A pair of mazarine floral motif chambray wedge-heeled sandals has been modified by a fully unlocked metal punch to allow you to TAP, PULL, POKE, STARE, DANCE, RUB, TURN, or PUSH the sandals.",
-                  "You might be able to have a talented merchant lighten the wedge-heeled sandals for you or deepen their pockets.",
-                  "The wedge-heeled sandals will cost 150,000 coins."
-                ],
-                "tags": [
-                  "scripted",
-                  "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container"
-                ],
-                "cost": 150000,
-                "worn": "feet",
-                "capacity_level": "very small",
-                "is_container": true,
-                "wear_location": "on the feet",
-                "item_type": "container"
-              }
-            },
-            {
-              "id": "102657",
-              "name": "a pair of very pale jade latticed jute calf-tied sandals",
-              "details": {
-                "raw": [
-                  "Imprinted on the sole, you see a crescent moon encircled by meviriels, the crafter's personal hallmark.",
-                  "It is estimated that a pair of very pale jade latticed jute calf-tied sandals can store a very small amount with enough space for a couple of items.",
-                  "The sandals can be worn on the feet.",
-                  "Analysis of a pair of very pale jade latticed jute calf-tied sandals indicates the creator has provided the following information:",
-                  "This is footwear crafted by a skilled artisan.",
-                  "Additional scripts have been applied to the jute calf-tied sandals and may have separate alteration restrictions.",
-                  "A pair of very pale jade latticed jute calf-tied sandals has been modified by a fully unlocked metal punch to allow you to TAP, PULL, POKE, STARE, DANCE, RUB, TURN, or PUSH the sandals.",
-                  "You might be able to have a talented merchant lighten the jute calf-tied sandals for you or deepen their pockets.",
-                  "The jute calf-tied sandals will cost 150,000 coins."
-                ],
-                "tags": [
-                  "scripted",
-                  "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container"
-                ],
-                "cost": 150000,
-                "worn": "feet",
-                "capacity_level": "very small",
-                "is_container": true,
-                "wear_location": "on the feet",
-                "item_type": "container"
-              }
-            },
-            {
-              "id": "102656",
-              "name": "a pair of polished lor wedge-heeled sandals",
-              "details": {
-                "raw": [
-                  "Imprinted on the sole, you see a crescent moon encircled by meviriels, the crafter's personal hallmark.",
-                  "It is estimated that a pair of polished lor wedge-heeled sandals can store a very small amount with enough space for a couple of items.",
-                  "The sandals can be worn on the feet.",
-                  "Analysis of a pair of polished lor wedge-heeled sandals indicates the creator has provided the following information:",
-                  "This is footwear crafted by a skilled artisan.",
-                  "Additional scripts have been applied to the wedge-heeled sandals and may have separate alteration restrictions.",
-                  "A pair of polished lor wedge-heeled sandals has been modified by a fully unlocked metal punch to allow you to TAP, PULL, POKE, STARE, DANCE, RUB, TURN, or PUSH the sandals.",
-                  "You might be able to have a talented merchant lighten the wedge-heeled sandals for you or deepen their pockets.",
-                  "The wedge-heeled sandals will cost 150,000 coins."
-                ],
-                "tags": [
-                  "scripted",
-                  "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container"
-                ],
-                "cost": 150000,
-                "worn": "feet",
-                "capacity_level": "very small",
-                "is_container": true,
-                "wear_location": "on the feet",
-                "item_type": "container"
-              }
-            },
-            {
-              "id": "102655",
-              "name": "a pair of oiled tigerwood thonged sandals inset with swirled glass koi fish",
-              "details": {
-                "raw": [
-                  "Imprinted on the sole, you see a crescent moon encircled by meviriels, the crafter's personal hallmark.",
-                  "It is estimated that a pair of oiled tigerwood thonged sandals inset with swirled glass koi fish can store a very small amount with enough space for a couple of items.",
-                  "The sandals can be worn on the feet.",
-                  "Analysis of a pair of oiled tigerwood thonged sandals inset with swirled glass koi fish indicates the creator has provided the following information:",
-                  "This is footwear crafted by a skilled artisan.",
-                  "Additional scripts have been applied to the thonged sandals and may have separate alteration restrictions.",
-                  "A pair of oiled tigerwood thonged sandals inset with swirled glass koi fish has been modified by a fully unlocked metal punch to allow you to TAP, PULL, POKE, STARE, DANCE, RUB, TURN, or PUSH the sandals.",
-                  "You might be able to have a talented merchant lighten the thonged sandals for you or deepen their pockets.",
-                  "The thonged sandals will cost 150,000 coins."
-                ],
-                "tags": [
-                  "scripted",
-                  "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container"
-                ],
-                "cost": 150000,
-                "worn": "feet",
-                "capacity_level": "very small",
-                "is_container": true,
-                "wear_location": "on the feet",
-                "item_type": "container"
-              }
-            },
-            {
-              "id": "102654",
-              "name": "a pair of cloudy grey lotus silk flats beaded with star-shaped iolites",
-              "details": {
-                "raw": [
-                  "Imprinted on the sole, you see a nacre-inlaid leaping narwhal, the crafter's personal hallmark.",
-                  "It is estimated that a pair of cloudy grey lotus silk flats beaded with star-shaped iolites can store a very small amount with enough space for a couple of items.",
-                  "The flats can be worn on the feet.",
-                  "Analysis of a pair of cloudy grey lotus silk flats beaded with star-shaped iolites indicates the creator has provided the following information:",
-                  "This is footwear crafted by a skilled artisan.",
-                  "Additional scripts have been applied to the grey lotus silk flats and may have separate alteration restrictions.",
-                  "A pair of cloudy grey lotus silk flats beaded with star-shaped iolites has been modified by a fully unlocked metal punch to allow you to TAP, PULL, POKE, STARE, DANCE, RUB, TURN, or PUSH the flats.",
-                  "You might be able to have a talented merchant lighten the grey lotus silk flats for you or deepen their pockets.",
-                  "The grey lotus silk flats will cost 150,000 coins."
-                ],
-                "tags": [
-                  "scripted",
-                  "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container"
-                ],
-                "cost": 150000,
-                "worn": "feet",
-                "capacity_level": "very small",
-                "is_container": true,
-                "wear_location": "on the feet",
-                "item_type": "container"
-              }
-            },
-            {
-              "id": "102653",
-              "name": "a pair of iridescent plum veilsylk shoes raised on ribbon-laced heels",
-              "details": {
-                "raw": [
-                  "Imprinted on the sole, you see a crescent moon encircled by meviriels, the crafter's personal hallmark.",
-                  "It is estimated that a pair of iridescent plum veilsylk shoes raised on ribbon-laced heels can store a very small amount with enough space for a couple of items.",
-                  "The shoes can be worn on the feet.",
-                  "Analysis of a pair of iridescent plum veilsylk shoes raised on ribbon-laced heels indicates the creator has provided the following information:",
-                  "This is footwear crafted by a skilled artisan.",
-                  "Additional scripts have been applied to the plum veilsylk shoes and may have separate alteration restrictions.",
-                  "A pair of iridescent plum veilsylk shoes raised on ribbon-laced heels has been modified by a fully unlocked metal punch to allow you to TAP, PULL, POKE, STARE, DANCE, RUB, TURN, or PUSH the shoes.",
-                  "You might be able to have a talented merchant lighten the plum veilsylk shoes for you or deepen their pockets.",
-                  "The plum veilsylk shoes will cost 150,000 coins."
-                ],
-                "tags": [
-                  "scripted",
-                  "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container"
-                ],
-                "cost": 150000,
-                "worn": "feet",
-                "capacity_level": "very small",
-                "is_container": true,
-                "wear_location": "on the feet",
-                "item_type": "container"
-              }
-            },
-            {
-              "id": "57571831",
-              "name": "a trio of balenite crescent moon lanterns limned in frosted silver",
-              "details": {
-                "raw": [
-                  "The lantern can not be worn.",
-                  "It looks like this item has been mainly crafted out of cloth, an extremely common material.",
-                  "Analysis of a trio of balenite crescent moon lanterns limned in frosted silver indicates the creator has provided the following information:",
-                  "This lantern is a Deck the Halls room decoration and is designed to be decorated with a gem, feather, flower, insects and sea creatures, pointed items, ribbons, or other miscellaneous items and PLACEd out in a room or private property to decorate the area.  Miscellany includes other foraged items, skins, shells, and other larger non-gem treasure items.  The lantern has several distinct descriptions, depending on what item is inserted.  To insert an item, hold the lantern in one hand, the item you'd like to insert in the opposite hand, and PUSH lantern.  PULLing the lantern will remove the item and restore the lantern to its empty description.",
-                  "Alteration Guidelines:",
-                  "While each side is highly customizable, both the noun and material need to remain the same for all sides.  Sides not displayed below cannot be used until a description is added by a merchant.",
-                  "The sides currently are:",
-                  "           Short: lantern",
-                  "             Gem: a circular lantern formed from vaalin-bound <adj> cabochons",
-                  "         Feather: a large globe lantern surrounded by layers of downy <adj>s",
-                  "          Flower: a branch-handled blush lantern painted with a bunny amid <adj>s",
-                  "  Insect/Aquatic: a fanciful blue vellum narwhal lantern with <adj>s circling the long horn",
-                  "         Pointed: an iceblossom-draped milky quartz lantern perched on a stand of spiraled <noun>s",
-                  "          Ribbon: a star-shaped lantern of <adj>s woven in an open lattice",
-                  "This item has Stay-Put qualities.  If you PLACE it, it will be moved to the ground in your current room and stay there, unable to be picked up by others or taken by the janitor, for 4 hours.  After the duration expires, the item is fair game for others and for the janitor.  Alternately, the item may be PLACEd by the owner of a private property within the grounds of the property or by the owner of a stall or loft in and will stay there until PLACEd again.",
-                  "The lantern will cost 20,000,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "cost": 20000000,
-                "material": "cloth, an extremely common material",
-                "item_type": null
-              }
-            },
-            {
-              "id": "57725551",
-              "name": "a miniscule gargoyle ring",
-              "details": {
-                "raw": [
-                  "The gargoyle on this ring is hunched, its wings flag against its back.  Its eyes blaze with an unnatural light, and it's rhythmically clenching and unclenching its front talons as it gazes about, a snarl on its face.",
-                  "The ring can be worn around the finger.",
-                  "It looks like this item has been mainly crafted out of stone, an extremely common material.",
-                  "Analysis of a miniscule gargoyle ring indicates the creator has provided the following information:",
-                  "This gargoyle ring is a wearable, living(ish) gargoyle.  When worn, it acts much like a ring.",
-                  "Due to the special nature of these gargoyles, they cannot be altered in the typical sense.  However certain merchants may be willing to change which \"type\" you have, changing what it pretends to be when you wear it.  The options are: Earring, Necklace, Ring, and Bracelet.  Not all merchants will be willing to do this!",
-                  " This ring is currently UNLOCKED, which means that you can use WEAR, REMOVE, TOUCH, PULL, PROD, and also POINT it at people!",
-                  "The gargoyle ring will cost 15,000,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "cost": 15000000,
-                "material": "stone, an extremely common material",
-                "worn": "finger",
-                "wear_location": "around the finger",
-                "is_jewelry": true,
-                "item_type": "jewelry"
-              }
-            },
+            }
+          ],
+          "sign": [
+            "Written on an etched glass sign:",
+            "+.- The Spiraled Horn -.+",
+            "+- Moonglow -+",
+            "Floral Hair Items style your hair.",
+            "Behind the Ear Flowers show tucked behind your ear.",
+            "Both feature-worn. ANALYZE to see which flower you are purchasing.",
+            "Ribbon - Tine - Spiral - Barrettes - Crescents etc: feature-worn hair accessories",
+            "Valefyren Mirror: Vanity Mirrors (Talking Mirror)",
+            "Parasols - Fans: ANALYZE for zests."
+          ]
+        },
+        {
+          "room_title": "Laelithonel's Outfitting",
+          "branch": "west",
+          "items": [
             {
               "id": "58104802",
               "name": "a frost-rimed delicate silver mesh waistchain",
@@ -78633,7 +76762,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
                   "container"
                 ],
                 "cost": 2000000,
@@ -78730,45 +76858,477 @@
                 "wear_location": "on the head",
                 "item_type": null
               }
+            },
+            {
+              "id": "102673",
+              "name": "a knitted teadragon-patterned auroralaen carryall",
+              "details": {
+                "raw": [
+                  "It is estimated that a knitted teadragon-patterned auroralaen carryall can store a significant amount with enough space for any number of items.",
+                  "The carryall can be worn on the back.  The carryall appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of cloth, an extremely common material.",
+                  "Analysis of a knitted teadragon-patterned auroralaen carryall indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the  knitted carryall for you or deepen its pockets.",
+                  "The  knitted carryall will cost 300,000 coins."
+                ],
+                "tags": [
+                  "purpose",
+                  "lightenable",
+                  "container"
+                ],
+                "cost": 300000,
+                "material": "cloth, an extremely common material",
+                "worn": "back",
+                "capacity_level": "significant",
+                "is_container": true,
+                "wear_location": "on the back",
+                "item_type": "container"
+              }
+            },
+            {
+              "id": "102672",
+              "name": "a jade-beaded knitted dark starsilk carryall",
+              "details": {
+                "raw": [
+                  "It is estimated that a jade-beaded knitted dark starsilk carryall can store a significant amount with enough space for any number of items.",
+                  "The carryall can be worn on the back.  The carryall appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of cloth, an extremely common material.",
+                  "Analysis of a jade-beaded knitted dark starsilk carryall indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the dark starsilk carryall for you or deepen its pockets.",
+                  "The dark starsilk carryall will cost 300,000 coins."
+                ],
+                "tags": [
+                  "purpose",
+                  "lightenable",
+                  "container"
+                ],
+                "cost": 300000,
+                "material": "cloth, an extremely common material",
+                "worn": "back",
+                "capacity_level": "significant",
+                "is_container": true,
+                "wear_location": "on the back",
+                "item_type": "container"
+              }
+            },
+            {
+              "id": "102671",
+              "name": "a graphite leather carrycase traced with flora-burnt arabesques",
+              "details": {
+                "raw": [
+                  "It is estimated that a graphite leather carrycase traced with flora-burnt arabesques can store a significant amount with enough space for any number of items.",
+                  "The carrycase can be worn on the back.  The carrycase appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of leather, an extremely common material.",
+                  "Analysis of a graphite leather carrycase traced with flora-burnt arabesques indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the leather carrycase for you or deepen its pockets.",
+                  "The leather carrycase will cost 300,000 coins."
+                ],
+                "tags": [
+                  "purpose",
+                  "lightenable",
+                  "container"
+                ],
+                "cost": 300000,
+                "material": "leather, an extremely common material",
+                "worn": "back",
+                "capacity_level": "significant",
+                "is_container": true,
+                "wear_location": "on the back",
+                "item_type": "container"
+              }
+            },
+            {
+              "id": "102666",
+              "name": "some cream nubuck shoes buttoned with rose gold wire stars",
+              "details": {
+                "raw": [
+                  "Imprinted on the sole, you see a nacre-inlaid leaping narwhal, the crafter's personal hallmark.",
+                  "It is estimated that some cream nubuck shoes buttoned with rose gold wire stars can store a very small amount with enough space for a couple of items.",
+                  "The shoes can be worn on the feet.  The shoes appear to serve some purpose.",
+                  "Analysis of some cream nubuck shoes buttoned with rose gold wire stars indicates the creator has provided the following information:",
+                  "This is footwear crafted by a skilled artisan.",
+                  "Additional scripts have been applied to the cream nubuck shoes and may have separate alteration restrictions.",
+                  "Some cream nubuck shoes buttoned with rose gold wire stars has been modified by a fully unlocked metal punch to allow you to PUSH, DANCE, BOW, STOMP, ATTEND, NUDGE, TURN, or LEAN the shoes.",
+                  "You might be able to have a talented merchant lighten the cream nubuck shoes for you or deepen their pockets.",
+                  "The cream nubuck shoes will cost 100,000 coins."
+                ],
+                "tags": [
+                  "scripted",
+                  "lightenable",
+                  "container"
+                ],
+                "cost": 100000,
+                "worn": "feet",
+                "capacity_level": "very small",
+                "is_container": true,
+                "wear_location": "on the feet",
+                "item_type": "container"
+              }
+            },
+            {
+              "id": "102665",
+              "name": "a pair of dark iriswood sandals inset with lavender teapot loti",
+              "details": {
+                "raw": [
+                  "Imprinted on the sole, you see a crescent moon encircled by meviriels, the crafter's personal hallmark.",
+                  "It is estimated that a pair of dark iriswood sandals inset with lavender teapot loti can store a very small amount with enough space for a couple of items.",
+                  "The sandals can be worn on the feet.",
+                  "Analysis of a pair of dark iriswood sandals inset with lavender teapot loti indicates the creator has provided the following information:",
+                  "This is footwear crafted by a skilled artisan.",
+                  "Additional scripts have been applied to the dark iriswood sandals and may have separate alteration restrictions.",
+                  "A pair of dark iriswood sandals inset with lavender teapot loti has been modified by a fully unlocked metal punch to allow you to TAP, PULL, POKE, STARE, DANCE, RUB, TURN, or PUSH the sandals.",
+                  "You might be able to have a talented merchant lighten the dark iriswood sandals for you or deepen their pockets.",
+                  "The dark iriswood sandals will cost 200,000 coins."
+                ],
+                "tags": [
+                  "scripted",
+                  "lightenable",
+                  "container"
+                ],
+                "cost": 200000,
+                "worn": "feet",
+                "capacity_level": "very small",
+                "is_container": true,
+                "wear_location": "on the feet",
+                "item_type": "container"
+              }
+            },
+            {
+              "id": "102664",
+              "name": "a pair of ombre pink milk glass wedge-heeled sandals",
+              "details": {
+                "raw": [
+                  "Imprinted on the sole, you see a crescent moon encircled by meviriels, the crafter's personal hallmark.",
+                  "It is estimated that a pair of ombre pink milk glass wedge-heeled sandals can store a very small amount with enough space for a couple of items.",
+                  "The sandals can be worn on the feet.",
+                  "Analysis of a pair of ombre pink milk glass wedge-heeled sandals indicates the creator has provided the following information:",
+                  "This is footwear crafted by a skilled artisan.",
+                  "Additional scripts have been applied to the wedge-heeled sandals and may have separate alteration restrictions.",
+                  "A pair of ombre pink milk glass wedge-heeled sandals has been modified by a fully unlocked metal punch to allow you to TAP, PULL, POKE, STARE, DANCE, RUB, TURN, or PUSH the sandals.",
+                  "You might be able to have a talented merchant lighten the wedge-heeled sandals for you or deepen their pockets.",
+                  "The wedge-heeled sandals will cost 200,000 coins."
+                ],
+                "tags": [
+                  "scripted",
+                  "lightenable",
+                  "container"
+                ],
+                "cost": 200000,
+                "worn": "feet",
+                "capacity_level": "very small",
+                "is_container": true,
+                "wear_location": "on the feet",
+                "item_type": "container"
+              }
+            },
+            {
+              "id": "102663",
+              "name": "a pair of loden brocade yatane beaded with pink-plum loti",
+              "details": {
+                "raw": [
+                  "Imprinted on the sole, you see a crescent moon encircled by meviriels, the crafter's personal hallmark.",
+                  "It is estimated that a pair of loden brocade yatane beaded with pink-plum loti can store a very small amount with enough space for a couple of items.",
+                  "The yatane can be worn on the feet.",
+                  "Analysis of a pair of loden brocade yatane beaded with pink-plum loti indicates the creator has provided the following information:",
+                  "This is footwear crafted by a skilled artisan.",
+                  "Additional scripts have been applied to the loden brocade yatane and may have separate alteration restrictions.",
+                  "A pair of loden brocade yatane beaded with pink-plum loti has been modified by a fully unlocked metal punch to allow you to TAP, PULL, POKE, STARE, DANCE, RUB, TURN, or PUSH the yatane.",
+                  "You might be able to have a talented merchant lighten the loden brocade yatane for you or deepen its pockets.",
+                  "The loden brocade yatane will cost 150,000 coins."
+                ],
+                "tags": [
+                  "scripted",
+                  "lightenable",
+                  "container"
+                ],
+                "cost": 150000,
+                "worn": "feet",
+                "capacity_level": "very small",
+                "is_container": true,
+                "wear_location": "on the feet",
+                "item_type": "container"
+              }
+            },
+            {
+              "id": "102662",
+              "name": "a pair of pale celadon petal-inked naraina yatane",
+              "details": {
+                "raw": [
+                  "Imprinted on the sole, you see a crescent moon encircled by meviriels, the crafter's personal hallmark.",
+                  "It is estimated that a pair of pale celadon petal-inked naraina yatane can store a very small amount with enough space for a couple of items.",
+                  "The yatane can be worn on the feet.",
+                  "Analysis of a pair of pale celadon petal-inked naraina yatane indicates the creator has provided the following information:",
+                  "This is footwear crafted by a skilled artisan.",
+                  "Additional scripts have been applied to the naraina yatane and may have separate alteration restrictions.",
+                  "A pair of pale celadon petal-inked naraina yatane has been modified by a fully unlocked metal punch to allow you to TAP, PULL, POKE, STARE, DANCE, RUB, TURN, or PUSH the yatane.",
+                  "You might be able to have a talented merchant lighten the naraina yatane for you or deepen its pockets.",
+                  "The naraina yatane will cost 150,000 coins."
+                ],
+                "tags": [
+                  "scripted",
+                  "lightenable",
+                  "container"
+                ],
+                "cost": 150000,
+                "worn": "feet",
+                "capacity_level": "very small",
+                "is_container": true,
+                "wear_location": "on the feet",
+                "item_type": "container"
+              }
+            },
+            {
+              "id": "102661",
+              "name": "a pair of dark teal starsilk yatane beaded with ivory water lilies",
+              "details": {
+                "raw": [
+                  "Imprinted on the sole, you see a crescent moon encircled by meviriels, the crafter's personal hallmark.",
+                  "It is estimated that a pair of dark teal starsilk yatane beaded with ivory water lilies can store a very small amount with enough space for a couple of items.",
+                  "The yatane can be worn on the feet.",
+                  "Analysis of a pair of dark teal starsilk yatane beaded with ivory water lilies indicates the creator has provided the following information:",
+                  "This is footwear crafted by a skilled artisan.",
+                  "Additional scripts have been applied to the teal starsilk yatane and may have separate alteration restrictions.",
+                  "A pair of dark teal starsilk yatane beaded with ivory water lilies has been modified by a fully unlocked metal punch to allow you to TAP, PULL, POKE, STARE, DANCE, RUB, TURN, or PUSH the yatane.",
+                  "You might be able to have a talented merchant lighten the teal starsilk yatane for you or deepen its pockets.",
+                  "The teal starsilk yatane will cost 150,000 coins."
+                ],
+                "tags": [
+                  "scripted",
+                  "lightenable",
+                  "container"
+                ],
+                "cost": 150000,
+                "worn": "feet",
+                "capacity_level": "very small",
+                "is_container": true,
+                "wear_location": "on the feet",
+                "item_type": "container"
+              }
+            },
+            {
+              "id": "102660",
+              "name": "a pair of gilded charcoal calligraphy-set silk yatane",
+              "details": {
+                "raw": [
+                  "Imprinted on the sole, you see a crescent moon encircled by meviriels, the crafter's personal hallmark.",
+                  "It is estimated that a pair of gilded charcoal calligraphy-set silk yatane can store a very small amount with enough space for a couple of items.",
+                  "The yatane can be worn on the feet.",
+                  "Analysis of a pair of gilded charcoal calligraphy-set silk yatane indicates the creator has provided the following information:",
+                  "This is footwear crafted by a skilled artisan.",
+                  "Additional scripts have been applied to the silk yatane and may have separate alteration restrictions.",
+                  "A pair of gilded charcoal calligraphy-set silk yatane has been modified by a fully unlocked metal punch to allow you to TAP, PULL, POKE, STARE, DANCE, RUB, TURN, or PUSH the yatane.",
+                  "You might be able to have a talented merchant lighten the silk yatane for you or deepen its pockets.",
+                  "The silk yatane will cost 150,000 coins."
+                ],
+                "tags": [
+                  "scripted",
+                  "lightenable",
+                  "container"
+                ],
+                "cost": 150000,
+                "worn": "feet",
+                "capacity_level": "very small",
+                "is_container": true,
+                "wear_location": "on the feet",
+                "item_type": "container"
+              }
+            },
+            {
+              "id": "102659",
+              "name": "a pair of chromed pink leather sandals laced with starsilk ribbon",
+              "details": {
+                "raw": [
+                  "Imprinted on the sole, you see a crescent moon encircled by meviriels, the crafter's personal hallmark.",
+                  "It is estimated that a pair of chromed pink leather sandals laced with starsilk ribbon can store a very small amount with enough space for a couple of items.",
+                  "The sandals can be worn on the feet.",
+                  "Analysis of a pair of chromed pink leather sandals laced with starsilk ribbon indicates the creator has provided the following information:",
+                  "This is footwear crafted by a skilled artisan.",
+                  "Additional scripts have been applied to the pink leather sandals and may have separate alteration restrictions.",
+                  "A pair of chromed pink leather sandals laced with starsilk ribbon has been modified by a fully unlocked metal punch to allow you to TAP, PULL, POKE, STARE, DANCE, RUB, TURN, or PUSH the sandals.",
+                  "You might be able to have a talented merchant lighten the pink leather sandals for you or deepen their pockets.",
+                  "The pink leather sandals will cost 150,000 coins."
+                ],
+                "tags": [
+                  "scripted",
+                  "lightenable",
+                  "container"
+                ],
+                "cost": 150000,
+                "worn": "feet",
+                "capacity_level": "very small",
+                "is_container": true,
+                "wear_location": "on the feet",
+                "item_type": "container"
+              }
+            },
+            {
+              "id": "102658",
+              "name": "a pair of mazarine floral motif chambray wedge-heeled sandals",
+              "details": {
+                "raw": [
+                  "Imprinted on the sole, you see a crescent moon encircled by meviriels, the crafter's personal hallmark.",
+                  "It is estimated that a pair of mazarine floral motif chambray wedge-heeled sandals can store a very small amount with enough space for a couple of items.",
+                  "The sandals can be worn on the feet.",
+                  "Analysis of a pair of mazarine floral motif chambray wedge-heeled sandals indicates the creator has provided the following information:",
+                  "This is footwear crafted by a skilled artisan.",
+                  "Additional scripts have been applied to the wedge-heeled sandals and may have separate alteration restrictions.",
+                  "A pair of mazarine floral motif chambray wedge-heeled sandals has been modified by a fully unlocked metal punch to allow you to TAP, PULL, POKE, STARE, DANCE, RUB, TURN, or PUSH the sandals.",
+                  "You might be able to have a talented merchant lighten the wedge-heeled sandals for you or deepen their pockets.",
+                  "The wedge-heeled sandals will cost 150,000 coins."
+                ],
+                "tags": [
+                  "scripted",
+                  "lightenable",
+                  "container"
+                ],
+                "cost": 150000,
+                "worn": "feet",
+                "capacity_level": "very small",
+                "is_container": true,
+                "wear_location": "on the feet",
+                "item_type": "container"
+              }
+            },
+            {
+              "id": "102657",
+              "name": "a pair of very pale jade latticed jute calf-tied sandals",
+              "details": {
+                "raw": [
+                  "Imprinted on the sole, you see a crescent moon encircled by meviriels, the crafter's personal hallmark.",
+                  "It is estimated that a pair of very pale jade latticed jute calf-tied sandals can store a very small amount with enough space for a couple of items.",
+                  "The sandals can be worn on the feet.",
+                  "Analysis of a pair of very pale jade latticed jute calf-tied sandals indicates the creator has provided the following information:",
+                  "This is footwear crafted by a skilled artisan.",
+                  "Additional scripts have been applied to the jute calf-tied sandals and may have separate alteration restrictions.",
+                  "A pair of very pale jade latticed jute calf-tied sandals has been modified by a fully unlocked metal punch to allow you to TAP, PULL, POKE, STARE, DANCE, RUB, TURN, or PUSH the sandals.",
+                  "You might be able to have a talented merchant lighten the jute calf-tied sandals for you or deepen their pockets.",
+                  "The jute calf-tied sandals will cost 150,000 coins."
+                ],
+                "tags": [
+                  "scripted",
+                  "lightenable",
+                  "container"
+                ],
+                "cost": 150000,
+                "worn": "feet",
+                "capacity_level": "very small",
+                "is_container": true,
+                "wear_location": "on the feet",
+                "item_type": "container"
+              }
+            },
+            {
+              "id": "102656",
+              "name": "a pair of polished lor wedge-heeled sandals",
+              "details": {
+                "raw": [
+                  "Imprinted on the sole, you see a crescent moon encircled by meviriels, the crafter's personal hallmark.",
+                  "It is estimated that a pair of polished lor wedge-heeled sandals can store a very small amount with enough space for a couple of items.",
+                  "The sandals can be worn on the feet.",
+                  "Analysis of a pair of polished lor wedge-heeled sandals indicates the creator has provided the following information:",
+                  "This is footwear crafted by a skilled artisan.",
+                  "Additional scripts have been applied to the wedge-heeled sandals and may have separate alteration restrictions.",
+                  "A pair of polished lor wedge-heeled sandals has been modified by a fully unlocked metal punch to allow you to TAP, PULL, POKE, STARE, DANCE, RUB, TURN, or PUSH the sandals.",
+                  "You might be able to have a talented merchant lighten the wedge-heeled sandals for you or deepen their pockets.",
+                  "The wedge-heeled sandals will cost 150,000 coins."
+                ],
+                "tags": [
+                  "scripted",
+                  "lightenable",
+                  "container"
+                ],
+                "cost": 150000,
+                "worn": "feet",
+                "capacity_level": "very small",
+                "is_container": true,
+                "wear_location": "on the feet",
+                "item_type": "container"
+              }
+            },
+            {
+              "id": "102655",
+              "name": "a pair of oiled tigerwood thonged sandals inset with swirled glass koi fish",
+              "details": {
+                "raw": [
+                  "Imprinted on the sole, you see a crescent moon encircled by meviriels, the crafter's personal hallmark.",
+                  "It is estimated that a pair of oiled tigerwood thonged sandals inset with swirled glass koi fish can store a very small amount with enough space for a couple of items.",
+                  "The sandals can be worn on the feet.",
+                  "Analysis of a pair of oiled tigerwood thonged sandals inset with swirled glass koi fish indicates the creator has provided the following information:",
+                  "This is footwear crafted by a skilled artisan.",
+                  "Additional scripts have been applied to the thonged sandals and may have separate alteration restrictions.",
+                  "A pair of oiled tigerwood thonged sandals inset with swirled glass koi fish has been modified by a fully unlocked metal punch to allow you to TAP, PULL, POKE, STARE, DANCE, RUB, TURN, or PUSH the sandals.",
+                  "You might be able to have a talented merchant lighten the thonged sandals for you or deepen their pockets.",
+                  "The thonged sandals will cost 150,000 coins."
+                ],
+                "tags": [
+                  "scripted",
+                  "lightenable",
+                  "container"
+                ],
+                "cost": 150000,
+                "worn": "feet",
+                "capacity_level": "very small",
+                "is_container": true,
+                "wear_location": "on the feet",
+                "item_type": "container"
+              }
+            },
+            {
+              "id": "102654",
+              "name": "a pair of cloudy grey lotus silk flats beaded with star-shaped iolites",
+              "details": {
+                "raw": [
+                  "Imprinted on the sole, you see a nacre-inlaid leaping narwhal, the crafter's personal hallmark.",
+                  "It is estimated that a pair of cloudy grey lotus silk flats beaded with star-shaped iolites can store a very small amount with enough space for a couple of items.",
+                  "The flats can be worn on the feet.",
+                  "Analysis of a pair of cloudy grey lotus silk flats beaded with star-shaped iolites indicates the creator has provided the following information:",
+                  "This is footwear crafted by a skilled artisan.",
+                  "Additional scripts have been applied to the grey lotus silk flats and may have separate alteration restrictions.",
+                  "A pair of cloudy grey lotus silk flats beaded with star-shaped iolites has been modified by a fully unlocked metal punch to allow you to TAP, PULL, POKE, STARE, DANCE, RUB, TURN, or PUSH the flats.",
+                  "You might be able to have a talented merchant lighten the grey lotus silk flats for you or deepen their pockets.",
+                  "The grey lotus silk flats will cost 150,000 coins."
+                ],
+                "tags": [
+                  "scripted",
+                  "lightenable",
+                  "container"
+                ],
+                "cost": 150000,
+                "worn": "feet",
+                "capacity_level": "very small",
+                "is_container": true,
+                "wear_location": "on the feet",
+                "item_type": "container"
+              }
+            },
+            {
+              "id": "102653",
+              "name": "a pair of iridescent plum veilsylk shoes raised on ribbon-laced heels",
+              "details": {
+                "raw": [
+                  "Imprinted on the sole, you see a crescent moon encircled by meviriels, the crafter's personal hallmark.",
+                  "It is estimated that a pair of iridescent plum veilsylk shoes raised on ribbon-laced heels can store a very small amount with enough space for a couple of items.",
+                  "The shoes can be worn on the feet.",
+                  "Analysis of a pair of iridescent plum veilsylk shoes raised on ribbon-laced heels indicates the creator has provided the following information:",
+                  "This is footwear crafted by a skilled artisan.",
+                  "Additional scripts have been applied to the plum veilsylk shoes and may have separate alteration restrictions.",
+                  "A pair of iridescent plum veilsylk shoes raised on ribbon-laced heels has been modified by a fully unlocked metal punch to allow you to TAP, PULL, POKE, STARE, DANCE, RUB, TURN, or PUSH the shoes.",
+                  "You might be able to have a talented merchant lighten the plum veilsylk shoes for you or deepen their pockets.",
+                  "The plum veilsylk shoes will cost 150,000 coins."
+                ],
+                "tags": [
+                  "scripted",
+                  "lightenable",
+                  "container"
+                ],
+                "cost": 150000,
+                "worn": "feet",
+                "capacity_level": "very small",
+                "is_container": true,
+                "wear_location": "on the feet",
+                "item_type": "container"
+              }
             }
-          ],
-          "sign": [
-            "Written on an etched glass sign:",
-            "+.- The Spiraled Horn -.+",
-            "Stove: Standard Quality. ANALYZE for info",
-            "Kettle/Coffee Press: Tea/Coffee Brewing",
-            "Erithi Teabowls (pricier set has starveil inlay)",
-            "Charms: for Charm Jewelry/Unlocked Piercing Jewelry.",
-            "Any \"charm\" less than 1 pound works regardless of its function.",
-            "Cloud Bottle: Bubbles.",
-            "Lamp Oil: Sacred Oil Lamps.",
-            "Frosting Bucket: LOOK to see 16 frostings inside. Gingerbread/Pumpkin Spice/Salted Caramel are unlimited tubes.",
-            "Boxes: Reusable."
-          ]
-        },
-        {
-          "room_title": "Laelithonel's Outfitting",
-          "branch": "east",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on an etched glass sign:",
-            "+.- The Spiraled Horn -.+",
-            "+- Moonglow -+",
-            "Floral Hair Items style your hair.",
-            "Behind the Ear Flowers show tucked behind your ear.",
-            "Both feature-worn. ANALYZE to see which flower you are purchasing.",
-            "Ribbon - Tine - Spiral - Barrettes - Crescents etc: feature-worn hair accessories",
-            "Valefyren Mirror: Vanity Mirrors (Talking Mirror)",
-            "Parasols - Fans: ANALYZE for zests."
-          ]
-        },
-        {
-          "room_title": "Laelithonel's Outfitting",
-          "branch": "west",
-          "items": [
-
           ],
           "sign": [
             "Written on an etched glass sign:",
@@ -78884,11 +77444,6 @@
                   "The mahogany box will cost 10,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -78914,11 +77469,6 @@
                   "The charcoal-drawn box will cost 10,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -78927,7 +77477,17 @@
                 "is_container": true,
                 "item_type": "container"
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on a key-wreathed aged bronze sign:",
+            "Dapper Duds"
+          ]
+        },
+        {
+          "room_title": "Male Outfitting",
+          "branch": "east",
+          "items": [
             {
               "id": "104318",
               "name": "some gingerbread sap-encrusted pine shoes beaded with carmine winterberries",
@@ -78946,11 +77506,6 @@
                 "tags": [
                   "scripted",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -78979,11 +77534,6 @@
                 "tags": [
                   "scripted",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 150000,
@@ -79012,11 +77562,6 @@
                 "tags": [
                   "scripted",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -79045,11 +77590,6 @@
                 "tags": [
                   "scripted",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -79078,11 +77618,6 @@
                 "tags": [
                   "scripted",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 150000,
@@ -79111,11 +77646,6 @@
                 "tags": [
                   "scripted",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 150000,
@@ -79144,11 +77674,6 @@
                 "tags": [
                   "scripted",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 150000,
@@ -79177,11 +77702,6 @@
                 "tags": [
                   "scripted",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -79210,11 +77730,6 @@
                 "tags": [
                   "scripted",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -79243,11 +77758,6 @@
                 "tags": [
                   "scripted",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -79276,11 +77786,6 @@
                 "tags": [
                   "scripted",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -79290,7 +77795,17 @@
                 "wear_location": "on the feet",
                 "item_type": "container"
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on a key-wreathed aged bronze sign:",
+            "Shoe La-La"
+          ]
+        },
+        {
+          "room_title": "Male Outfitting",
+          "branch": "west",
+          "items": [
             {
               "id": "104337",
               "name": "some lustrous rainbow dove filoplumes",
@@ -79363,11 +77878,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 10000000,
@@ -79610,28 +78120,6 @@
                 "item_type": null
               }
             }
-          ],
-          "sign": [
-            "Written on a key-wreathed aged bronze sign:",
-            "Dapper Duds"
-          ]
-        },
-        {
-          "room_title": "Male Outfitting",
-          "branch": "east",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on a key-wreathed aged bronze sign:",
-            "Shoe La-La"
-          ]
-        },
-        {
-          "room_title": "Male Outfitting",
-          "branch": "west",
-          "items": [
-
           ],
           "sign": [
             "Written on a key-wreathed aged bronze sign:",
@@ -81065,7 +79553,13 @@
                 "wear_location": "on the head",
                 "item_type": null
               }
-            },
+            }
+          ]
+        },
+        {
+          "room_title": "Bransen's Magic Shoppe",
+          "branch": "east",
+          "items": [
             {
               "id": "41643051",
               "name": "a dull scholar's card",
@@ -82055,7 +80549,13 @@
                 "wear_location": "around the finger",
                 "item_type": null
               }
-            },
+            }
+          ]
+        },
+        {
+          "room_title": "Bransen's Outfitting",
+          "branch": "west",
+          "items": [
             {
               "id": "41643037",
               "name": "a fine serge sash with a single line of mirrored accents",
@@ -82163,11 +80663,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -82202,11 +80697,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -82241,11 +80731,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -82257,20 +80742,6 @@
                 "item_type": "container"
               }
             }
-          ]
-        },
-        {
-          "room_title": "Bransen's Magic Shoppe",
-          "branch": "east",
-          "items": [
-
-          ]
-        },
-        {
-          "room_title": "Bransen's Outfitting",
-          "branch": "west",
-          "items": [
-
           ]
         }
       ]
@@ -82300,11 +80771,6 @@
                   "The glass jar will cost 20,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 20000,
@@ -82329,11 +80795,6 @@
                   "The glass jar will cost 20,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 20000,
@@ -82358,11 +80819,6 @@
                   "The glass jar will cost 20,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 20000,
@@ -83230,7 +81686,17 @@
                 "weapon_type": "twohanded weapons",
                 "item_type": "weapon"
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on a painted black oak sign:",
+            "[Welcome to Koriena and Janarth's Shop. All jars have 10 gems per jar. If you need something, please let us know]"
+          ]
+        },
+        {
+          "room_title": "Koreina's Weaponry",
+          "branch": "east",
+          "items": [
             {
               "id": "111613",
               "name": "a flexing arm token",
@@ -83637,11 +82103,6 @@
                   "max_deep",
                   "max_light",
                   "magic_resistant",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 5000000,
@@ -83790,11 +82251,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 250000,
@@ -84008,7 +82464,13 @@
                 "is_jewelry": true,
                 "item_type": "jewelry"
               }
-            },
+            }
+          ]
+        },
+        {
+          "room_title": "Koreina's Weaponry",
+          "branch": "west",
+          "items": [
             {
               "id": "111628",
               "name": "a dull mossbark runestaff",
@@ -84203,11 +82665,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -84399,24 +82856,6 @@
                 "item_type": "shield"
               }
             }
-          ],
-          "sign": [
-            "Written on a painted black oak sign:",
-            "[Welcome to Koriena and Janarth's Shop. All jars have 10 gems per jar. If you need something, please let us know]"
-          ]
-        },
-        {
-          "room_title": "Koreina's Weaponry",
-          "branch": "east",
-          "items": [
-
-          ]
-        },
-        {
-          "room_title": "Koreina's Weaponry",
-          "branch": "west",
-          "items": [
-
           ]
         }
       ]
@@ -84431,6 +82870,32 @@
           "room_title": "Kakos' Outfitting",
           "branch": "entry",
           "items": [
+            {
+              "id": "28003661",
+              "name": "an ash grey vruulskin backpack bound with braided sinew around the rim",
+              "details": {
+                "raw": [
+                  "It is estimated that an ash grey vruulskin backpack bound with braided sinew around the rim can store a significant amount with enough space for any number of items.",
+                  "The backpack can be worn on the back.  The backpack appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of leather, an extremely common material.",
+                  "Analysis of an ash grey vruulskin backpack bound with braided sinew around the rim indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the vruulskin backpack for you or deepen its pockets.",
+                  "The vruulskin backpack will cost 100,000 coins."
+                ],
+                "tags": [
+                  "purpose",
+                  "lightenable",
+                  "container"
+                ],
+                "cost": 100000,
+                "material": "leather, an extremely common material",
+                "worn": "back",
+                "capacity_level": "significant",
+                "is_container": true,
+                "wear_location": "rim can store a significant amount with enough space for any number of items",
+                "item_type": "container"
+              }
+            },
             {
               "id": "1767489",
               "name": "a gilded bone skull incised with an X-marked nautical map",
@@ -84480,19 +82945,14 @@
                   "It looks like this item has been mainly crafted out of leather, an extremely common material.",
                   "Analysis of a well-worn vruulskin jacket scorched by a hollow-eyed skull indicates the item is free from merchant alteration restrictions.",
                   "You might be able to have a talented merchant lighten the vruulskin jacket for you or deepen its pockets.",
-                  "The vruulskin jacket will cost 600,000 coins."
+                  "The vruulskin jacket will cost 200,000 coins."
                 ],
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
-                "cost": 600000,
+                "cost": 200000,
                 "material": "leather, an extremely common material",
                 "worn": "cloak",
                 "capacity_level": "significant",
@@ -84523,11 +82983,6 @@
                   "purpose",
                   "max_deep",
                   "max_light",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 5000000,
@@ -84602,11 +83057,6 @@
                   "purpose",
                   "max_deep",
                   "max_light",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 400000,
@@ -84929,11 +83379,6 @@
                   "purpose",
                   "max_deep",
                   "max_light",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 500000,
@@ -84958,11 +83403,6 @@
                 ],
                 "tags": [
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 500000,
@@ -84990,11 +83430,6 @@
                   "purpose",
                   "max_deep",
                   "max_light",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 2000000,
@@ -85331,32 +83766,6 @@
                   "the power of a dark substance"
                 ],
                 "item_type": "shield"
-              }
-            },
-            {
-              "id": "28003661",
-              "name": "an ash grey vruulskin backpack bound with braided sinew around the rim",
-              "details": {
-                "raw": [
-                  "It is estimated that an ash grey vruulskin backpack bound with braided sinew around the rim can store a significant amount with enough space for any number of items.",
-                  "The backpack can be worn on the back.  The backpack appears to serve some purpose.",
-                  "It looks like this item has been mainly crafted out of leather, an extremely common material.",
-                  "Analysis of an ash grey vruulskin backpack bound with braided sinew around the rim indicates the item is free from merchant alteration restrictions.",
-                  "You might be able to have a talented merchant lighten the vruulskin backpack for you or deepen its pockets.",
-                  "The vruulskin backpack will cost 100,000 coins."
-                ],
-                "tags": [
-                  "purpose",
-                  "lightenable",
-                  "container"
-                ],
-                "cost": 100000,
-                "material": "leather, an extremely common material",
-                "worn": "back",
-                "capacity_level": "significant",
-                "is_container": true,
-                "wear_location": "rim can store a significant amount with enough space for any number of items",
-                "item_type": "container"
               }
             }
           ],
@@ -86235,11 +84644,6 @@
                   "The thick glass jar will cost 550 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 550,
@@ -86417,6 +84821,6 @@
       ]
     }
   ],
-  "processed_at": "2026-05-07 05:32:39 UTC",
+  "processed_at": "2026-05-07 09:17:31 UTC",
   "processing_version": "v2.0"
 }
