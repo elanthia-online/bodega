@@ -1,6 +1,6 @@
 {
-  "created_at": "2026-05-08 11:06:47 UTC",
-  "run_time": "03s",
+  "created_at": "2026-05-08 13:11:21 UTC",
+  "run_time": "02s",
   "town": "Teras Isle",
   "shops": [
     {
@@ -28,6 +28,7 @@
                   "The glass jar will cost 40,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -516,6 +517,7 @@
                   "purpose",
                   "max_deep",
                   "max_light",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -2810,6 +2812,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -2834,6 +2837,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -5746,40 +5750,70 @@
             {
               "id": "82702905",
               "name": "a curved smoke grey jewel flecked with glittering sand",
-              "browse_price": 555555,
-              "raw_inspect": [
-                "A mirage-like haze of arcane influence clings to the jewel, alight with half-glimpsed glyphs refracting across its facets from within.  The effect is dizzying and makes further visual inspection difficult.",
-                "The jewel appears to be a powerful relic that can convey wondrous abilities on its wielder.  It has the following property:",
-                "Property:    Hinterwilds: Warden of the Damned (Rank 1 of 5)",
-                "Rarity:      Regional",
-                "Mnemonic:    hinterwarden",
-                "Description: Your attacks have a 4/8/12/16/20% chance to Terrify undead creatures from the Hinterwilds.",
-                "You note the telltale filaments of a lesser binding shimmering around the smoke grey jewel.  You can sense that the jewel is bound to Zenmagic, but a sufficiently skilled artificer should be able to dispel the binding.",
-                "The jewel can not be worn.",
-                "It looks like this item has been mainly crafted out of gemstone, an extremely common material.",
-                "Analysis of a curved smoke grey jewel flecked with glittering sand indicates there is no recorded information on that item.  It may or may not be able to be worked on by a merchant alterer.",
-                "You get no sense of whether or not the jewel may be further lightened.",
-                "The smoke grey jewel will cost 555,555 coins."
-              ]
+              "details": {
+                "raw": [
+                  "A mirage-like haze of arcane influence clings to the jewel, alight with half-glimpsed glyphs refracting across its facets from within.  The effect is dizzying and makes further visual inspection difficult.",
+                  "The jewel appears to be a powerful relic that can convey wondrous abilities on its wielder.  It has the following property:",
+                  "Rarity:      Regional",
+                  "Mnemonic:    hinterwarden",
+                  "Description: Your attacks have a 4/8/12/16/20% chance to Terrify undead creatures from the Hinterwilds.",
+                  "You note the telltale filaments of a lesser binding shimmering around the smoke grey jewel.  You can sense that the jewel is bound to Zenmagic, but a sufficiently skilled artificer should be able to dispel the binding.",
+                  "The jewel can not be worn.",
+                  "It looks like this item has been mainly crafted out of gemstone, an extremely common material.",
+                  "The smoke grey jewel will cost 555,555 coins."
+                ],
+                "tags": [
+                  "is_gemstone"
+                ],
+                "cost": 555555,
+                "material": "gemstone, an extremely common material",
+                "gemstone_properties": [
+                  {
+                    "name": "Hinterwilds: Warden of the Damned (Rank 1 of 5)",
+                    "rarity": "Regional",
+                    "mnemonic": "hinterwarden",
+                    "description": "Your attacks have a 4/8/12/16/20% chance to Terrify undead creatures from the Hinterwilds."
+                  }
+                ],
+                "gemstone_bound_to": "Zenmagic",
+                "wear_location": "smoke grey jewel",
+                "is_gemstone": true,
+                "item_type": "gemstone"
+              }
             },
             {
               "id": "82565020",
               "name": "a radiant-cut sky blue jewel whorled by copper flakes",
-              "browse_price": 555555,
-              "raw_inspect": [
-                "A mirage-like haze of arcane influence clings to the jewel, alight with half-glimpsed glyphs refracting across its facets from within.  The effect is dizzying and makes further visual inspection difficult.",
-                "The jewel appears to be a powerful relic that can convey wondrous abilities on its wielder.  It has the following property:",
-                "Property:    Spirit Prism (Rank 1 of 5)",
-                "Rarity:      Common",
-                "Mnemonic:    spiritprism",
-                "Description: You have a 5/10/15/20/25% to passively regenerate an extra point of spirit.",
-                "You note the telltale filaments of a lesser binding shimmering around the sky blue jewel.  You can sense that the jewel is bound to Kawhi, but a sufficiently skilled artificer should be able to dispel the binding.",
-                "The jewel can not be worn.",
-                "It looks like this item has been mainly crafted out of gemstone, an extremely common material.",
-                "Analysis of a radiant-cut sky blue jewel whorled by copper flakes indicates there is no recorded information on that item.  It may or may not be able to be worked on by a merchant alterer.",
-                "You get no sense of whether or not the jewel may be further lightened.",
-                "The sky blue jewel will cost 555,555 coins."
-              ]
+              "details": {
+                "raw": [
+                  "A mirage-like haze of arcane influence clings to the jewel, alight with half-glimpsed glyphs refracting across its facets from within.  The effect is dizzying and makes further visual inspection difficult.",
+                  "The jewel appears to be a powerful relic that can convey wondrous abilities on its wielder.  It has the following property:",
+                  "Rarity:      Common",
+                  "Mnemonic:    spiritprism",
+                  "Description: You have a 5/10/15/20/25% to passively regenerate an extra point of spirit.",
+                  "You note the telltale filaments of a lesser binding shimmering around the sky blue jewel.  You can sense that the jewel is bound to Kawhi, but a sufficiently skilled artificer should be able to dispel the binding.",
+                  "The jewel can not be worn.",
+                  "It looks like this item has been mainly crafted out of gemstone, an extremely common material.",
+                  "The sky blue jewel will cost 555,555 coins."
+                ],
+                "tags": [
+                  "is_gemstone"
+                ],
+                "cost": 555555,
+                "material": "gemstone, an extremely common material",
+                "gemstone_properties": [
+                  {
+                    "name": "Spirit Prism (Rank 1 of 5)",
+                    "rarity": "Common",
+                    "mnemonic": "spiritprism",
+                    "description": "You have a 5/10/15/20/25% to passively regenerate an extra point of spirit."
+                  }
+                ],
+                "gemstone_bound_to": "Kawhi",
+                "wear_location": "sky blue jewel",
+                "is_gemstone": true,
+                "item_type": "gemstone"
+              }
             }
           ]
         },
@@ -6743,6 +6777,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 88888888,
@@ -6937,6 +6972,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 88888888,
@@ -7022,6 +7058,7 @@
                 "tags": [
                   "max_deep",
                   "max_light",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -7546,6 +7583,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 55555555,
@@ -7715,6 +7753,7 @@
                 "tags": [
                   "persists",
                   "small",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -9537,6 +9576,7 @@
                   "purpose",
                   "max_deep",
                   "max_light",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -12662,6 +12702,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 99999999,
@@ -12681,6 +12722,7 @@
                   "The silver candy tin will cost 20,000,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -12719,6 +12761,7 @@
                   "The gold chocolate heater will cost 99,999,900 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -12772,6 +12815,7 @@
                   "The metal pie machine will cost 99,999,900 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -13310,6 +13354,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 35000,
@@ -13344,6 +13389,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -14248,6 +14294,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -14283,6 +14330,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -14307,6 +14355,7 @@
                   "The glaes jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -14465,6 +14514,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -14489,6 +14539,7 @@
                   "The glaes jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -14535,6 +14586,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -14559,6 +14611,7 @@
                   "The glaes jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -14605,6 +14658,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -14629,6 +14683,7 @@
                   "The glaes jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -14675,6 +14730,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -14699,6 +14755,7 @@
                   "The glaes jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -17719,6 +17776,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 7000000,
@@ -18333,6 +18391,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 2500000,
@@ -18408,6 +18467,7 @@
                   "The gold and teal bottle will cost 200,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
