@@ -1,6 +1,6 @@
 {
-  "created_at": "2026-05-09 20:39:19 UTC",
-  "run_time": "03s",
+  "created_at": "2026-05-09 22:38:16 UTC",
+  "run_time": "06s",
   "town": "River's Rest",
   "shops": [
     {
@@ -154,6 +154,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 2500000,
@@ -202,6 +203,7 @@
                   "The rhimar ice wizard will cost 10,000,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -285,6 +287,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 10000000,
@@ -337,6 +340,7 @@
                   "The black cigar will cost 1,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -1405,6 +1409,7 @@
                   "max_light",
                   "small",
                   "magic_resistant",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -2788,6 +2793,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 1000000,
@@ -3391,6 +3397,166 @@
                 "crit_padding": "unknown",
                 "item_type": "armor"
               }
+            },
+            {
+              "id": "118067934",
+              "name": "a ruby-inset platinum circlet",
+              "details": {
+                "raw": [
+                  "The circlet can be worn on the head.  The circlet appears to serve some purpose.",
+                  "Analysis of a ruby-inset platinum circlet indicates the item is free from merchant alteration restrictions.",
+                  "The platinum circlet will cost 5,000,000 coins.",
+                  "It is a magical item which could be imbedded with a spell.",
+                  "It has 0 charges.  It is rechargeable.",
+                  "It could be activated by waving it.",
+                  "It will persist after its last magical charge has been expended.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 2 to Mana Recovery.",
+                  "    This enhancement may not be used by adventurers who have not trained 10 times.",
+                  "    It provides a boost of 9 to Spell Aiming Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 45 times.",
+                  "    It provides a boost of 2 to Magic Item Use Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 4 times.",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It will crumble into dust after its last enhancive charge has been expended.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 250,000 silvers.",
+                  "It has a permanently unlocked loresong by Selvren."
+                ],
+                "tags": [
+                  "purpose",
+                  "imbeddable",
+                  "small"
+                ],
+                "cost": 5000000,
+                "worn": "head",
+                "activator": "waving",
+                "enhancives": [
+                  {
+                    "boost": 2,
+                    "ability": "Mana Recovery",
+                    "level": 10
+                  },
+                  {
+                    "boost": 9,
+                    "ability": "Spell Aiming Bonus",
+                    "level": 45
+                  },
+                  {
+                    "boost": 2,
+                    "ability": "Magic Item Use Bonus",
+                    "level": 4
+                  }
+                ],
+                "wear_location": "on the head",
+                "item_type": null
+              }
+            },
+            {
+              "id": "118067932",
+              "name": "a thick spiked ora shield",
+              "details": {
+                "raw": [
+                  "The shield is a medium shield that protects the bearer if carried in the left hand.  It is spiked.",
+                  "The shield can be worn, slinging it across the shoulders and back.  The shield appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of ora, an uncommon metal.",
+                  "Analysis of a thick spiked ora shield indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the ora shield for you.",
+                  "The ora shield will cost 950,000 coins.",
+                  "It imparts a bonus of +10 more than usual.",
+                  "It has been infused with the power of a lightning bolt.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 8 to Dodging Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 22 times.",
+                  "    It provides a boost of 5 to Agility Base.",
+                  "    This enhancement may not be used by adventurers who have not trained 9 times.",
+                  "    It seems to have more than your average dwarf could count enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It appears to weigh about 8 pounds.",
+                  "It is estimated to be worth about 400,000 silvers.",
+                  "It is spiked.",
+                  "It is predominantly crafted of ora.",
+                  "It is a basic project (116 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Selvren."
+                ],
+                "tags": [
+                  "spiked",
+                  "purpose",
+                  "lightenable",
+                  "persists",
+                  "spiked"
+                ],
+                "cost": 950000,
+                "enchant": 10,
+                "material": "ora",
+                "flare": "the power of a lightning bolt",
+                "weight": 8,
+                "worn": "shoulders",
+                "enhancives": [
+                  {
+                    "boost": 8,
+                    "ability": "Dodging Bonus",
+                    "level": 22
+                  },
+                  {
+                    "boost": 5,
+                    "ability": "Agility Base",
+                    "level": 9
+                  }
+                ],
+                "shield_type": "medium",
+                "is_shield": true,
+                "flares": [
+                  "the power of a lightning bolt"
+                ],
+                "item_type": "shield"
+              }
+            },
+            {
+              "id": "118067931",
+              "name": "an embossed glaes aventail",
+              "details": {
+                "raw": [
+                  "The aventail is miscellaneous armor that covers the neck.",
+                  "The aventail can be worn around the neck.  The aventail appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of glaes, a rare metal.",
+                  "Analysis of an embossed glaes aventail indicates the item is free from merchant alteration restrictions.",
+                  "You can tell that the aventail is as light as it can get.",
+                  "The glaes aventail will cost 3,000,000 coins.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 3 to Edged Weapons Ranks.",
+                  "    This enhancement may not be used by adventurers who have not trained 12 times.",
+                  "    It seems to have a huge number of enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It appears to weigh about 2 pounds.",
+                  "It is estimated to be worth about 1,200,000 silvers.",
+                  "It is padded against critical blows, but exactly how much requires assessment.",
+                  "It is predominantly crafted of glaes.",
+                  "It is a simple project (39 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Selvren."
+                ],
+                "tags": [
+                  "purpose",
+                  "max_light",
+                  "persists"
+                ],
+                "cost": 3000000,
+                "material": "glaes",
+                "weight": 2,
+                "worn": "neck",
+                "enhancives": [
+                  {
+                    "boost": 3,
+                    "ability": "Edged Weapons Ranks",
+                    "level": 12
+                  }
+                ],
+                "is_armor": true,
+                "armor_type": "accessory",
+                "wear_location": "neck",
+                "crit_padding": "unknown",
+                "item_type": "armor"
+              }
             }
           ]
         },
@@ -3549,52 +3715,6 @@
                 "is_weapon": true,
                 "weapon_type": "ranged weapons",
                 "sighting": "unknown",
-                "item_type": "weapon"
-              }
-            },
-            {
-              "id": "96107",
-              "name": "an exquisite faewood runestaff",
-              "details": {
-                "raw": [
-                  "The runestaff is a rune staff that requires skill in twohanded weapons to use effectively.",
-                  "It looks like this item has been mainly crafted out of faewood, an unusual wood.",
-                  "Analysis of an exquisite faewood runestaff indicates the item is free from merchant alteration restrictions.",
-                  "You can tell that the runestaff is as light as it can get.",
-                  "The faewood runestaff will cost 100,000 coins.",
-                  "It imparts a bonus of +20 more than usual.",
-                  "It is a holy item.",
-                  "It is an enhancive item:",
-                  "    It provides a boost of 11 to Dexterity Base.",
-                  "    This enhancement may not be used by adventurers who have not trained 40 times.",
-                  "    It seems to have a huge number of enhancive charges remaining.",
-                  "It will persist after its last enhancive charge has been expended.",
-                  "It appears to weigh about 2 pounds.",
-                  "It is estimated to be worth about 1,000,000 silvers.",
-                  "It is predominantly crafted of faewood.",
-                  "It is a simple project (47 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by Selvren."
-                ],
-                "tags": [
-                  "max_light",
-                  "holy",
-                  "persists"
-                ],
-                "cost": 100000,
-                "enchant": 20,
-                "material": "faewood",
-                "skill": "twohanded weapons",
-                "weight": 2,
-                "enhancives": [
-                  {
-                    "boost": 11,
-                    "ability": "Dexterity Base",
-                    "level": 40
-                  }
-                ],
-                "is_weapon": true,
-                "weapon_type": "twohanded weapons",
-                "blessing": "holy",
                 "item_type": "weapon"
               }
             },
@@ -4403,6 +4523,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 4000000,
@@ -5079,6 +5200,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 40000,
@@ -5231,6 +5353,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -5287,6 +5410,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -5314,6 +5438,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -5414,6 +5539,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -5470,6 +5596,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -5496,6 +5623,7 @@
                   "The glass jar will cost 20,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -5586,6 +5714,7 @@
                   "The thrak hide gloves will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -6748,6 +6877,7 @@
                   "purpose",
                   "lightenable",
                   "persists",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -8302,6 +8432,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -8561,6 +8692,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -8588,6 +8720,7 @@
                 ],
                 "tags": [
                   "max_deep",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -8644,6 +8777,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -8888,6 +9022,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -8918,6 +9053,7 @@
                   "purpose",
                   "max_deep",
                   "max_light",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -9122,6 +9258,7 @@
                   "max_light",
                   "deepenable",
                   "small",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -10489,6 +10626,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 1500000,
@@ -10859,6 +10997,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -10911,6 +11050,7 @@
                   "The card case will cost 150,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -11019,6 +11159,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 200000,
@@ -11048,6 +11189,7 @@
                   "The lotus silk gloves will cost 200,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -15499,6 +15641,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -15615,6 +15758,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 40000,
@@ -15644,6 +15788,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -15717,6 +15862,7 @@
                   "The grey elesine sandals will cost 80,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -15837,6 +15983,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 500,
@@ -15890,6 +16037,7 @@
                 ],
                 "tags": [
                   "purpose",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -17128,6 +17276,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -17440,6 +17589,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -21773,53 +21923,6 @@
               }
             },
             {
-              "id": "106447",
-              "name": "an onyx-inlaid white starstone buckle",
-              "details": {
-                "raw": [
-                  "The buckle can be worn anywhere on the body.  The buckle appears to serve some purpose.",
-                  "Analysis of an onyx-inlaid white starstone buckle indicates the item is free from merchant alteration restrictions.",
-                  "The white starstone buckle will cost 300,000 coins.",
-                  "It is a magical item which could be imbedded with a spell.",
-                  "It has 0 charges.  It is rechargeable.",
-                  "It could be activated by waving it.",
-                  "It will disintegrate after its last magical charge has been expended.",
-                  "It is an enhancive item:",
-                  "    It provides a boost of 4 to Logic Base.",
-                  "    This enhancement may not be used by adventurers who have not trained 7 times.",
-                  "    It provides a boost of 5 to Influence Base.",
-                  "    This enhancement may not be used by adventurers who have not trained 10 times.",
-                  "    It seems to have a fair amount of enhancive charges remaining.",
-                  "It will crumble into dust after its last enhancive charge has been expended.",
-                  "It is a small item, under a pound.",
-                  "It is estimated to be worth about 150,000 silvers.",
-                  "It has a permanently unlocked loresong by a bard."
-                ],
-                "tags": [
-                  "purpose",
-                  "imbeddable",
-                  "small"
-                ],
-                "cost": 300000,
-                "worn": "pin",
-                "activator": "waving",
-                "enhancives": [
-                  {
-                    "boost": 4,
-                    "ability": "Logic Base",
-                    "level": 7
-                  },
-                  {
-                    "boost": 5,
-                    "ability": "Influence Base",
-                    "level": 10
-                  }
-                ],
-                "wear_location": "anywhere on the body",
-                "item_type": null
-              }
-            },
-            {
               "id": "106446",
               "name": "an agate-inset platinum barrette",
               "details": {
@@ -21931,6 +22034,6 @@
       ]
     }
   ],
-  "processed_at": "2026-05-09 20:44:56 UTC",
+  "processed_at": "2026-05-09 22:44:11 UTC",
   "processing_version": "v2.0"
 }
