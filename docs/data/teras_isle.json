@@ -1,5 +1,5 @@
 {
-  "created_at": "2026-05-10 08:00:16 UTC",
+  "created_at": "2026-05-10 09:28:26 UTC",
   "run_time": "03s",
   "town": "Teras Isle",
   "shops": [
@@ -28,6 +28,7 @@
                   "The glass jar will cost 40,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -537,6 +538,7 @@
                   "purpose",
                   "max_deep",
                   "max_light",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -2873,6 +2875,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -2897,6 +2900,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -5894,6 +5898,74 @@
                 "is_gemstone": true,
                 "item_type": "gemstone"
               }
+            },
+            {
+              "id": "122157250",
+              "name": "a helical aureate jewel whorled by vaalorn inclusions",
+              "details": {
+                "raw": [
+                  "A mirage-like haze of arcane influence clings to the jewel, alight with half-glimpsed glyphs refracting across its facets from within.  The effect is dizzying and makes further visual inspection difficult.",
+                  "The jewel appears to be a powerful relic that can convey wondrous abilities on its wielder.  It has the following property:",
+                  "Rarity:      Common",
+                  "Mnemonic:    navigator",
+                  "Description: You have a 5/10/15/20/25% chance to incur no roundtime when turning the wheel of an OSA ship.",
+                  "You note the telltale filaments of a lesser binding shimmering around the aureate jewel.  You can sense that the jewel is bound to Nadagast, but a sufficiently skilled artificer should be able to dispel the binding.",
+                  "The jewel can not be worn.",
+                  "It looks like this item has been mainly crafted out of gemstone, an extremely common material.",
+                  "The aureate jewel will cost 555,555 coins."
+                ],
+                "tags": [
+                  "is_gemstone"
+                ],
+                "cost": 555555,
+                "material": "gemstone, an extremely common material",
+                "gemstone_properties": [
+                  {
+                    "name": "Navigator's Savvy (Rank 1 of 5)",
+                    "rarity": "Common",
+                    "mnemonic": "navigator",
+                    "description": "You have a 5/10/15/20/25% chance to incur no roundtime when turning the wheel of an OSA ship."
+                  }
+                ],
+                "gemstone_bound_to": "Nadagast",
+                "wear_location": "aureate jewel",
+                "is_gemstone": true,
+                "item_type": "gemstone"
+              }
+            },
+            {
+              "id": "122234432",
+              "name": "a scalloped alabaster jewel traced by veniom flakes",
+              "details": {
+                "raw": [
+                  "A mirage-like haze of arcane influence clings to the jewel, alight with half-glimpsed glyphs refracting across its facets from within.  The effect is dizzying and makes further visual inspection difficult.",
+                  "The jewel appears to be a powerful relic that can convey wondrous abilities on its wielder.  It has the following property:",
+                  "Rarity:      Regional",
+                  "Mnemonic:    tridentsunderer",
+                  "Description: While in Temple Nelemar, your successful attacks have a 5/10/15% chance to summon a bolt of arcing lightning.  Up to 5 enemies in the room must make an SMR test.  On a failure, they take electrical damage and are stunned.  This damage does not conduct back against you or your allies.",
+                  "You note the telltale filaments of a lesser binding shimmering around the alabaster jewel.  You can sense that the jewel is bound to Clodheart, but a sufficiently skilled artificer should be able to dispel the binding.",
+                  "The jewel can not be worn.",
+                  "It looks like this item has been mainly crafted out of gemstone, an extremely common material.",
+                  "The alabaster jewel will cost 555,555 coins."
+                ],
+                "tags": [
+                  "is_gemstone"
+                ],
+                "cost": 555555,
+                "material": "gemstone, an extremely common material",
+                "gemstone_properties": [
+                  {
+                    "name": "Temple Nelemar: Trident of the Sunderer (Rank 1 of 3)",
+                    "rarity": "Regional",
+                    "mnemonic": "tridentsunderer",
+                    "description": "While in Temple Nelemar, your successful attacks have a 5/10/15% chance to summon a bolt of arcing lightning.  Up to 5 enemies in the room must make an SMR test.  On a failure, they take electrical damage and are stunned.  This damage does not conduct back against you or your allies."
+                  }
+                ],
+                "gemstone_bound_to": "Clodheart",
+                "wear_location": "alabaster jewel",
+                "is_gemstone": true,
+                "item_type": "gemstone"
+              }
             }
           ]
         },
@@ -6674,6 +6746,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 88888888,
@@ -6889,6 +6962,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 88888888,
@@ -7006,6 +7080,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 75000000,
@@ -7015,66 +7090,6 @@
                 "is_container": true,
                 "wear_location": "and soft",
                 "item_type": "container"
-              }
-            },
-            {
-              "id": "118639",
-              "name": "a gold-tipped steel pin",
-              "details": {
-                "raw": [
-                  "The pin can be worn anywhere on the body.  The pin appears to serve some purpose.",
-                  "It looks like this item has been mainly crafted out of steel, an extremely common metal.",
-                  "Analysis of a gold-tipped steel pin indicates the item is free from merchant alteration restrictions.",
-                  "The steel pin will cost 87,500,000 coins.",
-                  "It is an enhancive item:",
-                  "    It provides a boost of 8 to Polearm Weapons Bonus.",
-                  "    This enhancement may not be used by adventurers who have not trained 22 times.",
-                  "    It provides a boost of 7 to Perception Bonus.",
-                  "    This enhancement may not be used by adventurers who have not trained 11 times.",
-                  "    It provides a boost of 8 to Wisdom Base.",
-                  "    This enhancement may not be used by adventurers who have not trained 36 times.",
-                  "    It provides a boost of 7 to Stalking and Hiding Bonus.",
-                  "    This enhancement may not be used by adventurers who have not trained 11 times.",
-                  "    It seems to have a lot of enhancive charges remaining.",
-                  "It will persist after its last enhancive charge has been expended.",
-                  "It is a small item, under a pound.",
-                  "It is estimated to be worth about 1,350,000 silvers.",
-                  "It is predominantly crafted of steel.",
-                  "It has a permanently unlocked loresong by Vialena."
-                ],
-                "tags": [
-                  "purpose",
-                  "persists",
-                  "small"
-                ],
-                "cost": 87500000,
-                "material": "steel",
-                "worn": "pin",
-                "enhancives": [
-                  {
-                    "boost": 8,
-                    "ability": "Polearm Weapons Bonus",
-                    "level": 22
-                  },
-                  {
-                    "boost": 7,
-                    "ability": "Perception Bonus",
-                    "level": 11
-                  },
-                  {
-                    "boost": 8,
-                    "ability": "Wisdom Base",
-                    "level": 36
-                  },
-                  {
-                    "boost": 7,
-                    "ability": "Stalking and Hiding Bonus",
-                    "level": 11
-                  }
-                ],
-                "wear_location": "anywhere on the body",
-                "is_jewelry": true,
-                "item_type": "jewelry"
               }
             },
             {
@@ -7540,6 +7555,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 55555555,
@@ -7709,6 +7725,7 @@
                 "tags": [
                   "persists",
                   "small",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -9552,6 +9569,7 @@
                   "purpose",
                   "max_deep",
                   "max_light",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -12719,6 +12737,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 99999999,
@@ -12738,6 +12757,7 @@
                   "The silver candy tin will cost 20,000,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -12829,6 +12849,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 99999999,
@@ -12871,6 +12892,7 @@
                   "The metal pie machine will cost 99,999,900 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -13312,34 +13334,6 @@
           "branch": "entry",
           "items": [
             {
-              "id": "36777437",
-              "name": "a polished ora bangle engraved with a flower and heart",
-              "details": {
-                "raw": [
-                  "The bangle can be worn around the wrist.",
-                  "It looks like this item has been mainly crafted out of ora, an uncommon metal.",
-                  "Analysis of a polished ora bangle engraved with a flower and heart indicates the creator has provided the following information:",
-                  "This item allows you to transfer its appearance onto another compatible worn item by using the TRANSFER verb.  Hold this item in one hand and the target item in your other.  You must repeat the command within 30 seconds to confirm.",
-                  "Rules:",
-                  "   - Both items must be worn in the same location",
-                  "   - Both items must either be containers or both be non-containers",
-                  "   - If this item is a container, it must be empty before transfer",
-                  "   - The source item is destroyed after a successful transfer",
-                  "   - If the target item has a script, it must be one approved for transmogrification",
-                  "You may also use CLEAN to remove this script from the item, or use DUST to remove its long description, turning it into a polished ora bangle.",
-                  "The ora bangle will cost 35,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "cost": 35000,
-                "material": "ora, an uncommon metal",
-                "worn": "wrist",
-                "wear_location": "around the wrist",
-                "item_type": null
-              }
-            },
-            {
               "id": "36777438",
               "name": "a pair of old copper earrings with a cut purple stormcloud diamond centerpiece",
               "details": {
@@ -13451,6 +13445,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 35000,
@@ -13485,6 +13480,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -14431,6 +14427,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -14487,6 +14484,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -14511,6 +14509,7 @@
                   "The glaes jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -14711,6 +14710,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -14735,6 +14735,7 @@
                   "The glaes jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -14823,6 +14824,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -14847,6 +14849,7 @@
                   "The glaes jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -14935,6 +14938,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -14959,6 +14963,7 @@
                   "The glaes jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -15047,6 +15052,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -15071,6 +15077,7 @@
                   "The glaes jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -18133,6 +18140,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 7000000,
@@ -18768,6 +18776,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 2500000,
@@ -18843,6 +18852,7 @@
                   "The gold and teal bottle will cost 200,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -19518,6 +19528,6 @@
       ]
     }
   ],
-  "processed_at": "2026-05-10 08:06:08 UTC",
+  "processed_at": "2026-05-10 09:34:29 UTC",
   "processing_version": "v2.0"
 }
