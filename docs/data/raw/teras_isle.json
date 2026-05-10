@@ -1,6 +1,6 @@
 {
-  "created_at": "2026-05-10 09:28:26 UTC",
-  "run_time": "03s",
+  "created_at": "2026-05-10 10:59:36 UTC",
+  "run_time": "02s",
   "town": "Teras Isle",
   "shops": [
     {
@@ -28,6 +28,7 @@
                   "The glass jar will cost 40,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -537,6 +538,7 @@
                   "purpose",
                   "max_deep",
                   "max_light",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -2873,6 +2875,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -2897,6 +2900,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -5898,40 +5902,70 @@
             {
               "id": "122157250",
               "name": "a helical aureate jewel whorled by vaalorn inclusions",
-              "browse_price": 555555,
-              "raw_inspect": [
-                "A mirage-like haze of arcane influence clings to the jewel, alight with half-glimpsed glyphs refracting across its facets from within.  The effect is dizzying and makes further visual inspection difficult.",
-                "The jewel appears to be a powerful relic that can convey wondrous abilities on its wielder.  It has the following property:",
-                "Property:    Navigator's Savvy (Rank 1 of 5)",
-                "Rarity:      Common",
-                "Mnemonic:    navigator",
-                "Description: You have a 5/10/15/20/25% chance to incur no roundtime when turning the wheel of an OSA ship.",
-                "You note the telltale filaments of a lesser binding shimmering around the aureate jewel.  You can sense that the jewel is bound to Nadagast, but a sufficiently skilled artificer should be able to dispel the binding.",
-                "The jewel can not be worn.",
-                "It looks like this item has been mainly crafted out of gemstone, an extremely common material.",
-                "Analysis of a helical aureate jewel whorled by vaalorn inclusions indicates there is no recorded information on that item.  It may or may not be able to be worked on by a merchant alterer.",
-                "You get no sense of whether or not the jewel may be further lightened.",
-                "The aureate jewel will cost 555,555 coins."
-              ]
+              "details": {
+                "raw": [
+                  "A mirage-like haze of arcane influence clings to the jewel, alight with half-glimpsed glyphs refracting across its facets from within.  The effect is dizzying and makes further visual inspection difficult.",
+                  "The jewel appears to be a powerful relic that can convey wondrous abilities on its wielder.  It has the following property:",
+                  "Rarity:      Common",
+                  "Mnemonic:    navigator",
+                  "Description: You have a 5/10/15/20/25% chance to incur no roundtime when turning the wheel of an OSA ship.",
+                  "You note the telltale filaments of a lesser binding shimmering around the aureate jewel.  You can sense that the jewel is bound to Nadagast, but a sufficiently skilled artificer should be able to dispel the binding.",
+                  "The jewel can not be worn.",
+                  "It looks like this item has been mainly crafted out of gemstone, an extremely common material.",
+                  "The aureate jewel will cost 555,555 coins."
+                ],
+                "tags": [
+                  "is_gemstone"
+                ],
+                "cost": 555555,
+                "material": "gemstone, an extremely common material",
+                "gemstone_properties": [
+                  {
+                    "name": "Navigator's Savvy (Rank 1 of 5)",
+                    "rarity": "Common",
+                    "mnemonic": "navigator",
+                    "description": "You have a 5/10/15/20/25% chance to incur no roundtime when turning the wheel of an OSA ship."
+                  }
+                ],
+                "gemstone_bound_to": "Nadagast",
+                "wear_location": "aureate jewel",
+                "is_gemstone": true,
+                "item_type": "gemstone"
+              }
             },
             {
               "id": "122234432",
               "name": "a scalloped alabaster jewel traced by veniom flakes",
-              "browse_price": 555555,
-              "raw_inspect": [
-                "A mirage-like haze of arcane influence clings to the jewel, alight with half-glimpsed glyphs refracting across its facets from within.  The effect is dizzying and makes further visual inspection difficult.",
-                "The jewel appears to be a powerful relic that can convey wondrous abilities on its wielder.  It has the following property:",
-                "Property:    Temple Nelemar: Trident of the Sunderer (Rank 1 of 3)",
-                "Rarity:      Regional",
-                "Mnemonic:    tridentsunderer",
-                "Description: While in Temple Nelemar, your successful attacks have a 5/10/15% chance to summon a bolt of arcing lightning.  Up to 5 enemies in the room must make an SMR test.  On a failure, they take electrical damage and are stunned.  This damage does not conduct back against you or your allies.",
-                "You note the telltale filaments of a lesser binding shimmering around the alabaster jewel.  You can sense that the jewel is bound to Clodheart, but a sufficiently skilled artificer should be able to dispel the binding.",
-                "The jewel can not be worn.",
-                "It looks like this item has been mainly crafted out of gemstone, an extremely common material.",
-                "Analysis of a scalloped alabaster jewel traced by veniom flakes indicates there is no recorded information on that item.  It may or may not be able to be worked on by a merchant alterer.",
-                "You get no sense of whether or not the jewel may be further lightened.",
-                "The alabaster jewel will cost 555,555 coins."
-              ]
+              "details": {
+                "raw": [
+                  "A mirage-like haze of arcane influence clings to the jewel, alight with half-glimpsed glyphs refracting across its facets from within.  The effect is dizzying and makes further visual inspection difficult.",
+                  "The jewel appears to be a powerful relic that can convey wondrous abilities on its wielder.  It has the following property:",
+                  "Rarity:      Regional",
+                  "Mnemonic:    tridentsunderer",
+                  "Description: While in Temple Nelemar, your successful attacks have a 5/10/15% chance to summon a bolt of arcing lightning.  Up to 5 enemies in the room must make an SMR test.  On a failure, they take electrical damage and are stunned.  This damage does not conduct back against you or your allies.",
+                  "You note the telltale filaments of a lesser binding shimmering around the alabaster jewel.  You can sense that the jewel is bound to Clodheart, but a sufficiently skilled artificer should be able to dispel the binding.",
+                  "The jewel can not be worn.",
+                  "It looks like this item has been mainly crafted out of gemstone, an extremely common material.",
+                  "The alabaster jewel will cost 555,555 coins."
+                ],
+                "tags": [
+                  "is_gemstone"
+                ],
+                "cost": 555555,
+                "material": "gemstone, an extremely common material",
+                "gemstone_properties": [
+                  {
+                    "name": "Temple Nelemar: Trident of the Sunderer (Rank 1 of 3)",
+                    "rarity": "Regional",
+                    "mnemonic": "tridentsunderer",
+                    "description": "While in Temple Nelemar, your successful attacks have a 5/10/15% chance to summon a bolt of arcing lightning.  Up to 5 enemies in the room must make an SMR test.  On a failure, they take electrical damage and are stunned.  This damage does not conduct back against you or your allies."
+                  }
+                ],
+                "gemstone_bound_to": "Clodheart",
+                "wear_location": "alabaster jewel",
+                "is_gemstone": true,
+                "item_type": "gemstone"
+              }
             }
           ]
         },
@@ -6712,6 +6746,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 88888888,
@@ -6927,6 +6962,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 88888888,
@@ -7012,6 +7048,7 @@
                 "tags": [
                   "max_deep",
                   "max_light",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -7518,6 +7555,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 55555555,
@@ -7687,6 +7725,7 @@
                 "tags": [
                   "persists",
                   "small",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -9530,6 +9569,7 @@
                   "purpose",
                   "max_deep",
                   "max_light",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -12697,6 +12737,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 99999999,
@@ -12716,6 +12757,7 @@
                   "The silver candy tin will cost 20,000,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -12807,6 +12849,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 99999999,
@@ -12849,6 +12892,7 @@
                   "The metal pie machine will cost 99,999,900 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -13401,6 +13445,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 35000,
@@ -13435,6 +13480,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -14381,6 +14427,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -14437,6 +14484,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -14461,6 +14509,7 @@
                   "The glaes jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -14661,6 +14710,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -14685,6 +14735,7 @@
                   "The glaes jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -14773,6 +14824,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -14797,6 +14849,7 @@
                   "The glaes jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -14885,6 +14938,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -14909,6 +14963,7 @@
                   "The glaes jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -14997,6 +15052,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -15021,6 +15077,7 @@
                   "The glaes jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -18083,6 +18140,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 7000000,
@@ -18718,6 +18776,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 2500000,
@@ -18780,7 +18839,7 @@
             {
               "id": "100177",
               "name": "a translucent gold and teal bottle",
-              "quantity": 15,
+              "quantity": 9,
               "details": {
                 "raw": [
                   "It is estimated that a translucent gold and teal bottle can store a very small amount with enough space for one item.",
@@ -18793,6 +18852,7 @@
                   "The gold and teal bottle will cost 200,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
