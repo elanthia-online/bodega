@@ -1,5 +1,5 @@
 {
-  "created_at": "2026-05-11 17:53:51 UTC",
+  "created_at": "2026-05-11 19:32:00 UTC",
   "run_time": "04s",
   "town": "River's Rest",
   "shops": [
@@ -170,6 +170,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 2500000,
@@ -218,6 +219,7 @@
                   "The rhimar ice wizard will cost 10,000,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -333,6 +335,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 10000000,
@@ -385,6 +388,7 @@
                   "The black cigar will cost 1,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -1434,6 +1438,7 @@
                   "max_light",
                   "small",
                   "magic_resistant",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -4474,6 +4479,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 4000000,
@@ -5166,6 +5172,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 40000,
@@ -5334,6 +5341,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -5406,6 +5414,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -5433,6 +5442,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -5565,6 +5575,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -5593,6 +5604,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -5707,6 +5719,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 20000,
@@ -5769,6 +5782,7 @@
                   "The thrak hide gloves will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -6947,6 +6961,7 @@
                   "purpose",
                   "lightenable",
                   "persists",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -8533,6 +8548,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -8808,6 +8824,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -8835,6 +8852,7 @@
                 ],
                 "tags": [
                   "max_deep",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -8951,6 +8969,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -8993,34 +9012,49 @@
             {
               "id": "153313304",
               "name": "a ruby amulet",
-              "browse_price": 15000,
-              "raw_inspect": [
-                "The amulet can be worn around the neck.  The amulet appears to serve some purpose.",
-                "Analysis of a ruby amulet indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the amulet may be further lightened.",
-                "The ruby amulet will cost 15,000 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The amulet can be worn around the neck.  The amulet appears to serve some purpose.",
+                  "Analysis of a ruby amulet indicates the item is free from merchant alteration restrictions.",
+                  "The ruby amulet will cost 15,000 coins."
+                ],
+                "tags": [
+                  "purpose"
+                ],
+                "cost": 15000,
+                "worn": "neck",
+                "wear_location": "around the neck",
+                "is_jewelry": true,
+                "item_type": "jewelry"
+              }
             },
             {
               "id": "153313303",
               "name": "a glossy silver talisman with a cobalt enamel border",
-              "browse_price": 30000,
-              "raw_inspect": [
-                "You see nothing unusual.",
-                "The talisman can be worn anywhere on the body.",
-                "It looks like this item has been mainly crafted out of silver, an extremely common metal.  This material cannot be dyed.",
-                "Analysis of a glossy silver talisman with a cobalt enamel border indicates the creator has provided the following information:",
-                "This item allows you to transfer its appearance onto another compatible worn item by using the TRANSFER verb.  Hold this item in one hand and the target item in your other.  You must repeat the command within 30 seconds to confirm.",
-                "Rules:",
-                "   - Both items must be worn in the same location",
-                "   - Both items must either be containers or both be non-containers",
-                "   - If this item is a container, it must be empty before transfer",
-                "   - The source item is destroyed after a successful transfer",
-                "   - If the target item has a script, it must be one approved for transmogrification",
-                "You may also use CLEAN to remove this script from the item, or use DUST to remove its long description, turning it into a glossy silver talisman.",
-                "You get no sense of whether or not the talisman may be further lightened.",
-                "The silver talisman will cost 30,000 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The talisman can be worn anywhere on the body.",
+                  "It looks like this item has been mainly crafted out of silver, an extremely common metal.  This material cannot be dyed.",
+                  "Analysis of a glossy silver talisman with a cobalt enamel border indicates the creator has provided the following information:",
+                  "This item allows you to transfer its appearance onto another compatible worn item by using the TRANSFER verb.  Hold this item in one hand and the target item in your other.  You must repeat the command within 30 seconds to confirm.",
+                  "Rules:",
+                  "   - Both items must be worn in the same location",
+                  "   - Both items must either be containers or both be non-containers",
+                  "   - If this item is a container, it must be empty before transfer",
+                  "   - The source item is destroyed after a successful transfer",
+                  "   - If the target item has a script, it must be one approved for transmogrification",
+                  "You may also use CLEAN to remove this script from the item, or use DUST to remove its long description, turning it into a glossy silver talisman.",
+                  "The silver talisman will cost 30,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 30000,
+                "material": "silver, an extremely common metal",
+                "worn": "pin",
+                "wear_location": "anywhere on the body",
+                "item_type": null
+              }
             }
           ]
         },
@@ -9215,6 +9249,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -9245,6 +9280,7 @@
                   "purpose",
                   "max_deep",
                   "max_light",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -9465,6 +9501,7 @@
                   "max_light",
                   "deepenable",
                   "small",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -10864,6 +10901,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 1500000,
@@ -11250,6 +11288,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -11302,6 +11341,7 @@
                   "The card case will cost 150,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -11442,6 +11482,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 200000,
@@ -11471,6 +11512,7 @@
                   "The lotus silk gloves will cost 200,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -15932,6 +15974,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -16064,6 +16107,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 40000,
@@ -16093,6 +16137,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -16182,6 +16227,7 @@
                   "The grey elesine sandals will cost 80,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -16334,6 +16380,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 500,
@@ -16387,6 +16434,7 @@
                 ],
                 "tags": [
                   "purpose",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -17657,6 +17705,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -17969,6 +18018,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
