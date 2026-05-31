@@ -1,6 +1,6 @@
 {
-  "created_at": "2026-05-31 17:04:01 UTC",
-  "run_time": "02m 04s",
+  "created_at": "2026-05-31 19:10:05 UTC",
+  "run_time": "01m 27s",
   "town": "Ta'Vaalor,",
   "shops": [
     {
@@ -1126,6 +1126,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -1514,6 +1515,7 @@
                 "tags": [
                   "max_deep",
                   "max_light",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -1689,6 +1691,7 @@
                   "The beehive-shaped bag will cost 30,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 30000,
@@ -4027,6 +4030,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -4050,6 +4054,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 15000,
@@ -4074,6 +4079,7 @@
                   "The black leather pants will cost 15,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 15000,
@@ -4100,6 +4106,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -4125,6 +4132,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -4150,6 +4158,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -4175,6 +4184,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -4200,6 +4210,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -4225,6 +4236,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -4250,6 +4262,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -4276,6 +4289,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -4302,6 +4316,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -4815,6 +4830,7 @@
                   "purpose",
                   "lightenable",
                   "persists",
+                  "container",
                   "container"
                 ],
                 "cost": 1000000,
@@ -6197,10 +6213,10 @@
       ]
     },
     {
-      "preamble": "Neraes's Shop is located in [Guardian Keep, Grassy Sward] at a simple shop, and is currently open for business.",
+      "preamble": "Althamae's Shop is located in [Guardian Keep, Grassy Sward] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
       "id": "9",
-      "shop_owner": "Neraes",
+      "shop_owner": "Althamae",
       "inv": [
         {
           "room_title": "Baelhar's Weaponry",
@@ -6230,13 +6246,50 @@
       ]
     },
     {
-      "preamble": "Kwaldor's Shop is located in [Guardian Keep, Grassy Sward] at a brilliant white sailcloth shop with a blue twill canopy, and is currently open for business.",
+      "preamble": "Anedrin's Shop is located in [Guardian Keep, Grassy Sward] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
       "id": "10",
-      "shop_owner": "Kwaldor",
+      "shop_owner": "Anedrin",
       "inv": [
         {
           "room_title": "Solafrut's Magic Shoppe",
+          "branch": "entry",
+          "items": [
+
+          ],
+          "sign": [
+            "Written on an etched faenor sign:",
+            "Snowball satchel is raffle quality. Unlimited snowballs and can make a snowbank 1x/day.  Wiregrass anklets/bracelets hold 63 mana and ready for Resist Nature."
+          ]
+        },
+        {
+          "room_title": "Solafrut's Weaponry",
+          "branch": "northeast",
+          "items": [
+
+          ],
+          "sign": [
+            "Written on an etched faenor sign:",
+            "mossbark runestaff has 2x acuity flares"
+          ]
+        },
+        {
+          "room_title": "Solafrut's Weaponry",
+          "branch": "northwest",
+          "items": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "preamble": "Kwaldor's Shop is located in [Guardian Keep, Grassy Sward] at a brilliant white sailcloth shop with a blue twill canopy, and is currently open for business.",
+      "town": "Ta'Vaalor,",
+      "id": "11",
+      "shop_owner": "Kwaldor",
+      "inv": [
+        {
+          "room_title": "Rhaviel's Weaponry",
           "branch": "entry",
           "items": [
             {
@@ -8362,26 +8415,10 @@
             }
           ],
           "sign": [
-            "Written on an etched faenor sign:",
-            "Snowball satchel is raffle quality. Unlimited snowballs and can make a snowbank 1x/day.  Wiregrass anklets/bracelets hold 63 mana and ready for Resist Nature."
-          ]
-        },
-        {
-          "room_title": "Solafrut's Weaponry",
-          "branch": "northeast",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on an etched faenor sign:",
-            "mossbark runestaff has 2x acuity flares"
-          ]
-        },
-        {
-          "room_title": "Solafrut's Weaponry",
-          "branch": "northwest",
-          "items": [
-
+            "Written on an engraved wooden sign:",
+            "Weapons and armor have been sung to by a bard",
+            "GET them for the details.",
+            "The yellow letter is a ranger spell prep for 616."
           ]
         }
       ]
@@ -8389,11 +8426,11 @@
     {
       "preamble": "Baelhar's Shop is located in [Guardian Keep, Grassy Sward] at a simple shop with a thick granite roof, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "11",
+      "id": "12",
       "shop_owner": "Baelhar",
       "inv": [
         {
-          "room_title": "Rhaviel's Weaponry",
+          "room_title": "Dorwyn's Outfitting",
           "branch": "entry",
           "items": [
             {
@@ -8816,10 +8853,30 @@
             }
           ],
           "sign": [
-            "Written on an engraved wooden sign:",
-            "Weapons and armor have been sung to by a bard",
-            "GET them for the details.",
-            "The yellow letter is a ranger spell prep for 616."
+            "Written on a large sign:",
+            "The haubergon is HCP forest armor. Augmented chain base."
+          ]
+        },
+        {
+          "room_title": "Dorwyn's General Store",
+          "branch": "north",
+          "items": [
+
+          ],
+          "sign": [
+            "Written on a large sign:",
+            "Please buy"
+          ]
+        },
+        {
+          "room_title": "Dorwyn's Outfitting",
+          "branch": "east",
+          "items": [
+
+          ],
+          "sign": [
+            "Written on a large sign:",
+            "Welcome"
           ]
         }
       ]
@@ -8827,11 +8884,11 @@
     {
       "preamble": "Solafrut's Shop is located in [Guardian Keep, Grassy Sward] at an ornate glass-front shop with a gold-veined marble roof, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "12",
+      "id": "13",
       "shop_owner": "Solafrut",
       "inv": [
         {
-          "room_title": "Dorwyn's Outfitting",
+          "room_title": "Luethar's Outfitting",
           "branch": "entry",
           "items": [
             {
@@ -11341,30 +11398,22 @@
             }
           ],
           "sign": [
-            "Written on a large sign:",
-            "The haubergon is HCP forest armor. Augmented chain base."
+            "Written on an elegantly carved fel sign:",
+            "Buy things!  Some items are priced for storage."
           ]
         },
         {
-          "room_title": "Dorwyn's General Store",
+          "room_title": "Luethar's Outfitting",
           "branch": "north",
           "items": [
 
-          ],
-          "sign": [
-            "Written on a large sign:",
-            "Please buy"
           ]
         },
         {
-          "room_title": "Dorwyn's Outfitting",
+          "room_title": "Luethar's Combat Gear",
           "branch": "east",
           "items": [
 
-          ],
-          "sign": [
-            "Written on a large sign:",
-            "Welcome"
           ]
         }
       ]
@@ -11372,11 +11421,11 @@
     {
       "preamble": "Rhaviel's Shop is located in [Guardian Keep, Grassy Sward] at a multicolored silk tent with a mottled blue canvas canopy, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "13",
+      "id": "14",
       "shop_owner": "Rhaviel",
       "inv": [
         {
-          "room_title": "Luethar's Outfitting",
+          "room_title": "Lornn's Magic Shoppe",
           "branch": "entry",
           "items": [
             {
@@ -11821,21 +11870,29 @@
           ],
           "sign": [
             "Written on an elegantly carved fel sign:",
-            "Buy things!  Some items are priced for storage."
+            "Please contact Kanku or Liinah with any questions about the goods sold."
           ]
         },
         {
-          "room_title": "Luethar's Outfitting",
-          "branch": "north",
-          "items": [
-
-          ]
-        },
-        {
-          "room_title": "Luethar's Combat Gear",
+          "room_title": "Lornn's Magic Shoppe",
           "branch": "east",
           "items": [
 
+          ],
+          "sign": [
+            "Written on an elegantly carved fel sign:",
+            "Please contact Kanku or Liinah with any questions on goods sold."
+          ]
+        },
+        {
+          "room_title": "Lornn's Magic Shoppe",
+          "branch": "southwest",
+          "items": [
+
+          ],
+          "sign": [
+            "Written on an elegantly carved fel sign:",
+            "Welcome!"
           ]
         }
       ]
@@ -11843,11 +11900,11 @@
     {
       "preamble": "Dorwyn's Shop is located in [Guardian Keep, Grassy Sward] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "14",
+      "id": "15",
       "shop_owner": "Dorwyn",
       "inv": [
         {
-          "room_title": "Lornn's Magic Shoppe",
+          "room_title": "Kakoon's Magic Shoppe",
           "branch": "entry",
           "items": [
             {
@@ -13430,32 +13487,24 @@
                 "item_type": "armor"
               }
             }
-          ],
-          "sign": [
-            "Written on an elegantly carved fel sign:",
-            "Please contact Kanku or Liinah with any questions about the goods sold."
           ]
         },
         {
-          "room_title": "Lornn's Magic Shoppe",
-          "branch": "east",
+          "room_title": "Kakoon's Weaponry",
+          "branch": "northeast",
           "items": [
 
           ],
           "sign": [
-            "Written on an elegantly carved fel sign:",
-            "Please contact Kanku or Liinah with any questions on goods sold."
+            "Written on a sturdy mahogany sign:",
+            "Bodysuit is boxfound 4x double leather"
           ]
         },
         {
-          "room_title": "Lornn's Magic Shoppe",
-          "branch": "southwest",
+          "room_title": "Kakoon's Outfitting",
+          "branch": "northwest",
           "items": [
 
-          ],
-          "sign": [
-            "Written on an elegantly carved fel sign:",
-            "Welcome!"
           ]
         }
       ]
@@ -13463,11 +13512,11 @@
     {
       "preamble": "Luethar's Shop is located in [Guardian Keep, Grassy Sward] at a large ornate velveteen pavilion, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "15",
+      "id": "16",
       "shop_owner": "Luethar",
       "inv": [
         {
-          "room_title": "Kakoon's Magic Shoppe",
+          "room_title": "Quessara's Armory",
           "branch": "entry",
           "items": [
             {
@@ -15362,24 +15411,40 @@
                 "item_type": null
               }
             }
+          ],
+          "sign": [
+            "Written on a gold-trimmed black imflass sign:",
+            "~Welcome to the Hawk's Nest~",
+            "The wips symbol is a Weatherby symbol and actioned for the worshiper.",
+            "The warpaint makes you look fierce.",
+            "The Hellebore earrings are nicely actioned.",
+            "The wig makes your hair look nice.",
+            "Please TAP and INSPECT and EXAMINE everything."
           ]
         },
         {
-          "room_title": "Kakoon's Weaponry",
+          "room_title": "Quessara's Outfitting",
           "branch": "northeast",
           "items": [
 
           ],
           "sign": [
-            "Written on a sturdy mahogany sign:",
-            "Bodysuit is boxfound 4x double leather"
+            "Written on a gold-trimmed black imflass sign:",
+            "~Welcome to the Hawk's Nest~",
+            "The scrolls and pages  hold prayers for different occasions.",
+            "Please TAP and INSPECT and EXAMINE everything."
           ]
         },
         {
-          "room_title": "Kakoon's Outfitting",
+          "room_title": "Quessara's General Store",
           "branch": "northwest",
           "items": [
 
+          ],
+          "sign": [
+            "Written on a gold-trimmed black imflass sign:",
+            "~Welcome to the Hawk's Nest~",
+            "Please TAP and INSPECT and EXAMINE everything."
           ]
         }
       ]
@@ -15387,11 +15452,11 @@
     {
       "preamble": "Lornn's Shop is located in [Guardian Keep, Grassy Sward] at a large ornate velveteen pavilion with an elegant red brocade canopy, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "16",
+      "id": "17",
       "shop_owner": "Lornn",
       "inv": [
         {
-          "room_title": "Quessara's Armory",
+          "room_title": "Idalias' Magic Shoppe",
           "branch": "entry",
           "items": [
             {
@@ -16506,40 +16571,20 @@
                 "item_type": "container"
               }
             }
-          ],
-          "sign": [
-            "Written on a gold-trimmed black imflass sign:",
-            "~Welcome to the Hawk's Nest~",
-            "The wips symbol is a Weatherby symbol and actioned for the worshiper.",
-            "The warpaint makes you look fierce.",
-            "The Hellebore earrings are nicely actioned.",
-            "The wig makes your hair look nice.",
-            "Please TAP and INSPECT and EXAMINE everything."
           ]
         },
         {
-          "room_title": "Quessara's Outfitting",
-          "branch": "northeast",
+          "room_title": "Idalias' Magic Shoppe",
+          "branch": "east",
           "items": [
 
-          ],
-          "sign": [
-            "Written on a gold-trimmed black imflass sign:",
-            "~Welcome to the Hawk's Nest~",
-            "The scrolls and pages  hold prayers for different occasions.",
-            "Please TAP and INSPECT and EXAMINE everything."
           ]
         },
         {
-          "room_title": "Quessara's General Store",
-          "branch": "northwest",
+          "room_title": "Idalias' Weaponry",
+          "branch": "west",
           "items": [
 
-          ],
-          "sign": [
-            "Written on a gold-trimmed black imflass sign:",
-            "~Welcome to the Hawk's Nest~",
-            "Please TAP and INSPECT and EXAMINE everything."
           ]
         }
       ]
@@ -16547,11 +16592,11 @@
     {
       "preamble": "Kakoon's Shop is located in [Guardian Keep, Inner Wall] at a dark blue silk tent with a royal blue brocade canopy, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "17",
+      "id": "18",
       "shop_owner": "Kakoon",
       "inv": [
         {
-          "room_title": "Idalias' Magic Shoppe",
+          "room_title": "Quessara's Armory",
           "branch": "entry",
           "items": [
             {
@@ -19383,20 +19428,40 @@
                 "item_type": "weapon"
               }
             }
+          ],
+          "sign": [
+            "Written on a gold-trimmed black imflass sign:",
+            "~Welcome to the Hawk's Nest~",
+            "The wips symbol is a Weatherby symbol and actioned for the worshiper.",
+            "The warpaint makes you look fierce.",
+            "The Hellebore earrings are nicely actioned.",
+            "The wig makes your hair look nice.",
+            "Please TAP and INSPECT and EXAMINE everything."
           ]
         },
         {
-          "room_title": "Idalias' Magic Shoppe",
-          "branch": "east",
+          "room_title": "Quessara's Outfitting",
+          "branch": "northeast",
           "items": [
 
+          ],
+          "sign": [
+            "Written on a gold-trimmed black imflass sign:",
+            "~Welcome to the Hawk's Nest~",
+            "The scrolls and pages  hold prayers for different occasions.",
+            "Please TAP and INSPECT and EXAMINE everything."
           ]
         },
         {
-          "room_title": "Idalias' Weaponry",
-          "branch": "west",
+          "room_title": "Quessara's General Store",
+          "branch": "northwest",
           "items": [
 
+          ],
+          "sign": [
+            "Written on a gold-trimmed black imflass sign:",
+            "~Welcome to the Hawk's Nest~",
+            "Please TAP and INSPECT and EXAMINE everything."
           ]
         }
       ]
@@ -19404,10 +19469,11 @@
     {
       "preamble": "Quessara's Shop is located in [Guardian Keep, Inner Wall] at a pale red watered silk pavilion with a golden brocade canopy, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "18",
+      "id": "19",
+      "shop_owner": "Quessara",
       "inv": [
         {
-          "room_title": "Quessara's Armory",
+          "room_title": "Nhadrin's Weaponry",
           "branch": "entry",
           "items": [
             {
@@ -19451,22 +19517,7 @@
                 "cost": 5000000,
                 "item_type": null
               }
-            }
-          ],
-          "sign": [
-            "Written on a gold-trimmed black imflass sign:",
-            "~Welcome to the Hawk's Nest~",
-            "The wips symbol is a Weatherby symbol and actioned for the worshiper.",
-            "The warpaint makes you look fierce.",
-            "The Hellebore earrings are nicely actioned.",
-            "The wig makes your hair look nice.",
-            "Please TAP and INSPECT and EXAMINE everything."
-          ]
-        },
-        {
-          "room_title": "Quessara's Outfitting",
-          "branch": "northeast",
-          "items": [
+            },
             {
               "id": "121107",
               "name": "a ruby and opal-set ora carcanet",
@@ -19647,19 +19698,7 @@
                 "wear_location": "on the head",
                 "item_type": null
               }
-            }
-          ],
-          "sign": [
-            "Written on a gold-trimmed black imflass sign:",
-            "~Welcome to the Hawk's Nest~",
-            "The scrolls and pages  hold prayers for different occasions.",
-            "Please TAP and INSPECT and EXAMINE everything."
-          ]
-        },
-        {
-          "room_title": "Quessara's General Store",
-          "branch": "northwest",
-          "items": [
+            },
             {
               "id": "121114",
               "name": "a moonstone-set blue steel flagon",
@@ -19678,20 +19717,297 @@
                 "item_type": null
               }
             }
-          ],
-          "sign": [
-            "Written on a gold-trimmed black imflass sign:",
-            "~Welcome to the Hawk's Nest~",
-            "Please TAP and INSPECT and EXAMINE everything."
           ]
         }
-      ],
-      "shop_owner": "Quessara"
+      ]
+    },
+    {
+      "preamble": "Nebochadnezzar's Shop is located in [Guardian Keep, Inner Wall] at a modest white brocade tent with a royal blue brocade canopy, and is currently open for business.",
+      "town": "Ta'Vaalor,",
+      "id": "20",
+      "shop_owner": "Nebochadnezzar",
+      "inv": [
+        {
+          "room_title": "Idalias' Magic Shoppe",
+          "branch": "entry",
+          "items": [
+            {
+              "id": "380734453",
+              "name": "a sacrosanct black battle standard with a rippling purple sheen",
+              "details": {
+                "raw": [
+                  "A faint purple sheen ripples along the standard's fabric at measured intervals, a counterpoint to the pulsing gleam of the runes scribed along the full length of the pole.",
+                  "You determine that you could wear a sacrosanct black battle standard with a rippling purple sheen as a battle standard.",
+                  "Analysis of a sacrosanct black battle standard with a rippling purple sheen indicates the creator has provided the following information:",
+                  "This is a tier 3 Battle Standard.",
+                  "Tier",
+                  "  1: Rally [PRAY] - While dead, allows a corpse to teleport itself back to town.  1 use per day at tier 1 and 2 uses per day at tier 3.",
+                  "  2: Hallowed Reprisal [CLENCH] - Invoke the power of the standard's deity to create an aura that periodically lashes out at nearby creatures for 3 minutes.  Base 60 minute cooldown with 15 minutes subtracted at tiers 3, 4, and 5, resulting in a 15 minute cooldown at tier 5.",
+                  "  3: Reckoning - Your attacks have a chance to unleash the power of the standard's deity.  Tiers 4 and 5 increase the likelihood that this will occur.",
+                  "  4: Ardent Plea [RAISE] - Your attacks have a 100% chance to trigger Reckoning and unleash the power of the standard's deity.  This effect lasts 30 seconds and has a 30 minute cooldown.  At tier 5 the cooldown is reduced to 15 minutes.",
+                  "  5: Divine Bulwark - When you receive a blow, the standard may summon an ethereal shield to lessen the severity of the blow.  If an ethereal shield is summoned in this way, the standard's deity will unleash a retaliatory flare against the attacker.",
+                  "  6: Final Stand [BESEECH] - The standard's deity comes to your aid for 30 seconds, ensuring that all incoming blows will be subject to Divine Bulwark's abilities.  Can be activated while incapacitated or in roundtime.  1 use per day.",
+                  "           Attunement:                       Not Attuned",
+                  "           Charges:                          200",
+                  "           Deity:                            Laethe",
+                  "           Deity Primary Color:              Black",
+                  "           Deity Secondary Color:            Purple",
+                  "           Rally [PRAY]:                     Ready",
+                  "           Hallowed Reprisal [CLENCH]:       Ready",
+                  "If the standard's deity conversion ability is not on cooldown, you may visit a shrine honoring a specific deity to convert the standard to that deity.  To do so, simply PRAY standard TO <deity>.  This ability is subject to a 30 day cooldown, and the cooldown is not currently active.",
+                  "The battle standard can be TUCKed while worn in order to hide it from sight.",
+                  "This is a flag on a pole, and the description should not conflict with that.  Base, long, and show description can be altered.  Because of the holy and magical nature of this item, the description may include the following words: holy, sacred, consecrated, sacrosanct, and hallowed.",
+                  "There will always be a reference to the pole and the banner upon LOOKing at this item.  Please take this into account when composing your show description.  The material may be changed to other types of wood at the merchant's discretion.  Allowed nouns: standard, flag, banner, ensign, pennant, pennon, banderole, banderol, bannerol, oriflamme, and gonfalon.  Finally, any and all alterations will be irreversibly removed if the battle standard is ever converted to another deity in the future.",
+                  "The battle standard may not be lightened.",
+                  "The battle standard will cost 6,500,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 6500000,
+                "wear_location": "in order to hide it from sight",
+                "blessing": "holy",
+                "item_type": null
+              }
+            },
+            {
+              "id": "380914605",
+              "name": "an opalescent glass jar containing white pearls",
+              "details": {
+                "raw": [
+                  "It is estimated that an opalescent glass jar containing white pearls can store a very small amount with enough space for one item.",
+                  "The jar can not be worn.",
+                  "It looks like this item has been mainly crafted out of gemstone, an extremely common material.",
+                  "Analysis of an opalescent glass jar containing white pearls indicates the creator has provided the following information:",
+                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
+                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
+                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
+                  "The glass jar will cost 60,000 coins."
+                ],
+                "tags": [
+                  "container"
+                ],
+                "cost": 60000,
+                "material": "gemstone, an extremely common material",
+                "capacity_level": "very small",
+                "is_container": true,
+                "item_type": "container"
+              }
+            },
+            {
+              "id": "380989844",
+              "name": "an opalescent glass jar containing pink topazes",
+              "details": {
+                "raw": [
+                  "It is estimated that an opalescent glass jar containing pink topazes can store a very small amount with enough space for one item.",
+                  "The jar can not be worn.",
+                  "It looks like this item has been mainly crafted out of gemstone, an extremely common material.",
+                  "Analysis of an opalescent glass jar containing pink topazes indicates the creator has provided the following information:",
+                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
+                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
+                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
+                  "The glass jar will cost 25,000 coins."
+                ],
+                "tags": [
+                  "container"
+                ],
+                "cost": 25000,
+                "material": "gemstone, an extremely common material",
+                "capacity_level": "very small",
+                "is_container": true,
+                "item_type": "container"
+              }
+            },
+            {
+              "id": "380956540",
+              "name": "an opalescent glass jar containing smoky topazes",
+              "details": {
+                "raw": [
+                  "It is estimated that an opalescent glass jar containing smoky topazes can store a very small amount with enough space for one item.",
+                  "The jar can not be worn.",
+                  "It looks like this item has been mainly crafted out of gemstone, an extremely common material.",
+                  "Analysis of an opalescent glass jar containing smoky topazes indicates the creator has provided the following information:",
+                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
+                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
+                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
+                  "The glass jar will cost 25,000 coins."
+                ],
+                "tags": [
+                  "container"
+                ],
+                "cost": 25000,
+                "material": "gemstone, an extremely common material",
+                "capacity_level": "very small",
+                "is_container": true,
+                "item_type": "container"
+              }
+            },
+            {
+              "id": "380914606",
+              "name": "an opalescent glass jar containing grey pearls",
+              "details": {
+                "raw": [
+                  "It is estimated that an opalescent glass jar containing grey pearls can store a very small amount with enough space for one item.",
+                  "The jar can not be worn.",
+                  "It looks like this item has been mainly crafted out of gemstone, an extremely common material.",
+                  "Analysis of an opalescent glass jar containing grey pearls indicates the creator has provided the following information:",
+                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
+                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
+                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
+                  "The glass jar will cost 50,000 coins."
+                ],
+                "tags": [
+                  "container"
+                ],
+                "cost": 50000,
+                "material": "gemstone, an extremely common material",
+                "capacity_level": "very small",
+                "is_container": true,
+                "item_type": "container"
+              }
+            },
+            {
+              "id": "380999725",
+              "name": "an opalescent glass jar containing turquoise stones",
+              "details": {
+                "raw": [
+                  "It is estimated that an opalescent glass jar containing turquoise stones can store a very small amount with enough space for one item.",
+                  "The jar can not be worn.",
+                  "It looks like this item has been mainly crafted out of gemstone, an extremely common material.",
+                  "Analysis of an opalescent glass jar containing turquoise stones indicates the creator has provided the following information:",
+                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
+                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
+                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
+                  "The glass jar will cost 25,000 coins."
+                ],
+                "tags": [
+                  "container"
+                ],
+                "cost": 25000,
+                "material": "gemstone, an extremely common material",
+                "capacity_level": "very small",
+                "is_container": true,
+                "item_type": "container"
+              }
+            },
+            {
+              "id": "380999731",
+              "name": "an opalescent glass jar containing pale green moonstones",
+              "details": {
+                "raw": [
+                  "It is estimated that an opalescent glass jar containing pale green moonstones can store a very small amount with enough space for one item.",
+                  "The jar can not be worn.",
+                  "It looks like this item has been mainly crafted out of gemstone, an extremely common material.",
+                  "Analysis of an opalescent glass jar containing pale green moonstones indicates the creator has provided the following information:",
+                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
+                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
+                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
+                  "The glass jar will cost 35,000 coins."
+                ],
+                "tags": [
+                  "container"
+                ],
+                "cost": 35000,
+                "material": "gemstone, an extremely common material",
+                "capacity_level": "very small",
+                "is_container": true,
+                "item_type": "container"
+              }
+            },
+            {
+              "id": "381005578",
+              "name": "an opalescent glass jar containing shards of rainbow quartz",
+              "details": {
+                "raw": [
+                  "It is estimated that an opalescent glass jar containing shards of rainbow quartz can store a very small amount with enough space for one item.",
+                  "The jar can not be worn.",
+                  "It looks like this item has been mainly crafted out of gemstone, an extremely common material.",
+                  "Analysis of an opalescent glass jar containing shards of rainbow quartz indicates the creator has provided the following information:",
+                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
+                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
+                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
+                  "The glass jar will cost 25,000 coins."
+                ],
+                "tags": [
+                  "container"
+                ],
+                "cost": 25000,
+                "material": "gemstone, an extremely common material",
+                "capacity_level": "very small",
+                "is_container": true,
+                "item_type": "container"
+              }
+            },
+            {
+              "id": "381030214",
+              "name": "an opalescent glass jar containing green garnets",
+              "details": {
+                "raw": [
+                  "It is estimated that an opalescent glass jar containing green garnets can store a very small amount with enough space for one item.",
+                  "The jar can not be worn.",
+                  "It looks like this item has been mainly crafted out of gemstone, an extremely common material.",
+                  "Analysis of an opalescent glass jar containing green garnets indicates the creator has provided the following information:",
+                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
+                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
+                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
+                  "The glass jar will cost 25,000 coins."
+                ],
+                "tags": [
+                  "container"
+                ],
+                "cost": 25000,
+                "material": "gemstone, an extremely common material",
+                "capacity_level": "very small",
+                "is_container": true,
+                "item_type": "container"
+              }
+            },
+            {
+              "id": "380956547",
+              "name": "an opalescent glass jar containing orange imperial topazes",
+              "details": {
+                "raw": [
+                  "It is estimated that an opalescent glass jar containing orange imperial topazes can store a very small amount with enough space for one item.",
+                  "The jar can not be worn.",
+                  "It looks like this item has been mainly crafted out of gemstone, an extremely common material.",
+                  "Analysis of an opalescent glass jar containing orange imperial topazes indicates the creator has provided the following information:",
+                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
+                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
+                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
+                  "The glass jar will cost 25,000 coins."
+                ],
+                "tags": [
+                  "container"
+                ],
+                "cost": 25000,
+                "material": "gemstone, an extremely common material",
+                "capacity_level": "very small",
+                "is_container": true,
+                "item_type": "container"
+              }
+            }
+          ]
+        },
+        {
+          "room_title": "Idalias' Magic Shoppe",
+          "branch": "east",
+          "items": [
+
+          ]
+        },
+        {
+          "room_title": "Idalias' Weaponry",
+          "branch": "west",
+          "items": [
+
+          ]
+        }
+      ]
     },
     {
       "preamble": "Nhadrin's Shop is located in [Guardian Keep, Inner Wall] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "19",
+      "id": "21",
       "inv": [
         {
           "room_title": "Nhadrin's Weaponry",
@@ -19760,7 +20076,7 @@
     {
       "preamble": "Idalias's Shop is located in [Guardian Keep, Inner Wall] at a silk-covered white cabana with a pair of vaalorn lanterns, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "20",
+      "id": "22",
       "inv": [
         {
           "room_title": "Idalias' Magic Shoppe",
@@ -22034,6 +22350,6 @@
       "shop_owner": "Idalias"
     }
   ],
-  "processed_at": "2026-05-31 17:09:41 UTC",
+  "processed_at": "2026-05-31 19:15:44 UTC",
   "processing_version": "v2.0"
 }
