@@ -1,12 +1,45 @@
 {
-  "created_at": "2026-06-02 02:44:23 UTC",
-  "run_time": "02m 07s",
+  "created_at": "2026-06-02 09:14:56 UTC",
+  "run_time": "02m 15s",
   "town": "Ta'Vaalor,",
   "shops": [
     {
-      "preamble": "Jiarine's Shop is located in [Guardian Keep, Outer Wall] at an airy crimson brocade pavilion with billowing bronze-edged curtains, and is currently open for business.",
+      "preamble": "Hnarl's Shop is located in [Guardian Keep, Outer Wall] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
       "id": "1",
+      "shop_owner": "Hnarl",
+      "inv": [
+        {
+          "room_title": "Hnarl's General Store",
+          "branch": "entry",
+          "items": [
+
+          ],
+          "sign": [
+            "Written on a large sign:",
+            "Welcome and Coming Soon!"
+          ]
+        },
+        {
+          "room_title": "Hnarl's General Store",
+          "branch": "north",
+          "items": [
+
+          ]
+        },
+        {
+          "room_title": "Hnarl's General Store",
+          "branch": "east",
+          "items": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "preamble": "Jiarine's Shop is located in [Guardian Keep, Outer Wall] at an airy crimson brocade pavilion with billowing bronze-edged curtains, and is currently open for business.",
+      "town": "Ta'Vaalor,",
+      "id": "2",
       "shop_owner": "Jiarine",
       "inv": [
         {
@@ -460,7 +493,13 @@
                 "material": "organic material, an extremely common material",
                 "item_type": null
               }
-            },
+            }
+          ]
+        },
+        {
+          "room_title": "A Nalfein's Favor",
+          "branch": "north",
+          "items": [
             {
               "id": "75207",
               "name": "a muted grey vellum",
@@ -770,7 +809,17 @@
                 "material": "wood, an extremely common material",
                 "item_type": null
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on a jade-inset silver sign:",
+            "The leathers for sale here have been heavily padded against critical blows."
+          ]
+        },
+        {
+          "room_title": "A Nalfein's Embrace",
+          "branch": "east",
+          "items": [
             {
               "id": "75188",
               "name": "a long-legged pink flamingo pin",
@@ -1039,10 +1088,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -1290,24 +1335,6 @@
                 "item_type": null
               }
             }
-          ]
-        },
-        {
-          "room_title": "A Nalfein's Favor",
-          "branch": "north",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on a jade-inset silver sign:",
-            "The leathers for sale here have been heavily padded against critical blows."
-          ]
-        },
-        {
-          "room_title": "A Nalfein's Embrace",
-          "branch": "east",
-          "items": [
-
           ],
           "sign": [
             "Written on a jade-inset silver sign:",
@@ -1319,11 +1346,11 @@
     {
       "preamble": "Corant's Shop is located in [Guardian Keep, Outer Wall] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "2",
+      "id": "3",
       "shop_owner": "Corant",
       "inv": [
         {
-          "room_title": "Remisse's General Store",
+          "room_title": "Corant's Weaponry",
           "branch": "entry",
           "items": [
             {
@@ -1462,42 +1489,6 @@
                 "item_type": "weapon"
               }
             }
-          ],
-          "sign": [
-            "Written on a sturdy mahogany sign:",
-            "The ring on the stand is just funny!",
-            "The coif and barbute are pirate bandanas.",
-            "The sheath is a \"hiding sheath\" and can be hidden up your sleeve.",
-            "The jacket in chest has fine detail, please LOOK closely."
-          ]
-        },
-        {
-          "room_title": "Remisse's Outfitting",
-          "branch": "north",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on a sturdy mahogany sign:",
-            "The hut figurines have 30 charges of Eye Spy.",
-            "The case is a tier 2 Liabo Arkati box.",
-            "The beehive jar, thistle bottle, and wine bottle create bubbles!",
-            "The collections in the chest are for weaving.",
-            "The bouquet can be plucked to create \"a velvety smoky plum rose petal\" for weaving."
-          ]
-        },
-        {
-          "room_title": "Remisse's Outfitting",
-          "branch": "east",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on a sturdy mahogany sign:",
-            "The headbands and circlets in the chest have several hairstyles.",
-            "The bracelet and anklet are scripted.",
-            "All of the jewelry on the stand is scripted.",
-            "The ferronieres hold gems."
           ]
         }
       ]
@@ -1505,11 +1496,11 @@
     {
       "preamble": "Kaelyr's Shop is located in [Guardian Keep, Outer Wall] at a simple shop with a thick granite roof, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "3",
+      "id": "4",
       "shop_owner": "Kaelyr",
       "inv": [
         {
-          "room_title": "The Rose And Thorn",
+          "room_title": "Kaelyr's Magic Shoppe",
           "branch": "entry",
           "items": [
             {
@@ -2030,7 +2021,13 @@
                 "wear_location": "around the wrist",
                 "item_type": null
               }
-            },
+            }
+          ]
+        },
+        {
+          "room_title": "Kaelyr's Combat Gear",
+          "branch": "east",
+          "items": [
             {
               "id": "74243",
               "name": "a sephwir hand crossbow",
@@ -2367,7 +2364,13 @@
                 "wear_location": "around the wrist",
                 "item_type": null
               }
-            },
+            }
+          ]
+        },
+        {
+          "room_title": "Kaelyr's Outfitting",
+          "branch": "west",
+          "items": [
             {
               "id": "74255",
               "name": "a rectangular green crystal bottle",
@@ -2574,13 +2577,6 @@
                 "item_type": null
               }
             }
-          ],
-          "sign": [
-            "Written on a golden oak wares sign:",
-            "@--;-- Welcome to The Rose and Thorn  --;--@",
-            "Many choices of robes of varying type, priced accourdingly. Some are metamorphic, some are climatewear. Please be sure to look at them closely.",
-            "The plum silk gown and dress are by Joola.",
-            "The bliaut and cotehardie are Metallic."
           ]
         }
       ]
@@ -2588,26 +2584,12 @@
     {
       "preamble": "Dahlinar's Shop is located in [Guardian Keep, Outer Wall] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "4",
+      "id": "5",
       "shop_owner": "Dahlinar",
       "inv": [
         {
-          "room_title": "Daevian's Armory",
+          "room_title": "Dahlinar's General Store",
           "branch": "entry",
-          "items": [
-
-          ]
-        },
-        {
-          "room_title": "Daevian's General Store",
-          "branch": "north",
-          "items": [
-
-          ]
-        },
-        {
-          "room_title": "Daevian's General Store",
-          "branch": "east",
           "items": [
 
           ]
@@ -2617,18 +2599,14 @@
     {
       "preamble": "Raxl's Shop is located in [Guardian Keep, Outer Wall] at a modest white brocade tent with a textured grey silk canopy, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "5",
+      "id": "6",
       "shop_owner": "Raxl",
       "inv": [
         {
-          "room_title": "Qalael's Armory",
+          "room_title": "Raxl's General Store",
           "branch": "entry",
           "items": [
 
-          ],
-          "sign": [
-            "Written on a sturdy mahogany sign:",
-            "All bundles of talons sold are of magnificent quality"
           ]
         }
       ]
@@ -2636,56 +2614,14 @@
     {
       "preamble": "Rulli's Shop is located in [Guardian Keep, Outer Wall] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "6",
+      "id": "7",
       "shop_owner": "Rulli",
       "inv": [
         {
-          "room_title": "Seazarius' Armory",
+          "room_title": "Rulli's General Store",
           "branch": "entry",
           "items": [
 
-          ],
-          "sign": [
-            "Written on a sea blue wave-etched sign:",
-            "Welcome to Warmages Anonymous!",
-            "Everything in this room has been sung to. Attempt to GET the items to see their properties.",
-            "The fitted hauberk, black stalking leathers dark brigandine, laminated scale mail, and fitted breastplate are rogue guild specials.",
-            "The dark red bloodjewel-set leathers and deep green faenor-edged leathers are both 4x doubles.",
-            "Be sure to INSPECT everything before purchasing."
-          ]
-        },
-        {
-          "room_title": "Seazarius' Weaponry",
-          "branch": "northeast",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on a sea blue wave-etched sign:",
-            "Welcome to Warmages Anonymous!",
-            "Everything in this room has been sung to. Attempt to GET the items to see their properties.",
-            "Items of Note:",
-            "All of the weapons here are forged by our resident master blacksmith, Aetheri.",
-            "The dark rolaren khopesh, and haon-hafted vultite maul are superior forged.",
-            "All other items are elegant forged.",
-            "All the eonake weapons are sanctified.",
-            "Be sure to INSPECT everything before purchasing."
-          ]
-        },
-        {
-          "room_title": "Seazarius' Outfitting",
-          "branch": "northwest",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on a sea blue wave-etched sign:",
-            "Welcome to Warmages Anonymous!",
-            "All the equipment in this room have been sung to. Attempt to GET the items to see their properties.",
-            "The hoarfrost orb is a T3 spell aim bonus orb. The kind that doesn't degrade while used.",
-            "The eahnor augmented chain is +30 and has 5 CER crit padding (50 services).",
-            "The gem pouches are belt worn, weigh 1 and hold 25 lbs.",
-            "Be sure to INSPECT everything before purchasing."
           ]
         }
       ]
@@ -2693,40 +2629,12 @@
     {
       "preamble": "Rachil's Shop is located in [Guardian Keep, Outer Wall] at a golden watered silk pavilion, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "7",
+      "id": "8",
       "shop_owner": "Rachil",
       "inv": [
         {
-          "room_title": "The Alliance's Supply Center",
+          "room_title": "Rachil's General Store",
           "branch": "entry",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on a golden oak wares sign:",
-            "Chrisms will be restocked soon",
-            "Faewood arrows are master fletched, Vaalin-banded are plain 4x",
-            "Pins have spells in them",
-            "Notes can be used for L/D your containers",
-            "Parchments are Bravery rune tattoos"
-          ]
-        },
-        {
-          "room_title": "The Alliance's Supply Center",
-          "branch": "east",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on a golden oak wares sign:",
-            "The pieces of parchment in the box are temporary tattoos. READ them for directions.",
-            "Pouches are UNLOCKED super secure gem pouches.",
-            "Mantle holds 120 lbs."
-          ]
-        },
-        {
-          "room_title": "The Alliance's Supply Center",
-          "branch": "south",
           "items": [
 
           ]
@@ -2736,39 +2644,14 @@
     {
       "preamble": "Mikyla's Shop is located in [Guardian Keep, Outer Wall] at a pale crimson silk tent, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "8",
+      "id": "9",
       "shop_owner": "Mikyla",
       "inv": [
         {
-          "room_title": "Kwaldor's Weaponry",
+          "room_title": "Mikyla's General Store",
           "branch": "entry",
           "items": [
 
-          ],
-          "sign": [
-            "Written on a polished ebonwood sign:",
-            "Some weapons are forged."
-          ]
-        },
-        {
-          "room_title": "Kwaldor's Outfitting",
-          "branch": "north",
-          "items": [
-
-          ]
-        },
-        {
-          "room_title": "Kwaldor's Weaponry",
-          "branch": "east",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on a polished ebonwood sign:",
-            "All poisions are Rogue Guild approved.",
-            "Cheeses have spells.",
-            "rock-hard cheese:  10 bites of Bravery",
-            "salty white cheese: 20 bites of Nature's Bounty"
           ]
         }
       ]
@@ -2776,11 +2659,11 @@
     {
       "preamble": "Remisse's Shop is located in [Guardian Keep, Outer Wall] at a modest white brocade tent with a large crimson silk canopy, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "9",
+      "id": "10",
       "shop_owner": "Remisse",
       "inv": [
         {
-          "room_title": "Baelhar's Weaponry",
+          "room_title": "Remisse's General Store",
           "branch": "entry",
           "items": [
             {
@@ -2980,9 +2863,6 @@
                   "The beehive-shaped bag will cost 30,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 30000,
@@ -3161,9 +3041,6 @@
                 "tags": [
                   "max_deep",
                   "max_light",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -3231,7 +3108,20 @@
                 "cost": 10000,
                 "item_type": null
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on a sturdy mahogany sign:",
+            "The ring on the stand is just funny!",
+            "The coif and barbute are pirate bandanas.",
+            "The sheath is a \"hiding sheath\" and can be hidden up your sleeve.",
+            "The jacket in chest has fine detail, please LOOK closely."
+          ]
+        },
+        {
+          "room_title": "Remisse's Outfitting",
+          "branch": "north",
+          "items": [
             {
               "id": "80176",
               "name": "a densely woven circlet of dark plum bat wing flowers and muted charcoal silk ribbons",
@@ -3423,7 +3313,21 @@
                 "material": "organic material, an extremely common material",
                 "item_type": null
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on a sturdy mahogany sign:",
+            "The hut figurines have 30 charges of Eye Spy.",
+            "The case is a tier 2 Liabo Arkati box.",
+            "The beehive jar, thistle bottle, and wine bottle create bubbles!",
+            "The collections in the chest are for weaving.",
+            "The bouquet can be plucked to create \"a velvety smoky plum rose petal\" for weaving."
+          ]
+        },
+        {
+          "room_title": "Remisse's Outfitting",
+          "branch": "east",
+          "items": [
             {
               "id": "80160",
               "name": "a densely woven circlet of lacquer-stiff vellum rose petals and mint flyrsilk flora-threaded ribbons",
@@ -3972,22 +3876,11 @@
             }
           ],
           "sign": [
-            "Written on a fire-scorched oak sign:",
-            "Welcome"
-          ]
-        },
-        {
-          "room_title": "Baelhar's Weaponry",
-          "branch": "north",
-          "items": [
-
-          ]
-        },
-        {
-          "room_title": "Baelhar's General Store",
-          "branch": "east",
-          "items": [
-
+            "Written on a sturdy mahogany sign:",
+            "The headbands and circlets in the chest have several hairstyles.",
+            "The bracelet and anklet are scripted.",
+            "All of the jewelry on the stand is scripted.",
+            "The ferronieres hold gems."
           ]
         }
       ]
@@ -3995,11 +3888,11 @@
     {
       "preamble": "Avawren's Shop is located in [Guardian Keep, Outer Wall] at a bloom-covered cozy bungalow with a thatched grass roof, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "10",
+      "id": "11",
       "shop_owner": "Avawren",
       "inv": [
         {
-          "room_title": "Solafrut's Magic Shoppe",
+          "room_title": "The Rose And Thorn",
           "branch": "entry",
           "items": [
             {
@@ -4054,26 +3947,11 @@
             }
           ],
           "sign": [
-            "Written on an etched faenor sign:",
-            "Snowball satchel is raffle quality. Unlimited snowballs and can make a snowbank 1x/day.  Wiregrass anklets/bracelets hold 63 mana and ready for Resist Nature."
-          ]
-        },
-        {
-          "room_title": "Solafrut's Weaponry",
-          "branch": "northeast",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on an etched faenor sign:",
-            "mossbark runestaff has 2x acuity flares"
-          ]
-        },
-        {
-          "room_title": "Solafrut's Weaponry",
-          "branch": "northwest",
-          "items": [
-
+            "Written on a golden oak wares sign:",
+            "@--;-- Welcome to The Rose and Thorn  --;--@",
+            "Many choices of robes of varying type, priced accourdingly. Some are metamorphic, some are climatewear. Please be sure to look at them closely.",
+            "The plum silk gown and dress are by Joola.",
+            "The bliaut and cotehardie are Metallic."
           ]
         }
       ]
@@ -4081,20 +3959,28 @@
     {
       "preamble": "Daevian's Shop is located in [Guardian Keep, Grassy Sward] at a tri-peaked grey brocade tent, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "11",
+      "id": "12",
       "shop_owner": "Daevian",
       "inv": [
         {
-          "room_title": "Rhaviel's Weaponry",
+          "room_title": "Daevian's Armory",
           "branch": "entry",
           "items": [
 
-          ],
-          "sign": [
-            "Written on an engraved wooden sign:",
-            "Weapons and armor have been sung to by a bard",
-            "GET them for the details.",
-            "The yellow letter is a ranger spell prep for 616."
+          ]
+        },
+        {
+          "room_title": "Daevian's General Store",
+          "branch": "north",
+          "items": [
+
+          ]
+        },
+        {
+          "room_title": "Daevian's General Store",
+          "branch": "east",
+          "items": [
+
           ]
         }
       ]
@@ -4102,40 +3988,14 @@
     {
       "preamble": "Esana's Shop is located in [Guardian Keep, Grassy Sward] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "12",
+      "id": "13",
       "shop_owner": "Esana",
       "inv": [
         {
-          "room_title": "Dorwyn's Outfitting",
+          "room_title": "Esana's General Store",
           "branch": "entry",
           "items": [
 
-          ],
-          "sign": [
-            "Written on a large sign:",
-            "The haubergon is HCP forest armor. Augmented chain base."
-          ]
-        },
-        {
-          "room_title": "Dorwyn's General Store",
-          "branch": "north",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on a large sign:",
-            "Please buy"
-          ]
-        },
-        {
-          "room_title": "Dorwyn's Outfitting",
-          "branch": "east",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on a large sign:",
-            "Welcome"
           ]
         }
       ]
@@ -4143,30 +4003,12 @@
     {
       "preamble": "Qiana's Shop is located in [Guardian Keep, Grassy Sward] at a modest white brocade tent with a large crimson silk canopy, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "13",
+      "id": "14",
       "shop_owner": "Qiana",
       "inv": [
         {
-          "room_title": "Luethar's Outfitting",
+          "room_title": "Qiana's General Store",
           "branch": "entry",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on an elegantly carved fel sign:",
-            "Buy things!  Some items are priced for storage."
-          ]
-        },
-        {
-          "room_title": "Luethar's Outfitting",
-          "branch": "north",
-          "items": [
-
-          ]
-        },
-        {
-          "room_title": "Luethar's Combat Gear",
-          "branch": "east",
           "items": [
 
           ]
@@ -4176,11 +4018,11 @@
     {
       "preamble": "Nihrvanah's Shop is located in [Guardian Keep, Grassy Sward] at an aureate silk and satin tent with crimson-winged fire faeries embroidered on the canopy, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "14",
+      "id": "15",
       "shop_owner": "Nihrvanah",
       "inv": [
         {
-          "room_title": "Lornn's Magic Shoppe",
+          "room_title": "The Alliance's Supply Center",
           "branch": "entry",
           "items": [
             {
@@ -4360,7 +4202,21 @@
                 "material": "gemstone, an extremely common material",
                 "item_type": null
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on a golden oak wares sign:",
+            "Chrisms will be restocked soon",
+            "Faewood arrows are master fletched, Vaalin-banded are plain 4x",
+            "Pins have spells in them",
+            "Notes can be used for L/D your containers",
+            "Parchments are Bravery rune tattoos"
+          ]
+        },
+        {
+          "room_title": "The Alliance's Supply Center",
+          "branch": "east",
+          "items": [
             {
               "id": "74816",
               "name": "a brass and gold capsule with a glass dome",
@@ -4686,9 +4542,6 @@
                   "purpose",
                   "lightenable",
                   "persists",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 1000000,
@@ -4743,7 +4596,19 @@
                 "cost": 50000,
                 "item_type": null
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on a golden oak wares sign:",
+            "The pieces of parchment in the box are temporary tattoos. READ them for directions.",
+            "Pouches are UNLOCKED super secure gem pouches.",
+            "Mantle holds 120 lbs."
+          ]
+        },
+        {
+          "room_title": "The Alliance's Supply Center",
+          "branch": "south",
+          "items": [
             {
               "id": "74847",
               "name": "a chipped hoarbeam runestaff",
@@ -5777,32 +5642,6 @@
                 "item_type": "weapon"
               }
             }
-          ],
-          "sign": [
-            "Written on an elegantly carved fel sign:",
-            "Please contact Kanku or Liinah with any questions about the goods sold."
-          ]
-        },
-        {
-          "room_title": "Lornn's Magic Shoppe",
-          "branch": "east",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on an elegantly carved fel sign:",
-            "Please contact Kanku or Liinah with any questions on goods sold."
-          ]
-        },
-        {
-          "room_title": "Lornn's Magic Shoppe",
-          "branch": "southwest",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on an elegantly carved fel sign:",
-            "Welcome!"
           ]
         }
       ]
@@ -5810,11 +5649,11 @@
     {
       "preamble": "Seazarius's Shop is located in [Guardian Keep, Grassy Sward] at a modest white brocade tent, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "15",
+      "id": "16",
       "shop_owner": "Seazarius",
       "inv": [
         {
-          "room_title": "Kakoon's Magic Shoppe",
+          "room_title": "Seazarius' Armory",
           "branch": "entry",
           "items": [
             {
@@ -6281,7 +6120,21 @@
                 "wear_location": "torso",
                 "item_type": "armor"
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on a sea blue wave-etched sign:",
+            "Welcome to Warmages Anonymous!",
+            "Everything in this room has been sung to. Attempt to GET the items to see their properties.",
+            "The fitted hauberk, black stalking leathers dark brigandine, laminated scale mail, and fitted breastplate are rogue guild specials.",
+            "The dark red bloodjewel-set leathers and deep green faenor-edged leathers are both 4x doubles.",
+            "Be sure to INSPECT everything before purchasing."
+          ]
+        },
+        {
+          "room_title": "Seazarius' Weaponry",
+          "branch": "northeast",
+          "items": [
             {
               "id": "78197",
               "name": "a superior hickory-hafted eonake handaxe",
@@ -6930,7 +6783,24 @@
                 "forged_quality": "elegant",
                 "item_type": "weapon"
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on a sea blue wave-etched sign:",
+            "Welcome to Warmages Anonymous!",
+            "Everything in this room has been sung to. Attempt to GET the items to see their properties.",
+            "Items of Note:",
+            "All of the weapons here are forged by our resident master blacksmith, Aetheri.",
+            "The dark rolaren khopesh, and haon-hafted vultite maul are superior forged.",
+            "All other items are elegant forged.",
+            "All the eonake weapons are sanctified.",
+            "Be sure to INSPECT everything before purchasing."
+          ]
+        },
+        {
+          "room_title": "Seazarius' Outfitting",
+          "branch": "northwest",
+          "items": [
             {
               "id": "78228",
               "name": "a ruic long bow",
@@ -7170,9 +7040,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -7199,9 +7066,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -7228,9 +7092,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -7256,9 +7117,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -7284,9 +7142,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -7312,9 +7167,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -7339,9 +7191,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -7367,9 +7216,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -7395,9 +7241,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -7421,9 +7264,6 @@
                   "The black leather pants will cost 15,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 15000,
@@ -7449,9 +7289,6 @@
                 ],
                 "tags": [
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 15000,
@@ -7478,9 +7315,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -7490,24 +7324,15 @@
                 "item_type": "container"
               }
             }
-          ]
-        },
-        {
-          "room_title": "Kakoon's Weaponry",
-          "branch": "northeast",
-          "items": [
-
           ],
           "sign": [
-            "Written on a sturdy mahogany sign:",
-            "Bodysuit is boxfound 4x double leather"
-          ]
-        },
-        {
-          "room_title": "Kakoon's Outfitting",
-          "branch": "northwest",
-          "items": [
-
+            "Written on a sea blue wave-etched sign:",
+            "Welcome to Warmages Anonymous!",
+            "All the equipment in this room have been sung to. Attempt to GET the items to see their properties.",
+            "The hoarfrost orb is a T3 spell aim bonus orb. The kind that doesn't degrade while used.",
+            "The eahnor augmented chain is +30 and has 5 CER crit padding (50 services).",
+            "The gem pouches are belt worn, weigh 1 and hold 25 lbs.",
+            "Be sure to INSPECT everything before purchasing."
           ]
         }
       ]
@@ -7515,11 +7340,11 @@
     {
       "preamble": "Qalael's Shop is located in [Guardian Keep, Grassy Sward] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "16",
+      "id": "17",
       "shop_owner": "Qalael",
       "inv": [
         {
-          "room_title": "Quessara's Armory",
+          "room_title": "Qalael's Armory",
           "branch": "entry",
           "items": [
             {
@@ -7627,38 +7452,8 @@
             }
           ],
           "sign": [
-            "Written on a gold-trimmed black imflass sign:",
-            "~Welcome to the Hawk's Nest~",
-            "The wips symbol is a Weatherby symbol and actioned for the worshiper.",
-            "The warpaint makes you look fierce.",
-            "The Hellebore earrings are nicely actioned.",
-            "The wig makes your hair look nice.",
-            "Please TAP and INSPECT and EXAMINE everything."
-          ]
-        },
-        {
-          "room_title": "Quessara's Outfitting",
-          "branch": "northeast",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on a gold-trimmed black imflass sign:",
-            "~Welcome to the Hawk's Nest~",
-            "The scrolls and pages  hold prayers for different occasions.",
-            "Please TAP and INSPECT and EXAMINE everything."
-          ]
-        },
-        {
-          "room_title": "Quessara's General Store",
-          "branch": "northwest",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on a gold-trimmed black imflass sign:",
-            "~Welcome to the Hawk's Nest~",
-            "Please TAP and INSPECT and EXAMINE everything."
+            "Written on a sturdy mahogany sign:",
+            "All bundles of talons sold are of magnificent quality"
           ]
         }
       ]
@@ -7666,26 +7461,12 @@
     {
       "preamble": "Vasstryke's Shop is located in [Guardian Keep, Grassy Sward] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "17",
+      "id": "18",
       "shop_owner": "Vasstryke",
       "inv": [
         {
-          "room_title": "Idalias' Magic Shoppe",
+          "room_title": "Vasstryke's General Store",
           "branch": "entry",
-          "items": [
-
-          ]
-        },
-        {
-          "room_title": "Idalias' Magic Shoppe",
-          "branch": "east",
-          "items": [
-
-          ]
-        },
-        {
-          "room_title": "Idalias' Weaponry",
-          "branch": "west",
           "items": [
 
           ]
@@ -7695,11 +7476,11 @@
     {
       "preamble": "Baelhar's Shop is located in [Guardian Keep, Grassy Sward] at a simple shop with a thick granite roof, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "18",
+      "id": "19",
       "shop_owner": "Baelhar",
       "inv": [
         {
-          "room_title": "Quessara's Armory",
+          "room_title": "Baelhar's Weaponry",
           "branch": "entry",
           "items": [
             {
@@ -7921,7 +7702,17 @@
                 "weapon_type": "thrown weapons",
                 "item_type": "weapon"
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on a fire-scorched oak sign:",
+            "Welcome"
+          ]
+        },
+        {
+          "room_title": "Baelhar's Weaponry",
+          "branch": "north",
+          "items": [
             {
               "id": "63934",
               "name": "a thick glass vial filled with murky red liquid",
@@ -8120,40 +7911,13 @@
                 "item_type": "weapon"
               }
             }
-          ],
-          "sign": [
-            "Written on a gold-trimmed black imflass sign:",
-            "~Welcome to the Hawk's Nest~",
-            "The wips symbol is a Weatherby symbol and actioned for the worshiper.",
-            "The warpaint makes you look fierce.",
-            "The Hellebore earrings are nicely actioned.",
-            "The wig makes your hair look nice.",
-            "Please TAP and INSPECT and EXAMINE everything."
           ]
         },
         {
-          "room_title": "Quessara's Outfitting",
-          "branch": "northeast",
+          "room_title": "Baelhar's General Store",
+          "branch": "east",
           "items": [
 
-          ],
-          "sign": [
-            "Written on a gold-trimmed black imflass sign:",
-            "~Welcome to the Hawk's Nest~",
-            "The scrolls and pages  hold prayers for different occasions.",
-            "Please TAP and INSPECT and EXAMINE everything."
-          ]
-        },
-        {
-          "room_title": "Quessara's General Store",
-          "branch": "northwest",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on a gold-trimmed black imflass sign:",
-            "~Welcome to the Hawk's Nest~",
-            "Please TAP and INSPECT and EXAMINE everything."
           ]
         }
       ]
@@ -8161,11 +7925,11 @@
     {
       "preamble": "Kwaldor's Shop is located in [Guardian Keep, Grassy Sward] at a brilliant white sailcloth shop with a blue twill canopy, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "19",
+      "id": "20",
       "shop_owner": "Kwaldor",
       "inv": [
         {
-          "room_title": "Nhadrin's Weaponry",
+          "room_title": "Kwaldor's Weaponry",
           "branch": "entry",
           "items": [
             {
@@ -8880,7 +8644,17 @@
                 ],
                 "item_type": "weapon"
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on a polished ebonwood sign:",
+            "Some weapons are forged."
+          ]
+        },
+        {
+          "room_title": "Kwaldor's Outfitting",
+          "branch": "north",
+          "items": [
             {
               "id": "75057",
               "name": "a rusted black steel broadsword",
@@ -9677,7 +9451,13 @@
                 "blessing": "holy",
                 "item_type": null
               }
-            },
+            }
+          ]
+        },
+        {
+          "room_title": "Kwaldor's Weaponry",
+          "branch": "east",
+          "items": [
             {
               "id": "75030",
               "name": "a wyrwood hand crossbow",
@@ -10289,6 +10069,13 @@
                 "item_type": "weapon"
               }
             }
+          ],
+          "sign": [
+            "Written on a polished ebonwood sign:",
+            "All poisions are Rogue Guild approved.",
+            "Cheeses have spells.",
+            "rock-hard cheese:  10 bites of Bravery",
+            "salty white cheese: 20 bites of Nature's Bounty"
           ]
         }
       ]
@@ -10296,26 +10083,12 @@
     {
       "preamble": "Anedrin's Shop is located in [Guardian Keep, Grassy Sward] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "20",
+      "id": "21",
       "shop_owner": "Anedrin",
       "inv": [
         {
-          "room_title": "Idalias' Magic Shoppe",
+          "room_title": "Anedrin's General Store",
           "branch": "entry",
-          "items": [
-
-          ]
-        },
-        {
-          "room_title": "Idalias' Magic Shoppe",
-          "branch": "east",
-          "items": [
-
-          ]
-        },
-        {
-          "room_title": "Idalias' Weaponry",
-          "branch": "west",
           "items": [
 
           ]
@@ -10325,12 +10098,26 @@
     {
       "preamble": "Althamae's Shop is located in [Guardian Keep, Grassy Sward] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "21",
+      "id": "22",
       "shop_owner": "Althamae",
       "inv": [
         {
-          "room_title": "Nhadrin's Weaponry",
+          "room_title": "Althamae's General Store",
           "branch": "entry",
+          "items": [
+
+          ]
+        },
+        {
+          "room_title": "Althamae's General Store",
+          "branch": "north",
+          "items": [
+
+          ]
+        },
+        {
+          "room_title": "Althamae's General Store",
+          "branch": "east",
           "items": [
 
           ]
@@ -10340,11 +10127,11 @@
     {
       "preamble": "Rhaviel's Shop is located in [Guardian Keep, Grassy Sward] at a multicolored silk tent with a mottled blue canvas canopy, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "22",
+      "id": "23",
       "shop_owner": "Rhaviel",
       "inv": [
         {
-          "room_title": "Idalias' Magic Shoppe",
+          "room_title": "Rhaviel's Weaponry",
           "branch": "entry",
           "items": [
             {
@@ -10786,20 +10573,12 @@
                 "item_type": "weapon"
               }
             }
-          ]
-        },
-        {
-          "room_title": "Idalias' Magic Shoppe",
-          "branch": "east",
-          "items": [
-
-          ]
-        },
-        {
-          "room_title": "Idalias' Weaponry",
-          "branch": "west",
-          "items": [
-
+          ],
+          "sign": [
+            "Written on an engraved wooden sign:",
+            "Weapons and armor have been sung to by a bard",
+            "GET them for the details.",
+            "The yellow letter is a ranger spell prep for 616."
           ]
         }
       ]
@@ -10807,11 +10586,11 @@
     {
       "preamble": "Solafrut's Shop is located in [Guardian Keep, Grassy Sward] at an ornate glass-front shop with a gold-veined marble roof, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "23",
+      "id": "24",
       "shop_owner": "Solafrut",
       "inv": [
         {
-          "room_title": "Idalias' Magic Shoppe",
+          "room_title": "Solafrut's Magic Shoppe",
           "branch": "entry",
           "items": [
             {
@@ -11697,7 +11476,17 @@
                 "is_jewelry": true,
                 "item_type": "jewelry"
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on an etched faenor sign:",
+            "Snowball satchel is raffle quality. Unlimited snowballs and can make a snowbank 1x/day.  Wiregrass anklets/bracelets hold 63 mana and ready for Resist Nature."
+          ]
+        },
+        {
+          "room_title": "Solafrut's Weaponry",
+          "branch": "northeast",
+          "items": [
             {
               "id": "66892",
               "name": "a lor runestaff",
@@ -12469,7 +12258,17 @@
                 "weapon_type": "twohanded weapons",
                 "item_type": "weapon"
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on an etched faenor sign:",
+            "mossbark runestaff has 2x acuity flares"
+          ]
+        },
+        {
+          "room_title": "Solafrut's Weaponry",
+          "branch": "northwest",
+          "items": [
             {
               "id": "66917",
               "name": "a steel-capped villswood runestaff",
@@ -13320,31 +13119,17 @@
               }
             }
           ]
-        },
-        {
-          "room_title": "Idalias' Magic Shoppe",
-          "branch": "east",
-          "items": [
-
-          ]
-        },
-        {
-          "room_title": "Idalias' Weaponry",
-          "branch": "west",
-          "items": [
-
-          ]
         }
       ]
     },
     {
       "preamble": "Luethar's Shop is located in [Guardian Keep, Grassy Sward] at a large ornate velveteen pavilion, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "24",
+      "id": "25",
       "shop_owner": "Luethar",
       "inv": [
         {
-          "room_title": "Relicor's General Store",
+          "room_title": "Luethar's Outfitting",
           "branch": "entry",
           "items": [
             {
@@ -13931,7 +13716,17 @@
                 "is_jewelry": true,
                 "item_type": "jewelry"
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on an elegantly carved fel sign:",
+            "Buy things!  Some items are priced for storage."
+          ]
+        },
+        {
+          "room_title": "Luethar's Outfitting",
+          "branch": "north",
+          "items": [
             {
               "id": "77677",
               "name": "a mist-swirled glass eyeball talisman",
@@ -14642,7 +14437,13 @@
                 "material": "silver, an extremely common metal",
                 "item_type": null
               }
-            },
+            }
+          ]
+        },
+        {
+          "room_title": "Luethar's Combat Gear",
+          "branch": "east",
+          "items": [
             {
               "id": "77642",
               "name": "a stability contract",
@@ -15246,11 +15047,11 @@
     {
       "preamble": "Dorwyn's Shop is located in [Guardian Keep, Grassy Sward] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "25",
+      "id": "26",
       "shop_owner": "Dorwyn",
       "inv": [
         {
-          "room_title": "Relicor's General Store",
+          "room_title": "Dorwyn's Outfitting",
           "branch": "entry",
           "items": [
             {
@@ -16206,7 +16007,17 @@
                 "wear_location": "neck",
                 "item_type": "armor"
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on a large sign:",
+            "The haubergon is HCP forest armor. Augmented chain base."
+          ]
+        },
+        {
+          "room_title": "Dorwyn's General Store",
+          "branch": "north",
+          "items": [
             {
               "id": "65917",
               "name": "a faded black linen shroud emblazoned with a fiery eye",
@@ -16449,7 +16260,17 @@
                 "wear_location": "around the neck",
                 "item_type": null
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on a large sign:",
+            "Please buy"
+          ]
+        },
+        {
+          "room_title": "Dorwyn's Outfitting",
+          "branch": "east",
+          "items": [
             {
               "id": "65901",
               "name": "a scratched spiked mithril aventail",
@@ -16833,6 +16654,10 @@
                 "item_type": null
               }
             }
+          ],
+          "sign": [
+            "Written on a large sign:",
+            "Welcome"
           ]
         }
       ]
@@ -16840,11 +16665,11 @@
     {
       "preamble": "Lornn's Shop is located in [Guardian Keep, Grassy Sward] at a large ornate velveteen pavilion with an elegant red brocade canopy, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "26",
+      "id": "27",
       "shop_owner": "Lornn",
       "inv": [
         {
-          "room_title": "Nhadrin's Outfitting",
+          "room_title": "Lornn's Magic Shoppe",
           "branch": "entry",
           "items": [
             {
@@ -17291,7 +17116,17 @@
                 "weapon_type": "twohanded weapons",
                 "item_type": "weapon"
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on an elegantly carved fel sign:",
+            "Please contact Kanku or Liinah with any questions about the goods sold."
+          ]
+        },
+        {
+          "room_title": "Lornn's Magic Shoppe",
+          "branch": "east",
+          "items": [
             {
               "id": "74657",
               "name": "a round-cut red dreamstone neckchain",
@@ -17506,7 +17341,17 @@
                 "wear_location": "anywhere on the body",
                 "item_type": null
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on an elegantly carved fel sign:",
+            "Please contact Kanku or Liinah with any questions on goods sold."
+          ]
+        },
+        {
+          "room_title": "Lornn's Magic Shoppe",
+          "branch": "southwest",
+          "items": [
             {
               "id": "74678",
               "name": "an opulent silver-stitched pouch",
@@ -17962,9 +17807,7 @@
           ],
           "sign": [
             "Written on an elegantly carved fel sign:",
-            "hollowed small statues and quartz orbs 19 charges",
-            "hollowed moonstone cubes 26 charges",
-            "gold coins 26 charges"
+            "Welcome!"
           ]
         }
       ]
@@ -17972,11 +17815,11 @@
     {
       "preamble": "Taulramil's Shop is located in [Guardian Keep, Grassy Sward] at a golden watered silk pavilion with a large crimson silk canopy, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "27",
+      "id": "28",
       "shop_owner": "Taulramil",
       "inv": [
         {
-          "room_title": "Idalias' Magic Shoppe",
+          "room_title": "Taulramil's Weaponry",
           "branch": "entry",
           "items": [
             {
@@ -18148,18 +17991,22 @@
                 "item_type": "weapon"
               }
             }
+          ],
+          "sign": [
+            "Written on an elegantly carved fel sign:",
+            "Welcome to Tauls' Tools's of Terror!"
           ]
         },
         {
-          "room_title": "Idalias' Magic Shoppe",
-          "branch": "east",
+          "room_title": "Taulramil's General Store",
+          "branch": "north",
           "items": [
 
           ]
         },
         {
-          "room_title": "Idalias' Weaponry",
-          "branch": "west",
+          "room_title": "Taulramil's General Store",
+          "branch": "east",
           "items": [
 
           ]
@@ -18169,12 +18016,26 @@
     {
       "preamble": "Teveriel's Shop is located in [Guardian Keep, Inner Wall] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "28",
+      "id": "29",
       "shop_owner": "Teveriel",
       "inv": [
         {
-          "room_title": "Relicor's Weaponry",
+          "room_title": "Teveriel's General Store",
           "branch": "entry",
+          "items": [
+
+          ]
+        },
+        {
+          "room_title": "Teveriel's General Store",
+          "branch": "north",
+          "items": [
+
+          ]
+        },
+        {
+          "room_title": "Teveriel's General Store",
+          "branch": "east",
           "items": [
 
           ]
@@ -18184,11 +18045,11 @@
     {
       "preamble": "Quessara's Shop is located in [Guardian Keep, Inner Wall] at a pale red watered silk pavilion with a golden brocade canopy, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "29",
+      "id": "30",
       "shop_owner": "Quessara",
       "inv": [
         {
-          "room_title": "Aureliano's General Store",
+          "room_title": "Quessara's Armory",
           "branch": "entry",
           "items": [
             {
@@ -18232,7 +18093,22 @@
                 "is_shield": true,
                 "item_type": "shield"
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on a gold-trimmed black imflass sign:",
+            "~Welcome to the Hawk's Nest~",
+            "The wips symbol is a Weatherby symbol and actioned for the worshiper.",
+            "The warpaint makes you look fierce.",
+            "The Hellebore earrings are nicely actioned.",
+            "The wig makes your hair look nice.",
+            "Please TAP and INSPECT and EXAMINE everything."
+          ]
+        },
+        {
+          "room_title": "Quessara's Outfitting",
+          "branch": "northeast",
+          "items": [
             {
               "id": "75405",
               "name": "a tripartite braided reed basrenne",
@@ -18413,7 +18289,19 @@
                 "wear_location": "on the head",
                 "item_type": null
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on a gold-trimmed black imflass sign:",
+            "~Welcome to the Hawk's Nest~",
+            "The scrolls and pages  hold prayers for different occasions.",
+            "Please TAP and INSPECT and EXAMINE everything."
+          ]
+        },
+        {
+          "room_title": "Quessara's General Store",
+          "branch": "northwest",
+          "items": [
             {
               "id": "75415",
               "name": "a moonstone-set blue steel flagon",
@@ -18432,20 +18320,11 @@
                 "item_type": null
               }
             }
-          ]
-        },
-        {
-          "room_title": "Aureliano's General Store",
-          "branch": "north",
-          "items": [
-
-          ]
-        },
-        {
-          "room_title": "Aureliano's General Store",
-          "branch": "east",
-          "items": [
-
+          ],
+          "sign": [
+            "Written on a gold-trimmed black imflass sign:",
+            "~Welcome to the Hawk's Nest~",
+            "Please TAP and INSPECT and EXAMINE everything."
           ]
         }
       ]
@@ -18453,11 +18332,11 @@
     {
       "preamble": "Kakoon's Shop is located in [Guardian Keep, Inner Wall] at a dark blue silk tent with a royal blue brocade canopy, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "30",
+      "id": "31",
       "shop_owner": "Kakoon",
       "inv": [
         {
-          "room_title": "Aostar's Armory",
+          "room_title": "Kakoon's Magic Shoppe",
           "branch": "entry",
           "items": [
             {
@@ -19214,7 +19093,13 @@
                 "blessing": "holy",
                 "item_type": "weapon"
               }
-            },
+            }
+          ]
+        },
+        {
+          "room_title": "Kakoon's Weaponry",
+          "branch": "northeast",
+          "items": [
             {
               "id": "76664",
               "name": "a polished glaes greathelm",
@@ -20297,7 +20182,17 @@
                 "material": "stone, an extremely common material",
                 "item_type": null
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on a sturdy mahogany sign:",
+            "Bodysuit is boxfound 4x double leather"
+          ]
+        },
+        {
+          "room_title": "Kakoon's Outfitting",
+          "branch": "northwest",
+          "items": [
             {
               "id": "76636",
               "name": "a faenor war hammer",
@@ -21188,20 +21083,28 @@
     {
       "preamble": "Aureliano's Shop is located in [Guardian Keep, Inner Wall] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "31",
+      "id": "32",
       "shop_owner": "Aureliano",
       "inv": [
         {
-          "room_title": "Nhadrin's Outfitting",
+          "room_title": "Aureliano's General Store",
           "branch": "entry",
           "items": [
 
-          ],
-          "sign": [
-            "Written on an elegantly carved fel sign:",
-            "hollowed small statues and quartz orbs 19 charges",
-            "hollowed moonstone cubes 26 charges",
-            "gold coins 26 charges"
+          ]
+        },
+        {
+          "room_title": "Aureliano's General Store",
+          "branch": "north",
+          "items": [
+
+          ]
+        },
+        {
+          "room_title": "Aureliano's General Store",
+          "branch": "east",
+          "items": [
+
           ]
         }
       ]
@@ -21209,11 +21112,11 @@
     {
       "preamble": "Aostar's Shop is located in [Guardian Keep, Inner Wall] at a golden watered silk pavilion, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "32",
+      "id": "33",
       "shop_owner": "Aostar",
       "inv": [
         {
-          "room_title": "Nebochadnezzar's General Store",
+          "room_title": "Aostar's Armory",
           "branch": "entry",
           "items": [
             {
@@ -22034,101 +21937,20 @@
                 "item_type": null
               }
             }
-          ],
-          "sign": [
-            "Written on a golden oak wares sign:",
-            "All Jars have 20 of each gem, unsung, for bounty purposes."
-          ]
-        },
-        {
-          "room_title": "Nebochadnezzar's Magic Shoppe",
-          "branch": "east",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on a golden oak wares sign:",
-            "Random enhancives, Simucoin stuff, and even more gems!"
-          ]
-        },
-        {
-          "room_title": "Nebochadnezzar's General Store",
-          "branch": "west",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on a golden oak wares sign:",
-            "All Jars have 20 of each gem, unsung, for bounty purposes."
           ]
         }
       ]
     },
     {
-      "preamble": "Nhadrin's Shop is located in [Guardian Keep, Inner Wall] at a simple shop, and is currently open for business.",
+      "preamble": "Tallifyr's Shop is located in [Guardian Keep, Inner Wall] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "33",
-      "shop_owner": "Nhadrin",
+      "id": "34",
+      "shop_owner": "Tallifyr",
       "inv": [
         {
-          "room_title": "Idalias' Magic Shoppe",
+          "room_title": "Tallifyr's Magic Shoppe",
           "branch": "entry",
           "items": [
-            {
-              "id": "73200",
-              "name": "an acid-pitted mithglin backsword",
-              "details": {
-                "raw": [
-                  "The backsword is a backsword that requires skill in edged weapons to use effectively.",
-                  "It looks like this item has been mainly crafted out of mithglin, a rare metal.",
-                  "Analysis of an acid-pitted mithglin backsword indicates the item is free from merchant alteration restrictions.",
-                  "You might be able to have a talented merchant lighten the mithglin backsword for you.",
-                  "The mithglin backsword will cost 1,000,000 coins.",
-                  "It imparts a bonus of +15 more than usual.",
-                  "It has been infused with the power of a fire elemental.",
-                  "It is an enhancive item:",
-                  "    It provides a boost of 12 to Ambush Bonus.",
-                  "    This enhancement may not be used by adventurers who have not trained 47 times.",
-                  "    It provides a boost of 1 to Spiritual Lore - Blessings Bonus.",
-                  "    This enhancement may not be used by adventurers who have not trained 1 times.",
-                  "    It seems to have a lot of enhancive charges remaining.",
-                  "It will persist after its last enhancive charge has been expended.",
-                  "It appears to weigh about 4 pounds.",
-                  "It is estimated to be worth about 400,000 silvers.",
-                  "It is predominantly crafted of mithglin.",
-                  "It is a basic project (117 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by Zayp."
-                ],
-                "tags": [
-                  "lightenable",
-                  "persists"
-                ],
-                "cost": 1000000,
-                "enchant": 15,
-                "material": "mithglin",
-                "skill": "edged weapons",
-                "flare": "the power of a fire elemental",
-                "weight": 4,
-                "enhancives": [
-                  {
-                    "boost": 12,
-                    "ability": "Ambush Bonus",
-                    "level": 47
-                  },
-                  {
-                    "boost": 1,
-                    "ability": "Spiritual Lore - Blessings Bonus",
-                    "level": 1
-                  }
-                ],
-                "is_weapon": true,
-                "weapon_type": "edged weapons",
-                "flares": [
-                  "the power of a fire elemental"
-                ],
-                "item_type": "weapon"
-              }
-            },
             {
               "id": "73199",
               "name": "a cedar-handled drakar flail",
@@ -22192,6 +22014,77 @@
               }
             },
             {
+              "id": "73200",
+              "name": "an acid-pitted mithglin backsword",
+              "details": {
+                "raw": [
+                  "The backsword is a backsword that requires skill in edged weapons to use effectively.",
+                  "It looks like this item has been mainly crafted out of mithglin, a rare metal.",
+                  "Analysis of an acid-pitted mithglin backsword indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the mithglin backsword for you.",
+                  "The mithglin backsword will cost 1,000,000 coins.",
+                  "It imparts a bonus of +15 more than usual.",
+                  "It has been infused with the power of a fire elemental.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 12 to Ambush Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 47 times.",
+                  "    It provides a boost of 1 to Spiritual Lore - Blessings Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 1 times.",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It appears to weigh about 4 pounds.",
+                  "It is estimated to be worth about 400,000 silvers.",
+                  "It is predominantly crafted of mithglin.",
+                  "It is a basic project (117 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Zayp."
+                ],
+                "tags": [
+                  "lightenable",
+                  "persists"
+                ],
+                "cost": 1000000,
+                "enchant": 15,
+                "material": "mithglin",
+                "skill": "edged weapons",
+                "flare": "the power of a fire elemental",
+                "weight": 4,
+                "enhancives": [
+                  {
+                    "boost": 12,
+                    "ability": "Ambush Bonus",
+                    "level": 47
+                  },
+                  {
+                    "boost": 1,
+                    "ability": "Spiritual Lore - Blessings Bonus",
+                    "level": 1
+                  }
+                ],
+                "is_weapon": true,
+                "weapon_type": "edged weapons",
+                "flares": [
+                  "the power of a fire elemental"
+                ],
+                "item_type": "weapon"
+              }
+            },
+            {
+              "id": "18284920",
+              "name": "a hollowed quartz orb",
+              "details": {
+                "raw": [
+                  "The orb can not be worn.",
+                  "Analysis of a hollowed quartz orb indicates the item is free from merchant alteration restrictions.",
+                  "The quartz orb will cost 25,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 25000,
+                "item_type": null
+              }
+            },
+            {
               "id": "4950786",
               "name": "a heavy quartz orb",
               "details": {
@@ -22199,23 +22092,6 @@
                   "The orb can not be worn.",
                   "Analysis of a heavy quartz orb indicates the item is free from merchant alteration restrictions.",
                   "The quartz orb will cost 5,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "cost": 5000,
-                "item_type": null
-              }
-            },
-            {
-              "id": "5196966",
-              "name": "a small statue",
-              "quantity": 5,
-              "details": {
-                "raw": [
-                  "The small statue is formed from the highest quality material.  It is strikingly crafted in fine, superb detail.  The statue seems to represent a supernatural entity of great power, possibly a god.",
-                  "The statue can not be worn.",
-                  "The small statue will cost 5,000 coins."
                 ],
                 "tags": [
 
@@ -22255,6 +22131,39 @@
                 ],
                 "cost": 5000,
                 "material": "gold, an uncommon metal",
+                "item_type": null
+              }
+            },
+            {
+              "id": "73190",
+              "name": "a hollowed small statue",
+              "details": {
+                "raw": [
+                  "The small statue is formed from the highest quality material.  It is strikingly crafted in fine, superb detail.  The statue seems to represent a supernatural entity of great power, possibly a god.",
+                  "The statue can not be worn.",
+                  "The small statue will cost 20,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 20000,
+                "item_type": null
+              }
+            },
+            {
+              "id": "18122003",
+              "name": "a small statue",
+              "quantity": 6,
+              "details": {
+                "raw": [
+                  "The small statue is formed from the highest quality material.  It is strikingly crafted in fine, superb detail.  The statue seems to represent a supernatural entity of great power, possibly a god.",
+                  "The statue can not be worn.",
+                  "The small statue will cost 5,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 5000,
                 "item_type": null
               }
             },
@@ -22308,37 +22217,14 @@
                 "is_jewelry": true,
                 "item_type": "jewelry"
               }
-            },
-            {
-              "id": "73190",
-              "name": "a hollowed small statue",
-              "details": {
-                "raw": [
-                  "The small statue is formed from the highest quality material.  It is strikingly crafted in fine, superb detail.  The statue seems to represent a supernatural entity of great power, possibly a god.",
-                  "The statue can not be worn.",
-                  "The small statue will cost 20,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "cost": 20000,
-                "item_type": null
-              }
             }
-          ]
-        },
-        {
-          "room_title": "Idalias' Magic Shoppe",
-          "branch": "east",
-          "items": [
-
-          ]
-        },
-        {
-          "room_title": "Idalias' Weaponry",
-          "branch": "west",
-          "items": [
-
+          ],
+          "sign": [
+            "Written on an elegantly carved fel sign:",
+            "regular small statues and quartz orbs- fresh",
+            "hollowed small statues and quartz orbs- 19 charges",
+            "hollowed moonstone cubes- 26 charges",
+            "gold coins- 26 charges"
           ]
         }
       ]
@@ -22346,11 +22232,11 @@
     {
       "preamble": "Nebochadnezzar's Shop is located in [Guardian Keep, Inner Wall] at a modest white brocade tent with a royal blue brocade canopy, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "34",
+      "id": "35",
       "shop_owner": "Nebochadnezzar",
       "inv": [
         {
-          "room_title": "Relicor's Weaponry",
+          "room_title": "Nebochadnezzar's General Store",
           "branch": "entry",
           "items": [
             {
@@ -22928,7 +22814,17 @@
                 "is_container": true,
                 "item_type": "container"
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on a golden oak wares sign:",
+            "All Jars have 20 of each gem, unsung, for bounty purposes."
+          ]
+        },
+        {
+          "room_title": "Nebochadnezzar's Magic Shoppe",
+          "branch": "east",
+          "items": [
             {
               "id": "73976",
               "name": "a dull scholar's card",
@@ -23088,7 +22984,17 @@
                 "is_container": true,
                 "item_type": "container"
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on a golden oak wares sign:",
+            "Random enhancives, Simucoin stuff, and even more gems!"
+          ]
+        },
+        {
+          "room_title": "Nebochadnezzar's General Store",
+          "branch": "west",
+          "items": [
             {
               "id": "74009",
               "name": "an opalescent glass jar containing black opals",
@@ -23641,6 +23547,10 @@
                 "item_type": "container"
               }
             }
+          ],
+          "sign": [
+            "Written on a golden oak wares sign:",
+            "All Jars have 20 of each gem, unsung, for bounty purposes."
           ]
         }
       ]
@@ -23648,11 +23558,11 @@
     {
       "preamble": "Idalias's Shop is located in [Guardian Keep, Inner Wall] at a silk-covered white cabana with a pair of vaalorn lanterns, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "35",
+      "id": "36",
       "shop_owner": "Idalias",
       "inv": [
         {
-          "room_title": "Relicor's Weaponry",
+          "room_title": "Idalias' Magic Shoppe",
           "branch": "entry",
           "items": [
             {
@@ -24265,7 +24175,13 @@
                 "wear_location": "around the finger",
                 "item_type": null
               }
-            },
+            }
+          ]
+        },
+        {
+          "room_title": "Idalias' Magic Shoppe",
+          "branch": "east",
+          "items": [
             {
               "id": "84068",
               "name": "a dark azure deringo runestaff",
@@ -24950,7 +24866,13 @@
                 "weapon_type": "ranged weapons",
                 "item_type": "weapon"
               }
-            },
+            }
+          ]
+        },
+        {
+          "room_title": "Idalias' Weaponry",
+          "branch": "west",
+          "items": [
             {
               "id": "84093",
               "name": "a silver-capped mossbark runestaff",
@@ -25912,7 +25834,8 @@
     {
       "preamble": "Kurosubo's Shop is located in [Guardian Keep, Inner Wall] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "36",
+      "id": "37",
+      "shop_owner": "Kurosubo",
       "inv": [
         {
           "room_title": "Kurosubo's General Store",
@@ -25921,13 +25844,13 @@
 
           ]
         }
-      ],
-      "shop_owner": "Kurosubo"
+      ]
     },
     {
       "preamble": "Alsorna's Shop is located in [Guardian Keep, Inner Wall] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "37",
+      "id": "38",
+      "shop_owner": "Alsorna",
       "inv": [
         {
           "room_title": "Alsorna's General Store",
@@ -25950,13 +25873,13 @@
 
           ]
         }
-      ],
-      "shop_owner": "Alsorna"
+      ]
     },
     {
       "preamble": "Relicor's Shop is located in [Guardian Keep, Inner Wall] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "38",
+      "id": "39",
+      "shop_owner": "Relicor",
       "inv": [
         {
           "room_title": "Relicor's Weaponry",
@@ -26180,10 +26103,9 @@
             }
           ]
         }
-      ],
-      "shop_owner": "Relicor"
+      ]
     }
   ],
-  "processed_at": "2026-06-02 02:50:08 UTC",
+  "processed_at": "2026-06-02 09:26:10 UTC",
   "processing_version": "v2.0"
 }
