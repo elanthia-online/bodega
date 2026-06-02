@@ -1,6 +1,6 @@
 {
-  "created_at": "2026-06-01 23:27:52 UTC",
-  "run_time": "07s",
+  "created_at": "2026-06-02 02:44:23 UTC",
+  "run_time": "02m 07s",
   "town": "Ta'Vaalor,",
   "shops": [
     {
@@ -1039,6 +1039,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -2981,6 +2982,7 @@
                 "tags": [
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 30000,
@@ -3159,6 +3161,7 @@
                 "tags": [
                   "max_deep",
                   "max_light",
+                  "container",
                   "container",
                   "container",
                   "container"
@@ -4683,6 +4686,7 @@
                   "purpose",
                   "lightenable",
                   "persists",
+                  "container",
                   "container",
                   "container",
                   "container"
@@ -7168,6 +7172,7 @@
                   "deepenable",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -7194,6 +7199,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container"
@@ -7224,6 +7230,7 @@
                   "deepenable",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -7249,6 +7256,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container"
@@ -7278,6 +7286,7 @@
                   "deepenable",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -7305,6 +7314,7 @@
                   "deepenable",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -7329,6 +7339,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container"
@@ -7358,6 +7369,7 @@
                   "lightenable",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -7385,6 +7397,7 @@
                   "lightenable",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -7408,6 +7421,7 @@
                   "The black leather pants will cost 15,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container"
@@ -7437,6 +7451,7 @@
                   "lightenable",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 15000,
@@ -7463,6 +7478,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container"
@@ -7648,13 +7664,42 @@
       ]
     },
     {
-      "preamble": "Baelhar's Shop is located in [Guardian Keep, Grassy Sward] at a simple shop with a thick granite roof, and is currently open for business.",
+      "preamble": "Vasstryke's Shop is located in [Guardian Keep, Grassy Sward] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
       "id": "17",
-      "shop_owner": "Baelhar",
+      "shop_owner": "Vasstryke",
       "inv": [
         {
           "room_title": "Idalias' Magic Shoppe",
+          "branch": "entry",
+          "items": [
+
+          ]
+        },
+        {
+          "room_title": "Idalias' Magic Shoppe",
+          "branch": "east",
+          "items": [
+
+          ]
+        },
+        {
+          "room_title": "Idalias' Weaponry",
+          "branch": "west",
+          "items": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "preamble": "Baelhar's Shop is located in [Guardian Keep, Grassy Sward] at a simple shop with a thick granite roof, and is currently open for business.",
+      "town": "Ta'Vaalor,",
+      "id": "18",
+      "shop_owner": "Baelhar",
+      "inv": [
+        {
+          "room_title": "Quessara's Armory",
           "branch": "entry",
           "items": [
             {
@@ -8075,20 +8120,40 @@
                 "item_type": "weapon"
               }
             }
+          ],
+          "sign": [
+            "Written on a gold-trimmed black imflass sign:",
+            "~Welcome to the Hawk's Nest~",
+            "The wips symbol is a Weatherby symbol and actioned for the worshiper.",
+            "The warpaint makes you look fierce.",
+            "The Hellebore earrings are nicely actioned.",
+            "The wig makes your hair look nice.",
+            "Please TAP and INSPECT and EXAMINE everything."
           ]
         },
         {
-          "room_title": "Idalias' Magic Shoppe",
-          "branch": "east",
+          "room_title": "Quessara's Outfitting",
+          "branch": "northeast",
           "items": [
 
+          ],
+          "sign": [
+            "Written on a gold-trimmed black imflass sign:",
+            "~Welcome to the Hawk's Nest~",
+            "The scrolls and pages  hold prayers for different occasions.",
+            "Please TAP and INSPECT and EXAMINE everything."
           ]
         },
         {
-          "room_title": "Idalias' Weaponry",
-          "branch": "west",
+          "room_title": "Quessara's General Store",
+          "branch": "northwest",
           "items": [
 
+          ],
+          "sign": [
+            "Written on a gold-trimmed black imflass sign:",
+            "~Welcome to the Hawk's Nest~",
+            "Please TAP and INSPECT and EXAMINE everything."
           ]
         }
       ]
@@ -8096,11 +8161,11 @@
     {
       "preamble": "Kwaldor's Shop is located in [Guardian Keep, Grassy Sward] at a brilliant white sailcloth shop with a blue twill canopy, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "18",
+      "id": "19",
       "shop_owner": "Kwaldor",
       "inv": [
         {
-          "room_title": "Quessara's Armory",
+          "room_title": "Nhadrin's Weaponry",
           "branch": "entry",
           "items": [
             {
@@ -9411,8 +9476,6 @@
                 ],
                 "tags": [
                   "lightenable",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 5000,
@@ -10226,40 +10289,6 @@
                 "item_type": "weapon"
               }
             }
-          ],
-          "sign": [
-            "Written on a gold-trimmed black imflass sign:",
-            "~Welcome to the Hawk's Nest~",
-            "The wips symbol is a Weatherby symbol and actioned for the worshiper.",
-            "The warpaint makes you look fierce.",
-            "The Hellebore earrings are nicely actioned.",
-            "The wig makes your hair look nice.",
-            "Please TAP and INSPECT and EXAMINE everything."
-          ]
-        },
-        {
-          "room_title": "Quessara's Outfitting",
-          "branch": "northeast",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on a gold-trimmed black imflass sign:",
-            "~Welcome to the Hawk's Nest~",
-            "The scrolls and pages  hold prayers for different occasions.",
-            "Please TAP and INSPECT and EXAMINE everything."
-          ]
-        },
-        {
-          "room_title": "Quessara's General Store",
-          "branch": "northwest",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on a gold-trimmed black imflass sign:",
-            "~Welcome to the Hawk's Nest~",
-            "Please TAP and INSPECT and EXAMINE everything."
           ]
         }
       ]
@@ -10267,23 +10296,8 @@
     {
       "preamble": "Anedrin's Shop is located in [Guardian Keep, Grassy Sward] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "19",
-      "shop_owner": "Anedrin",
-      "inv": [
-        {
-          "room_title": "Nhadrin's Weaponry",
-          "branch": "entry",
-          "items": [
-
-          ]
-        }
-      ]
-    },
-    {
-      "preamble": "Althamae's Shop is located in [Guardian Keep, Grassy Sward] at a simple shop, and is currently open for business.",
-      "town": "Ta'Vaalor,",
       "id": "20",
-      "shop_owner": "Althamae",
+      "shop_owner": "Anedrin",
       "inv": [
         {
           "room_title": "Idalias' Magic Shoppe",
@@ -10309,13 +10323,28 @@
       ]
     },
     {
-      "preamble": "Rhaviel's Shop is located in [Guardian Keep, Grassy Sward] at a multicolored silk tent with a mottled blue canvas canopy, and is currently open for business.",
+      "preamble": "Althamae's Shop is located in [Guardian Keep, Grassy Sward] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
       "id": "21",
-      "shop_owner": "Rhaviel",
+      "shop_owner": "Althamae",
       "inv": [
         {
           "room_title": "Nhadrin's Weaponry",
+          "branch": "entry",
+          "items": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "preamble": "Rhaviel's Shop is located in [Guardian Keep, Grassy Sward] at a multicolored silk tent with a mottled blue canvas canopy, and is currently open for business.",
+      "town": "Ta'Vaalor,",
+      "id": "22",
+      "shop_owner": "Rhaviel",
+      "inv": [
+        {
+          "room_title": "Idalias' Magic Shoppe",
           "branch": "entry",
           "items": [
             {
@@ -10758,13 +10787,27 @@
               }
             }
           ]
+        },
+        {
+          "room_title": "Idalias' Magic Shoppe",
+          "branch": "east",
+          "items": [
+
+          ]
+        },
+        {
+          "room_title": "Idalias' Weaponry",
+          "branch": "west",
+          "items": [
+
+          ]
         }
       ]
     },
     {
       "preamble": "Solafrut's Shop is located in [Guardian Keep, Grassy Sward] at an ornate glass-front shop with a gold-veined marble roof, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "22",
+      "id": "23",
       "shop_owner": "Solafrut",
       "inv": [
         {
@@ -13297,11 +13340,11 @@
     {
       "preamble": "Luethar's Shop is located in [Guardian Keep, Grassy Sward] at a large ornate velveteen pavilion, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "23",
+      "id": "24",
       "shop_owner": "Luethar",
       "inv": [
         {
-          "room_title": "Idalias' Magic Shoppe",
+          "room_title": "Relicor's General Store",
           "branch": "entry",
           "items": [
             {
@@ -15197,27 +15240,13 @@
               }
             }
           ]
-        },
-        {
-          "room_title": "Idalias' Magic Shoppe",
-          "branch": "east",
-          "items": [
-
-          ]
-        },
-        {
-          "room_title": "Idalias' Weaponry",
-          "branch": "west",
-          "items": [
-
-          ]
         }
       ]
     },
     {
       "preamble": "Dorwyn's Shop is located in [Guardian Keep, Grassy Sward] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "24",
+      "id": "25",
       "shop_owner": "Dorwyn",
       "inv": [
         {
@@ -16548,8 +16577,6 @@
                 ],
                 "tags": [
                   "lightenable",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 99999,
@@ -16636,8 +16663,6 @@
                   "purpose",
                   "max_deep",
                   "max_light",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 11111111,
@@ -16815,11 +16840,11 @@
     {
       "preamble": "Lornn's Shop is located in [Guardian Keep, Grassy Sward] at a large ornate velveteen pavilion with an elegant red brocade canopy, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "25",
+      "id": "26",
       "shop_owner": "Lornn",
       "inv": [
         {
-          "room_title": "Relicor's General Store",
+          "room_title": "Nhadrin's Outfitting",
           "branch": "entry",
           "items": [
             {
@@ -17501,8 +17526,6 @@
                   "max_deep",
                   "max_light",
                   "small",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -17936,6 +17959,12 @@
                 "item_type": "weapon"
               }
             }
+          ],
+          "sign": [
+            "Written on an elegantly carved fel sign:",
+            "hollowed small statues and quartz orbs 19 charges",
+            "hollowed moonstone cubes 26 charges",
+            "gold coins 26 charges"
           ]
         }
       ]
@@ -17943,11 +17972,11 @@
     {
       "preamble": "Taulramil's Shop is located in [Guardian Keep, Grassy Sward] at a golden watered silk pavilion with a large crimson silk canopy, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "26",
+      "id": "27",
       "shop_owner": "Taulramil",
       "inv": [
         {
-          "room_title": "Nhadrin's Outfitting",
+          "room_title": "Idalias' Magic Shoppe",
           "branch": "entry",
           "items": [
             {
@@ -18119,27 +18148,6 @@
                 "item_type": "weapon"
               }
             }
-          ],
-          "sign": [
-            "Written on an elegantly carved fel sign:",
-            "hollowed small statues and quartz orbs 19 charges",
-            "hollowed moonstone cubes 26 charges",
-            "gold coins 26 charges"
-          ]
-        }
-      ]
-    },
-    {
-      "preamble": "Teveriel's Shop is located in [Guardian Keep, Inner Wall] at a simple shop, and is currently open for business.",
-      "town": "Ta'Vaalor,",
-      "id": "27",
-      "shop_owner": "Teveriel",
-      "inv": [
-        {
-          "room_title": "Idalias' Magic Shoppe",
-          "branch": "entry",
-          "items": [
-
           ]
         },
         {
@@ -18159,13 +18167,28 @@
       ]
     },
     {
-      "preamble": "Quessara's Shop is located in [Guardian Keep, Inner Wall] at a pale red watered silk pavilion with a golden brocade canopy, and is currently open for business.",
+      "preamble": "Teveriel's Shop is located in [Guardian Keep, Inner Wall] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
       "id": "28",
-      "shop_owner": "Quessara",
+      "shop_owner": "Teveriel",
       "inv": [
         {
           "room_title": "Relicor's Weaponry",
+          "branch": "entry",
+          "items": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "preamble": "Quessara's Shop is located in [Guardian Keep, Inner Wall] at a pale red watered silk pavilion with a golden brocade canopy, and is currently open for business.",
+      "town": "Ta'Vaalor,",
+      "id": "29",
+      "shop_owner": "Quessara",
+      "inv": [
+        {
+          "room_title": "Aureliano's General Store",
           "branch": "entry",
           "items": [
             {
@@ -18410,17 +18433,31 @@
               }
             }
           ]
+        },
+        {
+          "room_title": "Aureliano's General Store",
+          "branch": "north",
+          "items": [
+
+          ]
+        },
+        {
+          "room_title": "Aureliano's General Store",
+          "branch": "east",
+          "items": [
+
+          ]
         }
       ]
     },
     {
       "preamble": "Kakoon's Shop is located in [Guardian Keep, Inner Wall] at a dark blue silk tent with a royal blue brocade canopy, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "29",
+      "id": "30",
       "shop_owner": "Kakoon",
       "inv": [
         {
-          "room_title": "Aureliano's General Store",
+          "room_title": "Aostar's Armory",
           "branch": "entry",
           "items": [
             {
@@ -21145,34 +21182,26 @@
               }
             }
           ]
-        },
-        {
-          "room_title": "Aureliano's General Store",
-          "branch": "north",
-          "items": [
-
-          ]
-        },
-        {
-          "room_title": "Aureliano's General Store",
-          "branch": "east",
-          "items": [
-
-          ]
         }
       ]
     },
     {
       "preamble": "Aureliano's Shop is located in [Guardian Keep, Inner Wall] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "30",
+      "id": "31",
       "shop_owner": "Aureliano",
       "inv": [
         {
-          "room_title": "Aostar's Armory",
+          "room_title": "Nhadrin's Outfitting",
           "branch": "entry",
           "items": [
 
+          ],
+          "sign": [
+            "Written on an elegantly carved fel sign:",
+            "hollowed small statues and quartz orbs 19 charges",
+            "hollowed moonstone cubes 26 charges",
+            "gold coins 26 charges"
           ]
         }
       ]
@@ -21180,11 +21209,11 @@
     {
       "preamble": "Aostar's Shop is located in [Guardian Keep, Inner Wall] at a golden watered silk pavilion, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "31",
+      "id": "32",
       "shop_owner": "Aostar",
       "inv": [
         {
-          "room_title": "Nhadrin's Outfitting",
+          "room_title": "Nebochadnezzar's General Store",
           "branch": "entry",
           "items": [
             {
@@ -22007,10 +22036,30 @@
             }
           ],
           "sign": [
-            "Written on an elegantly carved fel sign:",
-            "hollowed small statues and quartz orbs 19 charges",
-            "hollowed moonstone cubes 26 charges",
-            "gold coins 26 charges"
+            "Written on a golden oak wares sign:",
+            "All Jars have 20 of each gem, unsung, for bounty purposes."
+          ]
+        },
+        {
+          "room_title": "Nebochadnezzar's Magic Shoppe",
+          "branch": "east",
+          "items": [
+
+          ],
+          "sign": [
+            "Written on a golden oak wares sign:",
+            "Random enhancives, Simucoin stuff, and even more gems!"
+          ]
+        },
+        {
+          "room_title": "Nebochadnezzar's General Store",
+          "branch": "west",
+          "items": [
+
+          ],
+          "sign": [
+            "Written on a golden oak wares sign:",
+            "All Jars have 20 of each gem, unsung, for bounty purposes."
           ]
         }
       ]
@@ -22018,11 +22067,11 @@
     {
       "preamble": "Nhadrin's Shop is located in [Guardian Keep, Inner Wall] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "32",
+      "id": "33",
       "shop_owner": "Nhadrin",
       "inv": [
         {
-          "room_title": "Nebochadnezzar's General Store",
+          "room_title": "Idalias' Magic Shoppe",
           "branch": "entry",
           "items": [
             {
@@ -22276,32 +22325,20 @@
                 "item_type": null
               }
             }
-          ],
-          "sign": [
-            "Written on a golden oak wares sign:",
-            "All Jars have 20 of each gem, unsung, for bounty purposes."
           ]
         },
         {
-          "room_title": "Nebochadnezzar's Magic Shoppe",
+          "room_title": "Idalias' Magic Shoppe",
           "branch": "east",
           "items": [
 
-          ],
-          "sign": [
-            "Written on a golden oak wares sign:",
-            "Random enhancives, Simucoin stuff, and even more gems!"
           ]
         },
         {
-          "room_title": "Nebochadnezzar's General Store",
+          "room_title": "Idalias' Weaponry",
           "branch": "west",
           "items": [
 
-          ],
-          "sign": [
-            "Written on a golden oak wares sign:",
-            "All Jars have 20 of each gem, unsung, for bounty purposes."
           ]
         }
       ]
@@ -22309,11 +22346,11 @@
     {
       "preamble": "Nebochadnezzar's Shop is located in [Guardian Keep, Inner Wall] at a modest white brocade tent with a royal blue brocade canopy, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "33",
+      "id": "34",
       "shop_owner": "Nebochadnezzar",
       "inv": [
         {
-          "room_title": "Idalias' Magic Shoppe",
+          "room_title": "Relicor's Weaponry",
           "branch": "entry",
           "items": [
             {
@@ -22331,7 +22368,6 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -22356,7 +22392,6 @@
                   "The glass jar will cost 75,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -22381,7 +22416,6 @@
                   "The glass jar will cost 75,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -22406,7 +22440,6 @@
                   "The glass jar will cost 75,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -22431,7 +22464,6 @@
                   "The glass jar will cost 75,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -22456,32 +22488,6 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container"
-                ],
-                "cost": 25000,
-                "material": "gemstone, an extremely common material",
-                "capacity_level": "very small",
-                "is_container": true,
-                "item_type": "container"
-              }
-            },
-            {
-              "id": "73958",
-              "name": "an opalescent glass jar containing pink rhodochrosite stones",
-              "details": {
-                "raw": [
-                  "It is estimated that an opalescent glass jar containing pink rhodochrosite stones can store a very small amount with enough space for one item.",
-                  "The jar can not be worn.",
-                  "It looks like this item has been mainly crafted out of gemstone, an extremely common material.",
-                  "Analysis of an opalescent glass jar containing pink rhodochrosite stones indicates the creator has provided the following information:",
-                  "This glass jar is designed to hold small, nearly identical items -- in particular, gems, alchemy ingredients other than critter skins, etc.",
-                  "Alterations are permitted to the base description following the 15/15/15 rule in ALTER 2, provided that it continues to make sense that the contents would be identifiable without looking inside.",
-                  "It can hold a maximum of 20 items.  PUT items in to store them.  SHAKE the jar to get them back out.",
-                  "The glass jar will cost 25,000 coins."
-                ],
-                "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -22506,7 +22512,6 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -22531,7 +22536,6 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -22556,7 +22560,6 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -22581,7 +22584,6 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -22606,7 +22608,6 @@
                   "The glass jar will cost 100,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -22631,7 +22632,6 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -22656,7 +22656,6 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -22681,7 +22680,6 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -22706,7 +22704,6 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -22731,7 +22728,6 @@
                   "The glass jar will cost 50,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -22756,7 +22752,6 @@
                   "The glass jar will cost 75,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -22781,7 +22776,6 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -22806,7 +22800,6 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -22831,7 +22824,6 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -22856,7 +22848,6 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -22881,7 +22872,6 @@
                   "The glass jar will cost 100,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -22906,7 +22896,6 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -22931,7 +22920,6 @@
                   "The glass jar will cost 100,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -23092,7 +23080,6 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -23117,7 +23104,6 @@
                   "The glass jar will cost 75,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -23142,7 +23128,6 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -23167,7 +23152,6 @@
                   "The glass jar will cost 50,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -23192,7 +23176,6 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -23217,7 +23200,6 @@
                   "The glass jar will cost 75,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -23242,7 +23224,6 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -23267,7 +23248,6 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -23292,7 +23272,6 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -23317,7 +23296,6 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -23342,7 +23320,6 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -23367,7 +23344,6 @@
                   "The glass jar will cost 75,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -23392,7 +23368,6 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -23417,7 +23392,6 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -23442,7 +23416,6 @@
                   "The glass jar will cost 75,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -23467,7 +23440,6 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -23492,7 +23464,6 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -23517,7 +23488,6 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -23542,7 +23512,6 @@
                   "The glass jar will cost 35,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 35000,
@@ -23567,7 +23536,6 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -23592,7 +23560,6 @@
                   "The glass jar will cost 50,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -23617,7 +23584,6 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -23642,7 +23608,6 @@
                   "The glass jar will cost 60,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 60000,
@@ -23667,7 +23632,6 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -23678,27 +23642,13 @@
               }
             }
           ]
-        },
-        {
-          "room_title": "Idalias' Magic Shoppe",
-          "branch": "east",
-          "items": [
-
-          ]
-        },
-        {
-          "room_title": "Idalias' Weaponry",
-          "branch": "west",
-          "items": [
-
-          ]
         }
       ]
     },
     {
       "preamble": "Idalias's Shop is located in [Guardian Keep, Inner Wall] at a silk-covered white cabana with a pair of vaalorn lanterns, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "34",
+      "id": "35",
       "shop_owner": "Idalias",
       "inv": [
         {
@@ -25771,6 +25721,9 @@
                 "weight": 3,
                 "is_weapon": true,
                 "weapon_type": "twohanded weapons",
+                "flares": [
+                  "a disrupting substance"
+                ],
                 "item_type": "weapon"
               }
             },
@@ -25957,10 +25910,53 @@
       ]
     },
     {
+      "preamble": "Kurosubo's Shop is located in [Guardian Keep, Inner Wall] at a simple shop, and is currently open for business.",
+      "town": "Ta'Vaalor,",
+      "id": "36",
+      "inv": [
+        {
+          "room_title": "Kurosubo's General Store",
+          "branch": "entry",
+          "items": [
+
+          ]
+        }
+      ],
+      "shop_owner": "Kurosubo"
+    },
+    {
+      "preamble": "Alsorna's Shop is located in [Guardian Keep, Inner Wall] at a simple shop, and is currently open for business.",
+      "town": "Ta'Vaalor,",
+      "id": "37",
+      "inv": [
+        {
+          "room_title": "Alsorna's General Store",
+          "branch": "entry",
+          "items": [
+
+          ]
+        },
+        {
+          "room_title": "Alsorna's General Store",
+          "branch": "north",
+          "items": [
+
+          ]
+        },
+        {
+          "room_title": "Alsorna's General Store",
+          "branch": "east",
+          "items": [
+
+          ]
+        }
+      ],
+      "shop_owner": "Alsorna"
+    },
+    {
       "preamble": "Relicor's Shop is located in [Guardian Keep, Inner Wall] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "35",
-      "shop_owner": "Relicor",
+      "id": "38",
       "inv": [
         {
           "room_title": "Relicor's Weaponry",
@@ -26172,7 +26168,6 @@
                   "The wicker basket will cost 3,500,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 3500000,
@@ -26185,9 +26180,10 @@
             }
           ]
         }
-      ]
+      ],
+      "shop_owner": "Relicor"
     }
   ],
-  "processed_at": "2026-06-01 23:33:30 UTC",
+  "processed_at": "2026-06-02 02:50:08 UTC",
   "processing_version": "v2.0"
 }
