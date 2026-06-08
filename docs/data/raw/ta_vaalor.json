@@ -1,6 +1,6 @@
 {
-  "created_at": "2026-06-08 17:26:36 UTC",
-  "run_time": "11s",
+  "created_at": "2026-06-08 20:06:45 UTC",
+  "run_time": "08s",
   "town": "Ta'Vaalor,",
   "shops": [
     {
@@ -1797,6 +1797,7 @@
                   "max_light",
                   "small",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 250000,
@@ -3256,6 +3257,7 @@
                   "purpose",
                   "lightenable",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -3791,362 +3793,711 @@
             {
               "id": "109468211",
               "name": "an agate-inset imflass earring",
-              "browse_price": 250000,
-              "raw_inspect": [
-                "The earring can be worn, hanging it from the ear.  The earring appears to serve some purpose.",
-                "Analysis of an agate-inset imflass earring indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the earring may be further lightened.",
-                "The imflass earring will cost 250,000 coins.",
-                "It is currently imbedded with the Grasp of the Grave spell.",
-                "It has 19 charges.",
-                "It could be activated by rubbing it.",
-                "It will persist after its last magical charge has been expended.",
-                "It is an enhancive item:",
-                "    It provides a boost of 5 to Stamina Recovery.",
-                "    This enhancement may not be used by adventurers who have not trained 15 times.",
-                "    It provides a boost of 4 to Max Health.",
-                "    This enhancement may not be used by adventurers who have not trained 7 times.",
-                "    It provides a boost of 1 to Shield Use Ranks.",
-                "    This enhancement may not be used by adventurers who have not trained 4 times.",
-                "    It seems to have a lot of enhancive charges remaining.",
-                "It will persist after its last enhancive charge has been expended.",
-                "It is a small item, under a pound.",
-                "It is estimated to be worth about 200,000 silvers.",
-                "It is magic resistant.",
-                "It has a permanently unlocked loresong by Mikyla."
-              ]
+              "details": {
+                "raw": [
+                  "The earring can be worn, hanging it from the ear.  The earring appears to serve some purpose.",
+                  "Analysis of an agate-inset imflass earring indicates the item is free from merchant alteration restrictions.",
+                  "The imflass earring will cost 250,000 coins.",
+                  "It is currently imbedded with the Grasp of the Grave spell.",
+                  "It has 19 charges.",
+                  "It could be activated by rubbing it.",
+                  "It will persist after its last magical charge has been expended.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 5 to Stamina Recovery.",
+                  "    This enhancement may not be used by adventurers who have not trained 15 times.",
+                  "    It provides a boost of 4 to Max Health.",
+                  "    This enhancement may not be used by adventurers who have not trained 7 times.",
+                  "    It provides a boost of 1 to Shield Use Ranks.",
+                  "    This enhancement may not be used by adventurers who have not trained 4 times.",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 200,000 silvers.",
+                  "It is magic resistant.",
+                  "It has a permanently unlocked loresong by Mikyla."
+                ],
+                "tags": [
+                  "purpose",
+                  "imbedded",
+                  "persists",
+                  "small",
+                  "magic_resistant"
+                ],
+                "cost": 250000,
+                "worn": "ear",
+                "activator": "rubbing",
+                "spell": "Grasp of the Grave",
+                "enhancives": [
+                  {
+                    "boost": 5,
+                    "ability": "Stamina Recovery",
+                    "level": 15
+                  },
+                  {
+                    "boost": 4,
+                    "ability": "Max Health",
+                    "level": 7
+                  },
+                  {
+                    "boost": 1,
+                    "ability": "Shield Use Ranks",
+                    "level": 4
+                  }
+                ],
+                "is_jewelry": true,
+                "item_type": "jewelry"
+              }
             },
             {
               "id": "109468219",
               "name": "a brilliant pink topaz band",
-              "browse_price": 2500000,
-              "raw_inspect": [
-                "It is difficult to see the pink topaz band clearly from this distance.",
-                "The band can be worn around the finger.  The band appears to serve some purpose.",
-                "Analysis of a brilliant pink topaz band indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the band may be further lightened.",
-                "The pink topaz band will cost 2,500,000 coins.",
-                "It is an enhancive item:",
-                "    It provides a boost of 3 to Strength Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 28 times.",
-                "    It provides a boost of 4 to Mana Recovery.",
-                "    This enhancement may not be used by adventurers who have not trained 34 times.",
-                "    It provides a boost of 4 to Spirit Mana Control Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 10 times.",
-                "    It seems to have a lot of enhancive charges remaining.",
-                "It will crumble into dust after its last enhancive charge has been expended.",
-                "It is a small item, under a pound.",
-                "It is estimated to be worth about 350,000 silvers.",
-                "It is magic resistant.",
-                "It has a permanently unlocked loresong by Mikyla."
-              ]
+              "details": {
+                "raw": [
+                  "The band can be worn around the finger.  The band appears to serve some purpose.",
+                  "Analysis of a brilliant pink topaz band indicates the item is free from merchant alteration restrictions.",
+                  "The pink topaz band will cost 2,500,000 coins.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 3 to Strength Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 28 times.",
+                  "    It provides a boost of 4 to Mana Recovery.",
+                  "    This enhancement may not be used by adventurers who have not trained 34 times.",
+                  "    It provides a boost of 4 to Spirit Mana Control Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 10 times.",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It will crumble into dust after its last enhancive charge has been expended.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 350,000 silvers.",
+                  "It is magic resistant.",
+                  "It has a permanently unlocked loresong by Mikyla."
+                ],
+                "tags": [
+                  "purpose",
+                  "small",
+                  "magic_resistant"
+                ],
+                "cost": 2500000,
+                "worn": "finger",
+                "enhancives": [
+                  {
+                    "boost": 3,
+                    "ability": "Strength Bonus",
+                    "level": 28
+                  },
+                  {
+                    "boost": 4,
+                    "ability": "Mana Recovery",
+                    "level": 34
+                  },
+                  {
+                    "boost": 4,
+                    "ability": "Spirit Mana Control Bonus",
+                    "level": 10
+                  }
+                ],
+                "wear_location": "around the finger",
+                "item_type": null
+              }
             },
             {
               "id": "109468195",
               "name": "a pink pearl studded gold torc",
-              "browse_price": 1000000,
-              "raw_inspect": [
-                "The torc can be worn around the neck.  The torc appears to serve some purpose.",
-                "Analysis of a pink pearl studded gold torc indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the torc may be further lightened.",
-                "The studded gold torc will cost 1,000,000 coins.",
-                "It is a magical item which could be imbedded with a spell.",
-                "It has 0 charges.  It is rechargeable.",
-                "It could be activated by waving it.",
-                "It will persist after its last magical charge has been expended.",
-                "It is an enhancive item:",
-                "    It provides a boost of 3 to Mana Recovery.",
-                "    This enhancement may not be used by adventurers who have not trained 20 times.",
-                "    It provides a boost of 6 to Shield Use Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 21 times.",
-                "    It seems to have a lot of enhancive charges remaining.",
-                "It will crumble into dust after its last enhancive charge has been expended.",
-                "It is a small item, under a pound.",
-                "It is estimated to be worth about 150,000 silvers.",
-                "It has a permanently unlocked loresong by Mikyla."
-              ]
+              "details": {
+                "raw": [
+                  "The torc can be worn around the neck.  The torc appears to serve some purpose.",
+                  "Analysis of a pink pearl studded gold torc indicates the item is free from merchant alteration restrictions.",
+                  "The studded gold torc will cost 1,000,000 coins.",
+                  "It is a magical item which could be imbedded with a spell.",
+                  "It has 0 charges.  It is rechargeable.",
+                  "It could be activated by waving it.",
+                  "It will persist after its last magical charge has been expended.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 3 to Mana Recovery.",
+                  "    This enhancement may not be used by adventurers who have not trained 20 times.",
+                  "    It provides a boost of 6 to Shield Use Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 21 times.",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It will crumble into dust after its last enhancive charge has been expended.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 150,000 silvers.",
+                  "It has a permanently unlocked loresong by Mikyla."
+                ],
+                "tags": [
+                  "purpose",
+                  "imbeddable",
+                  "small"
+                ],
+                "cost": 1000000,
+                "worn": "neck",
+                "activator": "waving",
+                "enhancives": [
+                  {
+                    "boost": 3,
+                    "ability": "Mana Recovery",
+                    "level": 20
+                  },
+                  {
+                    "boost": 6,
+                    "ability": "Shield Use Bonus",
+                    "level": 21
+                  }
+                ],
+                "wear_location": "around the neck",
+                "item_type": null
+              }
             },
             {
               "id": "109468198",
               "name": "a fire pearl inset gold barrette",
-              "browse_price": 5000000,
-              "raw_inspect": [
-                "The barrette can be worn anywhere on the body.  The barrette appears to serve some purpose.",
-                "Analysis of a fire pearl inset gold barrette indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the barrette may be further lightened.",
-                "The inset gold barrette will cost 5,000,000 coins.",
-                "It is a magical item which could be imbedded with a spell.",
-                "It has 0 charges.",
-                "It could be activated by waving it.",
-                "It will persist after its last magical charge has been expended.",
-                "It is an enhancive item:",
-                "    It provides a boost of 2 to Shield Use Ranks.",
-                "    This enhancement may not be used by adventurers who have not trained 10 times.",
-                "    It provides a boost of 7 to Aura Base.",
-                "    This enhancement may not be used by adventurers who have not trained 6 times.",
-                "    It seems to have quite a few enhancive charges remaining.",
-                "It will persist after its last enhancive charge has been expended.",
-                "It is a small item, under a pound.",
-                "It is estimated to be worth about 600,000 silvers.",
-                "It is magic resistant.",
-                "It has a permanently unlocked loresong by Mikyla."
-              ]
+              "details": {
+                "raw": [
+                  "The barrette can be worn anywhere on the body.  The barrette appears to serve some purpose.",
+                  "Analysis of a fire pearl inset gold barrette indicates the item is free from merchant alteration restrictions.",
+                  "The inset gold barrette will cost 5,000,000 coins.",
+                  "It is a magical item which could be imbedded with a spell.",
+                  "It has 0 charges.",
+                  "It could be activated by waving it.",
+                  "It will persist after its last magical charge has been expended.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 2 to Shield Use Ranks.",
+                  "    This enhancement may not be used by adventurers who have not trained 10 times.",
+                  "    It provides a boost of 7 to Aura Base.",
+                  "    This enhancement may not be used by adventurers who have not trained 6 times.",
+                  "    It seems to have quite a few enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 600,000 silvers.",
+                  "It is magic resistant.",
+                  "It has a permanently unlocked loresong by Mikyla."
+                ],
+                "tags": [
+                  "purpose",
+                  "imbeddable",
+                  "persists",
+                  "small",
+                  "magic_resistant"
+                ],
+                "cost": 5000000,
+                "worn": "pin",
+                "activator": "waving",
+                "enhancives": [
+                  {
+                    "boost": 2,
+                    "ability": "Shield Use Ranks",
+                    "level": 10
+                  },
+                  {
+                    "boost": 7,
+                    "ability": "Aura Base",
+                    "level": 6
+                  }
+                ],
+                "wear_location": "anywhere on the body",
+                "item_type": null
+              }
             },
             {
               "id": "109468124",
               "name": "a flame-cut aquamarine crown",
-              "browse_price": 2500000,
-              "raw_inspect": [
-                "The crown can be worn on the head.  The crown appears to serve some purpose.",
-                "Analysis of a flame-cut aquamarine crown indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the crown may be further lightened.",
-                "The aquamarine crown will cost 2,500,000 coins.",
-                "It is a holy item.",
-                "It is a magical item which could be imbedded with a spell.",
-                "It has 0 charges.  It is rechargeable.",
-                "It could be activated by waving it.",
-                "It will persist after its last magical charge has been expended.",
-                "It is an enhancive item:",
-                "    It provides a boost of 6 to Logic Base.",
-                "    This enhancement may not be used by adventurers who have not trained 14 times.",
-                "    It provides a boost of 1 to Intuition Base.",
-                "    This enhancement may not be used by adventurers who have not trained 1 times.",
-                "    It seems to have a lot of enhancive charges remaining.",
-                "It will persist after its last enhancive charge has been expended.",
-                "It appears to weigh about 2 pounds.",
-                "It is estimated to be worth about 150,000 silvers.",
-                "It has a permanently unlocked loresong by Mikyla."
-              ]
+              "details": {
+                "raw": [
+                  "The crown can be worn on the head.  The crown appears to serve some purpose.",
+                  "Analysis of a flame-cut aquamarine crown indicates the item is free from merchant alteration restrictions.",
+                  "The aquamarine crown will cost 2,500,000 coins.",
+                  "It is a holy item.",
+                  "It is a magical item which could be imbedded with a spell.",
+                  "It has 0 charges.  It is rechargeable.",
+                  "It could be activated by waving it.",
+                  "It will persist after its last magical charge has been expended.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 6 to Logic Base.",
+                  "    This enhancement may not be used by adventurers who have not trained 14 times.",
+                  "    It provides a boost of 1 to Intuition Base.",
+                  "    This enhancement may not be used by adventurers who have not trained 1 times.",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It appears to weigh about 2 pounds.",
+                  "It is estimated to be worth about 150,000 silvers.",
+                  "It has a permanently unlocked loresong by Mikyla."
+                ],
+                "tags": [
+                  "purpose",
+                  "holy",
+                  "imbeddable",
+                  "persists"
+                ],
+                "cost": 2500000,
+                "weight": 2,
+                "worn": "head",
+                "activator": "waving",
+                "enhancives": [
+                  {
+                    "boost": 6,
+                    "ability": "Logic Base",
+                    "level": 14
+                  },
+                  {
+                    "boost": 1,
+                    "ability": "Intuition Base",
+                    "level": 1
+                  }
+                ],
+                "wear_location": "on the head",
+                "blessing": "holy",
+                "item_type": null
+              }
             },
             {
               "id": "109468197",
               "name": "an onyx-inlaid imflass stickpin",
-              "browse_price": 200000,
-              "raw_inspect": [
-                "The stickpin can be worn anywhere on the body.  The stickpin appears to serve some purpose.",
-                "Analysis of an onyx-inlaid imflass stickpin indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the stickpin may be further lightened.",
-                "The imflass stickpin will cost 200,000 coins.",
-                "It is a magical item which could be imbedded with a spell.",
-                "It has 0 charges.",
-                "It could be activated by waving it.",
-                "It will persist after its last magical charge has been expended.",
-                "It is an enhancive item:",
-                "    It provides a boost of 2 to Influence Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 7 times.",
-                "    It provides a boost of 4 to Sorcerous Lore - Necromancy Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 17 times.",
-                "    It provides a boost of 2 to Spell Aiming Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 3 times.",
-                "    It seems to have a lot of enhancive charges remaining.",
-                "It will persist after its last enhancive charge has been expended.",
-                "It is a small item, under a pound.",
-                "It is estimated to be worth about 250,000 silvers.",
-                "It is magic resistant.",
-                "It has a permanently unlocked loresong by Mikyla."
-              ]
+              "details": {
+                "raw": [
+                  "The stickpin can be worn anywhere on the body.  The stickpin appears to serve some purpose.",
+                  "Analysis of an onyx-inlaid imflass stickpin indicates the item is free from merchant alteration restrictions.",
+                  "The imflass stickpin will cost 200,000 coins.",
+                  "It is a magical item which could be imbedded with a spell.",
+                  "It has 0 charges.",
+                  "It could be activated by waving it.",
+                  "It will persist after its last magical charge has been expended.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 2 to Influence Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 7 times.",
+                  "    It provides a boost of 4 to Sorcerous Lore - Necromancy Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 17 times.",
+                  "    It provides a boost of 2 to Spell Aiming Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 3 times.",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 250,000 silvers.",
+                  "It is magic resistant.",
+                  "It has a permanently unlocked loresong by Mikyla."
+                ],
+                "tags": [
+                  "purpose",
+                  "imbeddable",
+                  "persists",
+                  "small",
+                  "magic_resistant"
+                ],
+                "cost": 200000,
+                "worn": "pin",
+                "activator": "waving",
+                "enhancives": [
+                  {
+                    "boost": 2,
+                    "ability": "Influence Bonus",
+                    "level": 7
+                  },
+                  {
+                    "boost": 4,
+                    "ability": "Sorcerous Lore - Necromancy Bonus",
+                    "level": 17
+                  },
+                  {
+                    "boost": 2,
+                    "ability": "Spell Aiming Bonus",
+                    "level": 3
+                  }
+                ],
+                "wear_location": "anywhere on the body",
+                "item_type": null
+              }
             },
             {
               "id": "109468216",
               "name": "a chiseled alexandrite bracer",
-              "browse_price": 1000000,
-              "raw_inspect": [
-                "The bracer can be worn around the wrist.  The bracer appears to serve some purpose.",
-                "Analysis of a chiseled alexandrite bracer indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the bracer may be further lightened.",
-                "The alexandrite bracer will cost 1,000,000 coins.",
-                "It is a magical item which could be imbedded with a spell.",
-                "It has 0 charges.",
-                "It could be activated by waving it.",
-                "It will persist after its last magical charge has been expended.",
-                "It is an enhancive item:",
-                "    It provides a boost of 5 to Picking Locks Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 10 times.",
-                "    It provides a boost of 3 to Max Stamina.",
-                "    This enhancement may not be used by adventurers who have not trained 6 times.",
-                "    It provides a boost of 4 to Ambush Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 10 times.",
-                "    It seems to have a lot of enhancive charges remaining.",
-                "It will persist after its last enhancive charge has been expended.",
-                "It is a small item, under a pound.",
-                "It is estimated to be worth about 250,000 silvers.",
-                "It is magic resistant.",
-                "It has a permanently unlocked loresong by Mikyla."
-              ]
+              "details": {
+                "raw": [
+                  "The bracer can be worn around the wrist.  The bracer appears to serve some purpose.",
+                  "Analysis of a chiseled alexandrite bracer indicates the item is free from merchant alteration restrictions.",
+                  "The alexandrite bracer will cost 1,000,000 coins.",
+                  "It is a magical item which could be imbedded with a spell.",
+                  "It has 0 charges.",
+                  "It could be activated by waving it.",
+                  "It will persist after its last magical charge has been expended.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 5 to Picking Locks Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 10 times.",
+                  "    It provides a boost of 3 to Max Stamina.",
+                  "    This enhancement may not be used by adventurers who have not trained 6 times.",
+                  "    It provides a boost of 4 to Ambush Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 10 times.",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 250,000 silvers.",
+                  "It is magic resistant.",
+                  "It has a permanently unlocked loresong by Mikyla."
+                ],
+                "tags": [
+                  "purpose",
+                  "imbeddable",
+                  "persists",
+                  "small",
+                  "magic_resistant"
+                ],
+                "cost": 1000000,
+                "worn": "wrist",
+                "activator": "waving",
+                "enhancives": [
+                  {
+                    "boost": 5,
+                    "ability": "Picking Locks Bonus",
+                    "level": 10
+                  },
+                  {
+                    "boost": 3,
+                    "ability": "Max Stamina",
+                    "level": 6
+                  },
+                  {
+                    "boost": 4,
+                    "ability": "Ambush Bonus",
+                    "level": 10
+                  }
+                ],
+                "wear_location": "around the wrist",
+                "item_type": null
+              }
             },
             {
               "id": "109468217",
               "name": "a princess-cut bloodjewel bracelet",
-              "browse_price": 250000,
-              "raw_inspect": [
-                "The bracelet can be worn around the wrist.  The bracelet appears to serve some purpose.",
-                "Analysis of a princess-cut bloodjewel bracelet indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the bracelet may be further lightened.",
-                "The bloodjewel bracelet will cost 250,000 coins.",
-                "It is a magical item which could be imbedded with a spell.",
-                "It has 0 charges.  It is rechargeable.",
-                "It could be activated by waving it.",
-                "It will disintegrate after its last magical charge has been expended.",
-                "It is an enhancive item:",
-                "    It provides a boost of 6 to Arcane Symbols Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 28 times.",
-                "    It provides a boost of 7 to Elemental Mana Control Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 28 times.",
-                "    It seems to have a lot of enhancive charges remaining.",
-                "It will crumble into dust after its last enhancive charge has been expended.",
-                "It is a small item, under a pound.",
-                "It is estimated to be worth about 250,000 silvers.",
-                "It has a permanently unlocked loresong by Eyrek."
-              ]
+              "details": {
+                "raw": [
+                  "The bracelet can be worn around the wrist.  The bracelet appears to serve some purpose.",
+                  "Analysis of a princess-cut bloodjewel bracelet indicates the item is free from merchant alteration restrictions.",
+                  "The bloodjewel bracelet will cost 250,000 coins.",
+                  "It is a magical item which could be imbedded with a spell.",
+                  "It has 0 charges.  It is rechargeable.",
+                  "It could be activated by waving it.",
+                  "It will disintegrate after its last magical charge has been expended.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 6 to Arcane Symbols Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 28 times.",
+                  "    It provides a boost of 7 to Elemental Mana Control Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 28 times.",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It will crumble into dust after its last enhancive charge has been expended.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 250,000 silvers.",
+                  "It has a permanently unlocked loresong by Eyrek."
+                ],
+                "tags": [
+                  "purpose",
+                  "imbeddable",
+                  "small"
+                ],
+                "cost": 250000,
+                "worn": "wrist",
+                "activator": "waving",
+                "enhancives": [
+                  {
+                    "boost": 6,
+                    "ability": "Arcane Symbols Bonus",
+                    "level": 28
+                  },
+                  {
+                    "boost": 7,
+                    "ability": "Elemental Mana Control Bonus",
+                    "level": 28
+                  }
+                ],
+                "wear_location": "around the wrist",
+                "is_jewelry": true,
+                "item_type": "jewelry"
+              }
             },
             {
               "id": "109468226",
               "name": "a malachite-set mithril band",
-              "browse_price": 200000,
-              "raw_inspect": [
-                "It is difficult to see the mithril band clearly from this distance.",
-                "The band can be worn around the finger.  The band appears to serve some purpose.",
-                "Analysis of a malachite-set mithril band indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the band may be further lightened.",
-                "The mithril band will cost 200,000 coins.",
-                "It is an enhancive item:",
-                "    It provides a boost of 3 to Magic Item Use Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 8 times.",
-                "    It provides a boost of 5 to Harness Power Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 15 times.",
-                "    It seems to have more than your average dwarf could count enhancive charges remaining.",
-                "It will persist after its last enhancive charge has been expended.",
-                "It is a small item, under a pound.",
-                "It is estimated to be worth about 300,000 silvers.",
-                "It is magic resistant.",
-                "It has a permanently unlocked loresong by Mikyla."
-              ]
+              "details": {
+                "raw": [
+                  "The band can be worn around the finger.  The band appears to serve some purpose.",
+                  "Analysis of a malachite-set mithril band indicates the item is free from merchant alteration restrictions.",
+                  "The mithril band will cost 200,000 coins.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 3 to Magic Item Use Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 8 times.",
+                  "    It provides a boost of 5 to Harness Power Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 15 times.",
+                  "    It seems to have more than your average dwarf could count enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 300,000 silvers.",
+                  "It is magic resistant.",
+                  "It has a permanently unlocked loresong by Mikyla."
+                ],
+                "tags": [
+                  "purpose",
+                  "persists",
+                  "small",
+                  "magic_resistant"
+                ],
+                "cost": 200000,
+                "worn": "finger",
+                "enhancives": [
+                  {
+                    "boost": 3,
+                    "ability": "Magic Item Use Bonus",
+                    "level": 8
+                  },
+                  {
+                    "boost": 5,
+                    "ability": "Harness Power Bonus",
+                    "level": 15
+                  }
+                ],
+                "wear_location": "around the finger",
+                "item_type": null
+              }
             },
             {
               "id": "109468213",
               "name": "a tooled platinum stickpin",
-              "browse_price": 150000,
-              "raw_inspect": [
-                "The stickpin can be worn anywhere on the body.  The stickpin appears to serve some purpose.",
-                "Analysis of a tooled platinum stickpin indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the stickpin may be further lightened.",
-                "The platinum stickpin will cost 150,000 coins.",
-                "It is a magical item which could be imbedded with a spell.",
-                "It has 0 charges.  It is rechargeable.",
-                "It could be activated by waving it.",
-                "It will persist after its last magical charge has been expended.",
-                "It is an enhancive item:",
-                "    It provides a boost of 7 to Max Stamina.",
-                "    This enhancement may not be used by adventurers who have not trained 28 times.",
-                "    It seems to have a lot of enhancive charges remaining.",
-                "It will crumble into dust after its last enhancive charge has been expended.",
-                "It is a small item, under a pound.",
-                "It is estimated to be worth about 200,000 silvers.",
-                "It has a permanently unlocked loresong by Mikyla."
-              ]
+              "details": {
+                "raw": [
+                  "The stickpin can be worn anywhere on the body.  The stickpin appears to serve some purpose.",
+                  "Analysis of a tooled platinum stickpin indicates the item is free from merchant alteration restrictions.",
+                  "The platinum stickpin will cost 150,000 coins.",
+                  "It is a magical item which could be imbedded with a spell.",
+                  "It has 0 charges.  It is rechargeable.",
+                  "It could be activated by waving it.",
+                  "It will persist after its last magical charge has been expended.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 7 to Max Stamina.",
+                  "    This enhancement may not be used by adventurers who have not trained 28 times.",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It will crumble into dust after its last enhancive charge has been expended.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 200,000 silvers.",
+                  "It has a permanently unlocked loresong by Mikyla."
+                ],
+                "tags": [
+                  "purpose",
+                  "imbeddable",
+                  "small"
+                ],
+                "cost": 150000,
+                "worn": "pin",
+                "activator": "waving",
+                "enhancives": [
+                  {
+                    "boost": 7,
+                    "ability": "Max Stamina",
+                    "level": 28
+                  }
+                ],
+                "wear_location": "anywhere on the body",
+                "item_type": null
+              }
             },
             {
               "id": "109468234",
               "name": "a beryl-inset mithril stickpin",
-              "browse_price": 100000,
-              "raw_inspect": [
-                "The stickpin can be worn anywhere on the body.  The stickpin appears to serve some purpose.",
-                "Analysis of a beryl-inset mithril stickpin indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the stickpin may be further lightened.",
-                "The mithril stickpin will cost 100,000 coins.",
-                "It is a magical item which could be imbedded with a spell.",
-                "It has 0 charges.",
-                "It could be activated by waving it.",
-                "It will persist after its last magical charge has been expended.",
-                "It is an enhancive item:",
-                "    It provides a boost of 3 to Armor Use Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 10 times.",
-                "    It provides a boost of 5 to Stamina Recovery.",
-                "    This enhancement may not be used by adventurers who have not trained 15 times.",
-                "    It seems to have a huge number of enhancive charges remaining.",
-                "It will crumble into dust after its last enhancive charge has been expended.",
-                "It is a small item, under a pound.",
-                "It is estimated to be worth about 450,000 silvers.",
-                "It is magic resistant.",
-                "It has a permanently unlocked loresong by Mikyla."
-              ]
+              "details": {
+                "raw": [
+                  "The stickpin can be worn anywhere on the body.  The stickpin appears to serve some purpose.",
+                  "Analysis of a beryl-inset mithril stickpin indicates the item is free from merchant alteration restrictions.",
+                  "The mithril stickpin will cost 100,000 coins.",
+                  "It is a magical item which could be imbedded with a spell.",
+                  "It has 0 charges.",
+                  "It could be activated by waving it.",
+                  "It will persist after its last magical charge has been expended.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 3 to Armor Use Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 10 times.",
+                  "    It provides a boost of 5 to Stamina Recovery.",
+                  "    This enhancement may not be used by adventurers who have not trained 15 times.",
+                  "    It seems to have a huge number of enhancive charges remaining.",
+                  "It will crumble into dust after its last enhancive charge has been expended.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 450,000 silvers.",
+                  "It is magic resistant.",
+                  "It has a permanently unlocked loresong by Mikyla."
+                ],
+                "tags": [
+                  "purpose",
+                  "imbeddable",
+                  "small",
+                  "magic_resistant"
+                ],
+                "cost": 100000,
+                "worn": "pin",
+                "activator": "waving",
+                "enhancives": [
+                  {
+                    "boost": 3,
+                    "ability": "Armor Use Bonus",
+                    "level": 10
+                  },
+                  {
+                    "boost": 5,
+                    "ability": "Stamina Recovery",
+                    "level": 15
+                  }
+                ],
+                "wear_location": "anywhere on the body",
+                "item_type": null
+              }
             },
             {
               "id": "109468240",
               "name": "a gornar quoit",
-              "browse_price": 200000,
-              "raw_inspect": [
-                "The quoit is a quoit that requires skill in thrown weapons to use effectively.",
-                "It looks like this item has been mainly crafted out of gornar, a rare metal.  This material cannot be dyed.",
-                "Analysis of a gornar quoit indicates the item has certain alteration restrictions.  This material cannot be dyed.",
-                "You can tell that the quoit is as light as it can get.",
-                "The gornar quoit will cost 200,000 coins.",
-                "It imparts a bonus of +5 more than usual.",
-                "It has been infused with the power of an earth elemental.",
-                "It is an enhancive item:",
-                "    It provides a boost of 4 to Discipline Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 22 times.",
-                "    It provides a boost of 6 to Ambush Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 13 times.",
-                "    It seems to have a lot of enhancive charges remaining.",
-                "It will persist after its last enhancive charge has been expended.",
-                "It appears to weigh about 2 pounds.",
-                "It is estimated to be worth about 400,000 silvers.",
-                "It is predominantly crafted of gornar.",
-                "It is a simple project (61 difficulty) for an adventurer to modify.",
-                "It has a permanently unlocked loresong by Mikyla."
-              ]
+              "details": {
+                "raw": [
+                  "The quoit is a quoit that requires skill in thrown weapons to use effectively.",
+                  "It looks like this item has been mainly crafted out of gornar, a rare metal.  This material cannot be dyed.",
+                  "Analysis of a gornar quoit indicates the item has certain alteration restrictions.  This material cannot be dyed.",
+                  "You can tell that the quoit is as light as it can get.",
+                  "The gornar quoit will cost 200,000 coins.",
+                  "It imparts a bonus of +5 more than usual.",
+                  "It has been infused with the power of an earth elemental.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 4 to Discipline Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 22 times.",
+                  "    It provides a boost of 6 to Ambush Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 13 times.",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It appears to weigh about 2 pounds.",
+                  "It is estimated to be worth about 400,000 silvers.",
+                  "It is predominantly crafted of gornar.",
+                  "It is a simple project (61 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Mikyla."
+                ],
+                "tags": [
+                  "max_light",
+                  "persists"
+                ],
+                "cost": 200000,
+                "enchant": 5,
+                "material": "gornar",
+                "skill": "thrown weapons",
+                "flare": "the power of an earth elemental",
+                "weight": 2,
+                "enhancives": [
+                  {
+                    "boost": 4,
+                    "ability": "Discipline Bonus",
+                    "level": 22
+                  },
+                  {
+                    "boost": 6,
+                    "ability": "Ambush Bonus",
+                    "level": 13
+                  }
+                ],
+                "is_weapon": true,
+                "weapon_type": "thrown weapons",
+                "flares": [
+                  "the power of an earth elemental"
+                ],
+                "item_type": "weapon"
+              }
             },
             {
               "id": "109468242",
               "name": "a fine imflass lance",
-              "browse_price": 1000000,
-              "raw_inspect": [
-                "The lance is a lance that requires skill in polearms to use effectively.",
-                "It looks like this item has been mainly crafted out of imflass, an uncommon metal.",
-                "Analysis of a fine imflass lance indicates the item is free from merchant alteration restrictions.",
-                "You might be able to have a talented merchant lighten the imflass lance for you.",
-                "The imflass lance will cost 1,000,000 coins.",
-                "It imparts a bonus of +12 more than usual.",
-                "It is an enhancive item:",
-                "    It provides a boost of 5 to Agility Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 33 times.",
-                "    It provides a boost of 9 to Stamina Recovery.",
-                "    This enhancement may not be used by adventurers who have not trained 27 times.",
-                "    It provides a boost of 4 to Stalking and Hiding Ranks.",
-                "    This enhancement may not be used by adventurers who have not trained 14 times.",
-                "    It seems to have a lot of enhancive charges remaining.",
-                "It will persist after its last enhancive charge has been expended.",
-                "It appears to weigh about 10 pounds.",
-                "It is estimated to be worth about 1,050,000 silvers.",
-                "It is predominantly crafted of imflass.",
-                "It is a simple project (71 difficulty) for an adventurer to modify.",
-                "It has a permanently unlocked loresong by Mikyla."
-              ]
+              "details": {
+                "raw": [
+                  "The lance is a lance that requires skill in polearms to use effectively.",
+                  "It looks like this item has been mainly crafted out of imflass, an uncommon metal.",
+                  "Analysis of a fine imflass lance indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the imflass lance for you.",
+                  "The imflass lance will cost 1,000,000 coins.",
+                  "It imparts a bonus of +12 more than usual.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 5 to Agility Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 33 times.",
+                  "    It provides a boost of 9 to Stamina Recovery.",
+                  "    This enhancement may not be used by adventurers who have not trained 27 times.",
+                  "    It provides a boost of 4 to Stalking and Hiding Ranks.",
+                  "    This enhancement may not be used by adventurers who have not trained 14 times.",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It appears to weigh about 10 pounds.",
+                  "It is estimated to be worth about 1,050,000 silvers.",
+                  "It is predominantly crafted of imflass.",
+                  "It is a simple project (71 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Mikyla."
+                ],
+                "tags": [
+                  "lightenable",
+                  "persists"
+                ],
+                "cost": 1000000,
+                "enchant": 12,
+                "material": "imflass",
+                "skill": "polearms",
+                "weight": 10,
+                "enhancives": [
+                  {
+                    "boost": 5,
+                    "ability": "Agility Bonus",
+                    "level": 33
+                  },
+                  {
+                    "boost": 9,
+                    "ability": "Stamina Recovery",
+                    "level": 27
+                  },
+                  {
+                    "boost": 4,
+                    "ability": "Stalking and Hiding Ranks",
+                    "level": 14
+                  }
+                ],
+                "item_type": null
+              }
             },
             {
               "id": "109468241",
               "name": "a vaalorn rapier",
-              "browse_price": 200000,
-              "raw_inspect": [
-                "The rapier is a rapier that requires skill in edged weapons to use effectively.",
-                "It looks like this item has been mainly crafted out of vaalorn, a rare metal.  This material cannot be dyed.",
-                "Analysis of a vaalorn rapier indicates the item has certain alteration restrictions.  This material cannot be dyed.",
-                "You can tell that the rapier is as light as it can get.",
-                "The vaalorn rapier will cost 200,000 coins.",
-                "It imparts a bonus of +18 more than usual.",
-                "It has been infused with the power of a corrosive substance.",
-                "It is an enhancive item:",
-                "    It provides a boost of 5 to Edged Weapons Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 9 times.",
-                "    It seems to have a huge number of enhancive charges remaining.",
-                "It will persist after its last enhancive charge has been expended.",
-                "It appears to weigh about 2 pounds.",
-                "It is estimated to be worth about 300,000 silvers.",
-                "It is predominantly crafted of vaalorn.",
-                "It is a basic project (120 difficulty) for an adventurer to modify.",
-                "It has a permanently unlocked loresong by Mikyla."
-              ]
+              "details": {
+                "raw": [
+                  "The rapier is a rapier that requires skill in edged weapons to use effectively.",
+                  "It looks like this item has been mainly crafted out of vaalorn, a rare metal.  This material cannot be dyed.",
+                  "Analysis of a vaalorn rapier indicates the item has certain alteration restrictions.  This material cannot be dyed.",
+                  "You can tell that the rapier is as light as it can get.",
+                  "The vaalorn rapier will cost 200,000 coins.",
+                  "It imparts a bonus of +18 more than usual.",
+                  "It has been infused with the power of a corrosive substance.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 5 to Edged Weapons Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 9 times.",
+                  "    It seems to have a huge number of enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It appears to weigh about 2 pounds.",
+                  "It is estimated to be worth about 300,000 silvers.",
+                  "It is predominantly crafted of vaalorn.",
+                  "It is a basic project (120 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Mikyla."
+                ],
+                "tags": [
+                  "max_light",
+                  "persists"
+                ],
+                "cost": 200000,
+                "enchant": 18,
+                "material": "vaalorn",
+                "skill": "edged weapons",
+                "flare": "the power of a corrosive substance",
+                "weight": 2,
+                "enhancives": [
+                  {
+                    "boost": 5,
+                    "ability": "Edged Weapons Bonus",
+                    "level": 9
+                  }
+                ],
+                "is_weapon": true,
+                "weapon_type": "edged weapons",
+                "flares": [
+                  "the power of a corrosive substance"
+                ],
+                "item_type": "weapon"
+              }
             }
           ]
         }
@@ -4284,6 +4635,7 @@
                 "tags": [
                   "max_deep",
                   "max_light",
+                  "container",
                   "container",
                   "container"
                 ],
@@ -4460,6 +4812,7 @@
                   "The beehive-shaped bag will cost 30,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -6767,6 +7120,7 @@
                   "max_light",
                   "deepenable",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -6790,6 +7144,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container",
                   "container"
                 ],
@@ -6815,6 +7170,7 @@
                   "The black leather pants will cost 15,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -6843,6 +7199,7 @@
                   "purpose",
                   "lightenable",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -6868,6 +7225,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container"
                 ],
@@ -6895,6 +7253,7 @@
                   "purpose",
                   "lightenable",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -6920,6 +7279,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container"
                 ],
@@ -6947,6 +7307,7 @@
                   "max_light",
                   "deepenable",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -6973,6 +7334,7 @@
                   "max_light",
                   "deepenable",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -6998,6 +7360,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container"
                 ],
@@ -7026,6 +7389,7 @@
                   "max_light",
                   "deepenable",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -7052,6 +7416,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container"
                 ],
@@ -7561,6 +7926,7 @@
                   "purpose",
                   "lightenable",
                   "persists",
+                  "container",
                   "container",
                   "container"
                 ],
@@ -9911,6 +10277,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container",
                   "container"
                 ],
@@ -15995,6 +16362,7 @@
                   "max_deep",
                   "max_light",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 11111111,
@@ -16077,6 +16445,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container",
                   "container"
                 ],
@@ -19232,6 +19601,7 @@
                   "max_deep",
                   "max_light",
                   "small",
+                  "container",
                   "container",
                   "container"
                 ],
@@ -24070,6 +24440,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -24094,6 +24465,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -24120,6 +24492,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -24144,6 +24517,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -24170,6 +24544,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -24194,6 +24569,7 @@
                   "The glass jar will cost 75,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -24220,6 +24596,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -24244,6 +24621,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -24270,6 +24648,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -24294,6 +24673,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -24320,6 +24700,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -24344,6 +24725,7 @@
                   "The glass jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -24370,6 +24752,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -24394,6 +24777,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -24420,6 +24804,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -24444,6 +24829,7 @@
                   "The glass jar will cost 75,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -24470,6 +24856,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -24494,6 +24881,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -24567,6 +24955,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -24719,6 +25108,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -24743,6 +25133,7 @@
                   "The glass jar will cost 35,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -24769,6 +25160,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -24793,6 +25185,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -24819,6 +25212,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -24843,6 +25237,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -24869,6 +25264,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -24893,6 +25289,7 @@
                   "The glass jar will cost 75,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -24919,6 +25316,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -24943,6 +25341,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -24969,6 +25368,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -24993,6 +25393,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -25019,6 +25420,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -25043,6 +25445,7 @@
                   "The glass jar will cost 75,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -25069,6 +25472,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -25094,6 +25498,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -25118,6 +25523,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -27986,6 +28392,7 @@
                   "The wicker basket will cost 3,500,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
