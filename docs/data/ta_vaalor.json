@@ -1,16 +1,45 @@
 {
-  "created_at": "2026-06-10 14:59:59 UTC",
-  "run_time": "02m 14s",
+  "created_at": "2026-06-10 18:33:23 UTC",
+  "run_time": "02m 37s",
   "town": "Ta'Vaalor,",
   "shops": [
     {
-      "preamble": "Kaelyr's Shop is located in [Guardian Keep, Outer Wall] at a simple shop with a thick granite roof, and is currently open for business.",
+      "preamble": "Vellani's Shop is located in [Guardian Keep, Outer Wall] at a multicolored silk tent, and is currently open for business.",
       "town": "Ta'Vaalor,",
       "id": "1",
-      "shop_owner": "Kaelyr",
+      "shop_owner": "Vellani",
       "inv": [
         {
           "room_title": "Kaelyr's Magic Shoppe",
+          "branch": "entry",
+          "items": [
+
+          ]
+        },
+        {
+          "room_title": "Kaelyr's Armory",
+          "branch": "east",
+          "items": [
+
+          ]
+        },
+        {
+          "room_title": "Kaelyr's Magic Shoppe",
+          "branch": "west",
+          "items": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "preamble": "Kaelyr's Shop is located in [Guardian Keep, Outer Wall] at a simple shop with a thick granite roof, and is currently open for business.",
+      "town": "Ta'Vaalor,",
+      "id": "2",
+      "shop_owner": "Kaelyr",
+      "inv": [
+        {
+          "room_title": "Corant's General Store",
           "branch": "entry",
           "items": [
             {
@@ -677,13 +706,7 @@
                 "wear_location": "around the finger",
                 "item_type": null
               }
-            }
-          ]
-        },
-        {
-          "room_title": "Kaelyr's Armory",
-          "branch": "east",
-          "items": [
+            },
             {
               "id": "95970557",
               "name": "a nacreous disir feather",
@@ -1410,13 +1433,7 @@
                 "sighting": "unknown",
                 "item_type": "weapon"
               }
-            }
-          ]
-        },
-        {
-          "room_title": "Kaelyr's Magic Shoppe",
-          "branch": "west",
-          "items": [
+            },
             {
               "id": "95970545",
               "name": "a copper and fire opal earring",
@@ -1796,8 +1813,6 @@
                   "max_deep",
                   "max_light",
                   "small",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 250000,
@@ -2095,11 +2110,11 @@
     {
       "preamble": "Corant's Shop is located in [Guardian Keep, Outer Wall] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "2",
+      "id": "3",
       "shop_owner": "Corant",
       "inv": [
         {
-          "room_title": "Corant's General Store",
+          "room_title": "A Nalfein's Kiss",
           "branch": "entry",
           "items": [
             {
@@ -2265,17 +2280,39 @@
               }
             }
           ]
+        },
+        {
+          "room_title": "A Nalfein's Favor",
+          "branch": "north",
+          "items": [
+
+          ],
+          "sign": [
+            "Written on a jade-inset silver sign:",
+            "The leathers for sale here have been heavily padded against critical blows."
+          ]
+        },
+        {
+          "room_title": "A Nalfein's Embrace",
+          "branch": "east",
+          "items": [
+
+          ],
+          "sign": [
+            "Written on a jade-inset silver sign:",
+            "I have provided a small amount of specialty weaving items for your needs in the form of the glass encased bugs that I have for sale."
+          ]
         }
       ]
     },
     {
       "preamble": "Jiarine's Shop is located in [Guardian Keep, Outer Wall] at an airy crimson brocade pavilion with billowing bronze-edged curtains, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "3",
+      "id": "4",
       "shop_owner": "Jiarine",
       "inv": [
         {
-          "room_title": "A Nalfein's Kiss",
+          "room_title": "Hnarl's General Store",
           "branch": "entry",
           "items": [
             {
@@ -2725,13 +2762,7 @@
                 "wear_location": "around the neck",
                 "item_type": null
               }
-            }
-          ]
-        },
-        {
-          "room_title": "A Nalfein's Favor",
-          "branch": "north",
-          "items": [
+            },
             {
               "id": "115322",
               "name": "a miniature brown frigate",
@@ -3041,17 +3072,7 @@
                 "cost": 250000,
                 "item_type": null
               }
-            }
-          ],
-          "sign": [
-            "Written on a jade-inset silver sign:",
-            "The leathers for sale here have been heavily padded against critical blows."
-          ]
-        },
-        {
-          "room_title": "A Nalfein's Embrace",
-          "branch": "east",
-          "items": [
+            },
             {
               "id": "115301",
               "name": "a petrified tea leaf-shaped pastry",
@@ -3304,8 +3325,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -3571,25 +3590,6 @@
             }
           ],
           "sign": [
-            "Written on a jade-inset silver sign:",
-            "I have provided a small amount of specialty weaving items for your needs in the form of the glass encased bugs that I have for sale."
-          ]
-        }
-      ]
-    },
-    {
-      "preamble": "Hnarl's Shop is located in [Guardian Keep, Outer Wall] at a simple shop, and is currently open for business.",
-      "town": "Ta'Vaalor,",
-      "id": "4",
-      "shop_owner": "Hnarl",
-      "inv": [
-        {
-          "room_title": "Hnarl's General Store",
-          "branch": "entry",
-          "items": [
-
-          ],
-          "sign": [
             "Written on a large sign:",
             "Welcome and Coming Soon!"
           ]
@@ -3611,13 +3611,28 @@
       ]
     },
     {
-      "preamble": "Ayelish's Shop is located in [Guardian Keep, Outer Wall] at a pale red watered silk pavilion with a textured blue silk canopy, and is currently open for business.",
+      "preamble": "Hnarl's Shop is located in [Guardian Keep, Outer Wall] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
       "id": "5",
-      "shop_owner": "Ayelish",
+      "shop_owner": "Hnarl",
       "inv": [
         {
           "room_title": "Ayelish's General Store",
+          "branch": "entry",
+          "items": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "preamble": "Ayelish's Shop is located in [Guardian Keep, Outer Wall] at a pale red watered silk pavilion with a textured blue silk canopy, and is currently open for business.",
+      "town": "Ta'Vaalor,",
+      "id": "6",
+      "shop_owner": "Ayelish",
+      "inv": [
+        {
+          "room_title": "Neraes's Armory",
           "branch": "entry",
           "items": [
             {
@@ -3644,11 +3659,11 @@
     {
       "preamble": "Kahmmii's Shop is located in [Guardian Keep, Outer Wall] at a modest white brocade tent with an emerald green brocade canopy, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "6",
+      "id": "7",
       "shop_owner": "Kahmmii",
       "inv": [
         {
-          "room_title": "Neraes's Armory",
+          "room_title": "Mikyla's Magic Shoppe",
           "branch": "entry",
           "items": [
 
@@ -3659,11 +3674,11 @@
     {
       "preamble": "Neraes's Shop is located in [Guardian Keep, Outer Wall] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "7",
+      "id": "8",
       "shop_owner": "Neraes",
       "inv": [
         {
-          "room_title": "Mikyla's Magic Shoppe",
+          "room_title": "Rachil's General Store",
           "branch": "entry",
           "items": [
             {
@@ -3844,11 +3859,11 @@
     {
       "preamble": "Mikyla's Shop is located in [Guardian Keep, Outer Wall] at a pale crimson silk tent, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "8",
+      "id": "9",
       "shop_owner": "Mikyla",
       "inv": [
         {
-          "room_title": "Rachil's General Store",
+          "room_title": "Rulli's General Store",
           "branch": "entry",
           "items": [
             {
@@ -4518,23 +4533,8 @@
     {
       "preamble": "Rachil's Shop is located in [Guardian Keep, Outer Wall] at a golden watered silk pavilion, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "9",
-      "shop_owner": "Rachil",
-      "inv": [
-        {
-          "room_title": "Rulli's General Store",
-          "branch": "entry",
-          "items": [
-
-          ]
-        }
-      ]
-    },
-    {
-      "preamble": "Rulli's Shop is located in [Guardian Keep, Outer Wall] at a simple shop, and is currently open for business.",
-      "town": "Ta'Vaalor,",
       "id": "10",
-      "shop_owner": "Rulli",
+      "shop_owner": "Rachil",
       "inv": [
         {
           "room_title": "Raxl's General Store",
@@ -4546,10 +4546,10 @@
       ]
     },
     {
-      "preamble": "Raxl's Shop is located in [Guardian Keep, Outer Wall] at a modest white brocade tent with a textured grey silk canopy, and is currently open for business.",
+      "preamble": "Rulli's Shop is located in [Guardian Keep, Outer Wall] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
       "id": "11",
-      "shop_owner": "Raxl",
+      "shop_owner": "Rulli",
       "inv": [
         {
           "room_title": "Remisse's General Store",
@@ -4597,13 +4597,35 @@
       ]
     },
     {
-      "preamble": "Remisse's Shop is located in [Guardian Keep, Outer Wall] at a modest white brocade tent with a large crimson silk canopy, and is currently open for business.",
+      "preamble": "Raxl's Shop is located in [Guardian Keep, Outer Wall] at a modest white brocade tent with a textured grey silk canopy, and is currently open for business.",
       "town": "Ta'Vaalor,",
       "id": "12",
-      "shop_owner": "Remisse",
+      "shop_owner": "Raxl",
       "inv": [
         {
           "room_title": "The Rose And Thorn",
+          "branch": "entry",
+          "items": [
+
+          ],
+          "sign": [
+            "Written on a golden oak wares sign:",
+            "@--;-- Welcome to The Rose and Thorn  --;--@",
+            "Many choices of robes of varying type, priced accourdingly. Some are metamorphic, some are climatewear. Please be sure to look at them closely.",
+            "The plum silk gown and dress are by Joola.",
+            "The bliaut and cotehardie are Metallic."
+          ]
+        }
+      ]
+    },
+    {
+      "preamble": "Remisse's Shop is located in [Guardian Keep, Outer Wall] at a modest white brocade tent with a large crimson silk canopy, and is currently open for business.",
+      "town": "Ta'Vaalor,",
+      "id": "13",
+      "shop_owner": "Remisse",
+      "inv": [
+        {
+          "room_title": "Daevian's Armory",
           "branch": "entry",
           "items": [
             {
@@ -5766,13 +5788,20 @@
                 "item_type": null
               }
             }
-          ],
-          "sign": [
-            "Written on a golden oak wares sign:",
-            "@--;-- Welcome to The Rose and Thorn  --;--@",
-            "Many choices of robes of varying type, priced accourdingly. Some are metamorphic, some are climatewear. Please be sure to look at them closely.",
-            "The plum silk gown and dress are by Joola.",
-            "The bliaut and cotehardie are Metallic."
+          ]
+        },
+        {
+          "room_title": "Daevian's General Store",
+          "branch": "north",
+          "items": [
+
+          ]
+        },
+        {
+          "room_title": "Daevian's General Store",
+          "branch": "east",
+          "items": [
+
           ]
         }
       ]
@@ -5780,11 +5809,11 @@
     {
       "preamble": "Avawren's Shop is located in [Guardian Keep, Outer Wall] at a bloom-covered cozy bungalow with a thatched grass roof, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "13",
+      "id": "14",
       "shop_owner": "Avawren",
       "inv": [
         {
-          "room_title": "Daevian's Armory",
+          "room_title": "Temarie's Outfitting",
           "branch": "entry",
           "items": [
             {
@@ -5838,34 +5867,24 @@
               }
             }
           ]
-        },
-        {
-          "room_title": "Daevian's General Store",
-          "branch": "north",
-          "items": [
-
-          ]
-        },
-        {
-          "room_title": "Daevian's General Store",
-          "branch": "east",
-          "items": [
-
-          ]
         }
       ]
     },
     {
       "preamble": "Daevian's Shop is located in [Guardian Keep, Grassy Sward] at a tri-peaked grey brocade tent, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "14",
+      "id": "15",
       "shop_owner": "Daevian",
       "inv": [
         {
-          "room_title": "Temarie's Outfitting",
+          "room_title": "Qalael's Armory",
           "branch": "entry",
           "items": [
 
+          ],
+          "sign": [
+            "Written on a sturdy mahogany sign:",
+            "All bundles of talons sold are of magnificent quality"
           ]
         }
       ]
@@ -5873,11 +5892,11 @@
     {
       "preamble": "Zayp's Shop is located in [Guardian Keep, Grassy Sward] at a pale crimson silk tent with a golden brocade canopy, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "15",
+      "id": "16",
       "shop_owner": "Zayp",
       "inv": [
         {
-          "room_title": "Qalael's Armory",
+          "room_title": "Seazarius' Armory",
           "branch": "entry",
           "items": [
             {
@@ -5922,25 +5941,6 @@
                 "item_type": "jewelry"
               }
             }
-          ],
-          "sign": [
-            "Written on a sturdy mahogany sign:",
-            "All bundles of talons sold are of magnificent quality"
-          ]
-        }
-      ]
-    },
-    {
-      "preamble": "Aidreus's Shop is located in [Guardian Keep, Grassy Sward] at a golden watered silk pavilion with a large crimson silk canopy, and is currently open for business.",
-      "town": "Ta'Vaalor,",
-      "id": "16",
-      "shop_owner": "Aidreus",
-      "inv": [
-        {
-          "room_title": "Seazarius' Armory",
-          "branch": "entry",
-          "items": [
-
           ],
           "sign": [
             "Written on a sea blue wave-etched sign:",
@@ -5988,13 +5988,56 @@
       ]
     },
     {
-      "preamble": "Temarie's Shop is located in [Guardian Keep, Grassy Sward] at a golden watered silk pavilion, and is currently open for business.",
+      "preamble": "Aidreus's Shop is located in [Guardian Keep, Grassy Sward] at a golden watered silk pavilion with a large crimson silk canopy, and is currently open for business.",
       "town": "Ta'Vaalor,",
       "id": "17",
-      "shop_owner": "Temarie",
+      "shop_owner": "Aidreus",
       "inv": [
         {
           "room_title": "The Alliance's Supply Center",
+          "branch": "entry",
+          "items": [
+
+          ],
+          "sign": [
+            "Written on a golden oak wares sign:",
+            "Chrisms will be restocked soon",
+            "Faewood arrows are master fletched, Vaalin-banded are plain 4x",
+            "Pins have spells in them",
+            "Notes can be used for L/D your containers",
+            "Parchments are Bravery rune tattoos"
+          ]
+        },
+        {
+          "room_title": "The Alliance's Supply Center",
+          "branch": "east",
+          "items": [
+
+          ],
+          "sign": [
+            "Written on a golden oak wares sign:",
+            "The pieces of parchment in the box are temporary tattoos. READ them for directions.",
+            "Pouches are UNLOCKED super secure gem pouches.",
+            "Mantle holds 120 lbs."
+          ]
+        },
+        {
+          "room_title": "The Alliance's Supply Center",
+          "branch": "south",
+          "items": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "preamble": "Temarie's Shop is located in [Guardian Keep, Grassy Sward] at a golden watered silk pavilion, and is currently open for business.",
+      "town": "Ta'Vaalor,",
+      "id": "18",
+      "shop_owner": "Temarie",
+      "inv": [
+        {
+          "room_title": "Qiana's General Store",
           "branch": "entry",
           "items": [
             {
@@ -6220,34 +6263,6 @@
                 "item_type": null
               }
             }
-          ],
-          "sign": [
-            "Written on a golden oak wares sign:",
-            "Chrisms will be restocked soon",
-            "Faewood arrows are master fletched, Vaalin-banded are plain 4x",
-            "Pins have spells in them",
-            "Notes can be used for L/D your containers",
-            "Parchments are Bravery rune tattoos"
-          ]
-        },
-        {
-          "room_title": "The Alliance's Supply Center",
-          "branch": "east",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on a golden oak wares sign:",
-            "The pieces of parchment in the box are temporary tattoos. READ them for directions.",
-            "Pouches are UNLOCKED super secure gem pouches.",
-            "Mantle holds 120 lbs."
-          ]
-        },
-        {
-          "room_title": "The Alliance's Supply Center",
-          "branch": "south",
-          "items": [
-
           ]
         }
       ]
@@ -6255,11 +6270,11 @@
     {
       "preamble": "Qalael's Shop is located in [Guardian Keep, Grassy Sward] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "18",
+      "id": "19",
       "shop_owner": "Qalael",
       "inv": [
         {
-          "room_title": "Qiana's General Store",
+          "room_title": "Esana's General Store",
           "branch": "entry",
           "items": [
             {
@@ -6372,11 +6387,11 @@
     {
       "preamble": "Seazarius's Shop is located in [Guardian Keep, Grassy Sward] at a modest white brocade tent, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "19",
+      "id": "20",
       "shop_owner": "Seazarius",
       "inv": [
         {
-          "room_title": "Esana's General Store",
+          "room_title": "Althamae's General Store",
           "branch": "entry",
           "items": [
             {
@@ -7984,17 +7999,31 @@
               }
             }
           ]
+        },
+        {
+          "room_title": "Althamae's General Store",
+          "branch": "north",
+          "items": [
+
+          ]
+        },
+        {
+          "room_title": "Althamae's General Store",
+          "branch": "east",
+          "items": [
+
+          ]
         }
       ]
     },
     {
       "preamble": "Nihrvanah's Shop is located in [Guardian Keep, Grassy Sward] at an aureate silk and satin tent with crimson-winged fire faeries embroidered on the canopy, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "20",
+      "id": "21",
       "shop_owner": "Nihrvanah",
       "inv": [
         {
-          "room_title": "Althamae's General Store",
+          "room_title": "Anedrin's General Store",
           "branch": "entry",
           "items": [
             {
@@ -9589,43 +9618,14 @@
               }
             }
           ]
-        },
-        {
-          "room_title": "Althamae's General Store",
-          "branch": "north",
-          "items": [
-
-          ]
-        },
-        {
-          "room_title": "Althamae's General Store",
-          "branch": "east",
-          "items": [
-
-          ]
         }
       ]
     },
     {
       "preamble": "Qiana's Shop is located in [Guardian Keep, Grassy Sward] at a modest white brocade tent with a large crimson silk canopy, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "21",
-      "shop_owner": "Qiana",
-      "inv": [
-        {
-          "room_title": "Anedrin's General Store",
-          "branch": "entry",
-          "items": [
-
-          ]
-        }
-      ]
-    },
-    {
-      "preamble": "Esana's Shop is located in [Guardian Keep, Grassy Sward] at a simple shop, and is currently open for business.",
-      "town": "Ta'Vaalor,",
       "id": "22",
-      "shop_owner": "Esana",
+      "shop_owner": "Qiana",
       "inv": [
         {
           "room_title": "Kwaldor's Weaponry",
@@ -9662,10 +9662,10 @@
       ]
     },
     {
-      "preamble": "Althamae's Shop is located in [Guardian Keep, Grassy Sward] at a simple shop, and is currently open for business.",
+      "preamble": "Esana's Shop is located in [Guardian Keep, Grassy Sward] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
       "id": "23",
-      "shop_owner": "Althamae",
+      "shop_owner": "Esana",
       "inv": [
         {
           "room_title": "Baelhar's Weaponry",
@@ -9695,10 +9695,10 @@
       ]
     },
     {
-      "preamble": "Anedrin's Shop is located in [Guardian Keep, Grassy Sward] at a dark blue silk tent with a multicolored silk canopy, and is currently open for business.",
+      "preamble": "Althamae's Shop is located in [Guardian Keep, Grassy Sward] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
       "id": "24",
-      "shop_owner": "Anedrin",
+      "shop_owner": "Althamae",
       "inv": [
         {
           "room_title": "Vasstryke's General Store",
@@ -9710,13 +9710,50 @@
       ]
     },
     {
-      "preamble": "Kwaldor's Shop is located in [Guardian Keep, Grassy Sward] at a brilliant white sailcloth shop with a blue twill canopy, and is currently open for business.",
+      "preamble": "Anedrin's Shop is located in [Guardian Keep, Grassy Sward] at a dark blue silk tent with a multicolored silk canopy, and is currently open for business.",
       "town": "Ta'Vaalor,",
       "id": "25",
-      "shop_owner": "Kwaldor",
+      "shop_owner": "Anedrin",
       "inv": [
         {
           "room_title": "Solafrut's Magic Shoppe",
+          "branch": "entry",
+          "items": [
+
+          ],
+          "sign": [
+            "Written on an etched faenor sign:",
+            "Snowball satchel is raffle quality. Unlimited snowballs and can make a snowbank 1x/day.  Wiregrass anklets/bracelets hold 63 mana and ready for Resist Nature."
+          ]
+        },
+        {
+          "room_title": "Solafrut's Weaponry",
+          "branch": "northeast",
+          "items": [
+
+          ],
+          "sign": [
+            "Written on an etched faenor sign:",
+            "mossbark runestaff has 2x acuity flares"
+          ]
+        },
+        {
+          "room_title": "Solafrut's Weaponry",
+          "branch": "northwest",
+          "items": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "preamble": "Kwaldor's Shop is located in [Guardian Keep, Grassy Sward] at a brilliant white sailcloth shop with a blue twill canopy, and is currently open for business.",
+      "town": "Ta'Vaalor,",
+      "id": "26",
+      "shop_owner": "Kwaldor",
+      "inv": [
+        {
+          "room_title": "Rhaviel's Weaponry",
           "branch": "entry",
           "items": [
             {
@@ -11807,26 +11844,10 @@
             }
           ],
           "sign": [
-            "Written on an etched faenor sign:",
-            "Snowball satchel is raffle quality. Unlimited snowballs and can make a snowbank 1x/day.  Wiregrass anklets/bracelets hold 63 mana and ready for Resist Nature."
-          ]
-        },
-        {
-          "room_title": "Solafrut's Weaponry",
-          "branch": "northeast",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on an etched faenor sign:",
-            "mossbark runestaff has 2x acuity flares"
-          ]
-        },
-        {
-          "room_title": "Solafrut's Weaponry",
-          "branch": "northwest",
-          "items": [
-
+            "Written on an engraved wooden sign:",
+            "Weapons and armor have been sung to by a bard",
+            "GET them for the details.",
+            "The yellow letter is a ranger spell prep for 616."
           ]
         }
       ]
@@ -11834,11 +11855,11 @@
     {
       "preamble": "Baelhar's Shop is located in [Guardian Keep, Grassy Sward] at a simple shop with a thick granite roof, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "26",
+      "id": "27",
       "shop_owner": "Baelhar",
       "inv": [
         {
-          "room_title": "Rhaviel's Weaponry",
+          "room_title": "Dorwyn's Outfitting",
           "branch": "entry",
           "items": [
             {
@@ -12261,27 +12282,6 @@
             }
           ],
           "sign": [
-            "Written on an engraved wooden sign:",
-            "Weapons and armor have been sung to by a bard",
-            "GET them for the details.",
-            "The yellow letter is a ranger spell prep for 616."
-          ]
-        }
-      ]
-    },
-    {
-      "preamble": "Vasstryke's Shop is located in [Guardian Keep, Grassy Sward] at a simple shop, and is currently open for business.",
-      "town": "Ta'Vaalor,",
-      "id": "27",
-      "shop_owner": "Vasstryke",
-      "inv": [
-        {
-          "room_title": "Dorwyn's Outfitting",
-          "branch": "entry",
-          "items": [
-
-          ],
-          "sign": [
             "Written on a large sign:",
             "The haubergon is HCP forest armor. Augmented chain base."
           ]
@@ -12311,13 +12311,87 @@
       ]
     },
     {
-      "preamble": "Solafrut's Shop is located in [Guardian Keep, Grassy Sward] at an ornate glass-front shop with a gold-veined marble roof, and is currently open for business.",
+      "preamble": "Vasstryke's Shop is located in [Guardian Keep, Grassy Sward] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
       "id": "28",
-      "shop_owner": "Solafrut",
+      "shop_owner": "Vasstryke",
       "inv": [
         {
           "room_title": "Luethar's Outfitting",
+          "branch": "entry",
+          "items": [
+
+          ],
+          "sign": [
+            "Written on an elegantly carved fel sign:",
+            "Buy things!  Some items are priced for storage."
+          ]
+        },
+        {
+          "room_title": "Luethar's Outfitting",
+          "branch": "north",
+          "items": [
+
+          ]
+        },
+        {
+          "room_title": "Luethar's Combat Gear",
+          "branch": "east",
+          "items": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "preamble": "Mirth's Shop is located in [Guardian Keep, Grassy Sward] at a simple shop, and is currently open for business.",
+      "town": "Ta'Vaalor,",
+      "id": "29",
+      "shop_owner": "Mirth",
+      "inv": [
+        {
+          "room_title": "Lornn's Magic Shoppe",
+          "branch": "entry",
+          "items": [
+
+          ],
+          "sign": [
+            "Written on an elegantly carved fel sign:",
+            "Please contact Kanku or Liinah with any questions about the goods sold."
+          ]
+        },
+        {
+          "room_title": "Lornn's Magic Shoppe",
+          "branch": "east",
+          "items": [
+
+          ],
+          "sign": [
+            "Written on an elegantly carved fel sign:",
+            "Please contact Kanku or Liinah with any questions on goods sold."
+          ]
+        },
+        {
+          "room_title": "Lornn's Magic Shoppe",
+          "branch": "southwest",
+          "items": [
+
+          ],
+          "sign": [
+            "Written on an elegantly carved fel sign:",
+            "Welcome!"
+          ]
+        }
+      ]
+    },
+    {
+      "preamble": "Solafrut's Shop is located in [Guardian Keep, Grassy Sward] at an ornate glass-front shop with a gold-veined marble roof, and is currently open for business.",
+      "town": "Ta'Vaalor,",
+      "id": "30",
+      "shop_owner": "Solafrut",
+      "inv": [
+        {
+          "room_title": "Taulramil's Weaponry",
           "branch": "entry",
           "items": [
             {
@@ -14828,18 +14902,18 @@
           ],
           "sign": [
             "Written on an elegantly carved fel sign:",
-            "Buy things!  Some items are priced for storage."
+            "Welcome to Tauls' Tools's of Terror!"
           ]
         },
         {
-          "room_title": "Luethar's Outfitting",
+          "room_title": "Taulramil's General Store",
           "branch": "north",
           "items": [
 
           ]
         },
         {
-          "room_title": "Luethar's Combat Gear",
+          "room_title": "Taulramil's General Store",
           "branch": "east",
           "items": [
 
@@ -14850,11 +14924,11 @@
     {
       "preamble": "Rhaviel's Shop is located in [Guardian Keep, Grassy Sward] at a multicolored silk tent with a mottled blue canvas canopy, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "29",
+      "id": "31",
       "shop_owner": "Rhaviel",
       "inv": [
         {
-          "room_title": "Lornn's Magic Shoppe",
+          "room_title": "Aureliano's General Store",
           "branch": "entry",
           "items": [
             {
@@ -15296,32 +15370,20 @@
                 "item_type": "weapon"
               }
             }
-          ],
-          "sign": [
-            "Written on an elegantly carved fel sign:",
-            "Please contact Kanku or Liinah with any questions about the goods sold."
           ]
         },
         {
-          "room_title": "Lornn's Magic Shoppe",
+          "room_title": "Aureliano's Magic Shoppe",
+          "branch": "north",
+          "items": [
+
+          ]
+        },
+        {
+          "room_title": "Aureliano's General Store",
           "branch": "east",
           "items": [
 
-          ],
-          "sign": [
-            "Written on an elegantly carved fel sign:",
-            "Please contact Kanku or Liinah with any questions on goods sold."
-          ]
-        },
-        {
-          "room_title": "Lornn's Magic Shoppe",
-          "branch": "southwest",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on an elegantly carved fel sign:",
-            "Welcome!"
           ]
         }
       ]
@@ -15329,11 +15391,11 @@
     {
       "preamble": "Dorwyn's Shop is located in [Guardian Keep, Grassy Sward] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "30",
+      "id": "32",
       "shop_owner": "Dorwyn",
       "inv": [
         {
-          "room_title": "Taulramil's Weaponry",
+          "room_title": "Kakoon's Magic Shoppe",
           "branch": "entry",
           "items": [
             {
@@ -16678,23 +16740,6 @@
               }
             },
             {
-              "id": "105985",
-              "name": "a sparkling whetstone",
-              "details": {
-                "raw": [
-                  "The whetstone can not be worn.",
-                  "It looks like this item has been mainly crafted out of stone, an extremely common material.",
-                  "The sparkling whetstone will cost 99,999 coins."
-                ],
-                "tags": [
-
-                ],
-                "cost": 99999,
-                "material": "stone, an extremely common material",
-                "item_type": null
-              }
-            },
-            {
               "id": "105984",
               "name": "a spidersilk bound weapon harness",
               "details": {
@@ -16916,22 +16961,22 @@
                 "item_type": "armor"
               }
             }
-          ],
-          "sign": [
-            "Written on an elegantly carved fel sign:",
-            "Welcome to Tauls' Tools's of Terror!"
           ]
         },
         {
-          "room_title": "Taulramil's General Store",
-          "branch": "north",
+          "room_title": "Kakoon's Weaponry",
+          "branch": "northeast",
           "items": [
 
+          ],
+          "sign": [
+            "Written on a sturdy mahogany sign:",
+            "Bodysuit is boxfound 4x double leather"
           ]
         },
         {
-          "room_title": "Taulramil's General Store",
-          "branch": "east",
+          "room_title": "Kakoon's Outfitting",
+          "branch": "northwest",
           "items": [
 
           ]
@@ -16941,11 +16986,11 @@
     {
       "preamble": "Luethar's Shop is located in [Guardian Keep, Grassy Sward] at a large ornate velveteen pavilion, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "31",
+      "id": "33",
       "shop_owner": "Luethar",
       "inv": [
         {
-          "room_title": "Aureliano's General Store",
+          "room_title": "Quessara's Armory",
           "branch": "entry",
           "items": [
             {
@@ -18840,20 +18885,40 @@
                 "item_type": null
               }
             }
+          ],
+          "sign": [
+            "Written on a gold-trimmed black imflass sign:",
+            "~Welcome to the Hawk's Nest~",
+            "The wips symbol is a Weatherby symbol and actioned for the worshiper.",
+            "The warpaint makes you look fierce.",
+            "The Hellebore earrings are nicely actioned.",
+            "The wig makes your hair look nice.",
+            "Please TAP and INSPECT and EXAMINE everything."
           ]
         },
         {
-          "room_title": "Aureliano's Magic Shoppe",
-          "branch": "north",
+          "room_title": "Quessara's Outfitting",
+          "branch": "northeast",
           "items": [
 
+          ],
+          "sign": [
+            "Written on a gold-trimmed black imflass sign:",
+            "~Welcome to the Hawk's Nest~",
+            "The scrolls and pages  hold prayers for different occasions.",
+            "Please TAP and INSPECT and EXAMINE everything."
           ]
         },
         {
-          "room_title": "Aureliano's General Store",
-          "branch": "east",
+          "room_title": "Quessara's General Store",
+          "branch": "northwest",
           "items": [
 
+          ],
+          "sign": [
+            "Written on a gold-trimmed black imflass sign:",
+            "~Welcome to the Hawk's Nest~",
+            "Please TAP and INSPECT and EXAMINE everything."
           ]
         }
       ]
@@ -18861,11 +18926,11 @@
     {
       "preamble": "Lornn's Shop is located in [Guardian Keep, Grassy Sward] at a large ornate velveteen pavilion with an elegant red brocade canopy, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "32",
+      "id": "34",
       "shop_owner": "Lornn",
       "inv": [
         {
-          "room_title": "Kakoon's Magic Shoppe",
+          "room_title": "Teveriel's General Store",
           "branch": "entry",
           "items": [
             {
@@ -19950,19 +20015,15 @@
           ]
         },
         {
-          "room_title": "Kakoon's Weaponry",
-          "branch": "northeast",
+          "room_title": "Teveriel's General Store",
+          "branch": "north",
           "items": [
 
-          ],
-          "sign": [
-            "Written on a sturdy mahogany sign:",
-            "Bodysuit is boxfound 4x double leather"
           ]
         },
         {
-          "room_title": "Kakoon's Outfitting",
-          "branch": "northwest",
+          "room_title": "Teveriel's General Store",
+          "branch": "east",
           "items": [
 
           ]
@@ -19972,11 +20033,11 @@
     {
       "preamble": "Taulramil's Shop is located in [Guardian Keep, Grassy Sward] at a golden watered silk pavilion with a large crimson silk canopy, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "33",
+      "id": "35",
       "shop_owner": "Taulramil",
       "inv": [
         {
-          "room_title": "Quessara's Armory",
+          "room_title": "Aostar's Armory",
           "branch": "entry",
           "items": [
             {
@@ -20148,40 +20209,6 @@
                 "item_type": "weapon"
               }
             }
-          ],
-          "sign": [
-            "Written on a gold-trimmed black imflass sign:",
-            "~Welcome to the Hawk's Nest~",
-            "The wips symbol is a Weatherby symbol and actioned for the worshiper.",
-            "The warpaint makes you look fierce.",
-            "The Hellebore earrings are nicely actioned.",
-            "The wig makes your hair look nice.",
-            "Please TAP and INSPECT and EXAMINE everything."
-          ]
-        },
-        {
-          "room_title": "Quessara's Outfitting",
-          "branch": "northeast",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on a gold-trimmed black imflass sign:",
-            "~Welcome to the Hawk's Nest~",
-            "The scrolls and pages  hold prayers for different occasions.",
-            "Please TAP and INSPECT and EXAMINE everything."
-          ]
-        },
-        {
-          "room_title": "Quessara's General Store",
-          "branch": "northwest",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on a gold-trimmed black imflass sign:",
-            "~Welcome to the Hawk's Nest~",
-            "Please TAP and INSPECT and EXAMINE everything."
           ]
         }
       ]
@@ -20189,11 +20216,11 @@
     {
       "preamble": "Aureliano's Shop is located in [Guardian Keep, Inner Wall] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "34",
+      "id": "36",
       "shop_owner": "Aureliano",
       "inv": [
         {
-          "room_title": "Teveriel's General Store",
+          "room_title": "Nhadrin's General Store",
           "branch": "entry",
           "items": [
             {
@@ -20290,66 +20317,6 @@
                   }
                 ],
                 "wear_location": "around the neck",
-                "item_type": null
-              }
-            },
-            {
-              "id": "67622801",
-              "name": "a hammered silver alloy barrette",
-              "details": {
-                "raw": [
-                  "The barrette can be worn in the hair.  The barrette appears to serve some purpose.",
-                  "It looks like this item has been mainly crafted out of silver, an extremely common metal.  This material cannot be dyed.",
-                  "Analysis of a hammered silver alloy barrette indicates the item has certain alteration restrictions.  This material cannot be dyed.",
-                  "The silver alloy barrette will cost 500,000 coins.",
-                  "It is an enhancive item:",
-                  "    It provides a boost of 5 to Dexterity Base.",
-                  "    This enhancement may not be used by adventurers who have not trained 15 times.",
-                  "    It provides a boost of 8 to Swimming Bonus.",
-                  "    This enhancement may not be used by adventurers who have not trained 12 times.",
-                  "    It provides a boost of 3 to Two Weapon Combat Bonus.",
-                  "    This enhancement may not be used by adventurers who have not trained 6 times.",
-                  "    It provides a boost of 5 to Two-Handed Weapons Bonus.",
-                  "    This enhancement may not be used by adventurers who have not trained 15 times.",
-                  "    It seems to have a fair amount of enhancive charges remaining.",
-                  "It will crumble into dust after its last enhancive charge has been expended.",
-                  "It is a small item, under a pound.",
-                  "It is estimated to be worth about 100,000 silvers.",
-                  "It is magic resistant.",
-                  "It is predominantly crafted of silver.",
-                  "It has a permanently unlocked loresong by Vasarias."
-                ],
-                "tags": [
-                  "purpose",
-                  "small",
-                  "magic_resistant"
-                ],
-                "cost": 500000,
-                "material": "silver",
-                "worn": "hair",
-                "enhancives": [
-                  {
-                    "boost": 5,
-                    "ability": "Dexterity Base",
-                    "level": 15
-                  },
-                  {
-                    "boost": 8,
-                    "ability": "Swimming Bonus",
-                    "level": 12
-                  },
-                  {
-                    "boost": 3,
-                    "ability": "Two Weapon Combat Bonus",
-                    "level": 6
-                  },
-                  {
-                    "boost": 5,
-                    "ability": "Two-Handed Weapons Bonus",
-                    "level": 15
-                  }
-                ],
-                "wear_location": "in the hair",
                 "item_type": null
               }
             },
@@ -20770,31 +20737,17 @@
               }
             }
           ]
-        },
-        {
-          "room_title": "Teveriel's General Store",
-          "branch": "north",
-          "items": [
-
-          ]
-        },
-        {
-          "room_title": "Teveriel's General Store",
-          "branch": "east",
-          "items": [
-
-          ]
         }
       ]
     },
     {
       "preamble": "Kakoon's Shop is located in [Guardian Keep, Inner Wall] at a dark blue silk tent with a royal blue brocade canopy, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "35",
+      "id": "37",
       "shop_owner": "Kakoon",
       "inv": [
         {
-          "room_title": "Aostar's Armory",
+          "room_title": "Nebochadnezzar's General Store",
           "branch": "entry",
           "items": [
             {
@@ -20944,134 +20897,6 @@
                 ],
                 "cost": 10000,
                 "item_type": null
-              }
-            },
-            {
-              "id": "116700",
-              "name": "some ornate ora full plate",
-              "details": {
-                "raw": [
-                  "The plate is plate armor that covers the torso, arms, legs, neck, and head.",
-                  "The plate can be worn around the chest.  The plate appears to serve some purpose.",
-                  "It looks like this item has been mainly crafted out of ora, an uncommon metal.",
-                  "Analysis of some ornate ora full plate indicates the item is free from merchant alteration restrictions.",
-                  "You might be able to have a talented merchant lighten the ora full plate for you.",
-                  "The ora full plate will cost 100,000 coins.",
-                  "It imparts a bonus of +10 more than usual.",
-                  "It appears to weigh about 75 pounds.",
-                  "It is estimated to be worth about 93,000 silvers.",
-                  "It is predominantly crafted of ora.",
-                  "It is a simple project (7 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by Krayze."
-                ],
-                "tags": [
-                  "purpose",
-                  "lightenable"
-                ],
-                "cost": 100000,
-                "enchant": 10,
-                "material": "ora",
-                "weight": 75,
-                "worn": "chest",
-                "is_armor": true,
-                "armor_type": "plate",
-                "wear_location": "torso",
-                "item_type": "armor"
-              }
-            },
-            {
-              "id": "116699",
-              "name": "a polished orase runestaff",
-              "details": {
-                "raw": [
-                  "It has a small enchanter's glyph.",
-                  "The runestaff is a rune staff that requires skill in twohanded weapons to use effectively.",
-                  "It looks like this item has been mainly crafted out of orase, an uncommon wood.",
-                  "Analysis of a polished orase runestaff indicates the item is free from merchant alteration restrictions.",
-                  "You might be able to have a talented merchant lighten the orase runestaff for you.",
-                  "The orase runestaff will cost 125,000 coins.",
-                  "It imparts a bonus of +25 more than usual.",
-                  "It has been infused with the power of an ice elemental.",
-                  "It is an enhancive item:",
-                  "    It provides a boost of 4 to Discipline Bonus.",
-                  "    This enhancement may not be used by adventurers who have not trained 22 times.",
-                  "    It seems to have more than your average dwarf could count enhancive charges remaining.",
-                  "It will persist after its last enhancive charge has been expended.",
-                  "It appears to weigh about 4 pounds.",
-                  "It is estimated to be worth about 800,000 silvers.",
-                  "It is predominantly crafted of orase.",
-                  "It is a basic project (164 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by Krayze."
-                ],
-                "tags": [
-                  "lightenable",
-                  "persists"
-                ],
-                "cost": 125000,
-                "enchant": 25,
-                "material": "orase",
-                "skill": "twohanded weapons",
-                "flare": "the power of an ice elemental",
-                "weight": 4,
-                "enhancives": [
-                  {
-                    "boost": 4,
-                    "ability": "Discipline Bonus",
-                    "level": 22
-                  }
-                ],
-                "is_weapon": true,
-                "weapon_type": "twohanded weapons",
-                "flares": [
-                  "the power of an ice elemental"
-                ],
-                "item_type": "weapon"
-              }
-            },
-            {
-              "id": "116698",
-              "name": "a mauve deringo runestaff",
-              "details": {
-                "raw": [
-                  "The runestaff is a rune staff that requires skill in twohanded weapons to use effectively.",
-                  "It looks like this item has been mainly crafted out of deringo, an uncommon wood.",
-                  "Analysis of a mauve deringo runestaff indicates the item is free from merchant alteration restrictions.",
-                  "You might be able to have a talented merchant lighten the deringo runestaff for you.",
-                  "The deringo runestaff will cost 50,000 coins.",
-                  "It imparts a bonus of +8 more than usual.",
-                  "It is a holy item.",
-                  "It is an enhancive item:",
-                  "    It provides a boost of 4 to Spirit Mana Control Ranks.",
-                  "    This enhancement may not be used by adventurers who have not trained 20 times.",
-                  "    It seems to have a huge number of enhancive charges remaining.",
-                  "It will persist after its last enhancive charge has been expended.",
-                  "It appears to weigh about 4 pounds.",
-                  "It is estimated to be worth about 1,850,000 silvers.",
-                  "It is predominantly crafted of deringo.",
-                  "It is a simple project (42 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by Krayze."
-                ],
-                "tags": [
-                  "lightenable",
-                  "holy",
-                  "persists"
-                ],
-                "cost": 50000,
-                "enchant": 8,
-                "material": "deringo",
-                "skill": "twohanded weapons",
-                "weight": 4,
-                "enhancives": [
-                  {
-                    "boost": 4,
-                    "ability": "Spirit Mana Control Ranks",
-                    "level": 20
-                  }
-                ],
-                "is_weapon": true,
-                "weapon_type": "twohanded weapons",
-                "blessing": "holy",
-                "item_type": "weapon"
               }
             },
             {
@@ -21242,54 +21067,6 @@
                 "weapon_type": "blunt weapons",
                 "flares": [
                   "the power of a steaming substance"
-                ],
-                "item_type": "weapon"
-              }
-            },
-            {
-              "id": "116693",
-              "name": "an exquisite mossbark runestaff",
-              "details": {
-                "raw": [
-                  "The runestaff is a rune staff that requires skill in twohanded weapons to use effectively.",
-                  "It looks like this item has been mainly crafted out of mossbark, an uncommon wood.",
-                  "Analysis of an exquisite mossbark runestaff indicates the item is free from merchant alteration restrictions.",
-                  "You can tell that the runestaff is as light as it can get.",
-                  "The mossbark runestaff will cost 150,000 coins.",
-                  "It imparts a bonus of +15 more than usual.",
-                  "It has been infused with the power of an earth elemental.",
-                  "It is an enhancive item:",
-                  "    It provides a boost of 3 to Mana Recovery.",
-                  "    This enhancement may not be used by adventurers who have not trained 12 times.",
-                  "    It seems to have a huge number of enhancive charges remaining.",
-                  "It will persist after its last enhancive charge has been expended.",
-                  "It appears to weigh about 2 pounds.",
-                  "It is estimated to be worth about 400,000 silvers.",
-                  "It is predominantly crafted of mossbark.",
-                  "It is a basic project (121 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by Krayze."
-                ],
-                "tags": [
-                  "max_light",
-                  "persists"
-                ],
-                "cost": 150000,
-                "enchant": 15,
-                "material": "mossbark",
-                "skill": "twohanded weapons",
-                "flare": "the power of an earth elemental",
-                "weight": 2,
-                "enhancives": [
-                  {
-                    "boost": 3,
-                    "ability": "Mana Recovery",
-                    "level": 12
-                  }
-                ],
-                "is_weapon": true,
-                "weapon_type": "twohanded weapons",
-                "flares": [
-                  "the power of an earth elemental"
                 ],
                 "item_type": "weapon"
               }
@@ -23552,6 +23329,32 @@
                 "item_type": "weapon"
               }
             }
+          ],
+          "sign": [
+            "Written on a golden oak wares sign:",
+            "All Jars have 20 of each gem, unsung, for bounty purposes."
+          ]
+        },
+        {
+          "room_title": "Nebochadnezzar's Armory",
+          "branch": "east",
+          "items": [
+
+          ],
+          "sign": [
+            "Written on a golden oak wares sign:",
+            "Random enhancives, Simucoin stuff, and even more gems!"
+          ]
+        },
+        {
+          "room_title": "Nebochadnezzar's General Store",
+          "branch": "west",
+          "items": [
+
+          ],
+          "sign": [
+            "Written on a golden oak wares sign:",
+            "All Jars have 20 of each gem, unsung, for bounty purposes."
           ]
         }
       ]
@@ -23559,11 +23362,11 @@
     {
       "preamble": "Quessara's Shop is located in [Guardian Keep, Inner Wall] at a pale red watered silk pavilion with a golden brocade canopy, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "36",
+      "id": "38",
       "shop_owner": "Quessara",
       "inv": [
         {
-          "room_title": "Nhadrin's General Store",
+          "room_title": "Tallifyr's Magic Shoppe",
           "branch": "entry",
           "items": [
             {
@@ -23807,62 +23610,6 @@
                 "item_type": null
               }
             }
-          ]
-        }
-      ]
-    },
-    {
-      "preamble": "Teveriel's Shop is located in [Guardian Keep, Inner Wall] at a simple shop, and is currently open for business.",
-      "town": "Ta'Vaalor,",
-      "id": "37",
-      "shop_owner": "Teveriel",
-      "inv": [
-        {
-          "room_title": "Nebochadnezzar's General Store",
-          "branch": "entry",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on a golden oak wares sign:",
-            "All Jars have 20 of each gem, unsung, for bounty purposes."
-          ]
-        },
-        {
-          "room_title": "Nebochadnezzar's Armory",
-          "branch": "east",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on a golden oak wares sign:",
-            "Random enhancives, Simucoin stuff, and even more gems!"
-          ]
-        },
-        {
-          "room_title": "Nebochadnezzar's General Store",
-          "branch": "west",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on a golden oak wares sign:",
-            "All Jars have 20 of each gem, unsung, for bounty purposes."
-          ]
-        }
-      ]
-    },
-    {
-      "preamble": "Kencathedrus's Shop is located in [Guardian Keep, Inner Wall] at a simple shop, and is currently open for business.",
-      "town": "Ta'Vaalor,",
-      "id": "38",
-      "shop_owner": "Kencathedrus",
-      "inv": [
-        {
-          "room_title": "Tallifyr's Magic Shoppe",
-          "branch": "entry",
-          "items": [
-
           ],
           "sign": [
             "Written on an elegantly carved fel sign:",
@@ -23876,13 +23623,57 @@
       ]
     },
     {
-      "preamble": "Aostar's Shop is located in [Guardian Keep, Inner Wall] at a golden watered silk pavilion, and is currently open for business.",
+      "preamble": "Teveriel's Shop is located in [Guardian Keep, Inner Wall] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
       "id": "39",
-      "shop_owner": "Aostar",
+      "shop_owner": "Teveriel",
       "inv": [
         {
           "room_title": "Idalias' Magic Shoppe",
+          "branch": "entry",
+          "items": [
+
+          ]
+        },
+        {
+          "room_title": "Idalias' Magic Shoppe",
+          "branch": "east",
+          "items": [
+
+          ]
+        },
+        {
+          "room_title": "Idalias' Weaponry",
+          "branch": "west",
+          "items": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "preamble": "Kencathedrus's Shop is located in [Guardian Keep, Inner Wall] at a simple shop, and is currently open for business.",
+      "town": "Ta'Vaalor,",
+      "id": "40",
+      "shop_owner": "Kencathedrus",
+      "inv": [
+        {
+          "room_title": "Relicor's Weaponry",
+          "branch": "entry",
+          "items": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "preamble": "Aostar's Shop is located in [Guardian Keep, Inner Wall] at a golden watered silk pavilion, and is currently open for business.",
+      "town": "Ta'Vaalor,",
+      "id": "41",
+      "shop_owner": "Aostar",
+      "inv": [
+        {
+          "room_title": "Alsorna's General Store",
           "branch": "entry",
           "items": [
             {
@@ -24665,34 +24456,185 @@
               }
             }
           ]
-        },
-        {
-          "room_title": "Idalias' Magic Shoppe",
-          "branch": "east",
-          "items": [
-
-          ]
-        },
-        {
-          "room_title": "Idalias' Weaponry",
-          "branch": "west",
-          "items": [
-
-          ]
         }
       ]
     },
     {
       "preamble": "Nhadrin's Shop is located in [Guardian Keep, Inner Wall] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "40",
+      "id": "42",
       "shop_owner": "Nhadrin",
       "inv": [
         {
-          "room_title": "Relicor's Weaponry",
+          "room_title": "Kurosubo's General Store",
           "branch": "entry",
           "items": [
+            {
+              "id": "79914011",
+              "name": "a vaalin lockpick",
+              "details": {
+                "raw": [
+                  "The lockpick can not be worn.",
+                  "Analysis of a vaalin lockpick indicates the item is free from merchant alteration restrictions.",
+                  "The vaalin lockpick will cost 400,000 coins."
+                ],
+                "tags": [
 
+                ],
+                "cost": 400000,
+                "item_type": null
+              }
+            },
+            {
+              "id": "113309",
+              "name": "an acid-pitted mithglin backsword",
+              "details": {
+                "raw": [
+                  "The backsword is a backsword that requires skill in edged weapons to use effectively.",
+                  "It looks like this item has been mainly crafted out of mithglin, a rare metal.",
+                  "Analysis of an acid-pitted mithglin backsword indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the mithglin backsword for you.",
+                  "The mithglin backsword will cost 1,000,000 coins.",
+                  "It imparts a bonus of +15 more than usual.",
+                  "It has been infused with the power of a fire elemental.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 12 to Ambush Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 47 times.",
+                  "    It provides a boost of 1 to Spiritual Lore - Blessings Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 1 times.",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It appears to weigh about 4 pounds.",
+                  "It is estimated to be worth about 400,000 silvers.",
+                  "It is predominantly crafted of mithglin.",
+                  "It is a basic project (117 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Zayp."
+                ],
+                "tags": [
+                  "lightenable",
+                  "persists"
+                ],
+                "cost": 1000000,
+                "enchant": 15,
+                "material": "mithglin",
+                "skill": "edged weapons",
+                "flare": "the power of a fire elemental",
+                "weight": 4,
+                "enhancives": [
+                  {
+                    "boost": 12,
+                    "ability": "Ambush Bonus",
+                    "level": 47
+                  },
+                  {
+                    "boost": 1,
+                    "ability": "Spiritual Lore - Blessings Bonus",
+                    "level": 1
+                  }
+                ],
+                "is_weapon": true,
+                "weapon_type": "edged weapons",
+                "flares": [
+                  "the power of a fire elemental"
+                ],
+                "item_type": "weapon"
+              }
+            },
+            {
+              "id": "113308",
+              "name": "a cedar-handled drakar flail",
+              "details": {
+                "raw": [
+                  "The flail is a flail that requires skill in twohanded weapons to use effectively.",
+                  "It looks like this item has been mainly crafted out of drakar, a rare metal.  This material cannot be dyed.",
+                  "Analysis of a cedar-handled drakar flail indicates the item has certain alteration restrictions.  This material cannot be dyed.",
+                  "You might be able to have a talented merchant lighten the drakar flail for you.",
+                  "The drakar flail will cost 100,000 coins.",
+                  "It imparts a bonus of +5 more than usual.",
+                  "It has been infused with the power of a fire elemental.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 3 to Spell Aiming Ranks.",
+                  "    This enhancement may not be used by adventurers who have not trained 12 times.",
+                  "    It provides a boost of 5 to Spirit Mana Control Ranks.",
+                  "    This enhancement may not be used by adventurers who have not trained 30 times.",
+                  "    It provides a boost of 6 to Max Mana.",
+                  "    This enhancement may not be used by adventurers who have not trained 13 times.",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It appears to weigh about 6 pounds.",
+                  "It is estimated to be worth about 1,300,000 silvers.",
+                  "It is predominantly crafted of drakar.",
+                  "It is a simple project (92 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Krayze."
+                ],
+                "tags": [
+                  "lightenable",
+                  "persists"
+                ],
+                "cost": 100000,
+                "enchant": 5,
+                "material": "drakar",
+                "skill": "twohanded weapons",
+                "flare": "the power of a fire elemental",
+                "weight": 6,
+                "enhancives": [
+                  {
+                    "boost": 3,
+                    "ability": "Spell Aiming Ranks",
+                    "level": 12
+                  },
+                  {
+                    "boost": 5,
+                    "ability": "Spirit Mana Control Ranks",
+                    "level": 30
+                  },
+                  {
+                    "boost": 6,
+                    "ability": "Max Mana",
+                    "level": 13
+                  }
+                ],
+                "is_weapon": true,
+                "weapon_type": "twohanded weapons",
+                "flares": [
+                  "the power of a fire elemental"
+                ],
+                "item_type": "weapon"
+              }
+            },
+            {
+              "id": "116700",
+              "name": "some ornate ora full plate",
+              "details": {
+                "raw": [
+                  "The plate is plate armor that covers the torso, arms, legs, neck, and head.",
+                  "The plate can be worn around the chest.  The plate appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of ora, an uncommon metal.",
+                  "Analysis of some ornate ora full plate indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the ora full plate for you.",
+                  "The ora full plate will cost 100,000 coins.",
+                  "It imparts a bonus of +10 more than usual.",
+                  "It appears to weigh about 75 pounds.",
+                  "It is estimated to be worth about 93,000 silvers.",
+                  "It is predominantly crafted of ora.",
+                  "It is a simple project (7 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Krayze."
+                ],
+                "tags": [
+                  "purpose",
+                  "lightenable"
+                ],
+                "cost": 100000,
+                "enchant": 10,
+                "material": "ora",
+                "weight": 75,
+                "worn": "chest",
+                "is_armor": true,
+                "armor_type": "plate",
+                "wear_location": "torso",
+                "item_type": "armor"
+              }
+            }
           ]
         }
       ]
@@ -24700,11 +24642,11 @@
     {
       "preamble": "Nebochadnezzar's Shop is located in [Guardian Keep, Inner Wall] at a modest white brocade tent with a royal blue brocade canopy, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "41",
+      "id": "43",
       "shop_owner": "Nebochadnezzar",
       "inv": [
         {
-          "room_title": "Alsorna's General Store",
+          "room_title": "Idalias' Magic Shoppe",
           "branch": "entry",
           "items": [
             {
@@ -25815,35 +25757,33 @@
               }
             }
           ]
+        },
+        {
+          "room_title": "Idalias' Magic Shoppe",
+          "branch": "east",
+          "items": [
+
+          ]
+        },
+        {
+          "room_title": "Idalias' Weaponry",
+          "branch": "west",
+          "items": [
+
+          ]
         }
       ]
     },
     {
       "preamble": "Tallifyr's Shop is located in [Guardian Keep, Inner Wall] at a golden watered silk pavilion, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "42",
+      "id": "44",
       "shop_owner": "Tallifyr",
       "inv": [
         {
-          "room_title": "Kurosubo's General Store",
+          "room_title": "Relicor's Weaponry",
           "branch": "entry",
           "items": [
-            {
-              "id": "79914011",
-              "name": "a vaalin lockpick",
-              "details": {
-                "raw": [
-                  "The lockpick can not be worn.",
-                  "Analysis of a vaalin lockpick indicates the item is free from merchant alteration restrictions.",
-                  "The vaalin lockpick will cost 400,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "cost": 400000,
-                "item_type": null
-              }
-            },
             {
               "id": "3288528",
               "name": "a hollowed quartz orb",
@@ -25897,7 +25837,7 @@
             {
               "id": "6860552",
               "name": "a heavy quartz orb",
-              "quantity": 23,
+              "quantity": 25,
               "details": {
                 "raw": [
                   "The orb can not be worn.",
@@ -26066,6 +26006,55 @@
               }
             },
             {
+              "id": "116699",
+              "name": "a polished orase runestaff",
+              "details": {
+                "raw": [
+                  "It has a small enchanter's glyph.",
+                  "The runestaff is a rune staff that requires skill in twohanded weapons to use effectively.",
+                  "It looks like this item has been mainly crafted out of orase, an uncommon wood.",
+                  "Analysis of a polished orase runestaff indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the orase runestaff for you.",
+                  "The orase runestaff will cost 125,000 coins.",
+                  "It imparts a bonus of +25 more than usual.",
+                  "It has been infused with the power of an ice elemental.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 4 to Discipline Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 22 times.",
+                  "    It seems to have more than your average dwarf could count enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It appears to weigh about 4 pounds.",
+                  "It is estimated to be worth about 800,000 silvers.",
+                  "It is predominantly crafted of orase.",
+                  "It is a basic project (164 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Krayze."
+                ],
+                "tags": [
+                  "lightenable",
+                  "persists"
+                ],
+                "cost": 125000,
+                "enchant": 25,
+                "material": "orase",
+                "skill": "twohanded weapons",
+                "flare": "the power of an ice elemental",
+                "weight": 4,
+                "enhancives": [
+                  {
+                    "boost": 4,
+                    "ability": "Discipline Bonus",
+                    "level": 22
+                  }
+                ],
+                "is_weapon": true,
+                "weapon_type": "twohanded weapons",
+                "flares": [
+                  "the power of an ice elemental"
+                ],
+                "item_type": "weapon"
+              }
+            },
+            {
               "id": "116761",
               "name": "a large faewood runestaff",
               "details": {
@@ -26188,123 +26177,6 @@
                 "weapon_type": "twohanded weapons",
                 "item_type": "weapon"
               }
-            },
-            {
-              "id": "113309",
-              "name": "an acid-pitted mithglin backsword",
-              "details": {
-                "raw": [
-                  "The backsword is a backsword that requires skill in edged weapons to use effectively.",
-                  "It looks like this item has been mainly crafted out of mithglin, a rare metal.",
-                  "Analysis of an acid-pitted mithglin backsword indicates the item is free from merchant alteration restrictions.",
-                  "You might be able to have a talented merchant lighten the mithglin backsword for you.",
-                  "The mithglin backsword will cost 1,000,000 coins.",
-                  "It imparts a bonus of +15 more than usual.",
-                  "It has been infused with the power of a fire elemental.",
-                  "It is an enhancive item:",
-                  "    It provides a boost of 12 to Ambush Bonus.",
-                  "    This enhancement may not be used by adventurers who have not trained 47 times.",
-                  "    It provides a boost of 1 to Spiritual Lore - Blessings Bonus.",
-                  "    This enhancement may not be used by adventurers who have not trained 1 times.",
-                  "    It seems to have a lot of enhancive charges remaining.",
-                  "It will persist after its last enhancive charge has been expended.",
-                  "It appears to weigh about 4 pounds.",
-                  "It is estimated to be worth about 400,000 silvers.",
-                  "It is predominantly crafted of mithglin.",
-                  "It is a basic project (117 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by Zayp."
-                ],
-                "tags": [
-                  "lightenable",
-                  "persists"
-                ],
-                "cost": 1000000,
-                "enchant": 15,
-                "material": "mithglin",
-                "skill": "edged weapons",
-                "flare": "the power of a fire elemental",
-                "weight": 4,
-                "enhancives": [
-                  {
-                    "boost": 12,
-                    "ability": "Ambush Bonus",
-                    "level": 47
-                  },
-                  {
-                    "boost": 1,
-                    "ability": "Spiritual Lore - Blessings Bonus",
-                    "level": 1
-                  }
-                ],
-                "is_weapon": true,
-                "weapon_type": "edged weapons",
-                "flares": [
-                  "the power of a fire elemental"
-                ],
-                "item_type": "weapon"
-              }
-            },
-            {
-              "id": "113308",
-              "name": "a cedar-handled drakar flail",
-              "details": {
-                "raw": [
-                  "The flail is a flail that requires skill in twohanded weapons to use effectively.",
-                  "It looks like this item has been mainly crafted out of drakar, a rare metal.  This material cannot be dyed.",
-                  "Analysis of a cedar-handled drakar flail indicates the item has certain alteration restrictions.  This material cannot be dyed.",
-                  "You might be able to have a talented merchant lighten the drakar flail for you.",
-                  "The drakar flail will cost 100,000 coins.",
-                  "It imparts a bonus of +5 more than usual.",
-                  "It has been infused with the power of a fire elemental.",
-                  "It is an enhancive item:",
-                  "    It provides a boost of 3 to Spell Aiming Ranks.",
-                  "    This enhancement may not be used by adventurers who have not trained 12 times.",
-                  "    It provides a boost of 5 to Spirit Mana Control Ranks.",
-                  "    This enhancement may not be used by adventurers who have not trained 30 times.",
-                  "    It provides a boost of 6 to Max Mana.",
-                  "    This enhancement may not be used by adventurers who have not trained 13 times.",
-                  "    It seems to have a lot of enhancive charges remaining.",
-                  "It will persist after its last enhancive charge has been expended.",
-                  "It appears to weigh about 6 pounds.",
-                  "It is estimated to be worth about 1,300,000 silvers.",
-                  "It is predominantly crafted of drakar.",
-                  "It is a simple project (92 difficulty) for an adventurer to modify.",
-                  "It has a permanently unlocked loresong by Krayze."
-                ],
-                "tags": [
-                  "lightenable",
-                  "persists"
-                ],
-                "cost": 100000,
-                "enchant": 5,
-                "material": "drakar",
-                "skill": "twohanded weapons",
-                "flare": "the power of a fire elemental",
-                "weight": 6,
-                "enhancives": [
-                  {
-                    "boost": 3,
-                    "ability": "Spell Aiming Ranks",
-                    "level": 12
-                  },
-                  {
-                    "boost": 5,
-                    "ability": "Spirit Mana Control Ranks",
-                    "level": 30
-                  },
-                  {
-                    "boost": 6,
-                    "ability": "Max Mana",
-                    "level": 13
-                  }
-                ],
-                "is_weapon": true,
-                "weapon_type": "twohanded weapons",
-                "flares": [
-                  "the power of a fire elemental"
-                ],
-                "item_type": "weapon"
-              }
             }
           ]
         }
@@ -26313,10 +26185,11 @@
     {
       "preamble": "Idalias's Shop is located in [Guardian Keep, Inner Wall] at a silk-covered white cabana with a pair of vaalorn lanterns, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "43",
+      "id": "45",
+      "shop_owner": "Idalias",
       "inv": [
         {
-          "room_title": "Idalias' Magic Shoppe",
+          "room_title": "Alsorna's General Store",
           "branch": "entry",
           "items": [
             {
@@ -26929,13 +26802,7 @@
                 "wear_location": "on the head",
                 "item_type": null
               }
-            }
-          ]
-        },
-        {
-          "room_title": "Idalias' Magic Shoppe",
-          "branch": "east",
-          "items": [
+            },
             {
               "id": "124067",
               "name": "a dull deringo light crossbow",
@@ -27576,13 +27443,7 @@
                 "weapon_type": "twohanded weapons",
                 "item_type": "weapon"
               }
-            }
-          ]
-        },
-        {
-          "room_title": "Idalias' Weaponry",
-          "branch": "west",
-          "items": [
+            },
             {
               "id": "124092",
               "name": "a glittering pink tourmaline pendant",
@@ -28539,16 +28400,16 @@
             }
           ]
         }
-      ],
-      "shop_owner": "Idalias"
+      ]
     },
     {
       "preamble": "Relicor's Shop is located in [Guardian Keep, Inner Wall] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "44",
+      "id": "46",
+      "shop_owner": "Relicor",
       "inv": [
         {
-          "room_title": "Relicor's Weaponry",
+          "room_title": "Kurosubo's General Store",
           "branch": "entry",
           "items": [
             {
@@ -28825,13 +28686,12 @@
             }
           ]
         }
-      ],
-      "shop_owner": "Relicor"
+      ]
     },
     {
       "preamble": "Alsorna's Shop is located in [Guardian Keep, Inner Wall] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "45",
+      "id": "47",
       "inv": [
         {
           "room_title": "Alsorna's General Store",
@@ -28846,7 +28706,7 @@
     {
       "preamble": "Kurosubo's Shop is located in [Guardian Keep, Inner Wall] at a simple shop, and is currently open for business.",
       "town": "Ta'Vaalor,",
-      "id": "46",
+      "id": "48",
       "inv": [
         {
           "room_title": "Kurosubo's General Store",
@@ -28859,6 +28719,6 @@
       "shop_owner": "Kurosubo"
     }
   ],
-  "processed_at": "2026-06-10 15:06:10 UTC",
+  "processed_at": "2026-06-10 18:41:16 UTC",
   "processing_version": "v2.0"
 }
