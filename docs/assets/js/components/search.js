@@ -110,6 +110,9 @@ class SearchEngine {
         document.getElementById('search-shop-signs').addEventListener('change', () => {
             this.performSearch();
         });
+        document.getElementById('search-regex').addEventListener('change', () => {
+            this.performSearch();
+        });
 
         // Filter controls
         document.getElementById('apply-filters').addEventListener('click', () => {
@@ -249,6 +252,7 @@ class SearchEngine {
             searchShopSigns: document.getElementById('search-shop-signs').checked,
             searchFieldName: document.getElementById('search-field-name').checked,
             searchFieldProperties: document.getElementById('search-field-properties').checked,
+            searchRegex: document.getElementById('search-regex').checked,
             towns: this.multiSelectFilters.town.getSelectedValues(),
             priceRanges: this.multiSelectFilters.price.getSelectedValues(),
             itemTypes: this.multiSelectFilters.itemType.getSelectedValues(),
@@ -351,8 +355,20 @@ class SearchEngine {
         return false;
     }
 
-    matchesSearchText(itemText, searchQuery) {
+    matchesSearchText(itemText, searchQuery, useRegex = false) {
         if (!searchQuery) return true;
+
+        // Regex mode: treat the query as a single raw pattern, bypassing the
+        // OR/NOT/quote/wildcard/enhancive operators below. Case-insensitive to
+        // match the rest of the pipeline (itemText is already lowercased). An
+        // invalid or incomplete pattern matches nothing rather than throwing.
+        if (useRegex) {
+            try {
+                return new RegExp(searchQuery, 'i').test(itemText);
+            } catch (e) {
+                return false;
+            }
+        }
 
         // Try advanced query parsing first (OR/NOT operators)
         const parsedQuery = this.parseAdvancedQuery(searchQuery);
@@ -456,7 +472,7 @@ class SearchEngine {
 
             const customSearchText = searchFields.join(' ').toLowerCase();
 
-            if (!this.matchesSearchText(customSearchText, filters.search)) {
+            if (!this.matchesSearchText(customSearchText, filters.search, filters.searchRegex)) {
                 return false;
             }
         }
@@ -1479,6 +1495,9 @@ class SearchEngine {
         // Reset shop sign checkbox
         document.getElementById('search-shop-signs').checked = false;
 
+        // Reset regex toggle
+        document.getElementById('search-regex').checked = false;
+
         // Reset sort
         this.currentSort = { field: 'name', direction: 'asc' };
         this.updateSortIndicators();
@@ -1946,4 +1965,3 @@ function initializeTagSettingsModal() {
         }
     });
 }
-
