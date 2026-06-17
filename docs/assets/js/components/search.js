@@ -247,12 +247,17 @@ class SearchEngine {
     }
 
     getFilters() {
+        const useRegex = document.getElementById('search-regex').checked;
+        const rawSearch = document.getElementById('search-input').value.trim();
         return {
-            search: document.getElementById('search-input').value.toLowerCase().trim(),
+            // In regex mode keep the raw pattern; lowercasing would corrupt
+            // metacharacters (e.g. \S -> \s). Case-insensitivity is handled by
+            // the 'i' flag in matchesSearchText instead.
+            search: useRegex ? rawSearch : rawSearch.toLowerCase(),
             searchShopSigns: document.getElementById('search-shop-signs').checked,
             searchFieldName: document.getElementById('search-field-name').checked,
             searchFieldProperties: document.getElementById('search-field-properties').checked,
-            searchRegex: document.getElementById('search-regex').checked,
+            searchRegex: useRegex,
             towns: this.multiSelectFilters.town.getSelectedValues(),
             priceRanges: this.multiSelectFilters.price.getSelectedValues(),
             itemTypes: this.multiSelectFilters.itemType.getSelectedValues(),
