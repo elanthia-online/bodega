@@ -1,6 +1,6 @@
 {
-  "created_at": "2026-06-17 23:22:17 UTC",
-  "run_time": "05s",
+  "created_at": "2026-06-18 02:44:35 UTC",
+  "run_time": "01m 57s",
   "town": "Teras Isle",
   "shops": [
     {
@@ -626,6 +626,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -654,6 +655,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -2440,6 +2442,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 40000,
@@ -2615,6 +2618,7 @@
                   "purpose",
                   "max_deep",
                   "max_light",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -3468,13 +3472,54 @@
       ]
     },
     {
-      "preamble": "Whorten's Shop is located in [Canyon Alley, Khazar Way] at a faded beach outpost with a sea green clay-tiled roof, and is currently open for business.",
+      "preamble": "Rult's Shop is located in [Canyon Alley, Khazar Way] at a glaes-paned storefront with a pale grey haon-shingled roof, and is currently open for business.",
       "town": "Teras Isle",
       "id": "6",
-      "shop_owner": "Whorten",
+      "shop_owner": "Rult",
       "inv": [
         {
           "room_title": "The Black Hole",
+          "branch": "entry",
+          "items": [
+
+          ],
+          "sign": [
+            "Written on a scrollworked silver sign:",
+            "buy eet"
+          ]
+        },
+        {
+          "room_title": "The Black Hole",
+          "branch": "east",
+          "items": [
+
+          ],
+          "sign": [
+            "Written on a scrollworked silver sign:",
+            "no refund"
+          ]
+        },
+        {
+          "room_title": "The Black Hole",
+          "branch": "west",
+          "items": [
+
+          ],
+          "sign": [
+            "Written on a scrollworked silver sign:",
+            "limited time only"
+          ]
+        }
+      ]
+    },
+    {
+      "preamble": "Whorten's Shop is located in [Canyon Alley, Khazar Way] at a faded beach outpost with a sea green clay-tiled roof, and is currently open for business.",
+      "town": "Teras Isle",
+      "id": "7",
+      "shop_owner": "Whorten",
+      "inv": [
+        {
+          "room_title": "Zenmagic's Combat Gear",
           "branch": "entry",
           "items": [
             {
@@ -3836,32 +3881,20 @@
                 "item_type": null
               }
             }
-          ],
-          "sign": [
-            "Written on a scrollworked silver sign:",
-            "buy eet"
           ]
         },
         {
-          "room_title": "The Black Hole",
+          "room_title": "Clodheart's General Store",
+          "branch": "north",
+          "items": [
+
+          ]
+        },
+        {
+          "room_title": "Clodheart's Magic Shoppe",
           "branch": "east",
           "items": [
 
-          ],
-          "sign": [
-            "Written on a scrollworked silver sign:",
-            "no refund"
-          ]
-        },
-        {
-          "room_title": "The Black Hole",
-          "branch": "west",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on a scrollworked silver sign:",
-            "limited time only"
           ]
         }
       ]
@@ -3869,11 +3902,11 @@
     {
       "preamble": "Yakushi's Shop is located in [Canyon Alley, Khazar Way] at a tiny little shop, and is currently open for business.",
       "town": "Teras Isle",
-      "id": "7",
+      "id": "8",
       "shop_owner": "Yakushi",
       "inv": [
         {
-          "room_title": "Zenmagic's Combat Gear",
+          "room_title": "Athyena's Combat Gear",
           "branch": "entry",
           "items": [
             {
@@ -4043,10 +4076,6 @@
                 "tags": [
                   "persists",
                   "small",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 699999999,
@@ -4222,10 +4251,6 @@
                   "The rot-speckled coffin will cost 55,555,500 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 55555555,
@@ -4674,10 +4699,6 @@
                 "tags": [
                   "max_deep",
                   "max_light",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 75000000,
@@ -4777,10 +4798,6 @@
                   "persists",
                   "small",
                   "magic_resistant",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 88888888,
@@ -4954,10 +4971,6 @@
                   "purpose",
                   "max_deep",
                   "max_light",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 88888888,
@@ -6804,10 +6817,6 @@
                   "purpose",
                   "max_deep",
                   "max_light",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 15000000,
@@ -6919,10 +6928,6 @@
                   "The storage trunk will cost 19,999,900 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 19999999,
@@ -7034,17 +7039,21 @@
                 "item_type": null
               }
             }
+          ],
+          "sign": [
+            "Written on a multicolored shell-trimmed sign:",
+            "[This message was posted by the shop owner. None of the information writtenhere is guaranteedy by any authority.  You are accepting the information by the person who wrote the message.  Its accuracy cannot be authenticated, verified, or certified.]"
           ]
         },
         {
-          "room_title": "Clodheart's General Store",
+          "room_title": "Athyena's Weaponry",
           "branch": "north",
           "items": [
 
           ]
         },
         {
-          "room_title": "Clodheart's Magic Shoppe",
+          "room_title": "Athyena's Weaponry",
           "branch": "east",
           "items": [
 
@@ -7055,11 +7064,11 @@
     {
       "preamble": "Clodheart's Shop is located in [Canyon Alley, Khazar Way] at a two-story sienna marble store, and is currently open for business.",
       "town": "Teras Isle",
-      "id": "8",
+      "id": "9",
       "shop_owner": "Clodheart",
       "inv": [
         {
-          "room_title": "Athyena's Combat Gear",
+          "room_title": "Tinker's Tower",
           "branch": "entry",
           "items": [
             {
@@ -8008,22 +8017,37 @@
             }
           ],
           "sign": [
-            "Written on a multicolored shell-trimmed sign:",
-            "[This message was posted by the shop owner. None of the information writtenhere is guaranteedy by any authority.  You are accepting the information by the person who wrote the message.  Its accuracy cannot be authenticated, verified, or certified.]"
+            "Written on a small singed sign:",
+            "*~- Welcome -~*",
+            "*~- to -~*",
+            "*~- the Tinker's Tower -~*"
           ]
         },
         {
-          "room_title": "Athyena's Weaponry",
-          "branch": "north",
+          "room_title": "Anvil's Kiss",
+          "branch": "northeast",
           "items": [
 
+          ],
+          "sign": [
+            "Written on a small singed sign:",
+            "~`- Forge Hammers Sound the Anvil's Kiss -'~",
+            "#'#'# All relevant information gleaned by Bard or Warriors #'#'#",
+            ".-------..___",
+            "'-._     :_.-'",
+            ") _ (",
+            ":  '-' '-'"
           ]
         },
         {
-          "room_title": "Athyena's Weaponry",
-          "branch": "east",
+          "room_title": "Secret Stash",
+          "branch": "northwest",
           "items": [
 
+          ],
+          "sign": [
+            "Written on a small singed sign:",
+            "~'o Arcana, Chrisms, and Trinkets o'~"
           ]
         }
       ]
@@ -8031,11 +8055,11 @@
     {
       "preamble": "Athyena's Shop is located in [Canyon Alley, Khazar Way] at a balconied ivory marble store with a sea green clay-tiled roof, and is currently open for business.",
       "town": "Teras Isle",
-      "id": "9",
+      "id": "10",
       "shop_owner": "Athyena",
       "inv": [
         {
-          "room_title": "Tinker's Tower",
+          "room_title": "Raggler's Snack Pantry",
           "branch": "entry",
           "items": [
             {
@@ -9217,37 +9241,33 @@
             }
           ],
           "sign": [
-            "Written on a small singed sign:",
-            "*~- Welcome -~*",
-            "*~- to -~*",
-            "*~- the Tinker's Tower -~*"
+            "Written on a bright-inked menu sign:",
+            "Welcome to my Bakery!",
+            "You'll find freshly made snacks sitting on the cooling rack.",
+            "The tarts are extra specially delicious for my fellow halflings.",
+            "All the gems in the display case are of orb quality.",
+            "The skins come in 10, no guarantee on the quality, but they were skinned by a master skinning ranger."
           ]
         },
         {
-          "room_title": "Anvil's Kiss",
-          "branch": "northeast",
+          "room_title": "The Halfling's Hole",
+          "branch": "east",
           "items": [
 
           ],
           "sign": [
-            "Written on a small singed sign:",
-            "~`- Forge Hammers Sound the Anvil's Kiss -'~",
-            "#'#'# All relevant information gleaned by Bard or Warriors #'#'#",
-            ".-------..___",
-            "'-._     :_.-'",
-            ") _ (",
-            ":  '-' '-'"
+            "Written on a rustic haon sign:",
+            "Platemail is 7x max light fusion",
+            "Handaxe is 5x",
+            "Broadsword and Longsword are both 6x Golvern, Broadsword has +4 AGI BONUS, +4 STR BONUS, +1 CON BONUS",
+            "Augmented Chain is 4x 5 CER Permanent Crit Padded"
           ]
         },
         {
-          "room_title": "Secret Stash",
-          "branch": "northwest",
+          "room_title": "The Halfling's Lair",
+          "branch": "west",
           "items": [
 
-          ],
-          "sign": [
-            "Written on a small singed sign:",
-            "~'o Arcana, Chrisms, and Trinkets o'~"
           ]
         }
       ]
@@ -9255,11 +9275,11 @@
     {
       "preamble": "Rolfard's Shop is located in [Canyon Alley, Khazar Way] at a stout riverstone tower with a red ceramic peeked roof and small-framed yellow door, and is currently open for business.",
       "town": "Teras Isle",
-      "id": "10",
+      "id": "11",
       "shop_owner": "Rolfard",
       "inv": [
         {
-          "room_title": "Raggler's Snack Pantry",
+          "room_title": "Monrico's Weaponry",
           "branch": "entry",
           "items": [
             {
@@ -9397,10 +9417,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 35000,
@@ -9436,10 +9452,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 35000,
@@ -10003,6 +10015,9 @@
                 "weight": 2,
                 "is_weapon": true,
                 "weapon_type": "brawling",
+                "flares": [
+                  "a disrupting substance"
+                ],
                 "item_type": "weapon"
               }
             },
@@ -10089,10 +10104,6 @@
                   "The glaes jar will cost 100,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -10117,10 +10128,6 @@
                   "The glaes jar will cost 100,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -10145,10 +10152,6 @@
                   "The glaes jar will cost 100,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -10173,10 +10176,6 @@
                   "The glaes jar will cost 100,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -10201,10 +10200,6 @@
                   "The glaes jar will cost 100,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -10229,10 +10224,6 @@
                   "The glaes jar will cost 100,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -10257,10 +10248,6 @@
                   "The glaes jar will cost 100,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -10285,10 +10272,6 @@
                   "The glaes jar will cost 100,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -10425,10 +10408,6 @@
                   "The glaes jar will cost 100,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -10453,10 +10432,6 @@
                   "The glaes jar will cost 100,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -10481,10 +10456,6 @@
                   "The glaes jar will cost 100,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -10514,35 +10485,24 @@
                 "item_type": null
               }
             }
-          ],
-          "sign": [
-            "Written on a bright-inked menu sign:",
-            "Welcome to my Bakery!",
-            "You'll find freshly made snacks sitting on the cooling rack.",
-            "The tarts are extra specially delicious for my fellow halflings.",
-            "All the gems in the display case are of orb quality.",
-            "The skins come in 10, no guarantee on the quality, but they were skinned by a master skinning ranger."
           ]
         },
         {
-          "room_title": "The Halfling's Hole",
+          "room_title": "Monrico's Weaponry",
+          "branch": "north",
+          "items": [
+
+          ]
+        },
+        {
+          "room_title": "Monrico's Magic Shoppe",
           "branch": "east",
           "items": [
 
           ],
           "sign": [
-            "Written on a rustic haon sign:",
-            "Platemail is 7x max light fusion",
-            "Handaxe is 5x",
-            "Broadsword and Longsword are both 6x Golvern, Broadsword has +4 AGI BONUS, +4 STR BONUS, +1 CON BONUS",
-            "Augmented Chain is 4x 5 CER Permanent Crit Padded"
-          ]
-        },
-        {
-          "room_title": "The Halfling's Lair",
-          "branch": "west",
-          "items": [
-
+            "Written on a scrollworked silver sign:",
+            "Wiregrass anklets and bracelets hold 63 mana.  Ready for Resist Nature."
           ]
         }
       ]
@@ -10550,11 +10510,11 @@
     {
       "preamble": "Raggler's Shop is located in [Canyon Alley, Khazar Way] at a small grassy burrow with a miniature round door, and is currently open for business.",
       "town": "Teras Isle",
-      "id": "11",
+      "id": "12",
       "shop_owner": "Raggler",
       "inv": [
         {
-          "room_title": "Monrico's Weaponry",
+          "room_title": "Uhlume's General Store",
           "branch": "entry",
           "items": [
             {
@@ -10570,10 +10530,6 @@
                   "The metal pie machine will cost 99,999,900 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 99999999,
@@ -10622,10 +10578,6 @@
                   "The gold chocolate heater will cost 99,999,900 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 99999999,
@@ -10646,10 +10598,6 @@
                   "The silver candy tin will cost 20,000,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 20000000,
@@ -10675,10 +10623,6 @@
                   "The tart kiln will cost 99,999,900 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 99999999,
@@ -11047,21 +10991,17 @@
           ]
         },
         {
-          "room_title": "Monrico's Weaponry",
+          "room_title": "Uhlume's General Store",
           "branch": "north",
           "items": [
 
           ]
         },
         {
-          "room_title": "Monrico's Magic Shoppe",
+          "room_title": "Uhlume's General Store",
           "branch": "east",
           "items": [
 
-          ],
-          "sign": [
-            "Written on a scrollworked silver sign:",
-            "Wiregrass anklets and bracelets hold 63 mana.  Ready for Resist Nature."
           ]
         }
       ]
@@ -11069,11 +11009,11 @@
     {
       "preamble": "Monrico's Shop is located in [Canyon Alley, Khazar Way] at a massive tree-shaped building with tendrils of flame-singed ivy hanging from a domed roof, and is currently open for business.",
       "town": "Teras Isle",
-      "id": "12",
+      "id": "13",
       "shop_owner": "Monrico",
       "inv": [
         {
-          "room_title": "Uhlume's General Store",
+          "room_title": "Peiyi's General Store",
           "branch": "entry",
           "items": [
             {
@@ -13369,14 +13309,14 @@
           ]
         },
         {
-          "room_title": "Uhlume's General Store",
+          "room_title": "Peiyi's General Store",
           "branch": "north",
           "items": [
 
           ]
         },
         {
-          "room_title": "Uhlume's General Store",
+          "room_title": "Peiyi's General Store",
           "branch": "east",
           "items": [
 
@@ -13387,37 +13327,8 @@
     {
       "preamble": "Uhlume's Shop is located in [Canyon Alley, Khazar Way] at a simple shop, and is currently open for business.",
       "town": "Teras Isle",
-      "id": "13",
-      "shop_owner": "Uhlume",
-      "inv": [
-        {
-          "room_title": "Peiyi's General Store",
-          "branch": "entry",
-          "items": [
-
-          ]
-        },
-        {
-          "room_title": "Peiyi's General Store",
-          "branch": "north",
-          "items": [
-
-          ]
-        },
-        {
-          "room_title": "Peiyi's General Store",
-          "branch": "east",
-          "items": [
-
-          ]
-        }
-      ]
-    },
-    {
-      "preamble": "Ataulfo's Shop is located in [Canyon Alley, Khazar Way] at a balconied ivory marble store with a rich brown tanik-shingled roof, and is currently open for business.",
-      "town": "Teras Isle",
       "id": "14",
-      "shop_owner": "Ataulfo",
+      "shop_owner": "Uhlume",
       "inv": [
         {
           "room_title": "Widgit's Magic Shoppe",
@@ -13447,13 +13358,51 @@
       ]
     },
     {
-      "preamble": "Hechicero's Shop is located in [Canyon Alley, Khazar Way] at a simple shop, and is currently open for business.",
+      "preamble": "Ataulfo's Shop is located in [Canyon Alley, Khazar Way] at a balconied ivory marble store with a rich brown tanik-shingled roof, and is currently open for business.",
       "town": "Teras Isle",
       "id": "15",
-      "shop_owner": "Hechicero",
+      "shop_owner": "Ataulfo",
       "inv": [
         {
           "room_title": "Lyranis's General Store",
+          "branch": "entry",
+          "items": [
+
+          ],
+          "sign": [
+            "Written on a large sign:",
+            "~~Welcome to Darq's Shop~~",
+            "Items in Basket are:",
+            "Black-eyed skull-shaped Jars - Filled with 100 Unsung Diamonds/Emeralds",
+            "Opalescent jars - Filled with 20 Unsung Diamonds/Emeralds",
+            "Items on Table are:",
+            "More Opalescent jars - Filled with 20 Unsung Diamonds/Emeralds"
+          ]
+        },
+        {
+          "room_title": "Lyranis' General Store",
+          "branch": "east",
+          "items": [
+
+          ]
+        },
+        {
+          "room_title": "Lyranis' General Store",
+          "branch": "west",
+          "items": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "preamble": "Hechicero's Shop is located in [Canyon Alley, Khazar Way] at a simple shop, and is currently open for business.",
+      "town": "Teras Isle",
+      "id": "16",
+      "shop_owner": "Hechicero",
+      "inv": [
+        {
+          "room_title": "Brimzstone's General Store",
           "branch": "entry",
           "items": [
             {
@@ -13641,10 +13590,6 @@
                   "The shadow box will cost 10,000,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 10000000,
@@ -13654,44 +13599,6 @@
                 "item_type": "container"
               }
             }
-          ],
-          "sign": [
-            "Written on a large sign:",
-            "~~Welcome to Darq's Shop~~",
-            "Items in Basket are:",
-            "Black-eyed skull-shaped Jars - Filled with 100 Unsung Diamonds/Emeralds",
-            "Opalescent jars - Filled with 20 Unsung Diamonds/Emeralds",
-            "Items on Table are:",
-            "More Opalescent jars - Filled with 20 Unsung Diamonds/Emeralds"
-          ]
-        },
-        {
-          "room_title": "Lyranis' General Store",
-          "branch": "east",
-          "items": [
-
-          ]
-        },
-        {
-          "room_title": "Lyranis' General Store",
-          "branch": "west",
-          "items": [
-
-          ]
-        }
-      ]
-    },
-    {
-      "preamble": "Peiyi's Shop is located in [Canyon Alley, Khazar Way] at a simple shop, and is currently open for business.",
-      "town": "Teras Isle",
-      "id": "16",
-      "shop_owner": "Peiyi",
-      "inv": [
-        {
-          "room_title": "Brimzstone's General Store",
-          "branch": "entry",
-          "items": [
-
           ]
         },
         {
@@ -13711,13 +13618,42 @@
       ]
     },
     {
-      "preamble": "Widgit's Shop is located in [Canyon Alley, Khazar Way] at a bay-windowed white granite boutique, and is currently open for business.",
+      "preamble": "Peiyi's Shop is located in [Canyon Alley, Khazar Way] at a simple shop, and is currently open for business.",
       "town": "Teras Isle",
       "id": "17",
-      "shop_owner": "Widgit",
+      "shop_owner": "Peiyi",
       "inv": [
         {
           "room_title": "Lybat's Magic Shoppe",
+          "branch": "entry",
+          "items": [
+
+          ]
+        },
+        {
+          "room_title": "Lybat's General Store",
+          "branch": "north",
+          "items": [
+
+          ]
+        },
+        {
+          "room_title": "Lybat's General Store",
+          "branch": "east",
+          "items": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "preamble": "Widgit's Shop is located in [Canyon Alley, Khazar Way] at a bay-windowed white granite boutique, and is currently open for business.",
+      "town": "Teras Isle",
+      "id": "18",
+      "shop_owner": "Widgit",
+      "inv": [
+        {
+          "room_title": "Underhand's Weaponry",
           "branch": "entry",
           "items": [
             {
@@ -15164,14 +15100,14 @@
           ]
         },
         {
-          "room_title": "Lybat's General Store",
+          "room_title": "Underhand's Weaponry",
           "branch": "north",
           "items": [
 
           ]
         },
         {
-          "room_title": "Lybat's General Store",
+          "room_title": "Underhand's Weaponry",
           "branch": "east",
           "items": [
 
@@ -15182,37 +15118,8 @@
     {
       "preamble": "Lyranis's Shop is located in [Canyon Alley, Khazar Way] at a grey riverstone shop, and is currently open for business.",
       "town": "Teras Isle",
-      "id": "18",
-      "shop_owner": "Lyranis",
-      "inv": [
-        {
-          "room_title": "Underhand's Weaponry",
-          "branch": "entry",
-          "items": [
-
-          ]
-        },
-        {
-          "room_title": "Underhand's Weaponry",
-          "branch": "north",
-          "items": [
-
-          ]
-        },
-        {
-          "room_title": "Underhand's Weaponry",
-          "branch": "east",
-          "items": [
-
-          ]
-        }
-      ]
-    },
-    {
-      "preamble": "Brimzstone's Shop is located in [Canyon Alley, Khazar Way] at a simple shop, and is currently open for business.",
-      "town": "Teras Isle",
       "id": "19",
-      "shop_owner": "Brimzstone",
+      "shop_owner": "Lyranis",
       "inv": [
         {
           "room_title": "Stigs's Armory",
@@ -15229,29 +15136,57 @@
       ]
     },
     {
-      "preamble": "Lybat's Shop is located in [Canyon Alley, Khazar Way] at a simple shop, and is currently open for business.",
+      "preamble": "Brimzstone's Shop is located in [Canyon Alley, Khazar Way] at a simple shop, and is currently open for business.",
       "town": "Teras Isle",
       "id": "20",
-      "shop_owner": "Lybat",
+      "shop_owner": "Brimzstone",
       "inv": [
         {
           "room_title": "Khunchzin's Weaponry",
           "branch": "entry",
           "items": [
             {
-              "id": "295277560",
-              "name": "a small statue",
+              "id": "306199243",
+              "name": "a set of blackened brigandine studded with scarab clasps",
               "details": {
                 "raw": [
-                  "The small statue is formed from the highest quality material.  It is strikingly crafted in fine, superb detail.  The statue seems to represent a supernatural entity of great power, possibly a god.",
-                  "The statue can not be worn.",
-                  "The small statue will cost 1,000 coins."
+                  "It has a small enchanter's glyph.  A strange necrotic haze radiates from the brigandine.  A strong aura of holy light radiates from the brigandine.",
+                  "The brigandine is scale armor that covers the torso, arms, legs, neck, and head.",
+                  "The brigandine can be worn around the chest.  The brigandine appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of leather, an extremely common material.",
+                  "Analysis of a set of blackened brigandine studded with scarab clasps indicates the creator has provided the following information:",
+                  "This item can be altered, but should not be altered into something broken, dull, or weak-looking, as the messaging indicates superior craftsmanship that is kept maintained.  ",
+                  "The brigandine isn't unlocked.",
+                  "You can tell that the brigandine is as light as it can get.",
+                  "The blackened brigandine will cost 60,000,000 coins.",
+                  "It imparts a bonus of +40 more than usual.",
+                  "It appears to weigh about 13 pounds.",
+                  "It is estimated to be worth about 58,000,000 silvers.",
+                  "It is heavily padded against critical blows.",
+                  "It is predominantly crafted of leather.",
+                  "It has been ensorcelled 1 time.",
+                  "It has been sanctified 3 times.",
+                  "It may be enchanted up to a bonus of 45 by a wizard and was last enchanted by Yorvo.",
+                  "It is a complicated project (361 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Drekoi."
                 ],
                 "tags": [
-
+                  "purpose",
+                  "max_light"
                 ],
-                "cost": 1000,
-                "item_type": null
+                "cost": 60000000,
+                "enchant": 40,
+                "material": "leather",
+                "weight": 13,
+                "worn": "chest",
+                "sanctify": 3,
+                "ensorcell": 1,
+                "crit_padding": "heavily",
+                "is_armor": true,
+                "armor_type": "scale",
+                "wear_location": "torso",
+                "blessing": "holy",
+                "item_type": "armor"
               }
             }
           ],
@@ -15289,13 +15224,57 @@
       ]
     },
     {
-      "preamble": "Underhand's Shop is located in [Canyon Alley, Khazar Way] at a two-story sienna marble store, and is currently open for business.",
+      "preamble": "Lybat's Shop is located in [Canyon Alley, Khazar Way] at a simple shop, and is currently open for business.",
       "town": "Teras Isle",
       "id": "21",
-      "shop_owner": "Underhand",
+      "shop_owner": "Lybat",
       "inv": [
         {
           "room_title": "Underhand's Weaponry",
+          "branch": "entry",
+          "items": [
+            {
+              "id": "295277560",
+              "name": "a small statue",
+              "details": {
+                "raw": [
+                  "The small statue is formed from the highest quality material.  It is strikingly crafted in fine, superb detail.  The statue seems to represent a supernatural entity of great power, possibly a god.",
+                  "The statue can not be worn.",
+                  "The small statue will cost 1,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 1000,
+                "item_type": null
+              }
+            }
+          ]
+        },
+        {
+          "room_title": "Underhand's Weaponry",
+          "branch": "north",
+          "items": [
+
+          ]
+        },
+        {
+          "room_title": "Underhand's Weaponry",
+          "branch": "east",
+          "items": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "preamble": "Underhand's Shop is located in [Canyon Alley, Khazar Way] at a two-story sienna marble store, and is currently open for business.",
+      "town": "Teras Isle",
+      "id": "22",
+      "shop_owner": "Underhand",
+      "inv": [
+        {
+          "room_title": "Stigs's Armory",
           "branch": "entry",
           "items": [
             {
@@ -15366,6 +15345,9 @@
                 "crit_weighting": "somewhat",
                 "is_weapon": true,
                 "weapon_type": "brawling and one-handed edged weapons",
+                "flares": [
+                  "a grappling force"
+                ],
                 "blessing": "holy",
                 "item_type": "weapon"
               }
@@ -15716,6 +15698,9 @@
                 "weight": 3,
                 "is_weapon": true,
                 "weapon_type": "twohanded weapons",
+                "flares": [
+                  "a disrupting substance"
+                ],
                 "item_type": "weapon"
               }
             },
@@ -16244,13 +16229,7 @@
                 "weapon_type": "twohanded weapons",
                 "item_type": "weapon"
               }
-            }
-          ]
-        },
-        {
-          "room_title": "Underhand's Weaponry",
-          "branch": "north",
-          "items": [
+            },
             {
               "id": "295693104",
               "name": "a teak-handled eonake lance",
@@ -16732,13 +16711,7 @@
                 "blessing": "holy",
                 "item_type": "weapon"
               }
-            }
-          ]
-        },
-        {
-          "room_title": "Underhand's Weaponry",
-          "branch": "east",
-          "items": [
+            },
             {
               "id": "295564560",
               "name": "a massive acid-etched razern-forged scythe",
@@ -17217,6 +17190,11 @@
                 "item_type": null
               }
             }
+          ],
+          "sign": [
+            "Written on a large sign:",
+            "shimmering pink bottles are 100 counts",
+            "bloodstone pendant can still be FLIPPED to select location, tier 5"
           ]
         }
       ]
@@ -17224,11 +17202,11 @@
     {
       "preamble": "Stigs's Shop is located in [Canyon Alley, Khazar Way] at an earth-hued adobe shop with a rich brown tanik-shingled roof, and is currently open for business.",
       "town": "Teras Isle",
-      "id": "22",
+      "id": "23",
       "shop_owner": "Stigs",
       "inv": [
         {
-          "room_title": "Stigs's Armory",
+          "room_title": "Khunchzin's Weaponry",
           "branch": "entry",
           "items": [
             {
@@ -17332,10 +17310,6 @@
                   "The shimmering pink bottle will cost 500,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 500000,
@@ -17814,10 +17788,6 @@
                   "The gold and teal bottle will cost 200,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 200000,
@@ -17892,10 +17862,6 @@
                   "The gold and teal bottle will cost 2,500,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 2500000,
@@ -17974,10 +17940,6 @@
                   "The gold and teal bottle will cost 2,500,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 2500000,
@@ -18527,10 +18489,6 @@
                   "The gold and teal bottle will cost 7,000,000 coins."
                 ],
                 "tags": [
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 7000000,
@@ -18542,9 +18500,34 @@
             }
           ],
           "sign": [
-            "Written on a large sign:",
-            "shimmering pink bottles are 100 counts",
-            "bloodstone pendant can still be FLIPPED to select location, tier 5"
+            "Written on a scrollworked silver sign:",
+            "Market-Beating Deals"
+          ]
+        },
+        {
+          "room_title": "Khunchzin's Outfitting",
+          "branch": "north",
+          "items": [
+
+          ],
+          "sign": [
+            "Written on a scrollworked silver sign:",
+            "- Price Massacre -",
+            "Enruned full leather 7x HCP (155 Service)",
+            "Valance 2/4 S1 E0"
+          ]
+        },
+        {
+          "room_title": "Khunchzin's Outfitting",
+          "branch": "east",
+          "items": [
+
+          ],
+          "sign": [
+            "Written on a scrollworked silver sign:",
+            "So Cheap It Hurts",
+            "Fully unlocked Whisper Cloak 6/150 lbs",
+            "Adventurer's Guild voucher are 50 units per"
           ]
         }
       ]
@@ -18552,8 +18535,7 @@
     {
       "preamble": "Khunchzin's Shop is located in [Canyon Alley, Khazar Way] at a grey riverstone shop, and is currently open for business.",
       "town": "Teras Isle",
-      "id": "23",
-      "shop_owner": "Khunchzin",
+      "id": "24",
       "inv": [
         {
           "room_title": "Khunchzin's Weaponry",
@@ -19663,6 +19645,9 @@
                     "level": 8
                   }
                 ],
+                "flares": [
+                  "a disrupting substance"
+                ],
                 "item_type": null
               }
             }
@@ -19952,10 +19937,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 20000,
@@ -20870,10 +20851,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
-                  "container",
-                  "container",
-                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -21209,9 +21186,10 @@
             "Adventurer's Guild voucher are 50 units per"
           ]
         }
-      ]
+      ],
+      "shop_owner": "Khunchzin"
     }
   ],
-  "processed_at": "2026-06-17 23:29:40 UTC",
+  "processed_at": "2026-06-18 02:52:26 UTC",
   "processing_version": "v2.0"
 }
