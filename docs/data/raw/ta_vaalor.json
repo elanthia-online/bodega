@@ -1,6 +1,6 @@
 {
-  "created_at": "2026-06-21 21:29:13 UTC",
-  "run_time": "18s",
+  "created_at": "2026-06-21 23:11:31 UTC",
+  "run_time": "13s",
   "town": "Ta'Vaalor,",
   "shops": [
     {
@@ -1052,173 +1052,325 @@
             {
               "id": "377320325",
               "name": "a brilliant star sapphire ring",
-              "browse_price": 3000000,
-              "raw_inspect": [
-                "The ring can be worn around the finger.  The ring appears to serve some purpose.",
-                "Analysis of a brilliant star sapphire ring indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the ring may be further lightened.",
-                "The star sapphire ring will cost 3,000,000 coins.",
-                "It is currently imbedded with the Spirit Defense spell.",
-                "It has 20 charges.  It is rechargeable.",
-                "It could be activated by rubbing it.",
-                "It will disintegrate after its last magical charge has been expended.",
-                "It is an enhancive item:",
-                "    It provides a boost of 3 to Trading Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 4 times.",
-                "    It provides a boost of 5 to Ranged Weapons Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 15 times.",
-                "    It seems to have a lot of enhancive charges remaining.",
-                "It will crumble into dust after its last enhancive charge has been expended.",
-                "It is a small item, under a pound.",
-                "It is estimated to be worth about 84,000 silvers.",
-                "It has a permanently unlocked loresong by Vellani."
-              ]
+              "details": {
+                "raw": [
+                  "The ring can be worn around the finger.  The ring appears to serve some purpose.",
+                  "Analysis of a brilliant star sapphire ring indicates the item is free from merchant alteration restrictions.",
+                  "The star sapphire ring will cost 3,000,000 coins.",
+                  "It is currently imbedded with the Spirit Defense spell.",
+                  "It has 20 charges.  It is rechargeable.",
+                  "It could be activated by rubbing it.",
+                  "It will disintegrate after its last magical charge has been expended.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 3 to Trading Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 4 times.",
+                  "    It provides a boost of 5 to Ranged Weapons Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 15 times.",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It will crumble into dust after its last enhancive charge has been expended.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 84,000 silvers.",
+                  "It has a permanently unlocked loresong by Vellani."
+                ],
+                "tags": [
+                  "purpose",
+                  "imbedded",
+                  "small"
+                ],
+                "cost": 3000000,
+                "worn": "finger",
+                "activator": "rubbing",
+                "spell": "Spirit Defense",
+                "enhancives": [
+                  {
+                    "boost": 3,
+                    "ability": "Trading Bonus",
+                    "level": 4
+                  },
+                  {
+                    "boost": 5,
+                    "ability": "Ranged Weapons Bonus",
+                    "level": 15
+                  }
+                ],
+                "wear_location": "around the finger",
+                "is_jewelry": true,
+                "item_type": "jewelry"
+              }
             },
             {
               "id": "377423270",
               "name": "a princess-cut red sunstone torc",
-              "browse_price": 500000,
-              "raw_inspect": [
-                "The torc can be worn around the neck.  The torc appears to serve some purpose.",
-                "Analysis of a princess-cut red sunstone torc indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the torc may be further lightened.",
-                "The red sunstone torc will cost 500,000 coins.",
-                "It is a magical item which could be imbedded with a spell.",
-                "It has 0 charges.  It is rechargeable.",
-                "It could be activated by waving it.",
-                "It will disintegrate after its last magical charge has been expended.",
-                "It is an enhancive item:",
-                "    It provides a boost of 3 to Logic Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 14 times.",
-                "    It seems to have more than your average dwarf could count enhancive charges remaining.",
-                "It will crumble into dust after its last enhancive charge has been expended.",
-                "It is a small item, under a pound.",
-                "It is estimated to be worth about 100,000 silvers.",
-                "It has a permanently unlocked loresong by a bard."
-              ]
+              "details": {
+                "raw": [
+                  "The torc can be worn around the neck.  The torc appears to serve some purpose.",
+                  "Analysis of a princess-cut red sunstone torc indicates the item is free from merchant alteration restrictions.",
+                  "The red sunstone torc will cost 500,000 coins.",
+                  "It is a magical item which could be imbedded with a spell.",
+                  "It has 0 charges.  It is rechargeable.",
+                  "It could be activated by waving it.",
+                  "It will disintegrate after its last magical charge has been expended.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 3 to Logic Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 14 times.",
+                  "    It seems to have more than your average dwarf could count enhancive charges remaining.",
+                  "It will crumble into dust after its last enhancive charge has been expended.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 100,000 silvers.",
+                  "It has a permanently unlocked loresong by a bard."
+                ],
+                "tags": [
+                  "purpose",
+                  "imbeddable",
+                  "small"
+                ],
+                "cost": 500000,
+                "worn": "neck",
+                "activator": "waving",
+                "enhancives": [
+                  {
+                    "boost": 3,
+                    "ability": "Logic Bonus",
+                    "level": 14
+                  }
+                ],
+                "wear_location": "around the neck",
+                "item_type": null
+              }
             },
             {
               "id": "377423271",
               "name": "a gold and amethyst torc",
-              "browse_price": 800000,
-              "raw_inspect": [
-                "The torc can be worn around the neck.  The torc appears to serve some purpose.",
-                "Analysis of a gold and amethyst torc indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the torc may be further lightened.",
-                "The amethyst torc will cost 800,000 coins.",
-                "It is a magical item which could be imbedded with a spell.",
-                "It has 0 charges.  It is rechargeable.",
-                "It could be activated by waving it.",
-                "It will persist after its last magical charge has been expended.",
-                "It is an enhancive item:",
-                "    It provides a boost of 3 to Edged Weapons Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 6 times.",
-                "    It provides a boost of 2 to Polearm Weapons Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 3 times.",
-                "    It seems to have a lot of enhancive charges remaining.",
-                "It will persist after its last enhancive charge has been expended.",
-                "It is a small item, under a pound.",
-                "It is estimated to be worth about 57,000 silvers.",
-                "It has a permanently unlocked loresong by a bard."
-              ]
+              "details": {
+                "raw": [
+                  "The torc can be worn around the neck.  The torc appears to serve some purpose.",
+                  "Analysis of a gold and amethyst torc indicates the item is free from merchant alteration restrictions.",
+                  "The amethyst torc will cost 800,000 coins.",
+                  "It is a magical item which could be imbedded with a spell.",
+                  "It has 0 charges.  It is rechargeable.",
+                  "It could be activated by waving it.",
+                  "It will persist after its last magical charge has been expended.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 3 to Edged Weapons Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 6 times.",
+                  "    It provides a boost of 2 to Polearm Weapons Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 3 times.",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 57,000 silvers.",
+                  "It has a permanently unlocked loresong by a bard."
+                ],
+                "tags": [
+                  "purpose",
+                  "imbeddable",
+                  "persists",
+                  "small"
+                ],
+                "cost": 800000,
+                "worn": "neck",
+                "activator": "waving",
+                "enhancives": [
+                  {
+                    "boost": 3,
+                    "ability": "Edged Weapons Bonus",
+                    "level": 6
+                  },
+                  {
+                    "boost": 2,
+                    "ability": "Polearm Weapons Bonus",
+                    "level": 3
+                  }
+                ],
+                "wear_location": "around the neck",
+                "item_type": null
+              }
             },
             {
               "id": "377302508",
               "name": "a fine peridot ring",
-              "browse_price": 200000,
-              "raw_inspect": [
-                "The ring can be worn around the finger.  The ring appears to serve some purpose.",
-                "Analysis of a fine peridot ring indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the ring may be further lightened.",
-                "The peridot ring will cost 200,000 coins.",
-                "It is a magical item which could be imbedded with a spell.",
-                "It has 0 charges.  It is rechargeable.",
-                "It could be activated by waving it.",
-                "It will disintegrate after its last magical charge has been expended.",
-                "It is an enhancive item:",
-                "    It provides a boost of 2 to Polearm Weapons Ranks.",
-                "    This enhancement may not be used by adventurers who have not trained 10 times.",
-                "    It provides a boost of 2 to Edged Weapons Ranks.",
-                "    This enhancement may not be used by adventurers who have not trained 10 times.",
-                "    It seems to have several enhancive charges remaining.",
-                "It will crumble into dust after its last enhancive charge has been expended.",
-                "It is a small item, under a pound.",
-                "It is estimated to be worth about 150,000 silvers.",
-                "It has a permanently unlocked loresong by Vellani."
-              ]
+              "details": {
+                "raw": [
+                  "The ring can be worn around the finger.  The ring appears to serve some purpose.",
+                  "Analysis of a fine peridot ring indicates the item is free from merchant alteration restrictions.",
+                  "The peridot ring will cost 200,000 coins.",
+                  "It is a magical item which could be imbedded with a spell.",
+                  "It has 0 charges.  It is rechargeable.",
+                  "It could be activated by waving it.",
+                  "It will disintegrate after its last magical charge has been expended.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 2 to Polearm Weapons Ranks.",
+                  "    This enhancement may not be used by adventurers who have not trained 10 times.",
+                  "    It provides a boost of 2 to Edged Weapons Ranks.",
+                  "    This enhancement may not be used by adventurers who have not trained 10 times.",
+                  "    It seems to have several enhancive charges remaining.",
+                  "It will crumble into dust after its last enhancive charge has been expended.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 150,000 silvers.",
+                  "It has a permanently unlocked loresong by Vellani."
+                ],
+                "tags": [
+                  "purpose",
+                  "imbeddable",
+                  "small"
+                ],
+                "cost": 200000,
+                "worn": "finger",
+                "activator": "waving",
+                "enhancives": [
+                  {
+                    "boost": 2,
+                    "ability": "Polearm Weapons Ranks",
+                    "level": 10
+                  },
+                  {
+                    "boost": 2,
+                    "ability": "Edged Weapons Ranks",
+                    "level": 10
+                  }
+                ],
+                "wear_location": "around the finger",
+                "is_jewelry": true,
+                "item_type": "jewelry"
+              }
             },
             {
               "id": "377423266",
               "name": "a trilliant-cut white sunstone necklace",
-              "browse_price": 7000000,
-              "raw_inspect": [
-                "It is difficult to see the white sunstone necklace clearly from this distance.",
-                "The necklace can be worn around the neck.  The necklace appears to serve some purpose.",
-                "Analysis of a trilliant-cut white sunstone necklace indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the necklace may be further lightened.",
-                "The white sunstone necklace will cost 7,000,000 coins.",
-                "It is an enhancive item:",
-                "    It provides a boost of 7 to Spell Aiming Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 28 times.",
-                "    It provides a boost of 4 to Harness Power Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 10 times.",
-                "    It seems to have one enhancive charge remaining.",
-                "It will crumble into dust after its last enhancive charge has been expended.",
-                "It is a small item, under a pound.",
-                "It is estimated to be worth about 200,000 silvers.",
-                "It is magic resistant.",
-                "It has a permanently unlocked loresong by Vellani."
-              ]
+              "details": {
+                "raw": [
+                  "The necklace can be worn around the neck.  The necklace appears to serve some purpose.",
+                  "Analysis of a trilliant-cut white sunstone necklace indicates the item is free from merchant alteration restrictions.",
+                  "The white sunstone necklace will cost 7,000,000 coins.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 7 to Spell Aiming Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 28 times.",
+                  "    It provides a boost of 4 to Harness Power Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 10 times.",
+                  "    It seems to have one enhancive charge remaining.",
+                  "It will crumble into dust after its last enhancive charge has been expended.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 200,000 silvers.",
+                  "It is magic resistant.",
+                  "It has a permanently unlocked loresong by Vellani."
+                ],
+                "tags": [
+                  "purpose",
+                  "small",
+                  "magic_resistant"
+                ],
+                "cost": 7000000,
+                "worn": "neck",
+                "enhancives": [
+                  {
+                    "boost": 7,
+                    "ability": "Spell Aiming Bonus",
+                    "level": 28
+                  },
+                  {
+                    "boost": 4,
+                    "ability": "Harness Power Bonus",
+                    "level": 10
+                  }
+                ],
+                "wear_location": "around the neck",
+                "is_jewelry": true,
+                "item_type": "jewelry"
+              }
             },
             {
               "id": "377423267",
               "name": "a glittering mithril medallion",
-              "browse_price": 200000,
-              "raw_inspect": [
-                "The medallion can be worn around the neck.  The medallion appears to serve some purpose.",
-                "Analysis of a glittering mithril medallion indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the medallion may be further lightened.",
-                "The mithril medallion will cost 200,000 coins.",
-                "It is a magical item which could be imbedded with a spell.",
-                "It has 0 charges.  It is rechargeable.",
-                "It could be activated by waving it.",
-                "It will persist after its last magical charge has been expended.",
-                "It is an enhancive item:",
-                "    It provides a boost of 4 to Logic Base.",
-                "    This enhancement may not be used by adventurers who have not trained 7 times.",
-                "    It provides a boost of 1 to Spell Aiming Ranks.",
-                "    This enhancement may not be used by adventurers who have not trained 4 times.",
-                "    It seems to have a lot of enhancive charges remaining.",
-                "It will crumble into dust after its last enhancive charge has been expended.",
-                "It is a small item, under a pound.",
-                "It is estimated to be worth about 100,000 silvers.",
-                "It has a permanently unlocked loresong by Vellani."
-              ]
+              "details": {
+                "raw": [
+                  "The medallion can be worn around the neck.  The medallion appears to serve some purpose.",
+                  "Analysis of a glittering mithril medallion indicates the item is free from merchant alteration restrictions.",
+                  "The mithril medallion will cost 200,000 coins.",
+                  "It is a magical item which could be imbedded with a spell.",
+                  "It has 0 charges.  It is rechargeable.",
+                  "It could be activated by waving it.",
+                  "It will persist after its last magical charge has been expended.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 4 to Logic Base.",
+                  "    This enhancement may not be used by adventurers who have not trained 7 times.",
+                  "    It provides a boost of 1 to Spell Aiming Ranks.",
+                  "    This enhancement may not be used by adventurers who have not trained 4 times.",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It will crumble into dust after its last enhancive charge has been expended.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 100,000 silvers.",
+                  "It has a permanently unlocked loresong by Vellani."
+                ],
+                "tags": [
+                  "purpose",
+                  "imbeddable",
+                  "small"
+                ],
+                "cost": 200000,
+                "worn": "neck",
+                "activator": "waving",
+                "enhancives": [
+                  {
+                    "boost": 4,
+                    "ability": "Logic Base",
+                    "level": 7
+                  },
+                  {
+                    "boost": 1,
+                    "ability": "Spell Aiming Ranks",
+                    "level": 4
+                  }
+                ],
+                "wear_location": "around the neck",
+                "item_type": null
+              }
             },
             {
               "id": "377423265",
               "name": "a gem-encrusted mithril talisman",
-              "browse_price": 2000000,
-              "raw_inspect": [
-                "The talisman can be worn around the neck.  The talisman appears to serve some purpose.",
-                "Analysis of a gem-encrusted mithril talisman indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the talisman may be further lightened.",
-                "The mithril talisman will cost 2,000,000 coins.",
-                "It is a magical item which could be imbedded with a spell.",
-                "It has 0 charges.  It is rechargeable.",
-                "It could be activated by waving it.",
-                "It will persist after its last magical charge has been expended.",
-                "It is an enhancive item:",
-                "    It provides a boost of 5 to Dodging Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 15 times.",
-                "    It provides a boost of 5 to Stalking and Hiding Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 10 times.",
-                "    It seems to have quite a few enhancive charges remaining.",
-                "It will crumble into dust after its last enhancive charge has been expended.",
-                "It is a small item, under a pound.",
-                "It is estimated to be worth about 98,000 silvers.",
-                "It has a permanently unlocked loresong by Vellani."
-              ]
+              "details": {
+                "raw": [
+                  "The talisman can be worn around the neck.  The talisman appears to serve some purpose.",
+                  "Analysis of a gem-encrusted mithril talisman indicates the item is free from merchant alteration restrictions.",
+                  "The mithril talisman will cost 2,000,000 coins.",
+                  "It is a magical item which could be imbedded with a spell.",
+                  "It has 0 charges.  It is rechargeable.",
+                  "It could be activated by waving it.",
+                  "It will persist after its last magical charge has been expended.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 5 to Dodging Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 15 times.",
+                  "    It provides a boost of 5 to Stalking and Hiding Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 10 times.",
+                  "    It seems to have quite a few enhancive charges remaining.",
+                  "It will crumble into dust after its last enhancive charge has been expended.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 98,000 silvers.",
+                  "It has a permanently unlocked loresong by Vellani."
+                ],
+                "tags": [
+                  "purpose",
+                  "imbeddable",
+                  "small"
+                ],
+                "cost": 2000000,
+                "worn": "neck",
+                "activator": "waving",
+                "enhancives": [
+                  {
+                    "boost": 5,
+                    "ability": "Dodging Bonus",
+                    "level": 15
+                  },
+                  {
+                    "boost": 5,
+                    "ability": "Stalking and Hiding Bonus",
+                    "level": 10
+                  }
+                ],
+                "wear_location": "around the neck",
+                "item_type": null
+              }
             }
           ]
         },
@@ -5503,6 +5655,7 @@
                   "max_light",
                   "small",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 250000,
@@ -7520,6 +7673,7 @@
                   "purpose",
                   "lightenable",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -8240,6 +8394,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container"
                 ],
@@ -9265,6 +9420,7 @@
                   "The beehive-shaped bag will cost 30,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -10717,6 +10873,7 @@
                   "purpose",
                   "lightenable",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 20000,
@@ -11530,6 +11687,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container"
                 ],
@@ -13060,6 +13218,7 @@
                   "max_light",
                   "deepenable",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -13083,6 +13242,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container",
                   "container"
                 ],
@@ -13108,6 +13268,7 @@
                   "The black leather pants will cost 15,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -13136,6 +13297,7 @@
                   "purpose",
                   "lightenable",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -13161,6 +13323,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container"
                 ],
@@ -13188,6 +13351,7 @@
                   "purpose",
                   "lightenable",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -13213,6 +13377,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container"
                 ],
@@ -13240,6 +13405,7 @@
                   "max_light",
                   "deepenable",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -13266,6 +13432,7 @@
                   "max_light",
                   "deepenable",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -13291,6 +13458,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container"
                 ],
@@ -13319,6 +13487,7 @@
                   "max_light",
                   "deepenable",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -13345,6 +13514,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container"
                 ],
@@ -13983,6 +14153,7 @@
                   "purpose",
                   "lightenable",
                   "persists",
+                  "container",
                   "container",
                   "container"
                 ],
@@ -16557,6 +16728,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container",
                   "container"
                 ],
@@ -22785,6 +22957,7 @@
                   "max_deep",
                   "max_light",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 11111111,
@@ -22847,6 +23020,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container",
                   "container"
                 ],
@@ -26002,6 +26176,7 @@
                   "max_deep",
                   "max_light",
                   "small",
+                  "container",
                   "container",
                   "container"
                 ],
@@ -31287,6 +31462,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -31311,6 +31487,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -31337,6 +31514,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -31361,6 +31539,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -31387,6 +31566,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -31411,6 +31591,7 @@
                   "The glass jar will cost 50,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -31437,6 +31618,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -31461,6 +31643,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -31487,6 +31670,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -31511,6 +31695,7 @@
                   "The glass jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -31537,6 +31722,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -31561,6 +31747,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -31587,6 +31774,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -31599,24 +31787,40 @@
             {
               "id": "382818657",
               "name": "a purple maul embossed with a black rose",
-              "browse_price": 20000000,
-              "raw_inspect": [
-                "It has a small enchanter's glyph and Wisserstaff's crafting mark.  A strange necrotic haze radiates from the maul.",
-                "The maul is a maul that requires skill in twohanded weapons to use effectively.",
-                "It looks like this item has been mainly crafted out of mithril, an uncommon metal.",
-                "Analysis of a purple maul embossed with a black rose indicates the item is free from merchant alteration restrictions.",
-                "You can tell that the maul is as light as it can get.",
-                "The purple maul will cost 20,000,000 coins.",
-                "It imparts a bonus of +35 more than usual.",
-                "It is forged by Wisserstaff and has increased (+3) effectiveness in combat.",
-                "It appears to weigh about 4 pounds.",
-                "It is estimated to be worth about 2,950,000 silvers.",
-                "It is predominantly crafted of mithril.",
-                "It has been ensorcelled 3 times.",
-                "It may be enchanted up to a bonus of 35 by a wizard and was last enchanted by Nessu.",
-                "It is an involved project (251 difficulty) for an adventurer to modify.",
-                "It has a permanently unlocked loresong by Cantrel."
-              ]
+              "details": {
+                "raw": [
+                  "It has a small enchanter's glyph and Wisserstaff's crafting mark.  A strange necrotic haze radiates from the maul.",
+                  "The maul is a maul that requires skill in twohanded weapons to use effectively.",
+                  "It looks like this item has been mainly crafted out of mithril, an uncommon metal.",
+                  "Analysis of a purple maul embossed with a black rose indicates the item is free from merchant alteration restrictions.",
+                  "You can tell that the maul is as light as it can get.",
+                  "The purple maul will cost 20,000,000 coins.",
+                  "It imparts a bonus of +35 more than usual.",
+                  "It is forged by Wisserstaff and has increased (+3) effectiveness in combat.",
+                  "It appears to weigh about 4 pounds.",
+                  "It is estimated to be worth about 2,950,000 silvers.",
+                  "It is predominantly crafted of mithril.",
+                  "It has been ensorcelled 3 times.",
+                  "It may be enchanted up to a bonus of 35 by a wizard and was last enchanted by Nessu.",
+                  "It is an involved project (251 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Cantrel."
+                ],
+                "tags": [
+                  "max_light"
+                ],
+                "cost": 20000000,
+                "enchant": 35,
+                "material": "mithril",
+                "skill": "twohanded weapons",
+                "weight": 4,
+                "ensorcell": 3,
+                "forged_by": "Wisserstaff",
+                "forged_avd": 3,
+                "is_weapon": true,
+                "weapon_type": "twohanded weapons",
+                "forged_quality": "perfect",
+                "item_type": "weapon"
+              }
             }
           ],
           "sign": [
@@ -31813,6 +32017,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -31885,6 +32090,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -31909,6 +32115,7 @@
                   "The glass jar will cost 35,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -31935,6 +32142,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -31959,6 +32167,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -34894,6 +35103,7 @@
                   "The wicker basket will cost 3,500,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
