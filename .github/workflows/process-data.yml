@@ -55,13 +55,10 @@ jobs:
         git commit -m "Process data - $(date '+%Y-%m-%d %H:%M UTC')"
 
         # Fetch latest and rebase our commit on top
-        # If there are content conflicts on data files, prefer our freshly processed version
+        # Stash unstaged files (processor output) so rebase can proceed cleanly
         git fetch origin master
-        git rebase origin/master || {
-          git checkout --ours docs/data/
-          git add docs/data/
-          git rebase --continue
-        }
+        git stash --include-untracked || true
+        git rebase origin/master
         git push origin master
 
         echo "changes_pushed=true" >> $GITHUB_OUTPUT
