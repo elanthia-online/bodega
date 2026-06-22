@@ -115,22 +115,11 @@ jobs:
         # Commit raw data
         git commit -m "Raw scan data: ${{ steps.scan_type.outputs.type }} - $(date '+%Y-%m-%d %H:%M UTC')"
 
-        # Fetch and push
+        # Fetch latest and rebase our commit on top
         git fetch origin master
-
-        if git merge-base --is-ancestor origin/master HEAD; then
-          echo "Pushing raw data..."
-          git push origin master
-        else
-          echo "Branches diverged, rebasing..."
-          git rebase origin/master || {
-            git rebase --abort
-            git reset --soft origin/master
-            git add docs/data/raw/*.json
-            git commit -m "Raw scan data (rebased): $(date '+%Y-%m-%d %H:%M UTC')"
-          }
-          git push origin master
-        fi
+        git stash --include-untracked || true
+        git rebase origin/master
+        git push origin master
 
         echo "CHANGES_PUSHED=true" >> $GITHUB_ENV
 
