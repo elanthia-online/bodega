@@ -1,6 +1,6 @@
 {
-  "created_at": "2026-06-22 21:40:47 UTC",
-  "run_time": "33s",
+  "created_at": "2026-06-22 21:57:03 UTC",
+  "run_time": "29s",
   "town": "Icemule Trace",
   "shops": [
     {
@@ -1893,53 +1893,105 @@
             {
               "id": "401278252",
               "name": "a sorrel mithril short sword",
-              "browse_price": 500000,
-              "raw_inspect": [
-                "It has a small enchanter's glyph.",
-                "The sword is a short sword that requires skill in edged weapons to use effectively.",
-                "It looks like this item has been mainly crafted out of mithril, an uncommon metal.",
-                "Analysis of a sorrel mithril short sword indicates the item is free from merchant alteration restrictions.",
-                "You might be able to have a talented merchant lighten the mithril short sword for you.",
-                "The mithril short sword will cost 500,000 coins.",
-                "It imparts a bonus of +10 more than usual.",
-                "It has been infused with the power of a lightning bolt.",
-                "It appears to weigh about 4 pounds.",
-                "It is estimated to be worth about 650,000 silvers.",
-                "It is temporarily weighted to inflict more critical wounds, but exactly how much requires assessment.  Its temporary enhancement will degrade when it scores a successful strike.  It has quite a few uses left before the enhancement degrades away completely, which will cause the item to lose its ability to inflict greater damage.",
-                "It is predominantly crafted of mithril.",
-                "It is an involved project (255 difficulty) for an adventurer to modify.",
-                "It has a permanently unlocked loresong by Vaidel."
-              ]
+              "details": {
+                "raw": [
+                  "It has a small enchanter's glyph.",
+                  "The sword is a short sword that requires skill in edged weapons to use effectively.",
+                  "It looks like this item has been mainly crafted out of mithril, an uncommon metal.",
+                  "Analysis of a sorrel mithril short sword indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the mithril short sword for you.",
+                  "The mithril short sword will cost 500,000 coins.",
+                  "It imparts a bonus of +10 more than usual.",
+                  "It has been infused with the power of a lightning bolt.",
+                  "It appears to weigh about 4 pounds.",
+                  "It is estimated to be worth about 650,000 silvers.",
+                  "It is temporarily weighted to inflict more critical wounds, but exactly how much requires assessment.  Its temporary enhancement will degrade when it scores a successful strike.  It has quite a few uses left before the enhancement degrades away completely, which will cause the item to lose its ability to inflict greater damage.",
+                  "It is predominantly crafted of mithril.",
+                  "It is an involved project (255 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Vaidel."
+                ],
+                "tags": [
+                  "lightenable"
+                ],
+                "cost": 500000,
+                "enchant": 10,
+                "material": "mithril",
+                "skill": "edged weapons",
+                "flare": "the power of a lightning bolt",
+                "weight": 4,
+                "is_weapon": true,
+                "weapon_type": "edged weapons",
+                "flares": [
+                  "the power of a lightning bolt"
+                ],
+                "crit_weighting": "unknown",
+                "temporary_crit_weighting": true,
+                "item_type": "weapon"
+              }
             },
             {
               "id": "401278260",
               "name": "a silver and red dreamstone talisman",
-              "browse_price": 500000,
-              "raw_inspect": [
-                "The talisman can be worn around the neck.  The talisman appears to serve some purpose.",
-                "Analysis of a silver and red dreamstone talisman indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the talisman may be further lightened.",
-                "The red dreamstone talisman will cost 500,000 coins.",
-                "It is a magical item which could be imbedded with a spell.",
-                "It has 0 charges.",
-                "It could be activated by waving it.",
-                "It will persist after its last magical charge has been expended.",
-                "It is an enhancive item:",
-                "    It provides a boost of 2 to Ranged Weapons Ranks.",
-                "    This enhancement may not be used by adventurers who have not trained 10 times.",
-                "    It provides a boost of 2 to Stalking and Hiding Ranks.",
-                "    This enhancement may not be used by adventurers who have not trained 7 times.",
-                "    It provides a boost of 3 to Stamina Recovery.",
-                "    This enhancement may not be used by adventurers who have not trained 6 times.",
-                "    It provides a boost of 2 to Max Mana.",
-                "    This enhancement may not be used by adventurers who have not trained 3 times.",
-                "    It seems to have a lot of enhancive charges remaining.",
-                "It will persist after its last enhancive charge has been expended.",
-                "It is a small item, under a pound.",
-                "It is estimated to be worth about 400,000 silvers.",
-                "It is magic resistant.",
-                "It has a permanently unlocked loresong by Vaidel."
-              ]
+              "details": {
+                "raw": [
+                  "The talisman can be worn around the neck.  The talisman appears to serve some purpose.",
+                  "Analysis of a silver and red dreamstone talisman indicates the item is free from merchant alteration restrictions.",
+                  "The red dreamstone talisman will cost 500,000 coins.",
+                  "It is a magical item which could be imbedded with a spell.",
+                  "It has 0 charges.",
+                  "It could be activated by waving it.",
+                  "It will persist after its last magical charge has been expended.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 2 to Ranged Weapons Ranks.",
+                  "    This enhancement may not be used by adventurers who have not trained 10 times.",
+                  "    It provides a boost of 2 to Stalking and Hiding Ranks.",
+                  "    This enhancement may not be used by adventurers who have not trained 7 times.",
+                  "    It provides a boost of 3 to Stamina Recovery.",
+                  "    This enhancement may not be used by adventurers who have not trained 6 times.",
+                  "    It provides a boost of 2 to Max Mana.",
+                  "    This enhancement may not be used by adventurers who have not trained 3 times.",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 400,000 silvers.",
+                  "It is magic resistant.",
+                  "It has a permanently unlocked loresong by Vaidel."
+                ],
+                "tags": [
+                  "purpose",
+                  "imbeddable",
+                  "persists",
+                  "small",
+                  "magic_resistant"
+                ],
+                "cost": 500000,
+                "worn": "neck",
+                "activator": "waving",
+                "enhancives": [
+                  {
+                    "boost": 2,
+                    "ability": "Ranged Weapons Ranks",
+                    "level": 10
+                  },
+                  {
+                    "boost": 2,
+                    "ability": "Stalking and Hiding Ranks",
+                    "level": 7
+                  },
+                  {
+                    "boost": 3,
+                    "ability": "Stamina Recovery",
+                    "level": 6
+                  },
+                  {
+                    "boost": 2,
+                    "ability": "Max Mana",
+                    "level": 3
+                  }
+                ],
+                "wear_location": "around the neck",
+                "item_type": null
+              }
             }
           ],
           "sign": [
@@ -7970,6 +8022,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 200000,
@@ -9270,6 +9323,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 5000,
@@ -9735,6 +9789,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 35000,
@@ -9922,6 +9977,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 35000,
@@ -9952,6 +10008,7 @@
                   "max_light",
                   "deepenable",
                   "small",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -11731,6 +11788,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 35000,
@@ -11759,6 +11817,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 35000,
@@ -11783,6 +11842,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -16251,6 +16311,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -16276,6 +16337,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -16312,6 +16374,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -16340,6 +16403,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -16377,6 +16441,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -16405,6 +16470,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -16444,6 +16510,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -16469,6 +16536,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -16501,6 +16569,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -16526,6 +16595,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -16562,6 +16632,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -16594,6 +16665,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -16619,6 +16691,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -16655,6 +16728,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -16683,6 +16757,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -29282,6 +29357,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 45000,
@@ -29424,6 +29500,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container"
@@ -29798,6 +29875,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -29833,6 +29911,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -29875,6 +29954,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -29913,6 +29993,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 80000,
@@ -29947,6 +30028,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -30045,6 +30127,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -30079,6 +30162,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -30205,6 +30289,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -30239,6 +30324,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -30689,6 +30775,7 @@
                   "The yellow clay vase will cost 500,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -33785,363 +33872,494 @@
             {
               "id": "395277386",
               "name": "a silver wand",
-              "browse_price": 1500,
-              "raw_inspect": [
-                "The wand can not be worn.",
-                "Analysis of a silver wand indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the wand may be further lightened.",
-                "The silver wand will cost 1,500 coins."
-              ],
-              "quantity": 2
+              "quantity": 2,
+              "details": {
+                "raw": [
+                  "The wand can not be worn.",
+                  "Analysis of a silver wand indicates the item is free from merchant alteration restrictions.",
+                  "The silver wand will cost 1,500 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 1500,
+                "item_type": null
+              }
             },
             {
               "id": "395277380",
               "name": "a silver wand",
-              "browse_price": 1500,
-              "raw_inspect": [
-                "The wand can not be worn.",
-                "Analysis of a silver wand indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the wand may be further lightened.",
-                "The silver wand will cost 1,500 coins."
-              ],
-              "quantity": 4
+              "quantity": 4,
+              "details": {
+                "raw": [
+                  "The wand can not be worn.",
+                  "Analysis of a silver wand indicates the item is free from merchant alteration restrictions.",
+                  "The silver wand will cost 1,500 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 1500,
+                "item_type": null
+              }
             },
             {
               "id": "395277376",
               "name": "a silver wand",
-              "browse_price": 1500,
-              "raw_inspect": [
-                "The wand can not be worn.",
-                "Analysis of a silver wand indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the wand may be further lightened.",
-                "The silver wand will cost 1,500 coins."
-              ],
-              "quantity": 2
+              "quantity": 2,
+              "details": {
+                "raw": [
+                  "The wand can not be worn.",
+                  "Analysis of a silver wand indicates the item is free from merchant alteration restrictions.",
+                  "The silver wand will cost 1,500 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 1500,
+                "item_type": null
+              }
             },
             {
               "id": "395277374",
               "name": "a silver wand",
-              "browse_price": 1500,
-              "raw_inspect": [
-                "The wand can not be worn.",
-                "Analysis of a silver wand indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the wand may be further lightened.",
-                "The silver wand will cost 1,500 coins."
-              ],
-              "quantity": 4
+              "quantity": 4,
+              "details": {
+                "raw": [
+                  "The wand can not be worn.",
+                  "Analysis of a silver wand indicates the item is free from merchant alteration restrictions.",
+                  "The silver wand will cost 1,500 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 1500,
+                "item_type": null
+              }
             },
             {
               "id": "395277370",
               "name": "a silver wand",
-              "browse_price": 1500,
-              "raw_inspect": [
-                "The wand can not be worn.",
-                "Analysis of a silver wand indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the wand may be further lightened.",
-                "The silver wand will cost 1,500 coins."
-              ],
-              "quantity": 5
+              "quantity": 5,
+              "details": {
+                "raw": [
+                  "The wand can not be worn.",
+                  "Analysis of a silver wand indicates the item is free from merchant alteration restrictions.",
+                  "The silver wand will cost 1,500 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 1500,
+                "item_type": null
+              }
             },
             {
               "id": "395277366",
               "name": "a silver wand",
-              "browse_price": 1500,
-              "raw_inspect": [
-                "The wand can not be worn.",
-                "Analysis of a silver wand indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the wand may be further lightened.",
-                "The silver wand will cost 1,500 coins."
-              ],
-              "quantity": 2
+              "quantity": 2,
+              "details": {
+                "raw": [
+                  "The wand can not be worn.",
+                  "Analysis of a silver wand indicates the item is free from merchant alteration restrictions.",
+                  "The silver wand will cost 1,500 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 1500,
+                "item_type": null
+              }
             },
             {
               "id": "395277365",
               "name": "a silver wand",
-              "browse_price": 1500,
-              "raw_inspect": [
-                "The wand can not be worn.",
-                "Analysis of a silver wand indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the wand may be further lightened.",
-                "The silver wand will cost 1,500 coins."
-              ],
-              "quantity": 8
+              "quantity": 8,
+              "details": {
+                "raw": [
+                  "The wand can not be worn.",
+                  "Analysis of a silver wand indicates the item is free from merchant alteration restrictions.",
+                  "The silver wand will cost 1,500 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 1500,
+                "item_type": null
+              }
             },
             {
               "id": "395277363",
               "name": "a silver wand",
-              "browse_price": 1500,
-              "raw_inspect": [
-                "The wand can not be worn.",
-                "Analysis of a silver wand indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the wand may be further lightened.",
-                "The silver wand will cost 1,500 coins."
-              ],
-              "quantity": 3
+              "quantity": 3,
+              "details": {
+                "raw": [
+                  "The wand can not be worn.",
+                  "Analysis of a silver wand indicates the item is free from merchant alteration restrictions.",
+                  "The silver wand will cost 1,500 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 1500,
+                "item_type": null
+              }
             },
             {
               "id": "395287633",
               "name": "a golden wand",
-              "browse_price": 9900,
-              "raw_inspect": [
-                "The wand can not be worn.",
-                "Analysis of a golden wand indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the wand may be further lightened.",
-                "The golden wand will cost 9,900 coins."
-              ],
-              "quantity": 2
+              "quantity": 2,
+              "details": {
+                "raw": [
+                  "The wand can not be worn.",
+                  "Analysis of a golden wand indicates the item is free from merchant alteration restrictions.",
+                  "The golden wand will cost 9,900 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 9900,
+                "item_type": null
+              }
             },
             {
               "id": "395287629",
               "name": "a golden wand",
-              "browse_price": 9900,
-              "raw_inspect": [
-                "The wand can not be worn.",
-                "Analysis of a golden wand indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the wand may be further lightened.",
-                "The golden wand will cost 9,900 coins."
-              ],
-              "quantity": 4
+              "quantity": 4,
+              "details": {
+                "raw": [
+                  "The wand can not be worn.",
+                  "Analysis of a golden wand indicates the item is free from merchant alteration restrictions.",
+                  "The golden wand will cost 9,900 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 9900,
+                "item_type": null
+              }
             },
             {
               "id": "395287627",
               "name": "a golden wand",
-              "browse_price": 9900,
-              "raw_inspect": [
-                "The wand can not be worn.",
-                "Analysis of a golden wand indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the wand may be further lightened.",
-                "The golden wand will cost 9,900 coins."
-              ],
-              "quantity": 2
+              "quantity": 2,
+              "details": {
+                "raw": [
+                  "The wand can not be worn.",
+                  "Analysis of a golden wand indicates the item is free from merchant alteration restrictions.",
+                  "The golden wand will cost 9,900 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 9900,
+                "item_type": null
+              }
             },
             {
               "id": "395753903",
               "name": "a green tourmaline",
-              "browse_price": 500,
-              "raw_inspect": [
-                "It is difficult to see the green tourmaline clearly from this distance.",
-                "The tourmaline can not be worn.",
-                "Analysis of a green tourmaline indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the tourmaline may be further lightened.",
-                "The green tourmaline will cost 500 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The tourmaline can not be worn.",
+                  "Analysis of a green tourmaline indicates the item is free from merchant alteration restrictions.",
+                  "The green tourmaline will cost 500 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 500,
+                "item_type": null
+              }
             },
             {
               "id": "395753916",
               "name": "a black tourmaline",
-              "browse_price": 500,
-              "raw_inspect": [
-                "It is difficult to see the black tourmaline clearly from this distance.",
-                "The tourmaline can not be worn.",
-                "Analysis of a black tourmaline indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the tourmaline may be further lightened.",
-                "The black tourmaline will cost 500 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The tourmaline can not be worn.",
+                  "Analysis of a black tourmaline indicates the item is free from merchant alteration restrictions.",
+                  "The black tourmaline will cost 500 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 500,
+                "item_type": null
+              }
             },
             {
               "id": "395753914",
               "name": "a pink tourmaline",
-              "browse_price": 500,
-              "raw_inspect": [
-                "It is difficult to see the pink tourmaline clearly from this distance.",
-                "The tourmaline can not be worn.",
-                "Analysis of a pink tourmaline indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the tourmaline may be further lightened.",
-                "The pink tourmaline will cost 500 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The tourmaline can not be worn.",
+                  "Analysis of a pink tourmaline indicates the item is free from merchant alteration restrictions.",
+                  "The pink tourmaline will cost 500 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 500,
+                "item_type": null
+              }
             },
             {
               "id": "395753915",
               "name": "a pink tourmaline",
-              "browse_price": 500,
-              "raw_inspect": [
-                "It is difficult to see the pink tourmaline clearly from this distance.",
-                "The tourmaline can not be worn.",
-                "Analysis of a pink tourmaline indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the tourmaline may be further lightened.",
-                "The pink tourmaline will cost 500 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The tourmaline can not be worn.",
+                  "Analysis of a pink tourmaline indicates the item is free from merchant alteration restrictions.",
+                  "The pink tourmaline will cost 500 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 500,
+                "item_type": null
+              }
             },
             {
               "id": "395753904",
               "name": "a turquoise stone",
-              "browse_price": 2100,
-              "raw_inspect": [
-                "It is difficult to see the turquoise stone clearly from this distance.",
-                "The stone can not be worn.",
-                "Analysis of a turquoise stone indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the stone may be further lightened.",
-                "The turquoise stone will cost 2,100 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The stone can not be worn.",
+                  "Analysis of a turquoise stone indicates the item is free from merchant alteration restrictions.",
+                  "The turquoise stone will cost 2,100 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 2100,
+                "item_type": null
+              }
             },
             {
               "id": "395753913",
               "name": "a pink rhodochrosite stone",
-              "browse_price": 2100,
-              "raw_inspect": [
-                "It is difficult to see the rhodochrosite stone clearly from this distance.",
-                "The stone can not be worn.",
-                "Analysis of a pink rhodochrosite stone indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the stone may be further lightened.",
-                "The rhodochrosite stone will cost 2,100 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The stone can not be worn.",
+                  "Analysis of a pink rhodochrosite stone indicates the item is free from merchant alteration restrictions.",
+                  "The rhodochrosite stone will cost 2,100 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 2100,
+                "item_type": null
+              }
             },
             {
               "id": "395753905",
               "name": "a green malachite stone",
-              "browse_price": 2300,
-              "raw_inspect": [
-                "It is difficult to see the malachite stone clearly from this distance.",
-                "The stone can not be worn.",
-                "Analysis of a green malachite stone indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the stone may be further lightened.",
-                "The malachite stone will cost 2,300 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The stone can not be worn.",
+                  "Analysis of a green malachite stone indicates the item is free from merchant alteration restrictions.",
+                  "The malachite stone will cost 2,300 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 2300,
+                "item_type": null
+              }
             },
             {
               "id": "395753906",
               "name": "a green malachite stone",
-              "browse_price": 2300,
-              "raw_inspect": [
-                "It is difficult to see the malachite stone clearly from this distance.",
-                "The stone can not be worn.",
-                "Analysis of a green malachite stone indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the stone may be further lightened.",
-                "The malachite stone will cost 2,300 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The stone can not be worn.",
+                  "Analysis of a green malachite stone indicates the item is free from merchant alteration restrictions.",
+                  "The malachite stone will cost 2,300 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 2300,
+                "item_type": null
+              }
             },
             {
               "id": "395753907",
               "name": "a smoky topaz",
-              "browse_price": 1900,
-              "raw_inspect": [
-                "It is difficult to see the smoky topaz clearly from this distance.",
-                "The topaz can not be worn.",
-                "Analysis of a smoky topaz indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the topaz may be further lightened.",
-                "The smoky topaz will cost 1,900 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The topaz can not be worn.",
+                  "Analysis of a smoky topaz indicates the item is free from merchant alteration restrictions.",
+                  "The smoky topaz will cost 1,900 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 1900,
+                "item_type": null
+              }
             },
             {
               "id": "395753908",
               "name": "a smoky topaz",
-              "browse_price": 1900,
-              "raw_inspect": [
-                "It is difficult to see the smoky topaz clearly from this distance.",
-                "The topaz can not be worn.",
-                "Analysis of a smoky topaz indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the topaz may be further lightened.",
-                "The smoky topaz will cost 1,900 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The topaz can not be worn.",
+                  "Analysis of a smoky topaz indicates the item is free from merchant alteration restrictions.",
+                  "The smoky topaz will cost 1,900 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 1900,
+                "item_type": null
+              }
             },
             {
               "id": "395753909",
               "name": "a smoky topaz",
-              "browse_price": 1900,
-              "raw_inspect": [
-                "It is difficult to see the smoky topaz clearly from this distance.",
-                "The topaz can not be worn.",
-                "Analysis of a smoky topaz indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the topaz may be further lightened.",
-                "The smoky topaz will cost 1,900 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The topaz can not be worn.",
+                  "Analysis of a smoky topaz indicates the item is free from merchant alteration restrictions.",
+                  "The smoky topaz will cost 1,900 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 1900,
+                "item_type": null
+              }
             },
             {
               "id": "395753911",
               "name": "a golden topaz",
-              "browse_price": 1900,
-              "raw_inspect": [
-                "It is difficult to see the golden topaz clearly from this distance.",
-                "The topaz can not be worn.",
-                "Analysis of a golden topaz indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the topaz may be further lightened.",
-                "The golden topaz will cost 1,900 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The topaz can not be worn.",
+                  "Analysis of a golden topaz indicates the item is free from merchant alteration restrictions.",
+                  "The golden topaz will cost 1,900 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 1900,
+                "item_type": null
+              }
             },
             {
               "id": "395753912",
               "name": "a golden topaz",
-              "browse_price": 1900,
-              "raw_inspect": [
-                "It is difficult to see the golden topaz clearly from this distance.",
-                "The topaz can not be worn.",
-                "Analysis of a golden topaz indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the topaz may be further lightened.",
-                "The golden topaz will cost 1,900 coins."
-              ],
-              "quantity": 2
+              "quantity": 2,
+              "details": {
+                "raw": [
+                  "The topaz can not be worn.",
+                  "Analysis of a golden topaz indicates the item is free from merchant alteration restrictions.",
+                  "The golden topaz will cost 1,900 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 1900,
+                "item_type": null
+              }
             },
             {
               "id": "395753917",
               "name": "an uncut ruby",
-              "browse_price": 6500,
-              "raw_inspect": [
-                "It is difficult to see the uncut ruby clearly from this distance.",
-                "The ruby can not be worn.",
-                "Analysis of an uncut ruby indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the ruby may be further lightened.",
-                "The uncut ruby will cost 6,500 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The ruby can not be worn.",
+                  "Analysis of an uncut ruby indicates the item is free from merchant alteration restrictions.",
+                  "The uncut ruby will cost 6,500 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 6500,
+                "item_type": null
+              }
             },
             {
               "id": "395753918",
               "name": "an uncut ruby",
-              "browse_price": 6500,
-              "raw_inspect": [
-                "It is difficult to see the uncut ruby clearly from this distance.",
-                "The ruby can not be worn.",
-                "Analysis of an uncut ruby indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the ruby may be further lightened.",
-                "The uncut ruby will cost 6,500 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The ruby can not be worn.",
+                  "Analysis of an uncut ruby indicates the item is free from merchant alteration restrictions.",
+                  "The uncut ruby will cost 6,500 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 6500,
+                "item_type": null
+              }
             },
             {
               "id": "395753920",
               "name": "a blue sapphire",
-              "browse_price": 6500,
-              "raw_inspect": [
-                "It is difficult to see the blue sapphire clearly from this distance.",
-                "The sapphire can not be worn.",
-                "Analysis of a blue sapphire indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the sapphire may be further lightened.",
-                "The blue sapphire will cost 6,500 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The sapphire can not be worn.",
+                  "Analysis of a blue sapphire indicates the item is free from merchant alteration restrictions.",
+                  "The blue sapphire will cost 6,500 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 6500,
+                "item_type": null
+              }
             },
             {
               "id": "395753921",
               "name": "a blue sapphire",
-              "browse_price": 6500,
-              "raw_inspect": [
-                "It is difficult to see the blue sapphire clearly from this distance.",
-                "The sapphire can not be worn.",
-                "Analysis of a blue sapphire indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the sapphire may be further lightened.",
-                "The blue sapphire will cost 6,500 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The sapphire can not be worn.",
+                  "Analysis of a blue sapphire indicates the item is free from merchant alteration restrictions.",
+                  "The blue sapphire will cost 6,500 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 6500,
+                "item_type": null
+              }
             },
             {
               "id": "395753922",
               "name": "a blue sapphire",
-              "browse_price": 6500,
-              "raw_inspect": [
-                "It is difficult to see the blue sapphire clearly from this distance.",
-                "The sapphire can not be worn.",
-                "Analysis of a blue sapphire indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the sapphire may be further lightened.",
-                "The blue sapphire will cost 6,500 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The sapphire can not be worn.",
+                  "Analysis of a blue sapphire indicates the item is free from merchant alteration restrictions.",
+                  "The blue sapphire will cost 6,500 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 6500,
+                "item_type": null
+              }
             },
             {
               "id": "395753919",
               "name": "a green sapphire",
-              "browse_price": 2900,
-              "raw_inspect": [
-                "It is difficult to see the green sapphire clearly from this distance.",
-                "The sapphire can not be worn.",
-                "Analysis of a green sapphire indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the sapphire may be further lightened.",
-                "The green sapphire will cost 2,900 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The sapphire can not be worn.",
+                  "Analysis of a green sapphire indicates the item is free from merchant alteration restrictions.",
+                  "The green sapphire will cost 2,900 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 2900,
+                "item_type": null
+              }
             }
           ],
           "sign": [
@@ -36333,6 +36551,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 999999,
@@ -36698,6 +36917,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 2999999,
@@ -36728,6 +36948,7 @@
                 "tags": [
                   "max_deep",
                   "max_light",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -36767,6 +36988,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -36935,6 +37157,7 @@
                   "purpose",
                   "lightenable",
                   "magic_resistant",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -37749,6 +37972,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 4999999,
@@ -37821,6 +38045,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -41851,6 +42076,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 2000000,
@@ -41875,6 +42101,7 @@
                   "The glass jar will cost 2,000,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -41907,6 +42134,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -41931,6 +42159,7 @@
                   "The glass jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -41963,6 +42192,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 220000,
@@ -41987,6 +42217,7 @@
                   "The glass jar will cost 220,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -42019,6 +42250,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 220000,
@@ -42043,6 +42275,7 @@
                   "The glass jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -42491,6 +42724,7 @@
                   "The yellow clay vase will cost 1,000,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -45431,6 +45665,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 449999,
@@ -47410,6 +47645,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 160000,
@@ -48319,6 +48555,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 160000,
@@ -48798,6 +49035,7 @@
                 "tags": [
                   "holy",
                   "small",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -49442,6 +49680,7 @@
                   "The tall glass jar will cost 150,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -50431,450 +50670,593 @@
             {
               "id": "397915411",
               "name": "a Higher Self vissi",
-              "browse_price": 50000,
-              "raw_inspect": [
-                "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
-                "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
-                "The vissi can not be worn.",
-                "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
-                "Analysis of a Higher Self vissi indicates the creator has provided the following information:",
-                "The Higher Self vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
-                "The Higher Self vissi is named Higher Self and it is a Chimera vissi.",
-                "This vissi notes the following ability information:",
-                "Reflect upon and embrace your inner peace and positive goals alongside your companion vissi.",
-                "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
-                "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
-                "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
-                "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
-                "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
-                "The Higher Self vissi will cost 45,000 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
+                  "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
+                  "The vissi can not be worn.",
+                  "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
+                  "Analysis of a Higher Self vissi indicates the creator has provided the following information:",
+                  "The Higher Self vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
+                  "The Higher Self vissi is named Higher Self and it is a Chimera vissi.",
+                  "This vissi notes the following ability information:",
+                  "Reflect upon and embrace your inner peace and positive goals alongside your companion vissi.",
+                  "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
+                  "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
+                  "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
+                  "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
+                  "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
+                  "The Higher Self vissi will cost 45,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 50000,
+                "material": "organic material, an extremely common material",
+                "item_type": null
+              }
             },
             {
               "id": "397915438",
               "name": "a Higher Self vissi",
-              "browse_price": 50000,
-              "raw_inspect": [
-                "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
-                "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
-                "The vissi can not be worn.",
-                "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
-                "Analysis of a Higher Self vissi indicates the creator has provided the following information:",
-                "The Higher Self vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
-                "The Higher Self vissi is named Higher Self and it is a Chimera vissi.",
-                "This vissi notes the following ability information:",
-                "Reflect upon and embrace your inner peace and positive goals alongside your companion vissi.",
-                "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
-                "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
-                "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
-                "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
-                "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
-                "The Higher Self vissi will cost 45,000 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
+                  "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
+                  "The vissi can not be worn.",
+                  "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
+                  "Analysis of a Higher Self vissi indicates the creator has provided the following information:",
+                  "The Higher Self vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
+                  "The Higher Self vissi is named Higher Self and it is a Chimera vissi.",
+                  "This vissi notes the following ability information:",
+                  "Reflect upon and embrace your inner peace and positive goals alongside your companion vissi.",
+                  "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
+                  "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
+                  "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
+                  "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
+                  "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
+                  "The Higher Self vissi will cost 45,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 50000,
+                "material": "organic material, an extremely common material",
+                "item_type": null
+              }
             },
             {
               "id": "397915449",
               "name": "a Higher Self vissi",
-              "browse_price": 50000,
-              "raw_inspect": [
-                "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
-                "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
-                "The vissi can not be worn.",
-                "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
-                "Analysis of a Higher Self vissi indicates the creator has provided the following information:",
-                "The Higher Self vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
-                "The Higher Self vissi is named Higher Self and it is a Chimera vissi.",
-                "This vissi notes the following ability information:",
-                "Reflect upon and embrace your inner peace and positive goals alongside your companion vissi.",
-                "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
-                "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
-                "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
-                "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
-                "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
-                "The Higher Self vissi will cost 45,000 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
+                  "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
+                  "The vissi can not be worn.",
+                  "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
+                  "Analysis of a Higher Self vissi indicates the creator has provided the following information:",
+                  "The Higher Self vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
+                  "The Higher Self vissi is named Higher Self and it is a Chimera vissi.",
+                  "This vissi notes the following ability information:",
+                  "Reflect upon and embrace your inner peace and positive goals alongside your companion vissi.",
+                  "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
+                  "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
+                  "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
+                  "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
+                  "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
+                  "The Higher Self vissi will cost 45,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 50000,
+                "material": "organic material, an extremely common material",
+                "item_type": null
+              }
             },
             {
               "id": "397915485",
               "name": "a Higher Self vissi",
-              "browse_price": 50000,
-              "raw_inspect": [
-                "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
-                "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
-                "The vissi can not be worn.",
-                "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
-                "Analysis of a Higher Self vissi indicates the creator has provided the following information:",
-                "The Higher Self vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
-                "The Higher Self vissi is named Higher Self and it is a Chimera vissi.",
-                "This vissi notes the following ability information:",
-                "Reflect upon and embrace your inner peace and positive goals alongside your companion vissi.",
-                "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
-                "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
-                "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
-                "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
-                "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
-                "The Higher Self vissi will cost 45,000 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
+                  "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
+                  "The vissi can not be worn.",
+                  "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
+                  "Analysis of a Higher Self vissi indicates the creator has provided the following information:",
+                  "The Higher Self vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
+                  "The Higher Self vissi is named Higher Self and it is a Chimera vissi.",
+                  "This vissi notes the following ability information:",
+                  "Reflect upon and embrace your inner peace and positive goals alongside your companion vissi.",
+                  "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
+                  "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
+                  "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
+                  "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
+                  "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
+                  "The Higher Self vissi will cost 45,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 50000,
+                "material": "organic material, an extremely common material",
+                "item_type": null
+              }
             },
             {
               "id": "397915765",
               "name": "a Higher Self vissi",
-              "browse_price": 50000,
-              "raw_inspect": [
-                "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
-                "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
-                "The vissi can not be worn.",
-                "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
-                "Analysis of a Higher Self vissi indicates the creator has provided the following information:",
-                "The Higher Self vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
-                "The Higher Self vissi is named Higher Self and it is a Chimera vissi.",
-                "This vissi notes the following ability information:",
-                "Reflect upon and embrace your inner peace and positive goals alongside your companion vissi.",
-                "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
-                "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
-                "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
-                "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
-                "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
-                "The Higher Self vissi will cost 45,000 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
+                  "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
+                  "The vissi can not be worn.",
+                  "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
+                  "Analysis of a Higher Self vissi indicates the creator has provided the following information:",
+                  "The Higher Self vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
+                  "The Higher Self vissi is named Higher Self and it is a Chimera vissi.",
+                  "This vissi notes the following ability information:",
+                  "Reflect upon and embrace your inner peace and positive goals alongside your companion vissi.",
+                  "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
+                  "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
+                  "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
+                  "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
+                  "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
+                  "The Higher Self vissi will cost 45,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 50000,
+                "material": "organic material, an extremely common material",
+                "item_type": null
+              }
             },
             {
               "id": "397915776",
               "name": "a Higher Self vissi",
-              "browse_price": 50000,
-              "raw_inspect": [
-                "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
-                "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
-                "The vissi can not be worn.",
-                "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
-                "Analysis of a Higher Self vissi indicates the creator has provided the following information:",
-                "The Higher Self vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
-                "The Higher Self vissi is named Higher Self and it is a Chimera vissi.",
-                "This vissi notes the following ability information:",
-                "Reflect upon and embrace your inner peace and positive goals alongside your companion vissi.",
-                "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
-                "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
-                "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
-                "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
-                "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
-                "The Higher Self vissi will cost 45,000 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
+                  "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
+                  "The vissi can not be worn.",
+                  "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
+                  "Analysis of a Higher Self vissi indicates the creator has provided the following information:",
+                  "The Higher Self vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
+                  "The Higher Self vissi is named Higher Self and it is a Chimera vissi.",
+                  "This vissi notes the following ability information:",
+                  "Reflect upon and embrace your inner peace and positive goals alongside your companion vissi.",
+                  "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
+                  "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
+                  "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
+                  "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
+                  "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
+                  "The Higher Self vissi will cost 45,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 50000,
+                "material": "organic material, an extremely common material",
+                "item_type": null
+              }
             },
             {
               "id": "397915898",
               "name": "a Higher Self vissi",
-              "browse_price": 50000,
-              "raw_inspect": [
-                "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
-                "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
-                "The vissi can not be worn.",
-                "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
-                "Analysis of a Higher Self vissi indicates the creator has provided the following information:",
-                "The Higher Self vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
-                "The Higher Self vissi is named Higher Self and it is a Chimera vissi.",
-                "This vissi notes the following ability information:",
-                "Reflect upon and embrace your inner peace and positive goals alongside your companion vissi.",
-                "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
-                "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
-                "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
-                "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
-                "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
-                "The Higher Self vissi will cost 45,000 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
+                  "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
+                  "The vissi can not be worn.",
+                  "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
+                  "Analysis of a Higher Self vissi indicates the creator has provided the following information:",
+                  "The Higher Self vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
+                  "The Higher Self vissi is named Higher Self and it is a Chimera vissi.",
+                  "This vissi notes the following ability information:",
+                  "Reflect upon and embrace your inner peace and positive goals alongside your companion vissi.",
+                  "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
+                  "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
+                  "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
+                  "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
+                  "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
+                  "The Higher Self vissi will cost 45,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 50000,
+                "material": "organic material, an extremely common material",
+                "item_type": null
+              }
             },
             {
               "id": "397916482",
               "name": "a Higher Self vissi",
-              "browse_price": 50000,
-              "raw_inspect": [
-                "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
-                "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
-                "The vissi can not be worn.",
-                "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
-                "Analysis of a Higher Self vissi indicates the creator has provided the following information:",
-                "The Higher Self vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
-                "The Higher Self vissi is named Higher Self and it is a Chimera vissi.",
-                "This vissi notes the following ability information:",
-                "Reflect upon and embrace your inner peace and positive goals alongside your companion vissi.",
-                "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
-                "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
-                "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
-                "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
-                "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
-                "The Higher Self vissi will cost 45,000 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
+                  "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
+                  "The vissi can not be worn.",
+                  "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
+                  "Analysis of a Higher Self vissi indicates the creator has provided the following information:",
+                  "The Higher Self vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
+                  "The Higher Self vissi is named Higher Self and it is a Chimera vissi.",
+                  "This vissi notes the following ability information:",
+                  "Reflect upon and embrace your inner peace and positive goals alongside your companion vissi.",
+                  "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
+                  "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
+                  "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
+                  "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
+                  "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
+                  "The Higher Self vissi will cost 45,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 50000,
+                "material": "organic material, an extremely common material",
+                "item_type": null
+              }
             },
             {
               "id": "397916604",
               "name": "a Higher Self vissi",
-              "browse_price": 50000,
-              "raw_inspect": [
-                "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
-                "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
-                "The vissi can not be worn.",
-                "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
-                "Analysis of a Higher Self vissi indicates the creator has provided the following information:",
-                "The Higher Self vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
-                "The Higher Self vissi is named Higher Self and it is a Chimera vissi.",
-                "This vissi notes the following ability information:",
-                "Reflect upon and embrace your inner peace and positive goals alongside your companion vissi.",
-                "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
-                "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
-                "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
-                "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
-                "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
-                "The Higher Self vissi will cost 45,000 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
+                  "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
+                  "The vissi can not be worn.",
+                  "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
+                  "Analysis of a Higher Self vissi indicates the creator has provided the following information:",
+                  "The Higher Self vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
+                  "The Higher Self vissi is named Higher Self and it is a Chimera vissi.",
+                  "This vissi notes the following ability information:",
+                  "Reflect upon and embrace your inner peace and positive goals alongside your companion vissi.",
+                  "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
+                  "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
+                  "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
+                  "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
+                  "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
+                  "The Higher Self vissi will cost 45,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 50000,
+                "material": "organic material, an extremely common material",
+                "item_type": null
+              }
             },
             {
               "id": "397916753",
               "name": "a Higher Self vissi",
-              "browse_price": 50000,
-              "raw_inspect": [
-                "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
-                "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
-                "The vissi can not be worn.",
-                "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
-                "Analysis of a Higher Self vissi indicates the creator has provided the following information:",
-                "The Higher Self vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
-                "The Higher Self vissi is named Higher Self and it is a Chimera vissi.",
-                "This vissi notes the following ability information:",
-                "Reflect upon and embrace your inner peace and positive goals alongside your companion vissi.",
-                "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
-                "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
-                "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
-                "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
-                "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
-                "The Higher Self vissi will cost 45,000 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
+                  "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
+                  "The vissi can not be worn.",
+                  "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
+                  "Analysis of a Higher Self vissi indicates the creator has provided the following information:",
+                  "The Higher Self vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
+                  "The Higher Self vissi is named Higher Self and it is a Chimera vissi.",
+                  "This vissi notes the following ability information:",
+                  "Reflect upon and embrace your inner peace and positive goals alongside your companion vissi.",
+                  "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
+                  "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
+                  "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
+                  "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
+                  "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
+                  "The Higher Self vissi will cost 45,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 50000,
+                "material": "organic material, an extremely common material",
+                "item_type": null
+              }
             },
             {
               "id": "397916756",
               "name": "a Higher Self vissi",
-              "browse_price": 50000,
-              "raw_inspect": [
-                "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
-                "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
-                "The vissi can not be worn.",
-                "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
-                "Analysis of a Higher Self vissi indicates the creator has provided the following information:",
-                "The Higher Self vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
-                "The Higher Self vissi is named Higher Self and it is a Chimera vissi.",
-                "This vissi notes the following ability information:",
-                "Reflect upon and embrace your inner peace and positive goals alongside your companion vissi.",
-                "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
-                "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
-                "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
-                "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
-                "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
-                "The Higher Self vissi will cost 45,000 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
+                  "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
+                  "The vissi can not be worn.",
+                  "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
+                  "Analysis of a Higher Self vissi indicates the creator has provided the following information:",
+                  "The Higher Self vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
+                  "The Higher Self vissi is named Higher Self and it is a Chimera vissi.",
+                  "This vissi notes the following ability information:",
+                  "Reflect upon and embrace your inner peace and positive goals alongside your companion vissi.",
+                  "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
+                  "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
+                  "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
+                  "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
+                  "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
+                  "The Higher Self vissi will cost 45,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 50000,
+                "material": "organic material, an extremely common material",
+                "item_type": null
+              }
             },
             {
               "id": "397916882",
               "name": "a Higher Self vissi",
-              "browse_price": 50000,
-              "raw_inspect": [
-                "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
-                "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
-                "The vissi can not be worn.",
-                "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
-                "Analysis of a Higher Self vissi indicates the creator has provided the following information:",
-                "The Higher Self vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
-                "The Higher Self vissi is named Higher Self and it is a Chimera vissi.",
-                "This vissi notes the following ability information:",
-                "Reflect upon and embrace your inner peace and positive goals alongside your companion vissi.",
-                "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
-                "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
-                "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
-                "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
-                "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
-                "The Higher Self vissi will cost 45,000 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
+                  "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
+                  "The vissi can not be worn.",
+                  "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
+                  "Analysis of a Higher Self vissi indicates the creator has provided the following information:",
+                  "The Higher Self vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
+                  "The Higher Self vissi is named Higher Self and it is a Chimera vissi.",
+                  "This vissi notes the following ability information:",
+                  "Reflect upon and embrace your inner peace and positive goals alongside your companion vissi.",
+                  "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
+                  "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
+                  "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
+                  "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
+                  "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
+                  "The Higher Self vissi will cost 45,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 50000,
+                "material": "organic material, an extremely common material",
+                "item_type": null
+              }
             },
             {
               "id": "397917020",
               "name": "a Higher Self vissi",
-              "browse_price": 50000,
-              "raw_inspect": [
-                "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
-                "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
-                "The vissi can not be worn.",
-                "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
-                "Analysis of a Higher Self vissi indicates the creator has provided the following information:",
-                "The Higher Self vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
-                "The Higher Self vissi is named Higher Self and it is a Chimera vissi.",
-                "This vissi notes the following ability information:",
-                "Reflect upon and embrace your inner peace and positive goals alongside your companion vissi.",
-                "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
-                "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
-                "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
-                "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
-                "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
-                "The Higher Self vissi will cost 45,000 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
+                  "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
+                  "The vissi can not be worn.",
+                  "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
+                  "Analysis of a Higher Self vissi indicates the creator has provided the following information:",
+                  "The Higher Self vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
+                  "The Higher Self vissi is named Higher Self and it is a Chimera vissi.",
+                  "This vissi notes the following ability information:",
+                  "Reflect upon and embrace your inner peace and positive goals alongside your companion vissi.",
+                  "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
+                  "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
+                  "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
+                  "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
+                  "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
+                  "The Higher Self vissi will cost 45,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 50000,
+                "material": "organic material, an extremely common material",
+                "item_type": null
+              }
             },
             {
               "id": "397917030",
               "name": "a Higher Self vissi",
-              "browse_price": 50000,
-              "raw_inspect": [
-                "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
-                "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
-                "The vissi can not be worn.",
-                "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
-                "Analysis of a Higher Self vissi indicates the creator has provided the following information:",
-                "The Higher Self vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
-                "The Higher Self vissi is named Higher Self and it is a Chimera vissi.",
-                "This vissi notes the following ability information:",
-                "Reflect upon and embrace your inner peace and positive goals alongside your companion vissi.",
-                "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
-                "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
-                "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
-                "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
-                "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
-                "The Higher Self vissi will cost 45,000 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
+                  "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
+                  "The vissi can not be worn.",
+                  "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
+                  "Analysis of a Higher Self vissi indicates the creator has provided the following information:",
+                  "The Higher Self vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
+                  "The Higher Self vissi is named Higher Self and it is a Chimera vissi.",
+                  "This vissi notes the following ability information:",
+                  "Reflect upon and embrace your inner peace and positive goals alongside your companion vissi.",
+                  "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
+                  "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
+                  "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
+                  "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
+                  "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
+                  "The Higher Self vissi will cost 45,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 50000,
+                "material": "organic material, an extremely common material",
+                "item_type": null
+              }
             },
             {
               "id": "397917733",
               "name": "a Higher Self vissi",
-              "browse_price": 50000,
-              "raw_inspect": [
-                "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
-                "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
-                "The vissi can not be worn.",
-                "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
-                "Analysis of a Higher Self vissi indicates the creator has provided the following information:",
-                "The Higher Self vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
-                "The Higher Self vissi is named Higher Self and it is a Chimera vissi.",
-                "This vissi notes the following ability information:",
-                "Reflect upon and embrace your inner peace and positive goals alongside your companion vissi.",
-                "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
-                "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
-                "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
-                "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
-                "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
-                "The Higher Self vissi will cost 45,000 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
+                  "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
+                  "The vissi can not be worn.",
+                  "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
+                  "Analysis of a Higher Self vissi indicates the creator has provided the following information:",
+                  "The Higher Self vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
+                  "The Higher Self vissi is named Higher Self and it is a Chimera vissi.",
+                  "This vissi notes the following ability information:",
+                  "Reflect upon and embrace your inner peace and positive goals alongside your companion vissi.",
+                  "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
+                  "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
+                  "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
+                  "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
+                  "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
+                  "The Higher Self vissi will cost 45,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 50000,
+                "material": "organic material, an extremely common material",
+                "item_type": null
+              }
             },
             {
               "id": "397917745",
               "name": "a Higher Self vissi",
-              "browse_price": 50000,
-              "raw_inspect": [
-                "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
-                "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
-                "The vissi can not be worn.",
-                "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
-                "Analysis of a Higher Self vissi indicates the creator has provided the following information:",
-                "The Higher Self vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
-                "The Higher Self vissi is named Higher Self and it is a Chimera vissi.",
-                "This vissi notes the following ability information:",
-                "Reflect upon and embrace your inner peace and positive goals alongside your companion vissi.",
-                "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
-                "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
-                "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
-                "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
-                "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
-                "The Higher Self vissi will cost 45,000 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
+                  "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
+                  "The vissi can not be worn.",
+                  "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
+                  "Analysis of a Higher Self vissi indicates the creator has provided the following information:",
+                  "The Higher Self vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
+                  "The Higher Self vissi is named Higher Self and it is a Chimera vissi.",
+                  "This vissi notes the following ability information:",
+                  "Reflect upon and embrace your inner peace and positive goals alongside your companion vissi.",
+                  "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
+                  "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
+                  "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
+                  "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
+                  "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
+                  "The Higher Self vissi will cost 45,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 50000,
+                "material": "organic material, an extremely common material",
+                "item_type": null
+              }
             },
             {
               "id": "397917775",
               "name": "a Higher Self vissi",
-              "browse_price": 50000,
-              "raw_inspect": [
-                "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
-                "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
-                "The vissi can not be worn.",
-                "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
-                "Analysis of a Higher Self vissi indicates the creator has provided the following information:",
-                "The Higher Self vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
-                "The Higher Self vissi is named Higher Self and it is a Chimera vissi.",
-                "This vissi notes the following ability information:",
-                "Reflect upon and embrace your inner peace and positive goals alongside your companion vissi.",
-                "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
-                "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
-                "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
-                "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
-                "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
-                "The Higher Self vissi will cost 45,000 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
+                  "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
+                  "The vissi can not be worn.",
+                  "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
+                  "Analysis of a Higher Self vissi indicates the creator has provided the following information:",
+                  "The Higher Self vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
+                  "The Higher Self vissi is named Higher Self and it is a Chimera vissi.",
+                  "This vissi notes the following ability information:",
+                  "Reflect upon and embrace your inner peace and positive goals alongside your companion vissi.",
+                  "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
+                  "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
+                  "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
+                  "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
+                  "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
+                  "The Higher Self vissi will cost 45,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 50000,
+                "material": "organic material, an extremely common material",
+                "item_type": null
+              }
             },
             {
               "id": "397917784",
               "name": "a Higher Self vissi",
-              "browse_price": 50000,
-              "raw_inspect": [
-                "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
-                "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
-                "The vissi can not be worn.",
-                "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
-                "Analysis of a Higher Self vissi indicates the creator has provided the following information:",
-                "The Higher Self vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
-                "The Higher Self vissi is named Higher Self and it is a Chimera vissi.",
-                "This vissi notes the following ability information:",
-                "Reflect upon and embrace your inner peace and positive goals alongside your companion vissi.",
-                "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
-                "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
-                "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
-                "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
-                "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
-                "The Higher Self vissi will cost 45,000 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
+                  "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
+                  "The vissi can not be worn.",
+                  "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
+                  "Analysis of a Higher Self vissi indicates the creator has provided the following information:",
+                  "The Higher Self vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
+                  "The Higher Self vissi is named Higher Self and it is a Chimera vissi.",
+                  "This vissi notes the following ability information:",
+                  "Reflect upon and embrace your inner peace and positive goals alongside your companion vissi.",
+                  "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
+                  "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
+                  "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
+                  "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
+                  "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
+                  "The Higher Self vissi will cost 45,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 50000,
+                "material": "organic material, an extremely common material",
+                "item_type": null
+              }
             },
             {
               "id": "397917815",
               "name": "a Higher Self vissi",
-              "browse_price": 50000,
-              "raw_inspect": [
-                "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
-                "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
-                "The vissi can not be worn.",
-                "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
-                "Analysis of a Higher Self vissi indicates the creator has provided the following information:",
-                "The Higher Self vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
-                "The Higher Self vissi is named Higher Self and it is a Chimera vissi.",
-                "This vissi notes the following ability information:",
-                "Reflect upon and embrace your inner peace and positive goals alongside your companion vissi.",
-                "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
-                "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
-                "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
-                "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
-                "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
-                "The Higher Self vissi will cost 45,000 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
+                  "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
+                  "The vissi can not be worn.",
+                  "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
+                  "Analysis of a Higher Self vissi indicates the creator has provided the following information:",
+                  "The Higher Self vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
+                  "The Higher Self vissi is named Higher Self and it is a Chimera vissi.",
+                  "This vissi notes the following ability information:",
+                  "Reflect upon and embrace your inner peace and positive goals alongside your companion vissi.",
+                  "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
+                  "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
+                  "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
+                  "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
+                  "It is currently tier 1 out of 5.  It is empowered by 1 thread.",
+                  "The Higher Self vissi will cost 45,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 50000,
+                "material": "organic material, an extremely common material",
+                "item_type": null
+              }
             },
             {
               "id": "396032330",
               "name": "a vissi extractor",
-              "browse_price": 20000,
-              "raw_inspect": [
-                "You see nothing unusual.",
-                "The extractor can not be worn.",
-                "It looks like this item has been mainly crafted out of metal, an extremely common material.",
-                "Analysis of a vissi extractor indicates the creator has provided the following information:",
-                "This is a small tool that will help you remove vissi from vangaris and aversaris vissi artifacts.  You must be holding one of these tools in order to remove vissi from the artifacts when you are outside of Nyessem.  It can be used to remove 3 vissi before it crumbles.",
-                "You get no sense of whether or not the extractor may be further lightened.",
-                "The vissi extractor will cost 18,000 coins."
-              ],
-              "quantity": 32
+              "quantity": 32,
+              "details": {
+                "raw": [
+                  "The extractor can not be worn.",
+                  "It looks like this item has been mainly crafted out of metal, an extremely common material.",
+                  "Analysis of a vissi extractor indicates the creator has provided the following information:",
+                  "This is a small tool that will help you remove vissi from vangaris and aversaris vissi artifacts.  You must be holding one of these tools in order to remove vissi from the artifacts when you are outside of Nyessem.  It can be used to remove 3 vissi before it crumbles.",
+                  "The vissi extractor will cost 18,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 20000,
+                "material": "metal, an extremely common material",
+                "item_type": null
+              }
             },
             {
               "id": "395542749",
               "name": "a vissi extractor",
-              "browse_price": 20000,
-              "raw_inspect": [
-                "You see nothing unusual.",
-                "The extractor can not be worn.",
-                "It looks like this item has been mainly crafted out of metal, an extremely common material.",
-                "Analysis of a vissi extractor indicates the creator has provided the following information:",
-                "This is a small tool that will help you remove vissi from vangaris and aversaris vissi artifacts.  You must be holding one of these tools in order to remove vissi from the artifacts when you are outside of Nyessem.  It can be used to remove 3 vissi before it crumbles.",
-                "You get no sense of whether or not the extractor may be further lightened.",
-                "The vissi extractor will cost 18,000 coins."
-              ],
-              "quantity": 50
+              "quantity": 50,
+              "details": {
+                "raw": [
+                  "The extractor can not be worn.",
+                  "It looks like this item has been mainly crafted out of metal, an extremely common material.",
+                  "Analysis of a vissi extractor indicates the creator has provided the following information:",
+                  "This is a small tool that will help you remove vissi from vangaris and aversaris vissi artifacts.  You must be holding one of these tools in order to remove vissi from the artifacts when you are outside of Nyessem.  It can be used to remove 3 vissi before it crumbles.",
+                  "The vissi extractor will cost 18,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 20000,
+                "material": "metal, an extremely common material",
+                "item_type": null
+              }
             }
           ]
         }
@@ -50893,17 +51275,22 @@
             {
               "id": "396131453",
               "name": "a vissi extractor",
-              "browse_price": 20000,
-              "raw_inspect": [
-                "You see nothing unusual.",
-                "The extractor can not be worn.",
-                "It looks like this item has been mainly crafted out of metal, an extremely common material.",
-                "Analysis of a vissi extractor indicates the creator has provided the following information:",
-                "This is a small tool that will help you remove vissi from vangaris and aversaris vissi artifacts.  You must be holding one of these tools in order to remove vissi from the artifacts when you are outside of Nyessem.  It can be used to remove 3 vissi before it crumbles.",
-                "You get no sense of whether or not the extractor may be further lightened.",
-                "The vissi extractor will cost 20,000 coins."
-              ],
-              "quantity": 4
+              "quantity": 4,
+              "details": {
+                "raw": [
+                  "The extractor can not be worn.",
+                  "It looks like this item has been mainly crafted out of metal, an extremely common material.",
+                  "Analysis of a vissi extractor indicates the creator has provided the following information:",
+                  "This is a small tool that will help you remove vissi from vangaris and aversaris vissi artifacts.  You must be holding one of these tools in order to remove vissi from the artifacts when you are outside of Nyessem.  It can be used to remove 3 vissi before it crumbles.",
+                  "The vissi extractor will cost 20,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 20000,
+                "material": "metal, an extremely common material",
+                "item_type": null
+              }
             }
           ]
         }
@@ -51475,6 +51862,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 20000,
@@ -51509,6 +51897,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -51556,6 +51945,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 15000,
@@ -51583,6 +51973,7 @@
                   "The glass jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -51960,6 +52351,7 @@
                   "The glass jar will cost 225,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -52392,6 +52784,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -53434,6 +53827,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 35000,
@@ -53457,6 +53851,7 @@
                 ],
                 "tags": [
                   "max_deep",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -53487,6 +53882,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -53522,6 +53918,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -53546,6 +53943,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -53602,6 +54000,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -53630,6 +54029,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 15000,
@@ -53653,6 +54053,7 @@
                 ],
                 "tags": [
                   "max_deep",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -53686,6 +54087,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -53803,6 +54205,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -57208,6 +57611,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -57273,6 +57677,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 200000,
@@ -57305,6 +57710,7 @@
                 "tags": [
                   "small",
                   "magic_resistant",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -57345,6 +57751,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 200000,
@@ -57377,6 +57784,7 @@
                 "tags": [
                   "small",
                   "magic_resistant",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -57417,6 +57825,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 200000,
@@ -57449,6 +57858,7 @@
                 "tags": [
                   "small",
                   "magic_resistant",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -58550,6 +58960,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -62754,6 +63165,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 150000,
@@ -62863,6 +63275,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -62898,6 +63311,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -63037,6 +63451,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 1500000,
@@ -63072,6 +63487,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -63173,6 +63589,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 3250000,
@@ -63219,6 +63636,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -63475,6 +63893,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 750000,
@@ -63507,6 +63926,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -63550,6 +63970,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 750000,
@@ -63582,6 +64003,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -63652,6 +64074,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -63800,6 +64223,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -63824,6 +64248,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -63855,6 +64280,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -63879,6 +64305,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -64325,6 +64752,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 2500000,
@@ -64379,6 +64807,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 750000,
@@ -64405,6 +64834,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -64896,6 +65326,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 15000,
@@ -64920,6 +65351,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -65072,6 +65504,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 35000,
@@ -65124,6 +65557,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -65916,6 +66350,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 3000000,
@@ -66440,6 +66875,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 12000,
@@ -66468,6 +66904,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -66518,6 +66955,7 @@
                   "The vaalin-sigiled gloves will cost 750,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -66590,6 +67028,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -66777,6 +67216,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 5000,
@@ -66799,6 +67239,7 @@
                 ],
                 "tags": [
                   "max_deep",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -66856,6 +67297,7 @@
                 "tags": [
                   "purpose",
                   "max_deep",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -67092,6 +67534,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -67140,6 +67583,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -67167,6 +67611,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -67222,6 +67667,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -67247,6 +67693,7 @@
                 "tags": [
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -67277,6 +67724,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -68356,6 +68804,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 1000000,
@@ -69065,6 +69514,7 @@
                 "tags": [
                   "holy",
                   "small",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -71081,6 +71531,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 140000,
@@ -71105,6 +71556,7 @@
                   "The tall glass jar will cost 140,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -71137,6 +71589,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 140000,
@@ -71161,6 +71614,7 @@
                   "The tall glass jar will cost 140,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -71193,6 +71647,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 140000,
@@ -71217,6 +71672,7 @@
                   "The tall glass jar will cost 140,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -71249,6 +71705,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 140000,
@@ -71273,6 +71730,7 @@
                   "The tall glass jar will cost 175,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -71305,6 +71763,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 175000,
@@ -71333,6 +71792,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 175000,
@@ -71357,6 +71817,7 @@
                   "The glass jar will cost 175,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -71999,6 +72460,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 200000,
@@ -72138,6 +72600,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 45000,
@@ -72190,6 +72653,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 4000000,
@@ -72214,6 +72678,7 @@
                   "The skull-shaped jar will cost 600,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -72765,6 +73230,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 300000,
@@ -72792,6 +73258,7 @@
                   "It has a permanently unlocked loresong by Myrkate."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -72832,6 +73299,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 60000,
@@ -72865,6 +73333,7 @@
                   "scripted",
                   "max_deep",
                   "max_light",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -72921,6 +73390,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -73545,6 +74015,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -73578,6 +74049,7 @@
                   "scripted",
                   "max_deep",
                   "max_light",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -73623,6 +74095,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 3800000,
@@ -73654,6 +74127,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 200000,
@@ -73677,6 +74151,7 @@
                   "The ring box will cost 40,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -73904,6 +74379,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -73928,6 +74404,7 @@
                   "The glass jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -74073,6 +74550,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -74248,6 +74726,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -79818,6 +80297,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -79842,6 +80322,7 @@
                   "The glaes jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -79874,6 +80355,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -79902,6 +80384,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -79926,6 +80409,7 @@
                   "The glass jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -81101,6 +81585,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 55000,
@@ -81125,6 +81610,7 @@
                   "The tall glass jar will cost 27,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -81157,6 +81643,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 27000,
@@ -81185,6 +81672,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 27000,
@@ -81209,6 +81697,7 @@
                   "The tall glass jar will cost 27,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -81264,6 +81753,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 55000,
@@ -81288,6 +81778,7 @@
                   "The glaes jar will cost 39,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -81585,6 +82076,7 @@
                   "purpose",
                   "max_deep",
                   "max_light",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -86566,6 +87058,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 99000,
@@ -86628,6 +87121,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -87293,6 +87787,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -87318,6 +87813,7 @@
                   "The mahogany box will cost 10,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -87439,6 +87935,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -87467,6 +87964,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -87503,6 +88001,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -87531,6 +88030,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -87567,6 +88067,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 150000,
@@ -87595,6 +88096,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -87631,6 +88133,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 150000,
@@ -87659,6 +88162,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -87695,6 +88199,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -87727,6 +88232,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 150000,
@@ -87755,6 +88261,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -88011,6 +88518,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 10000000,
@@ -88229,6 +88737,7 @@
                   "The teadragon box will cost 5,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -88964,6 +89473,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 1000,
@@ -89011,6 +89521,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 200000,
@@ -89039,6 +89550,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -89075,6 +89587,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -89103,6 +89616,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -89139,6 +89653,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -89167,6 +89682,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -89203,6 +89719,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -89231,6 +89748,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -89267,6 +89785,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -89295,6 +89814,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -89331,6 +89851,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -89359,6 +89880,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -89395,6 +89917,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 150000,
@@ -89423,6 +89946,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -89459,6 +89983,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 150000,
@@ -89487,6 +90012,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -89523,6 +90049,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 150000,
@@ -89555,6 +90082,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 150000,
@@ -89580,6 +90108,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -89614,6 +90143,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -89643,6 +90173,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -89668,6 +90199,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -90200,6 +90732,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -90228,6 +90761,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -90264,6 +90798,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -90292,6 +90827,7 @@
                 "tags": [
                   "scripted",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -90947,6 +91483,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 20000,
@@ -90975,6 +91512,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 20000,
@@ -90999,6 +91537,7 @@
                   "The glass jar will cost 20,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -93603,6 +94142,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -93627,6 +94167,7 @@
                   "The thick glass jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -94648,6 +95189,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 250000,
@@ -94801,6 +95343,7 @@
                   "max_deep",
                   "max_light",
                   "magic_resistant",
+                  "container",
                   "container",
                   "container",
                   "container",
