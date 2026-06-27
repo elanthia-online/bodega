@@ -1,6 +1,6 @@
 {
-  "created_at": "2026-06-27 15:09:50 UTC",
-  "run_time": "14s",
+  "created_at": "2026-06-27 16:57:44 UTC",
+  "run_time": "11s",
   "town": "Ta'Vaalor,",
   "shops": [
     {
@@ -5557,6 +5557,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 250000,
@@ -7585,6 +7586,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -8227,179 +8229,416 @@
             {
               "id": "38868459",
               "name": "a coral and pink topaz ring",
-              "browse_price": 10000000,
-              "raw_inspect": [
-                "It is difficult to see the pink topaz ring clearly from this distance.",
-                "The ring can be worn around the finger.  The ring appears to serve some purpose.",
-                "Analysis of a coral and pink topaz ring indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the ring may be further lightened.",
-                "The pink topaz ring will cost 10,000,000 coins.",
-                "It is an enhancive item:",
-                "    It provides a boost of 8 to Armor Use Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 60 times.",
-                "    It provides a boost of 3 to Mental Lore - Manipulation Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 10 times.",
-                "    It seems to have a lot of enhancive charges remaining.",
-                "It will crumble into dust after its last enhancive charge has been expended.",
-                "It is a small item, under a pound.",
-                "It is estimated to be worth about 350,000 silvers.",
-                "It is magic resistant.",
-                "It has a permanently unlocked loresong by Sketti."
-              ]
+              "details": {
+                "raw": [
+                  "The ring can be worn around the finger.  The ring appears to serve some purpose.",
+                  "Analysis of a coral and pink topaz ring indicates the item is free from merchant alteration restrictions.",
+                  "The pink topaz ring will cost 10,000,000 coins.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 8 to Armor Use Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 60 times.",
+                  "    It provides a boost of 3 to Mental Lore - Manipulation Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 10 times.",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It will crumble into dust after its last enhancive charge has been expended.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 350,000 silvers.",
+                  "It is magic resistant.",
+                  "It has a permanently unlocked loresong by Sketti."
+                ],
+                "tags": [
+                  "purpose",
+                  "small",
+                  "magic_resistant"
+                ],
+                "cost": 10000000,
+                "worn": "finger",
+                "enhancives": [
+                  {
+                    "boost": 8,
+                    "ability": "Armor Use Bonus",
+                    "level": 60
+                  },
+                  {
+                    "boost": 3,
+                    "ability": "Mental Lore - Manipulation Bonus",
+                    "level": 10
+                  }
+                ],
+                "wear_location": "around the finger",
+                "is_jewelry": true,
+                "item_type": "jewelry"
+              }
             },
             {
               "id": "38868694",
               "name": "a diamond-set gold necklace",
-              "browse_price": 7000000,
-              "raw_inspect": [
-                "The necklace can be worn around the neck.  The necklace appears to serve some purpose.",
-                "Analysis of a diamond-set gold necklace indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the necklace may be further lightened.",
-                "The gold necklace will cost 7,000,000 coins.",
-                "It is a magical item which could be imbedded with a spell.",
-                "It has 0 charges.",
-                "It could be activated by waving it.",
-                "It will persist after its last magical charge has been expended.",
-                "It is an enhancive item:",
-                "    It provides a boost of 9 to Dodging Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 45 times.",
-                "    It seems to have more than your average dwarf could count enhancive charges remaining.",
-                "It will crumble into dust after its last enhancive charge has been expended.",
-                "It is a small item, under a pound.",
-                "It is estimated to be worth about 400,000 silvers.",
-                "It is magic resistant.",
-                "It has a permanently unlocked loresong by Sketti."
-              ]
+              "details": {
+                "raw": [
+                  "The necklace can be worn around the neck.  The necklace appears to serve some purpose.",
+                  "Analysis of a diamond-set gold necklace indicates the item is free from merchant alteration restrictions.",
+                  "The gold necklace will cost 7,000,000 coins.",
+                  "It is a magical item which could be imbedded with a spell.",
+                  "It has 0 charges.",
+                  "It could be activated by waving it.",
+                  "It will persist after its last magical charge has been expended.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 9 to Dodging Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 45 times.",
+                  "    It seems to have more than your average dwarf could count enhancive charges remaining.",
+                  "It will crumble into dust after its last enhancive charge has been expended.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 400,000 silvers.",
+                  "It is magic resistant.",
+                  "It has a permanently unlocked loresong by Sketti."
+                ],
+                "tags": [
+                  "purpose",
+                  "imbeddable",
+                  "small",
+                  "magic_resistant"
+                ],
+                "cost": 7000000,
+                "worn": "neck",
+                "activator": "waving",
+                "enhancives": [
+                  {
+                    "boost": 9,
+                    "ability": "Dodging Bonus",
+                    "level": 45
+                  }
+                ],
+                "wear_location": "around the neck",
+                "is_jewelry": true,
+                "item_type": "jewelry"
+              }
             },
             {
               "id": "38868709",
               "name": "some imflass arm greaves",
-              "browse_price": 700000,
-              "raw_inspect": [
-                "The greaves is miscellaneous armor that covers the arms.",
-                "The greaves can be worn around the arms.  The greaves appear to serve some purpose.",
-                "It looks like this item has been mainly crafted out of imflass, an uncommon metal.",
-                "Analysis of some imflass arm greaves indicates the item is free from merchant alteration restrictions.",
-                "You can tell that the greaves are as light as they can get.",
-                "The imflass arm greaves will cost 700,000 coins.",
-                "It is an enhancive item:",
-                "    It provides a boost of 6 to Influence Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 30 times.",
-                "    It provides a boost of 2 to Mental Lore - Transformation Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 3 times.",
-                "    It provides a boost of 2 to Magic Item Use Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 3 times.",
-                "    It seems to have quite a few enhancive charges remaining.",
-                "It will persist after its last enhancive charge has been expended.",
-                "It appears to weigh about 3 pounds.",
-                "It is estimated to be worth about 350,000 silvers.",
-                "It is predominantly crafted of imflass.",
-                "It is a simple project (40 difficulty) for an adventurer to modify.",
-                "It has a permanently unlocked loresong by Cecelia."
-              ]
+              "details": {
+                "raw": [
+                  "The greaves is miscellaneous armor that covers the arms.",
+                  "The greaves can be worn around the arms.  The greaves appear to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of imflass, an uncommon metal.",
+                  "Analysis of some imflass arm greaves indicates the item is free from merchant alteration restrictions.",
+                  "You can tell that the greaves are as light as they can get.",
+                  "The imflass arm greaves will cost 700,000 coins.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 6 to Influence Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 30 times.",
+                  "    It provides a boost of 2 to Mental Lore - Transformation Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 3 times.",
+                  "    It provides a boost of 2 to Magic Item Use Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 3 times.",
+                  "    It seems to have quite a few enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It appears to weigh about 3 pounds.",
+                  "It is estimated to be worth about 350,000 silvers.",
+                  "It is predominantly crafted of imflass.",
+                  "It is a simple project (40 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Cecelia."
+                ],
+                "tags": [
+                  "persists"
+                ],
+                "cost": 700000,
+                "material": "imflass",
+                "weight": 3,
+                "worn": "arms",
+                "enhancives": [
+                  {
+                    "boost": 6,
+                    "ability": "Influence Bonus",
+                    "level": 30
+                  },
+                  {
+                    "boost": 2,
+                    "ability": "Mental Lore - Transformation Bonus",
+                    "level": 3
+                  },
+                  {
+                    "boost": 2,
+                    "ability": "Magic Item Use Bonus",
+                    "level": 3
+                  }
+                ],
+                "is_armor": true,
+                "armor_type": "accessory",
+                "wear_location": "arms",
+                "item_type": "armor"
+              }
             },
             {
               "id": "38868787",
               "name": "an onyx-inlaid star ruby barrette",
-              "browse_price": 6000000,
-              "raw_inspect": [
-                "The barrette can be worn anywhere on the body.  The barrette appears to serve some purpose.",
-                "Analysis of an onyx-inlaid star ruby barrette indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the barrette may be further lightened.",
-                "The star ruby barrette will cost 6,000,000 coins.",
-                "It is a holy item.",
-                "It is currently imbedded with the Censure spell.",
-                "It has 10 charges.",
-                "It could be activated by tapping it.",
-                "It will disintegrate after its last magical charge has been expended.",
-                "It is an enhancive item:",
-                "    It provides a boost of 4 to Max Health.",
-                "    This enhancement may not be used by adventurers who have not trained 7 times.",
-                "    It provides a boost of 7 to Influence Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 66 times.",
-                "    It seems to have a lot of enhancive charges remaining.",
-                "It will crumble into dust after its last enhancive charge has been expended.",
-                "It is a small item, under a pound.",
-                "It is estimated to be worth about 450,000 silvers.",
-                "It is magic resistant.",
-                "It has a permanently unlocked loresong by Karkith."
-              ]
+              "details": {
+                "raw": [
+                  "The barrette can be worn anywhere on the body.  The barrette appears to serve some purpose.",
+                  "Analysis of an onyx-inlaid star ruby barrette indicates the item is free from merchant alteration restrictions.",
+                  "The star ruby barrette will cost 6,000,000 coins.",
+                  "It is a holy item.",
+                  "It is currently imbedded with the Censure spell.",
+                  "It has 10 charges.",
+                  "It could be activated by tapping it.",
+                  "It will disintegrate after its last magical charge has been expended.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 4 to Max Health.",
+                  "    This enhancement may not be used by adventurers who have not trained 7 times.",
+                  "    It provides a boost of 7 to Influence Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 66 times.",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It will crumble into dust after its last enhancive charge has been expended.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 450,000 silvers.",
+                  "It is magic resistant.",
+                  "It has a permanently unlocked loresong by Karkith."
+                ],
+                "tags": [
+                  "purpose",
+                  "holy",
+                  "imbedded",
+                  "small",
+                  "magic_resistant"
+                ],
+                "cost": 6000000,
+                "worn": "pin",
+                "activator": "tapping",
+                "spell": "Censure",
+                "enhancives": [
+                  {
+                    "boost": 4,
+                    "ability": "Max Health",
+                    "level": 7
+                  },
+                  {
+                    "boost": 7,
+                    "ability": "Influence Bonus",
+                    "level": 66
+                  }
+                ],
+                "wear_location": "anywhere on the body",
+                "blessing": "holy",
+                "item_type": null
+              }
             },
             {
               "id": "38868791",
               "name": "a round-cut blue sapphire clasp",
-              "browse_price": 2000000,
-              "raw_inspect": [
-                "The clasp can be worn anywhere on the body.  The clasp appears to serve some purpose.",
-                "Analysis of a round-cut blue sapphire clasp indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the clasp may be further lightened.",
-                "The blue sapphire clasp will cost 2,000,000 coins.",
-                "It is currently imbedded with the Water Walking spell.",
-                "It has 10 charges.",
-                "It could be activated by tapping it.",
-                "It will disintegrate after its last magical charge has been expended.",
-                "It is an enhancive item:",
-                "    It provides a boost of 6 to First Aid Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 14 times.",
-                "    It provides a boost of 5 to Wisdom Base.",
-                "    This enhancement may not be used by adventurers who have not trained 25 times.",
-                "    It provides a boost of 4 to Logic Base.",
-                "    This enhancement may not be used by adventurers who have not trained 7 times.",
-                "    It provides a boost of 2 to Discipline Base.",
-                "    This enhancement may not be used by adventurers who have not trained 3 times.",
-                "    It seems to have a fair amount of enhancive charges remaining.",
-                "It will crumble into dust after its last enhancive charge has been expended.",
-                "It is a small item, under a pound.",
-                "It is estimated to be worth about 150,000 silvers.",
-                "It is magic resistant.",
-                "It has a permanently unlocked loresong by Broyles."
-              ]
+              "details": {
+                "raw": [
+                  "The clasp can be worn anywhere on the body.  The clasp appears to serve some purpose.",
+                  "Analysis of a round-cut blue sapphire clasp indicates the item is free from merchant alteration restrictions.",
+                  "The blue sapphire clasp will cost 2,000,000 coins.",
+                  "It is currently imbedded with the Water Walking spell.",
+                  "It has 10 charges.",
+                  "It could be activated by tapping it.",
+                  "It will disintegrate after its last magical charge has been expended.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 6 to First Aid Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 14 times.",
+                  "    It provides a boost of 5 to Wisdom Base.",
+                  "    This enhancement may not be used by adventurers who have not trained 25 times.",
+                  "    It provides a boost of 4 to Logic Base.",
+                  "    This enhancement may not be used by adventurers who have not trained 7 times.",
+                  "    It provides a boost of 2 to Discipline Base.",
+                  "    This enhancement may not be used by adventurers who have not trained 3 times.",
+                  "    It seems to have a fair amount of enhancive charges remaining.",
+                  "It will crumble into dust after its last enhancive charge has been expended.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 150,000 silvers.",
+                  "It is magic resistant.",
+                  "It has a permanently unlocked loresong by Broyles."
+                ],
+                "tags": [
+                  "purpose",
+                  "imbedded",
+                  "small",
+                  "magic_resistant"
+                ],
+                "cost": 2000000,
+                "worn": "pin",
+                "activator": "tapping",
+                "spell": "Water Walking",
+                "enhancives": [
+                  {
+                    "boost": 6,
+                    "ability": "First Aid Bonus",
+                    "level": 14
+                  },
+                  {
+                    "boost": 5,
+                    "ability": "Wisdom Base",
+                    "level": 25
+                  },
+                  {
+                    "boost": 4,
+                    "ability": "Logic Base",
+                    "level": 7
+                  },
+                  {
+                    "boost": 2,
+                    "ability": "Discipline Base",
+                    "level": 3
+                  }
+                ],
+                "wear_location": "anywhere on the body",
+                "item_type": null
+              }
             },
             {
               "id": "38868790",
               "name": "an imflass dart",
-              "browse_price": 5000000,
-              "raw_inspect": [
-                "The dart is a dart that requires skill in thrown weapons to use effectively.",
-                "It looks like this item has been mainly crafted out of imflass, an uncommon metal.",
-                "Analysis of an imflass dart indicates the item is free from merchant alteration restrictions.",
-                "You can tell that the dart is as light as it can get.",
-                "The imflass dart will cost 5,000,000 coins.",
-                "It imparts a bonus of +12 more than usual.",
-                "It is an enhancive item:",
-                "    It provides a boost of 10 to Intuition Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 77 times.",
-                "    It seems to have a lot of enhancive charges remaining.",
-                "It will persist after its last enhancive charge has been expended.",
-                "It is a small item, under a pound.",
-                "It is estimated to be worth about 650,000 silvers.",
-                "It is predominantly crafted of imflass.",
-                "It is a simple project (64 difficulty) for an adventurer to modify.",
-                "It has a permanently unlocked loresong by Vonaq."
-              ]
+              "details": {
+                "raw": [
+                  "The dart is a dart that requires skill in thrown weapons to use effectively.",
+                  "It looks like this item has been mainly crafted out of imflass, an uncommon metal.",
+                  "Analysis of an imflass dart indicates the item is free from merchant alteration restrictions.",
+                  "You can tell that the dart is as light as it can get.",
+                  "The imflass dart will cost 5,000,000 coins.",
+                  "It imparts a bonus of +12 more than usual.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 10 to Intuition Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 77 times.",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 650,000 silvers.",
+                  "It is predominantly crafted of imflass.",
+                  "It is a simple project (64 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Vonaq."
+                ],
+                "tags": [
+                  "max_light",
+                  "persists",
+                  "small"
+                ],
+                "cost": 5000000,
+                "enchant": 12,
+                "material": "imflass",
+                "skill": "thrown weapons",
+                "enhancives": [
+                  {
+                    "boost": 10,
+                    "ability": "Intuition Bonus",
+                    "level": 77
+                  }
+                ],
+                "is_weapon": true,
+                "weapon_type": "thrown weapons",
+                "item_type": "weapon"
+              }
             },
             {
               "id": "38868458",
               "name": "a brilliant pink topaz torc",
-              "browse_price": 11000000,
+              "details": {
+                "raw": [
+                  "The torc can be worn around the neck.  The torc appears to serve some purpose.",
+                  "Analysis of a brilliant pink topaz torc indicates the item is free from merchant alteration restrictions.",
+                  "The pink topaz torc will cost 11,000,000 coins.",
+                  "It is currently imbedded with the Cold Snap spell.",
+                  "It has 9 charges.",
+                  "It could be activated by tapping it.",
+                  "It will disintegrate after its last magical charge has been expended.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 5 to Agility Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 55 times.",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It will crumble into dust after its last enhancive charge has been expended.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 250,000 silvers.",
+                  "It is magic resistant.",
+                  "It has a permanently unlocked loresong by Sketti."
+                ],
+                "tags": [
+                  "purpose",
+                  "imbedded",
+                  "small",
+                  "magic_resistant"
+                ],
+                "cost": 11000000,
+                "worn": "neck",
+                "activator": "tapping",
+                "spell": "Cold Snap",
+                "enhancives": [
+                  {
+                    "boost": 5,
+                    "ability": "Agility Bonus",
+                    "level": 55
+                  }
+                ],
+                "wear_location": "around the neck",
+                "item_type": null
+              }
+            },
+            {
+              "id": "41857776",
+              "name": "some etched vultite arm greaves",
+              "browse_price": 10000000,
               "raw_inspect": [
-                "The torc can be worn around the neck.  The torc appears to serve some purpose.",
-                "Analysis of a brilliant pink topaz torc indicates the item is free from merchant alteration restrictions.",
-                "You get no sense of whether or not the torc may be further lightened.",
-                "The pink topaz torc will cost 11,000,000 coins.",
-                "It is currently imbedded with the Cold Snap spell.",
-                "It has 9 charges.",
-                "It could be activated by tapping it.",
-                "It will disintegrate after its last magical charge has been expended.",
+                "The greaves is miscellaneous armor that covers the arms.",
+                "The greaves can be worn around the arms.  The greaves appear to serve some purpose.",
+                "It looks like this item has been mainly crafted out of vultite, an uncommon metal.",
+                "Analysis of some etched vultite arm greaves indicates the item is free from merchant alteration restrictions.",
+                "You might be able to have a talented merchant lighten the vultite arm greaves for you.",
+                "The vultite arm greaves will cost 10,000,000 coins.",
                 "It is an enhancive item:",
-                "    It provides a boost of 5 to Agility Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 55 times.",
+                "    It provides a boost of 5 to Elemental Mana Control Ranks.",
+                "    This enhancement may not be used by adventurers who have not trained 30 times.",
+                "    It provides a boost of 5 to Constitution Bonus.",
+                "    This enhancement may not be used by adventurers who have not trained 33 times.",
                 "    It seems to have a lot of enhancive charges remaining.",
-                "It will crumble into dust after its last enhancive charge has been expended.",
-                "It is a small item, under a pound.",
-                "It is estimated to be worth about 250,000 silvers.",
-                "It is magic resistant.",
-                "It has a permanently unlocked loresong by Sketti."
+                "It will persist after its last enhancive charge has been expended.",
+                "It appears to weigh about 4 pounds.",
+                "It is estimated to be worth about 1,150,000 silvers.",
+                "It is predominantly crafted of vultite.",
+                "It is a simple project (36 difficulty) for an adventurer to modify.",
+                "It has a permanently unlocked loresong by Jaskier."
+              ]
+            },
+            {
+              "id": "38868873",
+              "name": "a masterful folded invar hatchet",
+              "browse_price": 2000000,
+              "raw_inspect": [
+                "It has a small enchanter's glyph and Adept's crafting mark.",
+                "The hatchet is a handaxe that requires skill in edged weapons to use effectively.",
+                "It looks like this item has been mainly crafted out of invar, an unusual metal.",
+                "Analysis of a masterful folded invar hatchet indicates the item is free from merchant alteration restrictions.",
+                "You might be able to have a talented merchant lighten the folded invar hatchet for you.",
+                "The folded invar hatchet will cost 2,000,000 coins.",
+                "It imparts a bonus of +20 more than usual.",
+                "It is forged by Adept and has increased (+3) effectiveness in combat.",
+                "It appears to weigh about 6 pounds.",
+                "It is estimated to be worth about 35,000 silvers.",
+                "It is predominantly crafted of invar.",
+                "It may be enchanted up to a bonus of 20 by a wizard and was last enchanted by Thurmel.",
+                "It is a simple project (36 difficulty) for an adventurer to modify.",
+                "It has a permanently unlocked loresong by Solafrut."
+              ]
+            },
+            {
+              "id": "38868868",
+              "name": "a rolaren-edged mithril backsword",
+              "browse_price": 3000000,
+              "raw_inspect": [
+                "The backsword is a backsword that requires skill in edged weapons to use effectively.",
+                "It looks like this item has been mainly crafted out of mithril, an uncommon metal.",
+                "Analysis of a rolaren-edged mithril backsword indicates the item is free from merchant alteration restrictions.",
+                "You might be able to have a talented merchant lighten the mithril backsword for you.",
+                "The mithril backsword will cost 3,000,000 coins.",
+                "It imparts a bonus of +5 more than usual.",
+                "It is an enhancive item:",
+                "    It provides a boost of 13 to Spell Aiming Bonus.",
+                "    This enhancement may not be used by adventurers who have not trained 55 times.",
+                "    It seems to have more than your average dwarf could count enhancive charges remaining.",
+                "It will persist after its last enhancive charge has been expended.",
+                "It appears to weigh about 4 pounds.",
+                "It is estimated to be worth about 750,000 silvers.",
+                "It is predominantly crafted of mithril.",
+                "It is a simple project (-3 difficulty) for an adventurer to modify.",
+                "It has a permanently unlocked loresong by Vav."
               ]
             }
           ],
@@ -8801,6 +9040,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -9839,6 +10079,7 @@
                   "The beehive-shaped bag will cost 30,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -11319,6 +11560,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 20000,
@@ -12167,6 +12409,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -13658,6 +13901,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -13681,6 +13925,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -13719,6 +13964,7 @@
                   "The black leather pants will cost 15,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -13773,6 +14019,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -13798,6 +14045,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -13851,6 +14099,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -13876,6 +14125,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -13929,6 +14179,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -13968,6 +14219,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -13993,6 +14245,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -14047,6 +14300,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -14073,6 +14327,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -14743,6 +14998,7 @@
                   "purpose",
                   "lightenable",
                   "persists",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -17306,6 +17562,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -23133,6 +23390,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 11111111,
@@ -23195,6 +23453,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -26367,6 +26626,7 @@
                   "max_deep",
                   "max_light",
                   "small",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -31718,6 +31978,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -31742,6 +32003,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -31794,6 +32056,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -31818,6 +32081,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -31870,6 +32134,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -31894,6 +32159,7 @@
                   "The glass jar will cost 50,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -31946,6 +32212,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -31970,6 +32237,7 @@
                   "The glass jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -32022,6 +32290,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -32046,6 +32315,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -32098,6 +32368,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -32136,6 +32407,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 35000,
@@ -32160,6 +32432,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -32305,6 +32578,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -32372,6 +32646,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -32396,6 +32671,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -35289,6 +35565,7 @@
                   "The wicker basket will cost 3,500,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
