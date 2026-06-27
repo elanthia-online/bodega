@@ -1,6 +1,6 @@
 {
-  "created_at": "2026-06-27 13:08:35 UTC",
-  "run_time": "11s",
+  "created_at": "2026-06-27 15:09:50 UTC",
+  "run_time": "14s",
   "town": "Ta'Vaalor,",
   "shops": [
     {
@@ -5556,6 +5556,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 250000,
@@ -7583,6 +7584,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -7885,175 +7887,519 @@
             {
               "id": "38868760",
               "name": "a burled villswood runestaff",
-              "browse_price": 2000000,
-              "raw_inspect": [
-                "The runestaff is a rune staff that requires skill in twohanded weapons to use effectively.",
-                "It looks like this item has been mainly crafted out of villswood, an infrequent wood.",
-                "Analysis of a burled villswood runestaff indicates the item is free from merchant alteration restrictions.",
-                "You might be able to have a talented merchant lighten the villswood runestaff for you.",
-                "The villswood runestaff will cost 2,000,000 coins.",
-                "It imparts a bonus of +18 more than usual.",
-                "It allows a caster to occasionally focus their magical prowess (+15 AS/+9 CS) for a single cast.",
-                "It is an enhancive item:",
-                "    It provides a boost of 9 to Spell Aiming Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 27 times.",
-                "    It seems to have more than your average dwarf could count enhancive charges remaining.",
-                "It will persist after its last enhancive charge has been expended.",
-                "It appears to weigh about 4 pounds.",
-                "It is estimated to be worth about 1,100,000 silvers.",
-                "It is predominantly crafted of villswood.",
-                "It is a simple project (81 difficulty) for an adventurer to modify.",
-                "It has a permanently unlocked loresong by Hypate."
-              ]
+              "details": {
+                "raw": [
+                  "The runestaff is a rune staff that requires skill in twohanded weapons to use effectively.",
+                  "It looks like this item has been mainly crafted out of villswood, an infrequent wood.",
+                  "Analysis of a burled villswood runestaff indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the villswood runestaff for you.",
+                  "The villswood runestaff will cost 2,000,000 coins.",
+                  "It imparts a bonus of +18 more than usual.",
+                  "It allows a caster to occasionally focus their magical prowess (+15 AS/+9 CS) for a single cast.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 9 to Spell Aiming Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 27 times.",
+                  "    It seems to have more than your average dwarf could count enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It appears to weigh about 4 pounds.",
+                  "It is estimated to be worth about 1,100,000 silvers.",
+                  "It is predominantly crafted of villswood.",
+                  "It is a simple project (81 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Hypate."
+                ],
+                "tags": [
+                  "lightenable",
+                  "persists"
+                ],
+                "cost": 2000000,
+                "enchant": 18,
+                "material": "villswood",
+                "skill": "twohanded weapons",
+                "weight": 4,
+                "enhancives": [
+                  {
+                    "boost": 9,
+                    "ability": "Spell Aiming Bonus",
+                    "level": 27
+                  }
+                ],
+                "is_weapon": true,
+                "weapon_type": "twohanded weapons",
+                "item_type": "weapon"
+              }
             },
             {
               "id": "38868774",
               "name": "a saw-toothed vultite pit-knife",
-              "browse_price": 10000000,
-              "raw_inspect": [
-                "The pit-knife is a hook-knife that requires skill in brawling to use effectively.",
-                "It looks like this item has been mainly crafted out of vultite, an uncommon metal.",
-                "Analysis of a saw-toothed vultite pit-knife indicates the item is free from merchant alteration restrictions.",
-                "You can tell that the pit-knife is as light as it can get.",
-                "The vultite pit-knife will cost 10,000,000 coins.",
-                "It imparts a bonus of +20 more than usual.",
-                "It has been infused with the power of a steaming substance.",
-                "It is an enhancive item:",
-                "    It provides a boost of 12 to Brawling Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 47 times.",
-                "    It seems to have more than your average dwarf could count enhancive charges remaining.",
-                "It will persist after its last enhancive charge has been expended.",
-                "It is a small item, under a pound.",
-                "It is estimated to be worth about 600,000 silvers.",
-                "It is predominantly crafted of vultite.",
-                "It is a basic project (150 difficulty) for an adventurer to modify.",
-                "It has a permanently unlocked loresong by Jaskier."
-              ]
+              "details": {
+                "raw": [
+                  "The pit-knife is a hook-knife that requires skill in brawling to use effectively.",
+                  "It looks like this item has been mainly crafted out of vultite, an uncommon metal.",
+                  "Analysis of a saw-toothed vultite pit-knife indicates the item is free from merchant alteration restrictions.",
+                  "You can tell that the pit-knife is as light as it can get.",
+                  "The vultite pit-knife will cost 10,000,000 coins.",
+                  "It imparts a bonus of +20 more than usual.",
+                  "It has been infused with the power of a steaming substance.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 12 to Brawling Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 47 times.",
+                  "    It seems to have more than your average dwarf could count enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 600,000 silvers.",
+                  "It is predominantly crafted of vultite.",
+                  "It is a basic project (150 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Jaskier."
+                ],
+                "tags": [
+                  "max_light",
+                  "persists",
+                  "small"
+                ],
+                "cost": 10000000,
+                "enchant": 20,
+                "material": "vultite",
+                "skill": "brawling",
+                "flare": "the power of a steaming substance",
+                "enhancives": [
+                  {
+                    "boost": 12,
+                    "ability": "Brawling Bonus",
+                    "level": 47
+                  }
+                ],
+                "is_weapon": true,
+                "weapon_type": "brawling",
+                "flares": [
+                  "the power of a steaming substance"
+                ],
+                "item_type": "weapon"
+              }
             },
             {
               "id": "38868778",
               "name": "a drakar dart",
-              "browse_price": 10000000,
-              "raw_inspect": [
-                "The dart is a dart that requires skill in thrown weapons to use effectively.",
-                "It looks like this item has been mainly crafted out of drakar, a rare metal.  This material cannot be dyed.",
-                "Analysis of a drakar dart indicates the item has certain alteration restrictions.  This material cannot be dyed.",
-                "You can tell that the dart is as light as it can get.",
-                "The drakar dart will cost 10,000,000 coins.",
-                "It imparts a bonus of +5 more than usual.",
-                "It has been infused with the power of a fire elemental.",
-                "It is an enhancive item:",
-                "    It provides a boost of 4 to Dexterity Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 22 times.",
-                "    It provides a boost of 10 to Thrown Weapons Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 33 times.",
-                "    It seems to have a lot of enhancive charges remaining.",
-                "It will persist after its last enhancive charge has been expended.",
-                "It is a small item, under a pound.",
-                "It is estimated to be worth about 650,000 silvers.",
-                "It is predominantly crafted of drakar.",
-                "It is a simple project (67 difficulty) for an adventurer to modify.",
-                "It has a permanently unlocked loresong by Fosorian."
-              ]
+              "details": {
+                "raw": [
+                  "The dart is a dart that requires skill in thrown weapons to use effectively.",
+                  "It looks like this item has been mainly crafted out of drakar, a rare metal.  This material cannot be dyed.",
+                  "Analysis of a drakar dart indicates the item has certain alteration restrictions.  This material cannot be dyed.",
+                  "You can tell that the dart is as light as it can get.",
+                  "The drakar dart will cost 10,000,000 coins.",
+                  "It imparts a bonus of +5 more than usual.",
+                  "It has been infused with the power of a fire elemental.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 4 to Dexterity Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 22 times.",
+                  "    It provides a boost of 10 to Thrown Weapons Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 33 times.",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 650,000 silvers.",
+                  "It is predominantly crafted of drakar.",
+                  "It is a simple project (67 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Fosorian."
+                ],
+                "tags": [
+                  "max_light",
+                  "persists",
+                  "small"
+                ],
+                "cost": 10000000,
+                "enchant": 5,
+                "material": "drakar",
+                "skill": "thrown weapons",
+                "flare": "the power of a fire elemental",
+                "enhancives": [
+                  {
+                    "boost": 4,
+                    "ability": "Dexterity Bonus",
+                    "level": 22
+                  },
+                  {
+                    "boost": 10,
+                    "ability": "Thrown Weapons Bonus",
+                    "level": 33
+                  }
+                ],
+                "is_weapon": true,
+                "weapon_type": "thrown weapons",
+                "flares": [
+                  "the power of a fire elemental"
+                ],
+                "item_type": "weapon"
+              }
             },
             {
               "id": "38868451",
               "name": "a cedar-hafted veil iron pilum",
-              "browse_price": 2000000,
-              "raw_inspect": [
-                "It has a small enchanter's glyph.",
-                "The pilum is a pilum that requires skill in polearms to use effectively.",
-                "It looks like this item has been mainly crafted out of veil iron, an extraordinarily rare metal.  It would need to be supplied to be used in an alteration and may only be used as an accent.  This material cannot be dyed.",
-                "Analysis of a cedar-hafted veil iron pilum indicates the item has certain alteration restrictions.  It would need to be supplied to be used in an alteration and may only be used as an accent.  This material cannot be dyed.",
-                "You might be able to have a talented merchant lighten the veil iron pilum for you.",
-                "The veil iron pilum will cost 2,000,000 coins.",
-                "It imparts a bonus of +35 more than usual.",
-                "It appears to weigh about 6 pounds.",
-                "It is estimated to be worth about 400,000 silvers.",
-                "It is magic resistant.",
-                "It is predominantly crafted of veil iron.",
-                "It is a basic project (171 difficulty) for an adventurer to modify.",
-                "It has a permanently unlocked loresong by a bard."
-              ]
+              "details": {
+                "raw": [
+                  "It has a small enchanter's glyph.",
+                  "The pilum is a pilum that requires skill in polearms to use effectively.",
+                  "It looks like this item has been mainly crafted out of veil iron, an extraordinarily rare metal.  It would need to be supplied to be used in an alteration and may only be used as an accent.  This material cannot be dyed.",
+                  "Analysis of a cedar-hafted veil iron pilum indicates the item has certain alteration restrictions.  It would need to be supplied to be used in an alteration and may only be used as an accent.  This material cannot be dyed.",
+                  "You might be able to have a talented merchant lighten the veil iron pilum for you.",
+                  "The veil iron pilum will cost 2,000,000 coins.",
+                  "It imparts a bonus of +35 more than usual.",
+                  "It appears to weigh about 6 pounds.",
+                  "It is estimated to be worth about 400,000 silvers.",
+                  "It is magic resistant.",
+                  "It is predominantly crafted of veil iron.",
+                  "It is a basic project (171 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by a bard."
+                ],
+                "tags": [
+                  "lightenable",
+                  "magic_resistant"
+                ],
+                "cost": 2000000,
+                "enchant": 35,
+                "material": "veil iron",
+                "skill": "polearms",
+                "weight": 6,
+                "item_type": null
+              }
             },
             {
               "id": "38001013",
               "name": "a mesille hand crossbow",
-              "browse_price": 2500000,
-              "raw_inspect": [
-                "The crossbow is a hand crossbow that requires skill in ranged weapons to use effectively.",
-                "The crossbow can be worn, slinging it across the shoulders and back.  The crossbow appears to serve some purpose.",
-                "It looks like this item has been mainly crafted out of mesille, an unusual wood.",
-                "Analysis of a mesille hand crossbow indicates the item is free from merchant alteration restrictions.",
-                "You might be able to have a talented merchant lighten the mesille hand crossbow for you.",
-                "The mesille hand crossbow will cost 2,500,000 coins.",
-                "It imparts a bonus of +15 more than usual.",
-                "It is an enhancive item:",
-                "    It provides a boost of 1 to Max Spirit.",
-                "    This enhancement may not be used by adventurers who have not trained 40 times.",
-                "    It provides a boost of 6 to Agility Base.",
-                "    This enhancement may not be used by adventurers who have not trained 13 times.",
-                "    It provides a boost of 3 to Mental Lore - Manipulation Ranks.",
-                "    This enhancement may not be used by adventurers who have not trained 21 times.",
-                "    It seems to have a lot of enhancive charges remaining.",
-                "It will persist after its last enhancive charge has been expended.",
-                "It appears to weigh about 4 pounds.",
-                "It is estimated to be worth about 1,250,000 silvers.",
-                "It is temporarily sighted to assist in aiming, but exactly how much requires assessment.  Its temporary enhancement will degrade when it scores a successful strike.  It has quite a few uses left before the enhancement degrades away completely, which will cause the item to lose its ability to inflict greater damage.",
-                "It is predominantly crafted of mesille.",
-                "It is an involved project (217 difficulty) for an adventurer to modify.",
-                "It has a permanently unlocked loresong by Dorwyn."
-              ]
+              "details": {
+                "raw": [
+                  "The crossbow is a hand crossbow that requires skill in ranged weapons to use effectively.",
+                  "The crossbow can be worn, slinging it across the shoulders and back.  The crossbow appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of mesille, an unusual wood.",
+                  "Analysis of a mesille hand crossbow indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the mesille hand crossbow for you.",
+                  "The mesille hand crossbow will cost 2,500,000 coins.",
+                  "It imparts a bonus of +15 more than usual.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 1 to Max Spirit.",
+                  "    This enhancement may not be used by adventurers who have not trained 40 times.",
+                  "    It provides a boost of 6 to Agility Base.",
+                  "    This enhancement may not be used by adventurers who have not trained 13 times.",
+                  "    It provides a boost of 3 to Mental Lore - Manipulation Ranks.",
+                  "    This enhancement may not be used by adventurers who have not trained 21 times.",
+                  "    It seems to have a lot of enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It appears to weigh about 4 pounds.",
+                  "It is estimated to be worth about 1,250,000 silvers.",
+                  "It is temporarily sighted to assist in aiming, but exactly how much requires assessment.  Its temporary enhancement will degrade when it scores a successful strike.  It has quite a few uses left before the enhancement degrades away completely, which will cause the item to lose its ability to inflict greater damage.",
+                  "It is predominantly crafted of mesille.",
+                  "It is an involved project (217 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Dorwyn."
+                ],
+                "tags": [
+                  "purpose",
+                  "lightenable",
+                  "persists"
+                ],
+                "cost": 2500000,
+                "enchant": 15,
+                "material": "mesille",
+                "skill": "ranged weapons",
+                "weight": 4,
+                "worn": "shoulders",
+                "enhancives": [
+                  {
+                    "boost": 1,
+                    "ability": "Max Spirit",
+                    "level": 40
+                  },
+                  {
+                    "boost": 6,
+                    "ability": "Agility Base",
+                    "level": 13
+                  },
+                  {
+                    "boost": 3,
+                    "ability": "Mental Lore - Manipulation Ranks",
+                    "level": 21
+                  }
+                ],
+                "is_weapon": true,
+                "weapon_type": "ranged weapons",
+                "sighting": "unknown",
+                "item_type": "weapon"
+              }
             },
             {
               "id": "38001016",
               "name": "a single bit glaes handaxe",
-              "browse_price": 2000000,
-              "raw_inspect": [
-                "The handaxe is a handaxe that requires skill in edged weapons to use effectively.",
-                "It looks like this item has been mainly crafted out of glaes, a rare metal.",
-                "Analysis of a single bit glaes handaxe indicates the item is free from merchant alteration restrictions.",
-                "You might be able to have a talented merchant lighten the glaes handaxe for you.",
-                "The glaes handaxe will cost 2,000,000 coins.",
-                "It imparts a bonus of +15 more than usual.",
-                "It is an enhancive item:",
-                "    It provides a boost of 5 to Ambush Ranks.",
-                "    This enhancement may not be used by adventurers who have not trained 30 times.",
-                "    It provides a boost of 14 to Logic Base.",
-                "    This enhancement may not be used by adventurers who have not trained 42 times.",
-                "    It seems to have quite a few enhancive charges remaining.",
-                "It will persist after its last enhancive charge has been expended.",
-                "It appears to weigh about 9 pounds.",
-                "It is estimated to be worth about 1,350,000 silvers.",
-                "It is predominantly crafted of glaes.",
-                "It is a simple project (67 difficulty) for an adventurer to modify.",
-                "It has a permanently unlocked loresong by Cecelia."
-              ]
+              "details": {
+                "raw": [
+                  "The handaxe is a handaxe that requires skill in edged weapons to use effectively.",
+                  "It looks like this item has been mainly crafted out of glaes, a rare metal.",
+                  "Analysis of a single bit glaes handaxe indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the glaes handaxe for you.",
+                  "The glaes handaxe will cost 2,000,000 coins.",
+                  "It imparts a bonus of +15 more than usual.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 5 to Ambush Ranks.",
+                  "    This enhancement may not be used by adventurers who have not trained 30 times.",
+                  "    It provides a boost of 14 to Logic Base.",
+                  "    This enhancement may not be used by adventurers who have not trained 42 times.",
+                  "    It seems to have quite a few enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It appears to weigh about 9 pounds.",
+                  "It is estimated to be worth about 1,350,000 silvers.",
+                  "It is predominantly crafted of glaes.",
+                  "It is a simple project (67 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Cecelia."
+                ],
+                "tags": [
+                  "lightenable",
+                  "persists"
+                ],
+                "cost": 2000000,
+                "enchant": 15,
+                "material": "glaes",
+                "skill": "edged weapons",
+                "weight": 9,
+                "enhancives": [
+                  {
+                    "boost": 5,
+                    "ability": "Ambush Ranks",
+                    "level": 30
+                  },
+                  {
+                    "boost": 14,
+                    "ability": "Logic Base",
+                    "level": 42
+                  }
+                ],
+                "is_weapon": true,
+                "weapon_type": "edged weapons",
+                "item_type": "weapon"
+              }
             },
             {
               "id": "38001015",
               "name": "a gold-tipped steel claidhmore",
-              "browse_price": 1500000,
+              "details": {
+                "raw": [
+                  "The claidhmore is a claidhmore that requires skill in twohanded weapons to use effectively.",
+                  "It looks like this item has been mainly crafted out of steel, an extremely common metal.",
+                  "Analysis of a gold-tipped steel claidhmore indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the steel claidhmore for you.",
+                  "The steel claidhmore will cost 1,500,000 coins.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 11 to Stamina Recovery.",
+                  "    This enhancement may not be used by adventurers who have not trained 40 times.",
+                  "    It provides a boost of 6 to Logic Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 30 times.",
+                  "    It seems to have quite a few enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It appears to weigh about 12 pounds.",
+                  "It is estimated to be worth about 750,000 silvers.",
+                  "It is weighted to inflict more critical wounds, but exactly how much requires assessment.",
+                  "It is predominantly crafted of steel.",
+                  "It is an overwhelming project (1,630 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Cecelia."
+                ],
+                "tags": [
+                  "lightenable",
+                  "persists"
+                ],
+                "cost": 1500000,
+                "material": "steel",
+                "skill": "twohanded weapons",
+                "weight": 12,
+                "enhancives": [
+                  {
+                    "boost": 11,
+                    "ability": "Stamina Recovery",
+                    "level": 40
+                  },
+                  {
+                    "boost": 6,
+                    "ability": "Logic Bonus",
+                    "level": 30
+                  }
+                ],
+                "is_weapon": true,
+                "weapon_type": "twohanded weapons",
+                "crit_weighting": "unknown",
+                "item_type": "weapon"
+              }
+            },
+            {
+              "id": "38868459",
+              "name": "a coral and pink topaz ring",
+              "browse_price": 10000000,
               "raw_inspect": [
-                "The claidhmore is a claidhmore that requires skill in twohanded weapons to use effectively.",
-                "It looks like this item has been mainly crafted out of steel, an extremely common metal.",
-                "Analysis of a gold-tipped steel claidhmore indicates the item is free from merchant alteration restrictions.",
-                "You might be able to have a talented merchant lighten the steel claidhmore for you.",
-                "The steel claidhmore will cost 1,500,000 coins.",
-                "It imparts no bonus more than usual.",
+                "It is difficult to see the pink topaz ring clearly from this distance.",
+                "The ring can be worn around the finger.  The ring appears to serve some purpose.",
+                "Analysis of a coral and pink topaz ring indicates the item is free from merchant alteration restrictions.",
+                "You get no sense of whether or not the ring may be further lightened.",
+                "The pink topaz ring will cost 10,000,000 coins.",
                 "It is an enhancive item:",
-                "    It provides a boost of 11 to Stamina Recovery.",
-                "    This enhancement may not be used by adventurers who have not trained 40 times.",
-                "    It provides a boost of 6 to Logic Bonus.",
+                "    It provides a boost of 8 to Armor Use Bonus.",
+                "    This enhancement may not be used by adventurers who have not trained 60 times.",
+                "    It provides a boost of 3 to Mental Lore - Manipulation Bonus.",
+                "    This enhancement may not be used by adventurers who have not trained 10 times.",
+                "    It seems to have a lot of enhancive charges remaining.",
+                "It will crumble into dust after its last enhancive charge has been expended.",
+                "It is a small item, under a pound.",
+                "It is estimated to be worth about 350,000 silvers.",
+                "It is magic resistant.",
+                "It has a permanently unlocked loresong by Sketti."
+              ]
+            },
+            {
+              "id": "38868694",
+              "name": "a diamond-set gold necklace",
+              "browse_price": 7000000,
+              "raw_inspect": [
+                "The necklace can be worn around the neck.  The necklace appears to serve some purpose.",
+                "Analysis of a diamond-set gold necklace indicates the item is free from merchant alteration restrictions.",
+                "You get no sense of whether or not the necklace may be further lightened.",
+                "The gold necklace will cost 7,000,000 coins.",
+                "It is a magical item which could be imbedded with a spell.",
+                "It has 0 charges.",
+                "It could be activated by waving it.",
+                "It will persist after its last magical charge has been expended.",
+                "It is an enhancive item:",
+                "    It provides a boost of 9 to Dodging Bonus.",
+                "    This enhancement may not be used by adventurers who have not trained 45 times.",
+                "    It seems to have more than your average dwarf could count enhancive charges remaining.",
+                "It will crumble into dust after its last enhancive charge has been expended.",
+                "It is a small item, under a pound.",
+                "It is estimated to be worth about 400,000 silvers.",
+                "It is magic resistant.",
+                "It has a permanently unlocked loresong by Sketti."
+              ]
+            },
+            {
+              "id": "38868709",
+              "name": "some imflass arm greaves",
+              "browse_price": 700000,
+              "raw_inspect": [
+                "The greaves is miscellaneous armor that covers the arms.",
+                "The greaves can be worn around the arms.  The greaves appear to serve some purpose.",
+                "It looks like this item has been mainly crafted out of imflass, an uncommon metal.",
+                "Analysis of some imflass arm greaves indicates the item is free from merchant alteration restrictions.",
+                "You can tell that the greaves are as light as they can get.",
+                "The imflass arm greaves will cost 700,000 coins.",
+                "It is an enhancive item:",
+                "    It provides a boost of 6 to Influence Bonus.",
                 "    This enhancement may not be used by adventurers who have not trained 30 times.",
+                "    It provides a boost of 2 to Mental Lore - Transformation Bonus.",
+                "    This enhancement may not be used by adventurers who have not trained 3 times.",
+                "    It provides a boost of 2 to Magic Item Use Bonus.",
+                "    This enhancement may not be used by adventurers who have not trained 3 times.",
                 "    It seems to have quite a few enhancive charges remaining.",
                 "It will persist after its last enhancive charge has been expended.",
-                "It appears to weigh about 12 pounds.",
-                "It is estimated to be worth about 750,000 silvers.",
-                "It is weighted to inflict more critical wounds, but exactly how much requires assessment.",
-                "It is predominantly crafted of steel.",
-                "It is an overwhelming project (1,630 difficulty) for an adventurer to modify.",
+                "It appears to weigh about 3 pounds.",
+                "It is estimated to be worth about 350,000 silvers.",
+                "It is predominantly crafted of imflass.",
+                "It is a simple project (40 difficulty) for an adventurer to modify.",
                 "It has a permanently unlocked loresong by Cecelia."
+              ]
+            },
+            {
+              "id": "38868787",
+              "name": "an onyx-inlaid star ruby barrette",
+              "browse_price": 6000000,
+              "raw_inspect": [
+                "The barrette can be worn anywhere on the body.  The barrette appears to serve some purpose.",
+                "Analysis of an onyx-inlaid star ruby barrette indicates the item is free from merchant alteration restrictions.",
+                "You get no sense of whether or not the barrette may be further lightened.",
+                "The star ruby barrette will cost 6,000,000 coins.",
+                "It is a holy item.",
+                "It is currently imbedded with the Censure spell.",
+                "It has 10 charges.",
+                "It could be activated by tapping it.",
+                "It will disintegrate after its last magical charge has been expended.",
+                "It is an enhancive item:",
+                "    It provides a boost of 4 to Max Health.",
+                "    This enhancement may not be used by adventurers who have not trained 7 times.",
+                "    It provides a boost of 7 to Influence Bonus.",
+                "    This enhancement may not be used by adventurers who have not trained 66 times.",
+                "    It seems to have a lot of enhancive charges remaining.",
+                "It will crumble into dust after its last enhancive charge has been expended.",
+                "It is a small item, under a pound.",
+                "It is estimated to be worth about 450,000 silvers.",
+                "It is magic resistant.",
+                "It has a permanently unlocked loresong by Karkith."
+              ]
+            },
+            {
+              "id": "38868791",
+              "name": "a round-cut blue sapphire clasp",
+              "browse_price": 2000000,
+              "raw_inspect": [
+                "The clasp can be worn anywhere on the body.  The clasp appears to serve some purpose.",
+                "Analysis of a round-cut blue sapphire clasp indicates the item is free from merchant alteration restrictions.",
+                "You get no sense of whether or not the clasp may be further lightened.",
+                "The blue sapphire clasp will cost 2,000,000 coins.",
+                "It is currently imbedded with the Water Walking spell.",
+                "It has 10 charges.",
+                "It could be activated by tapping it.",
+                "It will disintegrate after its last magical charge has been expended.",
+                "It is an enhancive item:",
+                "    It provides a boost of 6 to First Aid Bonus.",
+                "    This enhancement may not be used by adventurers who have not trained 14 times.",
+                "    It provides a boost of 5 to Wisdom Base.",
+                "    This enhancement may not be used by adventurers who have not trained 25 times.",
+                "    It provides a boost of 4 to Logic Base.",
+                "    This enhancement may not be used by adventurers who have not trained 7 times.",
+                "    It provides a boost of 2 to Discipline Base.",
+                "    This enhancement may not be used by adventurers who have not trained 3 times.",
+                "    It seems to have a fair amount of enhancive charges remaining.",
+                "It will crumble into dust after its last enhancive charge has been expended.",
+                "It is a small item, under a pound.",
+                "It is estimated to be worth about 150,000 silvers.",
+                "It is magic resistant.",
+                "It has a permanently unlocked loresong by Broyles."
+              ]
+            },
+            {
+              "id": "38868790",
+              "name": "an imflass dart",
+              "browse_price": 5000000,
+              "raw_inspect": [
+                "The dart is a dart that requires skill in thrown weapons to use effectively.",
+                "It looks like this item has been mainly crafted out of imflass, an uncommon metal.",
+                "Analysis of an imflass dart indicates the item is free from merchant alteration restrictions.",
+                "You can tell that the dart is as light as it can get.",
+                "The imflass dart will cost 5,000,000 coins.",
+                "It imparts a bonus of +12 more than usual.",
+                "It is an enhancive item:",
+                "    It provides a boost of 10 to Intuition Bonus.",
+                "    This enhancement may not be used by adventurers who have not trained 77 times.",
+                "    It seems to have a lot of enhancive charges remaining.",
+                "It will persist after its last enhancive charge has been expended.",
+                "It is a small item, under a pound.",
+                "It is estimated to be worth about 650,000 silvers.",
+                "It is predominantly crafted of imflass.",
+                "It is a simple project (64 difficulty) for an adventurer to modify.",
+                "It has a permanently unlocked loresong by Vonaq."
+              ]
+            },
+            {
+              "id": "38868458",
+              "name": "a brilliant pink topaz torc",
+              "browse_price": 11000000,
+              "raw_inspect": [
+                "The torc can be worn around the neck.  The torc appears to serve some purpose.",
+                "Analysis of a brilliant pink topaz torc indicates the item is free from merchant alteration restrictions.",
+                "You get no sense of whether or not the torc may be further lightened.",
+                "The pink topaz torc will cost 11,000,000 coins.",
+                "It is currently imbedded with the Cold Snap spell.",
+                "It has 9 charges.",
+                "It could be activated by tapping it.",
+                "It will disintegrate after its last magical charge has been expended.",
+                "It is an enhancive item:",
+                "    It provides a boost of 5 to Agility Bonus.",
+                "    This enhancement may not be used by adventurers who have not trained 55 times.",
+                "    It seems to have a lot of enhancive charges remaining.",
+                "It will crumble into dust after its last enhancive charge has been expended.",
+                "It is a small item, under a pound.",
+                "It is estimated to be worth about 250,000 silvers.",
+                "It is magic resistant.",
+                "It has a permanently unlocked loresong by Sketti."
               ]
             }
           ],
@@ -8455,6 +8801,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -9492,6 +9839,7 @@
                   "The beehive-shaped bag will cost 30,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -10970,6 +11318,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 20000,
@@ -11818,6 +12167,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -13307,6 +13657,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -13330,6 +13681,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -13367,6 +13719,7 @@
                   "The black leather pants will cost 15,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -13419,6 +13772,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -13444,6 +13798,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -13495,6 +13850,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -13520,6 +13876,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -13571,6 +13928,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -13609,6 +13967,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -13634,6 +13993,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -13686,6 +14046,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -13712,6 +14073,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -14381,6 +14743,7 @@
                   "purpose",
                   "lightenable",
                   "persists",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -16943,6 +17306,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -22768,6 +23132,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 11111111,
@@ -22830,6 +23195,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -26014,6 +26380,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -26230,35 +26597,6 @@
                 "is_weapon": true,
                 "weapon_type": "twohanded weapons",
                 "item_type": "weapon"
-              }
-            },
-            {
-              "id": "31972139",
-              "name": "a Wealth vissi",
-              "details": {
-                "raw": [
-                  "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
-                  "It is currently tier 1.  The maximum tier is 5.  It is empowered by 1 thread.",
-                  "The vissi can not be worn.",
-                  "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
-                  "Analysis of a Wealth vissi indicates the creator has provided the following information:",
-                  "The Wealth vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
-                  "The Wealth vissi is named Wealth and it is a Primal vissi.",
-                  "This vissi notes the following ability information:",
-                  "This is a primal vissi that is able to either launch a brutal AOE attack or help defend against physical attacks and boost your HP.  Both options equip you with temporary Magma Flares.  The ability (or abilities) have cooldowns.  They have a 120 second cooldown.  ",
-                  "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
-                  "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
-                  "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
-                  "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
-                  "It is currently tier 1.  The maximum tier is 5.  It is empowered by 1 thread.",
-                  "The Wealth vissi will cost 16,500,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "cost": 16500000,
-                "material": "organic material, an extremely common material",
-                "item_type": null
               }
             }
           ],
@@ -31379,6 +31717,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -31403,6 +31742,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -31453,6 +31793,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -31477,6 +31818,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -31527,6 +31869,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -31551,6 +31894,7 @@
                   "The glass jar will cost 50,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -31601,6 +31945,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -31625,6 +31970,7 @@
                   "The glass jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -31675,6 +32021,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -31699,6 +32046,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -31749,6 +32097,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -31786,6 +32135,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 35000,
@@ -31810,6 +32160,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -31953,6 +32304,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -32019,6 +32371,7 @@
                   "container",
                   "container",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -32043,6 +32396,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
@@ -34935,6 +35289,7 @@
                   "The wicker basket will cost 3,500,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container",
                   "container",
