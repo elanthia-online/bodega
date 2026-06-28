@@ -86,13 +86,19 @@ jobs:
         else
           # Auto mode: one full scan per UTC day (the first run of the day),
           # smart scans otherwise. Date-based rather than wall-clock-hour based
-          # so it is reliable despite GitHub's scheduled-run jitter. The marker
-          # is written only after a successful full scan (see commit step), so
-          # serialized/queued runs never start a second full scan the same day.
+          # so it is reliable despite GitHub's scheduled-run jitter.
+          #
+          # Read the marker from origin/master, not the checked-out commit. A
+          # run queued (concurrency) behind an in-progress full scan is pinned
+          # to github.sha from when it was created, so its working tree predates
+          # that scan's marker push and would trigger a second full scan the
+          # same day. Fetching the live tip reflects the most recently pushed
+          # marker. The marker is written only after a successful full scan
+          # (see commit step), so auto mode stays at one full scan per UTC day.
           MARKER="automation/state/last-full-scan"
           TODAY="$(date -u +%F)"
-          LAST=""
-          [ -f "$MARKER" ] && LAST="$(cat "$MARKER")"
+          git fetch origin master
+          LAST="$(git show origin/master:"$MARKER" 2>/dev/null || true)"
           if [ "$LAST" != "$TODAY" ]; then
             echo "type=full" >> $GITHUB_OUTPUT
           else
