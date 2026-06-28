@@ -2,8 +2,9 @@ name: Scrape
 
 on:
   schedule:
-    # Run every 2 hours: 00, 02, 04, 06, 08, 10, 12, 14, 16, 18, 20, 22 UTC
-    # 08 UTC will trigger full scan, others will do smart scan
+    # Run every 2 hours at 00, 02, 04, 06, 08, 10, 12, 14, 16, 18, 20, 22 UTC.
+    # Auto mode runs one full scan per UTC day (the first run of the day) and
+    # smart scans for the rest. See the "Determine scan type" step.
     - cron: '0 0,2,4,6,8,10,12,14,16,18,20,22 * * *'
   workflow_dispatch:
     inputs:
@@ -83,8 +84,16 @@ jobs:
         elif [ "${{ github.event.inputs.scan_type }}" = "full" ]; then
           echo "type=full" >> $GITHUB_OUTPUT
         else
-          # Auto mode: full scan at 08 UTC, smart scan otherwise
-          if [ "$(date -u +%H)" = "08" ]; then
+          # Auto mode: one full scan per UTC day (the first run of the day),
+          # smart scans otherwise. Date-based rather than wall-clock-hour based
+          # so it is reliable despite GitHub's scheduled-run jitter. The marker
+          # is written only after a successful full scan (see commit step), so
+          # serialized/queued runs never start a second full scan the same day.
+          MARKER="automation/state/last-full-scan"
+          TODAY="$(date -u +%F)"
+          LAST=""
+          [ -f "$MARKER" ] && LAST="$(cat "$MARKER")"
+          if [ "$LAST" != "$TODAY" ]; then
             echo "type=full" >> $GITHUB_OUTPUT
           else
             echo "type=smart" >> $GITHUB_OUTPUT
@@ -101,6 +110,17 @@ jobs:
         # Configure git
         git config user.name "Bodega Automation"
         git config user.email "automation@bodega.local"
+
+        # Record full-scan completion marker (auto-mode gate). This step is
+        # reached only when the scan above succeeded (no continue-on-error),
+        # so a failed full scan leaves the marker stale and is retried next run.
+        # Staged before the change check below so a full scan that produced no
+        # new JSON still records itself.
+        if [ "${{ steps.scan_type.outputs.type }}" = "full" ]; then
+          mkdir -p automation/state
+          date -u +%F > automation/state/last-full-scan
+          git add automation/state/last-full-scan
+        fi
 
         # Add raw data files
         git add docs/data/raw/*.json
