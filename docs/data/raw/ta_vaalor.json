@@ -1,6 +1,6 @@
 {
-  "created_at": "2026-06-29 08:51:04 UTC",
-  "run_time": "11s",
+  "created_at": "2026-06-29 13:59:52 UTC",
+  "run_time": "12s",
   "town": "Ta'Vaalor,",
   "shops": [
     {
@@ -5530,6 +5530,7 @@
                   "max_deep",
                   "max_light",
                   "small",
+                  "container",
                   "container"
                 ],
                 "cost": 250000,
@@ -6509,145 +6510,237 @@
             {
               "id": "63702248",
               "name": "some vultite augmented chain",
-              "browse_price": 50000,
-              "raw_inspect": [
-                "The chain is chain armor that covers the torso, arms, and legs.",
-                "The chain can be worn around the chest.  The chain appears to serve some purpose.",
-                "It looks like this item has been mainly crafted out of vultite, an uncommon metal.",
-                "Analysis of some vultite augmented chain indicates the item is free from merchant alteration restrictions.",
-                "You might be able to have a talented merchant lighten the augmented chain for you.",
-                "The augmented chain will cost 50,000 coins.",
-                "It imparts a bonus of +20 more than usual.",
-                "It appears to weigh about 21 pounds.",
-                "It is estimated to be worth about 300,000 silvers.",
-                "It is predominantly crafted of vultite.",
-                "It is a simple project (36 difficulty) for an adventurer to modify.",
-                "It has a permanently unlocked loresong by Kanyon."
-              ]
+              "details": {
+                "raw": [
+                  "The chain is chain armor that covers the torso, arms, and legs.",
+                  "The chain can be worn around the chest.  The chain appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of vultite, an uncommon metal.",
+                  "Analysis of some vultite augmented chain indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the augmented chain for you.",
+                  "The augmented chain will cost 50,000 coins.",
+                  "It imparts a bonus of +20 more than usual.",
+                  "It appears to weigh about 21 pounds.",
+                  "It is estimated to be worth about 300,000 silvers.",
+                  "It is predominantly crafted of vultite.",
+                  "It is a simple project (36 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Kanyon."
+                ],
+                "tags": [
+                  "purpose",
+                  "lightenable"
+                ],
+                "cost": 50000,
+                "enchant": 20,
+                "material": "vultite",
+                "weight": 21,
+                "worn": "chest",
+                "is_armor": true,
+                "armor_type": "chain",
+                "wear_location": "torso",
+                "item_type": "armor"
+              }
             },
             {
               "id": "81316941",
               "name": "a package of ruby red fish flakes tied with a blue ribbon",
-              "browse_price": 500000,
-              "raw_inspect": [
-                "There appears to be something written on it.",
-                "In the Common language, it reads:",
-                "500 feedings for a Curious Sea Creature",
-                "You carefully inspect a package of ruby red fish flakes tied with a blue ribbon.",
-                "You determine that the ruby red fish flakes is some kind of food.  It appears to be pristine.",
-                "Analysis of a package of ruby red fish flakes tied with a blue ribbon indicates the creator has provided the following information:",
-                "This is fish food that is meant to feed small aquatic creatures.  It has a 500 feedings left.",
-                "The ruby red fish flakes will cost 500,000 coins."
-              ]
+              "details": {
+                "raw": [
+                  "There appears to be something written on it.",
+                  "In the Common language, it reads:",
+                  "500 feedings for a Curious Sea Creature",
+                  "You determine that the ruby red fish flakes is some kind of food.  It appears to be pristine.",
+                  "Analysis of a package of ruby red fish flakes tied with a blue ribbon indicates the creator has provided the following information:",
+                  "This is fish food that is meant to feed small aquatic creatures.  It has a 500 feedings left.",
+                  "The ruby red fish flakes will cost 500,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 500000,
+                "item_type": null
+              }
             },
             {
               "id": "81316964",
               "name": "some thin taffeta silk trousers with a raised pattern of sigils",
-              "browse_price": 50000,
-              "raw_inspect": [
-                "You see nothing unusual.",
-                "It is estimated that some thin taffeta silk trousers with a raised pattern of sigils can store a very small amount with enough space for a couple of items.",
-                "The trousers can be worn on the legs.",
-                "It looks like this item has been mainly crafted out of cloth, an extremely common material.",
-                "Analysis of some thin taffeta silk trousers with a raised pattern of sigils indicates the creator has provided the following information:",
-                "This item allows you to transfer its appearance onto another compatible worn item by using the TRANSFER verb.  Hold this item in one hand and the target item in your other.  You must repeat the command within 30 seconds to confirm.",
-                "Rules:",
-                "   - Both items must be worn in the same location",
-                "   - Both items must either be containers or both be non-containers",
-                "   - If this item is a container, it must be empty before transfer",
-                "   - The source item is destroyed after a successful transfer",
-                "   - If the target item has a script, it must be one approved for transmogrification",
-                "You may also use CLEAN to remove this script from the item, or use DUST to remove its long description, turning it into some thin taffeta silk trousers.",
-                "You might be able to have a talented merchant lighten the taffeta silk trousers for you or deepen their pockets.",
-                "The taffeta silk trousers will cost 50,000 coins."
-              ]
+              "details": {
+                "raw": [
+                  "It is estimated that some thin taffeta silk trousers with a raised pattern of sigils can store a very small amount with enough space for a couple of items.",
+                  "The trousers can be worn on the legs.",
+                  "It looks like this item has been mainly crafted out of cloth, an extremely common material.",
+                  "Analysis of some thin taffeta silk trousers with a raised pattern of sigils indicates the creator has provided the following information:",
+                  "This item allows you to transfer its appearance onto another compatible worn item by using the TRANSFER verb.  Hold this item in one hand and the target item in your other.  You must repeat the command within 30 seconds to confirm.",
+                  "Rules:",
+                  "   - Both items must be worn in the same location",
+                  "   - Both items must either be containers or both be non-containers",
+                  "   - If this item is a container, it must be empty before transfer",
+                  "   - The source item is destroyed after a successful transfer",
+                  "   - If the target item has a script, it must be one approved for transmogrification",
+                  "You may also use CLEAN to remove this script from the item, or use DUST to remove its long description, turning it into some thin taffeta silk trousers.",
+                  "You might be able to have a talented merchant lighten the taffeta silk trousers for you or deepen their pockets.",
+                  "The taffeta silk trousers will cost 50,000 coins."
+                ],
+                "tags": [
+                  "lightenable",
+                  "container"
+                ],
+                "cost": 50000,
+                "material": "cloth, an extremely common material",
+                "worn": "pants",
+                "capacity_level": "very small",
+                "is_container": true,
+                "wear_location": "on the legs",
+                "item_type": "container"
+              }
             },
             {
               "id": "81316965",
               "name": "some old flyrsilk trousers stitched with selanthan bloodjewel in a pattern of birds",
-              "browse_price": 50000,
-              "raw_inspect": [
-                "You see nothing unusual.",
-                "The trousers can be worn on the legs.",
-                "It looks like this item has been mainly crafted out of cloth, an extremely common material.",
-                "Analysis of some old flyrsilk trousers stitched with selanthan bloodjewel in a pattern of birds indicates the creator has provided the following information:",
-                "This item allows you to transfer its appearance onto another compatible worn item by using the TRANSFER verb.  Hold this item in one hand and the target item in your other.  You must repeat the command within 30 seconds to confirm.",
-                "Rules:",
-                "   - Both items must be worn in the same location",
-                "   - Both items must either be containers or both be non-containers",
-                "   - If this item is a container, it must be empty before transfer",
-                "   - The source item is destroyed after a successful transfer",
-                "   - If the target item has a script, it must be one approved for transmogrification",
-                "You may also use CLEAN to remove this script from the item, or use DUST to remove its long description, turning it into some old flyrsilk trousers.",
-                "You get no sense of whether or not the trousers may be further lightened.",
-                "The flyrsilk trousers will cost 50,000 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The trousers can be worn on the legs.",
+                  "It looks like this item has been mainly crafted out of cloth, an extremely common material.",
+                  "Analysis of some old flyrsilk trousers stitched with selanthan bloodjewel in a pattern of birds indicates the creator has provided the following information:",
+                  "This item allows you to transfer its appearance onto another compatible worn item by using the TRANSFER verb.  Hold this item in one hand and the target item in your other.  You must repeat the command within 30 seconds to confirm.",
+                  "Rules:",
+                  "   - Both items must be worn in the same location",
+                  "   - Both items must either be containers or both be non-containers",
+                  "   - If this item is a container, it must be empty before transfer",
+                  "   - The source item is destroyed after a successful transfer",
+                  "   - If the target item has a script, it must be one approved for transmogrification",
+                  "You may also use CLEAN to remove this script from the item, or use DUST to remove its long description, turning it into some old flyrsilk trousers.",
+                  "The flyrsilk trousers will cost 50,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 50000,
+                "material": "cloth, an extremely common material",
+                "worn": "pants",
+                "wear_location": "on the legs",
+                "item_type": null
+              }
             },
             {
               "id": "81316935",
               "name": "a quilted flyrsilk rucksack embroidered with repeating constellations",
-              "browse_price": 50000,
-              "raw_inspect": [
-                "You see nothing unusual.",
-                "It is estimated that a quilted flyrsilk rucksack embroidered with repeating constellations can store a significant amount with enough space for any number of items.",
-                "The rucksack can be worn on the back.  The rucksack appears to serve some purpose.",
-                "It looks like this item has been mainly crafted out of cloth, an extremely common material.",
-                "Analysis of a quilted flyrsilk rucksack embroidered with repeating constellations indicates the creator has provided the following information:",
-                "This item allows you to transfer its appearance onto another compatible worn item by using the TRANSFER verb.  Hold this item in one hand and the target item in your other.  You must repeat the command within 30 seconds to confirm.",
-                "Rules:",
-                "   - Both items must be worn in the same location",
-                "   - Both items must either be containers or both be non-containers",
-                "   - If this item is a container, it must be empty before transfer",
-                "   - The source item is destroyed after a successful transfer",
-                "   - If the target item has a script, it must be one approved for transmogrification",
-                "You may also use CLEAN to remove this script from the item, or use DUST to remove its long description, turning it into a quilted flyrsilk rucksack.",
-                "You might be able to have a talented merchant lighten the flyrsilk rucksack for you or deepen its pockets.",
-                "The flyrsilk rucksack will cost 50,000 coins."
-              ]
+              "details": {
+                "raw": [
+                  "It is estimated that a quilted flyrsilk rucksack embroidered with repeating constellations can store a significant amount with enough space for any number of items.",
+                  "The rucksack can be worn on the back.  The rucksack appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of cloth, an extremely common material.",
+                  "Analysis of a quilted flyrsilk rucksack embroidered with repeating constellations indicates the creator has provided the following information:",
+                  "This item allows you to transfer its appearance onto another compatible worn item by using the TRANSFER verb.  Hold this item in one hand and the target item in your other.  You must repeat the command within 30 seconds to confirm.",
+                  "Rules:",
+                  "   - Both items must be worn in the same location",
+                  "   - Both items must either be containers or both be non-containers",
+                  "   - If this item is a container, it must be empty before transfer",
+                  "   - The source item is destroyed after a successful transfer",
+                  "   - If the target item has a script, it must be one approved for transmogrification",
+                  "You may also use CLEAN to remove this script from the item, or use DUST to remove its long description, turning it into a quilted flyrsilk rucksack.",
+                  "You might be able to have a talented merchant lighten the flyrsilk rucksack for you or deepen its pockets.",
+                  "The flyrsilk rucksack will cost 50,000 coins."
+                ],
+                "tags": [
+                  "purpose",
+                  "lightenable",
+                  "container"
+                ],
+                "cost": 50000,
+                "material": "cloth, an extremely common material",
+                "worn": "back",
+                "capacity_level": "significant",
+                "is_container": true,
+                "wear_location": "on the back",
+                "item_type": "container"
+              }
             },
             {
               "id": "63702247",
               "name": "a dull orase runestaff",
-              "browse_price": 30000,
-              "raw_inspect": [
-                "The runestaff is a rune staff that requires skill in twohanded weapons to use effectively.",
-                "It looks like this item has been mainly crafted out of orase, an uncommon wood.",
-                "Analysis of a dull orase runestaff indicates the item is free from merchant alteration restrictions.",
-                "You might be able to have a talented merchant lighten the orase runestaff for you.",
-                "The orase runestaff will cost 30,000 coins.",
-                "It imparts a bonus of +20 more than usual.",
-                "It appears to weigh about 4 pounds.",
-                "It is estimated to be worth about 100,000 silvers.",
-                "It is predominantly crafted of orase.",
-                "It is a simple project (36 difficulty) for an adventurer to modify."
-              ]
+              "details": {
+                "raw": [
+                  "The runestaff is a rune staff that requires skill in twohanded weapons to use effectively.",
+                  "It looks like this item has been mainly crafted out of orase, an uncommon wood.",
+                  "Analysis of a dull orase runestaff indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the orase runestaff for you.",
+                  "The orase runestaff will cost 30,000 coins.",
+                  "It imparts a bonus of +20 more than usual.",
+                  "It appears to weigh about 4 pounds.",
+                  "It is estimated to be worth about 100,000 silvers.",
+                  "It is predominantly crafted of orase.",
+                  "It is a simple project (36 difficulty) for an adventurer to modify."
+                ],
+                "tags": [
+                  "lightenable"
+                ],
+                "cost": 30000,
+                "enchant": 20,
+                "material": "orase",
+                "skill": "twohanded weapons",
+                "weight": 4,
+                "is_weapon": true,
+                "weapon_type": "twohanded weapons",
+                "item_type": "weapon"
+              }
             },
             {
               "id": "63719418",
               "name": "a large faewood runestaff",
-              "browse_price": 200000,
-              "raw_inspect": [
-                "The runestaff is a rune staff that requires skill in twohanded weapons to use effectively.",
-                "It looks like this item has been mainly crafted out of faewood, an unusual wood.",
-                "Analysis of a large faewood runestaff indicates the item is free from merchant alteration restrictions.",
-                "You might be able to have a talented merchant lighten the faewood runestaff for you.",
-                "The faewood runestaff will cost 200,000 coins.",
-                "It imparts a bonus of +20 more than usual.",
-                "It is a holy item.",
-                "It has been infused with the power of an ice elemental.",
-                "It is an enhancive item:",
-                "    It provides a boost of 7 to Mental Lore - Manipulation Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 28 times.",
-                "    It provides a boost of 6 to Spiritual Lore - Blessings Bonus.",
-                "    This enhancement may not be used by adventurers who have not trained 21 times.",
-                "    It seems to have a fair amount of enhancive charges remaining.",
-                "It will persist after its last enhancive charge has been expended.",
-                "It appears to weigh about 6 pounds.",
-                "It is estimated to be worth about 550,000 silvers.",
-                "It is predominantly crafted of faewood.",
-                "It is a basic project (150 difficulty) for an adventurer to modify.",
-                "It has a permanently unlocked loresong by Kanyon."
-              ]
+              "details": {
+                "raw": [
+                  "The runestaff is a rune staff that requires skill in twohanded weapons to use effectively.",
+                  "It looks like this item has been mainly crafted out of faewood, an unusual wood.",
+                  "Analysis of a large faewood runestaff indicates the item is free from merchant alteration restrictions.",
+                  "You might be able to have a talented merchant lighten the faewood runestaff for you.",
+                  "The faewood runestaff will cost 200,000 coins.",
+                  "It imparts a bonus of +20 more than usual.",
+                  "It is a holy item.",
+                  "It has been infused with the power of an ice elemental.",
+                  "It is an enhancive item:",
+                  "    It provides a boost of 7 to Mental Lore - Manipulation Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 28 times.",
+                  "    It provides a boost of 6 to Spiritual Lore - Blessings Bonus.",
+                  "    This enhancement may not be used by adventurers who have not trained 21 times.",
+                  "    It seems to have a fair amount of enhancive charges remaining.",
+                  "It will persist after its last enhancive charge has been expended.",
+                  "It appears to weigh about 6 pounds.",
+                  "It is estimated to be worth about 550,000 silvers.",
+                  "It is predominantly crafted of faewood.",
+                  "It is a basic project (150 difficulty) for an adventurer to modify.",
+                  "It has a permanently unlocked loresong by Kanyon."
+                ],
+                "tags": [
+                  "lightenable",
+                  "holy",
+                  "persists"
+                ],
+                "cost": 200000,
+                "enchant": 20,
+                "material": "faewood",
+                "skill": "twohanded weapons",
+                "flare": "the power of an ice elemental",
+                "weight": 6,
+                "enhancives": [
+                  {
+                    "boost": 7,
+                    "ability": "Mental Lore - Manipulation Bonus",
+                    "level": 28
+                  },
+                  {
+                    "boost": 6,
+                    "ability": "Spiritual Lore - Blessings Bonus",
+                    "level": 21
+                  }
+                ],
+                "is_weapon": true,
+                "weapon_type": "twohanded weapons",
+                "flares": [
+                  "the power of an ice elemental"
+                ],
+                "blessing": "holy",
+                "item_type": "weapon"
+              }
             }
           ]
         }
@@ -7689,6 +7782,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -9958,6 +10052,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 2000000,
@@ -10982,6 +11077,7 @@
                   "The beehive-shaped bag will cost 30,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 30000,
@@ -12432,6 +12528,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 20000,
@@ -13280,6 +13377,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -14774,6 +14872,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -14797,6 +14896,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 15000,
@@ -14821,6 +14921,7 @@
                   "The black leather pants will cost 15,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 15000,
@@ -14847,6 +14948,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -14872,6 +14974,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -14897,6 +15000,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -14922,6 +15026,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -14947,6 +15052,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -14972,6 +15078,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -14997,6 +15104,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -15023,6 +15131,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -15049,6 +15158,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -15686,6 +15796,7 @@
                   "purpose",
                   "lightenable",
                   "persists",
+                  "container",
                   "container"
                 ],
                 "cost": 1000000,
@@ -18229,6 +18340,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 5000,
@@ -24005,6 +24117,7 @@
                   "purpose",
                   "max_deep",
                   "max_light",
+                  "container",
                   "container"
                 ],
                 "cost": 11111111,
@@ -24067,6 +24180,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container"
                 ],
                 "cost": 99999,
@@ -27203,6 +27317,7 @@
                   "max_deep",
                   "max_light",
                   "small",
+                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -27402,93 +27517,121 @@
             {
               "id": "78258450",
               "name": "a Lower Self vissi",
-              "browse_price": 750000,
-              "raw_inspect": [
-                "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
-                "It is currently tier 3 out of 5.  It is empowered by 20 threads.",
-                "The vissi can not be worn.",
-                "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
-                "Analysis of a Lower Self vissi indicates the creator has provided the following information:",
-                "The Lower Self vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
-                "The Lower Self vissi is named Lower Self and it is a Chimera vissi.",
-                "This vissi notes the following ability information:",
-                "Struggle with your inner dark side alongside your companion vissi.",
-                "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
-                "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
-                "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
-                "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
-                "It is currently tier 3 out of 5.  It is empowered by 20 threads.",
-                "The Lower Self vissi will cost 750,000 coins."
-              ]
+              "details": {
+                "raw": [
+                  "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
+                  "It is currently tier 3 out of 5.  It is empowered by 20 threads.",
+                  "The vissi can not be worn.",
+                  "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
+                  "Analysis of a Lower Self vissi indicates the creator has provided the following information:",
+                  "The Lower Self vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
+                  "The Lower Self vissi is named Lower Self and it is a Chimera vissi.",
+                  "This vissi notes the following ability information:",
+                  "Struggle with your inner dark side alongside your companion vissi.",
+                  "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
+                  "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
+                  "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
+                  "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
+                  "It is currently tier 3 out of 5.  It is empowered by 20 threads.",
+                  "The Lower Self vissi will cost 750,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 750000,
+                "material": "organic material, an extremely common material",
+                "item_type": null
+              }
             },
             {
               "id": "78587933",
               "name": "an ephemeral Elemental Defense I vissi",
-              "browse_price": 75000,
-              "raw_inspect": [
-                "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
-                "This vissi is tier 1 and its maximum tier is 1.  It is empowered by 1 thread.",
-                "The vissi can not be worn.",
-                "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
-                "Analysis of an ephemeral Elemental Defense I vissi indicates the creator has provided the following information:",
-                "The Elemental vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
-                "The Elemental vissi is named Ephemeral Vissi and it is a Primal vissi.",
-                "This vissi notes the following ability information:",
-                "This vissi casts a spell.  When activated, it will cast Elemental Defense I.  It has 10 charges.",
-                "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
-                "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
-                "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
-                "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
-                "This vissi is tier 1 and its maximum tier is 1.  It is empowered by 1 thread.",
-                "The Elemental vissi will cost 75,000 coins."
-              ],
-              "quantity": 2
+              "quantity": 2,
+              "details": {
+                "raw": [
+                  "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
+                  "This vissi is tier 1 and its maximum tier is 1.  It is empowered by 1 thread.",
+                  "The vissi can not be worn.",
+                  "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
+                  "Analysis of an ephemeral Elemental Defense I vissi indicates the creator has provided the following information:",
+                  "The Elemental vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
+                  "The Elemental vissi is named Ephemeral Vissi and it is a Primal vissi.",
+                  "This vissi notes the following ability information:",
+                  "This vissi casts a spell.  When activated, it will cast Elemental Defense I.  It has 10 charges.",
+                  "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
+                  "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
+                  "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
+                  "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
+                  "This vissi is tier 1 and its maximum tier is 1.  It is empowered by 1 thread.",
+                  "The Elemental vissi will cost 75,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 75000,
+                "material": "organic material, an extremely common material",
+                "item_type": null
+              }
             },
             {
               "id": "78587930",
               "name": "an ephemeral Spirit Warding I vissi",
-              "browse_price": 75000,
-              "raw_inspect": [
-                "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
-                "This vissi is tier 1 and its maximum tier is 1.  It is empowered by 1 thread.",
-                "The vissi can not be worn.",
-                "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
-                "Analysis of an ephemeral Spirit Warding I vissi indicates the creator has provided the following information:",
-                "The Spirit Warding vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
-                "The Spirit Warding vissi is named Ephemeral Vissi and it is a Primal vissi.",
-                "This vissi notes the following ability information:",
-                "This vissi casts a spell.  When activated, it will cast Spirit Warding I.  It has 10 charges.",
-                "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
-                "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
-                "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
-                "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
-                "This vissi is tier 1 and its maximum tier is 1.  It is empowered by 1 thread.",
-                "The Spirit Warding vissi will cost 75,000 coins."
-              ],
-              "quantity": 2
+              "quantity": 2,
+              "details": {
+                "raw": [
+                  "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
+                  "This vissi is tier 1 and its maximum tier is 1.  It is empowered by 1 thread.",
+                  "The vissi can not be worn.",
+                  "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
+                  "Analysis of an ephemeral Spirit Warding I vissi indicates the creator has provided the following information:",
+                  "The Spirit Warding vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
+                  "The Spirit Warding vissi is named Ephemeral Vissi and it is a Primal vissi.",
+                  "This vissi notes the following ability information:",
+                  "This vissi casts a spell.  When activated, it will cast Spirit Warding I.  It has 10 charges.",
+                  "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
+                  "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
+                  "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
+                  "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
+                  "This vissi is tier 1 and its maximum tier is 1.  It is empowered by 1 thread.",
+                  "The Spirit Warding vissi will cost 75,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 75000,
+                "material": "organic material, an extremely common material",
+                "item_type": null
+              }
             },
             {
               "id": "78587928",
               "name": "an ephemeral Heal vissi",
-              "browse_price": 75000,
-              "raw_inspect": [
-                "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
-                "This vissi is tier 1 and its maximum tier is 1.  It is empowered by 1 thread.",
-                "The vissi can not be worn.",
-                "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
-                "Analysis of an ephemeral Heal vissi indicates the creator has provided the following information:",
-                "The Heal vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
-                "The Heal vissi is named Ephemeral Vissi and it is a Primal vissi.",
-                "This vissi notes the following ability information:",
-                "This vissi casts a spell.  When activated, it will cast Heal.  It has 10 charges.",
-                "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
-                "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
-                "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
-                "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
-                "This vissi is tier 1 and its maximum tier is 1.  It is empowered by 1 thread.",
-                "The Heal vissi will cost 75,000 coins."
-              ],
-              "quantity": 2
+              "quantity": 2,
+              "details": {
+                "raw": [
+                  "The gossamer thread constantly unravels and reforms in a mesmerizing dance.  Though entirely insubstantial, the otherworldly strand somehow retains its shape as its essence ripples with a strange, innate responsiveness.  ",
+                  "This vissi is tier 1 and its maximum tier is 1.  It is empowered by 1 thread.",
+                  "The vissi can not be worn.",
+                  "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
+                  "Analysis of an ephemeral Heal vissi indicates the creator has provided the following information:",
+                  "The Heal vissi can be added to a vissi artifact in order to augment the artifact with custom abilities.  Each vissi artifact may hold up to 5 different types of vissi, and each vissi may be upgradable by adding additional vissi of the same type to the artifact.",
+                  "The Heal vissi is named Ephemeral Vissi and it is a Primal vissi.",
+                  "This vissi notes the following ability information:",
+                  "This vissi casts a spell.  When activated, it will cast Heal.  It has 10 charges.",
+                  "The vissi may have abilities you can activate by using certain verbs (RUB, TAP, PUSH, PULL, or POKE) on the vissi artifact you add them to.  In order to set the activator, use ATTEND on the vissi.  The vissi might not have an ability you may activate, in which case ATTEND will indicate that.",
+                  "Sometimes, a vissi may have multiple abilities you can activate with the activator verbs.  You can TILT the vissi to switch between them.  Tilt will not respond if the vissi has only a single ability (or no abilities at all).  You may only have one ability active at a time.",
+                  "In addition, the vissi may have abilities with customizable messaging options.  You can TURN the vissi to customize each set of options.  Once on a set of options, you can TWIST the vissi to cycle through the available customizations.",
+                  "Finally, some vissi may contain ambient messaging, which you can toggle on or off with COVER.",
+                  "This vissi is tier 1 and its maximum tier is 1.  It is empowered by 1 thread.",
+                  "The Heal vissi will cost 75,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 75000,
+                "material": "organic material, an extremely common material",
+                "item_type": null
+              }
             }
           ],
           "sign": [
@@ -32822,6 +32965,7 @@
                   "The glass jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -32846,6 +32990,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -32870,6 +33015,7 @@
                   "The glass jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -32894,6 +33040,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -32918,6 +33065,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -32942,6 +33090,7 @@
                   "The glass jar will cost 50,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -32966,6 +33115,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -32990,6 +33140,7 @@
                   "The glass jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -33014,6 +33165,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -33038,6 +33190,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -33062,6 +33215,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -33086,6 +33240,7 @@
                   "The glass jar will cost 35,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 35000,
@@ -33110,6 +33265,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -33227,6 +33383,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -33280,6 +33437,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -33304,6 +33462,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -35187,9 +35346,6 @@
                 "weight": 3,
                 "is_weapon": true,
                 "weapon_type": "twohanded weapons",
-                "flares": [
-                  "a disrupting substance"
-                ],
                 "item_type": "weapon"
               }
             },
@@ -36176,6 +36332,7 @@
                   "The wicker basket will cost 3,500,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container"
                 ],
                 "cost": 3500000,
