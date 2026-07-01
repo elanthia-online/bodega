@@ -1,6 +1,6 @@
 {
-  "created_at": "2026-07-01 16:16:37 UTC",
-  "run_time": "05s",
+  "created_at": "2026-07-01 18:14:02 UTC",
+  "run_time": "43s",
   "town": "Zul Logoth",
   "shops": [
     {
@@ -10,7 +10,7 @@
       "shop_owner": "Gryndal",
       "inv": [
         {
-          "room_title": "Fumbl's Magic Shoppe",
+          "room_title": "Gryndal's Outfitting",
           "branch": "entry",
           "items": [
             {
@@ -58,7 +58,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
                   "container"
                 ],
                 "cost": 750000,
@@ -131,27 +130,6 @@
                 "item_type": null
               }
             }
-          ],
-          "sign": [
-            "Written on a simple oak sign:",
-            "the potent blue-green potion has 1,000 pours",
-            "weathered bronze disc give you Fash'lo'nae's Tutelage for 90 days",
-            "manatee skulls are stunning skulls",
-            "the spiked double leather is 7x, HCP (10 cer, 150 services)"
-          ]
-        },
-        {
-          "room_title": "Fumbl's General Store",
-          "branch": "north",
-          "items": [
-
-          ]
-        },
-        {
-          "room_title": "Fumbl's General Store",
-          "branch": "south",
-          "items": [
-
           ]
         }
       ]
@@ -1548,7 +1526,6 @@
                   "deepenable",
                   "small",
                   "magic_resistant",
-                  "container",
                   "container"
                 ],
                 "cost": 9999999,
@@ -1579,7 +1556,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
                   "container"
                 ],
                 "cost": 7500000,
@@ -1664,7 +1640,13 @@
                 "material": "cloth, an extremely common material",
                 "item_type": null
               }
-            },
+            }
+          ]
+        },
+        {
+          "room_title": "Vurp's Outfitting",
+          "branch": "north",
+          "items": [
             {
               "id": "119365",
               "name": "a pair of dwarven work boots",
@@ -1712,7 +1694,6 @@
                 ],
                 "tags": [
                   "lightenable",
-                  "container",
                   "container"
                 ],
                 "cost": 9999999,
@@ -1745,7 +1726,6 @@
                   "max_light",
                   "deepenable",
                   "small",
-                  "container",
                   "container"
                 ],
                 "cost": 2999999,
@@ -1778,7 +1758,6 @@
                 "tags": [
                   "lightenable",
                   "magic_resistant",
-                  "container",
                   "container"
                 ],
                 "cost": 499999,
@@ -1812,7 +1791,6 @@
                 "tags": [
                   "lightenable",
                   "magic_resistant",
-                  "container",
                   "container"
                 ],
                 "cost": 399999,
@@ -2490,7 +2468,13 @@
                 "weapon_type": "edged weapons",
                 "item_type": "weapon"
               }
-            },
+            }
+          ]
+        },
+        {
+          "room_title": "Vurp's Magic Shoppe",
+          "branch": "east",
+          "items": [
             {
               "id": "119336",
               "name": "a fluffy green toy gorilla",
@@ -2900,20 +2884,6 @@
               }
             }
           ]
-        },
-        {
-          "room_title": "Vurp's Outfitting",
-          "branch": "north",
-          "items": [
-
-          ]
-        },
-        {
-          "room_title": "Vurp's Magic Shoppe",
-          "branch": "east",
-          "items": [
-
-          ]
         }
       ]
     },
@@ -2924,7 +2894,7 @@
       "shop_owner": "Ghrath",
       "inv": [
         {
-          "room_title": "Jheu's Combat Gear",
+          "room_title": "Ghrath's Outfitting",
           "branch": "entry",
           "items": [
             {
@@ -2952,7 +2922,6 @@
                   "purpose",
                   "max_deep",
                   "max_light",
-                  "container",
                   "container"
                 ],
                 "cost": 15000000,
@@ -2988,7 +2957,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
                   "container"
                 ],
                 "cost": 10000000,
@@ -3238,15 +3206,9 @@
             }
           ],
           "sign": [
-            "Written on a hand-carved mahogany sign:",
-            "Jheu's Antique Wares"
-          ]
-        },
-        {
-          "room_title": "Jheu's Weaponry",
-          "branch": "east",
-          "items": [
-
+            "Written on a scrollworked silver sign:",
+            "Under New Management",
+            "Goods to arrive soon!"
           ]
         }
       ]
@@ -3389,6 +3351,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -3413,6 +3376,7 @@
                   "The glass jar will cost 50,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -3439,6 +3403,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 45000,
@@ -3463,6 +3428,7 @@
                   "The glass jar will cost 45,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -3489,6 +3455,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -3513,6 +3480,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -3539,6 +3507,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -3563,6 +3532,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -3589,6 +3559,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -3613,6 +3584,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -3639,6 +3611,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -3663,6 +3636,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -3706,6 +3680,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -3730,6 +3705,7 @@
                   "The glass jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -3845,6 +3821,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -3869,6 +3846,7 @@
                   "The glass jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -3999,6 +3977,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -4023,6 +4002,7 @@
                   "The glass jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -4049,6 +4029,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -4073,6 +4054,7 @@
                   "The glass jar will cost 100,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -4099,6 +4081,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 250000,
@@ -4123,6 +4106,7 @@
                   "The glass jar will cost 20,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -4149,6 +4133,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 20000,
@@ -4173,6 +4158,7 @@
                   "The glass jar will cost 20,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -4199,6 +4185,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 20000,
@@ -4223,6 +4210,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -4249,6 +4237,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 20000,
@@ -4273,6 +4262,7 @@
                   "The glass jar will cost 25,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -4299,6 +4289,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 25000,
@@ -4323,6 +4314,7 @@
                   "The glass jar will cost 20,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -4349,6 +4341,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 20000,
@@ -4374,6 +4367,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 20000,
@@ -4394,7 +4388,7 @@
       "shop_owner": "Jhernish",
       "inv": [
         {
-          "room_title": "Tijay's General Store",
+          "room_title": "Jhernish's Weaponry",
           "branch": "entry",
           "items": [
             {
@@ -4730,6 +4724,9 @@
                 ],
                 "is_weapon": true,
                 "weapon_type": "twohanded weapons",
+                "flares": [
+                  "a disrupting substance"
+                ],
                 "item_type": "weapon"
               }
             },
@@ -4961,7 +4958,17 @@
                 "weapon_type": "twohanded weapons",
                 "item_type": "weapon"
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on a small singed sign:",
+            "Some things here are priced for storage."
+          ]
+        },
+        {
+          "room_title": "Jhernish's Outfitting",
+          "branch": "north",
+          "items": [
             {
               "id": "145891",
               "name": "a faenor-tipped rhimar trident",
@@ -5328,7 +5335,13 @@
                 "weapon_type": "twohanded weapons",
                 "item_type": "weapon"
               }
-            },
+            }
+          ]
+        },
+        {
+          "room_title": "Jhernish's Combat Gear",
+          "branch": "east",
+          "items": [
             {
               "id": "145875",
               "name": "an ornate ora metal breastplate",
@@ -5534,32 +5547,6 @@
                 "item_type": null
               }
             }
-          ],
-          "sign": [
-            "Written on an etched silver sign:",
-            "Nothing worse than a heavy mining pack!"
-          ]
-        },
-        {
-          "room_title": "Tijay's General Store",
-          "branch": "north",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on a laje-trimmed engraved hazel sign:",
-            "get item for appraisal and info, shield is 2 slot fusion."
-          ]
-        },
-        {
-          "room_title": "Tijay's General Store",
-          "branch": "east",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on a laje-trimmed engraved hazel sign:",
-            "Jars on table are full 20 count, unsung. Get worn enhancives for price and ability."
           ]
         }
       ]
@@ -5597,6 +5584,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container"
                 ],
@@ -5714,6 +5702,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container"
                 ],
@@ -5869,6 +5858,7 @@
                   "purpose",
                   "lightenable",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 1000000,
@@ -5928,6 +5918,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container"
                 ],
@@ -6120,6 +6111,7 @@
                   "purpose",
                   "lightenable",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -6153,6 +6145,7 @@
                 ],
                 "tags": [
                   "lightenable",
+                  "container",
                   "container",
                   "container"
                 ],
@@ -6318,6 +6311,7 @@
                   "max_light",
                   "deepenable",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -6420,6 +6414,7 @@
                   "purpose",
                   "lightenable",
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 20000,
@@ -6460,6 +6455,7 @@
                 "tags": [
                   "purpose",
                   "lightenable",
+                  "container",
                   "container",
                   "container"
                 ],
@@ -6895,6 +6891,7 @@
                   "purpose",
                   "max_light",
                   "deepenable",
+                  "container",
                   "container",
                   "container"
                 ],
@@ -7382,7 +7379,7 @@
       "shop_owner": "Thundercurd",
       "inv": [
         {
-          "room_title": "Frorin's Outfitting",
+          "room_title": "Thundercurd's General Store",
           "branch": "entry",
           "items": [
             {
@@ -7402,37 +7399,6 @@
                 "item_type": null
               }
             }
-          ],
-          "sign": [
-            "Written on a speckled granite sign:",
-            "Welcome to shop of Frorin and Clunk, Dwarven Blade Makers",
-            "Blades to North and South rooms",
-            "This room is for things other than blades"
-          ]
-        },
-        {
-          "room_title": "Frorin's Outfitting",
-          "branch": "north",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on a speckled granite sign:",
-            "This room has wares forged by Frorin Felagun",
-            "Good blades all over the place"
-          ]
-        },
-        {
-          "room_title": "Frorin's Weaponry",
-          "branch": "south",
-          "items": [
-
-          ],
-          "sign": [
-            "Written on a speckled granite sign:",
-            "This room has wares forged by Clunk LikeARockSon",
-            "Good blades in chest",
-            "Better blades on the rack"
           ]
         }
       ]
@@ -7524,148 +7490,6 @@
           "room_title": "Lunok's Magic Shoppe",
           "branch": "entry",
           "items": [
-            {
-              "id": "137668",
-              "name": "a viscous vial of violet vodka",
-              "quantity": 4,
-              "details": {
-                "raw": [
-                  "Inside of the vial is a thick, viscous liquid slightly glowing with a violet hue with about 1 dose left.",
-                  "The vodka can not be worn.",
-                  "It looks like this item has been mainly crafted out of glass, an extremely common material.",
-                  "Analysis of a viscous vial of violet vodka indicates the creator has provided the following information:",
-                  "This vodka has two uses, each consuming one dose:",
-                  "  - DRINK it to remove one weekly Gemstone reroll from your count.",
-                  "  - Hold it while reshaping at the Gemstone artificer for a 75% discount on the silver cost.",
-                  "It has 1 dose remaining.",
-                  "It cannot be altered.",
-                  "The vial of violet vodka will cost 2,000,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "cost": 2000000,
-                "material": "glass, an extremely common material",
-                "item_type": null
-              }
-            },
-            {
-              "id": "137667",
-              "name": "an enruned gold ring",
-              "details": {
-                "raw": [
-                  "The ring can be worn around the finger.",
-                  "Analysis of an enruned gold ring indicates the item is free from merchant alteration restrictions.",
-                  "The gold ring will cost 50,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "cost": 50000,
-                "worn": "finger",
-                "wear_location": "around the finger",
-                "is_jewelry": true,
-                "item_type": "jewelry"
-              }
-            },
-            {
-              "id": "137666",
-              "name": "an enruned gold ring",
-              "details": {
-                "raw": [
-                  "The ring appears to be made of interleaved gold and brass.  It is difficult to tell if the gold is real without damaging the ring itself.  The pattern made by the two metals seems to have no purpose and almost appears to shift into new designs as you move it about in your hand.  Along the outer edge of the ring, simple runes appear to have been etched onto its surface.  They seem to shift about, but you can count at least 60 of them.",
-                  "The ring can be worn around the finger.  The ring appears to serve some purpose.",
-                  "It looks like this item has been mainly crafted out of gold, an uncommon metal.  This material cannot be dyed.",
-                  "The enruned gold ring will cost 50,000 coins."
-                ],
-                "tags": [
-                  "purpose"
-                ],
-                "cost": 50000,
-                "material": "gold, an uncommon metal",
-                "worn": "finger",
-                "wear_location": "around the finger",
-                "is_jewelry": true,
-                "item_type": "jewelry"
-              }
-            },
-            {
-              "id": "137665",
-              "name": "an enruned gold ring",
-              "details": {
-                "raw": [
-                  "The ring appears to be made of interleaved gold and brass.  It is difficult to tell if the gold is real without damaging the ring itself.  The pattern made by the two metals seems to have no purpose and almost appears to shift into new designs as you move it about in your hand.  Along the outer edge of the ring, simple runes appear to have been etched onto its surface.  They seem to shift about, but you can count at least 100 of them.",
-                  "The ring can be worn around the finger.  The ring appears to serve some purpose.",
-                  "It looks like this item has been mainly crafted out of gold, an uncommon metal.  This material cannot be dyed.",
-                  "The enruned gold ring will cost 50,000 coins.",
-                  "It could be activated by wearing it.",
-                  "It is a small item, under a pound.",
-                  "It is estimated to be worth about 5,000 silvers.",
-                  "It is predominantly crafted of gold.",
-                  "It is an item belonging to the Chronomages that is attuned to teleport the person wearing it to Griedlgecha Lost Mine.",
-                  "It has a permanently unlocked loresong by Nitos."
-                ],
-                "tags": [
-                  "purpose",
-                  "small"
-                ],
-                "cost": 50000,
-                "material": "gold",
-                "worn": "finger",
-                "activator": "wearing",
-                "wear_location": "around the finger",
-                "is_jewelry": true,
-                "item_type": "jewelry"
-              }
-            },
-            {
-              "id": "137664",
-              "name": "a stability contract",
-              "details": {
-                "raw": [
-                  "Bold calligraphy states, \"This contract entitles the bearer to stabilize one's continuous presence within the lands of Elanthia.  If in agreement with this legally binding contract, please WRITE your acceptance on the contract.\"",
-                  "[This will grant you 60 login bridges for use with the Login Rewards system.]",
-                  "The contract can not be worn.",
-                  "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
-                  "Analysis of a stability contract indicates the creator has provided the following information:",
-                  "This contract grants 60 login bridges.",
-                  "WRITE CONTRACT to activate it and add the bridges to your total in BOOST.",
-                  "BUNDLE it with other contracts like it to combine uses.",
-                  "It cannot be altered.",
-                  "The stability contract will cost 50,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "cost": 50000,
-                "material": "organic material, an extremely common material",
-                "item_type": null
-              }
-            },
-            {
-              "id": "137663",
-              "name": "a Lumnis schedule",
-              "quantity": 9,
-              "details": {
-                "raw": [
-                  "This delightfully colorful schedule is very eye-catching.",
-                  "[This is a Gift of Lumnis Scheduling Pass.  By redeeming this, you will be able to schedule your weekly Gift of Lumnis start time for 1 use.  To redeem this, please enter REDEEM schedule.]",
-                  "The schedule can not be worn.",
-                  "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
-                  "Analysis of a Lumnis schedule indicates the creator has provided the following information:",
-                  "This schedule is a Gift of Lumnis Scheduling Pass redeemable by Free To Play characters to be able to schedule their weekly Gift of Lumnis start time  It has 1 use.",
-                  "REDEEM it to activate the benefit.",
-                  "It cannot be altered.",
-                  "The Lumnis schedule will cost 25,000 coins."
-                ],
-                "tags": [
-
-                ],
-                "cost": 25000,
-                "material": "organic material, an extremely common material",
-                "item_type": null
-              }
-            },
             {
               "id": "2771670",
               "name": "a briny dusk-washed formation",
@@ -7772,6 +7596,148 @@
               }
             },
             {
+              "id": "137664",
+              "name": "a stability contract",
+              "details": {
+                "raw": [
+                  "Bold calligraphy states, \"This contract entitles the bearer to stabilize one's continuous presence within the lands of Elanthia.  If in agreement with this legally binding contract, please WRITE your acceptance on the contract.\"",
+                  "[This will grant you 75 login bridges for use with the Login Rewards system.]",
+                  "The contract can not be worn.",
+                  "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
+                  "Analysis of a stability contract indicates the creator has provided the following information:",
+                  "This contract grants 75 login bridges.",
+                  "WRITE CONTRACT to activate it and add the bridges to your total in BOOST.",
+                  "BUNDLE it with other contracts like it to combine uses.",
+                  "It cannot be altered.",
+                  "The stability contract will cost 50,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 50000,
+                "material": "organic material, an extremely common material",
+                "item_type": null
+              }
+            },
+            {
+              "id": "137668",
+              "name": "a viscous vial of violet vodka",
+              "quantity": 4,
+              "details": {
+                "raw": [
+                  "Inside of the vial is a thick, viscous liquid slightly glowing with a violet hue with about 1 dose left.",
+                  "The vodka can not be worn.",
+                  "It looks like this item has been mainly crafted out of glass, an extremely common material.",
+                  "Analysis of a viscous vial of violet vodka indicates the creator has provided the following information:",
+                  "This vodka has two uses, each consuming one dose:",
+                  "  - DRINK it to remove one weekly Gemstone reroll from your count.",
+                  "  - Hold it while reshaping at the Gemstone artificer for a 75% discount on the silver cost.",
+                  "It has 1 dose remaining.",
+                  "It cannot be altered.",
+                  "The vial of violet vodka will cost 1,000,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 1000000,
+                "material": "glass, an extremely common material",
+                "item_type": null
+              }
+            },
+            {
+              "id": "137667",
+              "name": "an enruned gold ring",
+              "details": {
+                "raw": [
+                  "The ring can be worn around the finger.",
+                  "Analysis of an enruned gold ring indicates the item is free from merchant alteration restrictions.",
+                  "The gold ring will cost 50,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 50000,
+                "worn": "finger",
+                "wear_location": "around the finger",
+                "is_jewelry": true,
+                "item_type": "jewelry"
+              }
+            },
+            {
+              "id": "137666",
+              "name": "an enruned gold ring",
+              "details": {
+                "raw": [
+                  "The ring appears to be made of interleaved gold and brass.  It is difficult to tell if the gold is real without damaging the ring itself.  The pattern made by the two metals seems to have no purpose and almost appears to shift into new designs as you move it about in your hand.  Along the outer edge of the ring, simple runes appear to have been etched onto its surface.  They seem to shift about, but you can count at least 60 of them.",
+                  "The ring can be worn around the finger.  The ring appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of gold, an uncommon metal.  This material cannot be dyed.",
+                  "The enruned gold ring will cost 50,000 coins."
+                ],
+                "tags": [
+                  "purpose"
+                ],
+                "cost": 50000,
+                "material": "gold, an uncommon metal",
+                "worn": "finger",
+                "wear_location": "around the finger",
+                "is_jewelry": true,
+                "item_type": "jewelry"
+              }
+            },
+            {
+              "id": "137665",
+              "name": "an enruned gold ring",
+              "details": {
+                "raw": [
+                  "The ring appears to be made of interleaved gold and brass.  It is difficult to tell if the gold is real without damaging the ring itself.  The pattern made by the two metals seems to have no purpose and almost appears to shift into new designs as you move it about in your hand.  Along the outer edge of the ring, simple runes appear to have been etched onto its surface.  They seem to shift about, but you can count at least 100 of them.",
+                  "The ring can be worn around the finger.  The ring appears to serve some purpose.",
+                  "It looks like this item has been mainly crafted out of gold, an uncommon metal.  This material cannot be dyed.",
+                  "The enruned gold ring will cost 50,000 coins.",
+                  "It could be activated by wearing it.",
+                  "It is a small item, under a pound.",
+                  "It is estimated to be worth about 5,000 silvers.",
+                  "It is predominantly crafted of gold.",
+                  "It is an item belonging to the Chronomages that is attuned to teleport the person wearing it to Griedlgecha Lost Mine.",
+                  "It has a permanently unlocked loresong by Nitos."
+                ],
+                "tags": [
+                  "purpose",
+                  "small"
+                ],
+                "cost": 50000,
+                "material": "gold",
+                "worn": "finger",
+                "activator": "wearing",
+                "wear_location": "around the finger",
+                "is_jewelry": true,
+                "item_type": "jewelry"
+              }
+            },
+            {
+              "id": "137663",
+              "name": "a Lumnis schedule",
+              "quantity": 9,
+              "details": {
+                "raw": [
+                  "This delightfully colorful schedule is very eye-catching.",
+                  "[This is a Gift of Lumnis Scheduling Pass.  By redeeming this, you will be able to schedule your weekly Gift of Lumnis start time for 1 use.  To redeem this, please enter REDEEM schedule.]",
+                  "The schedule can not be worn.",
+                  "It looks like this item has been mainly crafted out of organic material, an extremely common material.",
+                  "Analysis of a Lumnis schedule indicates the creator has provided the following information:",
+                  "This schedule is a Gift of Lumnis Scheduling Pass redeemable by Free To Play characters to be able to schedule their weekly Gift of Lumnis start time  It has 1 use.",
+                  "REDEEM it to activate the benefit.",
+                  "It cannot be altered.",
+                  "The Lumnis schedule will cost 25,000 coins."
+                ],
+                "tags": [
+
+                ],
+                "cost": 25000,
+                "material": "organic material, an extremely common material",
+                "item_type": null
+              }
+            },
+            {
               "id": "2771667",
               "name": "a rough sparkling diamond",
               "details": {
@@ -7827,6 +7793,7 @@
                   "It has a permanently unlocked loresong by Relicor."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -8195,6 +8162,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 4000000,
@@ -8222,6 +8190,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 500000,
@@ -8248,6 +8217,7 @@
                   "The blue vultite half-krolvin will cost 500,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -8327,6 +8297,7 @@
                   "The gold punch will cost 4,000,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -8675,6 +8646,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 80000,
@@ -8699,6 +8671,7 @@
                   "The glass jar will cost 20,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -8742,6 +8715,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 50000,
@@ -8768,6 +8742,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 20000,
@@ -8792,6 +8767,7 @@
                   "The thick glass jar will cost 20,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -8818,6 +8794,7 @@
                   "The glass jar will cost 20,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -8880,6 +8857,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 100000,
@@ -8904,6 +8882,7 @@
                   "The glaes jar will cost 50,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -8930,6 +8909,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 20000,
@@ -8954,6 +8934,7 @@
                   "The glass jar will cost 40,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -8980,6 +8961,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 80000,
@@ -9005,6 +8987,7 @@
                 ],
                 "tags": [
                   "container",
+                  "container",
                   "container"
                 ],
                 "cost": 160000,
@@ -9029,6 +9012,7 @@
                   "The glass jar will cost 160,000 coins."
                 ],
                 "tags": [
+                  "container",
                   "container",
                   "container"
                 ],
@@ -9847,7 +9831,7 @@
       "shop_owner": "Khevran",
       "inv": [
         {
-          "room_title": "Timbalt's General Store",
+          "room_title": "Khevran's Outfitting",
           "branch": "entry",
           "items": [
             {
@@ -10191,7 +10175,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
                   "container"
                 ],
                 "cost": 35000,
@@ -10226,7 +10209,6 @@
                 "tags": [
                   "purpose",
                   "lightenable",
-                  "container",
                   "container"
                 ],
                 "cost": 10000,
@@ -10351,7 +10333,17 @@
                 "wear_location": "item by using the TRANSFER verb",
                 "item_type": null
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on an oak-framed parchment sign:",
+            "Chrisms in the chest are full brights"
+          ]
+        },
+        {
+          "room_title": "Khevran's Outfitting",
+          "branch": "north",
+          "items": [
             {
               "id": "119139",
               "name": "a sun-bleached flannel kilt stitched with a teal two-headed serpent",
@@ -10768,7 +10760,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
                   "container"
                 ],
                 "cost": 75000,
@@ -10833,7 +10824,6 @@
                   "purpose",
                   "max_light",
                   "deepenable",
-                  "container",
                   "container"
                 ],
                 "cost": 35000,
@@ -11030,7 +11020,20 @@
                 "wear_location": "around the neck",
                 "item_type": null
               }
-            },
+            }
+          ],
+          "sign": [
+            "Written on an oak-framed parchment sign:",
+            "--- On the Table ---",
+            "Full, dull Chrisms",
+            "--- On the Rack ---",
+            "Assorted Enhancives"
+          ]
+        },
+        {
+          "room_title": "Khevran's Outfitting",
+          "branch": "east",
+          "items": [
             {
               "id": "119112",
               "name": "an opalescent glass jar containing uncut maernstrike diamonds",
@@ -11046,7 +11049,6 @@
                   "The glass jar will cost 160,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 160000,
@@ -11071,7 +11073,6 @@
                   "The glass jar will cost 160,000 coins."
                 ],
                 "tags": [
-                  "container",
                   "container"
                 ],
                 "cost": 160000,
@@ -11149,6 +11150,15 @@
                 "item_type": null
               }
             }
+          ],
+          "sign": [
+            "Written on an oak-framed parchment sign:",
+            "--- On the Table ---",
+            "Full, Ordinary chrims",
+            "--- On the Shelf---",
+            "Yellow notes are singles",
+            "Pink notes are bundles of 10",
+            "Blue notes are bundles of 4"
           ]
         }
       ]
@@ -12433,7 +12443,7 @@
       "shop_owner": "Tugdug",
       "inv": [
         {
-          "room_title": "Mageriah's Weaponry",
+          "room_title": "Tugdug's General Store",
           "branch": "entry",
           "items": [
             {
@@ -12477,24 +12487,10 @@
               }
             }
           ]
-        },
-        {
-          "room_title": "Mageriah's Armory",
-          "branch": "north",
-          "items": [
-
-          ]
-        },
-        {
-          "room_title": "Mageriah's General Store",
-          "branch": "east",
-          "items": [
-
-          ]
         }
       ]
     }
   ],
-  "processed_at": "2026-07-01 16:17:49 UTC",
+  "processed_at": "2026-07-01 18:27:09 UTC",
   "processing_version": "v2.0"
 }
