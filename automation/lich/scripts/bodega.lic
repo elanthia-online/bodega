@@ -842,7 +842,22 @@ module Bodega
         }
       end
 
-      # Step 4: Extract existing item IDs
+      # Step 4: Check if shop ID now points to a different owner (game reset reordered SHOP list)
+      current_owner = extract_shop_name_from_preamble(preamble)
+      cached_owner = existing_shop['shop_owner']
+      if cached_owner && current_owner != 'unknown' && cached_owner.downcase != current_owner.downcase
+        Log.out("Shop ID #{shop_id} owner mismatch: cached=#{cached_owner}, current=#{current_owner} — game reset likely reordered shops. Wiping cache and doing full scan.", label: :smart)
+        @smart_stats[:shops_scanned] += 1
+        return {
+          preamble: preamble,
+          town: town,
+          id: shop_id,
+          shop_owner: current_owner,
+          inv: parse_inv(inv.map(&:strip))
+        }
+      end
+
+      # Step 5: Extract existing item IDs
       existing_ids = extract_item_ids_from_shop(existing_shop)
       Log.out("Found #{existing_ids.size} items in cached shop #{shop_id}", label: :smart)
 
@@ -864,6 +879,18 @@ module Bodega
         ownership_change = detect_ownership_change(town, shop_id, preamble, current_ids, existing_shop)
         if ownership_change
           @ownership_changes_log << ownership_change
+
+          # Ownership changed — cached inventory belongs to previous owner.
+          # Wipe it and do a fresh full scan of this shop.
+          Log.out("Ownership change: wiping cached inv and doing full scan of shop #{shop_id}", label: :smart)
+          @smart_stats[:shops_scanned] += 1
+          return {
+            preamble: preamble,
+            town: town,
+            id: shop_id,
+            shop_owner: extract_shop_name_from_preamble(preamble),
+            inv: parse_inv(inv.map(&:strip))
+          }
         end
       end
 
