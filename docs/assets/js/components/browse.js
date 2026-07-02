@@ -1321,6 +1321,27 @@ class BrowseEngine {
         }
     }
 
+    copyItemURL(item) {
+        // Reuse existing clipboard functionality from search engine
+        if (window.searchEngine && window.searchEngine.copyItemURL) {
+            window.searchEngine.copyItemURL(item);
+        }
+    }
+
+    openItemURL(item) {
+        // Reuse existing open-in-new-tab functionality from search engine
+        if (window.searchEngine && window.searchEngine.openItemURL) {
+            window.searchEngine.openItemURL(item);
+        }
+    }
+
+    copyPurchaseCommand(item) {
+        // Reuse existing purchase-command functionality from search engine
+        if (window.searchEngine && window.searchEngine.copyPurchaseCommand) {
+            window.searchEngine.copyPurchaseCommand(item);
+        }
+    }
+
     updateResultsHeader(title, count) {
         document.getElementById('results-count').textContent = `${count} items in ${title}`;
         document.getElementById('page-info').textContent = '';
