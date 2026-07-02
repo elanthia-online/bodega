@@ -128,8 +128,9 @@ jobs:
           git add automation/state/last-full-scan
         fi
 
-        # Add raw data files
+        # Add raw data files and updated shop mapping
         git add docs/data/raw/*.json
+        git add docs/data/shop_mapping.json || true
 
         # Check if there are changes
         if git diff --staged --quiet; then
