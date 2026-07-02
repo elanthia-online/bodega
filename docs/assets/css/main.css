@@ -1644,8 +1644,19 @@ input::placeholder {
 /* URL linking styles */
 .item-name-container {
     display: flex;
-    align-items: center;
-    gap: 8px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.name-row .item-quantity {
+    color: var(--text-primary);
+}
+
+td.item-name {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
 .url-button {

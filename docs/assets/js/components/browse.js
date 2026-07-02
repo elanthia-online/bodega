@@ -997,19 +997,24 @@ class BrowseEngine {
             this.copyPurchaseCommand(item);
         });
 
+        const nameRow = document.createElement('div');
+        nameRow.className = 'name-row';
+        nameRow.appendChild(nameSpan);
+        if (item.quantity) {
+            const quantitySpan = document.createElement('span');
+            quantitySpan.className = 'item-quantity';
+            quantitySpan.textContent = `  (${item.quantity})`;
+            nameRow.appendChild(quantitySpan);
+        }
+
         const nameContainer = document.createElement('div');
         nameContainer.className = 'name-container';
         nameContainer.appendChild(urlButton);
         nameContainer.appendChild(openButton);
         nameContainer.appendChild(purchaseButton);
-        nameCell.appendChild(nameSpan);
-        nameCell.appendChild(nameContainer);
 
-        // Add quantity after name if it exists (with 2 spaces, not underlined)
-        if (item.quantity) {
-            const quantityText = document.createTextNode(`  (${item.quantity})`);
-            nameCell.appendChild(quantityText);
-        }
+        nameCell.appendChild(nameRow);
+        nameCell.appendChild(nameContainer);
 
         const priceCell = document.createElement('td');
         priceCell.className = 'item-price';

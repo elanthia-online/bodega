@@ -845,14 +845,17 @@ class SearchEngine {
         nameLink.textContent = item.name;
         nameLink.addEventListener('click', () => this.showItemDetails(item));
 
+        const nameRow = document.createElement('div');
+        nameRow.className = 'name-row';
+        nameRow.appendChild(nameLink);
         // Add quantity after name if it exists (with 2 spaces, not underlined)
         if (item.quantity) {
-            const quantityText = document.createTextNode(`  (${item.quantity})`);
-            nameContainer.appendChild(nameLink);
-            nameContainer.appendChild(quantityText);
-        } else {
-            nameContainer.appendChild(nameLink);
+            const quantitySpan = document.createElement('span');
+            quantitySpan.className = 'item-quantity';
+            quantitySpan.textContent = `  (${item.quantity})`;
+            nameRow.appendChild(quantitySpan);
         }
+        nameContainer.appendChild(nameRow);
 
         // Register for hover tooltip (raw recall preview)
         if (window.tooltipManager) {
@@ -886,9 +889,12 @@ class SearchEngine {
             this.copyPurchaseCommand(item);
         });
 
-        nameContainer.appendChild(urlButton);
-        nameContainer.appendChild(openButton);
-        nameContainer.appendChild(purchaseButton);
+        const buttonRow = document.createElement('div');
+        buttonRow.className = 'name-container';
+        buttonRow.appendChild(urlButton);
+        buttonRow.appendChild(openButton);
+        buttonRow.appendChild(purchaseButton);
+        nameContainer.appendChild(buttonRow);
         nameCell.appendChild(nameContainer);
 
         // Price
