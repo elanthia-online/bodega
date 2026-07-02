@@ -997,10 +997,13 @@ class BrowseEngine {
             this.copyPurchaseCommand(item);
         });
 
+        const nameContainer = document.createElement('div');
+        nameContainer.className = 'name-container';
         nameContainer.appendChild(urlButton);
         nameContainer.appendChild(openButton);
         nameContainer.appendChild(purchaseButton);
         nameCell.appendChild(nameSpan);
+        nameCell.appendChild(nameContainer);
 
         // Add quantity after name if it exists (with 2 spaces, not underlined)
         if (item.quantity) {
