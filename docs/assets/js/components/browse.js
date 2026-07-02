@@ -970,6 +970,36 @@ class BrowseEngine {
             window.tooltipManager.register(nameSpan, item);
         }
 
+        const urlButton = document.createElement('button');
+        urlButton.className = 'url-button';
+        urlButton.title = 'Copy link to this item';
+        urlButton.innerHTML = '🔗';
+        urlButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            this.copyItemURL(item);
+        });
+
+        const openButton = document.createElement('button');
+        openButton.className = 'url-button';
+        openButton.title = 'Open item in new tab';
+        openButton.innerHTML = '↗️';
+        openButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            this.openItemURL(item);
+        });
+
+        const purchaseButton = document.createElement('button');
+        purchaseButton.className = 'url-button';
+        purchaseButton.title = 'Copy purchase command';
+        purchaseButton.innerHTML = '🛒';
+        purchaseButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            this.copyPurchaseCommand(item);
+        });
+
+        nameContainer.appendChild(urlButton);
+        nameContainer.appendChild(openButton);
+        nameContainer.appendChild(purchaseButton);
         nameCell.appendChild(nameSpan);
 
         // Add quantity after name if it exists (with 2 spaces, not underlined)
