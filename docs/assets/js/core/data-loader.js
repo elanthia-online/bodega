@@ -204,8 +204,7 @@ class DataLoader {
                                 const itemSignature = this.createItemSignature(
                                     townData.town,
                                     shop.preamble,
-                                    item.name,
-                                    processedItem.price
+                                    item.name
                                 );
 
                                 if (itemSignature && addedItemsData[itemSignature]) {
@@ -505,20 +504,20 @@ class DataLoader {
         return parts.join(' ').toLowerCase();
     }
 
-    createItemSignature(town, shopPreamble, itemName, price) {
-        // Create item signature matching Ruby's safe_string logic
-        // This must match the format in bodega.lic Utils.create_item_signature
-        // Using shop_name (extracted from preamble) because shop_id changes during server reboots
+    createItemSignature(town, shopPreamble, itemName) {
+        // Create item signature matching processor.rb create_item_signature.
+        // Using shop_name (extracted from preamble) because shop_id changes
+        // during server reboots. Price is intentionally excluded so a price
+        // change does not make the same item look removed-and-re-added.
         const safeTown = this.safeString(town);
         const safeShop = this.safeString(this.extractShopNameFromPreamble(shopPreamble));
         const safeItem = (itemName || '').toLowerCase().trim();
-        const safePrice = (price || 0).toString();
 
-        return `${safeTown}:${safeShop}:${safeItem}:${safePrice}`;
+        return `${safeTown}:${safeShop}:${safeItem}`;
     }
 
     safeString(text) {
-        // Match Ruby's safe_string function
+        // Match Ruby's safe_string function (strips ' " and ,)
         return (text || '')
             .toString()
             .toLowerCase()
