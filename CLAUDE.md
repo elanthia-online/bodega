@@ -17,7 +17,7 @@ cd docs && python -m http.server 8000
 ```bash
 export SIMU_USERNAME="username" SIMU_PASSWORD="password" SIMU_CHARACTER="character"
 ./automation/bin/setup-environment
-./automation/bin/run-scan          # Auto-detects scan type (full at 8AM UTC, smart otherwise)
+./automation/bin/run-scan          # No arg: smart scan (CI passes an explicit type)
 ./automation/bin/run-scan smart    # Force smart scan
 ./automation/bin/run-scan full     # Force full scan
 ```
@@ -64,7 +64,9 @@ data-loader.js (browser) → Web UI
 ### Scan Types
 - **Full scan**: `;bodega` - Complete shop inventory inspection (~65 min)
 - **Smart scan**: `;bodega --smart` - Only inspects new/changed items (~2-3 min)
-- Automation runs full scan at 8 AM UTC, smart scans every 2 hours otherwise
+- Automation runs one full scan per UTC day (the first scheduled run of the
+  day, gated by the `automation/state/last-full-scan` marker) and smart scans
+  every 2 hours otherwise
 
 ## Extracted Properties
 
@@ -114,6 +116,18 @@ Items are tracked using signatures (used in `added_items.json`):
 ```
 
 ## CI/CD
-- `automation.yml`: Runs every 2 hours (cron), full scan at 08:00 UTC
-- `deploy.yml`: Deploys to GitHub Pages on push
-- `process-data.yml`: Processes raw data after automation runs
+The three data-mutating workflows run in a chain, each dispatching the next
+after it pushes changes to `master`:
+- `automation.yml` (Scrape): runs every 2 hours via cron. Auto mode runs one
+  **full** scan per UTC day — the first run of the day, gated by the
+  `automation/state/last-full-scan` date marker — and **smart** scans for the
+  rest. On changes, dispatches `process-data.yml`.
+- `process-data.yml` (Process): runs `processor.rb` over the raw data. On
+  changes, dispatches `deploy.yml`.
+- `deploy.yml` (Deploy): `workflow_dispatch` only (triggered by the process
+  step). Publishes `docs/` to GitHub Pages.
+- `update-map-ids.yml` (Update Map IDs): `workflow_dispatch` only. Scrapes
+  ps.lichproject.org and updates `docs/data/shop_mapping.json`.
+
+All three pushers rebase-and-retry against the live `master` tip to avoid
+races, and declare least-privilege `permissions` blocks.
