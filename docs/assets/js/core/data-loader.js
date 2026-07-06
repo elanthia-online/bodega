@@ -610,14 +610,19 @@ class DataLoader {
         return String(text).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     }
 
-    // Price formatting utility
+    // Price formatting utility. Compact k/M style but preserving precision:
+    // up to three decimals with trailing zeros trimmed, so k values are exact
+    // to the coin (1,500 -> 1.5k, 1,555 -> 1.555k, 5,000 -> 5k,
+    // 2,500,000 -> 2.5M) - never 1,500 -> 2k.
     static formatPrice(price) {
         if (!price || price === 0) return 'Free';
 
+        const compact = (value) => parseFloat(value.toFixed(3)).toString();
+
         if (price >= 1000000) {
-            return (price / 1000000).toFixed(1) + 'M';
+            return compact(price / 1000000) + 'M';
         } else if (price >= 1000) {
-            return (price / 1000).toFixed(0) + 'k';
+            return compact(price / 1000) + 'k';
         }
         return price.toLocaleString();
     }
