@@ -12,8 +12,16 @@ on:
     - cron: '0 0,2,4,6,8,10,12,14,16,18,20,22 * * *'
   workflow_dispatch:
     inputs:
+      stage:
+        description: 'Which stages to run'
+        required: true
+        default: 'full'
+        type: choice
+        options:
+          - full          # Scrape -> Process -> Deploy
+          - deploy-only   # Republish current site data (no scan/process)
       scan_type:
-        description: 'Scan type to run'
+        description: 'Scan type (ignored for deploy-only)'
         required: true
         default: 'auto'
         type: choice
@@ -40,6 +48,8 @@ env:
 jobs:
   scrape:
     name: Scrape
+    # Skipped for a deploy-only dispatch; always runs on schedule / full.
+    if: github.event_name == 'schedule' || github.event.inputs.stage != 'deploy-only'
     runs-on: ubuntu-latest
     timeout-minutes: 120
     permissions:
@@ -222,16 +232,21 @@ jobs:
   deploy:
     name: Deploy
     needs: process
-    if: needs.process.outputs.changed == 'true'
+    # Runs after a successful Process (full/scheduled path), OR standalone
+    # for a deploy-only dispatch (restores current data from the live site).
+    if: |
+      always() &&
+      ( (github.event_name == 'workflow_dispatch' && github.event.inputs.stage == 'deploy-only')
+        || needs.process.result == 'success' )
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     permissions:
       contents: read
       pages: write
       id-token: write
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deploy1.outputs.page_url || steps.deploy2.outputs.page_url }}
     concurrency:
       group: pages
       cancel-in-progress: false
@@ -241,11 +256,23 @@ jobs:
         with:
           fetch-depth: 1
 
+      # Full/scheduled path: the freshly processed data comes from the
+      # process job's artifact.
       - name: Download processed site data
+        if: github.event.inputs.stage != 'deploy-only'
         uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v6.0.0
         with:
           name: site-data
           path: docs/data/
+
+      # deploy-only path: no upstream job ran, so restore current data from
+      # the live site and republish it (useful after a docs/ code change or
+      # to force a redeploy).
+      - name: Restore current site data
+        if: github.event.inputs.stage == 'deploy-only'
+        run: |
+          chmod +x automation/bin/fetch-site-data
+          ./automation/bin/fetch-site-data "$SITE_URL"
 
       - name: Stage site
         run: |
@@ -265,7 +292,22 @@ jobs:
         with:
           path: '_site'
 
-      - name: Deploy to GitHub Pages
-        id: deployment
+      # GitHub Pages deployments intermittently 5xx. Attempt once, and on
+      # failure wait and retry once more before failing the job. (A run can
+      # also be recovered manually with "Re-run failed jobs", which reuses
+      # the already-uploaded artifact.)
+      - name: Deploy to GitHub Pages (attempt 1)
+        id: deploy1
+        continue-on-error: true
+        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 # v5.0.0
+        timeout-minutes: 10
+
+      - name: Wait before retry
+        if: steps.deploy1.outcome == 'failure'
+        run: sleep 30
+
+      - name: Deploy to GitHub Pages (attempt 2)
+        id: deploy2
+        if: steps.deploy1.outcome == 'failure'
         uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 # v5.0.0
         timeout-minutes: 10

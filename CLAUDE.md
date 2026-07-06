@@ -147,3 +147,13 @@ redeploy. Shares the `bodega-pipeline` concurrency group.
 The live site is only ever changed by a successful Deploy, so a failed run
 leaves the previous data serving unchanged. For **local** development,
 run `automation/bin/fetch-site-data` once to populate `docs/data/`.
+
+Manual dispatch options (`pipeline.yml`, `stage` input):
+- `full` — Scrape → Process → Deploy (also what cron runs).
+- `deploy-only` — republish current site data without scanning/processing
+  (restores from the live site); useful after a `docs/` code change.
+
+The Deploy step attempts the Pages deploy twice (GitHub Pages 5xxs are
+common). If a run's Deploy still fails, use **Re-run failed jobs** on that
+run — the processed `site-data` artifact persists, so it redeploys without
+re-scraping.
