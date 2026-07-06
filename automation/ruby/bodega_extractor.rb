@@ -91,6 +91,8 @@ module Bodega
       td_bonus: %r[protects against magical attacks with a bonus of (?<td_bonus>\d+)],
       # DB Bonus (Defensive Bonus from shields)
       db_bonus: %r[provides a bonus of \+(?<db_bonus>\d+) to Defensive Strength],
+      # Defender enchantment on weapons (bonus to defensive strength when wielded)
+      defender: %r[provides a bonus of \+(?<defender>\d+) more than usual],
       # Sanctification tier (1-5)
       sanctify: %r[has been sanctified (?<sanctify>\d+) times?],
       # Ensorcell tier (1-5)

@@ -461,6 +461,16 @@ class BodegaProcessor
       end
     end
 
+    # === Chrism detection ===
+    # A chrism (single-use enhancive-recharge item) reads as not-wieldable
+    # ("But you are not holding...") and sits in a characteristic price band.
+    # Needs price context, so it lives here rather than in the raw extractor.
+    cost = details[:cost] || 0
+    if cost >= 1000 && cost <= 20000 && raw_lines.any? { |line| line.include?('But you are not holding') }
+      details[:chrism] = true
+      details[:tags] << :chrism unless details[:tags].include?(:chrism)
+    end
+
     # === Determine primary item_type ===
     # Priority: Weapon > Armor > Shield > Container > Jewelry > Gemstone
     details[:item_type] = if details[:is_weapon]
