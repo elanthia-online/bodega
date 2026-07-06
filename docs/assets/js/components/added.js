@@ -52,15 +52,7 @@ class AddedEngine {
     }
 
     debounce(func, wait) {
-        let timeout;
-        return function executedFunction(...args) {
-            const later = () => {
-                clearTimeout(timeout);
-                func(...args);
-            };
-            clearTimeout(timeout);
-            timeout = setTimeout(later, wait);
-        };
+        return BodegaShared.debounce(func, wait);
     }
 
     updateTableHeaders() {
@@ -316,12 +308,7 @@ class AddedEngine {
     }
 
     calculatePropertyCount(item) {
-        // Only count enhancive properties (green stat bonuses)
-        // Note: the property is called "enhancives" (plural)
-        if (item.enhancives && item.enhancives.length > 0) {
-            return item.enhancives.length;
-        }
-        return 0;
+        return BodegaShared.calculatePropertyCount(item);
     }
 
     displayResults() {
@@ -450,168 +437,7 @@ class AddedEngine {
     }
 
     createPropertiesElement(item) {
-        // Use the same property element creation as search engine
-        const container = document.createElement('div');
-
-        // Collect all properties that should be displayed
-        const detectedProps = typeof detectPropertiesFromRaw === 'function'
-            ? detectPropertiesFromRaw(item.raw)
-            : {};
-
-        // Add item type tags to detectedProps
-        if (item.itemType) detectedProps[item.itemType] = true;
-        if (item.capacityLevel) detectedProps.capacity = item.capacityLevel;
-        if (item.enchant) detectedProps.enchant = item.enchant;
-
-        // Merge with existing extracted properties from the data
-        if (item.td_bonus) detectedProps.td_bonus = item.td_bonus;
-        if (item.sanctify) detectedProps.sanctify = item.sanctify;
-        if (item.ensorcell) detectedProps.ensorcell = item.ensorcell;
-        if (item.dmg_padding) detectedProps.dmg_padding = item.dmg_padding;
-        if (item.crit_padding) detectedProps.crit_padding = item.crit_padding;
-        if (item.dmg_weighting) detectedProps.dmg_weighting = item.dmg_weighting;
-        if (item.crit_weighting) detectedProps.crit_weighting = item.crit_weighting;
-        if (item.sighting) detectedProps.sighting = item.sighting;
-        if (item.flares && item.flares.length > 0) detectedProps.flares = true;
-        if (item.enhancives && item.enhancives.length > 0) detectedProps.enhancive = true;
-
-        // Chrism detection: price 1k-20k AND "But you are not holding" in raw text
-        if (item.price >= 1000 && item.price <= 20000 && item.raw && item.raw.some(line => line.includes('But you are not holding'))) {
-            detectedProps.chrism = true;
-        }
-
-        // Check tags for boolean properties
-        if (item.tags && item.tags.length > 0) {
-            const boolTags = ['spiked', 'magic_resistant', 'scripted', 'holy_fire',
-                              'max_light', 'max_deep', 'persists', 'crumbly', 'holy',
-                              'lightenable', 'deepenable', 'imbeddable'];
-            item.tags.forEach(tag => {
-                // Skip any tag that's too long (likely invalid data)
-                if (typeof tag !== 'string' || tag.length > 30) return;
-                if (boolTags.includes(tag)) {
-                    detectedProps[tag] = true;
-                }
-            });
-        }
-
-        // Display detected properties respecting tag visibility and order
-        const orderedTags = typeof getOrderedTagIds === 'function'
-            ? getOrderedTagIds()
-            : (typeof TAG_DEFINITIONS !== 'undefined' ? Object.keys(TAG_DEFINITIONS) : []);
-
-        orderedTags.forEach(tagId => {
-            // Special handling for item type tags (weapon, armor, shield, container, jewelry)
-            if (['weapon', 'armor', 'shield', 'container', 'jewelry'].includes(tagId)) {
-                if (detectedProps[tagId] && (typeof isTagVisible !== 'function' || isTagVisible(tagId))) {
-                    const tag = document.createElement('span');
-                    tag.className = 'property-tag cat-item_type';
-                    tag.dataset.category = 'item_type';
-                    const tagColor = typeof getTagColor === 'function' ? getTagColor(tagId) : null;
-                    if (tagColor) {
-                        tag.style.color = tagColor;
-                        tag.style.borderColor = tagColor;
-                        tag.style.backgroundColor = 'transparent';
-                    }
-                    tag.textContent = tagId.charAt(0).toUpperCase() + tagId.slice(1);
-                    container.appendChild(tag);
-                }
-                return;
-            }
-
-            // Special handling for enchant
-            if (tagId === 'enchant') {
-                if (detectedProps.enchant && (typeof isTagVisible !== 'function' || isTagVisible('enchant'))) {
-                    const tag = document.createElement('span');
-                    tag.className = 'property-tag cat-magical';
-                    tag.dataset.category = 'magical';
-                    const tagColor = typeof getTagColor === 'function' ? getTagColor('enchant') : null;
-                    if (tagColor) {
-                        tag.style.color = tagColor;
-                        tag.style.borderColor = tagColor;
-                        tag.style.backgroundColor = 'transparent';
-                    }
-                    tag.textContent = `+${detectedProps.enchant}`;
-                    container.appendChild(tag);
-                }
-                return;
-            }
-
-            // Special handling for capacity
-            if (tagId === 'capacity') {
-                if (detectedProps.capacity) {
-                    const tag = document.createElement('span');
-                    tag.className = 'property-tag special';
-                    tag.textContent = detectedProps.capacity.charAt(0).toUpperCase() + detectedProps.capacity.slice(1);
-                    container.appendChild(tag);
-                }
-                return;
-            }
-
-            // Special handling for 'enhancive' - display individual enhancive stats
-            if (tagId === 'enhancive') {
-                const enhancivesVisible = typeof isTagEnabled === 'function' ? isTagEnabled('enhancive') : true;
-                if (enhancivesVisible && item.enhancives && item.enhancives.length > 0) {
-                    const enhColor = typeof getTagColor === 'function' ? getTagColor('enhancive') : '#27ae60';
-                    item.enhancives.forEach(enh => {
-                        const enhTag = document.createElement('span');
-                        enhTag.className = 'property-tag special';
-                        enhTag.dataset.category = 'enhancive';
-                        enhTag.style.color = enhColor;
-                        enhTag.style.borderColor = enhColor;
-                        enhTag.textContent = `+${enh.boost} ${enh.ability}`;
-                        container.appendChild(enhTag);
-                    });
-                }
-                return; // Don't show a generic "Enhancive" tag, we show the individual stats
-            }
-
-            // Special handling for 'flares' - we handle flares display separately
-            if (tagId === 'flares') {
-                if (item.flares && item.flares.length > 0) {
-                    if (typeof isTagVisible === 'function' && !isTagVisible('flares')) return;
-                    const flareColor = typeof getTagColor === 'function' ? getTagColor('flares') : '#9b59b6';
-                    const flareTag = document.createElement('span');
-                    flareTag.className = 'property-tag special';
-                    flareTag.dataset.category = 'magical';
-                    flareTag.style.color = flareColor;
-                    flareTag.style.borderColor = flareColor;
-                    flareTag.textContent = 'Flares';
-                    container.appendChild(flareTag);
-                }
-                return;
-            }
-
-            if (detectedProps[tagId] !== undefined && detectedProps[tagId] !== false) {
-                // Check tag visibility
-                if (typeof isTagVisible === 'function' && !isTagVisible(tagId)) return;
-
-                const tagEl = document.createElement('span');
-                const tagColor = typeof getTagColor === 'function' ? getTagColor(tagId) : null;
-                const tagCategory = typeof getCategoryForTag === 'function' ? getCategoryForTag(tagId) : null;
-                tagEl.className = 'property-tag special';
-                if (tagCategory) {
-                    tagEl.dataset.category = tagCategory;
-                }
-                if (tagColor) {
-                    tagEl.style.color = tagColor;
-                    tagEl.style.borderColor = tagColor;
-                }
-                const displayText = typeof formatPropertyDisplay === 'function'
-                    ? formatPropertyDisplay(tagId, detectedProps[tagId], detectedProps)
-                    : tagId.replace(/_/g, ' ');
-                // Skip if formatPropertyDisplay returns null (tag too long or invalid)
-                if (!displayText) return;
-                // Final safety check - skip any tag text longer than 50 characters
-                if (displayText.length > 50) {
-                    console.warn('Skipping long tag:', tagId, displayText.substring(0, 50) + '...');
-                    return;
-                }
-                tagEl.textContent = displayText;
-                container.appendChild(tagEl);
-            }
-        });
-
-        return container;
+        return BodegaShared.createPropertiesElement(item);
     }
 
     formatRelativeTime(date) {
@@ -628,12 +454,7 @@ class AddedEngine {
     }
 
     formatPrice(price) {
-        if (price >= 1000000) {
-            return (price / 1000000).toFixed(1) + 'M';
-        } else if (price >= 1000) {
-            return (price / 1000).toFixed(1) + 'k';
-        }
-        return price.toString();
+        return DataLoader.formatPrice(price);
     }
 
     displayNoResults() {

@@ -359,9 +359,11 @@ class DataLoader {
                 // Combat modifiers
                 td_bonus: details.td_bonus || null,
                 db_bonus: details.db_bonus || null,
+                defender: details.defender || null,
                 sanctify: details.sanctify || null,
                 ensorcell: details.ensorcell || null,
                 sighting: details.sighting || null,
+                chrism: details.chrism || false,
 
                 // Padding (armor)
                 dmg_padding: details.dmg_padding || null,
