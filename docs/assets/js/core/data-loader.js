@@ -65,7 +65,9 @@ class DataLoader {
     async loadTownData(filename) {
         try {
             console.log(`Loading ${filename}...`);
-            const response = await fetch(filename);
+            // no-cache: revalidate with the server so we don't serve stale
+            // data (town files are regenerated every ~2 hours)
+            const response = await fetch(filename, { cache: 'no-cache' });
             // Add specific check for relative path issues
             if (response.status === 404 && filename.startsWith("../")) {
                 console.error(`Data file not accessible: ${filename}. This might be a path configuration issue.`);
@@ -88,7 +90,7 @@ class DataLoader {
     async loadRemovedItems() {
         try {
             console.log('Loading removed_items.json...');
-            const response = await fetch('data/removed_items.json');
+            const response = await fetch('data/removed_items.json', { cache: 'no-cache' });
 
             if (!response.ok) {
                 console.log('No separate removed_items.json found, using embedded data');
@@ -108,7 +110,7 @@ class DataLoader {
     async loadAddedItems() {
         try {
             console.log('Loading added_items.json...');
-            const response = await fetch('data/added_items.json');
+            const response = await fetch('data/added_items.json', { cache: 'no-cache' });
 
             if (!response.ok) {
                 console.log('No added_items.json found, will use embedded added_date fields');
@@ -128,7 +130,7 @@ class DataLoader {
     async loadShopMapping() {
         try {
             console.log('Loading shop mapping data...');
-            const response = await fetch('data/shop_mapping.json');
+            const response = await fetch('data/shop_mapping.json', { cache: 'no-cache' });
 
             if (!response.ok) {
                 console.log('No shop mapping data found');
@@ -204,8 +206,7 @@ class DataLoader {
                                 const itemSignature = this.createItemSignature(
                                     townData.town,
                                     shop.preamble,
-                                    item.name,
-                                    processedItem.price
+                                    item.name
                                 );
 
                                 if (itemSignature && addedItemsData[itemSignature]) {
@@ -358,9 +359,11 @@ class DataLoader {
                 // Combat modifiers
                 td_bonus: details.td_bonus || null,
                 db_bonus: details.db_bonus || null,
+                defender: details.defender || null,
                 sanctify: details.sanctify || null,
                 ensorcell: details.ensorcell || null,
                 sighting: details.sighting || null,
+                chrism: details.chrism || false,
 
                 // Padding (armor)
                 dmg_padding: details.dmg_padding || null,
@@ -505,20 +508,20 @@ class DataLoader {
         return parts.join(' ').toLowerCase();
     }
 
-    createItemSignature(town, shopPreamble, itemName, price) {
-        // Create item signature matching Ruby's safe_string logic
-        // This must match the format in bodega.lic Utils.create_item_signature
-        // Using shop_name (extracted from preamble) because shop_id changes during server reboots
+    createItemSignature(town, shopPreamble, itemName) {
+        // Create item signature matching processor.rb create_item_signature.
+        // Using shop_name (extracted from preamble) because shop_id changes
+        // during server reboots. Price is intentionally excluded so a price
+        // change does not make the same item look removed-and-re-added.
         const safeTown = this.safeString(town);
         const safeShop = this.safeString(this.extractShopNameFromPreamble(shopPreamble));
         const safeItem = (itemName || '').toLowerCase().trim();
-        const safePrice = (price || 0).toString();
 
-        return `${safeTown}:${safeShop}:${safeItem}:${safePrice}`;
+        return `${safeTown}:${safeShop}:${safeItem}`;
     }
 
     safeString(text) {
-        // Match Ruby's safe_string function
+        // Match Ruby's safe_string function (strips ' " and ,)
         return (text || '')
             .toString()
             .toLowerCase()
@@ -586,17 +589,40 @@ class DataLoader {
     }
 
     getItemById(id) {
-        return this.allItems.find(item => item.id === id);
+        // id may arrive as a string (URL param) while item.id is numeric
+        return this.allItems.find(item => String(item.id) === String(id));
     }
 
-    // Price formatting utility
+    // Escape untrusted text (item/shop/room names are player-controlled)
+    // before interpolating into innerHTML templates
+    static escapeHtml(text) {
+        if (text === null || text === undefined) return '';
+        return String(text)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
+
+    // Escape user input before building a RegExp from it
+    static escapeRegExp(text) {
+        return String(text).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    // Price formatting utility. Compact k/M style but preserving precision:
+    // up to three decimals with trailing zeros trimmed, so k values are exact
+    // to the coin (1,500 -> 1.5k, 1,555 -> 1.555k, 5,000 -> 5k,
+    // 2,500,000 -> 2.5M) - never 1,500 -> 2k.
     static formatPrice(price) {
         if (!price || price === 0) return 'Free';
 
+        const compact = (value) => parseFloat(value.toFixed(3)).toString();
+
         if (price >= 1000000) {
-            return (price / 1000000).toFixed(1) + 'M';
+            return compact(price / 1000000) + 'M';
         } else if (price >= 1000) {
-            return (price / 1000).toFixed(0) + 'k';
+            return compact(price / 1000) + 'k';
         }
         return price.toLocaleString();
     }

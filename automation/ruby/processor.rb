@@ -55,6 +55,7 @@ class BodegaProcessor
     @removed_items = load_removed_items
     @previous_signatures = {}  # town => { signature => {item:, preamble:} }
     @current_signatures = {}   # town => { signature => {item:, preamble:} }
+    @processed_towns = Set.new # towns whose raw file was processed this run
     @items_added_this_run = 0
     @items_removed_this_run = 0
   end
@@ -132,6 +133,11 @@ class BodegaProcessor
   def process_town_data(raw_data)
     processed = raw_data.dup
     town = raw_data[:town]
+
+    # Record that this town's raw file was actually processed this run, so
+    # update_tracking can tell "scanned and now empty" (genuine removals)
+    # from "not scanned this run" (leave alone).
+    @processed_towns << town if town
 
     # Process each shop and track items
     processed[:shops] = raw_data[:shops].map do |shop|
@@ -455,6 +461,16 @@ class BodegaProcessor
       end
     end
 
+    # === Chrism detection ===
+    # A chrism (single-use enhancive-recharge item) reads as not-wieldable
+    # ("But you are not holding...") and sits in a characteristic price band.
+    # Needs price context, so it lives here rather than in the raw extractor.
+    cost = details[:cost] || 0
+    if cost >= 1000 && cost <= 20000 && raw_lines.any? { |line| line.include?('But you are not holding') }
+      details[:chrism] = true
+      details[:tags] << :chrism unless details[:tags].include?(:chrism)
+    end
+
     # === Determine primary item_type ===
     # Priority: Weapon > Armor > Shield > Container > Jewelry > Gemstone
     details[:item_type] = if details[:is_weapon]
@@ -497,12 +513,16 @@ class BodegaProcessor
   end
 
   def load_removed_items
+    @removed_items_load_ok = true
     return {} unless File.exist?(REMOVED_ITEMS_FILE)
 
     begin
       JSON.parse(File.read(REMOVED_ITEMS_FILE))
     rescue JSON::ParserError => e
       puts "Warning: Failed to parse removed_items.json: #{e.message}"
+      # Signal that the on-disk file could not be read so we never overwrite
+      # a populated file with an empty set on a transient parse error.
+      @removed_items_load_ok = false
       {}
     end
   end
@@ -551,17 +571,17 @@ class BodegaProcessor
     return nil unless item && (item[:name] || item['name'])
 
     item_name = item[:name] || item['name']
-    details = item[:details] || item['details'] || {}
-    price = details[:cost] || details['cost'] || 0
 
     shop_name = extract_shop_name_from_preamble(preamble)
 
     safe_town = safe_string(town)
     safe_shop = safe_string(shop_name)
     safe_item = item_name.to_s.downcase.strip
-    safe_price = price.to_s
 
-    "#{safe_town}:#{safe_shop}:#{safe_item}:#{safe_price}"
+    # Price is intentionally NOT part of the identity signature: a shop owner
+    # changing an item's price must not register the same physical item as
+    # removed-and-re-added. Price is retained as item metadata only.
+    "#{safe_town}:#{safe_shop}:#{safe_item}"
   end
 
   def extract_shop_name_from_preamble(preamble)
@@ -574,11 +594,13 @@ class BodegaProcessor
   end
 
   def safe_string(str)
-    # Must match bodega.lic Utils.safe_string and data-loader.js safeString
+    # Must match bodega.lic Utils.safe_string and data-loader.js safeString.
+    # Strips ' " and , (double-quote included so item/shop names containing
+    # quotes produce identical signatures in Ruby and the browser).
     return '' unless str
     str.to_s.downcase
        .gsub("ta'", "ta_")
-       .gsub(/'|,/, "")
+       .gsub(/['",]/, "")
        .gsub(/-|\s/, "_")
   end
 
@@ -621,18 +643,19 @@ class BodegaProcessor
       end
     end
 
-    # Also check for towns that existed before but have no current data
-    # (This handles the case where a town file wasn't processed this run)
+    # Also check for towns that existed before but have no current data.
+    # Only treat items as removed if we actually processed that town's raw
+    # file this run and it yielded no items (genuine emptying). If the town
+    # was simply not scanned this run, leave its items alone. This replaces
+    # a wall-clock mtime heuristic that misfired on fresh CI checkouts (where
+    # every raw file's mtime is recent), which could mass-remove a whole
+    # town's items whenever it wasn't part of the current scan.
     @previous_signatures.each do |town, previous_items|
       next if @current_signatures.key?(town)  # Already handled above
+      next unless @processed_towns.include?(town)  # Not scanned this run
 
-      # If we processed this town's raw file but got no items, they're all removed
-      raw_file = RAW_DATA_DIR + "#{safe_string(town)}.json"
-      if File.exist?(raw_file) && File.mtime(raw_file) > (Time.now - 3600)
-        # Raw file was recently modified - items may have been removed
-        previous_items.keys.each do |sig|
-          track_removed_item(town, sig, current_time)
-        end
+      previous_items.keys.each do |sig|
+        track_removed_item(town, sig, current_time)
       end
     end
 
@@ -706,7 +729,12 @@ class BodegaProcessor
   end
 
   def save_removed_items
-    return if @removed_items.empty?
+    # Do not overwrite the file if the previous state could not be loaded
+    # (transient parse error) — avoids clobbering populated data with empty.
+    if @removed_items.empty? && @removed_items_load_ok == false
+      puts "Skipping removed_items.json save: previous state failed to load"
+      return
+    end
 
     # Server reboot safeguard: reject if too many new items
     if @items_removed_this_run > REMOVED_MAX_NEW_ITEMS

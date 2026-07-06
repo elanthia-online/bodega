@@ -180,7 +180,7 @@ module Bodega
     end
 
     def blow_up(ttl)
-      fail StandardError, "Collector(start: #{@start}, close: #{@close}) failed to complete in #{ttl} seconds"
+      fail StandardError, "Collector(start: #{@start}, close: #{@close}) failed to complete in #{ttl} seconds after #{MAX_TRIES} tries"
     end
 
     def compare(line, pattern)
@@ -204,8 +204,12 @@ module Bodega
         return result     if compare(line, @close) and not result.empty?
       end
 
-      return run(seconds, tries: tries + 1) if Time.now > ttl and tries < Collector::MAX_TRIES
-      return blow_up(seconds) if Time.now > ttl and tries > Collector::MAX_TRIES
+      # Timed out. Retry while tries remain, otherwise raise. Previously the
+      # boundary case tries == MAX_TRIES fell through both conditions and
+      # returned nil, causing confusing NoMethodError crashes at call sites
+      # instead of the intended blow_up message.
+      return run(seconds, tries: tries + 1) if tries < Collector::MAX_TRIES
+      blow_up(seconds)
     end
   end
 end
@@ -559,9 +563,12 @@ module Bodega
     end
 
     def self.safe_string(t)
+      # Kept in sync with processor.rb safe_string and data-loader.js
+      # safeString. Used here only for town/shop filenames; signatures are
+      # generated server-side in processor.rb.
       t.to_s.downcase
        .gsub("ta'", "ta_")
-       .gsub(/'|,/, "")
+       .gsub(/['",]/, "")
        .gsub(/-|\s/, "_")
     end
 
@@ -837,6 +844,7 @@ module Bodega
           preamble: preamble,
           town: town,
           id: shop_id,
+          shop_owner: extract_shop_name_from_preamble(preamble),
           inv: parse_inv(inv.map(&:strip))
         }
       end
@@ -846,7 +854,23 @@ module Bodega
       current_exterior = extract_exterior_from_preamble(preamble)
       cached_owner = existing_shop['shop_owner']
 
-      if cached_owner && current_owner != 'unknown' && cached_owner.downcase != current_owner.downcase
+      # If we cannot confirm the current owner from the preamble, we cannot
+      # trust that this shop_id still points to the same shop (IDs are
+      # reassigned on server reboots). Do a full rescan rather than merging
+      # into a possibly-wrong cached shop, which would silently corrupt it.
+      if current_owner == 'unknown'
+        Log.out("Shop ID #{shop_id} owner could not be determined from preamble — cannot verify cache identity, performing full scan.", label: :smart)
+        @smart_stats[:shops_scanned] += 1
+        @smart_stats[:new_items] += current_ids.size
+        return {
+          preamble: preamble,
+          town: town,
+          id: shop_id,
+          inv: parse_inv(inv.map(&:strip))
+        }
+      end
+
+      if cached_owner && cached_owner.downcase != current_owner.downcase
         Log.out("Shop ID #{shop_id} owner mismatch: cached=#{cached_owner}, current=#{current_owner} — game reset likely reordered shops. Wiping cache and doing full scan.", label: :smart)
 
         # Add new owner to shop_mapping if not already present
@@ -866,8 +890,9 @@ module Bodega
         }
       end
 
-      # Step 4b: Same owner — update exterior in shop_mapping if it changed
-      if @shop_mapping && current_owner != 'unknown' && current_exterior
+      # Step 4b: Same owner (owner is known — unknown returned above) — update
+      # exterior in shop_mapping if it changed
+      if @shop_mapping && current_exterior
         entry = @shop_mapping[current_owner]
         if entry && entry["exterior"] != current_exterior
           Log.out("Updating exterior for #{current_owner}: '#{entry['exterior']}' -> '#{current_exterior}'", label: :smart)

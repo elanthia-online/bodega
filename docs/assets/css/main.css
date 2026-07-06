@@ -1654,11 +1654,11 @@ input::placeholder {
     color: var(--text-primary);
 }
 
-td.item-name {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
+/* NOTE: td.item-name must remain display:table-cell. A previous
+   display:flex rule here pulled the name cell out of table layout, so its
+   bottom border stopped aligning with the rest of the row on the
+   Added/Removed/Browse tabs (those set .item-name on the td itself; Search
+   stacks name + buttons via .item-name-container inside a classless td). */
 
 .url-button {
     background: var(--bg-tertiary);

@@ -7,7 +7,11 @@ automation/lich/logs/*
 !automation/lich/logs/.gitkeep
 automation/lich/data/entry.dat
 automation/lich/data/*.db3
+automation/lich/data/*.db
 !automation/lich/data/.gitkeep
+
+# Legacy Semaphore-era infrastructure (untracked; contains runtime DBs with character names)
+archive/
 
 # Temporary files
 *.tmp

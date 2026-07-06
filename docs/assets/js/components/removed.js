@@ -52,15 +52,7 @@ class RemovedEngine {
     }
 
     debounce(func, wait) {
-        let timeout;
-        return function executedFunction(...args) {
-            const later = () => {
-                clearTimeout(timeout);
-                func(...args);
-            };
-            clearTimeout(timeout);
-            timeout = setTimeout(later, wait);
-        };
+        return BodegaShared.debounce(func, wait);
     }
 
     updateTableHeaders() {
@@ -185,7 +177,10 @@ class RemovedEngine {
         // Price range filter
         if (filters.priceRange) {
             const [min, max] = filters.priceRange.split('-').map(Number);
-            if (item.price < min || item.price > max) {
+            // Null-priced (free/unpriced) items only match when the range
+            // starts at 0; otherwise a null price must not coerce to 0.
+            const price = item.price !== null && item.price !== undefined ? item.price : (min === 0 ? 0 : NaN);
+            if (price < min || price > max) {
                 return false;
             }
         }
@@ -276,12 +271,7 @@ class RemovedEngine {
     }
 
     calculatePropertyCount(item) {
-        // Only count enhancive properties (green stat bonuses)
-        // Note: the property is called "enhancives" (plural)
-        if (item.enhancives && item.enhancives.length > 0) {
-            return item.enhancives.length;
-        }
-        return 0;
+        return BodegaShared.calculatePropertyCount(item);
     }
 
     displayResults() {
@@ -318,26 +308,42 @@ class RemovedEngine {
         const removedDate = new Date(item.removedDate);
         const properties = this.createPropertiesElement(item);
 
-        row.innerHTML = `
-            <td class="item-name">
-                <span class="name">${item.name}</span>
-            </td>
-            <td class="item-removed-time">${this.formatRelativeTime(removedDate)}</td>
-            <td class="item-price">${this.formatPrice(item.price)}</td>
-            <td class="item-properties">${properties.innerHTML}</td>
-            <td class="item-town">${item.lastSeenTown || 'Unknown'}</td>
-            <td class="item-shop">${item.lastSeenShop || 'Unknown'}</td>
-        `;
+        // Build cells with textContent — item/shop names are player-controlled
+        const nameCell = document.createElement('td');
+        nameCell.className = 'item-name';
+        const nameSpan = document.createElement('span');
+        nameSpan.className = 'name';
+        nameSpan.textContent = item.name;
+        nameCell.appendChild(nameSpan);
 
         // Add quantity after name if it exists (with 2 spaces, not underlined)
         if (item.quantity) {
-            const nameCell = row.querySelector('.item-name');
-            const quantityText = document.createTextNode(`  (${item.quantity})`);
-            nameCell.appendChild(quantityText);
+            nameCell.appendChild(document.createTextNode(`  (${item.quantity})`));
         }
 
+        const timeCell = document.createElement('td');
+        timeCell.className = 'item-removed-time';
+        timeCell.textContent = this.formatRelativeTime(removedDate);
+
+        const priceCell = document.createElement('td');
+        priceCell.className = 'item-price';
+        priceCell.textContent = this.formatPrice(item.price);
+
+        const propertiesCell = document.createElement('td');
+        propertiesCell.className = 'item-properties';
+        propertiesCell.appendChild(properties);
+
+        const townCell = document.createElement('td');
+        townCell.className = 'item-town';
+        townCell.textContent = item.lastSeenTown || 'Unknown';
+
+        const shopCell = document.createElement('td');
+        shopCell.className = 'item-shop';
+        shopCell.textContent = item.lastSeenShop || 'Unknown';
+
+        row.append(nameCell, timeCell, priceCell, propertiesCell, townCell, shopCell);
+
         // Register for hover tooltip (raw recall preview)
-        const nameSpan = row.querySelector('.name');
         if (window.tooltipManager && nameSpan) {
             window.tooltipManager.register(nameSpan, item);
         }
@@ -349,156 +355,7 @@ class RemovedEngine {
     }
 
     createPropertiesElement(item) {
-        // Use the same property element creation as search engine
-        const container = document.createElement('div');
-
-        // Collect all properties that should be displayed
-        const detectedProps = typeof detectPropertiesFromRaw === 'function'
-            ? detectPropertiesFromRaw(item.raw)
-            : {};
-
-        // Add item type tags to detectedProps
-        if (item.itemType) detectedProps[item.itemType] = true;
-        if (item.enchant) detectedProps.enchant = item.enchant;
-
-        // Merge with existing extracted properties from the data
-        if (item.td_bonus) detectedProps.td_bonus = item.td_bonus;
-        if (item.sanctify) detectedProps.sanctify = item.sanctify;
-        if (item.ensorcell) detectedProps.ensorcell = item.ensorcell;
-        if (item.dmg_padding) detectedProps.dmg_padding = item.dmg_padding;
-        if (item.crit_padding) detectedProps.crit_padding = item.crit_padding;
-        if (item.dmg_weighting) detectedProps.dmg_weighting = item.dmg_weighting;
-        if (item.crit_weighting) detectedProps.crit_weighting = item.crit_weighting;
-        if (item.sighting) detectedProps.sighting = item.sighting;
-        if (item.flares && item.flares.length > 0) detectedProps.flares = true;
-        if (item.enhancives && item.enhancives.length > 0) detectedProps.enhancive = true;
-
-        // Chrism detection: price 1k-20k AND "But you are not holding" in raw text
-        if (item.price >= 1000 && item.price <= 20000 && item.raw && item.raw.some(line => line.includes('But you are not holding'))) {
-            detectedProps.chrism = true;
-        }
-
-        // Check tags for boolean properties
-        if (item.tags && item.tags.length > 0) {
-            const boolTags = ['spiked', 'magic_resistant', 'scripted', 'holy_fire',
-                              'max_light', 'max_deep', 'persists', 'crumbly', 'holy',
-                              'lightenable', 'deepenable', 'imbeddable'];
-            item.tags.forEach(tag => {
-                // Skip any tag that's too long (likely invalid data)
-                if (typeof tag !== 'string' || tag.length > 30) return;
-                if (boolTags.includes(tag)) {
-                    detectedProps[tag] = true;
-                }
-            });
-        }
-
-        // Display detected properties respecting tag visibility and order
-        const orderedTags = typeof getOrderedTagIds === 'function'
-            ? getOrderedTagIds()
-            : (typeof TAG_DEFINITIONS !== 'undefined' ? Object.keys(TAG_DEFINITIONS) : []);
-
-        orderedTags.forEach(tagId => {
-            // Special handling for item type tags (weapon, armor, shield, container, jewelry)
-            if (['weapon', 'armor', 'shield', 'container', 'jewelry'].includes(tagId)) {
-                if (detectedProps[tagId] && (typeof isTagVisible !== 'function' || isTagVisible(tagId))) {
-                    const tag = document.createElement('span');
-                    tag.className = 'property-tag cat-item_type';
-                    tag.dataset.category = 'item_type';
-                    const tagColor = typeof getTagColor === 'function' ? getTagColor(tagId) : null;
-                    if (tagColor) {
-                        tag.style.color = tagColor;
-                        tag.style.borderColor = tagColor;
-                        tag.style.backgroundColor = 'transparent';
-                    }
-                    tag.textContent = tagId.charAt(0).toUpperCase() + tagId.slice(1);
-                    container.appendChild(tag);
-                }
-                return;
-            }
-
-            // Special handling for enchant
-            if (tagId === 'enchant') {
-                if (detectedProps.enchant && (typeof isTagVisible !== 'function' || isTagVisible('enchant'))) {
-                    const tag = document.createElement('span');
-                    tag.className = 'property-tag cat-magical';
-                    tag.dataset.category = 'magical';
-                    const tagColor = typeof getTagColor === 'function' ? getTagColor('enchant') : null;
-                    if (tagColor) {
-                        tag.style.color = tagColor;
-                        tag.style.borderColor = tagColor;
-                        tag.style.backgroundColor = 'transparent';
-                    }
-                    tag.textContent = `+${detectedProps.enchant}`;
-                    container.appendChild(tag);
-                }
-                return;
-            }
-
-            // Special handling for 'enhancive' - display individual enhancive stats
-            if (tagId === 'enhancive') {
-                const enhancivesVisible = typeof isTagEnabled === 'function' ? isTagEnabled('enhancive') : true;
-                if (enhancivesVisible && item.enhancives && item.enhancives.length > 0) {
-                    const enhColor = typeof getTagColor === 'function' ? getTagColor('enhancive') : '#27ae60';
-                    item.enhancives.forEach(enh => {
-                        const enhTag = document.createElement('span');
-                        enhTag.className = 'property-tag special';
-                        enhTag.dataset.category = 'enhancive';
-                        enhTag.style.color = enhColor;
-                        enhTag.style.borderColor = enhColor;
-                        enhTag.textContent = `+${enh.boost} ${enh.ability}`;
-                        container.appendChild(enhTag);
-                    });
-                }
-                return; // Don't show a generic "Enhancive" tag, we show the individual stats
-            }
-
-            // Special handling for 'flares' - we handle flares display separately
-            if (tagId === 'flares') {
-                if (item.flares && item.flares.length > 0) {
-                    if (typeof isTagVisible === 'function' && !isTagVisible('flares')) return;
-                    const flareColor = typeof getTagColor === 'function' ? getTagColor('flares') : '#9b59b6';
-                    const flareTag = document.createElement('span');
-                    flareTag.className = 'property-tag special';
-                    flareTag.dataset.category = 'magical';
-                    flareTag.style.color = flareColor;
-                    flareTag.style.borderColor = flareColor;
-                    flareTag.textContent = 'Flares';
-                    container.appendChild(flareTag);
-                }
-                return;
-            }
-
-            if (detectedProps[tagId] !== undefined && detectedProps[tagId] !== false) {
-                // Check tag visibility
-                if (typeof isTagVisible === 'function' && !isTagVisible(tagId)) return;
-
-                const tagEl = document.createElement('span');
-                const tagColor = typeof getTagColor === 'function' ? getTagColor(tagId) : null;
-                const tagCategory = typeof getCategoryForTag === 'function' ? getCategoryForTag(tagId) : null;
-                tagEl.className = 'property-tag special';
-                if (tagCategory) {
-                    tagEl.dataset.category = tagCategory;
-                }
-                if (tagColor) {
-                    tagEl.style.color = tagColor;
-                    tagEl.style.borderColor = tagColor;
-                }
-                const displayText = typeof formatPropertyDisplay === 'function'
-                    ? formatPropertyDisplay(tagId, detectedProps[tagId], detectedProps)
-                    : tagId.replace(/_/g, ' ');
-                // Skip if formatPropertyDisplay returns null (tag too long or invalid)
-                if (!displayText) return;
-                // Final safety check - skip any tag text longer than 50 characters
-                if (displayText.length > 50) {
-                    console.warn('Skipping long tag:', tagId, displayText.substring(0, 50) + '...');
-                    return;
-                }
-                tagEl.textContent = displayText;
-                container.appendChild(tagEl);
-            }
-        });
-
-        return container;
+        return BodegaShared.createPropertiesElement(item);
     }
 
     formatRelativeTime(date) {
@@ -515,12 +372,7 @@ class RemovedEngine {
     }
 
     formatPrice(price) {
-        if (price >= 1000000) {
-            return (price / 1000000).toFixed(1) + 'M';
-        } else if (price >= 1000) {
-            return (price / 1000).toFixed(1) + 'k';
-        }
-        return price.toString();
+        return DataLoader.formatPrice(price);
     }
 
     displayNoResults() {
@@ -554,15 +406,6 @@ class RemovedEngine {
         const ownerName = this.extractOwnerNameFromShopName(item.lastSeenShop);
         const shopExterior = shopMapping[ownerName]?.exterior || '';
 
-        // Debug logging to see what's happening
-        console.log('Shop mapping debug:', {
-            hasDataLoader: !!window.dataLoader,
-            hasShopMapping: !!(window.dataLoader && window.dataLoader.shopMapping),
-            shopMappingKeys: shopMapping ? Object.keys(shopMapping).length : 0,
-            lookingForShop: item.lastSeenShop,
-            foundExterior: shopExterior
-        });
-
         // Create a normalized item object for the modal
         const normalizedItem = {
             ...item,
@@ -573,14 +416,6 @@ class RemovedEngine {
         // Explicitly set room and shopLocation after spread to ensure it overrides any existing properties
         normalizedItem.room = shopExterior || '';
         normalizedItem.shopLocation = shopExterior || '';
-
-        // Debug the actual normalized item values
-        console.log('Normalized item debug:', {
-            shopExterior: shopExterior,
-            roomValue: normalizedItem.room,
-            shopLocationValue: normalizedItem.shopLocation,
-            originalItemRoom: item.room
-        });
 
         // Use existing modal functionality from search engine with normalized data
         if (window.searchEngine && window.searchEngine.showItemDetails) {
@@ -669,26 +504,7 @@ class RemovedEngine {
     }
 
     extractOwnerNameFromShopName(shopName) {
-        // Extract owner name from shop name for shop_mapping lookups
-        // shop_mapping.json uses owner names (e.g., "Painz") not full shop names (e.g., "Painz's Magic Shoppe")
-        if (!shopName) return shopName;
-
-        // Extract owner name from patterns like:
-        //   "Painz's Magic Shoppe" -> "Painz"
-        //   "Dark Tower Imports" -> "Dark Tower Imports" (business name, keep as-is)
-        const match = shopName.match(/^(.*?)'s?\s+(Magic Shoppe|Weaponry|Armory|Outfitting|General Store|Combat Gear|Locksmith Shop|Shop|Boutique)/i);
-        if (match) {
-            return match[1].trim();
-        }
-
-        // Check for possessive without shop type
-        const possessiveMatch = shopName.match(/^(.*?)'s\s+(.*)$/i);
-        if (possessiveMatch) {
-            return possessiveMatch[1].trim();
-        }
-
-        // Return as-is if no pattern matches (business names)
-        return shopName;
+        return BodegaShared.extractOwnerNameFromShopName(shopName);
     }
 
     resetFilters() {

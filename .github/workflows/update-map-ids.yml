@@ -3,6 +3,10 @@ name: Update Map IDs
 on:
   workflow_dispatch:
 
+# Least-privilege token: push shop_mapping.json updates
+permissions:
+  contents: write
+
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -35,4 +39,21 @@ jobs:
         fi
 
         git commit -m "Update shop map IDs from ps.lichproject.org"
-        git push origin master
+
+        # Rebase on the live tip and push, retrying if another workflow
+        # (automation, process-data) pushes in between.
+        pushed=false
+        for attempt in 1 2 3 4 5; do
+          git fetch origin master
+          git rebase --autostash origin/master
+          if git push origin master; then
+            pushed=true
+            break
+          fi
+          echo "Push rejected (attempt $attempt), retrying..."
+          sleep $((attempt * 5))
+        done
+        if [ "$pushed" != "true" ]; then
+          echo "Failed to push after 5 attempts"
+          exit 1
+        fi

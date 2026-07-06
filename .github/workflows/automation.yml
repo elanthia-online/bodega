@@ -28,6 +28,11 @@ concurrency:
   group: bodega-automation
   cancel-in-progress: false
 
+# Least-privilege token: push data commits + dispatch process-data.yml
+permissions:
+  contents: write
+  actions: write
+
 env:
   SIMU_USERNAME: ${{ secrets.SIMU_USERNAME }}
   SIMU_PASSWORD: ${{ secrets.SIMU_PASSWORD }}
@@ -78,10 +83,13 @@ jobs:
 
     - name: Determine scan type
       id: scan_type
+      env:
+        # Pass dispatch inputs via env, never inline into the script body
+        SCAN_TYPE_INPUT: ${{ github.event.inputs.scan_type }}
       run: |
-        if [ "${{ github.event.inputs.scan_type }}" = "smart" ]; then
+        if [ "$SCAN_TYPE_INPUT" = "smart" ]; then
           echo "type=smart" >> $GITHUB_OUTPUT
-        elif [ "${{ github.event.inputs.scan_type }}" = "full" ]; then
+        elif [ "$SCAN_TYPE_INPUT" = "full" ]; then
           echo "type=full" >> $GITHUB_OUTPUT
         else
           # Auto mode: one full scan per UTC day (the first run of the day),
@@ -142,18 +150,32 @@ jobs:
         # Commit raw data
         git commit -m "Raw scan data: ${{ steps.scan_type.outputs.type }} - $(date '+%Y-%m-%d %H:%M UTC')"
 
-        # Fetch latest and rebase our commit on top
-        git fetch origin master
-        git stash --include-untracked || true
-        git rebase origin/master
-        git push origin master
+        # Rebase on the live tip and push, retrying if another workflow
+        # (process-data, update-map-ids) pushes in between. --autostash
+        # preserves any unstaged/untracked files across the rebase.
+        pushed=false
+        for attempt in 1 2 3 4 5; do
+          git fetch origin master
+          git rebase --autostash origin/master
+          if git push origin master; then
+            pushed=true
+            break
+          fi
+          echo "Push rejected (attempt $attempt), retrying..."
+          sleep $((attempt * 5))
+        done
+        if [ "$pushed" != "true" ]; then
+          echo "Failed to push after 5 attempts"
+          exit 1
+        fi
 
         echo "CHANGES_PUSHED=true" >> $GITHUB_ENV
 
     - name: Trigger data processing
       if: env.CHANGES_PUSHED == 'true'
+      env:
+        TOWN_INPUT: ${{ github.event.inputs.town }}
       run: |
-        TOWN_INPUT="${{ github.event.inputs.town }}"
         curl -X POST \
           -H "Accept: application/vnd.github.v3+json" \
           -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
@@ -176,7 +198,6 @@ jobs:
       run: |
         echo "=== Automation Summary ==="
         echo "Timestamp: $(date '+%Y-%m-%d %H:%M:%S UTC')"
-        echo "Character: $SIMU_CHARACTER"
         echo "Trigger: ${{ github.event_name == 'workflow_dispatch' && format('Manual ({0})', github.event.inputs.scan_type) || 'Scheduled' }}"
         echo "Scan type: ${{ steps.scan_type.outputs.type }}"
         echo "Status: ${{ job.status }}"

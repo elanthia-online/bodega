@@ -14,6 +14,11 @@ concurrency:
   group: bodega-processing
   cancel-in-progress: false
 
+# Least-privilege token: push data commits + dispatch deploy.yml
+permissions:
+  contents: write
+  actions: write
+
 jobs:
   process:
     runs-on: ubuntu-latest
@@ -31,9 +36,12 @@ jobs:
         ruby-version: '3.1'
 
     - name: Process raw data
+      env:
+        # Pass dispatch inputs via env, never inline into the script body
+        TOWN_INPUT: ${{ github.event.inputs.town }}
       run: |
         chmod +x automation/bin/process-data
-        ./automation/bin/process-data "${{ github.event.inputs.town }}"
+        ./automation/bin/process-data "$TOWN_INPUT"
 
     - name: Commit and push processed data
       id: commit
@@ -54,12 +62,24 @@ jobs:
 
         git commit -m "Process data - $(date '+%Y-%m-%d %H:%M UTC')"
 
-        # Fetch latest and rebase our commit on top
-        # Stash unstaged files (processor output) so rebase can proceed cleanly
-        git fetch origin master
-        git stash --include-untracked || true
-        git rebase origin/master
-        git push origin master
+        # Rebase on the live tip and push, retrying if another workflow
+        # (automation, update-map-ids) pushes in between. --autostash
+        # preserves any unstaged/untracked files across the rebase.
+        pushed=false
+        for attempt in 1 2 3 4 5; do
+          git fetch origin master
+          git rebase --autostash origin/master
+          if git push origin master; then
+            pushed=true
+            break
+          fi
+          echo "Push rejected (attempt $attempt), retrying..."
+          sleep $((attempt * 5))
+        done
+        if [ "$pushed" != "true" ]; then
+          echo "Failed to push after 5 attempts"
+          exit 1
+        fi
 
         echo "changes_pushed=true" >> $GITHUB_OUTPUT
 

@@ -29,7 +29,7 @@ class MultiSelectFilter {
         const tag = document.createElement('span');
         tag.className = 'filter-tag';
         tag.dataset.value = value;
-        tag.innerHTML = `${label} <span class="remove">×</span>`;
+        tag.innerHTML = `${DataLoader.escapeHtml(label)} <span class="remove">×</span>`;
 
         tag.addEventListener('click', () => {
             this.removeSelection(value);
@@ -802,12 +802,7 @@ class SearchEngine {
     }
 
     calculatePropertyCount(item) {
-        // Only count enhancive properties (green stat bonuses)
-        // Note: the property is called "enhancives" (plural)
-        if (item.enhancives && item.enhancives.length > 0) {
-            return item.enhancives.length;
-        }
-        return 0;
+        return BodegaShared.calculatePropertyCount(item);
     }
 
     displayResults() {
@@ -919,7 +914,9 @@ class SearchEngine {
         const shopLink = document.createElement('a');
         shopLink.href = '#';
         shopLink.className = 'shop-link';
-        shopLink.innerHTML = `<strong>${item.shopName}</strong>`;
+        const shopStrong = document.createElement('strong');
+        shopStrong.textContent = item.shopName;
+        shopLink.appendChild(shopStrong);
         shopLink.addEventListener('click', (e) => {
             e.preventDefault();
             this.navigateToShopInBrowse(item.town, item.shopName);
@@ -947,273 +944,7 @@ class SearchEngine {
     }
 
     createPropertiesElement(item) {
-        const container = document.createElement('div');
-
-        // Collect all properties that should be displayed
-        const detectedProps = typeof detectPropertiesFromRaw === 'function'
-            ? detectPropertiesFromRaw(item.raw)
-            : {};
-
-        // Add item type tags to detectedProps
-        if (item.itemType) detectedProps[item.itemType] = true;
-        if (item.armorType) detectedProps.armor_type = item.armorType;
-        if (item.weaponType) detectedProps.weapon_type = item.weaponType;
-        if (item.shieldType) detectedProps.shield_type = item.shieldType;
-        if (item.capacityLevel) detectedProps.capacity = item.capacityLevel;
-        if (item.enchant) detectedProps.enchant = item.enchant;
-
-        // Add skill (but don't duplicate weapon type)
-        if (item.skill && (!item.weaponType || item.skill !== item.weaponType)) {
-            detectedProps._skill = item.skill; // Use _skill to avoid conflicts
-        }
-
-        // Merge with existing extracted properties from the data
-        if (item.td_bonus) detectedProps.td_bonus = item.td_bonus;
-        if (item.sanctify) detectedProps.sanctify = item.sanctify;
-        if (item.ensorcell) detectedProps.ensorcell = item.ensorcell;
-        if (item.dmg_padding) detectedProps.dmg_padding = item.dmg_padding;
-        if (item.crit_padding) detectedProps.crit_padding = item.crit_padding;
-        if (item.dmg_weighting) detectedProps.dmg_weighting = item.dmg_weighting;
-        if (item.crit_weighting) detectedProps.crit_weighting = item.crit_weighting;
-        if (item.sighting) detectedProps.sighting = item.sighting;
-        if (item.blessing) detectedProps.holy = true;
-        if (item.flares && item.flares.length > 0) detectedProps.flares = true;
-        if (item.enhancives && item.enhancives.length > 0) detectedProps.enhancive = true;
-
-        // Merge forged quality
-        if (item.forgedQuality) {
-            detectedProps.forged = item.forgedQuality;
-        }
-
-        // Chrism detection: price 1k-20k AND "But you are not holding" in raw text
-        if (item.price >= 1000 && item.price <= 20000 && item.raw && item.raw.some(line => line.includes('But you are not holding'))) {
-            detectedProps.chrism = true;
-        }
-
-        // Check tags for boolean properties
-        if (item.tags && item.tags.length > 0) {
-            const boolTags = ['spiked', 'magic_resistant', 'scripted', 'holy_fire',
-                              'max_light', 'max_deep', 'persists', 'crumbly', 'holy',
-                              'lightenable', 'deepenable', 'imbeddable'];
-            item.tags.forEach(tag => {
-                // Skip any tag that's too long (likely invalid data)
-                if (typeof tag !== 'string' || tag.length > 30) return;
-                if (boolTags.includes(tag)) {
-                    detectedProps[tag] = true;
-                }
-            });
-        }
-
-        // Display detected properties respecting tag visibility and order
-        const orderedTags = typeof getOrderedTagIds === 'function'
-            ? getOrderedTagIds()
-            : (typeof TAG_DEFINITIONS !== 'undefined' ? Object.keys(TAG_DEFINITIONS) : []);
-
-        orderedTags.forEach(tagId => {
-            // Special handling for item type tags (weapon, armor, shield, container, jewelry)
-            if (['weapon', 'armor', 'shield', 'container', 'jewelry'].includes(tagId)) {
-                if (detectedProps[tagId] && (typeof isTagVisible !== 'function' || isTagVisible(tagId))) {
-                    const tag = document.createElement('span');
-                    tag.className = 'property-tag cat-item_type';
-                    tag.dataset.category = 'item_type';
-                    const tagColor = typeof getTagColor === 'function' ? getTagColor(tagId) : null;
-                    if (tagColor) {
-                        tag.style.color = tagColor;
-                        tag.style.borderColor = tagColor;
-                        tag.style.backgroundColor = 'transparent';
-                    }
-                    tag.textContent = tagId.charAt(0).toUpperCase() + tagId.slice(1);
-                    container.appendChild(tag);
-                }
-                return;
-            }
-
-            // Special handling for enchant
-            if (tagId === 'enchant') {
-                if (detectedProps.enchant && (typeof isTagVisible !== 'function' || isTagVisible('enchant'))) {
-                    const tag = document.createElement('span');
-                    tag.className = 'property-tag cat-magical';
-                    tag.dataset.category = 'magical';
-                    const tagColor = typeof getTagColor === 'function' ? getTagColor('enchant') : null;
-                    if (tagColor) {
-                        tag.style.color = tagColor;
-                        tag.style.borderColor = tagColor;
-                        tag.style.backgroundColor = 'transparent';
-                    }
-                    tag.textContent = `+${detectedProps.enchant}`;
-                    container.appendChild(tag);
-                }
-                return;
-            }
-
-            // Special handling for capacity
-            if (tagId === 'capacity') {
-                if (detectedProps.capacity) {
-                    const tag = document.createElement('span');
-                    tag.className = 'property-tag special';
-                    tag.textContent = detectedProps.capacity.charAt(0).toUpperCase() + detectedProps.capacity.slice(1);
-                    container.appendChild(tag);
-                }
-                return;
-            }
-
-            // Special handling for armor_type
-            if (tagId === 'armor_type') {
-                if (detectedProps.armor_type && (typeof isTagVisible !== 'function' || isTagVisible('armor_type'))) {
-                    const tag = document.createElement('span');
-                    tag.className = 'property-tag cat-item_type';
-                    tag.dataset.category = 'item_type';
-                    const tagColor = typeof getTagColor === 'function' ? getTagColor('armor_type') : null;
-                    if (tagColor) {
-                        tag.style.color = tagColor;
-                        tag.style.borderColor = tagColor;
-                        tag.style.backgroundColor = 'transparent';
-                    }
-                    tag.textContent = detectedProps.armor_type.charAt(0).toUpperCase() + detectedProps.armor_type.slice(1);
-                    container.appendChild(tag);
-                }
-                return;
-            }
-
-            // Special handling for weapon_type
-            if (tagId === 'weapon_type') {
-                if (detectedProps.weapon_type && (typeof isTagVisible !== 'function' || isTagVisible('weapon_type'))) {
-                    const tag = document.createElement('span');
-                    tag.className = 'property-tag cat-item_type';
-                    tag.dataset.category = 'item_type';
-                    const tagColor = typeof getTagColor === 'function' ? getTagColor('weapon_type') : null;
-                    if (tagColor) {
-                        tag.style.color = tagColor;
-                        tag.style.borderColor = tagColor;
-                        tag.style.backgroundColor = 'transparent';
-                    }
-                    tag.textContent = detectedProps.weapon_type.charAt(0).toUpperCase() + detectedProps.weapon_type.slice(1);
-                    container.appendChild(tag);
-                }
-                return;
-            }
-
-            // Special handling for shield_type
-            if (tagId === 'shield_type') {
-                if (detectedProps.shield_type && (typeof isTagVisible !== 'function' || isTagVisible('shield_type'))) {
-                    const tag = document.createElement('span');
-                    tag.className = 'property-tag cat-item_type';
-                    tag.dataset.category = 'item_type';
-                    const tagColor = typeof getTagColor === 'function' ? getTagColor('shield_type') : null;
-                    if (tagColor) {
-                        tag.style.color = tagColor;
-                        tag.style.borderColor = tagColor;
-                        tag.style.backgroundColor = 'transparent';
-                    }
-                    tag.textContent = detectedProps.shield_type.charAt(0).toUpperCase() + detectedProps.shield_type.slice(1);
-                    container.appendChild(tag);
-                }
-                return;
-            }
-
-            // Special handling for 'enhancive' - display individual enhancive stats
-            if (tagId === 'enhancive') {
-                const enhancivesVisible = typeof isTagEnabled === 'function' ? isTagEnabled('enhancive') : true;
-                if (enhancivesVisible && item.enhancives && item.enhancives.length > 0) {
-                    const enhColor = typeof getTagColor === 'function' ? getTagColor('enhancive') : '#27ae60';
-                    item.enhancives.forEach(enh => {
-                        const enhTag = document.createElement('span');
-                        enhTag.className = 'property-tag special';
-                        enhTag.dataset.category = 'enhancive';
-                        enhTag.style.color = enhColor;
-                        enhTag.style.borderColor = enhColor;
-                        enhTag.textContent = `+${enh.boost} ${enh.ability}`;
-                        container.appendChild(enhTag);
-                    });
-                }
-                return; // Don't show a generic "Enhancive" tag, we show the individual stats
-            }
-
-            // Special handling for 'flares' - we handle flares display separately
-            if (tagId === 'flares') {
-                if (item.flares && item.flares.length > 0) {
-                    if (typeof isTagVisible === 'function' && !isTagVisible('flares')) return;
-                    const flareColor = typeof getTagColor === 'function' ? getTagColor('flares') : '#9b59b6';
-                    const flareTag = document.createElement('span');
-                    flareTag.className = 'property-tag special';
-                    flareTag.dataset.category = 'magical';
-                    flareTag.style.color = flareColor;
-                    flareTag.style.borderColor = flareColor;
-                    flareTag.textContent = 'Flares';
-                    container.appendChild(flareTag);
-                }
-                return;
-            }
-
-            if (detectedProps[tagId] !== undefined && detectedProps[tagId] !== false) {
-                // Check tag visibility
-                if (typeof isTagVisible === 'function' && !isTagVisible(tagId)) return;
-
-                const tagEl = document.createElement('span');
-                const tagColor = typeof getTagColor === 'function' ? getTagColor(tagId) : null;
-                const tagCategory = typeof getCategoryForTag === 'function' ? getCategoryForTag(tagId) : null;
-                tagEl.className = 'property-tag special';
-                if (tagCategory) {
-                    tagEl.dataset.category = tagCategory;
-                }
-                if (tagColor) {
-                    tagEl.style.color = tagColor;
-                    tagEl.style.borderColor = tagColor;
-                }
-                const displayText = typeof formatPropertyDisplay === 'function'
-                    ? formatPropertyDisplay(tagId, detectedProps[tagId], detectedProps)
-                    : tagId.replace(/_/g, ' ');
-                // Skip if formatPropertyDisplay returns null (tag too long or invalid)
-                if (!displayText) return;
-                // Final safety check - skip any tag text longer than 50 characters
-                if (displayText.length > 50) {
-                    console.warn('Skipping long tag:', tagId, displayText.substring(0, 50) + '...');
-                    return;
-                }
-                tagEl.textContent = displayText;
-                container.appendChild(tagEl);
-            }
-        });
-
-        // Skill tag (rendered after ordered tags if it's not a duplicate of weapon type)
-        if (detectedProps._skill) {
-            const tag = document.createElement('span');
-            tag.className = 'property-tag';
-            tag.textContent = detectedProps._skill.charAt(0).toUpperCase() + detectedProps._skill.slice(1);
-            container.appendChild(tag);
-        }
-
-        // Gemstone tags
-        if (item.gemstoneProperties && item.gemstoneProperties.length > 0) {
-            // Add main gemstone tag
-            const gemstoneTag = document.createElement('span');
-            gemstoneTag.className = 'property-tag gemstone';
-            gemstoneTag.textContent = 'Gemstone';
-            container.appendChild(gemstoneTag);
-
-            // Add rarity tags in proper order: Regional -> Common -> Rare -> Legendary
-            const rarityOrder = ['regional', 'common', 'rare', 'legendary'];
-            const rarities = new Set();
-
-            // Collect all unique rarities
-            item.gemstoneProperties.forEach(prop => {
-                if (prop.rarity) {
-                    rarities.add(prop.rarity.toLowerCase());
-                }
-            });
-
-            // Add tags in the correct order
-            rarityOrder.forEach(rarity => {
-                if (rarities.has(rarity)) {
-                    const rarityTag = document.createElement('span');
-                    rarityTag.className = `property-tag rarity rarity-${rarity}`;
-                    rarityTag.textContent = rarity.charAt(0).toUpperCase() + rarity.slice(1);
-                    container.appendChild(rarityTag);
-                }
-            });
-        }
-
-        return container;
+        return BodegaShared.createPropertiesElement(item);
     }
 
     formatFlareDisplay(flare) {
@@ -1254,33 +985,36 @@ class SearchEngine {
         // Modal title shows just the item name (quantity is in Basic Information section)
         nameEl.textContent = item.name;
 
+        // All item-derived text is player-controlled and must be escaped
+        const esc = DataLoader.escapeHtml;
+
         bodyEl.innerHTML = `
             <div class="modal-section">
                 <h4>Basic Information</h4>
-                <p><strong>Price:</strong> ${DataLoader.formatPrice(item.price)}</p>
-                ${item.quantity ? `<p><strong>Quantity Available:</strong> ${item.quantity}</p>` : ''}
-                <p><strong>Town:</strong> ${item.town}</p>
-                <p><strong>Shop:</strong> ${item.shopName}</p>
-                <p><strong>Room:</strong> ${item.room}</p>
-                <p><strong>Item ID:</strong> ${item.id}</p>
-                ${item.weight ? `<p><strong>Weight:</strong> ${item.weight} pounds</p>` : ''}
-                ${item.material ? `<p><strong>Material:</strong> ${item.material}</p>` : ''}
+                <p><strong>Price:</strong> ${esc(DataLoader.formatPrice(item.price))}</p>
+                ${item.quantity ? `<p><strong>Quantity Available:</strong> ${esc(item.quantity)}</p>` : ''}
+                <p><strong>Town:</strong> ${esc(item.town)}</p>
+                <p><strong>Shop:</strong> ${esc(item.shopName)}</p>
+                <p><strong>Room:</strong> ${esc(item.room)}</p>
+                <p><strong>Item ID:</strong> ${esc(item.id)}</p>
+                ${item.weight ? `<p><strong>Weight:</strong> ${esc(item.weight)} pounds</p>` : ''}
+                ${item.material ? `<p><strong>Material:</strong> ${esc(item.material)}</p>` : ''}
             </div>
 
             ${item.enchant ? `
             <div class="modal-section">
                 <h4>Enchantment</h4>
-                <p>+${item.enchant} enchant bonus</p>
+                <p>+${esc(item.enchant)} enchant bonus</p>
             </div>
             ` : ''}
 
             ${item.forgedQuality && item.forgedAvd !== undefined ? `
             <div class="modal-section">
                 <h4>Forged Weapon Quality</h4>
-                <p><strong>Quality:</strong> ${item.forgedQuality.split(/[\s-]/).map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(item.forgedQuality.includes('-') ? '-' : ' ')}</p>
-                <p><strong>AvD Bonus:</strong> ${item.forgedAvd >= 0 ? '+' : ''}${item.forgedAvd}</p>
-                <p><strong>DF Bonus:</strong> ${item.forgedAvd * 2 >= 0 ? '+' : ''}${item.forgedAvd * 2}%</p>
-                ${item.forgedBy ? `<p><strong>Forged by:</strong> ${item.forgedBy}</p>` : ''}
+                <p><strong>Quality:</strong> ${esc(item.forgedQuality.split(/[\s-]/).map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(item.forgedQuality.includes('-') ? '-' : ' '))}</p>
+                <p><strong>AvD Bonus:</strong> ${item.forgedAvd >= 0 ? '+' : ''}${esc(item.forgedAvd)}</p>
+                <p><strong>DF Bonus:</strong> ${item.forgedAvd * 2 >= 0 ? '+' : ''}${esc(item.forgedAvd * 2)}%</p>
+                ${item.forgedBy ? `<p><strong>Forged by:</strong> ${esc(item.forgedBy)}</p>` : ''}
             </div>
             ` : ''}
 
@@ -1289,7 +1023,7 @@ class SearchEngine {
                 <h4>Flares</h4>
                 <div class="flares-list">
                     ${item.flares.map(flare => `
-                        <p>${this.formatFlareDisplay(flare)}</p>
+                        <p>${esc(this.formatFlareDisplay(flare))}</p>
                     `).join('')}
                 </div>
             </div>
@@ -1300,7 +1034,7 @@ class SearchEngine {
                 <h4>Enhancive Properties</h4>
                 <div class="enhancive-list">
                     ${item.enhancives.map(enh => `
-                        <p>+${enh.boost} to ${enh.ability}${enh.level ? ` (requires ${enh.level} training)` : ''}</p>
+                        <p>+${esc(enh.boost)} to ${esc(enh.ability)}${enh.level ? ` (requires ${esc(enh.level)} training)` : ''}</p>
                     `).join('')}
                 </div>
             </div>
@@ -1313,55 +1047,43 @@ class SearchEngine {
                     ${item.gemstoneProperties.map(prop => `
                         <div class="gemstone-property">
                             <div class="property-header">
-                                <strong>${prop.name}</strong>
-                                <span class="rarity-badge rarity-${prop.rarity?.toLowerCase() || 'common'}">${prop.rarity || 'Common'}</span>
+                                <strong>${esc(prop.name)}</strong>
+                                <span class="rarity-badge rarity-${esc(prop.rarity?.toLowerCase() || 'common')}">${esc(prop.rarity || 'Common')}</span>
                                 ${prop.activated ? '<span class="activated-badge">ACTIVATED</span>' : ''}
                             </div>
-                            <div class="property-mnemonic">Mnemonic: ${prop.mnemonic || 'Unknown'}</div>
-                            <div class="property-description">${prop.description || 'No description available'}</div>
+                            <div class="property-mnemonic">Mnemonic: ${esc(prop.mnemonic || 'Unknown')}</div>
+                            <div class="property-description">${esc(prop.description || 'No description available')}</div>
                         </div>
                     `).join('')}
                 </div>
-                ${item.gemstoneBoundTo ? `<p><strong>Bound to:</strong> ${item.gemstoneBoundTo}</p>` : ''}
+                ${item.gemstoneBoundTo ? `<p><strong>Bound to:</strong> ${esc(item.gemstoneBoundTo)}</p>` : ''}
             </div>
             ` : ''}
 
             ${item.tags && item.tags.length > 0 ? `
             <div class="modal-section">
                 <h4>Special Properties</h4>
-                <p>${item.tags
+                <p>${esc(item.tags
                     .filter(tag => typeof isValidDisplayTag === 'function' ? isValidDisplayTag(tag) : typeof tag === 'string' && tag.length <= 30)
                     .map(tag => tag.replace(/_/g, ' '))
-                    .join(', ')}</p>
+                    .join(', '))}</p>
             </div>
             ` : ''}
 
             <div class="modal-section">
                 <h4>Shop Location${this.getShopMapInfoInline(item.shopName)}</h4>
-                <p>${item.shopLocation}</p>
+                <p>${esc(item.shopLocation)}</p>
             </div>
 
             ${item.raw && item.raw.length > 0 ? `
             <div class="modal-section">
                 <h4>Raw Item Data</h4>
-                <div class="raw-data">${item.raw.join('\n')}</div>
+                <div class="raw-data">${esc(item.raw.join('\n'))}</div>
             </div>
             ` : ''}
         `;
 
         modal.style.display = 'block';
-    }
-
-    getShopMapInfo(shopName) {
-        // Extract owner name since shop_mapping uses owner names (e.g., "Painz") not full names (e.g., "Painz's Magic Shoppe")
-        const ownerName = this.extractOwnerNameFromShopName(shopName);
-        const shopMappingData = window.dataLoader?.shopMapping?.[ownerName];
-        if (shopMappingData) {
-            const mapId = shopMappingData.map_id;
-            const exterior = shopMappingData.exterior;
-            return `<br><span style="color: #1b5e20; font-weight: bold;">📍 Room: ${mapId}</span>${exterior ? `<br><span style="color: #2e7d32; font-style: italic;">Go: ${exterior}</span>` : ''}`;
-        }
-        return '';
     }
 
     getShopMapInfoInline(shopName) {
@@ -1370,32 +1092,13 @@ class SearchEngine {
         const shopMappingData = window.dataLoader?.shopMapping?.[ownerName];
         if (shopMappingData) {
             const mapId = shopMappingData.map_id;
-            return ` <span style="color: #1b5e20; font-weight: bold;">(📍 Room: ${mapId})</span>`;
+            return ` <span style="color: #1b5e20; font-weight: bold;">(📍 Room: ${DataLoader.escapeHtml(mapId)})</span>`;
         }
         return '';
     }
 
     extractOwnerNameFromShopName(shopName) {
-        // Extract owner name from shop name for shop_mapping lookups
-        // shop_mapping.json uses owner names (e.g., "Painz") not full shop names (e.g., "Painz's Magic Shoppe")
-        if (!shopName) return shopName;
-
-        // Extract owner name from patterns like:
-        //   "Painz's Magic Shoppe" -> "Painz"
-        //   "Dark Tower Imports" -> "Dark Tower Imports" (business name, keep as-is)
-        const match = shopName.match(/^(.*?)'s?\s+(Magic Shoppe|Weaponry|Armory|Outfitting|General Store|Combat Gear|Locksmith Shop|Shop|Boutique)/i);
-        if (match) {
-            return match[1].trim();
-        }
-
-        // Check for possessive without shop type
-        const possessiveMatch = shopName.match(/^(.*?)'s\s+(.*)$/i);
-        if (possessiveMatch) {
-            return possessiveMatch[1].trim();
-        }
-
-        // Return as-is if no pattern matches (business names)
-        return shopName;
+        return BodegaShared.extractOwnerNameFromShopName(shopName);
     }
 
     closeModal() {
@@ -1516,15 +1219,7 @@ class SearchEngine {
     }
 
     debounce(func, wait) {
-        let timeout;
-        return function executedFunction(...args) {
-            const later = () => {
-                clearTimeout(timeout);
-                func(...args);
-            };
-            clearTimeout(timeout);
-            timeout = setTimeout(later, wait);
-        };
+        return BodegaShared.debounce(func, wait);
     }
 
     generateItemURL(item) {
@@ -1640,9 +1335,11 @@ class SearchEngine {
         setTimeout(() => {
             const dataLoader = window.dataLoader;
             if (dataLoader && dataLoader.allItems.length > 0) {
+                // URL params are strings; item.id/shopId may be numbers.
+                // Compare as strings so deep links actually match.
                 const item = dataLoader.allItems.find(item =>
-                    item.id === itemId &&
-                    item.shopId === shopId &&
+                    String(item.id) === String(itemId) &&
+                    String(item.shopId) === String(shopId) &&
                     item.town === town
                 );
 

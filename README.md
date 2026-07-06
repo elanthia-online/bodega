@@ -46,9 +46,10 @@ bodega/
 ├── scripts/              # Core scripts
 │   └── bodega.lic       # Single source of truth
 ├── .github/workflows/    # CI/CD automation
-│   ├── automation.yml   # Data collection
-│   ├── deploy.yml       # Web deployment
-│   └── api-processor.yml # Manual uploads
+│   ├── automation.yml     # Data collection (Scrape)
+│   ├── process-data.yml   # Raw -> processed data (Process)
+│   ├── deploy.yml         # Web deployment (Deploy)
+│   └── update-map-ids.yml # Refresh shop map IDs
 └── README.md            # Documentation
 ```
 
@@ -69,7 +70,7 @@ The repository automatically collects data every 2 hours.
 
 ### Scan Types
 - **Smart Scan** (default): Only inspects new/changed items - 90% faster
-- **Full Scan** (8 AM UTC): Comprehensive scan of all shops
+- **Full Scan** (first scheduled run each UTC day): Comprehensive scan of all shops
 
 ### Ruby Integration
 The automation system uses the core bodega.lic script directly:
@@ -79,8 +80,9 @@ The automation system uses the core bodega.lic script directly:
 Bodega::Opts[:headless] = true
 Bodega::Opts[:automation] = true
 
-# Time-based scan selection
-if current_hour == 8
+# Scan type is chosen by the workflow (one full scan per UTC day, gated by
+# the automation/state/last-full-scan marker) and passed to run-scan.
+if scan_type == "full"
   Bodega::Parser.smart_scan()  # Smart pass first
   Bodega::Parser.full_scan()   # Then full pass
 else

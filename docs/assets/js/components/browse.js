@@ -510,11 +510,11 @@ class BrowseEngine {
                     <td colspan="5" class="shop-directory-card">
                         <div class="shop-card">
                             <div class="shop-card-header">
-                                <div class="shop-card-name">${shopName}</div>
+                                <div class="shop-card-name">${DataLoader.escapeHtml(shopName)}</div>
                                 <div class="shop-card-stats">
                                     <span class="stat-badge">${itemCount} items</span>
                                     <span class="stat-badge">${roomCount} room${roomCount !== 1 ? 's' : ''}</span>
-                                    ${locationInfo ? `<span class="stat-badge location">${locationInfo}</span>` : ''}
+                                    ${locationInfo ? `<span class="stat-badge location">${DataLoader.escapeHtml(locationInfo)}</span>` : ''}
                                 </div>
                             </div>
                             <div class="shop-card-footer">
@@ -557,30 +557,13 @@ class BrowseEngine {
     }
 
     extractOwnerNameFromShopName(shopName) {
-        // Extract owner name from shop name for shop_mapping lookups
-        // shop_mapping.json uses owner names (e.g., "Painz") not full shop names (e.g., "Painz's Magic Shoppe")
-        if (!shopName) return shopName;
-
-        // Extract owner name from patterns like:
-        //   "Painz's Magic Shoppe" -> "Painz"
-        //   "Dark Tower Imports" -> "Dark Tower Imports" (business name, keep as-is)
-        const match = shopName.match(/^(.*?)'s?\s+(Magic Shoppe|Weaponry|Armory|Outfitting|General Store|Combat Gear|Locksmith Shop|Shop|Boutique)/i);
-        if (match) {
-            return match[1].trim();
-        }
-
-        // Check for possessive without shop type
-        const possessiveMatch = shopName.match(/^(.*?)'s\s+(.*)$/i);
-        if (possessiveMatch) {
-            return possessiveMatch[1].trim();
-        }
-
-        // Return as-is if no pattern matches (business names)
-        return shopName;
+        return BodegaShared.extractOwnerNameFromShopName(shopName);
     }
 
     hideShopList() {
-        document.getElementById('shop-list-section').style.display = 'none';
+        // Element may not exist in the current markup; guard against null
+        const el = document.getElementById('shop-list-section');
+        if (el) el.style.display = 'none';
     }
 
     selectShop(townName, shopName) {
@@ -616,16 +599,16 @@ class BrowseEngine {
         selectedShopName.innerHTML = `
             <div class="shop-detail-header">
                 <div class="shop-detail-name-row">
-                    <div class="shop-detail-name">${shopName}</div>
+                    <div class="shop-detail-name">${DataLoader.escapeHtml(shopName)}</div>
                 </div>
                 ${shopMappingData ? `
                     <div class="shop-navigation-info">
-                        <div class="shop-map-id">📍 Room: ${shopMappingData.map_id}</div>
-                        ${shopMappingData.exterior ? `<div class="shop-exterior">Go: ${shopMappingData.exterior}</div>` : ''}
+                        <div class="shop-map-id">📍 Room: ${DataLoader.escapeHtml(shopMappingData.map_id)}</div>
+                        ${shopMappingData.exterior ? `<div class="shop-exterior">Go: ${DataLoader.escapeHtml(shopMappingData.exterior)}</div>` : ''}
                     </div>
                 ` : ''}
-                ${metadata.location ? `<div class="shop-detail-location">${metadata.location}</div>` : ''}
-                ${metadata.sign ? `<div class="shop-detail-sign">${metadata.sign}</div>` : ''}
+                ${metadata.location ? `<div class="shop-detail-location">${DataLoader.escapeHtml(metadata.location)}</div>` : ''}
+                ${metadata.sign ? `<div class="shop-detail-sign">${DataLoader.escapeHtml(metadata.sign)}</div>` : ''}
             </div>
         `;
 
@@ -678,7 +661,7 @@ class BrowseEngine {
             const roomDiv = document.createElement('div');
             roomDiv.className = 'room-item' + (room.isEmpty ? ' empty-room' : '');
             roomDiv.innerHTML = `
-                <div class="room-name">${room.name}</div>
+                <div class="room-name">${DataLoader.escapeHtml(room.name)}</div>
                 <div class="room-stats">${room.isEmpty ? '(nothing for sale)' : `${room.itemCount} items`}</div>
             `;
 
@@ -695,7 +678,7 @@ class BrowseEngine {
             <div class="shop-summary-stats">
                 <span class="stat-item">${totalItems} total items</span>
                 <span class="stat-item">${allRooms.length} rooms</span>
-                ${metadata.id ? `<span class="stat-item">Shop ID: ${metadata.id}</span>` : ''}
+                ${metadata.id ? `<span class="stat-item">Shop ID: ${DataLoader.escapeHtml(metadata.id)}</span>` : ''}
             </div>
         `;
         roomList.insertBefore(summaryDiv, roomList.firstChild);
@@ -780,12 +763,12 @@ class BrowseEngine {
                 <td colspan="5">
                     <div class="room-header-content">
                         <div class="room-title">
-                            <strong>${roomName}</strong> (${itemsByRoom[roomName].length} items)
+                            <strong>${DataLoader.escapeHtml(roomName)}</strong> (${itemsByRoom[roomName].length} items)
                         </div>
                         ${roomSign ? `
                             <div class="room-sign">
                                 <div class="room-sign-icon">📋</div>
-                                <div class="room-sign-text">${roomSign}</div>
+                                <div class="room-sign-text">${DataLoader.escapeHtml(roomSign)}</div>
                             </div>
                         ` : ''}
                     </div>
@@ -948,11 +931,7 @@ class BrowseEngine {
     }
 
     calculatePropertyCount(item) {
-        // Only count enhancive properties (green stat bonuses)
-        if (item.enhancives && item.enhancives.length > 0) {
-            return item.enhancives.length;
-        }
-        return 0;
+        return BodegaShared.calculatePropertyCount(item);
     }
 
     createItemRow(item) {
@@ -1045,270 +1024,11 @@ class BrowseEngine {
     }
 
     createPropertiesElement(item) {
-        const container = document.createElement('div');
-
-        // Collect all properties that should be displayed
-        const detectedProps = typeof detectPropertiesFromRaw === 'function'
-            ? detectPropertiesFromRaw(item.raw)
-            : {};
-
-        // Add item type tags to detectedProps
-        if (item.itemType) detectedProps[item.itemType] = true;
-        if (item.armorType) detectedProps.armor_type = item.armorType;
-        if (item.weaponType) detectedProps.weapon_type = item.weaponType;
-        if (item.shieldType) detectedProps.shield_type = item.shieldType;
-        if (item.capacityLevel) detectedProps.capacity = item.capacityLevel;
-        if (item.enchant) detectedProps.enchant = item.enchant;
-
-        // Add skill (but don't duplicate weapon type)
-        if (item.skill && (!item.weaponType || item.skill !== item.weaponType)) {
-            detectedProps._skill = item.skill; // Use _skill to avoid conflicts
-        }
-
-        // Merge with existing extracted properties from the data
-        if (item.td_bonus) detectedProps.td_bonus = item.td_bonus;
-        if (item.sanctify) detectedProps.sanctify = item.sanctify;
-        if (item.ensorcell) detectedProps.ensorcell = item.ensorcell;
-        if (item.dmg_padding) detectedProps.dmg_padding = item.dmg_padding;
-        if (item.crit_padding) detectedProps.crit_padding = item.crit_padding;
-        if (item.dmg_weighting) detectedProps.dmg_weighting = item.dmg_weighting;
-        if (item.crit_weighting) detectedProps.crit_weighting = item.crit_weighting;
-        if (item.sighting) detectedProps.sighting = item.sighting;
-        if (item.blessing) detectedProps.holy = true;
-        if (item.flares && item.flares.length > 0) detectedProps.flares = true;
-        if (item.enhancives && item.enhancives.length > 0) detectedProps.enhancive = true;
-
-        // Chrism detection: price 1k-20k AND "But you are not holding" in raw text
-        if (item.price >= 1000 && item.price <= 20000 && item.raw && item.raw.some(line => line.includes('But you are not holding'))) {
-            detectedProps.chrism = true;
-        }
-
-        // Check tags for boolean properties
-        if (item.tags && item.tags.length > 0) {
-            const boolTags = ['spiked', 'magic_resistant', 'scripted', 'holy_fire',
-                              'max_light', 'max_deep', 'persists', 'crumbly', 'holy',
-                              'lightenable', 'deepenable', 'imbeddable'];
-            item.tags.forEach(tag => {
-                // Skip any tag that's too long (likely invalid data)
-                if (typeof tag !== 'string' || tag.length > 30) return;
-                if (boolTags.includes(tag)) {
-                    detectedProps[tag] = true;
-                }
-            });
-        }
-
-        // Display detected properties respecting tag visibility and order
-        const orderedTags = typeof getOrderedTagIds === 'function'
-            ? getOrderedTagIds()
-            : (typeof TAG_DEFINITIONS !== 'undefined' ? Object.keys(TAG_DEFINITIONS) : []);
-
-        orderedTags.forEach(tagId => {
-            // Special handling for item type tags (weapon, armor, shield, container, jewelry)
-            if (['weapon', 'armor', 'shield', 'container', 'jewelry'].includes(tagId)) {
-                if (detectedProps[tagId] && (typeof isTagVisible !== 'function' || isTagVisible(tagId))) {
-                    const tag = document.createElement('span');
-                    tag.className = 'property-tag cat-item_type';
-                    tag.dataset.category = 'item_type';
-                    const tagColor = typeof getTagColor === 'function' ? getTagColor(tagId) : null;
-                    if (tagColor) {
-                        tag.style.color = tagColor;
-                        tag.style.borderColor = tagColor;
-                        tag.style.backgroundColor = 'transparent';
-                    }
-                    tag.textContent = tagId.charAt(0).toUpperCase() + tagId.slice(1);
-                    container.appendChild(tag);
-                }
-                return;
-            }
-
-            // Special handling for enchant
-            if (tagId === 'enchant') {
-                if (detectedProps.enchant && (typeof isTagVisible !== 'function' || isTagVisible('enchant'))) {
-                    const tag = document.createElement('span');
-                    tag.className = 'property-tag cat-magical';
-                    tag.dataset.category = 'magical';
-                    const tagColor = typeof getTagColor === 'function' ? getTagColor('enchant') : null;
-                    if (tagColor) {
-                        tag.style.color = tagColor;
-                        tag.style.borderColor = tagColor;
-                        tag.style.backgroundColor = 'transparent';
-                    }
-                    tag.textContent = `+${detectedProps.enchant}`;
-                    container.appendChild(tag);
-                }
-                return;
-            }
-
-            // Special handling for capacity
-            if (tagId === 'capacity') {
-                if (detectedProps.capacity) {
-                    const tag = document.createElement('span');
-                    tag.className = 'property-tag special';
-                    tag.textContent = detectedProps.capacity.charAt(0).toUpperCase() + detectedProps.capacity.slice(1);
-                    container.appendChild(tag);
-                }
-                return;
-            }
-
-            // Special handling for armor_type
-            if (tagId === 'armor_type') {
-                if (detectedProps.armor_type && (typeof isTagVisible !== 'function' || isTagVisible('armor_type'))) {
-                    const tag = document.createElement('span');
-                    tag.className = 'property-tag cat-item_type';
-                    tag.dataset.category = 'item_type';
-                    const tagColor = typeof getTagColor === 'function' ? getTagColor('armor_type') : null;
-                    if (tagColor) {
-                        tag.style.color = tagColor;
-                        tag.style.borderColor = tagColor;
-                        tag.style.backgroundColor = 'transparent';
-                    }
-                    tag.textContent = detectedProps.armor_type.charAt(0).toUpperCase() + detectedProps.armor_type.slice(1);
-                    container.appendChild(tag);
-                }
-                return;
-            }
-
-            // Special handling for weapon_type
-            if (tagId === 'weapon_type') {
-                if (detectedProps.weapon_type && (typeof isTagVisible !== 'function' || isTagVisible('weapon_type'))) {
-                    const tag = document.createElement('span');
-                    tag.className = 'property-tag cat-item_type';
-                    tag.dataset.category = 'item_type';
-                    const tagColor = typeof getTagColor === 'function' ? getTagColor('weapon_type') : null;
-                    if (tagColor) {
-                        tag.style.color = tagColor;
-                        tag.style.borderColor = tagColor;
-                        tag.style.backgroundColor = 'transparent';
-                    }
-                    tag.textContent = detectedProps.weapon_type.charAt(0).toUpperCase() + detectedProps.weapon_type.slice(1);
-                    container.appendChild(tag);
-                }
-                return;
-            }
-
-            // Special handling for shield_type
-            if (tagId === 'shield_type') {
-                if (detectedProps.shield_type && (typeof isTagVisible !== 'function' || isTagVisible('shield_type'))) {
-                    const tag = document.createElement('span');
-                    tag.className = 'property-tag cat-item_type';
-                    tag.dataset.category = 'item_type';
-                    const tagColor = typeof getTagColor === 'function' ? getTagColor('shield_type') : null;
-                    if (tagColor) {
-                        tag.style.color = tagColor;
-                        tag.style.borderColor = tagColor;
-                        tag.style.backgroundColor = 'transparent';
-                    }
-                    tag.textContent = detectedProps.shield_type.charAt(0).toUpperCase() + detectedProps.shield_type.slice(1);
-                    container.appendChild(tag);
-                }
-                return;
-            }
-
-            // Special handling for 'enhancive' - display individual enhancive stats
-            if (tagId === 'enhancive') {
-                const enhancivesVisible = typeof isTagEnabled === 'function' ? isTagEnabled('enhancive') : true;
-                if (enhancivesVisible && item.enhancives && item.enhancives.length > 0) {
-                    const enhColor = typeof getTagColor === 'function' ? getTagColor('enhancive') : '#27ae60';
-                    item.enhancives.forEach(enh => {
-                        const enhTag = document.createElement('span');
-                        enhTag.className = 'property-tag special';
-                        enhTag.dataset.category = 'enhancive';
-                        enhTag.style.color = enhColor;
-                        enhTag.style.borderColor = enhColor;
-                        enhTag.textContent = `+${enh.boost} ${enh.ability}`;
-                        container.appendChild(enhTag);
-                    });
-                }
-                return; // Don't show a generic "Enhancive" tag, we show the individual stats
-            }
-
-            // Special handling for 'flares' - we handle flares display separately
-            if (tagId === 'flares') {
-                if (item.flares && item.flares.length > 0) {
-                    if (typeof isTagVisible === 'function' && !isTagVisible('flares')) return;
-                    const flareColor = typeof getTagColor === 'function' ? getTagColor('flares') : '#9b59b6';
-                    const flareTag = document.createElement('span');
-                    flareTag.className = 'property-tag special';
-                    flareTag.dataset.category = 'magical';
-                    flareTag.style.color = flareColor;
-                    flareTag.style.borderColor = flareColor;
-                    flareTag.textContent = 'Flares';
-                    container.appendChild(flareTag);
-                }
-                return;
-            }
-
-            if (detectedProps[tagId] !== undefined && detectedProps[tagId] !== false) {
-                // Check tag visibility
-                if (typeof isTagVisible === 'function' && !isTagVisible(tagId)) return;
-
-                const tagEl = document.createElement('span');
-                const tagColor = typeof getTagColor === 'function' ? getTagColor(tagId) : null;
-                const tagCategory = typeof getCategoryForTag === 'function' ? getCategoryForTag(tagId) : null;
-                tagEl.className = 'property-tag special';
-                if (tagCategory) {
-                    tagEl.dataset.category = tagCategory;
-                }
-                if (tagColor) {
-                    tagEl.style.color = tagColor;
-                    tagEl.style.borderColor = tagColor;
-                }
-                const displayText = typeof formatPropertyDisplay === 'function'
-                    ? formatPropertyDisplay(tagId, detectedProps[tagId], detectedProps)
-                    : tagId.replace(/_/g, ' ');
-                // Skip if formatPropertyDisplay returns null (tag too long or invalid)
-                if (!displayText) return;
-                // Final safety check - skip any tag text longer than 50 characters
-                if (displayText.length > 50) {
-                    console.warn('Skipping long tag:', tagId, displayText.substring(0, 50) + '...');
-                    return;
-                }
-                tagEl.textContent = displayText;
-                container.appendChild(tagEl);
-            }
-        });
-
-        // Skill tag (rendered after ordered tags if it's not a duplicate of weapon type)
-        if (detectedProps._skill) {
-            const tag = document.createElement('span');
-            tag.className = 'property-tag';
-            tag.textContent = detectedProps._skill.charAt(0).toUpperCase() + detectedProps._skill.slice(1);
-            container.appendChild(tag);
-        }
-
-        // Gemstone rarity tags
-        if (item.gemstoneProperties && item.gemstoneProperties.length > 0) {
-            const rarityOrder = ['regional', 'common', 'rare', 'legendary'];
-            const rarities = new Set();
-
-            // Collect all unique rarities
-            item.gemstoneProperties.forEach(prop => {
-                if (prop.rarity) {
-                    rarities.add(prop.rarity.toLowerCase());
-                }
-            });
-
-            // Add rarity tags in the correct order
-            rarityOrder.forEach(rarity => {
-                if (rarities.has(rarity)) {
-                    const rarityTag = document.createElement('span');
-                    rarityTag.className = `property-tag rarity rarity-${rarity}`;
-                    rarityTag.textContent = rarity.charAt(0).toUpperCase() + rarity.slice(1);
-                    container.appendChild(rarityTag);
-                }
-            });
-        }
-
-        return container;
+        return BodegaShared.createPropertiesElement(item);
     }
 
     formatPrice(price) {
-        if (price >= 1000000) {
-            return (price / 1000000).toFixed(1) + 'M';
-        } else if (price >= 1000) {
-            return (price / 1000).toFixed(1) + 'k';
-        }
-        return price.toString();
+        return DataLoader.formatPrice(price);
     }
 
     showItemDetails(item) {
@@ -1503,14 +1223,14 @@ class BrowseEngine {
                 <td colspan="5" class="shop-directory-card">
                     <div class="shop-card">
                         <div class="shop-card-header">
-                            <div class="shop-card-name">${shopInfo.shopName}</div>
+                            <div class="shop-card-name">${DataLoader.escapeHtml(shopInfo.shopName)}</div>
                             <div class="shop-card-stats">
                                 <span class="stat-badge">${shopInfo.itemCount} items</span>
                                 <span class="stat-badge">${shopInfo.roomCount} rooms</span>
-                                ${searchedAllTowns ? `<span class="stat-badge town-badge">${shopInfo.town}</span>` : ''}
+                                ${searchedAllTowns ? `<span class="stat-badge town-badge">${DataLoader.escapeHtml(shopInfo.town)}</span>` : ''}
                             </div>
                         </div>
-                        ${locationInfo ? `<div class="shop-card-location">${locationInfo}</div>` : ''}
+                        ${locationInfo ? `<div class="shop-card-location">${DataLoader.escapeHtml(locationInfo)}</div>` : ''}
                         <div class="shop-card-sign">${this.highlightSearchTerm(shopInfo.shopSign, searchQuery)}</div>
                         <div class="shop-card-footer">
                             <button class="copy-link-btn" title="Copy link to this shop">🔗 Copy Link</button>
@@ -1547,10 +1267,14 @@ class BrowseEngine {
     }
 
     highlightSearchTerm(text, searchTerm) {
-        if (!text || !searchTerm) return text;
+        // Returns HTML: escape the sign text (player-controlled) and the
+        // search term (user input, both as regex and as HTML)
+        if (!text) return '';
+        const safeText = DataLoader.escapeHtml(text);
+        if (!searchTerm) return safeText;
 
-        const regex = new RegExp(`(${searchTerm})`, 'gi');
-        return text.replace(regex, '<mark>$1</mark>');
+        const regex = new RegExp(`(${DataLoader.escapeRegExp(DataLoader.escapeHtml(searchTerm))})`, 'gi');
+        return safeText.replace(regex, '<mark>$1</mark>');
     }
 
     selectShopDirect(townName, shopName) {
