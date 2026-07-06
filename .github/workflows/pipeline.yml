@@ -194,6 +194,18 @@ jobs:
           name: scan-data
           path: docs/data/
 
+      # One-time self-heal: the previously deployed added_items.json still
+      # carries old price-bearing signatures (town:shop:item:price), which the
+      # current frontend (price-free signatures) can't match. Migrate it to
+      # the new format before processing. Idempotent - a no-op once the site
+      # carries new-format data, so safe to leave in place.
+      - name: Migrate added_items signatures
+        run: |
+          if [ -f docs/data/added_items.json ]; then
+            ruby automation/tools/one-off/migrate-signatures.rb docs/data/added_items.json
+            rm -f docs/data/added_items.json.backup
+          fi
+
       - name: Process raw data
         id: process
         env:

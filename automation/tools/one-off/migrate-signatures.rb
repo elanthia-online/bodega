@@ -46,10 +46,14 @@ collapsed = 0
 signature_keys = 0
 
 data.each do |key, added_date|
-  if key.include?(':')
+  parts = key.split(':')
+  # Only collapse OLD price-bearing signatures: town:shop:item:price, where
+  # the trailing component is the numeric price. A new-format key
+  # (town:shop:item) or a legacy numeric-ID key is left untouched, so this
+  # migration is idempotent and safe to re-run.
+  if parts.length >= 4 && parts.last =~ /\A\d+\z/
     signature_keys += 1
-    # Drop the trailing :price component -> base identity
-    base = key.split(':')[0..-2].join(':')
+    base = parts[0..-2].join(':')
 
     if migrated.key?(base)
       collapsed += 1
@@ -60,7 +64,7 @@ data.each do |key, added_date|
       migrated[base] = added_date
     end
   else
-    # Legacy numeric-ID key - preserve as-is
+    # Already new-format, or a legacy numeric-ID key - preserve as-is
     migrated[key] = added_date
   end
 end
