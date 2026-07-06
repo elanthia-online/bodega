@@ -116,18 +116,34 @@ Items are tracked using signatures (used in `added_items.json`):
 ```
 
 ## CI/CD
-The three data-mutating workflows run in a chain, each dispatching the next
-after it pushes changes to `master`:
-- `automation.yml` (Scrape): runs every 2 hours via cron. Auto mode runs one
-  **full** scan per UTC day — the first run of the day, gated by the
-  `automation/state/last-full-scan` date marker — and **smart** scans for the
-  rest. On changes, dispatches `process-data.yml`.
-- `process-data.yml` (Process): runs `processor.rb` over the raw data. On
-  changes, dispatches `deploy.yml`.
-- `deploy.yml` (Deploy): `workflow_dispatch` only (triggered by the process
-  step). Publishes `docs/` to GitHub Pages.
-- `update-map-ids.yml` (Update Map IDs): `workflow_dispatch` only. Scrapes
-  ps.lichproject.org and updates `docs/data/shop_mapping.json`.
 
-All three pushers rebase-and-retry against the live `master` tip to avoid
-races, and declare least-privilege `permissions` blocks.
+**Scan data is never committed to git.** The deployed GitHub Pages site is
+the pipeline's state store; git holds only code. `docs/data/` is gitignored.
+
+`pipeline.yml` runs every 2 hours (cron) as a single run with three chained
+jobs; data flows between them as workflow artifacts, not commits:
+1. **Scrape** — `automation/bin/fetch-site-data` restores the previous
+   processed town files + tracking (`added_items`/`removed_items`) +
+   `shop_mapping.json` + `state.json` from the live site into `docs/data/`,
+   then runs the scan. Auto mode does one **full** scan per UTC day (the
+   first run of the day, gated by `state.json`'s `last_full_scan` date) and
+   **smart** scans otherwise. Uploads a `scan-data` artifact (new raw data
+   plus the restored previous state the processor needs).
+2. **Process** — downloads `scan-data`, runs `processor.rb`, uploads a
+   `site-data` artifact (processed town files + tracking + shop_mapping +
+   state, excluding `raw/`).
+3. **Deploy** — downloads `site-data`, stages `docs/` (minus `data/raw/`),
+   publishes to GitHub Pages.
+
+A single `bodega-pipeline` concurrency group serializes runs, so there are
+no commit/push races and no cross-workflow dispatch. Because a queued run
+starts only after the prior run has deployed, the once-per-day full-scan
+gate reads an up-to-date `state.json`.
+
+`update-map-ids.yml` (`workflow_dispatch` only) follows the same pattern:
+restore site data → update `shop_mapping.json` from ps.lichproject.org →
+redeploy. Shares the `bodega-pipeline` concurrency group.
+
+The live site is only ever changed by a successful Deploy, so a failed run
+leaves the previous data serving unchanged. For **local** development,
+run `automation/bin/fetch-site-data` once to populate `docs/data/`.

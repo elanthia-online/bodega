@@ -46,9 +46,7 @@ bodega/
 ├── scripts/              # Core scripts
 │   └── bodega.lic       # Single source of truth
 ├── .github/workflows/    # CI/CD automation
-│   ├── automation.yml     # Data collection (Scrape)
-│   ├── process-data.yml   # Raw -> processed data (Process)
-│   ├── deploy.yml         # Web deployment (Deploy)
+│   ├── pipeline.yml       # Scrape -> Process -> Deploy (one run, artifacts)
 │   └── update-map-ids.yml # Refresh shop map IDs
 └── README.md            # Documentation
 ```
@@ -64,7 +62,11 @@ Visit the web interface: [Bodega](https://elanthia-online.github.io/bodega)
 3. Submit a pull request
 
 ### For Data Collection (Automation)
-The repository automatically collects data every 2 hours.
+The site automatically updates every 2 hours via `pipeline.yml`. Scan data
+is not committed to git — it is restored from the live site each run, passed
+between the Scrape/Process/Deploy jobs as artifacts, and published straight
+to GitHub Pages. For local development, run `automation/bin/fetch-site-data`
+once to populate `docs/data/`.
 
 ## Automation System
 

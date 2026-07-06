@@ -1,59 +1,65 @@
 name: Update Map IDs
 
+# Refresh shop_mapping.json map IDs from ps.lichproject.org and redeploy.
+# Like the main pipeline, this commits nothing: it restores current site
+# data, updates shop_mapping.json, and republishes to Pages.
+
 on:
   workflow_dispatch:
 
-# Least-privilege token: push shop_mapping.json updates
-permissions:
-  contents: write
+concurrency:
+  group: bodega-pipeline
+  cancel-in-progress: false
+
+env:
+  SITE_URL: https://shops.elanthia.online
 
 jobs:
-  update:
+  update-and-deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
-
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-      with:
-        fetch-depth: 1
+      - name: Checkout code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          fetch-depth: 1
 
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@c4e5b1316158f92e3d49443a9d58b31d25ac0f8f # v1.306.0
-      with:
-        ruby-version: '3.1'
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@c4e5b1316158f92e3d49443a9d58b31d25ac0f8f # v1.306.0
+        with:
+          ruby-version: '3.1'
 
-    - name: Scrape and update map IDs
-      run: ruby automation/ruby/update_map_ids.rb
+      - name: Restore current site data
+        run: |
+          chmod +x automation/bin/fetch-site-data
+          ./automation/bin/fetch-site-data "$SITE_URL"
 
-    - name: Commit and push if changed
-      run: |
-        git config user.name "Bodega Automation"
-        git config user.email "automation@bodega.local"
+      - name: Scrape and update map IDs
+        run: ruby automation/ruby/update_map_ids.rb
 
-        git add docs/data/shop_mapping.json
+      - name: Stage site (exclude raw)
+        run: |
+          mkdir -p _site
+          rsync -a --exclude='data/raw/' docs/ _site/
+          test -f _site/index.html || { echo "ERROR: index.html missing"; exit 1; }
+          test -f _site/data/shop_mapping.json || { echo "ERROR: shop_mapping.json missing"; exit 1; }
 
-        if git diff --staged --quiet; then
-          echo "No changes to shop_mapping.json"
-          exit 0
-        fi
+      - name: Setup Pages
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
 
-        git commit -m "Update shop map IDs from ps.lichproject.org"
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: '_site'
 
-        # Rebase on the live tip and push, retrying if another workflow
-        # (automation, process-data) pushes in between.
-        pushed=false
-        for attempt in 1 2 3 4 5; do
-          git fetch origin master
-          git rebase --autostash origin/master
-          if git push origin master; then
-            pushed=true
-            break
-          fi
-          echo "Push rejected (attempt $attempt), retrying..."
-          sleep $((attempt * 5))
-        done
-        if [ "$pushed" != "true" ]; then
-          echo "Failed to push after 5 attempts"
-          exit 1
-        fi
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 # v5.0.0
+        timeout-minutes: 10
