@@ -402,7 +402,9 @@ class AddedEngine {
             const shopLink = document.createElement('a');
             shopLink.href = '#';
             shopLink.className = 'shop-link';
-            shopLink.innerHTML = `<strong>${item.shopName}</strong>`;
+            const shopStrong = document.createElement('strong');
+            shopStrong.textContent = item.shopName;
+            shopLink.appendChild(shopStrong);
             shopLink.addEventListener('click', (e) => {
                 e.preventDefault();
                 e.stopPropagation();

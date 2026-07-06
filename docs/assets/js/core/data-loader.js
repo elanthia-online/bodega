@@ -589,6 +589,23 @@ class DataLoader {
         return this.allItems.find(item => item.id === id);
     }
 
+    // Escape untrusted text (item/shop/room names are player-controlled)
+    // before interpolating into innerHTML templates
+    static escapeHtml(text) {
+        if (text === null || text === undefined) return '';
+        return String(text)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
+
+    // Escape user input before building a RegExp from it
+    static escapeRegExp(text) {
+        return String(text).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
     // Price formatting utility
     static formatPrice(price) {
         if (!price || price === 0) return 'Free';

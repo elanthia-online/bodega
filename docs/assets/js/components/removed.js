@@ -318,26 +318,42 @@ class RemovedEngine {
         const removedDate = new Date(item.removedDate);
         const properties = this.createPropertiesElement(item);
 
-        row.innerHTML = `
-            <td class="item-name">
-                <span class="name">${item.name}</span>
-            </td>
-            <td class="item-removed-time">${this.formatRelativeTime(removedDate)}</td>
-            <td class="item-price">${this.formatPrice(item.price)}</td>
-            <td class="item-properties">${properties.innerHTML}</td>
-            <td class="item-town">${item.lastSeenTown || 'Unknown'}</td>
-            <td class="item-shop">${item.lastSeenShop || 'Unknown'}</td>
-        `;
+        // Build cells with textContent — item/shop names are player-controlled
+        const nameCell = document.createElement('td');
+        nameCell.className = 'item-name';
+        const nameSpan = document.createElement('span');
+        nameSpan.className = 'name';
+        nameSpan.textContent = item.name;
+        nameCell.appendChild(nameSpan);
 
         // Add quantity after name if it exists (with 2 spaces, not underlined)
         if (item.quantity) {
-            const nameCell = row.querySelector('.item-name');
-            const quantityText = document.createTextNode(`  (${item.quantity})`);
-            nameCell.appendChild(quantityText);
+            nameCell.appendChild(document.createTextNode(`  (${item.quantity})`));
         }
 
+        const timeCell = document.createElement('td');
+        timeCell.className = 'item-removed-time';
+        timeCell.textContent = this.formatRelativeTime(removedDate);
+
+        const priceCell = document.createElement('td');
+        priceCell.className = 'item-price';
+        priceCell.textContent = this.formatPrice(item.price);
+
+        const propertiesCell = document.createElement('td');
+        propertiesCell.className = 'item-properties';
+        propertiesCell.appendChild(properties);
+
+        const townCell = document.createElement('td');
+        townCell.className = 'item-town';
+        townCell.textContent = item.lastSeenTown || 'Unknown';
+
+        const shopCell = document.createElement('td');
+        shopCell.className = 'item-shop';
+        shopCell.textContent = item.lastSeenShop || 'Unknown';
+
+        row.append(nameCell, timeCell, priceCell, propertiesCell, townCell, shopCell);
+
         // Register for hover tooltip (raw recall preview)
-        const nameSpan = row.querySelector('.name');
         if (window.tooltipManager && nameSpan) {
             window.tooltipManager.register(nameSpan, item);
         }

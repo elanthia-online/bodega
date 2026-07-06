@@ -29,7 +29,7 @@ class MultiSelectFilter {
         const tag = document.createElement('span');
         tag.className = 'filter-tag';
         tag.dataset.value = value;
-        tag.innerHTML = `${label} <span class="remove">×</span>`;
+        tag.innerHTML = `${DataLoader.escapeHtml(label)} <span class="remove">×</span>`;
 
         tag.addEventListener('click', () => {
             this.removeSelection(value);
@@ -919,7 +919,9 @@ class SearchEngine {
         const shopLink = document.createElement('a');
         shopLink.href = '#';
         shopLink.className = 'shop-link';
-        shopLink.innerHTML = `<strong>${item.shopName}</strong>`;
+        const shopStrong = document.createElement('strong');
+        shopStrong.textContent = item.shopName;
+        shopLink.appendChild(shopStrong);
         shopLink.addEventListener('click', (e) => {
             e.preventDefault();
             this.navigateToShopInBrowse(item.town, item.shopName);
@@ -1254,33 +1256,36 @@ class SearchEngine {
         // Modal title shows just the item name (quantity is in Basic Information section)
         nameEl.textContent = item.name;
 
+        // All item-derived text is player-controlled and must be escaped
+        const esc = DataLoader.escapeHtml;
+
         bodyEl.innerHTML = `
             <div class="modal-section">
                 <h4>Basic Information</h4>
-                <p><strong>Price:</strong> ${DataLoader.formatPrice(item.price)}</p>
-                ${item.quantity ? `<p><strong>Quantity Available:</strong> ${item.quantity}</p>` : ''}
-                <p><strong>Town:</strong> ${item.town}</p>
-                <p><strong>Shop:</strong> ${item.shopName}</p>
-                <p><strong>Room:</strong> ${item.room}</p>
-                <p><strong>Item ID:</strong> ${item.id}</p>
-                ${item.weight ? `<p><strong>Weight:</strong> ${item.weight} pounds</p>` : ''}
-                ${item.material ? `<p><strong>Material:</strong> ${item.material}</p>` : ''}
+                <p><strong>Price:</strong> ${esc(DataLoader.formatPrice(item.price))}</p>
+                ${item.quantity ? `<p><strong>Quantity Available:</strong> ${esc(item.quantity)}</p>` : ''}
+                <p><strong>Town:</strong> ${esc(item.town)}</p>
+                <p><strong>Shop:</strong> ${esc(item.shopName)}</p>
+                <p><strong>Room:</strong> ${esc(item.room)}</p>
+                <p><strong>Item ID:</strong> ${esc(item.id)}</p>
+                ${item.weight ? `<p><strong>Weight:</strong> ${esc(item.weight)} pounds</p>` : ''}
+                ${item.material ? `<p><strong>Material:</strong> ${esc(item.material)}</p>` : ''}
             </div>
 
             ${item.enchant ? `
             <div class="modal-section">
                 <h4>Enchantment</h4>
-                <p>+${item.enchant} enchant bonus</p>
+                <p>+${esc(item.enchant)} enchant bonus</p>
             </div>
             ` : ''}
 
             ${item.forgedQuality && item.forgedAvd !== undefined ? `
             <div class="modal-section">
                 <h4>Forged Weapon Quality</h4>
-                <p><strong>Quality:</strong> ${item.forgedQuality.split(/[\s-]/).map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(item.forgedQuality.includes('-') ? '-' : ' ')}</p>
-                <p><strong>AvD Bonus:</strong> ${item.forgedAvd >= 0 ? '+' : ''}${item.forgedAvd}</p>
-                <p><strong>DF Bonus:</strong> ${item.forgedAvd * 2 >= 0 ? '+' : ''}${item.forgedAvd * 2}%</p>
-                ${item.forgedBy ? `<p><strong>Forged by:</strong> ${item.forgedBy}</p>` : ''}
+                <p><strong>Quality:</strong> ${esc(item.forgedQuality.split(/[\s-]/).map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(item.forgedQuality.includes('-') ? '-' : ' '))}</p>
+                <p><strong>AvD Bonus:</strong> ${item.forgedAvd >= 0 ? '+' : ''}${esc(item.forgedAvd)}</p>
+                <p><strong>DF Bonus:</strong> ${item.forgedAvd * 2 >= 0 ? '+' : ''}${esc(item.forgedAvd * 2)}%</p>
+                ${item.forgedBy ? `<p><strong>Forged by:</strong> ${esc(item.forgedBy)}</p>` : ''}
             </div>
             ` : ''}
 
@@ -1289,7 +1294,7 @@ class SearchEngine {
                 <h4>Flares</h4>
                 <div class="flares-list">
                     ${item.flares.map(flare => `
-                        <p>${this.formatFlareDisplay(flare)}</p>
+                        <p>${esc(this.formatFlareDisplay(flare))}</p>
                     `).join('')}
                 </div>
             </div>
@@ -1300,7 +1305,7 @@ class SearchEngine {
                 <h4>Enhancive Properties</h4>
                 <div class="enhancive-list">
                     ${item.enhancives.map(enh => `
-                        <p>+${enh.boost} to ${enh.ability}${enh.level ? ` (requires ${enh.level} training)` : ''}</p>
+                        <p>+${esc(enh.boost)} to ${esc(enh.ability)}${enh.level ? ` (requires ${esc(enh.level)} training)` : ''}</p>
                     `).join('')}
                 </div>
             </div>
@@ -1313,38 +1318,38 @@ class SearchEngine {
                     ${item.gemstoneProperties.map(prop => `
                         <div class="gemstone-property">
                             <div class="property-header">
-                                <strong>${prop.name}</strong>
-                                <span class="rarity-badge rarity-${prop.rarity?.toLowerCase() || 'common'}">${prop.rarity || 'Common'}</span>
+                                <strong>${esc(prop.name)}</strong>
+                                <span class="rarity-badge rarity-${esc(prop.rarity?.toLowerCase() || 'common')}">${esc(prop.rarity || 'Common')}</span>
                                 ${prop.activated ? '<span class="activated-badge">ACTIVATED</span>' : ''}
                             </div>
-                            <div class="property-mnemonic">Mnemonic: ${prop.mnemonic || 'Unknown'}</div>
-                            <div class="property-description">${prop.description || 'No description available'}</div>
+                            <div class="property-mnemonic">Mnemonic: ${esc(prop.mnemonic || 'Unknown')}</div>
+                            <div class="property-description">${esc(prop.description || 'No description available')}</div>
                         </div>
                     `).join('')}
                 </div>
-                ${item.gemstoneBoundTo ? `<p><strong>Bound to:</strong> ${item.gemstoneBoundTo}</p>` : ''}
+                ${item.gemstoneBoundTo ? `<p><strong>Bound to:</strong> ${esc(item.gemstoneBoundTo)}</p>` : ''}
             </div>
             ` : ''}
 
             ${item.tags && item.tags.length > 0 ? `
             <div class="modal-section">
                 <h4>Special Properties</h4>
-                <p>${item.tags
+                <p>${esc(item.tags
                     .filter(tag => typeof isValidDisplayTag === 'function' ? isValidDisplayTag(tag) : typeof tag === 'string' && tag.length <= 30)
                     .map(tag => tag.replace(/_/g, ' '))
-                    .join(', ')}</p>
+                    .join(', '))}</p>
             </div>
             ` : ''}
 
             <div class="modal-section">
                 <h4>Shop Location${this.getShopMapInfoInline(item.shopName)}</h4>
-                <p>${item.shopLocation}</p>
+                <p>${esc(item.shopLocation)}</p>
             </div>
 
             ${item.raw && item.raw.length > 0 ? `
             <div class="modal-section">
                 <h4>Raw Item Data</h4>
-                <div class="raw-data">${item.raw.join('\n')}</div>
+                <div class="raw-data">${esc(item.raw.join('\n'))}</div>
             </div>
             ` : ''}
         `;
@@ -1359,7 +1364,7 @@ class SearchEngine {
         if (shopMappingData) {
             const mapId = shopMappingData.map_id;
             const exterior = shopMappingData.exterior;
-            return `<br><span style="color: #1b5e20; font-weight: bold;">📍 Room: ${mapId}</span>${exterior ? `<br><span style="color: #2e7d32; font-style: italic;">Go: ${exterior}</span>` : ''}`;
+            return `<br><span style="color: #1b5e20; font-weight: bold;">📍 Room: ${DataLoader.escapeHtml(mapId)}</span>${exterior ? `<br><span style="color: #2e7d32; font-style: italic;">Go: ${DataLoader.escapeHtml(exterior)}</span>` : ''}`;
         }
         return '';
     }
@@ -1370,7 +1375,7 @@ class SearchEngine {
         const shopMappingData = window.dataLoader?.shopMapping?.[ownerName];
         if (shopMappingData) {
             const mapId = shopMappingData.map_id;
-            return ` <span style="color: #1b5e20; font-weight: bold;">(📍 Room: ${mapId})</span>`;
+            return ` <span style="color: #1b5e20; font-weight: bold;">(📍 Room: ${DataLoader.escapeHtml(mapId)})</span>`;
         }
         return '';
     }

@@ -510,11 +510,11 @@ class BrowseEngine {
                     <td colspan="5" class="shop-directory-card">
                         <div class="shop-card">
                             <div class="shop-card-header">
-                                <div class="shop-card-name">${shopName}</div>
+                                <div class="shop-card-name">${DataLoader.escapeHtml(shopName)}</div>
                                 <div class="shop-card-stats">
                                     <span class="stat-badge">${itemCount} items</span>
                                     <span class="stat-badge">${roomCount} room${roomCount !== 1 ? 's' : ''}</span>
-                                    ${locationInfo ? `<span class="stat-badge location">${locationInfo}</span>` : ''}
+                                    ${locationInfo ? `<span class="stat-badge location">${DataLoader.escapeHtml(locationInfo)}</span>` : ''}
                                 </div>
                             </div>
                             <div class="shop-card-footer">
@@ -616,16 +616,16 @@ class BrowseEngine {
         selectedShopName.innerHTML = `
             <div class="shop-detail-header">
                 <div class="shop-detail-name-row">
-                    <div class="shop-detail-name">${shopName}</div>
+                    <div class="shop-detail-name">${DataLoader.escapeHtml(shopName)}</div>
                 </div>
                 ${shopMappingData ? `
                     <div class="shop-navigation-info">
-                        <div class="shop-map-id">📍 Room: ${shopMappingData.map_id}</div>
-                        ${shopMappingData.exterior ? `<div class="shop-exterior">Go: ${shopMappingData.exterior}</div>` : ''}
+                        <div class="shop-map-id">📍 Room: ${DataLoader.escapeHtml(shopMappingData.map_id)}</div>
+                        ${shopMappingData.exterior ? `<div class="shop-exterior">Go: ${DataLoader.escapeHtml(shopMappingData.exterior)}</div>` : ''}
                     </div>
                 ` : ''}
-                ${metadata.location ? `<div class="shop-detail-location">${metadata.location}</div>` : ''}
-                ${metadata.sign ? `<div class="shop-detail-sign">${metadata.sign}</div>` : ''}
+                ${metadata.location ? `<div class="shop-detail-location">${DataLoader.escapeHtml(metadata.location)}</div>` : ''}
+                ${metadata.sign ? `<div class="shop-detail-sign">${DataLoader.escapeHtml(metadata.sign)}</div>` : ''}
             </div>
         `;
 
@@ -678,7 +678,7 @@ class BrowseEngine {
             const roomDiv = document.createElement('div');
             roomDiv.className = 'room-item' + (room.isEmpty ? ' empty-room' : '');
             roomDiv.innerHTML = `
-                <div class="room-name">${room.name}</div>
+                <div class="room-name">${DataLoader.escapeHtml(room.name)}</div>
                 <div class="room-stats">${room.isEmpty ? '(nothing for sale)' : `${room.itemCount} items`}</div>
             `;
 
@@ -695,7 +695,7 @@ class BrowseEngine {
             <div class="shop-summary-stats">
                 <span class="stat-item">${totalItems} total items</span>
                 <span class="stat-item">${allRooms.length} rooms</span>
-                ${metadata.id ? `<span class="stat-item">Shop ID: ${metadata.id}</span>` : ''}
+                ${metadata.id ? `<span class="stat-item">Shop ID: ${DataLoader.escapeHtml(metadata.id)}</span>` : ''}
             </div>
         `;
         roomList.insertBefore(summaryDiv, roomList.firstChild);
@@ -780,12 +780,12 @@ class BrowseEngine {
                 <td colspan="5">
                     <div class="room-header-content">
                         <div class="room-title">
-                            <strong>${roomName}</strong> (${itemsByRoom[roomName].length} items)
+                            <strong>${DataLoader.escapeHtml(roomName)}</strong> (${itemsByRoom[roomName].length} items)
                         </div>
                         ${roomSign ? `
                             <div class="room-sign">
                                 <div class="room-sign-icon">📋</div>
-                                <div class="room-sign-text">${roomSign}</div>
+                                <div class="room-sign-text">${DataLoader.escapeHtml(roomSign)}</div>
                             </div>
                         ` : ''}
                     </div>
@@ -1503,14 +1503,14 @@ class BrowseEngine {
                 <td colspan="5" class="shop-directory-card">
                     <div class="shop-card">
                         <div class="shop-card-header">
-                            <div class="shop-card-name">${shopInfo.shopName}</div>
+                            <div class="shop-card-name">${DataLoader.escapeHtml(shopInfo.shopName)}</div>
                             <div class="shop-card-stats">
                                 <span class="stat-badge">${shopInfo.itemCount} items</span>
                                 <span class="stat-badge">${shopInfo.roomCount} rooms</span>
-                                ${searchedAllTowns ? `<span class="stat-badge town-badge">${shopInfo.town}</span>` : ''}
+                                ${searchedAllTowns ? `<span class="stat-badge town-badge">${DataLoader.escapeHtml(shopInfo.town)}</span>` : ''}
                             </div>
                         </div>
-                        ${locationInfo ? `<div class="shop-card-location">${locationInfo}</div>` : ''}
+                        ${locationInfo ? `<div class="shop-card-location">${DataLoader.escapeHtml(locationInfo)}</div>` : ''}
                         <div class="shop-card-sign">${this.highlightSearchTerm(shopInfo.shopSign, searchQuery)}</div>
                         <div class="shop-card-footer">
                             <button class="copy-link-btn" title="Copy link to this shop">🔗 Copy Link</button>
@@ -1547,10 +1547,14 @@ class BrowseEngine {
     }
 
     highlightSearchTerm(text, searchTerm) {
-        if (!text || !searchTerm) return text;
+        // Returns HTML: escape the sign text (player-controlled) and the
+        // search term (user input, both as regex and as HTML)
+        if (!text) return '';
+        const safeText = DataLoader.escapeHtml(text);
+        if (!searchTerm) return safeText;
 
-        const regex = new RegExp(`(${searchTerm})`, 'gi');
-        return text.replace(regex, '<mark>$1</mark>');
+        const regex = new RegExp(`(${DataLoader.escapeRegExp(DataLoader.escapeHtml(searchTerm))})`, 'gi');
+        return safeText.replace(regex, '<mark>$1</mark>');
     }
 
     selectShopDirect(townName, shopName) {
