@@ -65,7 +65,9 @@ class DataLoader {
     async loadTownData(filename) {
         try {
             console.log(`Loading ${filename}...`);
-            const response = await fetch(filename);
+            // no-cache: revalidate with the server so we don't serve stale
+            // data (town files are regenerated every ~2 hours)
+            const response = await fetch(filename, { cache: 'no-cache' });
             // Add specific check for relative path issues
             if (response.status === 404 && filename.startsWith("../")) {
                 console.error(`Data file not accessible: ${filename}. This might be a path configuration issue.`);
@@ -88,7 +90,7 @@ class DataLoader {
     async loadRemovedItems() {
         try {
             console.log('Loading removed_items.json...');
-            const response = await fetch('data/removed_items.json');
+            const response = await fetch('data/removed_items.json', { cache: 'no-cache' });
 
             if (!response.ok) {
                 console.log('No separate removed_items.json found, using embedded data');
@@ -108,7 +110,7 @@ class DataLoader {
     async loadAddedItems() {
         try {
             console.log('Loading added_items.json...');
-            const response = await fetch('data/added_items.json');
+            const response = await fetch('data/added_items.json', { cache: 'no-cache' });
 
             if (!response.ok) {
                 console.log('No added_items.json found, will use embedded added_date fields');
@@ -128,7 +130,7 @@ class DataLoader {
     async loadShopMapping() {
         try {
             console.log('Loading shop mapping data...');
-            const response = await fetch('data/shop_mapping.json');
+            const response = await fetch('data/shop_mapping.json', { cache: 'no-cache' });
 
             if (!response.ok) {
                 console.log('No shop mapping data found');
@@ -585,7 +587,8 @@ class DataLoader {
     }
 
     getItemById(id) {
-        return this.allItems.find(item => item.id === id);
+        // id may arrive as a string (URL param) while item.id is numeric
+        return this.allItems.find(item => String(item.id) === String(id));
     }
 
     // Escape untrusted text (item/shop/room names are player-controlled)

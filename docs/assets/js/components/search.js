@@ -1645,9 +1645,11 @@ class SearchEngine {
         setTimeout(() => {
             const dataLoader = window.dataLoader;
             if (dataLoader && dataLoader.allItems.length > 0) {
+                // URL params are strings; item.id/shopId may be numbers.
+                // Compare as strings so deep links actually match.
                 const item = dataLoader.allItems.find(item =>
-                    item.id === itemId &&
-                    item.shopId === shopId &&
+                    String(item.id) === String(itemId) &&
+                    String(item.shopId) === String(shopId) &&
                     item.town === town
                 );
 
