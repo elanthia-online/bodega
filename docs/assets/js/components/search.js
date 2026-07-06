@@ -1357,18 +1357,6 @@ class SearchEngine {
         modal.style.display = 'block';
     }
 
-    getShopMapInfo(shopName) {
-        // Extract owner name since shop_mapping uses owner names (e.g., "Painz") not full names (e.g., "Painz's Magic Shoppe")
-        const ownerName = this.extractOwnerNameFromShopName(shopName);
-        const shopMappingData = window.dataLoader?.shopMapping?.[ownerName];
-        if (shopMappingData) {
-            const mapId = shopMappingData.map_id;
-            const exterior = shopMappingData.exterior;
-            return `<br><span style="color: #1b5e20; font-weight: bold;">📍 Room: ${DataLoader.escapeHtml(mapId)}</span>${exterior ? `<br><span style="color: #2e7d32; font-style: italic;">Go: ${DataLoader.escapeHtml(exterior)}</span>` : ''}`;
-        }
-        return '';
-    }
-
     getShopMapInfoInline(shopName) {
         // Extract owner name since shop_mapping uses owner names (e.g., "Painz") not full names (e.g., "Painz's Magic Shoppe")
         const ownerName = this.extractOwnerNameFromShopName(shopName);

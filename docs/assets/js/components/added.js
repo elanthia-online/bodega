@@ -218,7 +218,11 @@ class AddedEngine {
         // Price range filter
         if (filters.priceRange) {
             const [min, max] = filters.priceRange.split('-').map(Number);
-            if (item.price < min || item.price > max) {
+            // Null-priced (free/unpriced) items only match when the range
+            // starts at 0; otherwise a null price must not coerce to 0 and
+            // sneak into "under 1k" etc.
+            const price = item.price !== null && item.price !== undefined ? item.price : (min === 0 ? 0 : NaN);
+            if (price < min || price > max) {
                 return false;
             }
         }

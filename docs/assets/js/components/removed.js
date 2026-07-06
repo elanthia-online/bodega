@@ -185,7 +185,10 @@ class RemovedEngine {
         // Price range filter
         if (filters.priceRange) {
             const [min, max] = filters.priceRange.split('-').map(Number);
-            if (item.price < min || item.price > max) {
+            // Null-priced (free/unpriced) items only match when the range
+            // starts at 0; otherwise a null price must not coerce to 0.
+            const price = item.price !== null && item.price !== undefined ? item.price : (min === 0 ? 0 : NaN);
+            if (price < min || price > max) {
                 return false;
             }
         }
@@ -570,15 +573,6 @@ class RemovedEngine {
         const ownerName = this.extractOwnerNameFromShopName(item.lastSeenShop);
         const shopExterior = shopMapping[ownerName]?.exterior || '';
 
-        // Debug logging to see what's happening
-        console.log('Shop mapping debug:', {
-            hasDataLoader: !!window.dataLoader,
-            hasShopMapping: !!(window.dataLoader && window.dataLoader.shopMapping),
-            shopMappingKeys: shopMapping ? Object.keys(shopMapping).length : 0,
-            lookingForShop: item.lastSeenShop,
-            foundExterior: shopExterior
-        });
-
         // Create a normalized item object for the modal
         const normalizedItem = {
             ...item,
@@ -589,14 +583,6 @@ class RemovedEngine {
         // Explicitly set room and shopLocation after spread to ensure it overrides any existing properties
         normalizedItem.room = shopExterior || '';
         normalizedItem.shopLocation = shopExterior || '';
-
-        // Debug the actual normalized item values
-        console.log('Normalized item debug:', {
-            shopExterior: shopExterior,
-            roomValue: normalizedItem.room,
-            shopLocationValue: normalizedItem.shopLocation,
-            originalItemRoom: item.room
-        });
 
         // Use existing modal functionality from search engine with normalized data
         if (window.searchEngine && window.searchEngine.showItemDetails) {

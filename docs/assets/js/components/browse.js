@@ -580,7 +580,9 @@ class BrowseEngine {
     }
 
     hideShopList() {
-        document.getElementById('shop-list-section').style.display = 'none';
+        // Element may not exist in the current markup; guard against null
+        const el = document.getElementById('shop-list-section');
+        if (el) el.style.display = 'none';
     }
 
     selectShop(townName, shopName) {
