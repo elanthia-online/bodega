@@ -1,0 +1,78 @@
+#!/bin/bash
+# Restore pipeline state from the live site into docs/data/.
+#
+# The deployed GitHub Pages site is the pipeline's state store: it always
+# holds the last-good processed town files plus the cumulative tracking
+# files. Each pipeline run restores from it instead of from git, so scan
+# data never has to be committed (see pipeline.yml).
+#
+# The smart scan diffs against the processed town files + shop_mapping;
+# the processor additionally needs added_items/removed_items for tracking.
+# docs/data/raw/ is NOT on the site (excluded from Pages) - raw data flows
+# between jobs of a single run as a workflow artifact only.
+#
+# Usage: fetch-site-data [base_url]
+#   base_url defaults to https://shops.elanthia.online
+#
+# Missing files (404) are tolerated: a brand-new deployment or a new town
+# simply starts without previous state, which the scan/processor handle by
+# doing a full scan / fresh tracking.
+set -euo pipefail
+
+BASE_URL="${1:-https://shops.elanthia.online}"
+DATA_DIR="docs/data"
+
+TOWNS=(
+  icemule_trace
+  mist_harbor
+  rivers_rest
+  solhaven
+  ta_illistim
+  ta_vaalor
+  teras_isle
+  wehnimers_landing
+  zul_logoth
+)
+
+STATE_FILES=(
+  shop_mapping.json
+  added_items.json
+  removed_items.json
+  state.json
+)
+
+mkdir -p "$DATA_DIR"
+
+fetch() {
+  local name="$1"
+  local url="$BASE_URL/data/$name"
+  local dest="$DATA_DIR/$name"
+  local code
+  code=$(curl -sS -o "$dest.tmp" -w "%{http_code}" --retry 3 --retry-delay 2 "$url") || code="000"
+  if [ "$code" = "200" ]; then
+    # Sanity check: must parse as JSON (Pages can serve an HTML 404 page)
+    if python3 -c "import json,sys; json.load(open(sys.argv[1]))" "$dest.tmp" 2>/dev/null \
+       || ruby -rjson -e "JSON.parse(File.read(ARGV[0]))" "$dest.tmp" 2>/dev/null; then
+      mv "$dest.tmp" "$dest"
+      echo "restored $name ($(du -h "$dest" | cut -f1 | tr -d ' '))"
+      return 0
+    fi
+    echo "WARNING: $name returned 200 but is not valid JSON - skipping"
+  else
+    echo "missing  $name (HTTP $code) - starting without it"
+  fi
+  rm -f "$dest.tmp"
+  return 0
+}
+
+echo "Restoring pipeline state from $BASE_URL"
+
+for town in "${TOWNS[@]}"; do
+  fetch "$town.json"
+done
+
+for f in "${STATE_FILES[@]}"; do
+  fetch "$f"
+done
+
+echo "Restore complete: $(ls "$DATA_DIR"/*.json 2>/dev/null | wc -l) data files present"

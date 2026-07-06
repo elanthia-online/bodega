@@ -24,11 +24,12 @@ log "Starting bodega automation scan"
 # Do not log SIMU_USERNAME - it is the account login name and lands in
 # retained log artifacts.
 
-# Determine scan type. The CI workflow (automation.yml) passes an explicit
-# 'full' or 'smart' after gating on the once-per-UTC-day last-full-scan
-# marker, so it never reaches the 'auto' branch below. The 'auto' fallback
-# is only for manual local invocation without an argument, and defaults to
-# a smart scan (a full scan can always be forced with 'run-scan full').
+# Determine scan type. The CI pipeline (pipeline.yml) passes an explicit
+# 'full' or 'smart' after gating on the once-per-UTC-day marker in the
+# restored state.json, so it never reaches the 'auto' branch below. The
+# 'auto' fallback is only for manual local invocation without an argument,
+# and defaults to a smart scan (a full scan can always be forced with
+# 'run-scan full').
 SCAN_TYPE="${1:-auto}"
 if [ "$SCAN_TYPE" = "auto" ]; then
     SCAN_TYPE="smart"
