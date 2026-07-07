@@ -8,7 +8,7 @@ class DataLoader {
         this.totalShops = 0;
         this.lastUpdated = null;
         this.isLoading = false;
-        this.shopMapping = {};  // Store shop name to map ID mapping
+        this.ownerLocationIndex = {};  // owner name -> {roomName, roomNumber, exterior} from town data
         this.rawShopData = {};  // Store raw shop structure for all towns (includes empty rooms)
 
         // List of JSON files to load
@@ -43,9 +43,6 @@ class DataLoader {
 
             // Load the separate added_items.json if it exists
             const addedItemsData = await this.loadAddedItems();
-
-            // Load shop mapping data if it exists
-            await this.loadShopMapping();
 
             this.processAllData(townDataArray, removedItemsData, addedItemsData);
             this.updateStats();
@@ -127,33 +124,13 @@ class DataLoader {
         }
     }
 
-    async loadShopMapping() {
-        try {
-            console.log('Loading shop mapping data...');
-            const response = await fetch('data/shop_mapping.json', { cache: 'no-cache' });
-
-            if (!response.ok) {
-                console.log('No shop mapping data found');
-                return null;
-            }
-
-            const data = await response.json();
-            this.shopMapping = data.shops || data;  // Handle both formats
-            console.log(`Loaded shop mapping with ${Object.keys(this.shopMapping).length} entries`);
-            return data;
-
-        } catch (error) {
-            console.log('Failed to load shop mapping:', error);
-            return null;
-        }
-    }
-
     processAllData(townDataArray, removedItemsData, addedItemsData) {
         this.allItems = [];
         this.removedItems = [];
         this.addedItems = [];
         this.towns = [];
         this.totalShops = 0;
+        this.ownerLocationIndex = {};
         let oldestUpdate = null;
 
         townDataArray.forEach(townData => {
@@ -170,6 +147,9 @@ class DataLoader {
                 preamble: shop.preamble,
                 shopOwner: shop.shop_owner,
                 shopName: this.extractShopName(shop),
+                roomName: shop.room_name || null,
+                roomNumber: shop.room_number || null,
+                exterior: shop.exterior || null,
                 rooms: shop.inv.map(room => ({
                     roomTitle: room.room_title,
                     branch: room.branch,
@@ -191,6 +171,17 @@ class DataLoader {
 
             // Process each shop
             townData.shops.forEach(shop => {
+                // Index shop location by owner name (used for removed items,
+                // whose shop may no longer exist in current town data)
+                const owner = shop.shop_owner || this.extractShopOwnerName(shop);
+                if (owner && owner !== 'unknown' && !this.ownerLocationIndex[owner]) {
+                    this.ownerLocationIndex[owner] = {
+                        roomName: shop.room_name || null,
+                        roomNumber: shop.room_number || null,
+                        exterior: shop.exterior || null
+                    };
+                }
+
                 shop.inv.forEach(room => {
                     room.items.forEach(item => {
                         const processedItem = this.processItem(item, shop, room, townData);
@@ -305,6 +296,9 @@ class DataLoader {
                 shopName: this.extractShopName(shop),
                 shopOwner: shop.shop_owner || this.extractShopOwnerName(shop),
                 shopLocation: shop.preamble,
+                shopRoomName: shop.room_name || null,
+                shopRoomNumber: shop.room_number || null,
+                shopExterior: shop.exterior || null,
                 shopSign: this.extractShopSign(shop),
                 room: room.room_title,
                 roomSign: this.extractRoomSign(room),
@@ -423,8 +417,8 @@ class DataLoader {
     }
 
     extractShopOwnerName(shop) {
-        // Extract just the owner name from shop data for shop_mapping lookups
-        // shop_mapping.json uses owner names (e.g., "Painz") not full shop names (e.g., "Painz's Magic Shoppe")
+        // Extract just the owner name from shop data for ownerLocationIndex lookups
+        // The index uses owner names (e.g., "Painz") not full shop names (e.g., "Painz's Magic Shoppe")
 
         // Try preamble first (most reliable)
         if (shop.preamble) {

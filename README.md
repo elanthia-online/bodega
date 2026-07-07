@@ -46,8 +46,7 @@ bodega/
 ├── scripts/              # Core scripts
 │   └── bodega.lic       # Single source of truth
 ├── .github/workflows/    # CI/CD automation
-│   ├── pipeline.yml       # Scrape -> Process -> Deploy (one run, artifacts)
-│   └── update-map-ids.yml # Refresh shop map IDs
+│   └── pipeline.yml       # Scrape -> Process -> Deploy (one run, artifacts)
 └── README.md            # Documentation
 ```
 

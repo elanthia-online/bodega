@@ -339,7 +339,10 @@ class BrowseEngine {
                     preamble: item.shopLocation || '',
                     id: item.shopId || '',
                     shopSign: item.shopSign || '',
-                    shopOwner: item.shopOwner || ''
+                    shopOwner: item.shopOwner || '',
+                    roomName: item.shopRoomName || '',
+                    roomNumber: item.shopRoomNumber || '',
+                    exterior: item.shopExterior || ''
                 };
             }
 
@@ -556,10 +559,6 @@ class BrowseEngine {
         return null;
     }
 
-    extractOwnerNameFromShopName(shopName) {
-        return BodegaShared.extractOwnerNameFromShopName(shopName);
-    }
-
     hideShopList() {
         // Element may not exist in the current markup; guard against null
         const el = document.getElementById('shop-list-section');
@@ -590,21 +589,17 @@ class BrowseEngine {
 
         const metadata = this.shopMetadata[townName][shopName] || {};
 
-        // Get shop mapping info from data loader
-        // Extract owner name from shopName since shop_mapping uses owner names (e.g., "Painz") not full names (e.g., "Painz's Magic Shoppe")
-        const ownerName = this.extractOwnerNameFromShopName(shopName);
-        const shopMappingData = window.dataLoader?.shopMapping?.[ownerName];
-
         // Enhanced shop header with metadata and navigation info
+        // Room number is the game's official room id; display with the "u" prefix players know (;go2 u739405)
         selectedShopName.innerHTML = `
             <div class="shop-detail-header">
                 <div class="shop-detail-name-row">
                     <div class="shop-detail-name">${DataLoader.escapeHtml(shopName)}</div>
                 </div>
-                ${shopMappingData ? `
+                ${metadata.roomNumber || metadata.exterior ? `
                     <div class="shop-navigation-info">
-                        <div class="shop-map-id">📍 Room: ${DataLoader.escapeHtml(shopMappingData.map_id)}</div>
-                        ${shopMappingData.exterior ? `<div class="shop-exterior">Go: ${DataLoader.escapeHtml(shopMappingData.exterior)}</div>` : ''}
+                        ${metadata.roomNumber ? `<div class="shop-map-id">📍 Room: u${DataLoader.escapeHtml(metadata.roomNumber)}${metadata.roomName ? ` — ${DataLoader.escapeHtml(metadata.roomName)}` : ''}</div>` : ''}
+                        ${metadata.exterior ? `<div class="shop-exterior">Go: ${DataLoader.escapeHtml(metadata.exterior)}</div>` : ''}
                     </div>
                 ` : ''}
                 ${metadata.location ? `<div class="shop-detail-location">${DataLoader.escapeHtml(metadata.location)}</div>` : ''}

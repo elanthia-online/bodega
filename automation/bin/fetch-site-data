@@ -6,8 +6,8 @@
 # files. Each pipeline run restores from it instead of from git, so scan
 # data never has to be committed (see pipeline.yml).
 #
-# The smart scan diffs against the processed town files + shop_mapping;
-# the processor additionally needs added_items/removed_items for tracking.
+# The smart scan diffs against the processed town files; the processor
+# additionally needs added_items/removed_items for tracking.
 # docs/data/raw/ is NOT on the site (excluded from Pages) - raw data flows
 # between jobs of a single run as a workflow artifact only.
 #
@@ -35,7 +35,6 @@ TOWNS=(
 )
 
 STATE_FILES=(
-  shop_mapping.json
   added_items.json
   removed_items.json
   state.json

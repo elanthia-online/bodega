@@ -34,8 +34,8 @@ const BodegaShared = {
     },
 
     extractOwnerNameFromShopName(shopName) {
-        // shop_mapping.json uses owner names (e.g., "Painz") not full shop
-        // names (e.g., "Painz's Magic Shoppe")
+        // The owner location index uses owner names (e.g., "Painz") not full
+        // shop names (e.g., "Painz's Magic Shoppe")
         if (!shopName) return shopName;
 
         const match = shopName.match(/^(.*?)'s?\s+(Magic Shoppe|Weaponry|Armory|Outfitting|General Store|Combat Gear|Locksmith Shop|Shop|Boutique)/i);

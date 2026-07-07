@@ -218,7 +218,7 @@ jobs:
       - name: Stage site data (exclude raw)
         run: |
           # The browser only loads processed town files + tracking +
-          # shop_mapping + state.json. raw/ is server-side only.
+          # state.json. raw/ is server-side only.
           mkdir -p site-data
           rsync -a --exclude='raw/' docs/data/ site-data/
           echo "Site data staged:"

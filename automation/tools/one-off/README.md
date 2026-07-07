@@ -11,4 +11,3 @@ migration is ever needed.
   Run once; collapsed 8,444 duplicate price-variants.
 - `fix-added-items-prices.rb` — earlier band-aid that reconciled price drift in
   `added_items.json`. Superseded by removing price from the signature entirely.
-- `fix-shop-mapping.rb` — one-off repair of `shop_mapping.json`.

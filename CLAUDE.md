@@ -95,6 +95,10 @@ Items are tracked using signatures (used in `added_items.json`):
   "shops": [{
     "id": "12345",
     "preamble": "Shop location description",
+    "shop_owner": "Althaz",
+    "room_name": "Heleconia Way",
+    "room_number": "739405",
+    "exterior": "dark speckled marble storefront with a layered tile roof",
     "inv": [{
       "room_title": "Room Name",
       "items": [{
@@ -124,14 +128,14 @@ the pipeline's state store; git holds only code. `docs/data/` is gitignored.
 jobs; data flows between them as workflow artifacts, not commits:
 1. **Scrape** — `automation/bin/fetch-site-data` restores the previous
    processed town files + tracking (`added_items`/`removed_items`) +
-   `shop_mapping.json` + `state.json` from the live site into `docs/data/`,
+   `state.json` from the live site into `docs/data/`,
    then runs the scan. Auto mode does one **full** scan per UTC day (the
    first run of the day, gated by `state.json`'s `last_full_scan` date) and
    **smart** scans otherwise. Uploads a `scan-data` artifact (new raw data
    plus the restored previous state the processor needs).
 2. **Process** — downloads `scan-data`, runs `processor.rb`, uploads a
-   `site-data` artifact (processed town files + tracking + shop_mapping +
-   state, excluding `raw/`).
+   `site-data` artifact (processed town files + tracking + state,
+   excluding `raw/`).
 3. **Deploy** — downloads `site-data`, stages `docs/` (minus `data/raw/`),
    publishes to GitHub Pages.
 
@@ -139,10 +143,6 @@ A single `bodega-pipeline` concurrency group serializes runs, so there are
 no commit/push races and no cross-workflow dispatch. Because a queued run
 starts only after the prior run has deployed, the once-per-day full-scan
 gate reads an up-to-date `state.json`.
-
-`update-map-ids.yml` (`workflow_dispatch` only) follows the same pattern:
-restore site data → update `shop_mapping.json` from ps.lichproject.org →
-redeploy. Shares the `bodega-pipeline` concurrency group.
 
 The live site is only ever changed by a successful Deploy, so a failed run
 leaves the previous data serving unchanged. For **local** development,

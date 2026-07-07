@@ -400,11 +400,12 @@ class RemovedEngine {
     }
 
     showItemDetails(item) {
-        // Get shop exterior description from shop mapping if available
-        // Extract owner name since shop_mapping uses owner names (e.g., "Painz") not full names (e.g., "Painz's Magic Shoppe")
-        const shopMapping = window.dataLoader && window.dataLoader.shopMapping ? window.dataLoader.shopMapping : {};
+        // Get shop location from the owner index built from current town data
+        // (empty if the shop no longer exists). The index uses owner names
+        // (e.g., "Painz") not full names (e.g., "Painz's Magic Shoppe").
         const ownerName = this.extractOwnerNameFromShopName(item.lastSeenShop);
-        const shopExterior = shopMapping[ownerName]?.exterior || '';
+        const loc = window.dataLoader?.ownerLocationIndex?.[ownerName] || {};
+        const shopExterior = loc.exterior || '';
 
         // Create a normalized item object for the modal
         const normalizedItem = {
@@ -416,6 +417,8 @@ class RemovedEngine {
         // Explicitly set room and shopLocation after spread to ensure it overrides any existing properties
         normalizedItem.room = shopExterior || '';
         normalizedItem.shopLocation = shopExterior || '';
+        normalizedItem.shopRoomNumber = loc.roomNumber || null;
+        normalizedItem.shopRoomName = loc.roomName || null;
 
         // Use existing modal functionality from search engine with normalized data
         if (window.searchEngine && window.searchEngine.showItemDetails) {

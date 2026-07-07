@@ -1071,7 +1071,7 @@ class SearchEngine {
             ` : ''}
 
             <div class="modal-section">
-                <h4>Shop Location${this.getShopMapInfoInline(item.shopName)}</h4>
+                <h4>Shop Location${this.getShopMapInfoInline(item)}</h4>
                 <p>${esc(item.shopLocation)}</p>
             </div>
 
@@ -1086,19 +1086,12 @@ class SearchEngine {
         modal.style.display = 'block';
     }
 
-    getShopMapInfoInline(shopName) {
-        // Extract owner name since shop_mapping uses owner names (e.g., "Painz") not full names (e.g., "Painz's Magic Shoppe")
-        const ownerName = this.extractOwnerNameFromShopName(shopName);
-        const shopMappingData = window.dataLoader?.shopMapping?.[ownerName];
-        if (shopMappingData) {
-            const mapId = shopMappingData.map_id;
-            return ` <span style="color: #1b5e20; font-weight: bold;">(📍 Room: ${DataLoader.escapeHtml(mapId)})</span>`;
+    getShopMapInfoInline(item) {
+        // Game's official room number; shown with the "u" prefix players know (;go2 u739405)
+        if (item && item.shopRoomNumber) {
+            return ` <span style="color: #1b5e20; font-weight: bold;">(📍 Room: u${DataLoader.escapeHtml(item.shopRoomNumber)})</span>`;
         }
         return '';
-    }
-
-    extractOwnerNameFromShopName(shopName) {
-        return BodegaShared.extractOwnerNameFromShopName(shopName);
     }
 
     closeModal() {

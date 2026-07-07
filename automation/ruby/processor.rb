@@ -175,6 +175,14 @@ class BodegaProcessor
       processed_shop[:shop_owner] = extract_shop_owner(shop[:preamble])
     end
 
+    # Location fields from the preamble (authoritative each run; also
+    # backfills raw files produced before bodega.lic captured them)
+    room = extract_room_info(shop[:preamble])
+    processed_shop[:room_name]   = room[:room_name]   if room[:room_name]
+    processed_shop[:room_number] = room[:room_number] if room[:room_number]
+    exterior = extract_exterior(shop[:preamble])
+    processed_shop[:exterior]    = exterior if exterior
+
     processed_shop
   end
 
@@ -495,6 +503,26 @@ class BodegaProcessor
     match = preamble.match(/^(.*?)'s?\s+Shop\s+is\s+located/i) ||
             preamble.match(/^(.*?)\s+is\s+located/i)
     match ? match[1].strip : 'unknown'
+  end
+
+  def extract_room_info(preamble)
+    # Room name and game room number from preamble:
+    # "... is located in [Heleconia Way] (739405) at a ..."
+    # Room number is optional (older bracket-only format lacks it)
+    return {} unless preamble
+
+    match = preamble.match(/is located in \[(?<room_name>[^\]]+)\](?:\s*\((?<room_number>\d+)\))?/)
+    return {} unless match
+
+    { room_name: match[:room_name].strip, room_number: match[:room_number] }.compact
+  end
+
+  def extract_exterior(preamble)
+    # Exterior description: "... at a <exterior>, and is currently ..."
+    return nil unless preamble
+
+    match = preamble.match(/at (?:a|an) (.*?), and is currently/)
+    match ? match[1].strip : nil
   end
 
   # ============================================

@@ -654,7 +654,7 @@ module Bodega
                  town: town,
                  id: id,
                  shop_owner: extract_shop_name_from_preamble(preamble),
-                 inv: parse_inv(inv.map(&:strip)) }
+                 inv: parse_inv(inv.map(&:strip)) }.merge(location_fields(preamble))
 
       result
     end
@@ -807,12 +807,6 @@ module Bodega
       @smart_stats ||= { new_items: 0, removed_items: 0, unchanged_items: 0, shops_scanned: 0 }
       @removed_items_tracker ||= {}
 
-      # Load shop_mapping on first shop of the run
-      if @smart_stats[:shops_scanned] == 0
-        load_shop_mapping
-        @shop_mapping_modified = false
-      end
-
       # Step 1: Get current browse IDs from shop scan
       coll = Collector.new(
         start: %[is located in],
@@ -846,12 +840,11 @@ module Bodega
           id: shop_id,
           shop_owner: extract_shop_name_from_preamble(preamble),
           inv: parse_inv(inv.map(&:strip))
-        }
+        }.merge(location_fields(preamble))
       end
 
       # Step 4: Check if shop ID now points to a different owner (game reset reordered SHOP list)
       current_owner = extract_shop_name_from_preamble(preamble)
-      current_exterior = extract_exterior_from_preamble(preamble)
       cached_owner = existing_shop['shop_owner']
 
       # If we cannot confirm the current owner from the preamble, we cannot
@@ -867,18 +860,11 @@ module Bodega
           town: town,
           id: shop_id,
           inv: parse_inv(inv.map(&:strip))
-        }
+        }.merge(location_fields(preamble))
       end
 
       if cached_owner && cached_owner.downcase != current_owner.downcase
         Log.out("Shop ID #{shop_id} owner mismatch: cached=#{cached_owner}, current=#{current_owner} — game reset likely reordered shops. Wiping cache and doing full scan.", label: :smart)
-
-        # Add new owner to shop_mapping if not already present
-        if @shop_mapping && !@shop_mapping.key?(current_owner)
-          @shop_mapping[current_owner] = { "map_id" => nil, "exterior" => current_exterior }
-          @shop_mapping_modified = true
-          Log.out("Added new shop_mapping entry for #{current_owner} (map_id unknown, needs manual update)", label: :smart)
-        end
 
         @smart_stats[:shops_scanned] += 1
         return {
@@ -887,18 +873,7 @@ module Bodega
           id: shop_id,
           shop_owner: current_owner,
           inv: parse_inv(inv.map(&:strip))
-        }
-      end
-
-      # Step 4b: Same owner (owner is known — unknown returned above) — update
-      # exterior in shop_mapping if it changed
-      if @shop_mapping && current_exterior
-        entry = @shop_mapping[current_owner]
-        if entry && entry["exterior"] != current_exterior
-          Log.out("Updating exterior for #{current_owner}: '#{entry['exterior']}' -> '#{current_exterior}'", label: :smart)
-          entry["exterior"] = current_exterior
-          @shop_mapping_modified = true
-        end
+        }.merge(location_fields(preamble))
       end
 
       # Step 5: Extract existing item IDs
@@ -983,7 +958,7 @@ module Bodega
         id: shop_id,
         shop_owner: extract_shop_name_from_preamble(preamble),
         inv: existing_shop['inv']
-      }
+      }.merge(location_fields(preamble))
 
       result
     end
@@ -1010,40 +985,21 @@ module Bodega
       match ? match[1].strip : nil
     end
 
-    def self.load_shop_mapping
-      return @shop_mapping if @shop_mapping
+    def self.extract_room_info_from_preamble(preamble)
+      # Extract room name and game room number from preamble
+      # Format: "... is located in [Heleconia Way] (739405) at a ..."
+      # Room number is optional (older bracket-only format lacks it)
+      return {} unless preamble
 
-      file_path = Assets.local_path("shop_mapping.json")
+      match = preamble.match(/is located in \[(?<room_name>[^\]]+)\](?:\s*\((?<room_number>\d+)\))?/)
+      return {} unless match
 
-      if File.exist?(file_path)
-        begin
-          @shop_mapping = JSON.parse(File.read(file_path))
-          Log.out("Loaded shop_mapping.json with #{@shop_mapping.size} shops", label: :smart)
-        rescue JSON::ParserError => e
-          Log.out("Failed to load shop_mapping.json: #{e.message}", label: :smart)
-          @shop_mapping = {}
-        end
-      else
-        Log.out("No shop_mapping.json found", label: :smart)
-        @shop_mapping = {}
-      end
-
-      @shop_mapping
+      { room_name: match[:room_name].strip, room_number: match[:room_number] }.compact
     end
 
-    def self.save_shop_mapping
-      # Save updated shop_mapping.json to disk
-      return unless @shop_mapping && @shop_mapping_modified
-
-      file_path = Assets.local_path("shop_mapping.json")
-
-      begin
-        File.write(file_path, JSON.pretty_generate(@shop_mapping))
-        Log.out("Saved updated shop_mapping.json with #{@shop_mapping.size} shops", label: :ownership)
-        @shop_mapping_modified = false
-      rescue => e
-        Log.out("Failed to save shop_mapping.json: #{e.message}", label: :ownership)
-      end
+    def self.location_fields(preamble)
+      extract_room_info_from_preamble(preamble)
+        .merge({ exterior: extract_exterior_from_preamble(preamble) }.compact)
     end
 
     def self.remove_items_from_shop(shop_data, item_ids_to_remove)
@@ -1195,9 +1151,6 @@ module Bodega
       display_smart_summary if Opts.smart
 
       # Item tracking (added/removed) is now handled by processor.rb
-
-      # Save updated shop_mapping.json after all towns processed (smart mode only)
-      save_shop_mapping if Opts.smart
 
       # Add removed_items.json to created files list for upload
       if File.exist?(Assets.local_path("removed_items.json"))
