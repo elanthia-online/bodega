@@ -9,10 +9,15 @@
 
   Author: Ondreian
   Requirements: Ruby >= 2.3
-  version: 0.7
+  version: 0.8
   tags: playershops
 
   changelog:
+    v0.8 - Capture shop location from the new SHOP BROWSE preamble format
+           - Extract room_name, room_number (game's official room id), and
+             exterior as shop-level fields on every scan (full and smart)
+           - Remove shop_mapping.json load/save plumbing; location data now
+             flows through the town JSONs instead
     v0.7 - Preserve complete item inspection details in raw data
            - Fix issue where parsed properties were removed from raw output
            - Raw data now contains full item inspection regardless of parsing
