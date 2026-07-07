@@ -41,6 +41,9 @@ require "json"
 require "net/http"
 require "fileutils"
 require "pp"
+# Needed on Ruby < 3.4 (CI runs 3.1); redundant only on the Ruby 4.0 the
+# elanthia-online/scripts repo lints against.
+require "pathname" # rubocop:disable Lint/RedundantRequireStatement
 
 unless Gem::Version.new(RUBY_VERSION) >= Gem::Version.new("2.3")
   fail "your ruby@#{RUBY_VERSION} is too old"
