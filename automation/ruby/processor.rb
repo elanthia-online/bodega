@@ -6,6 +6,7 @@ require 'pathname'
 require 'optparse'
 require 'time'
 require 'set'
+require 'fileutils'
 require_relative 'bodega_extractor'
 
 # Bodega Data Processor
@@ -681,7 +682,27 @@ class BodegaProcessor
       updated_at: now,
       changes: entries
     }))
-    puts "Logged #{changes.size} shop location changes (#{entries.size} retained)"
+    puts "Logged #{changes.size} shop location changes (#{entries.size} retained):"
+    changes.each { |c| puts "  #{describe_location_change(c)}" }
+
+    # This-run changes only, for the pipeline's webhook alert step
+    # (docs/data holds the cumulative log; this file is not deployed)
+    FileUtils.mkdir_p("automation/logs")
+    File.write("automation/logs/location_alert.json", JSON.pretty_generate(changes))
+  end
+
+  def describe_location_change(change)
+    owners = ->(shops) { (shops || []).map { |s| s["owner"] }.compact }
+    before = owners.call(change["before"])
+    after = owners.call(change["after"])
+    detail =
+      case change["change"]
+      when "added"   then after.join(", ")
+      when "removed" then "was: #{before.join(', ')}"
+      else
+        ((after - before).map { |o| "+#{o}" } + (before - after).map { |o| "-#{o}" }).join(" ")
+      end
+    "#{change['change']} #{change['town']} u#{change['uid']}: #{detail}"
   end
 
   def read_json_or_nil(path)

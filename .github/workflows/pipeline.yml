@@ -215,6 +215,23 @@ jobs:
           ./automation/bin/process-data "$TOWN_INPUT"
           echo "changed=true" >> "$GITHUB_OUTPUT"
 
+      # Fires only when this run's processing detected shop location
+      # changes (processor.rb writes automation/logs/location_alert.json).
+      # Silently skipped until a DISCORD_WEBHOOK secret is configured.
+      - name: Alert shop location changes
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          ALERT=automation/logs/location_alert.json
+          [ -f "$ALERT" ] || { echo "No shop location changes this run"; exit 0; }
+          if [ -z "$DISCORD_WEBHOOK" ]; then
+            echo "Location changes detected but no DISCORD_WEBHOOK secret set - skipping alert"
+            exit 0
+          fi
+          ruby automation/tools/location_alert_payload.rb "$ALERT" > /tmp/discord_payload.json
+          curl -sS -H "Content-Type: application/json" -d @/tmp/discord_payload.json "$DISCORD_WEBHOOK"
+          echo "Alert sent"
+
       - name: Stage site data (exclude raw)
         run: |
           # The browser only loads processed town files + tracking +

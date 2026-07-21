@@ -66,7 +66,10 @@ data-loader.js (browser) → Web UI
 - `docs/data/shop_locations.json` - Snapshot of exterior room uid -> shops
   per town; `docs/data/location_changes.json` - append-capped change log of
   shops appearing at / leaving / changing within an exterior room (for
-  external tooling watching shop moves and uid recycling)
+  external tooling watching shop moves and uid recycling). When a run
+  detects changes, the Process job posts a Discord alert (built by
+  `automation/tools/location_alert_payload.rb`) if a `DISCORD_WEBHOOK`
+  repo secret is configured; without the secret the step is a no-op.
 
 ### Scan Types
 - **Full scan**: `;bodega` - Complete shop inventory inspection (~65 min)
