@@ -650,8 +650,13 @@ class BodegaProcessor
     now = Time.now.utc.strftime("%Y-%m-%d %H:%M:%S UTC")
 
     current_towns.each do |town, uids|
-      prev_uids = previous_towns[town]
-      next unless prev_uids # town new to the snapshot: no baseline, skip
+      # A town with no baseline is newly listed in SHOP DIREC (e.g., a town
+      # coming online): log every exterior room as added. The global
+      # bootstrap (no previous snapshot at all) never reaches this method.
+      # A town missing from the CURRENT snapshot is deliberately not logged
+      # as removed: a transient fetch failure of one town file would
+      # otherwise fire a mass removed/added storm across two runs.
+      prev_uids = previous_towns[town] || {}
 
       (uids.keys | prev_uids.keys).each do |uid|
         before = prev_uids[uid]
@@ -710,7 +715,9 @@ class BodegaProcessor
         delta = (after - before).map { |o| "+#{o}" } + (before - after).map { |o| "-#{o}" }
         delta.empty? ? "details changed (room name/exterior)" : delta.join(" ")
       end
-    "#{change['change']} #{change['town']} u#{change['uid']}: #{detail}"
+    uid = change["uid"]
+    uid_label = uid == "unknown" ? "unknown room" : "u#{uid}"
+    "#{change['change']} #{change['town']} #{uid_label}: #{detail}"
   end
 
   def read_json_or_nil(path)

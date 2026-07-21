@@ -19,7 +19,8 @@ lines = changes.first(15).map do |c|
              delta = (after - before).map { |o| "+" + o } + (before - after).map { |o| "-" + o }
              delta.empty? ? "details changed (room name/exterior)" : delta.join(" ")
            end
-  "- #{c['change']} #{c['town']} u#{c['uid']}: #{detail}"
+  uid_label = c["uid"] == "unknown" ? "unknown room" : "u#{c['uid']}"
+  "- #{c['change']} #{c['town']} #{uid_label}: #{detail}"
 end
 lines << "...and #{changes.size - 15} more" if changes.size > 15
 content = "A player shop location change was detected!\n" \
