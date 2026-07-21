@@ -659,7 +659,7 @@ class BodegaProcessor
         change =
           if before.nil? then "added"
           elsif after.nil? then "removed"
-          elsif before != after then "modified"
+          elsif location_roster(before) != location_roster(after) then "modified"
           end
         next unless change
 
@@ -691,6 +691,13 @@ class BodegaProcessor
     File.write("automation/logs/location_alert.json", JSON.pretty_generate(changes))
   end
 
+  def location_roster(shops)
+    # What counts as "the shops at this exterior" for change detection.
+    # shop_id is excluded: it is the positional SHOP DIREC number and gets
+    # reshuffled on game reboots, which is not a location change.
+    (shops || []).map { |s| s.reject { |k, _| k == "shop_id" } }.sort_by(&:to_a)
+  end
+
   def describe_location_change(change)
     owners = ->(shops) { (shops || []).map { |s| s["owner"] }.compact }
     before = owners.call(change["before"])
@@ -700,7 +707,8 @@ class BodegaProcessor
       when "added"   then after.join(", ")
       when "removed" then "was: #{before.join(', ')}"
       else
-        ((after - before).map { |o| "+#{o}" } + (before - after).map { |o| "-#{o}" }).join(" ")
+        delta = (after - before).map { |o| "+#{o}" } + (before - after).map { |o| "-#{o}" }
+        delta.empty? ? "details changed (room name/exterior)" : delta.join(" ")
       end
     "#{change['change']} #{change['town']} u#{change['uid']}: #{detail}"
   end

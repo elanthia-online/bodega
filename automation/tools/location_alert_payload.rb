@@ -15,7 +15,9 @@ lines = changes.first(15).map do |c|
   detail = case c["change"]
            when "added" then after.join(", ")
            when "removed" then "was: " + before.join(", ")
-           else ((after - before).map { |o| "+" + o } + (before - after).map { |o| "-" + o }).join(" ")
+           else
+             delta = (after - before).map { |o| "+" + o } + (before - after).map { |o| "-" + o }
+             delta.empty? ? "details changed (room name/exterior)" : delta.join(" ")
            end
   "- #{c['change']} #{c['town']} u#{c['uid']}: #{detail}"
 end
