@@ -20,10 +20,18 @@ class BodegaProcessor
   ADDED_ITEMS_FILE = PROCESSED_DATA_DIR + "added_items.json"
   REMOVED_ITEMS_FILE = PROCESSED_DATA_DIR + "removed_items.json"
   TOWNS_MANIFEST_FILE = PROCESSED_DATA_DIR + "towns.json"
+  SHOP_LOCATIONS_FILE = PROCESSED_DATA_DIR + "shop_locations.json"
+  LOCATION_CHANGES_FILE = PROCESSED_DATA_DIR + "location_changes.json"
   PROCESSING_VERSION = "v2.0"
 
+  # Cap on retained location change-log entries
+  LOCATION_CHANGES_MAX = 1000
+
   # JSON files in docs/data/ that are not town data
-  NON_TOWN_FILES = %w[added_items.json removed_items.json shop_mapping.json state.json towns.json].freeze
+  NON_TOWN_FILES = %w[
+    added_items.json removed_items.json shop_mapping.json state.json
+    towns.json shop_locations.json location_changes.json
+  ].freeze
 
   # Tracking configuration
   REMOVED_MAX_SIZE_MB = 10
@@ -83,6 +91,10 @@ class BodegaProcessor
     # Publish the town manifest so fetch-site-data and the web app can
     # discover towns dynamically instead of via hardcoded lists
     write_towns_manifest
+
+    # Publish exterior-room uid -> shops mapping and a change log, for
+    # detecting shop moves / uid recycling (consumed externally)
+    write_shop_locations
 
     puts "Processing complete: #{@stats[:processed]} processed, " \
          "#{@stats[:skipped]} skipped, #{@stats[:failed]} failed"
@@ -586,6 +598,98 @@ class BodegaProcessor
       towns: entries
     }))
     puts "Saved towns.json manifest with #{entries.size} towns"
+  end
+
+  def write_shop_locations
+    # Snapshot: town -> exterior room uid -> [shops at that exterior].
+    # Shops whose preamble had no room number are grouped under "unknown".
+    current = build_shop_locations
+    previous = read_json_or_nil(SHOP_LOCATIONS_FILE)
+
+    log_location_changes(previous["towns"], current) if previous&.key?("towns")
+
+    File.write(SHOP_LOCATIONS_FILE, JSON.pretty_generate({
+      generated_at: Time.now.utc.strftime("%Y-%m-%d %H:%M:%S UTC"),
+      towns: current
+    }))
+    puts "Saved shop_locations.json (#{current.sum { |_, uids| uids.size }} exterior rooms across #{current.size} towns)"
+  end
+
+  def build_shop_locations
+    towns = {}
+    Dir[PROCESSED_DATA_DIR + "*.json"].sort.each do |f|
+      next if NON_TOWN_FILES.include?(File.basename(f))
+
+      begin
+        data = JSON.parse(File.read(f))
+      rescue JSON::ParserError
+        next
+      end
+      town = data["town"]&.sub(/,\s*$/, "")
+      next unless town
+
+      by_uid = Hash.new { |h, k| h[k] = [] }
+      (data["shops"] || []).each do |shop|
+        uid = shop["room_number"] || "unknown"
+        by_uid[uid] << {
+          "owner"     => shop["shop_owner"],
+          "shop_id"   => shop["id"],
+          "room_name" => shop["room_name"],
+          "exterior"  => shop["exterior"]
+        }.compact
+      end
+      by_uid.each_value { |shops| shops.sort_by! { |s| s["owner"].to_s } }
+      towns[town] = by_uid.sort.to_h
+    end
+    towns
+  end
+
+  def log_location_changes(previous_towns, current_towns)
+    changes = []
+    now = Time.now.utc.strftime("%Y-%m-%d %H:%M:%S UTC")
+
+    current_towns.each do |town, uids|
+      prev_uids = previous_towns[town]
+      next unless prev_uids # town new to the snapshot: no baseline, skip
+
+      (uids.keys | prev_uids.keys).each do |uid|
+        before = prev_uids[uid]
+        after = uids[uid]
+        change =
+          if before.nil? then "added"
+          elsif after.nil? then "removed"
+          elsif before != after then "modified"
+          end
+        next unless change
+
+        changes << {
+          "detected_at" => now,
+          "town"        => town,
+          "uid"         => uid,
+          "change"      => change,
+          "before"      => before,
+          "after"       => after
+        }.compact
+      end
+    end
+    return if changes.empty?
+
+    log = read_json_or_nil(LOCATION_CHANGES_FILE) || {}
+    entries = (log["changes"] || []) + changes
+    entries = entries.last(LOCATION_CHANGES_MAX)
+    File.write(LOCATION_CHANGES_FILE, JSON.pretty_generate({
+      updated_at: now,
+      changes: entries
+    }))
+    puts "Logged #{changes.size} shop location changes (#{entries.size} retained)"
+  end
+
+  def read_json_or_nil(path)
+    return nil unless File.exist?(path)
+
+    JSON.parse(File.read(path))
+  rescue JSON::ParserError
+    nil
   end
 
   def load_previous_state

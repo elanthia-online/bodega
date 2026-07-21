@@ -63,6 +63,10 @@ data-loader.js (browser) → Web UI
   so new towns appear automatically once the game lists them in SHOP DIREC)
 - `docs/data/added_items.json` - Tracks when items were first seen
 - `docs/data/removed_items.json` - Tracks removed items
+- `docs/data/shop_locations.json` - Snapshot of exterior room uid -> shops
+  per town; `docs/data/location_changes.json` - append-capped change log of
+  shops appearing at / leaving / changing within an exterior room (for
+  external tooling watching shop moves and uid recycling)
 
 ### Scan Types
 - **Full scan**: `;bodega` - Complete shop inventory inspection (~65 min)
