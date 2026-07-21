@@ -355,6 +355,32 @@ class BrowseEngine {
             this.townData[town][shop][room].push(item);
         });
 
+        // Merge in shops with no items (e.g., newly released shops that
+        // haven't been stocked yet) so every shop the game lists appears
+        // in the directory. rawShopData covers all shops, empty or not.
+        const rawShopData = window.dataLoader.rawShopData || {};
+        Object.entries(rawShopData).forEach(([town, shops]) => {
+            if (!this.townData[town]) {
+                this.townData[town] = {};
+                this.shopMetadata[town] = {};
+            }
+            shops.forEach(shop => {
+                const shopName = shop.shopName || 'Unknown Shop';
+                if (!this.townData[town][shopName]) {
+                    this.townData[town][shopName] = {};
+                    this.shopMetadata[town][shopName] = {
+                        preamble: shop.preamble || '',
+                        id: shop.id || '',
+                        shopSign: (shop.rooms || []).find(r => r.sign)?.sign || '',
+                        shopOwner: shop.shopOwner || '',
+                        roomName: shop.roomName || '',
+                        roomNumber: shop.roomNumber || '',
+                        exterior: shop.exterior || ''
+                    };
+                }
+            });
+        });
+
         console.log('Organized data for', Object.keys(this.townData).length, 'towns');
     }
 
