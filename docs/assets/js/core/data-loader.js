@@ -11,7 +11,9 @@ class DataLoader {
         this.ownerLocationIndex = {};  // owner name -> {roomName, roomNumber, exterior} from town data
         this.rawShopData = {};  // Store raw shop structure for all towns (includes empty rooms)
 
-        // List of JSON files to load
+        // Fallback town files, used only if data/towns.json is unavailable.
+        // Towns are normally discovered from the manifest published by
+        // processor.rb, so new towns appear without code changes.
         this.dataFiles = [
             'data/icemule_trace.json',
             'data/mist_harbor.json',
@@ -25,6 +27,30 @@ class DataLoader {
         ];
     }
 
+    async loadTownManifest() {
+        try {
+            const response = await fetch('data/towns.json', { cache: 'no-cache' });
+            if (!response.ok) {
+                console.log('No towns.json manifest found, using default town list');
+                return this.dataFiles;
+            }
+            const manifest = await response.json();
+            const files = (manifest.towns || [])
+                .map(t => t.file)
+                .filter(Boolean)
+                .map(file => `data/${file}`);
+            if (files.length === 0) {
+                console.log('towns.json manifest empty, using default town list');
+                return this.dataFiles;
+            }
+            console.log(`towns.json manifest lists ${files.length} towns`);
+            return files;
+        } catch (error) {
+            console.log('Failed to load towns.json manifest, using default town list:', error);
+            return this.dataFiles;
+        }
+    }
+
     async loadAllData() {
         if (this.isLoading) return;
 
@@ -34,8 +60,9 @@ class DataLoader {
         try {
             console.log('Starting data load...');
 
-            // Load town data files in parallel
-            const loadPromises = this.dataFiles.map(file => this.loadTownData(file));
+            // Discover towns from the manifest, then load town files in parallel
+            const townFiles = await this.loadTownManifest();
+            const loadPromises = townFiles.map(file => this.loadTownData(file));
             const townDataArray = await Promise.all(loadPromises);
 
             // Also load the separate removed_items.json if it exists

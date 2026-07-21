@@ -22,7 +22,10 @@ set -euo pipefail
 BASE_URL="${1:-https://shops.elanthia.online}"
 DATA_DIR="docs/data"
 
-TOWNS=(
+# Fallback town list, used only when the site has no towns.json manifest
+# yet (bootstrap). Normally towns are discovered dynamically from the
+# manifest the processor publishes, so new towns need no edits here.
+DEFAULT_TOWNS=(
   icemule_trace
   mist_harbor
   rivers_rest
@@ -66,8 +69,32 @@ fetch() {
 
 echo "Restoring pipeline state from $BASE_URL"
 
-for town in "${TOWNS[@]}"; do
-  fetch "$town.json"
+# Discover towns from the manifest published by processor.rb; fall back to
+# the default list if the site doesn't have one yet.
+fetch "towns.json"
+TOWN_FILES=()
+if [ -f "$DATA_DIR/towns.json" ]; then
+  manifest_files=$(
+    python3 -c "import json,sys; [print(t['file']) for t in json.load(open(sys.argv[1])).get('towns', [])]" "$DATA_DIR/towns.json" 2>/dev/null \
+    || ruby -rjson -e "JSON.parse(File.read(ARGV[0])).fetch('towns', []).each { |t| puts t['file'] }" "$DATA_DIR/towns.json" 2>/dev/null
+  ) || manifest_files=""
+  while IFS= read -r line; do
+    line="${line%$'\r'}" # tolerate CRLF from Windows toolchains
+    [ -n "$line" ] && TOWN_FILES+=("$line")
+  done <<< "$manifest_files"
+fi
+
+if [ "${#TOWN_FILES[@]}" -eq 0 ]; then
+  echo "No towns.json manifest - using default town list"
+  for town in "${DEFAULT_TOWNS[@]}"; do
+    TOWN_FILES+=("$town.json")
+  done
+else
+  echo "Manifest lists ${#TOWN_FILES[@]} towns"
+fi
+
+for f in "${TOWN_FILES[@]}"; do
+  fetch "$f"
 done
 
 for f in "${STATE_FILES[@]}"; do

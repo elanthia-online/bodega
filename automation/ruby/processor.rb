@@ -19,7 +19,11 @@ class BodegaProcessor
   PROCESSED_DATA_DIR = Pathname.new("docs/data")
   ADDED_ITEMS_FILE = PROCESSED_DATA_DIR + "added_items.json"
   REMOVED_ITEMS_FILE = PROCESSED_DATA_DIR + "removed_items.json"
+  TOWNS_MANIFEST_FILE = PROCESSED_DATA_DIR + "towns.json"
   PROCESSING_VERSION = "v2.0"
+
+  # JSON files in docs/data/ that are not town data
+  NON_TOWN_FILES = %w[added_items.json removed_items.json shop_mapping.json state.json towns.json].freeze
 
   # Tracking configuration
   REMOVED_MAX_SIZE_MB = 10
@@ -75,6 +79,10 @@ class BodegaProcessor
     # Save tracking files
     save_added_items
     save_removed_items
+
+    # Publish the town manifest so fetch-site-data and the web app can
+    # discover towns dynamically instead of via hardcoded lists
+    write_towns_manifest
 
     puts "Processing complete: #{@stats[:processed]} processed, " \
          "#{@stats[:skipped]} skipped, #{@stats[:failed]} failed"
@@ -555,12 +563,36 @@ class BodegaProcessor
     end
   end
 
+  def write_towns_manifest
+    # List every town file present (restored previous state + freshly
+    # processed), so new towns appear automatically once the game lists
+    # them in SHOP DIREC and a scan captures them.
+    entries = Dir[PROCESSED_DATA_DIR + "*.json"].sort.filter_map do |f|
+      basename = File.basename(f)
+      next if NON_TOWN_FILES.include?(basename)
+
+      begin
+        town = JSON.parse(File.read(f))["town"]
+      rescue JSON::ParserError, Errno::ENOENT
+        next
+      end
+      next unless town
+
+      { file: basename, town: town.sub(/,\s*$/, "") }
+    end
+
+    File.write(TOWNS_MANIFEST_FILE, JSON.pretty_generate({
+      generated_at: Time.now.utc.strftime("%Y-%m-%d %H:%M:%S UTC"),
+      towns: entries
+    }))
+    puts "Saved towns.json manifest with #{entries.size} towns"
+  end
+
   def load_previous_state
     # Load all previously processed town files to build signature maps
     processed_files = Dir[PROCESSED_DATA_DIR + "*.json"].reject do |f|
-      basename = File.basename(f)
       # Skip non-town files
-      %w[added_items.json removed_items.json shop_mapping.json].include?(basename)
+      NON_TOWN_FILES.include?(File.basename(f))
     end
 
     processed_files.each do |file|
