@@ -9,10 +9,14 @@
 
   Author: Ondreian
   Requirements: Ruby >= 2.3
-  version: 0.8
+  version: 0.9
   tags: playershops
 
   changelog:
+    v0.9 - Scan towns the game rejects by full name (e.g. Kraken's Fall)
+           - shop direc falls back to a unique leading token when the full
+             advertised name returns "Unknown town specified"
+           - Fix Oxford-comma town-list parse ("Cysaegir," stray entry)
     v0.8 - Capture shop location from the new SHOP BROWSE preamble format
            - Extract room_name, room_number (game's official room id), and
              exterior as shop-level fields on every scan (full and smart)
@@ -594,7 +598,13 @@ module Bodega
     def self.fetch_towns()
       case (result = dothistimeout("shop direc", 5, Messages::TOWNS))
       when Messages::TOWNS
-        result.match(Messages::TOWNS)[:towns].gsub(" and ", ", ").split(", ")
+        # Oxford-comma list: "..., Cysaegir, and Kraken's Fall". Drop the
+        # trailing "and " on the final item, then split, so we don't end up
+        # with a stray "Cysaegir," entry.
+        result.match(Messages::TOWNS)[:towns]
+              .split(/,\s*/)
+              .map { |t| t.sub(/\Aand\s+/, "").strip }
+              .reject(&:empty?)
       else
         fail "unknown outcome for parsing available towns"
       end
@@ -604,9 +614,44 @@ module Bodega
       @towns ||= fetch_towns
     end
 
+    # The game's "shop direc" town matcher rejects some full names that it
+    # nonetheless advertises (e.g. "Kraken's Fall" -> "Unknown town
+    # specified"), apparently choking on an apostrophe followed by a space.
+    # A unique leading token ("Kraken") is accepted. Try the full name
+    # first (keeps every working town verbatim) and fall back to the token
+    # before the first apostrophe/space only if that fails.
+    def self.shop_direc_variants(town)
+      variants = [town]
+      short = town[/\A[^'\s]+/]
+      variants << short if short && short != town
+      variants
+    end
+
+    # True if the game accepts this town name for "shop direc" (responds
+    # with a shop directory rather than "Unknown town specified"). Used to
+    # pick a working command form before the full Collector scan.
+    def self.shop_direc_accepted?(town)
+      accepted = %r[~*~ .*? Shops ~*~]
+      rejected = %r[Unknown town specified]
+      case dothistimeout(%[shop direc #{town}], 5, Regexp.union(accepted, rejected))
+      when accepted then true
+      else false
+      end
+    end
+
     def self.shops(town)
+      variants = shop_direc_variants(town)
+
+      # If a fallback exists, probe non-final variants cheaply: the game
+      # answers a bad town name immediately with "Unknown town specified",
+      # so we skip to the fallback without burning the Collector's full
+      # 3x5s timeout. The last variant always goes through the Collector.
+      cmd_town = variants.find.with_index do |candidate, i|
+        i == variants.size - 1 || shop_direc_accepted?(candidate)
+      end
+
       coll = Collector.new(
-        command: %[shop direc #{town}],
+        command: %[shop direc #{cmd_town}],
         start: %r[~*~ (?<title>.*?) Shops ~*~],
         close: %[You can use the SHOP BROWSE]
       )
