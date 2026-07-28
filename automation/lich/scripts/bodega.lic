@@ -16,6 +16,8 @@
     v0.9 - Scan towns the game rejects by full name (e.g. Kraken's Fall)
            - shop direc falls back to a unique leading token when the full
              advertised name returns "Unknown town specified"
+           - Rewrite the per-shop SHOP BROWSE command to the same accepted
+             token (the advertised browse command is rejected the same way)
            - Fix Oxford-comma town-list parse ("Cysaegir," stray entry)
     v0.8 - Capture shop location from the new SHOP BROWSE preamble format
            - Extract room_name, room_number (game's official room id), and
@@ -659,6 +661,17 @@ module Bodega
       result = coll.run()
 
       next_command = result.last.match(Messages::COMMAND)[:command]
+
+      # The advertised browse command echoes the same full town name the
+      # game rejects (e.g. "SHOP BROWSE KRAKEN'S FALL {SHOP#}" -> "Unknown
+      # town specified"). When we had to fall back to a token for the
+      # directory, rewrite the browse command's town segment to that same
+      # accepted token so per-shop inspection works too.
+      if cmd_town != town
+        next_command = next_command.sub(/\A(SHOP BROWSE )(.+?)( \{SHOP#\})\z/i) do
+          "#{Regexp.last_match(1)}#{cmd_town.upcase}#{Regexp.last_match(3)}"
+        end
+      end
 
       by_shop_number = result.slice(1..-2)
                              .map(&:strip).map do |row| row.split(/\s{2,}/) end # split columns
