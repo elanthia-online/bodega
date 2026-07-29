@@ -435,6 +435,19 @@ class SearchEngine {
         return true;
     }
 
+    // Multi-select matching: negated values ("!x") are ANDed - the item must
+    // match none of them. Positive values are ORed - the item must match at
+    // least one (when any are selected). Mixing both applies both rules.
+    matchesMultiSelect(values, matchFn) {
+        const positives = values.filter(v => !v.startsWith('!'));
+        for (const value of values) {
+            if (value.startsWith('!') && matchFn(value.substring(1))) {
+                return false;
+            }
+        }
+        return positives.length === 0 || positives.some(matchFn);
+    }
+
     matchesAllFilters(item, filters) {
         // Advanced search text filter with field-specific filtering
         if (filters.search) {
@@ -502,24 +515,9 @@ class SearchEngine {
 
         // Item Type filter - supports multiple selections and negation
         if (filters.itemTypes.length > 0) {
-            let matchesItemType = false;
-            for (const type of filters.itemTypes) {
-                if (type.startsWith('!')) {
-                    // Negation: "!weapon" means exclude weapons
-                    const excludeType = type.substring(1);
-                    if (item.itemType !== excludeType) {
-                        matchesItemType = true;
-                        break;
-                    }
-                } else {
-                    // Positive match: item.itemType must equal the filter value
-                    if (item.itemType === type) {
-                        matchesItemType = true;
-                        break;
-                    }
-                }
+            if (!this.matchesMultiSelect(filters.itemTypes, type => item.itemType === type)) {
+                return false;
             }
-            if (!matchesItemType) return false;
         }
 
         // Enchant filter - supports levels and boolean enchanted/not enchanted
@@ -552,114 +550,42 @@ class SearchEngine {
 
         // Container filter - supports multiple selections and negation
         if (filters.capacityLevels.length > 0) {
-            let matchesContainer = false;
-            for (const level of filters.capacityLevels) {
-                if (level.startsWith('!')) {
-                    // Negation for specific capacity level
-                    const excludeLevel = level.substring(1);
-                    if (item.capacityLevel !== excludeLevel) {
-                        matchesContainer = true;
-                        break;
-                    }
-                } else {
-                    // Specific capacity level
-                    if (item.capacityLevel === level) {
-                        matchesContainer = true;
-                        break;
-                    }
-                }
+            if (!this.matchesMultiSelect(filters.capacityLevels, level => item.capacityLevel === level)) {
+                return false;
             }
-            if (!matchesContainer) return false;
         }
 
         // Armor type filter - now supports multiple selections and negation
         if (filters.armorTypes.length > 0) {
-            let matchesArmor = false;
-            for (const type of filters.armorTypes) {
-                // Handle negated filters for specific armor types
-                if (type.startsWith('!')) {
-                    const excludeType = type.substring(1);
-                    if (item.armorType !== excludeType) {
-                        matchesArmor = true;
-                        break;
-                    }
-                } else {
-                    // Specific armor type
-                    if (item.armorType === type) {
-                        matchesArmor = true;
-                        break;
-                    }
-                }
+            if (!this.matchesMultiSelect(filters.armorTypes, type => item.armorType === type)) {
+                return false;
             }
-            if (!matchesArmor) return false;
         }
 
         // Shield type filter - now supports multiple selections and negation
         if (filters.shieldTypes.length > 0) {
-            let matchesShield = false;
-            for (const type of filters.shieldTypes) {
-                // Handle negated filters for specific shield types
-                if (type.startsWith('!')) {
-                    const excludeType = type.substring(1);
-                    if (!item.shieldType || !item.shieldType.includes(excludeType)) {
-                        matchesShield = true;
-                        break;
-                    }
-                } else {
-                    // Specific shield size
-                    if (item.shieldType && item.shieldType.includes(type)) {
-                        matchesShield = true;
-                        break;
-                    }
-                }
+            if (!this.matchesMultiSelect(filters.shieldTypes, type =>
+                item.shieldType && item.shieldType.includes(type)
+            )) {
+                return false;
             }
-            if (!matchesShield) return false;
         }
 
         // Worn filter - supports multiple selections and negation
         if (filters.wearLocations.length > 0) {
-            let matchesWorn = false;
-            for (const loc of filters.wearLocations) {
-                if (loc.startsWith('!')) {
-                    // Negation for specific wear location
-                    const excludeLoc = loc.substring(1);
-                    const itemLoc = (item.wearLocation || item.worn || '').toLowerCase();
-                    if (!itemLoc.includes(excludeLoc.toLowerCase())) {
-                        matchesWorn = true;
-                        break;
-                    }
-                } else {
-                    // Specific wear location
-                    const itemLoc = (item.wearLocation || item.worn || '').toLowerCase();
-                    if (itemLoc.includes(loc.toLowerCase())) {
-                        matchesWorn = true;
-                        break;
-                    }
-                }
+            const itemLoc = (item.wearLocation || item.worn || '').toLowerCase();
+            if (!this.matchesMultiSelect(filters.wearLocations, loc => itemLoc.includes(loc.toLowerCase()))) {
+                return false;
             }
-            if (!matchesWorn) return false;
         }
 
         // Weapon filter - supports multiple selections and negation
         if (filters.skills.length > 0) {
-            let matchesWeapon = false;
-            for (const skill of filters.skills) {
-                if (skill.startsWith('!')) {
-                    // Negation for specific weapon skill
-                    const excludeSkill = skill.substring(1);
-                    if (!item.skill || !item.skill.toLowerCase().includes(excludeSkill.toLowerCase())) {
-                        matchesWeapon = true;
-                        break;
-                    }
-                } else {
-                    // Specific weapon skill
-                    if (item.skill && item.skill.toLowerCase().includes(skill.toLowerCase())) {
-                        matchesWeapon = true;
-                        break;
-                    }
-                }
+            if (!this.matchesMultiSelect(filters.skills, skill =>
+                item.skill && item.skill.toLowerCase().includes(skill.toLowerCase())
+            )) {
+                return false;
             }
-            if (!matchesWeapon) return false;
         }
 
         // Special properties - now supports multiple selections (ALL must match)
@@ -688,44 +614,20 @@ class SearchEngine {
 
         // Gemstone filter - combines rarity and property count
         if (filters.gemstones.length > 0) {
-            let matchesGemstone = false;
-            for (const filter of filters.gemstones) {
-                if (filter.startsWith('!')) {
-                    // Negation for specific rarity or property count
-                    const excludeFilter = filter.substring(1);
-                    if (excludeFilter.endsWith('prop')) {
-                        const count = parseInt(excludeFilter);
-                        if (!item.gemstoneProperties || item.gemstoneProperties.length !== count) {
-                            matchesGemstone = true;
-                            break;
-                        }
-                    } else {
-                        // Negation for rarity
-                        if (!item.gemstoneProperties || !item.gemstoneProperties.some(prop =>
-                            prop.rarity && prop.rarity.toLowerCase() === excludeFilter.toLowerCase()
-                        )) {
-                            matchesGemstone = true;
-                            break;
-                        }
-                    }
-                } else if (filter.endsWith('prop')) {
+            const matchesGemstoneFilter = filter => {
+                if (filter.endsWith('prop')) {
                     // Property count filter (e.g., "1prop", "2prop", "3prop")
                     const count = parseInt(filter);
-                    if (item.gemstoneProperties && item.gemstoneProperties.length === count) {
-                        matchesGemstone = true;
-                        break;
-                    }
-                } else {
-                    // Rarity filter (common, rare, regional, legendary)
-                    if (item.gemstoneProperties && item.gemstoneProperties.some(prop =>
-                        prop.rarity && prop.rarity.toLowerCase() === filter.toLowerCase()
-                    )) {
-                        matchesGemstone = true;
-                        break;
-                    }
+                    return item.gemstoneProperties && item.gemstoneProperties.length === count;
                 }
+                // Rarity filter (common, rare, regional, legendary)
+                return item.gemstoneProperties && item.gemstoneProperties.some(prop =>
+                    prop.rarity && prop.rarity.toLowerCase() === filter.toLowerCase()
+                );
+            };
+            if (!this.matchesMultiSelect(filters.gemstones, matchesGemstoneFilter)) {
+                return false;
             }
-            if (!matchesGemstone) return false;
         }
 
         return true;
