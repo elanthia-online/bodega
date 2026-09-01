@@ -360,6 +360,26 @@ class SearchEngine {
         return false;
     }
 
+    // Whole-word containment: true when `phrase` appears in `text` bounded by
+    // non-word characters (or string edges) on both sides. Used for quoted
+    // phrases so "ear" doesn't match "ears"/"spear". A phrase that begins or
+    // ends with a non-word character (e.g. "+5") gets no boundary assertion on
+    // that side, since \b would demand a word character there and never match.
+    matchesWholeWord(text, phrase) {
+        const clean = phrase.toLowerCase().trim();
+        if (!clean) return true;
+
+        const escaped = clean.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const leading = /^\w/.test(clean) ? '\\b' : '';
+        const trailing = /\w$/.test(clean) ? '\\b' : '';
+
+        try {
+            return new RegExp(`${leading}${escaped}${trailing}`, 'i').test(text);
+        } catch (e) {
+            return text.includes(clean);
+        }
+    }
+
     matchesSearchText(itemText, searchQuery, useRegex = false) {
         if (!searchQuery) return true;
 
@@ -384,13 +404,14 @@ class SearchEngine {
         // Fall back to existing simple search logic
         // (exact phrases, wildcards, enhancive search, AND terms)
 
-        // Handle exact phrase search with quotes
+        // Handle exact phrase search with quotes. Quoted phrases match on word
+        // boundaries, so "ear" finds "an ear" but not "ears" or "spear".
         const quotedPhrases = searchQuery.match(/"([^"]+)"/g);
         if (quotedPhrases) {
             // Check all quoted phrases
             for (let phrase of quotedPhrases) {
                 const cleanPhrase = phrase.slice(1, -1); // Remove quotes
-                if (!itemText.includes(cleanPhrase.toLowerCase())) {
+                if (!this.matchesWholeWord(itemText, cleanPhrase)) {
                     return false;
                 }
             }
