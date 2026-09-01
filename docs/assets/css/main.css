@@ -774,6 +774,15 @@ input::placeholder {
     margin-bottom: 5px;
 }
 
+/* Purchase-safety hint after the Item ID. IDs are reassigned by game
+   maintenance and this data can lag, so buying by a stale ID gets the
+   wrong item. */
+.item-id-warning {
+    margin-left: 6px;
+    font-size: 0.9em;
+    color: var(--color-warning);
+}
+
 .enhancive-list {
     background: var(--bg-tertiary);
     padding: 8px;

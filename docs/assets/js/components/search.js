@@ -919,7 +919,9 @@ class SearchEngine {
                 <p><strong>Town:</strong> ${esc(item.town)}</p>
                 <p><strong>Shop:</strong> ${esc(item.shopName)}</p>
                 <p><strong>Room:</strong> ${esc(item.room)}</p>
-                <p><strong>Item ID:</strong> ${esc(item.id)}</p>
+                <p><strong>Item ID:</strong> ${esc(item.id)}
+                    <span class="item-id-warning">IDs can change &mdash; <strong>SHOP INSPECT ${esc(item.id)}</strong> before buying.</span>
+                </p>
                 ${item.weight ? `<p><strong>Weight:</strong> ${esc(item.weight)} pounds</p>` : ''}
                 ${item.material ? `<p><strong>Material:</strong> ${esc(item.material)}</p>` : ''}
             </div>
