@@ -798,20 +798,20 @@ class SearchEngine {
             this.openItemURL(item);
         });
 
-        const purchaseButton = document.createElement('button');
-        purchaseButton.className = 'url-button';
-        purchaseButton.title = 'Copy purchase command';
-        purchaseButton.innerHTML = '🛒';
-        purchaseButton.addEventListener('click', (e) => {
+        const inspectButton = document.createElement('button');
+        inspectButton.className = 'url-button';
+        inspectButton.title = 'Copy inspect command';
+        inspectButton.innerHTML = '🔍';
+        inspectButton.addEventListener('click', (e) => {
             e.stopPropagation();
-            this.copyPurchaseCommand(item);
+            this.copyInspectCommand(item);
         });
 
         const buttonRow = document.createElement('div');
         buttonRow.className = 'name-container';
         buttonRow.appendChild(urlButton);
         buttonRow.appendChild(openButton);
-        buttonRow.appendChild(purchaseButton);
+        buttonRow.appendChild(inspectButton);
         nameContainer.appendChild(buttonRow);
         nameCell.appendChild(nameContainer);
 
@@ -1169,17 +1169,21 @@ class SearchEngine {
         window.open(url, '_blank');
     }
 
-    copyPurchaseCommand(item) {
-        const command = `SHOP PURCHASE ${item.id}`;
+    // Copies INSPECT rather than PURCHASE on purpose. Item IDs are reassigned
+    // by game maintenance and this data can lag behind, so a copied PURCHASE
+    // can buy the wrong item outright. INSPECT is non-destructive and the
+    // game's own output supplies the purchase command once the ID checks out.
+    copyInspectCommand(item) {
+        const command = `SHOP INSPECT ${item.id}`;
 
         if (navigator.clipboard) {
             navigator.clipboard.writeText(command).then(() => {
-                this.showToast('Purchase command copied!');
+                this.showToast('Inspect command copied!');
             }).catch(() => {
-                this.fallbackCopyText(command, 'Purchase command copied!');
+                this.fallbackCopyText(command, 'Inspect command copied!');
             });
         } else {
-            this.fallbackCopyText(command, 'Purchase command copied!');
+            this.fallbackCopyText(command, 'Inspect command copied!');
         }
     }
 

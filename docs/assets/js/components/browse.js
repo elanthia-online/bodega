@@ -988,13 +988,13 @@ class BrowseEngine {
             this.openItemURL(item);
         });
 
-        const purchaseButton = document.createElement('button');
-        purchaseButton.className = 'url-button';
-        purchaseButton.title = 'Copy purchase command';
-        purchaseButton.innerHTML = '🛒';
-        purchaseButton.addEventListener('click', (e) => {
+        const inspectButton = document.createElement('button');
+        inspectButton.className = 'url-button';
+        inspectButton.title = 'Copy inspect command';
+        inspectButton.innerHTML = '🔍';
+        inspectButton.addEventListener('click', (e) => {
             e.stopPropagation();
-            this.copyPurchaseCommand(item);
+            this.copyInspectCommand(item);
         });
 
         const nameRow = document.createElement('div');
@@ -1011,7 +1011,7 @@ class BrowseEngine {
         nameContainer.className = 'name-container';
         nameContainer.appendChild(urlButton);
         nameContainer.appendChild(openButton);
-        nameContainer.appendChild(purchaseButton);
+        nameContainer.appendChild(inspectButton);
 
         nameCell.appendChild(nameRow);
         nameCell.appendChild(nameContainer);
@@ -1076,10 +1076,10 @@ class BrowseEngine {
         }
     }
 
-    copyPurchaseCommand(item) {
-        // Reuse existing purchase-command functionality from search engine
-        if (window.searchEngine && window.searchEngine.copyPurchaseCommand) {
-            window.searchEngine.copyPurchaseCommand(item);
+    copyInspectCommand(item) {
+        // Reuse existing inspect-command functionality from search engine
+        if (window.searchEngine && window.searchEngine.copyInspectCommand) {
+            window.searchEngine.copyInspectCommand(item);
         }
     }
 
