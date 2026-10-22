@@ -47,7 +47,6 @@ class BodegaProcessor
     armor_type: :armor_type,
     weapon_type: :weapon_type,
     shield_type: :shield_type,
-    wear_location: :wear_location,
     is_weapon: :is_weapon,
     is_armor: :is_armor,
     is_shield: :is_shield,
@@ -659,6 +658,8 @@ class BodegaProcessor
               room_title: room[:room_title],
             }
             INDEX_DETAIL_FIELDS.each { |out, key| entry[out] = details[key] }
+            # Same precedence as the web UI (data-loader.js): worn, then wear_location
+            entry[:wear_location] = details[:worn] || details[:wear_location]
             entry.delete(:tags) if entry[:tags]&.empty?
             items << entry.compact
           end
