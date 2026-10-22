@@ -21,6 +21,7 @@ class BodegaProcessor
   ADDED_ITEMS_FILE = PROCESSED_DATA_DIR + "added_items.json"
   REMOVED_ITEMS_FILE = PROCESSED_DATA_DIR + "removed_items.json"
   TOWNS_MANIFEST_FILE = PROCESSED_DATA_DIR + "towns.json"
+  SEARCH_INDEX_FILE = PROCESSED_DATA_DIR + "index.json"
   SHOP_LOCATIONS_FILE = PROCESSED_DATA_DIR + "shop_locations.json"
   LOCATION_CHANGES_FILE = PROCESSED_DATA_DIR + "location_changes.json"
   PROCESSING_VERSION = "v2.0"
@@ -31,8 +32,30 @@ class BodegaProcessor
   # JSON files in docs/data/ that are not town data
   NON_TOWN_FILES = %w[
     added_items.json removed_items.json shop_mapping.json state.json
-    towns.json shop_locations.json location_changes.json
+    towns.json shop_locations.json location_changes.json index.json
   ].freeze
+
+  # Item fields copied from details into the compact search index. Anything
+  # needing the raw inspect text (details.raw) is deliberately left out.
+  INDEX_DETAIL_FIELDS = {
+    price: :cost,
+    item_type: :item_type,
+    material: :material,
+    skill: :skill,
+    enchant: :enchant,
+    weight: :weight,
+    armor_type: :armor_type,
+    weapon_type: :weapon_type,
+    shield_type: :shield_type,
+    wear_location: :wear_location,
+    is_weapon: :is_weapon,
+    is_armor: :is_armor,
+    is_shield: :is_shield,
+    is_container: :is_container,
+    is_jewelry: :is_jewelry,
+    is_gemstone: :is_gemstone,
+    tags: :tags,
+  }.freeze
 
   # Tracking configuration
   REMOVED_MAX_SIZE_MB = 10
@@ -96,6 +119,9 @@ class BodegaProcessor
     # Publish exterior-room uid -> shops mapping and a change log, for
     # detecting shop moves / uid recycling (consumed externally)
     write_shop_locations
+
+    # Compact raw-free index of every item, for external consumers
+    write_search_index
 
     puts "Processing complete: #{@stats[:processed]} processed, " \
          "#{@stats[:skipped]} skipped, #{@stats[:failed]} failed"
@@ -599,6 +625,54 @@ class BodegaProcessor
       towns: entries
     }))
     puts "Saved towns.json manifest with #{entries.size} towns"
+  end
+
+  # Flat, raw-free index of every item across all town files on disk (so
+  # towns not processed this run, restored from the live site, are included).
+  def write_search_index
+    items = []
+    Dir[PROCESSED_DATA_DIR + "*.json"].sort.each do |f|
+      next if NON_TOWN_FILES.include?(File.basename(f))
+
+      begin
+        data = JSON.parse(File.read(f), symbolize_names: true)
+      rescue JSON::ParserError, Errno::ENOENT
+        next
+      end
+      town = data[:town]
+      next unless town
+
+      town = town.sub(/,\s*$/, "")
+      (data[:shops] || []).each do |shop|
+        (shop[:inv] || []).each do |room|
+          (room[:items] || []).each do |item|
+            details = item[:details] || {}
+            entry = {
+              id: item[:id],
+              name: item[:name],
+              quantity: item[:quantity],
+              town: town,
+              shop_id: shop[:id],
+              shop_owner: shop[:shop_owner],
+              room_name: shop[:room_name],
+              room_number: shop[:room_number],
+              room_title: room[:room_title],
+            }
+            INDEX_DETAIL_FIELDS.each { |out, key| entry[out] = details[key] }
+            entry.delete(:tags) if entry[:tags]&.empty?
+            items << entry.compact
+          end
+        end
+      end
+    end
+
+    File.write(SEARCH_INDEX_FILE, JSON.generate({
+      generated_at: Time.now.utc.strftime("%Y-%m-%dT%H:%M:%SZ"),
+      processing_version: PROCESSING_VERSION,
+      count: items.size,
+      items: items
+    }))
+    puts "Saved index.json (#{items.size} items, #{(File.size(SEARCH_INDEX_FILE) / 1024.0 / 1024).round(2)} MB)"
   end
 
   def write_shop_locations
