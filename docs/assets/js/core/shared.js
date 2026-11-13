@@ -268,7 +268,157 @@ const BodegaShared = {
         }
 
         return container;
+    },
+
+    // Show one sidebar mode (search/browse/added/removed) and mark its tab
+    // as current. Each engine still handles its own table/pagination setup.
+    activateMode(mode) {
+        ['search', 'browse', 'added', 'removed'].forEach(name => {
+            const tab = document.getElementById(`${name}-tab`);
+            const panel = document.getElementById(`${name}-mode`);
+            const active = name === mode;
+            if (tab) {
+                tab.classList.toggle('active', active);
+                tab.setAttribute('aria-pressed', active ? 'true' : 'false');
+            }
+            if (panel) panel.style.display = active ? 'block' : 'none';
+        });
+    },
+
+    // Update the sort arrow and aria-sort on the results table headers, and
+    // make every sortable header keyboard-focusable (headers are re-rendered
+    // per mode, so this runs after each render via updateSortIndicators).
+    updateSortHeaders(headerField, direction) {
+        document.querySelectorAll('#results-table th.sortable').forEach(th => {
+            th.tabIndex = 0;
+            const indicator = th.querySelector('.sort-indicator');
+            if (th.dataset.sort === headerField) {
+                th.setAttribute('aria-sort', direction === 'asc' ? 'ascending' : 'descending');
+                if (indicator) indicator.textContent = direction === 'asc' ? ' ↑' : ' ↓';
+            } else {
+                th.removeAttribute('aria-sort');
+                if (indicator) indicator.textContent = '';
+            }
+        });
+    },
+
+    // Make a non-button element (e.g. an item name span) reachable and
+    // operable from the keyboard. Enter/Space fire its click handlers, which
+    // bubble the same way a mouse click does.
+    makeActivatable(element, label) {
+        element.tabIndex = 0;
+        element.setAttribute('role', 'button');
+        if (label) element.setAttribute('aria-label', label);
+        element.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                element.click();
+            }
+        });
+    },
+
+    // Render page-number buttons into the top and bottom pagination bars and
+    // set the Previous/Next disabled state. Shows the first and last page plus
+    // two pages either side of the current one, with ellipses for the gaps.
+    renderPagination(currentPage, totalPages, onPageSelect) {
+        document.getElementById('prev-page').disabled = currentPage <= 1;
+        document.getElementById('next-page').disabled = currentPage >= totalPages;
+        document.getElementById('prev-page-top').disabled = currentPage <= 1;
+        document.getElementById('next-page-top').disabled = currentPage >= totalPages;
+
+        const containers = [
+            document.getElementById('page-numbers'),
+            document.getElementById('page-numbers-top')
+        ];
+        containers.forEach(container => { container.innerHTML = ''; });
+
+        if (totalPages <= 1) return;
+
+        const pages = [];
+        const windowStart = Math.max(2, currentPage - 2);
+        const windowEnd = Math.min(totalPages - 1, currentPage + 2);
+        pages.push(1);
+        if (windowStart > 3) pages.push('gap');
+        else if (windowStart === 3) pages.push(2);
+        for (let i = windowStart; i <= windowEnd; i++) pages.push(i);
+        if (windowEnd < totalPages - 2) pages.push('gap');
+        else if (windowEnd === totalPages - 2) pages.push(totalPages - 1);
+        pages.push(totalPages);
+
+        containers.forEach(container => {
+            pages.forEach(page => {
+                if (page === 'gap') {
+                    const gap = document.createElement('span');
+                    gap.className = 'page-gap';
+                    gap.setAttribute('aria-hidden', 'true');
+                    gap.textContent = '…';
+                    container.appendChild(gap);
+                    return;
+                }
+
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.className = 'page-number';
+                button.textContent = page;
+                button.setAttribute('aria-label', `Page ${page}`);
+                if (page === currentPage) {
+                    button.classList.add('current');
+                    button.setAttribute('aria-current', 'page');
+                } else {
+                    button.addEventListener('click', () => onPageSelect(page));
+                }
+                container.appendChild(button);
+            });
+        });
+    },
+
+    // Modal focus handling: move focus into the dialog, keep Tab inside it,
+    // and return focus to whatever opened it when it closes.
+    openDialog(dialog, initialFocus) {
+        const previous = document.activeElement;
+        const focusable = () => Array.from(dialog.querySelectorAll(
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        )).filter(el => !el.disabled && el.offsetParent !== null);
+
+        const onKeydown = (event) => {
+            if (event.key !== 'Tab') return;
+            const items = focusable();
+            if (items.length === 0) return;
+            const first = items[0];
+            const last = items[items.length - 1];
+            if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault();
+                last.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault();
+                first.focus();
+            }
+        };
+
+        dialog.addEventListener('keydown', onKeydown);
+        (initialFocus || focusable()[0] || dialog).focus();
+
+        return function release() {
+            dialog.removeEventListener('keydown', onKeydown);
+            if (previous && typeof previous.focus === 'function' && document.contains(previous)) {
+                previous.focus();
+            }
+        };
     }
 };
 
 window.BodegaShared = BodegaShared;
+
+// Sortable column headers are re-rendered per mode; delegate keyboard
+// activation (Enter/Space) from the table so every rendering gets it.
+document.addEventListener('DOMContentLoaded', () => {
+    const table = document.getElementById('results-table');
+    if (!table) return;
+    table.addEventListener('keydown', (event) => {
+        const th = event.target.closest && event.target.closest('th.sortable');
+        if (th && (event.key === 'Enter' || event.key === ' ')) {
+            event.preventDefault();
+            th.click();
+        }
+    });
+});

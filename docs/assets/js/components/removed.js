@@ -76,15 +76,7 @@ class RemovedEngine {
     }
 
     switchToRemoved() {
-        document.getElementById('search-tab').classList.remove('active');
-        document.getElementById('browse-tab').classList.remove('active');
-        document.getElementById('added-tab').classList.remove('active');
-        document.getElementById('removed-tab').classList.add('active');
-
-        document.getElementById('search-mode').style.display = 'none';
-        document.getElementById('browse-mode').style.display = 'none';
-        document.getElementById('added-mode').style.display = 'none';
-        document.getElementById('removed-mode').style.display = 'block';
+        BodegaShared.activateMode('removed');
 
         // Show pagination controls for removed mode
         document.getElementById('pagination').style.display = 'flex';
@@ -100,12 +92,8 @@ class RemovedEngine {
         this.updateTableHeaders();
         this.updateSortIndicators();
 
-        // Initialize removed data if not done yet
-        if (this.removedItems.length === 0) {
-            this.initializeRemovedData();
-        } else {
-            this.performSearch();
-        }
+        // Load removed data on first use, then search
+        this.initializeRemovedData();
 
         // Update URL to removed mode
         if (window.urlStateManager) {
@@ -113,16 +101,33 @@ class RemovedEngine {
         }
     }
 
-    initializeRemovedData() {
-        if (!window.dataLoader || !window.dataLoader.removedItems) {
-            console.log('No removed items data available');
-            this.displayNoResults();
-            return;
+    // removed_items.json is fetched the first time this tab is opened
+    // (not at page load), so show a loading row until it arrives.
+    async initializeRemovedData() {
+        if (!this.dataReady) {
+            this.showLoadingRow();
+            try {
+                this.removedItems = await window.dataLoader.ensureRemovedItems();
+            } catch (error) {
+                console.error('Failed to load removed items:', error);
+                this.removedItems = [];
+            }
+            // An empty result usually means the fetch failed; retry next time
+            this.dataReady = this.removedItems.length > 0;
         }
 
-        this.removedItems = window.dataLoader.removedItems;
-        console.log(`Loaded ${this.removedItems.length} removed items`);
+        // The user may have switched tabs while the data was loading
+        if (!this.isActiveMode()) return;
         this.performSearch();
+    }
+
+    showLoadingRow() {
+        if (!this.isActiveMode()) return;
+        document.getElementById('results-body').innerHTML =
+            '<tr><td colspan="6" class="no-results">Loading removed items…</td></tr>';
+        document.getElementById('results-count').textContent = 'Loading removed items…';
+        document.getElementById('page-info').textContent = '';
+        BodegaShared.renderPagination(1, 0, () => {});
     }
 
     performSearch() {
@@ -220,11 +225,6 @@ class RemovedEngine {
     }
 
     updateSortIndicators() {
-        // Clear all indicators
-        document.querySelectorAll('#results-table th.sortable .sort-indicator').forEach(indicator => {
-            indicator.textContent = '';
-        });
-
         // Map internal field names back to header data-sort values
         let headerField = this.currentSort.field;
         if (this.currentSort.field === 'removedDate') headerField = 'removed';
@@ -232,12 +232,7 @@ class RemovedEngine {
         if (this.currentSort.field === 'lastSeenTown') headerField = 'town';
         if (this.currentSort.field === 'propertyCount') headerField = 'properties';
 
-        // Set indicator for current sort
-        const currentHeader = document.querySelector(`#results-table th[data-sort="${headerField}"]`);
-        if (currentHeader) {
-            const indicator = currentHeader.querySelector('.sort-indicator');
-            indicator.textContent = this.currentSort.direction === 'asc' ? ' ↑' : ' ↓';
-        }
+        BodegaShared.updateSortHeaders(headerField, this.currentSort.direction);
     }
 
     sortItems() {
@@ -314,6 +309,7 @@ class RemovedEngine {
         const nameSpan = document.createElement('span');
         nameSpan.className = 'name';
         nameSpan.textContent = item.name;
+        BodegaShared.makeActivatable(nameSpan);
         nameCell.appendChild(nameSpan);
 
         // Add quantity after name if it exists (with 2 spaces, not underlined)
@@ -386,14 +382,6 @@ class RemovedEngine {
         `;
     }
 
-    updateResultsHeader() {
-        const resultsCount = document.getElementById('results-count');
-        const pageInfo = document.getElementById('page-info');
-
-        resultsCount.textContent = `${this.filteredItems.length} removed items found`;
-        pageInfo.textContent = '';
-    }
-
     isActiveMode() {
         const removedMode = document.getElementById('removed-mode');
         return removedMode && removedMode.style.display !== 'none';
@@ -428,48 +416,11 @@ class RemovedEngine {
 
     updatePagination(totalItems) {
         const totalPages = Math.ceil(totalItems / this.itemsPerPage);
-
-        // Update pagination controls
-        document.getElementById('prev-page').disabled = this.currentPage <= 1;
-        document.getElementById('next-page').disabled = this.currentPage >= totalPages;
-        document.getElementById('prev-page-top').disabled = this.currentPage <= 1;
-        document.getElementById('next-page-top').disabled = this.currentPage >= totalPages;
-
-        const pageNumbers = document.getElementById('page-numbers');
-        const pageNumbersTop = document.getElementById('page-numbers-top');
-        pageNumbers.innerHTML = '';
-        pageNumbersTop.innerHTML = '';
-
-        if (totalPages <= 1) return;
-
-        // Generate page numbers
-        const startPage = Math.max(1, this.currentPage - 2);
-        const endPage = Math.min(totalPages, this.currentPage + 2);
-
-        for (let i = startPage; i <= endPage; i++) {
-            const pageBtn = document.createElement('span');
-            pageBtn.className = 'page-number';
-            pageBtn.textContent = i;
-
-            const pageBtnTop = document.createElement('span');
-            pageBtnTop.className = 'page-number';
-            pageBtnTop.textContent = i;
-
-            if (i === this.currentPage) {
-                pageBtn.classList.add('current');
-                pageBtnTop.classList.add('current');
-            } else {
-                const clickHandler = () => {
-                    this.currentPage = i;
-                    this.displayResults();
-                };
-                pageBtn.addEventListener('click', clickHandler);
-                pageBtnTop.addEventListener('click', clickHandler);
-            }
-
-            pageNumbers.appendChild(pageBtn);
-            pageNumbersTop.appendChild(pageBtnTop);
-        }
+        BodegaShared.renderPagination(this.currentPage, totalPages, (page) => {
+            this.currentPage = page;
+            this.displayResults();
+            this.updateResultsHeader();
+        });
     }
 
     updateResultsHeader() {
@@ -490,6 +441,7 @@ class RemovedEngine {
         if (this.currentPage > 1) {
             this.currentPage--;
             this.displayResults();
+            this.updateResultsHeader();
         }
     }
 
@@ -498,6 +450,7 @@ class RemovedEngine {
         if (this.currentPage < totalPages) {
             this.currentPage++;
             this.displayResults();
+            this.updateResultsHeader();
         }
     }
 
@@ -526,9 +479,3 @@ document.addEventListener('DOMContentLoaded', () => {
     window.removedEngine = new RemovedEngine();
 });
 
-// Initialize removed data when main data is loaded
-window.addEventListener('dataLoaded', () => {
-    if (window.removedEngine) {
-        window.removedEngine.initializeRemovedData();
-    }
-});

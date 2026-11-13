@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
+    <a href="#content" class="skip-link">Skip to results</a>
     <div id="wrapper">
         <!-- Header -->
         <header>
@@ -43,8 +44,8 @@
                             ◐ <span>Contrast</span>
                         </button>
                     </div>
-                    <button id="tag-settings-btn" class="settings-btn" title="Tag Display Settings">
-                        <span class="settings-icon">&#9881;</span>
+                    <button id="tag-settings-btn" class="settings-btn" title="Tag Display Settings" aria-label="Tag display settings">
+                        <span class="settings-icon" aria-hidden="true">&#9881;</span>
                     </button>
                 </div>
             </div>
@@ -53,20 +54,20 @@
         <!-- Main Container -->
         <div id="main-container">
             <!-- Left Sidebar - Filters -->
-            <aside id="sidebar">
+            <aside id="sidebar" aria-label="Search and filters">
                 <!-- Mode Tabs -->
-                <div class="mode-tabs">
-                    <button id="search-tab" class="mode-tab active">Search</button>
-                    <button id="browse-tab" class="mode-tab">Browse</button>
-                    <button id="added-tab" class="mode-tab">Added</button>
-                    <button id="removed-tab" class="mode-tab">Removed</button>
+                <div class="mode-tabs" role="group" aria-label="View">
+                    <button id="search-tab" class="mode-tab active" aria-pressed="true" aria-controls="search-mode">Search</button>
+                    <button id="browse-tab" class="mode-tab" aria-pressed="false" aria-controls="browse-mode">Browse</button>
+                    <button id="added-tab" class="mode-tab" aria-pressed="false" aria-controls="added-mode">Added</button>
+                    <button id="removed-tab" class="mode-tab" aria-pressed="false" aria-controls="removed-mode">Removed</button>
                 </div>
 
                 <!-- Search Mode -->
                 <div id="search-mode" class="mode-content">
                     <div class="filter-section">
                         <h2>Search</h2>
-                        <input type="text" id="search-input" placeholder="Search items..." />
+                        <input type="text" id="search-input" placeholder="Search items..." aria-label="Search items" aria-describedby="search-regex-error" />
                         <div class="search-controls">
                             <button id="search-btn">Search</button>
                             <button id="clear-btn">Clear</button>
@@ -90,11 +91,12 @@
                                 Regex
                             </label>
                         </div>
+                        <p id="search-regex-error" class="field-error" role="alert" hidden></p>
 
                         <div class="search-help">
-                            <div class="search-help-toggle" id="search-help-toggle">
-                                <span>Search Tips</span> <span class="toggle-icon">▼</span>
-                            </div>
+                            <button type="button" class="search-help-toggle" id="search-help-toggle" aria-expanded="false" aria-controls="search-help-content">
+                                <span>Search Tips</span> <span class="toggle-icon" aria-hidden="true">▼</span>
+                            </button>
                             <div class="search-help-content" id="search-help-content" style="display: none;">
                                 <div class="search-tip">
                                     <strong>"exact phrase"</strong> - Search for exact phrases using quotes
@@ -121,6 +123,11 @@
                         </div>
                     </div>
 
+                <!-- Filters: collapsed behind this toggle on small screens -->
+                <button type="button" id="filters-toggle" class="filters-toggle" aria-expanded="false" aria-controls="search-filters">
+                    <span>Filters<span id="filters-toggle-count"></span></span> <span class="toggle-icon" aria-hidden="true">▼</span>
+                </button>
+                <div id="search-filters" class="collapsible-filters">
                 <div class="filter-section">
                     <button id="apply-filters">Apply Filters</button>
                     <button id="reset-filters">Reset All</button>
@@ -329,6 +336,7 @@
                     <button id="reset-filters-bottom">Reset All</button>
                 </div>
                 </div>
+                </div>
 
                 <!-- Browse Mode -->
                 <div id="browse-mode" class="mode-content" style="display: none;">
@@ -341,7 +349,7 @@
 
                     <div class="filter-section" id="shop-sign-search-section">
                         <h2>Search Shop Signs</h2>
-                        <input type="text" id="shop-sign-search-input" placeholder="Search shop signs..." />
+                        <input type="text" id="shop-sign-search-input" placeholder="Search shop signs..." aria-label="Search shop signs" />
                         <div class="search-controls">
                             <button id="shop-sign-search-btn">Search</button>
                             <button id="shop-sign-clear-btn">Clear</button>
@@ -367,7 +375,7 @@
                         <h2>Recently Added Items</h2>
                         <p class="mode-description">Items added to shops within the last 24 hours</p>
 
-                        <input type="text" id="added-search-input" placeholder="Search added items..." />
+                        <input type="text" id="added-search-input" placeholder="Search added items..." aria-label="Search added items" />
                         <button id="added-search-btn">Search</button>
                         <button id="added-clear-btn">Clear</button>
                     </div>
@@ -420,7 +428,7 @@
                         <p class="mode-description">Items removed from shops (retained for 14-180 days based on data size)</p>
                         <p class="disclaimer"><strong>DISCLAIMER:</strong> Not a source of truth on sales price. Items listed have been removed from shops, by what means is unknown.</p>
 
-                        <input type="text" id="removed-search-input" placeholder="Search removed items..." />
+                        <input type="text" id="removed-search-input" placeholder="Search removed items..." aria-label="Search removed items" />
                         <button id="removed-search-btn">Search</button>
                         <button id="removed-clear-btn">Clear</button>
                     </div>
@@ -460,9 +468,9 @@
             </aside>
 
             <!-- Main Content Area -->
-            <main id="content">
+            <main id="content" tabindex="-1">
                 <div id="results-header">
-                    <span id="results-count">0 items found</span>
+                    <span id="results-count" role="status" aria-live="polite">0 items found</span>
 
                     <!-- Sort mode toggle (only visible in browse mode when viewing a shop) -->
                     <div id="browse-sort-mode-toggle" style="display: none;">
@@ -472,7 +480,7 @@
                     </div>
 
                     <!-- Pagination in header -->
-                    <div id="pagination-top" class="pagination">
+                    <div id="pagination-top" class="pagination" role="navigation" aria-label="Pagination, top">
                         <button id="prev-page-top" disabled>Previous</button>
                         <span id="page-numbers-top"></span>
                         <button id="next-page-top">Next</button>
@@ -500,7 +508,7 @@
                 </div>
 
                 <!-- Bottom Pagination -->
-                <div id="pagination" class="pagination">
+                <div id="pagination" class="pagination" role="navigation" aria-label="Pagination">
                     <button id="prev-page" disabled>Previous</button>
                     <span id="page-numbers"></span>
                     <button id="next-page">Next</button>
@@ -509,9 +517,9 @@
         </div>
 
         <!-- Item Detail Modal -->
-        <div id="item-modal" class="modal">
+        <div id="item-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-item-name">
             <div class="modal-content">
-                <span class="close">&times;</span>
+                <button type="button" class="close" aria-label="Close">&times;</button>
                 <h2 id="modal-item-name">Item Name</h2>
                 <div id="modal-content-body">
                     <!-- Item details will be inserted here -->
@@ -520,11 +528,11 @@
         </div>
 
         <!-- Tag Settings Modal -->
-        <div id="tag-settings-modal" class="modal" hidden>
+        <div id="tag-settings-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="tag-settings-title" hidden>
             <div class="modal-backdrop"></div>
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3>Tag Display Settings</h3>
+                    <h3 id="tag-settings-title">Tag Display Settings</h3>
                     <button id="close-tag-settings" class="modal-close" aria-label="Close">&times;</button>
                 </div>
                 <div class="modal-body">
