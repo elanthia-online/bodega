@@ -53,7 +53,7 @@ bodega/
 ## Quick Start
 
 ### For Users
-Visit the web interface: [Bodega](https://elanthia-online.github.io/bodega)
+Visit the web interface: [Bodega](https://shops.elanthia.online/)
 
 ### For Contributors
 1. Fork this repository

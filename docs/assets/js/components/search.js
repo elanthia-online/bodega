@@ -172,6 +172,14 @@ class SearchEngine {
             }
         });
 
+        // Escape closes the item detail modal, like the close button
+        document.addEventListener('keydown', (event) => {
+            const modal = document.getElementById('item-modal');
+            if (event.key === 'Escape' && modal.style.display === 'block') {
+                this.closeModal();
+            }
+        });
+
         // Enter key in search
         searchInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
@@ -1077,6 +1085,7 @@ class SearchEngine {
                     this.currentPage = i;
                     this.displayResults();
                     this.updatePagination();
+                    this.updateURLState();
                 };
                 pageBtn.addEventListener('click', clickHandler);
                 pageBtnTop.addEventListener('click', clickHandler);

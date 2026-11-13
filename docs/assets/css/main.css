@@ -1280,7 +1280,9 @@ input::placeholder {
 
     #results-container {
         max-height: none;
-        overflow-y: visible;
+        /* body hides horizontal overflow on mobile, so let the table
+           scroll sideways here instead of clipping the Shop column */
+        overflow-x: auto;
         border: none;
     }
 
