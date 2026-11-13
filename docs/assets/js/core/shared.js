@@ -285,12 +285,12 @@ const BodegaShared = {
         });
     },
 
-    // Update the sort arrow and aria-sort on the results table headers, and
-    // make every sortable header keyboard-focusable (headers are re-rendered
-    // per mode, so this runs after each render via updateSortIndicators).
+    // Update the sort arrow and aria-sort on the results table headers
+    // (headers are re-rendered per mode, so this runs after each render via
+    // updateSortIndicators). Each header holds a <button>, so keyboard
+    // activation is native.
     updateSortHeaders(headerField, direction) {
         document.querySelectorAll('#results-table th.sortable').forEach(th => {
-            th.tabIndex = 0;
             const indicator = th.querySelector('.sort-indicator');
             if (th.dataset.sort === headerField) {
                 th.setAttribute('aria-sort', direction === 'asc' ? 'ascending' : 'descending');
@@ -370,55 +370,8 @@ const BodegaShared = {
                 container.appendChild(button);
             });
         });
-    },
-
-    // Modal focus handling: move focus into the dialog, keep Tab inside it,
-    // and return focus to whatever opened it when it closes.
-    openDialog(dialog, initialFocus) {
-        const previous = document.activeElement;
-        const focusable = () => Array.from(dialog.querySelectorAll(
-            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-        )).filter(el => !el.disabled && el.offsetParent !== null);
-
-        const onKeydown = (event) => {
-            if (event.key !== 'Tab') return;
-            const items = focusable();
-            if (items.length === 0) return;
-            const first = items[0];
-            const last = items[items.length - 1];
-            if (event.shiftKey && document.activeElement === first) {
-                event.preventDefault();
-                last.focus();
-            } else if (!event.shiftKey && document.activeElement === last) {
-                event.preventDefault();
-                first.focus();
-            }
-        };
-
-        dialog.addEventListener('keydown', onKeydown);
-        (initialFocus || focusable()[0] || dialog).focus();
-
-        return function release() {
-            dialog.removeEventListener('keydown', onKeydown);
-            if (previous && typeof previous.focus === 'function' && document.contains(previous)) {
-                previous.focus();
-            }
-        };
     }
 };
 
 window.BodegaShared = BodegaShared;
 
-// Sortable column headers are re-rendered per mode; delegate keyboard
-// activation (Enter/Space) from the table so every rendering gets it.
-document.addEventListener('DOMContentLoaded', () => {
-    const table = document.getElementById('results-table');
-    if (!table) return;
-    table.addEventListener('keydown', (event) => {
-        const th = event.target.closest && event.target.closest('th.sortable');
-        if (th && (event.key === 'Enter' || event.key === ' ')) {
-            event.preventDefault();
-            th.click();
-        }
-    });
-});

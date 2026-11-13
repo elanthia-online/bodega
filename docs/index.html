@@ -91,7 +91,7 @@
                                 Regex
                             </label>
                         </div>
-                        <p id="search-regex-error" class="field-error" role="alert" hidden></p>
+                        <p id="search-regex-error" class="field-error" aria-live="polite"></p>
 
                         <div class="search-help">
                             <button type="button" class="search-help-toggle" id="search-help-toggle" aria-expanded="false" aria-controls="search-help-content">
@@ -494,11 +494,11 @@
                     <table id="results-table">
                         <thead>
                             <tr>
-                                <th class="sortable" data-sort="name">Item Name <span class="sort-indicator"></span></th>
-                                <th class="sortable" data-sort="price">Price <span class="sort-indicator"></span></th>
-                                <th class="sortable" data-sort="properties">Properties <span class="sort-indicator"></span></th>
-                                <th class="sortable" data-sort="town">Town <span class="sort-indicator"></span></th>
-                                <th class="sortable" data-sort="shop">Shop <span class="sort-indicator"></span></th>
+                                <th class="sortable" data-sort="name" scope="col"><button type="button" class="sort-button">Item Name<span class="sort-indicator" aria-hidden="true"></span></button></th>
+                                <th class="sortable" data-sort="price" scope="col"><button type="button" class="sort-button">Price<span class="sort-indicator" aria-hidden="true"></span></button></th>
+                                <th class="sortable" data-sort="properties" scope="col"><button type="button" class="sort-button">Properties<span class="sort-indicator" aria-hidden="true"></span></button></th>
+                                <th class="sortable" data-sort="town" scope="col"><button type="button" class="sort-button">Town<span class="sort-indicator" aria-hidden="true"></span></button></th>
+                                <th class="sortable" data-sort="shop" scope="col"><button type="button" class="sort-button">Shop<span class="sort-indicator" aria-hidden="true"></span></button></th>
                             </tr>
                         </thead>
                         <tbody id="results-body">
@@ -517,23 +517,22 @@
         </div>
 
         <!-- Item Detail Modal -->
-        <div id="item-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-item-name">
+        <dialog id="item-modal" class="modal" aria-labelledby="modal-item-name">
             <div class="modal-content">
-                <button type="button" class="close" aria-label="Close">&times;</button>
+                <button type="button" class="close" aria-label="Close" autofocus>&times;</button>
                 <h2 id="modal-item-name">Item Name</h2>
                 <div id="modal-content-body">
                     <!-- Item details will be inserted here -->
                 </div>
             </div>
-        </div>
+        </dialog>
 
         <!-- Tag Settings Modal -->
-        <div id="tag-settings-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="tag-settings-title" hidden>
-            <div class="modal-backdrop"></div>
+        <dialog id="tag-settings-modal" class="modal" aria-labelledby="tag-settings-title">
             <div class="modal-content">
                 <div class="modal-header">
                     <h3 id="tag-settings-title">Tag Display Settings</h3>
-                    <button id="close-tag-settings" class="modal-close" aria-label="Close">&times;</button>
+                    <button id="close-tag-settings" class="modal-close" aria-label="Close" autofocus>&times;</button>
                 </div>
                 <div class="modal-body">
                     <p class="modal-description">Toggle individual tags on/off, customize their colors, and reorder categories by dragging them up or down.</p>
@@ -547,7 +546,7 @@
                     <button id="save-tag-settings" class="btn-primary">Save</button>
                 </div>
             </div>
-        </div>
+        </dialog>
 
         <!-- Loading Overlay -->
         <div id="loading-overlay">

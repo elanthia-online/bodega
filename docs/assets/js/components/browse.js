@@ -184,11 +184,11 @@ class BrowseEngine {
     restoreSearchHeaders() {
         const thead = document.querySelector('#results-table thead tr');
         thead.innerHTML = `
-            <th class="sortable" data-sort="name">Item Name <span class="sort-indicator"></span></th>
-            <th class="sortable" data-sort="price">Price <span class="sort-indicator"></span></th>
-            <th class="sortable" data-sort="properties">Properties <span class="sort-indicator"></span></th>
-            <th class="sortable" data-sort="town">Town <span class="sort-indicator"></span></th>
-            <th class="sortable" data-sort="shop">Shop <span class="sort-indicator"></span></th>
+            <th class="sortable" data-sort="name" scope="col"><button type="button" class="sort-button">Item Name<span class="sort-indicator" aria-hidden="true"></span></button></th>
+            <th class="sortable" data-sort="price" scope="col"><button type="button" class="sort-button">Price<span class="sort-indicator" aria-hidden="true"></span></button></th>
+            <th class="sortable" data-sort="properties" scope="col"><button type="button" class="sort-button">Properties<span class="sort-indicator" aria-hidden="true"></span></button></th>
+            <th class="sortable" data-sort="town" scope="col"><button type="button" class="sort-button">Town<span class="sort-indicator" aria-hidden="true"></span></button></th>
+            <th class="sortable" data-sort="shop" scope="col"><button type="button" class="sort-button">Shop<span class="sort-indicator" aria-hidden="true"></span></button></th>
         `;
 
         // Re-attach header click handlers for search
@@ -770,11 +770,11 @@ class BrowseEngine {
     setupBrowseHeaders() {
         const thead = document.querySelector('#results-table thead tr');
         thead.innerHTML = `
-            <th class="sortable" data-sort="name">Item Name <span class="sort-indicator"></span></th>
-            <th class="sortable" data-sort="price">Price <span class="sort-indicator"></span></th>
-            <th class="sortable" data-sort="properties">Properties <span class="sort-indicator"></span></th>
-            <th class="sortable" data-sort="town">Town <span class="sort-indicator"></span></th>
-            <th class="sortable" data-sort="shop">Shop <span class="sort-indicator"></span></th>
+            <th class="sortable" data-sort="name" scope="col"><button type="button" class="sort-button">Item Name<span class="sort-indicator" aria-hidden="true"></span></button></th>
+            <th class="sortable" data-sort="price" scope="col"><button type="button" class="sort-button">Price<span class="sort-indicator" aria-hidden="true"></span></button></th>
+            <th class="sortable" data-sort="properties" scope="col"><button type="button" class="sort-button">Properties<span class="sort-indicator" aria-hidden="true"></span></button></th>
+            <th class="sortable" data-sort="town" scope="col"><button type="button" class="sort-button">Town<span class="sort-indicator" aria-hidden="true"></span></button></th>
+            <th class="sortable" data-sort="shop" scope="col"><button type="button" class="sort-button">Shop<span class="sort-indicator" aria-hidden="true"></span></button></th>
         `;
 
         // Attach header click handlers for browse mode

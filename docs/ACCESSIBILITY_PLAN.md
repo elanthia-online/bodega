@@ -15,10 +15,12 @@ Implemented features:
 ## Phase 2: Universal Accessibility Features
 
 Done so far: skip link (1), landmark labels (3), live region for the results
-count (4), reduced motion (5), and modal focus handling (7: focus moves into the
-dialog, Tab stays inside it, focus returns on close). Sortable headers, page
-numbers, item names, shop cards, rooms, filter chips and the Search Tips toggle
-are all keyboard-operable. Still open: custom focus styling (2), keyboard
+count (4), reduced motion (5), and modal focus handling (7: both modals are
+native `<dialog>` elements opened with `showModal()`, so the browser makes the
+page inert, keeps focus in the dialog, closes on Escape and returns focus).
+Sortable headers are `<button>`s inside the `<th>` with `aria-sort` on the
+`<th>`; page numbers, item names, shop cards, rooms, filter chips and the
+Search Tips toggle are all keyboard-operable. Still open: custom focus styling (2), keyboard
 shortcuts and help modal (6), and the visible shortcut hint (8).
 
 Goal: Features that are **discoverable** and work **out of the box** for users who need them.

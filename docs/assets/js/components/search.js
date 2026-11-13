@@ -166,17 +166,12 @@ class SearchEngine {
             this.closeModal();
         });
 
-        window.addEventListener('click', (event) => {
-            const modal = document.getElementById('item-modal');
-            if (event.target === modal) {
-                this.closeModal();
-            }
-        });
-
-        // Escape closes the item detail modal, like the close button
-        document.addEventListener('keydown', (event) => {
-            const modal = document.getElementById('item-modal');
-            if (event.key === 'Escape' && modal.style.display === 'block') {
+        // Clicking outside the content box closes the dialog. The <dialog>
+        // fills the viewport, so outside clicks land on the dialog itself.
+        // (Escape is handled natively by showModal().)
+        const itemModal = document.getElementById('item-modal');
+        itemModal.addEventListener('click', (event) => {
+            if (event.target === itemModal) {
                 this.closeModal();
             }
         });
@@ -275,11 +270,9 @@ class SearchEngine {
             input.setAttribute('aria-invalid', 'true');
             // Browsers already prefix the message ("Invalid regular expression: /([/i: ...")
             errorEl.textContent = message;
-            errorEl.hidden = false;
         } else {
             input.removeAttribute('aria-invalid');
             errorEl.textContent = '';
-            errorEl.hidden = true;
         }
     }
 
@@ -1065,11 +1058,11 @@ class SearchEngine {
             ` : ''}
         `;
 
-        // Already open (e.g. a URL-driven re-open): keep the original focus
-        // return target instead of stacking a second focus trap
-        if (modal.style.display !== 'block') {
-            modal.style.display = 'block';
-            this.releaseModalFocus = BodegaShared.openDialog(modal, modal.querySelector('.close'));
+        // Native modal dialog: the browser makes the page inert, keeps focus
+        // inside, closes on Escape and returns focus to the opener.
+        // (May already be open when a shared item link re-opens it.)
+        if (!modal.open) {
+            modal.showModal();
         }
     }
 
@@ -1082,11 +1075,7 @@ class SearchEngine {
     }
 
     closeModal() {
-        document.getElementById('item-modal').style.display = 'none';
-        if (this.releaseModalFocus) {
-            this.releaseModalFocus();
-            this.releaseModalFocus = null;
-        }
+        document.getElementById('item-modal').close();
     }
 
     updateResultsCount() {
@@ -1539,28 +1528,23 @@ function initializeTagSettingsModal() {
         buildTagToggles();
     }
 
-    let releaseFocus = null;
-
-    // Open modal
+    // Open modal (native modal dialog: Escape, focus containment and focus
+    // return are handled by the browser)
     settingsBtn.addEventListener('click', () => {
         buildTagToggles();
-        modal.hidden = false;
-        modal.classList.add('active');
-        releaseFocus = BodegaShared.openDialog(modal, closeBtn);
+        modal.showModal();
     });
 
     // Close modal
     function closeModal() {
-        modal.hidden = true;
-        modal.classList.remove('active');
-        if (releaseFocus) {
-            releaseFocus();
-            releaseFocus = null;
-        }
+        modal.close();
     }
 
     closeBtn.addEventListener('click', closeModal);
-    modal.querySelector('.modal-backdrop').addEventListener('click', closeModal);
+    // Clicks outside the content box land on the full-viewport <dialog>
+    modal.addEventListener('click', (event) => {
+        if (event.target === modal) closeModal();
+    });
 
     // Save settings
     saveBtn.addEventListener('click', () => {
@@ -1627,10 +1611,4 @@ function initializeTagSettingsModal() {
         applyTagColors();
     }
 
-    // Close on Escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && !modal.hidden) {
-            closeModal();
-        }
-    });
 }
