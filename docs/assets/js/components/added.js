@@ -110,11 +110,16 @@ class AddedEngine {
                 this.addedItems = await window.dataLoader.ensureAddedItems();
             } catch (error) {
                 console.error('Failed to load recently added items:', error);
-                this.addedItems = [];
+                if (this.isActiveMode()) {
+                    BodegaShared.renderLoadError(
+                        "Couldn't load recently added items. Check your connection and try again.",
+                        () => this.initializeAddedData()
+                    );
+                }
+                return;
             }
-            // An empty result usually means the fetch failed; retry next time
-            this.dataReady = this.addedItems.length > 0;
-        this.populateTownFilter();
+            this.dataReady = true;
+            this.populateTownFilter();
         }
 
         // A town filter restored from the URL waits for the town options

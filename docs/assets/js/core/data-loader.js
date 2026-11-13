@@ -106,14 +106,17 @@ class DataLoader {
     }
 
     // Recently added items: town items whose signature is in added_items.json.
-    // Fetched once, on first use. A failed fetch isn't cached, so reopening
-    // the tab retries.
+    // Fetched once, on first use. A failed fetch rejects and isn't cached, so
+    // a retry fetches again.
     ensureAddedItems() {
         if (!this.addedItemsPromise) {
             this.addedItemsPromise = this.townsLoaded
                 .then(() => this.loadAddedItems())
                 .then(addedItemsData => {
-                    if (!addedItemsData) this.addedItemsPromise = null;
+                    if (!addedItemsData) {
+                        this.addedItemsPromise = null;
+                        throw new Error("Couldn't load added_items.json");
+                    }
                     this.addedItems = this.buildAddedItems(addedItemsData);
                     return this.addedItems;
                 });
@@ -130,6 +133,10 @@ class DataLoader {
                 .then(removedItemsData => {
                     if (!removedItemsData) this.removedItemsPromise = null;
                     this.removedItems = this.buildRemovedItems(removedItemsData);
+                    // Without the file, only old data's embedded copies remain
+                    if (!removedItemsData && this.removedItems.length === 0) {
+                        throw new Error("Couldn't load removed_items.json");
+                    }
                     return this.removedItems;
                 });
         }

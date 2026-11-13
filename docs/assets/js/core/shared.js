@@ -317,6 +317,29 @@ const BodegaShared = {
         });
     },
 
+    // Replace the results table with an error row and a retry button, for
+    // a tracking file (added/removed items) that failed to load.
+    renderLoadError(message, onRetry) {
+        const cell = document.createElement('td');
+        cell.colSpan = 6;
+        cell.className = 'no-results load-error';
+        const text = document.createElement('p');
+        text.textContent = message;
+        const retry = document.createElement('button');
+        retry.type = 'button';
+        retry.className = 'load-retry';
+        retry.textContent = 'Try again';
+        retry.addEventListener('click', onRetry);
+        cell.append(text, retry);
+        const row = document.createElement('tr');
+        row.appendChild(cell);
+        document.getElementById('results-body').replaceChildren(row);
+        const count = document.getElementById('results-count');
+        count.textContent = message;
+        document.getElementById('page-info').textContent = '';
+        this.renderPagination(1, 0, () => {});
+    },
+
     // Render page-number buttons into the top and bottom pagination bars and
     // set the Previous/Next disabled state. Shows the first and last page plus
     // two pages either side of the current one, with ellipses for the gaps.

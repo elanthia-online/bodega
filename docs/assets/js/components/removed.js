@@ -110,10 +110,15 @@ class RemovedEngine {
                 this.removedItems = await window.dataLoader.ensureRemovedItems();
             } catch (error) {
                 console.error('Failed to load removed items:', error);
-                this.removedItems = [];
+                if (this.isActiveMode()) {
+                    BodegaShared.renderLoadError(
+                        "Couldn't load removed items. Check your connection and try again.",
+                        () => this.initializeRemovedData()
+                    );
+                }
+                return;
             }
-            // An empty result usually means the fetch failed; retry next time
-            this.dataReady = this.removedItems.length > 0;
+            this.dataReady = true;
         }
 
         // The user may have switched tabs while the data was loading

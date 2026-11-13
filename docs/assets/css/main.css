@@ -1358,6 +1358,29 @@ dialog.modal::backdrop {
     font-style: italic;
 }
 
+/* Tracking file (added/removed) failed to load */
+.no-results.load-error {
+    font-style: normal;
+}
+
+.load-error p {
+    margin: 0 0 12px;
+}
+
+.load-retry {
+    padding: 8px 16px;
+    font-size: 0.9em;
+    border-radius: 4px;
+    cursor: pointer;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-secondary);
+}
+
+.load-retry:hover {
+    background: var(--bg-hover);
+}
+
 /* Error messages */
 .error-message {
     background: #ffebee;
