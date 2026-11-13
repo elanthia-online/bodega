@@ -14,6 +14,13 @@ Implemented features:
 
 ## Phase 2: Universal Accessibility Features
 
+Done so far: skip link (1), landmark labels (3), live region for the results
+count (4), reduced motion (5), and modal focus handling (7: focus moves into the
+dialog, Tab stays inside it, focus returns on close). Sortable headers, page
+numbers, item names, shop cards, rooms, filter chips and the Search Tips toggle
+are all keyboard-operable. Still open: custom focus styling (2), keyboard
+shortcuts and help modal (6), and the visible shortcut hint (8).
+
 Goal: Features that are **discoverable** and work **out of the box** for users who need them.
 
 ### 1. Skip Link (WCAG 2.4.1 - Level A)
@@ -121,12 +128,12 @@ Goal: Features that are **discoverable** and work **out of the box** for users w
 | High contrast | 1.4.6 | AAA | Complete |
 | Form labels | 1.3.1 | A | Complete |
 | Heading hierarchy | 1.3.1 | A | Complete |
-| Skip link | 2.4.1 | A | Phase 2 |
-| Focus visible | 2.4.7 | AA | Phase 2 |
-| Landmarks | 1.3.1 | A | Phase 2 |
-| Live regions | 4.1.3 | AA | Phase 2 |
-| Reduced motion | 2.3.3 | AAA | Phase 2 |
-| Keyboard access | 2.1.1 | A | Phase 2 |
+| Skip link | 2.4.1 | A | Complete |
+| Focus visible | 2.4.7 | AA | Browser default rings (no custom styling yet) |
+| Landmarks | 1.3.1 | A | Complete |
+| Live regions | 4.1.3 | AA | Complete (results count) |
+| Reduced motion | 2.3.3 | AAA | Complete |
+| Keyboard access | 2.1.1 | A | Complete (shortcuts still Phase 2) |
 
 ---
 

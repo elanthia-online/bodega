@@ -35,7 +35,7 @@ ruby automation/ruby/processor.rb --mode=reprocess
 |-----------|---------------|
 | **bodega.lic** | Raw data capture ONLY - saves `raw_inspect` text to `docs/data/raw/*.json` |
 | **processor.rb** | ALL extraction - tags, properties, item types → outputs to `docs/data/*.json` |
-| **data-loader.js** | Display ONLY - loads processed data, no parsing/fallback |
+| **data-loader.js** | Display ONLY - loads processed data, no parsing/fallback. Town files load at startup; `added_items.json` / `removed_items.json` load the first time the Added/Removed tab is opened |
 
 ### Data Pipeline
 ```
@@ -80,8 +80,8 @@ data-loader.js (browser) → Web UI
 - **Full scan**: `;bodega` - Complete shop inventory inspection (~65 min)
 - **Smart scan**: `;bodega --smart` - Only inspects new/changed items (~2-3 min)
 - Automation runs one full scan per UTC day (the first scheduled run of the
-  day, gated by the `automation/state/last-full-scan` marker) and smart scans
-  every 2 hours otherwise
+  day, gated by the `last_full_scan` date in `docs/data/state.json`) and smart
+  scans every 2 hours otherwise
 
 ## Extracted Properties
 
@@ -95,11 +95,14 @@ processor.rb extracts these fields from raw inspection text:
 ## Code Patterns
 
 ### Item Signature Generation
-Items are tracked using signatures (used in `added_items.json`):
+Items are tracked using signatures (the keys of `added_items.json`), built by
+`create_item_signature` in `processor.rb` and mirrored by
+`DataLoader.createItemSignature` in `data-loader.js`:
 ```ruby
-# Ruby (bodega.lic)
-"#{safe_town}:#{safe_shop}:#{item_name}:#{price}"
+"#{safe_town}:#{safe_shop}:#{safe_item}"
 ```
+Price is deliberately not part of the signature, so a price change doesn't make
+an item look removed and re-added.
 
 ### Processed JSON Schema
 ```json

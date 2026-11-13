@@ -26,28 +26,28 @@ This consolidated repository merges the best of both worlds:
 - **Dual Mode Operation**: Smart scans (2-3 minutes) vs Full scans (65 minutes)
 - **Clean Ruby Integration**: Proper module structure inspired by original author
 - **Automated Scheduling**: Runs every 2 hours via GitHub Actions
-- **Git-Native**: Direct integration with repository for seamless updates
+- **No data in git**: Scan data is published straight to GitHub Pages; git holds only code
 
 ## Architecture
 
 ```
 bodega/
-├── docs/                  # Web Application (GitHub Pages)
-│   ├── index.html        # Main UI
-│   ├── *.js             # Feature modules
-│   ├── style.css        # Responsive styling
-│   ├── data/            # JSON data files
-│   │   ├── *.json       # Town shop data
-│   │   └── removed_items.json # Removed items tracking
-│   └── netlify/         # API functions
-├── automation/           # Ruby automation system
-│   ├── lich/            # Lich environment
-│   └── bin/             # Automation scripts
-├── scripts/              # Core scripts
-│   └── bodega.lic       # Single source of truth
-├── .github/workflows/    # CI/CD automation
-│   └── pipeline.yml       # Scrape -> Process -> Deploy (one run, artifacts)
-└── README.md            # Documentation
+├── docs/                    # Web application (published to GitHub Pages)
+│   ├── index.html           # Main UI
+│   ├── assets/css/          # main.css, themes.css
+│   ├── assets/js/core/      # data loading, URL state, shared helpers, theme
+│   ├── assets/js/components/# search, browse, added, removed views
+│   ├── assets/js/config/    # tag categories
+│   └── data/                # Generated JSON (gitignored; lives on the site)
+├── automation/              # Ruby automation system
+│   ├── bin/                 # setup-environment, run-scan, fetch-site-data
+│   ├── ruby/                # processor.rb, bodega_extractor.rb
+│   ├── lich/                # Lich environment
+│   │   └── scripts/bodega.lic  # In-game raw capture
+│   └── tools/               # Pipeline helpers
+├── .github/workflows/
+│   └── pipeline.yml         # Scrape -> Process -> Deploy (one run, artifacts)
+└── README.md
 ```
 
 ## Quick Start
@@ -82,7 +82,7 @@ Bodega::Opts[:headless] = true
 Bodega::Opts[:automation] = true
 
 # Scan type is chosen by the workflow (one full scan per UTC day, gated by
-# the automation/state/last-full-scan marker) and passed to run-scan.
+# the last_full_scan date in docs/data/state.json) and passed to run-scan.
 if scan_type == "full"
   Bodega::Parser.smart_scan()  # Smart pass first
   Bodega::Parser.full_scan()   # Then full pass
@@ -103,6 +103,9 @@ The automation system requires these GitHub Secrets:
 
 ### Local Development
 ```bash
+# Fetch the current data from the live site (docs/data/ is gitignored)
+automation/bin/fetch-site-data
+
 # Start local web server
 cd docs
 python -m http.server 8000
@@ -174,7 +177,7 @@ export SIMU_CHARACTER="your-character"
 ### Scan Efficiency
 - **Smart Mode**: 2-3 minute runtime (90% cache hit rate)
 - **Full Mode**: 65 minute runtime (comprehensive coverage)
-- **Data Processing**: Real-time JSON generation and git integration
+- **Data Processing**: JSON generated per run and deployed to GitHub Pages
 
 ### Web Performance
 - **Static Assets**: Served via GitHub Pages CDN
