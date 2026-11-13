@@ -56,7 +56,6 @@ class BrowseEngine {
             const townName = this.slugToName(townSlug);
             const shopName = this.slugToName(shopSlug);
 
-            console.log(`Hash navigation to: ${townName} / ${shopName}`);
 
             // Switch to browse mode and select the shop
             this.switchToBrowseAndSelectShop(townName, shopName);
@@ -155,14 +154,7 @@ class BrowseEngine {
     }
 
     switchToSearch() {
-        document.getElementById('search-tab').classList.add('active');
-        document.getElementById('browse-tab').classList.remove('active');
-        document.getElementById('added-tab').classList.remove('active');
-        document.getElementById('removed-tab').classList.remove('active');
-        document.getElementById('search-mode').style.display = 'block';
-        document.getElementById('browse-mode').style.display = 'none';
-        document.getElementById('added-mode').style.display = 'none';
-        document.getElementById('removed-mode').style.display = 'none';
+        BodegaShared.activateMode('search');
 
         // Show pagination controls for search mode
         document.getElementById('pagination').style.display = 'flex';
@@ -192,11 +184,11 @@ class BrowseEngine {
     restoreSearchHeaders() {
         const thead = document.querySelector('#results-table thead tr');
         thead.innerHTML = `
-            <th class="sortable" data-sort="name">Item Name <span class="sort-indicator"></span></th>
-            <th class="sortable" data-sort="price">Price <span class="sort-indicator"></span></th>
-            <th class="sortable" data-sort="properties">Properties <span class="sort-indicator"></span></th>
-            <th class="sortable" data-sort="town">Town <span class="sort-indicator"></span></th>
-            <th class="sortable" data-sort="shop">Shop <span class="sort-indicator"></span></th>
+            <th class="sortable" data-sort="name" scope="col"><button type="button" class="sort-button">Item Name<span class="sort-indicator" aria-hidden="true"></span></button></th>
+            <th class="sortable" data-sort="price" scope="col"><button type="button" class="sort-button">Price<span class="sort-indicator" aria-hidden="true"></span></button></th>
+            <th class="sortable" data-sort="properties" scope="col"><button type="button" class="sort-button">Properties<span class="sort-indicator" aria-hidden="true"></span></button></th>
+            <th class="sortable" data-sort="town" scope="col"><button type="button" class="sort-button">Town<span class="sort-indicator" aria-hidden="true"></span></button></th>
+            <th class="sortable" data-sort="shop" scope="col"><button type="button" class="sort-button">Shop<span class="sort-indicator" aria-hidden="true"></span></button></th>
         `;
 
         // Re-attach header click handlers for search
@@ -211,14 +203,7 @@ class BrowseEngine {
     }
 
     switchToBrowse() {
-        document.getElementById('search-tab').classList.remove('active');
-        document.getElementById('browse-tab').classList.add('active');
-        document.getElementById('added-tab').classList.remove('active');
-        document.getElementById('removed-tab').classList.remove('active');
-        document.getElementById('search-mode').style.display = 'none';
-        document.getElementById('browse-mode').style.display = 'block';
-        document.getElementById('added-mode').style.display = 'none';
-        document.getElementById('removed-mode').style.display = 'none';
+        BodegaShared.activateMode('browse');
 
         // Hide pagination controls for browse mode
         document.getElementById('pagination').style.display = 'none';
@@ -246,17 +231,8 @@ class BrowseEngine {
     }
 
     switchToBrowseAndSelectShop(townName, shopName) {
-        console.log(`switchToBrowseAndSelectShop called with town: ${townName}, shop: ${shopName}`);
-
         // Switch to browse mode UI
-        document.getElementById('search-tab').classList.remove('active');
-        document.getElementById('browse-tab').classList.add('active');
-        document.getElementById('added-tab').classList.remove('active');
-        document.getElementById('removed-tab').classList.remove('active');
-        document.getElementById('search-mode').style.display = 'none';
-        document.getElementById('browse-mode').style.display = 'block';
-        document.getElementById('added-mode').style.display = 'none';
-        document.getElementById('removed-mode').style.display = 'none';
+        BodegaShared.activateMode('browse');
 
         // Hide pagination controls for browse mode
         document.getElementById('pagination').style.display = 'none';
@@ -274,34 +250,24 @@ class BrowseEngine {
         // Select the town and shop
         const townSelect = document.getElementById('browse-town-select');
         if (townSelect && this.townData[townName]) {
-            console.log(`Town found in townData: ${townName}`);
             townSelect.value = townName;
             this.selectTown(townName);
 
             // Give a moment for town to load, then select the shop
             setTimeout(() => {
-                console.log(`Checking for shop: ${shopName} in town: ${townName}`);
-                console.log(`Available shops:`, Object.keys(this.townData[townName] || {}));
 
                 if (this.townData[townName] && this.townData[townName][shopName]) {
-                    console.log(`Shop found! Selecting: ${shopName}`);
                     this.selectShop(townName, shopName);
-                } else {
-                    console.log(`Shop not found: ${shopName}`);
                 }
             }, 50);
-        } else {
-            console.log(`Town not found or townSelect missing: ${townName}`);
         }
     }
 
     initializeBrowseData() {
         if (!window.dataLoader || !window.dataLoader.allItems) {
-            console.log('Data not loaded yet for browse mode');
             return;
         }
 
-        console.log('Initializing browse data...');
         this.organizeTownData();
         this.populateTownList();
 
@@ -381,7 +347,6 @@ class BrowseEngine {
             });
         });
 
-        console.log('Organized data for', Object.keys(this.townData).length, 'towns');
     }
 
     populateTownList() {
@@ -484,7 +449,6 @@ class BrowseEngine {
     }
 
     displayShopDirectory(townName) {
-        console.log(`displayShopDirectory called for town: ${townName}`);
         const tbody = document.getElementById('results-body');
         const resultsCount = document.getElementById('results-count');
         const pageInfo = document.getElementById('page-info');
@@ -497,10 +461,8 @@ class BrowseEngine {
         // Hide sort mode toggle when showing shop list
         if (sortModeToggle) sortModeToggle.style.display = 'none';
 
-        console.log('Found tbody element:', tbody);
 
         const shops = Object.keys(this.townData[townName]).sort();
-        console.log(`Found ${shops.length} shops:`, shops.slice(0, 3));
 
         // Update header
         resultsCount.textContent = `${shops.length} shops in ${townName}`;
@@ -556,6 +518,7 @@ class BrowseEngine {
 
                 shopRow.innerHTML = shopCard;
                 shopRow.addEventListener('click', () => this.selectShop(townName, shopName));
+                BodegaShared.makeActivatable(shopRow.querySelector('.shop-card-name'), `Browse ${shopName}`);
 
                 // Add copy link button handler
                 const copyButton = shopRow.querySelector('.copy-link-btn');
@@ -563,13 +526,11 @@ class BrowseEngine {
 
                 tbody.appendChild(shopRow);
 
-                console.log(`Added shop card ${index + 1}/${shops.length}: ${shopName}`);
             } catch (error) {
                 console.error(`Error creating shop card for ${shopName}:`, error);
             }
         });
 
-        console.log(`Finished creating ${shops.length} shop cards for ${townName}`);
     }
 
 
@@ -688,6 +649,7 @@ class BrowseEngine {
 
             if (!room.isEmpty) {
                 roomDiv.addEventListener('click', () => this.showRoomInventory(townName, shopName, room.name));
+                BodegaShared.makeActivatable(roomDiv);
             }
             roomList.appendChild(roomDiv);
         });
@@ -808,11 +770,11 @@ class BrowseEngine {
     setupBrowseHeaders() {
         const thead = document.querySelector('#results-table thead tr');
         thead.innerHTML = `
-            <th class="sortable" data-sort="name">Item Name <span class="sort-indicator"></span></th>
-            <th class="sortable" data-sort="price">Price <span class="sort-indicator"></span></th>
-            <th class="sortable" data-sort="properties">Properties <span class="sort-indicator"></span></th>
-            <th class="sortable" data-sort="town">Town <span class="sort-indicator"></span></th>
-            <th class="sortable" data-sort="shop">Shop <span class="sort-indicator"></span></th>
+            <th class="sortable" data-sort="name" scope="col"><button type="button" class="sort-button">Item Name<span class="sort-indicator" aria-hidden="true"></span></button></th>
+            <th class="sortable" data-sort="price" scope="col"><button type="button" class="sort-button">Price<span class="sort-indicator" aria-hidden="true"></span></button></th>
+            <th class="sortable" data-sort="properties" scope="col"><button type="button" class="sort-button">Properties<span class="sort-indicator" aria-hidden="true"></span></button></th>
+            <th class="sortable" data-sort="town" scope="col"><button type="button" class="sort-button">Town<span class="sort-indicator" aria-hidden="true"></span></button></th>
+            <th class="sortable" data-sort="shop" scope="col"><button type="button" class="sort-button">Shop<span class="sort-indicator" aria-hidden="true"></span></button></th>
         `;
 
         // Attach header click handlers for browse mode
@@ -851,22 +813,12 @@ class BrowseEngine {
     }
 
     updateSortIndicators() {
-        // Clear all indicators
-        document.querySelectorAll('#results-table th.sortable .sort-indicator').forEach(indicator => {
-            indicator.textContent = '';
-        });
-
         // Map internal field names back to header data-sort values
         let headerField = this.currentSort.field;
         if (this.currentSort.field === 'shopName') headerField = 'shop';
         if (this.currentSort.field === 'propertyCount') headerField = 'properties';
 
-        // Set indicator for current sort
-        const currentHeader = document.querySelector(`#results-table th[data-sort="${headerField}"]`);
-        if (currentHeader) {
-            const indicator = currentHeader.querySelector('.sort-indicator');
-            indicator.textContent = this.currentSort.direction === 'asc' ? ' ↑' : ' ↓';
-        }
+        BodegaShared.updateSortHeaders(headerField, this.currentSort.direction);
     }
 
     sortItemsByRoom(itemsByRoom) {
@@ -964,6 +916,7 @@ class BrowseEngine {
         const nameSpan = document.createElement('span');
         nameSpan.className = 'name';
         nameSpan.textContent = item.name;
+        BodegaShared.makeActivatable(nameSpan);
 
         // Register for hover tooltip (raw recall preview)
         if (window.tooltipManager) {
@@ -1089,9 +1042,6 @@ class BrowseEngine {
     }
 
     backToShops() {
-        console.log('backToShops() called');
-        console.log('currentTown:', this.currentTown);
-
         // Hide the room list sidebar
         this.hideRoomList();
 
@@ -1115,8 +1065,6 @@ class BrowseEngine {
         } else if (this.currentTown) {
             // Otherwise, display the shop directory for the current town
             this.displayShopDirectory(this.currentTown);
-        } else {
-            console.log('No currentTown set and no active search');
         }
 
         // Clear the current shop selection
@@ -1261,6 +1209,7 @@ class BrowseEngine {
             `;
 
             shopRow.innerHTML = shopCard;
+            BodegaShared.makeActivatable(shopRow.querySelector('.shop-card-name'), `Browse ${shopInfo.shopName}`);
 
             // Add copy link button handler
             const copyButton = shopRow.querySelector('.copy-link-btn');

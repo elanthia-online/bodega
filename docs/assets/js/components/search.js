@@ -26,15 +26,18 @@ class MultiSelectFilter {
 
         this.selectedValues.add(value);
 
-        const tag = document.createElement('span');
+        const tag = document.createElement('button');
+        tag.type = 'button';
         tag.className = 'filter-tag';
         tag.dataset.value = value;
-        tag.innerHTML = `${DataLoader.escapeHtml(label)} <span class="remove">×</span>`;
+        tag.setAttribute('aria-label', `Remove filter: ${label}`);
+        tag.innerHTML = `${DataLoader.escapeHtml(label)} <span class="remove" aria-hidden="true">×</span>`;
 
         tag.addEventListener('click', () => {
             this.removeSelection(value);
             if (window.searchEngine) {
                 window.searchEngine.performSearch();
+                window.searchEngine.updateURLState();
             }
         });
 
@@ -116,8 +119,7 @@ class SearchEngine {
 
         // Filter controls
         document.getElementById('apply-filters').addEventListener('click', () => {
-            this.performSearch();
-            this.updateURLState();
+            this.applyFiltersFromSidebar();
         });
 
         document.getElementById('reset-filters').addEventListener('click', () => {
@@ -126,8 +128,7 @@ class SearchEngine {
 
         // Bottom filter controls (duplicates for mobile)
         document.getElementById('apply-filters-bottom').addEventListener('click', () => {
-            this.performSearch();
-            this.updateURLState();
+            this.applyFiltersFromSidebar();
         });
 
         document.getElementById('reset-filters-bottom').addEventListener('click', () => {
@@ -165,9 +166,12 @@ class SearchEngine {
             this.closeModal();
         });
 
-        window.addEventListener('click', (event) => {
-            const modal = document.getElementById('item-modal');
-            if (event.target === modal) {
+        // Clicking outside the content box closes the dialog. The <dialog>
+        // fills the viewport, so outside clicks land on the dialog itself.
+        // (Escape is handled natively by showModal().)
+        const itemModal = document.getElementById('item-modal');
+        itemModal.addEventListener('click', (event) => {
+            if (event.target === itemModal) {
                 this.closeModal();
             }
         });
@@ -180,23 +184,51 @@ class SearchEngine {
         });
 
         // Search help toggle
-        document.getElementById('search-help-toggle').addEventListener('click', () => {
+        const helpToggle = document.getElementById('search-help-toggle');
+        helpToggle.addEventListener('click', () => {
             const content = document.getElementById('search-help-content');
-            const icon = document.querySelector('.toggle-icon');
+            const icon = helpToggle.querySelector('.toggle-icon');
+            const expand = content.style.display === 'none';
 
-            if (content.style.display === 'none') {
-                content.style.display = 'block';
-                icon.classList.add('expanded');
-            } else {
-                content.style.display = 'none';
-                icon.classList.remove('expanded');
-            }
+            content.style.display = expand ? 'block' : 'none';
+            icon.classList.toggle('expanded', expand);
+            helpToggle.setAttribute('aria-expanded', expand ? 'true' : 'false');
         });
+
+        // Mobile: the filter list is collapsed behind a toggle so results
+        // aren't pushed far below the fold (always shown on wider screens)
+        const filtersToggle = document.getElementById('filters-toggle');
+        filtersToggle.addEventListener('click', () => {
+            this.setFiltersOpen(filtersToggle.getAttribute('aria-expanded') !== 'true');
+        });
+    }
+
+    setFiltersOpen(open) {
+        const toggle = document.getElementById('filters-toggle');
+        document.getElementById('search-filters').classList.toggle('open', open);
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+
+    // Show how many filters are active on the mobile toggle, so collapsed
+    // filters aren't forgotten
+    updateFiltersToggleLabel() {
+        const count = Object.values(this.multiSelectFilters)
+            .reduce((sum, filter) => sum + filter.getSelectedValues().length, 0);
+        document.getElementById('filters-toggle-count').textContent = count > 0 ? ` (${count})` : '';
+    }
+
+    // On a phone, applying filters collapses the list and jumps to results
+    applyFiltersFromSidebar() {
+        this.performSearch();
+        this.updateURLState();
+        if (window.matchMedia('(max-width: 768px)').matches) {
+            this.setFiltersOpen(false);
+            document.getElementById('content').scrollIntoView({ block: 'start' });
+        }
     }
 
     performSearch() {
         if (!window.dataLoader || !window.dataLoader.allItems) {
-            console.log('Data not loaded yet');
             return;
         }
 
@@ -206,9 +238,21 @@ class SearchEngine {
 
         const allItems = window.dataLoader.allItems;
         const filters = this.getFilters();
+        this.updateFiltersToggleLabel();
 
+        // Regex mode: compile the pattern once. An invalid pattern can't match
+        // anything, so say so instead of silently showing "0 items found".
+        this.regexError = null;
+        if (filters.searchRegex && filters.search) {
+            try {
+                filters.compiledRegex = new RegExp(filters.search, 'i');
+            } catch (e) {
+                this.regexError = e.message;
+            }
+        }
+        this.showRegexError(this.regexError);
 
-        this.filteredItems = allItems.filter(item => {
+        this.filteredItems = this.regexError ? [] : allItems.filter(item => {
             return this.matchesAllFilters(item, filters);
         });
 
@@ -217,6 +261,19 @@ class SearchEngine {
         this.currentPage = 1;
         this.displayResults();
         this.updatePagination();
+    }
+
+    showRegexError(message) {
+        const input = document.getElementById('search-input');
+        const errorEl = document.getElementById('search-regex-error');
+        if (message) {
+            input.setAttribute('aria-invalid', 'true');
+            // Browsers already prefix the message ("Invalid regular expression: /([/i: ...")
+            errorEl.textContent = message;
+        } else {
+            input.removeAttribute('aria-invalid');
+            errorEl.textContent = '';
+        }
     }
 
     updateURLState() {
@@ -511,7 +568,9 @@ class SearchEngine {
 
             const customSearchText = searchFields.join(' ').toLowerCase();
 
-            if (!this.matchesSearchText(customSearchText, filters.search, filters.searchRegex)) {
+            if (filters.compiledRegex) {
+                if (!filters.compiledRegex.test(customSearchText)) return false;
+            } else if (!this.matchesSearchText(customSearchText, filters.search, filters.searchRegex)) {
                 return false;
             }
         }
@@ -675,22 +734,12 @@ class SearchEngine {
     }
 
     updateSortIndicators() {
-        // Clear all indicators
-        document.querySelectorAll('#results-table th.sortable .sort-indicator').forEach(indicator => {
-            indicator.textContent = '';
-        });
-
         // Map internal field names back to header data-sort values
         let headerField = this.currentSort.field;
         if (this.currentSort.field === 'shopName') headerField = 'shop';
         if (this.currentSort.field === 'propertyCount') headerField = 'properties';
 
-        // Set indicator for current sort
-        const currentHeader = document.querySelector(`#results-table th[data-sort="${headerField}"]`);
-        if (currentHeader) {
-            const indicator = currentHeader.querySelector('.sort-indicator');
-            indicator.textContent = this.currentSort.direction === 'asc' ? ' ↑' : ' ↓';
-        }
+        BodegaShared.updateSortHeaders(headerField, this.currentSort.direction);
     }
 
     sortItems() {
@@ -762,6 +811,7 @@ class SearchEngine {
         nameLink.className = 'item-name';
         nameLink.textContent = item.name;
         nameLink.addEventListener('click', () => this.showItemDetails(item));
+        BodegaShared.makeActivatable(nameLink);
 
         const nameRow = document.createElement('div');
         nameRow.className = 'name-row';
@@ -913,7 +963,7 @@ class SearchEngine {
 
         bodyEl.innerHTML = `
             <div class="modal-section">
-                <h4>Basic Information</h4>
+                <h3>Basic Information</h3>
                 <p><strong>Price:</strong> ${esc(DataLoader.formatPrice(item.price))}</p>
                 ${item.quantity ? `<p><strong>Quantity Available:</strong> ${esc(item.quantity)}</p>` : ''}
                 <p><strong>Town:</strong> ${esc(item.town)}</p>
@@ -928,14 +978,14 @@ class SearchEngine {
 
             ${item.enchant ? `
             <div class="modal-section">
-                <h4>Enchantment</h4>
+                <h3>Enchantment</h3>
                 <p>+${esc(item.enchant)} enchant bonus</p>
             </div>
             ` : ''}
 
             ${item.forgedQuality && item.forgedAvd !== undefined ? `
             <div class="modal-section">
-                <h4>Forged Weapon Quality</h4>
+                <h3>Forged Weapon Quality</h3>
                 <p><strong>Quality:</strong> ${esc(item.forgedQuality.split(/[\s-]/).map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(item.forgedQuality.includes('-') ? '-' : ' '))}</p>
                 <p><strong>AvD Bonus:</strong> ${item.forgedAvd >= 0 ? '+' : ''}${esc(item.forgedAvd)}</p>
                 <p><strong>DF Bonus:</strong> ${item.forgedAvd * 2 >= 0 ? '+' : ''}${esc(item.forgedAvd * 2)}%</p>
@@ -945,7 +995,7 @@ class SearchEngine {
 
             ${item.flares && item.flares.length > 0 ? `
             <div class="modal-section">
-                <h4>Flares</h4>
+                <h3>Flares</h3>
                 <div class="flares-list">
                     ${item.flares.map(flare => `
                         <p>${esc(this.formatFlareDisplay(flare))}</p>
@@ -956,7 +1006,7 @@ class SearchEngine {
 
             ${item.enhancives && item.enhancives.length > 0 ? `
             <div class="modal-section">
-                <h4>Enhancive Properties</h4>
+                <h3>Enhancive Properties</h3>
                 <div class="enhancive-list">
                     ${item.enhancives.map(enh => `
                         <p>+${esc(enh.boost)} to ${esc(enh.ability)}${enh.level ? ` (requires ${esc(enh.level)} training)` : ''}</p>
@@ -967,7 +1017,7 @@ class SearchEngine {
 
             ${item.gemstoneProperties && item.gemstoneProperties.length > 0 ? `
             <div class="modal-section">
-                <h4>Gemstone Properties</h4>
+                <h3>Gemstone Properties</h3>
                 <div class="gemstone-properties">
                     ${item.gemstoneProperties.map(prop => `
                         <div class="gemstone-property">
@@ -987,7 +1037,7 @@ class SearchEngine {
 
             ${item.tags && item.tags.length > 0 ? `
             <div class="modal-section">
-                <h4>Special Properties</h4>
+                <h3>Special Properties</h3>
                 <p>${esc(item.tags
                     .filter(tag => typeof isValidDisplayTag === 'function' ? isValidDisplayTag(tag) : typeof tag === 'string' && tag.length <= 30)
                     .map(tag => tag.replace(/_/g, ' '))
@@ -996,19 +1046,24 @@ class SearchEngine {
             ` : ''}
 
             <div class="modal-section">
-                <h4>Shop Location${this.getShopMapInfoInline(item)}</h4>
+                <h3>Shop Location${this.getShopMapInfoInline(item)}</h3>
                 <p>${esc(item.shopLocation)}</p>
             </div>
 
             ${item.raw && item.raw.length > 0 ? `
             <div class="modal-section">
-                <h4>Raw Item Data</h4>
+                <h3>Raw Item Data</h3>
                 <div class="raw-data">${esc(item.raw.join('\n'))}</div>
             </div>
             ` : ''}
         `;
 
-        modal.style.display = 'block';
+        // Native modal dialog: the browser makes the page inert, keeps focus
+        // inside, closes on Escape and returns focus to the opener.
+        // (May already be open when a shared item link re-opens it.)
+        if (!modal.open) {
+            modal.showModal();
+        }
     }
 
     getShopMapInfoInline(item) {
@@ -1020,7 +1075,7 @@ class SearchEngine {
     }
 
     closeModal() {
-        document.getElementById('item-modal').style.display = 'none';
+        document.getElementById('item-modal').close();
     }
 
     updateResultsCount() {
@@ -1040,51 +1095,12 @@ class SearchEngine {
 
     updatePagination() {
         const totalPages = Math.ceil(this.filteredItems.length / this.itemsPerPage);
-
-        // Update both bottom and top pagination controls
-        document.getElementById('prev-page').disabled = this.currentPage <= 1;
-        document.getElementById('next-page').disabled = this.currentPage >= totalPages;
-        document.getElementById('prev-page-top').disabled = this.currentPage <= 1;
-        document.getElementById('next-page-top').disabled = this.currentPage >= totalPages;
-
-        const pageNumbers = document.getElementById('page-numbers');
-        const pageNumbersTop = document.getElementById('page-numbers-top');
-        pageNumbers.innerHTML = '';
-        pageNumbersTop.innerHTML = '';
-
-        if (totalPages <= 1) return;
-
-        // Generate page numbers for both top and bottom
-        const startPage = Math.max(1, this.currentPage - 2);
-        const endPage = Math.min(totalPages, this.currentPage + 2);
-
-        for (let i = startPage; i <= endPage; i++) {
-            // Create page button for bottom pagination
-            const pageBtn = document.createElement('span');
-            pageBtn.className = 'page-number';
-            pageBtn.textContent = i;
-
-            // Create page button for top pagination
-            const pageBtnTop = document.createElement('span');
-            pageBtnTop.className = 'page-number';
-            pageBtnTop.textContent = i;
-
-            if (i === this.currentPage) {
-                pageBtn.classList.add('current');
-                pageBtnTop.classList.add('current');
-            } else {
-                const clickHandler = () => {
-                    this.currentPage = i;
-                    this.displayResults();
-                    this.updatePagination();
-                };
-                pageBtn.addEventListener('click', clickHandler);
-                pageBtnTop.addEventListener('click', clickHandler);
-            }
-
-            pageNumbers.appendChild(pageBtn);
-            pageNumbersTop.appendChild(pageBtnTop);
-        }
+        BodegaShared.renderPagination(this.currentPage, totalPages, (page) => {
+            this.currentPage = page;
+            this.displayResults();
+            this.updatePagination();
+            this.updateURLState();
+        });
     }
 
     isActiveMode() {
@@ -1221,21 +1237,15 @@ class SearchEngine {
     }
 
     showToast(message) {
-        // Create or update toast notification
-        let toast = document.getElementById('url-toast');
-        if (!toast) {
-            toast = document.createElement('div');
-            toast.id = 'url-toast';
-            toast.className = 'toast';
-            document.body.appendChild(toast);
-        }
-
+        // #url-toast is a polite live region that is always in the page, so
+        // screen readers announce the message; it's invisible while empty.
+        const toast = document.getElementById('url-toast');
         toast.textContent = message;
-        toast.style.display = 'block';
 
-        // Auto-hide after 3 seconds
-        setTimeout(() => {
-            toast.style.display = 'none';
+        // Auto-hide after 3 seconds (restarting if another toast arrives)
+        clearTimeout(this.toastTimer);
+        this.toastTimer = setTimeout(() => {
+            toast.textContent = '';
         }, 3000);
     }
 
@@ -1303,7 +1313,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Also listen for the custom dataLoaded event
     window.addEventListener('dataLoaded', () => {
-        console.log('Received dataLoaded event, starting search...');
         window.searchEngine.performSearch();
     });
 
@@ -1367,6 +1376,7 @@ function initializeTagSettingsModal() {
             catUpBtn.className = 'reorder-btn category-reorder';
             catUpBtn.innerHTML = '▲';
             catUpBtn.title = 'Move category up';
+            catUpBtn.setAttribute('aria-label', `Move ${catDef.label} category up`);
             catUpBtn.addEventListener('click', () => moveCategory(catId, -1));
 
             const catDownBtn = document.createElement('button');
@@ -1374,6 +1384,7 @@ function initializeTagSettingsModal() {
             catDownBtn.className = 'reorder-btn category-reorder';
             catDownBtn.innerHTML = '▼';
             catDownBtn.title = 'Move category down';
+            catDownBtn.setAttribute('aria-label', `Move ${catDef.label} category down`);
             catDownBtn.addEventListener('click', () => moveCategory(catId, 1));
 
             catReorderBtns.appendChild(catUpBtn);
@@ -1415,6 +1426,7 @@ function initializeTagSettingsModal() {
                 upBtn.className = 'reorder-btn';
                 upBtn.innerHTML = '▲';
                 upBtn.title = 'Move up';
+                upBtn.setAttribute('aria-label', `Move ${tagDef.label} up`);
                 upBtn.addEventListener('click', () => moveTag(tagId, -1));
 
                 const downBtn = document.createElement('button');
@@ -1422,6 +1434,7 @@ function initializeTagSettingsModal() {
                 downBtn.className = 'reorder-btn';
                 downBtn.innerHTML = '▼';
                 downBtn.title = 'Move down';
+                downBtn.setAttribute('aria-label', `Move ${tagDef.label} down`);
                 downBtn.addEventListener('click', () => moveTag(tagId, 1));
 
                 reorderBtns.appendChild(upBtn);
@@ -1513,21 +1526,23 @@ function initializeTagSettingsModal() {
         buildTagToggles();
     }
 
-    // Open modal
+    // Open modal (native modal dialog: Escape, focus containment and focus
+    // return are handled by the browser)
     settingsBtn.addEventListener('click', () => {
         buildTagToggles();
-        modal.hidden = false;
-        modal.classList.add('active');
+        modal.showModal();
     });
 
     // Close modal
     function closeModal() {
-        modal.hidden = true;
-        modal.classList.remove('active');
+        modal.close();
     }
 
     closeBtn.addEventListener('click', closeModal);
-    modal.querySelector('.modal-backdrop').addEventListener('click', closeModal);
+    // Clicks outside the content box land on the full-viewport <dialog>
+    modal.addEventListener('click', (event) => {
+        if (event.target === modal) closeModal();
+    });
 
     // Save settings
     saveBtn.addEventListener('click', () => {
@@ -1564,12 +1579,18 @@ function initializeTagSettingsModal() {
 
         closeModal();
 
-        // Refresh display to apply new settings
-        if (window.searchEngine) {
+        // Re-render whichever view is showing so the new tag settings apply.
+        // (Previously this always redrew search results over the active view
+        // and then threw calling a nonexistent browseEngine.displayItems.)
+        const browse = window.browseEngine;
+        if (window.searchEngine && window.searchEngine.isActiveMode()) {
             window.searchEngine.displayResults();
-        }
-        if (window.browseEngine) {
-            window.browseEngine.displayItems();
+        } else if (window.addedEngine && window.addedEngine.isActiveMode()) {
+            window.addedEngine.displayResults();
+        } else if (window.removedEngine && window.removedEngine.isActiveMode()) {
+            window.removedEngine.displayResults();
+        } else if (browse && browse.isActiveMode() && browse.currentTown && browse.currentShop) {
+            browse.showRoomInventory(browse.currentTown, browse.currentShop);
         }
     });
 
@@ -1588,10 +1609,4 @@ function initializeTagSettingsModal() {
         applyTagColors();
     }
 
-    // Close on Escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && !modal.hidden) {
-            closeModal();
-        }
-    });
 }

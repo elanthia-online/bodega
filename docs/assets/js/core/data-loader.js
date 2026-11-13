@@ -10,6 +10,13 @@ class DataLoader {
         this.isLoading = false;
         this.ownerLocationIndex = {};  // owner name -> {roomName, roomNumber, exterior} from town data
         this.rawShopData = {};  // Store raw shop structure for all towns (includes empty rooms)
+        this.embeddedRemovedItems = [];  // legacy removed_items embedded in town files
+
+        // Resolves once the town files are processed. The Added/Removed tabs
+        // fetch their tracking files on first use and wait on this first.
+        this.townsLoaded = new Promise(resolve => { this.resolveTownsLoaded = resolve; });
+        this.addedItemsPromise = null;
+        this.removedItemsPromise = null;
 
         // Fallback town files, used only if data/towns.json is unavailable.
         // Towns are normally discovered from the manifest published by
@@ -31,22 +38,23 @@ class DataLoader {
         try {
             const response = await fetch('data/towns.json', { cache: 'no-cache' });
             if (!response.ok) {
-                console.log('No towns.json manifest found, using default town list');
                 return this.dataFiles;
             }
             const manifest = await response.json();
+            // Display names, used in load-error messages
+            this.townNamesByFile = {};
+            (manifest.towns || []).forEach(t => {
+                if (t.file && t.town) this.townNamesByFile[`data/${t.file}`] = t.town;
+            });
             const files = (manifest.towns || [])
                 .map(t => t.file)
                 .filter(Boolean)
                 .map(file => `data/${file}`);
             if (files.length === 0) {
-                console.log('towns.json manifest empty, using default town list');
                 return this.dataFiles;
             }
-            console.log(`towns.json manifest lists ${files.length} towns`);
             return files;
         } catch (error) {
-            console.log('Failed to load towns.json manifest, using default town list:', error);
             return this.dataFiles;
         }
     }
@@ -58,24 +66,34 @@ class DataLoader {
         this.showLoading(true);
 
         try {
-            console.log('Starting data load...');
-
-            // Discover towns from the manifest, then load town files in parallel
+            // Discover towns from the manifest, then load town files in parallel.
+            // added_items.json / removed_items.json are NOT loaded here: they
+            // are only needed by the Added/Removed tabs, which fetch them on
+            // first use (ensureAddedItems / ensureRemovedItems).
             const townFiles = await this.loadTownManifest();
-            const loadPromises = townFiles.map(file => this.loadTownData(file));
+            let loaded = 0;
+            this.setLoadingMessage(`Loading shop data… (0 of ${townFiles.length} towns)`);
+            const loadPromises = townFiles.map(file => this.loadTownData(file).then(data => {
+                loaded++;
+                this.setLoadingMessage(`Loading shop data… (${loaded} of ${townFiles.length} towns)`);
+                return data;
+            }));
             const townDataArray = await Promise.all(loadPromises);
 
-            // Also load the separate removed_items.json if it exists
-            const removedItemsData = await this.loadRemovedItems();
-
-            // Load the separate added_items.json if it exists
-            const addedItemsData = await this.loadAddedItems();
-
-            this.processAllData(townDataArray, removedItemsData, addedItemsData);
+            this.processAllData(townDataArray);
             this.updateStats();
             this.populateTownFilter();
 
-            console.log(`Loaded ${this.allItems.length} items, ${this.removedItems.length} removed items, and ${this.addedItems.length} added items from ${this.towns.length} towns`);
+            // loadTownData returns null for a town it couldn't load; say so
+            // instead of silently showing fewer (or zero) items
+            const failed = townFiles.filter((file, i) => !townDataArray[i]);
+            if (failed.length === townFiles.length) {
+                this.showError("Couldn't load any shop data. Check your connection and refresh the page.");
+            } else if (failed.length > 0) {
+                const names = failed.map(file => (this.townNamesByFile && this.townNamesByFile[file]) ||
+                    file.replace(/^data\//, '').replace(/\.json$/, '').replace(/_/g, ' '));
+                this.showError(`Couldn't load shop data for ${names.join(', ')}. Results from ${failed.length === 1 ? 'that town' : 'those towns'} are missing; refreshing usually fixes this.`);
+            }
 
         } catch (error) {
             console.error('Error loading data:', error);
@@ -83,12 +101,50 @@ class DataLoader {
         } finally {
             this.showLoading(false);
             this.isLoading = false;
+            this.resolveTownsLoaded();
         }
+    }
+
+    // Recently added items: town items whose signature is in added_items.json.
+    // Fetched once, on first use. A failed fetch rejects and isn't cached, so
+    // a retry fetches again.
+    ensureAddedItems() {
+        if (!this.addedItemsPromise) {
+            this.addedItemsPromise = this.townsLoaded
+                .then(() => this.loadAddedItems())
+                .then(addedItemsData => {
+                    if (!addedItemsData) {
+                        this.addedItemsPromise = null;
+                        throw new Error("Couldn't load added_items.json");
+                    }
+                    this.addedItems = this.buildAddedItems(addedItemsData);
+                    return this.addedItems;
+                });
+        }
+        return this.addedItemsPromise;
+    }
+
+    // Removed items from removed_items.json (or, for old data, the copies
+    // embedded in town files). Fetched once, on first use.
+    ensureRemovedItems() {
+        if (!this.removedItemsPromise) {
+            this.removedItemsPromise = this.townsLoaded
+                .then(() => this.loadRemovedItems())
+                .then(removedItemsData => {
+                    if (!removedItemsData) this.removedItemsPromise = null;
+                    this.removedItems = this.buildRemovedItems(removedItemsData);
+                    // Without the file, only old data's embedded copies remain
+                    if (!removedItemsData && this.removedItems.length === 0) {
+                        throw new Error("Couldn't load removed_items.json");
+                    }
+                    return this.removedItems;
+                });
+        }
+        return this.removedItemsPromise;
     }
 
     async loadTownData(filename) {
         try {
-            console.log(`Loading ${filename}...`);
             // no-cache: revalidate with the server so we don't serve stale
             // data (town files are regenerated every ~2 hours)
             const response = await fetch(filename, { cache: 'no-cache' });
@@ -113,48 +169,29 @@ class DataLoader {
 
     async loadRemovedItems() {
         try {
-            console.log('Loading removed_items.json...');
             const response = await fetch('data/removed_items.json', { cache: 'no-cache' });
-
-            if (!response.ok) {
-                console.log('No separate removed_items.json found, using embedded data');
-                return null;
-            }
-
-            const data = await response.json();
-            console.log('Loaded separate removed_items.json');
-            return data;
-
+            if (!response.ok) return null;
+            return await response.json();
         } catch (error) {
-            console.log('No separate removed_items.json found, using embedded data');
+            console.warn('Failed to load removed_items.json:', error);
             return null;
         }
     }
 
     async loadAddedItems() {
         try {
-            console.log('Loading added_items.json...');
             const response = await fetch('data/added_items.json', { cache: 'no-cache' });
-
-            if (!response.ok) {
-                console.log('No added_items.json found, will use embedded added_date fields');
-                return null;
-            }
-
-            const data = await response.json();
-            console.log('Loaded added_items.json with', Object.keys(data).length, 'items');
-            return data;
-
+            if (!response.ok) return null;
+            return await response.json();
         } catch (error) {
-            console.log('No added_items.json found, will use embedded added_date fields');
+            console.warn('Failed to load added_items.json:', error);
             return null;
         }
     }
 
-    processAllData(townDataArray, removedItemsData, addedItemsData) {
+    processAllData(townDataArray) {
         this.allItems = [];
-        this.removedItems = [];
-        this.addedItems = [];
+        this.embeddedRemovedItems = [];
         this.towns = [];
         this.totalShops = 0;
         this.ownerLocationIndex = {};
@@ -214,100 +251,67 @@ class DataLoader {
                         const processedItem = this.processItem(item, shop, room, townData);
                         if (processedItem) {
                             this.allItems.push(processedItem);
-
-                            // Check if item was added using added_items.json
-                            // Support both hash-based (new) and ID-based (backwards compatibility) lookups
-                            if (addedItemsData) {
-                                let itemAddedDate = null;
-
-                                // Try hash-based lookup first (new format)
-                                const itemSignature = this.createItemSignature(
-                                    townData.town,
-                                    shop.preamble,
-                                    item.name
-                                );
-
-                                if (itemSignature && addedItemsData[itemSignature]) {
-                                    itemAddedDate = addedItemsData[itemSignature];
-                                }
-
-                                // Fall back to ID-based lookup for backwards compatibility
-                                if (!itemAddedDate && item.id) {
-                                    const itemId = item.id.toString();
-                                    if (addedItemsData[itemId]) {
-                                        itemAddedDate = addedItemsData[itemId];
-                                    }
-                                }
-
-                                // If we found a date (from either method), add to addedItems
-                                if (itemAddedDate) {
-                                    const addedItem = Object.assign({}, processedItem);
-                                    addedItem.addedDate = itemAddedDate;
-                                    this.addedItems.push(addedItem);
-                                }
-                            }
                         }
                     });
                 });
             });
 
-            // Process removed items from embedded data (for backward compatibility)
-            // Only use embedded data if we don't have separate removed_items.json
-            if (!removedItemsData && townData.removed_items && Array.isArray(townData.removed_items)) {
+            // Legacy: removed items embedded in town files. Only used if
+            // removed_items.json is unavailable (see buildRemovedItems).
+            if (Array.isArray(townData.removed_items)) {
                 townData.removed_items.forEach(removedItem => {
-                    const processedItem = this.processItem(removedItem, {}, {}, townData);
-                    if (processedItem) {
-                        // Add removal metadata
-                        processedItem.removedDate = removedItem.removed_date || new Date().toISOString();
-                        processedItem.lastSeenShop = removedItem.last_seen_shop || null;
-                        processedItem.lastSeenTown = cleanTownName;
-
-                        this.removedItems.push(processedItem);
-                    }
+                    this.embeddedRemovedItems.push({ town: cleanTownName, item: removedItem });
                 });
             }
         });
 
-        // Process removed items from separate file if available
+        this.lastUpdated = oldestUpdate;
+    }
+
+    buildAddedItems(addedItemsData) {
+        if (!addedItemsData) return [];
+        const addedItems = [];
+
+        this.allItems.forEach(item => {
+            // Signature lookup (current format), then legacy item-ID keys
+            const signature = this.createItemSignature(item.town, item.shopLocation, item.name);
+            let addedDate = addedItemsData[signature];
+            if (!addedDate && item.id) {
+                addedDate = addedItemsData[item.id.toString()];
+            }
+            if (addedDate) {
+                addedItems.push(Object.assign({}, item, { addedDate }));
+            }
+        });
+
+        return addedItems;
+    }
+
+    buildRemovedItems(removedItemsData) {
+        const removedItems = [];
+        const addRemoved = (removedItem, townName) => {
+            const processedItem = this.processItem(removedItem, {}, {}, { town: townName });
+            if (!processedItem) return;
+            processedItem.removedDate = removedItem.removed_date || removedItem.removedDate || new Date().toISOString();
+            processedItem.lastSeenShop = removedItem.last_seen_shop || removedItem.lastSeenShop || null;
+            processedItem.lastSeenTown = removedItem.town || townName;
+            removedItems.push(processedItem);
+        };
+
         if (removedItemsData) {
-            console.log('Processing removed items from separate file...');
             Object.keys(removedItemsData).forEach(townName => {
                 const cleanTownName = townName.replace(/,\s*$/, '');
-                const removedItems = removedItemsData[townName];
-
-                if (Array.isArray(removedItems)) {
-                    removedItems.forEach(removedItem => {
-                        // Create minimal townData for processing
-                        const fakeTownData = { town: cleanTownName };
-                        const processedItem = this.processItem(removedItem, {}, {}, fakeTownData);
-
-                        if (processedItem) {
-                            // Add removal metadata
-                            processedItem.removedDate = removedItem.removed_date || removedItem.removedDate || new Date().toISOString();
-                            processedItem.lastSeenShop = removedItem.last_seen_shop || removedItem.lastSeenShop || null;
-                            processedItem.lastSeenTown = removedItem.town || cleanTownName;
-
-                            this.removedItems.push(processedItem);
-
-                            // Also check if this removed item was in added_items.json
-                            if (addedItemsData && removedItem.id) {
-                                const itemId = removedItem.id.toString();
-                                if (addedItemsData[itemId]) {
-                                    const addedItem = Object.assign({}, processedItem);
-                                    addedItem.addedDate = addedItemsData[itemId];
-                                    this.addedItems.push(addedItem);
-                                }
-                            }
-                        }
-                    });
+                const items = removedItemsData[townName];
+                if (Array.isArray(items)) {
+                    items.forEach(removedItem => addRemoved(removedItem, cleanTownName));
                 }
             });
+        } else {
+            this.embeddedRemovedItems.forEach(({ town, item }) => addRemoved(item, town));
         }
 
-        // No filtering by date - let the backend handle retention policy
-        // The backend now manages cleanup based on size/date constraints
-
-        this.lastUpdated = oldestUpdate;
+        // No filtering by date - the processor manages the retention policy
+        return removedItems;
     }
 
     processItem(item, shop, room, townData) {
@@ -587,6 +591,11 @@ class DataLoader {
         });
     }
 
+    setLoadingMessage(text) {
+        const message = document.getElementById('loading-message');
+        if (message) message.textContent = text;
+    }
+
     showLoading(show) {
         const overlay = document.getElementById('loading-overlay');
         overlay.style.display = show ? 'flex' : 'none';
@@ -596,6 +605,7 @@ class DataLoader {
         const content = document.getElementById('content');
         const errorDiv = document.createElement('div');
         errorDiv.className = 'error-message';
+        errorDiv.setAttribute('role', 'alert');
         errorDiv.textContent = message;
         content.insertBefore(errorDiv, content.firstChild);
     }
@@ -667,10 +677,7 @@ window.dataLoader.getAllItems = function() {
 
 // Auto-load data when page loads
 document.addEventListener('DOMContentLoaded', async () => {
-    console.log('Starting data load...');
     await window.dataLoader.loadAllData();
-    console.log('Data loading complete, dispatching dataLoaded event');
-    console.log('Total items loaded:', window.dataLoader.allItems.length);
     // Notify search.js that data is loaded
     window.dispatchEvent(new CustomEvent('dataLoaded'));
 });

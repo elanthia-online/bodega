@@ -132,13 +132,18 @@ class URLStateManager {
             window.searchEngine.currentSort.direction = params.dir || 'asc';
         }
 
-        // Restore page
-        if (params.page) {
-            window.searchEngine.currentPage = parseInt(params.page) || 1;
-        }
-
-        // Perform search
+        // Perform search (this resets to page 1)
         window.searchEngine.performSearch();
+
+        // Then restore the page, clamped to the pages that now exist
+        const page = parseInt(params.page, 10);
+        if (page > 1) {
+            const engine = window.searchEngine;
+            const totalPages = Math.ceil(engine.filteredItems.length / engine.itemsPerPage);
+            engine.currentPage = Math.min(page, Math.max(totalPages, 1));
+            engine.displayResults();
+            engine.updatePagination();
+        }
     }
 
     restoreMultiSelectFilter(filterName, paramValue) {
@@ -188,8 +193,8 @@ class URLStateManager {
     restoreAddedState(params) {
         if (!window.addedEngine) return;
 
-        document.getElementById('added-tab')?.click();
-
+        // Set the filters before switching tabs: the tab loads its data on
+        // first use and searches once it arrives.
         if (params.days) {
             const filter = document.getElementById('added-date-filter');
             if (filter) filter.value = params.days;
@@ -200,9 +205,9 @@ class URLStateManager {
             if (input) input.value = decodeURIComponent(params.q);
         }
 
+        // Town options are only filled in once the added data has loaded
         if (params.town) {
-            const filter = document.getElementById('added-town-filter');
-            if (filter) filter.value = decodeURIComponent(params.town);
+            window.addedEngine.pendingTown = decodeURIComponent(params.town);
         }
 
         if (params.price) {
@@ -210,14 +215,14 @@ class URLStateManager {
             if (filter) filter.value = params.price;
         }
 
-        window.addedEngine.performSearch?.();
+        document.getElementById('added-tab')?.click();
     }
 
     restoreRemovedState(params) {
         if (!window.removedEngine) return;
 
-        document.getElementById('removed-tab')?.click();
-
+        // Set the filters before switching tabs: the tab loads its data on
+        // first use and searches once it arrives.
         if (params.days) {
             const filter = document.getElementById('removed-date-filter');
             if (filter) filter.value = params.days;
@@ -233,7 +238,7 @@ class URLStateManager {
             if (filter) filter.value = params.price;
         }
 
-        window.removedEngine.performSearch?.();
+        document.getElementById('removed-tab')?.click();
     }
 
     restoreItemDetailState(params) {

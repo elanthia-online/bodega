@@ -14,6 +14,17 @@ Implemented features:
 
 ## Phase 2: Universal Accessibility Features
 
+Done so far: skip link (1), landmark labels (3), live region for the results
+count (4), reduced motion (5), and modal focus handling (7: both modals are
+native `<dialog>` elements opened with `showModal()`, so the browser makes the
+page inert, keeps focus in the dialog, closes on Escape and returns focus).
+Sortable headers are `<button>`s inside the `<th>` with `aria-sort` on the
+`<th>`; page numbers, item names, shop cards, rooms, filter chips and the
+Search Tips toggle are all keyboard-operable. Copy confirmations and data-load
+errors are announced (polite status / alert), the results area has its own
+heading, and dialog headings follow a consistent h2 → h3 order. Still open: custom focus styling (2), keyboard
+shortcuts and help modal (6), and the visible shortcut hint (8).
+
 Goal: Features that are **discoverable** and work **out of the box** for users who need them.
 
 ### 1. Skip Link (WCAG 2.4.1 - Level A)
@@ -52,7 +63,7 @@ Goal: Features that are **discoverable** and work **out of the box** for users w
 
 **Why discoverable**: Automatic - screen readers announce changes without user action.
 
-**Files:** `docs/index.html`, `docs/assets/css/main.css`, `docs/assets/js/modes/*.js`
+**Files:** `docs/index.html`, `docs/assets/css/main.css`, `docs/assets/js/components/*.js`
 
 ---
 
@@ -121,12 +132,12 @@ Goal: Features that are **discoverable** and work **out of the box** for users w
 | High contrast | 1.4.6 | AAA | Complete |
 | Form labels | 1.3.1 | A | Complete |
 | Heading hierarchy | 1.3.1 | A | Complete |
-| Skip link | 2.4.1 | A | Phase 2 |
-| Focus visible | 2.4.7 | AA | Phase 2 |
-| Landmarks | 1.3.1 | A | Phase 2 |
-| Live regions | 4.1.3 | AA | Phase 2 |
-| Reduced motion | 2.3.3 | AAA | Phase 2 |
-| Keyboard access | 2.1.1 | A | Phase 2 |
+| Skip link | 2.4.1 | A | Complete |
+| Focus visible | 2.4.7 | AA | Browser default rings (no custom styling yet) |
+| Landmarks | 1.3.1 | A | Complete |
+| Live regions | 4.1.3 | AA | Complete (results count) |
+| Reduced motion | 2.3.3 | AAA | Complete |
+| Keyboard access | 2.1.1 | A | Complete (shortcuts still Phase 2) |
 
 ---
 

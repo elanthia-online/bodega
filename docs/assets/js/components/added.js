@@ -58,12 +58,12 @@ class AddedEngine {
     updateTableHeaders() {
         const thead = document.querySelector('#results-table thead tr');
         thead.innerHTML = `
-            <th class="sortable" data-sort="name">Item Name <span class="sort-indicator"></span></th>
-            <th class="sortable" data-sort="added">Added <span class="sort-indicator"></span></th>
-            <th class="sortable" data-sort="price">Price <span class="sort-indicator"></span></th>
-            <th class="sortable" data-sort="properties">Properties <span class="sort-indicator"></span></th>
-            <th class="sortable" data-sort="town">Town <span class="sort-indicator"></span></th>
-            <th class="sortable" data-sort="shop">Shop <span class="sort-indicator"></span></th>
+            <th class="sortable" data-sort="name" scope="col"><button type="button" class="sort-button">Item Name<span class="sort-indicator" aria-hidden="true"></span></button></th>
+            <th class="sortable" data-sort="added" scope="col"><button type="button" class="sort-button">Added<span class="sort-indicator" aria-hidden="true"></span></button></th>
+            <th class="sortable" data-sort="price" scope="col"><button type="button" class="sort-button">Price<span class="sort-indicator" aria-hidden="true"></span></button></th>
+            <th class="sortable" data-sort="properties" scope="col"><button type="button" class="sort-button">Properties<span class="sort-indicator" aria-hidden="true"></span></button></th>
+            <th class="sortable" data-sort="town" scope="col"><button type="button" class="sort-button">Town<span class="sort-indicator" aria-hidden="true"></span></button></th>
+            <th class="sortable" data-sort="shop" scope="col"><button type="button" class="sort-button">Shop<span class="sort-indicator" aria-hidden="true"></span></button></th>
         `;
 
         // Re-attach header click handlers
@@ -76,15 +76,7 @@ class AddedEngine {
     }
 
     switchToAdded() {
-        document.getElementById('search-tab').classList.remove('active');
-        document.getElementById('browse-tab').classList.remove('active');
-        document.getElementById('removed-tab').classList.remove('active');
-        document.getElementById('added-tab').classList.add('active');
-
-        document.getElementById('search-mode').style.display = 'none';
-        document.getElementById('browse-mode').style.display = 'none';
-        document.getElementById('removed-mode').style.display = 'none';
-        document.getElementById('added-mode').style.display = 'block';
+        BodegaShared.activateMode('added');
 
         // Show pagination controls for added mode
         document.getElementById('pagination').style.display = 'flex';
@@ -100,12 +92,8 @@ class AddedEngine {
         this.updateTableHeaders();
         this.updateSortIndicators();
 
-        // Initialize added data if not done yet
-        if (this.addedItems.length === 0) {
-            this.initializeAddedData();
-        } else {
-            this.performSearch();
-        }
+        // Load added data on first use, then search
+        this.initializeAddedData();
 
         // Update URL to added mode
         if (window.urlStateManager) {
@@ -113,20 +101,45 @@ class AddedEngine {
         }
     }
 
-    initializeAddedData() {
-        if (!window.dataLoader || !window.dataLoader.addedItems) {
-            console.log('No added items data available');
-            this.displayNoResults();
-            return;
+    // added_items.json is fetched the first time this tab is opened
+    // (not at page load), so show a loading row until it arrives.
+    async initializeAddedData() {
+        if (!this.dataReady) {
+            this.showLoadingRow();
+            try {
+                this.addedItems = await window.dataLoader.ensureAddedItems();
+            } catch (error) {
+                console.error('Failed to load recently added items:', error);
+                if (this.isActiveMode()) {
+                    BodegaShared.renderLoadError(
+                        "Couldn't load recently added items. Check your connection and try again.",
+                        () => this.initializeAddedData()
+                    );
+                }
+                return;
+            }
+            this.dataReady = true;
+            this.populateTownFilter();
         }
 
-        this.addedItems = window.dataLoader.addedItems;
-        console.log(`Loaded ${this.addedItems.length} added items`);
+        // A town filter restored from the URL waits for the town options
+        if (this.pendingTown) {
+            document.getElementById('added-town-filter').value = this.pendingTown;
+            this.pendingTown = null;
+        }
 
-        // Populate town filter
-        this.populateTownFilter();
-
+        // The user may have switched tabs while the data was loading
+        if (!this.isActiveMode()) return;
         this.performSearch();
+    }
+
+    showLoadingRow() {
+        if (!this.isActiveMode()) return;
+        document.getElementById('results-body').innerHTML =
+            '<tr><td colspan="6" class="no-results">Loading recently added items…</td></tr>';
+        document.getElementById('results-count').textContent = 'Loading recently added items…';
+        document.getElementById('page-info').textContent = '';
+        BodegaShared.renderPagination(1, 0, () => {});
     }
 
     populateTownFilter() {
@@ -258,23 +271,13 @@ class AddedEngine {
     }
 
     updateSortIndicators() {
-        // Clear all indicators
-        document.querySelectorAll('#results-table th.sortable .sort-indicator').forEach(indicator => {
-            indicator.textContent = '';
-        });
-
         // Map internal field names back to header data-sort values
         let headerField = this.currentSort.field;
         if (this.currentSort.field === 'addedDate') headerField = 'added';
         if (this.currentSort.field === 'shopName') headerField = 'shop';
         if (this.currentSort.field === 'propertyCount') headerField = 'properties';
 
-        // Set indicator for current sort
-        const currentHeader = document.querySelector(`#results-table th[data-sort="${headerField}"]`);
-        if (currentHeader) {
-            const indicator = currentHeader.querySelector('.sort-indicator');
-            indicator.textContent = this.currentSort.direction === 'asc' ? ' ↑' : ' ↓';
-        }
+        BodegaShared.updateSortHeaders(headerField, this.currentSort.direction);
     }
 
     sortItems() {
@@ -352,6 +355,7 @@ class AddedEngine {
         const nameSpan = document.createElement('span');
         nameSpan.className = 'name';
         nameSpan.textContent = item.name;
+        BodegaShared.makeActivatable(nameSpan);
         nameCell.appendChild(nameSpan);
 
         // Add quantity after name if it exists (with 2 spaces, not underlined)
@@ -462,7 +466,7 @@ class AddedEngine {
         tbody.innerHTML = `
             <tr>
                 <td colspan="6" class="no-results">
-                    No recently added items found in the last 24 hours
+                    No added items match these filters
                 </td>
             </tr>
         `;
@@ -477,48 +481,11 @@ class AddedEngine {
 
     updatePagination(totalItems) {
         const totalPages = Math.ceil(totalItems / this.itemsPerPage);
-
-        // Update pagination controls
-        document.getElementById('prev-page').disabled = this.currentPage <= 1;
-        document.getElementById('next-page').disabled = this.currentPage >= totalPages;
-        document.getElementById('prev-page-top').disabled = this.currentPage <= 1;
-        document.getElementById('next-page-top').disabled = this.currentPage >= totalPages;
-
-        const pageNumbers = document.getElementById('page-numbers');
-        const pageNumbersTop = document.getElementById('page-numbers-top');
-        pageNumbers.innerHTML = '';
-        pageNumbersTop.innerHTML = '';
-
-        if (totalPages <= 1) return;
-
-        // Generate page numbers
-        const startPage = Math.max(1, this.currentPage - 2);
-        const endPage = Math.min(totalPages, this.currentPage + 2);
-
-        for (let i = startPage; i <= endPage; i++) {
-            const pageBtn = document.createElement('span');
-            pageBtn.className = 'page-number';
-            pageBtn.textContent = i;
-
-            const pageBtnTop = document.createElement('span');
-            pageBtnTop.className = 'page-number';
-            pageBtnTop.textContent = i;
-
-            if (i === this.currentPage) {
-                pageBtn.classList.add('current');
-                pageBtnTop.classList.add('current');
-            } else {
-                const clickHandler = () => {
-                    this.currentPage = i;
-                    this.displayResults();
-                };
-                pageBtn.addEventListener('click', clickHandler);
-                pageBtnTop.addEventListener('click', clickHandler);
-            }
-
-            pageNumbers.appendChild(pageBtn);
-            pageNumbersTop.appendChild(pageBtnTop);
-        }
+        BodegaShared.renderPagination(this.currentPage, totalPages, (page) => {
+            this.currentPage = page;
+            this.displayResults();
+            this.updateResultsHeader();
+        });
     }
 
     updateResultsHeader() {
@@ -544,6 +511,7 @@ class AddedEngine {
         if (this.currentPage > 1) {
             this.currentPage--;
             this.displayResults();
+            this.updateResultsHeader();
         }
     }
 
@@ -552,6 +520,7 @@ class AddedEngine {
         if (this.currentPage < totalPages) {
             this.currentPage++;
             this.displayResults();
+            this.updateResultsHeader();
         }
     }
 
@@ -599,9 +568,3 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addedEngine = new AddedEngine();
 });
 
-// Initialize added data when main data is loaded
-window.addEventListener('dataLoaded', () => {
-    if (window.addedEngine) {
-        window.addedEngine.initializeAddedData();
-    }
-});

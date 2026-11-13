@@ -4,10 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GemStone IV Playershops</title>
+    <meta name="description" content="Search and browse GemStone IV player shop inventories across every town, updated every two hours.">
+    <link rel="canonical" href="https://shops.elanthia.online/">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <meta name="theme-color" content="#357abd">
+
+    <!-- Link previews (Discord, Slack, social sites) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="GemStone IV Playershops">
+    <meta property="og:title" content="GemStone IV Playershops">
+    <meta property="og:description" content="Search and browse GemStone IV player shop inventories across every town, updated every two hours.">
+    <meta property="og:url" content="https://shops.elanthia.online/">
+    <meta property="og:image" content="https://shops.elanthia.online/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="GemStone IV Playershops: search and browse player shop inventories">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="assets/css/themes.css">
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
+    <a href="#content" class="skip-link">Skip to results</a>
     <div id="wrapper">
         <!-- Header -->
         <header>
@@ -41,8 +58,8 @@
                             ◐ <span>Contrast</span>
                         </button>
                     </div>
-                    <button id="tag-settings-btn" class="settings-btn" title="Tag Display Settings">
-                        <span class="settings-icon">&#9881;</span>
+                    <button id="tag-settings-btn" class="settings-btn" title="Tag Display Settings" aria-label="Tag display settings">
+                        <span class="settings-icon" aria-hidden="true">&#9881;</span>
                     </button>
                 </div>
             </div>
@@ -51,20 +68,20 @@
         <!-- Main Container -->
         <div id="main-container">
             <!-- Left Sidebar - Filters -->
-            <aside id="sidebar">
+            <aside id="sidebar" aria-label="Search and filters">
                 <!-- Mode Tabs -->
-                <div class="mode-tabs">
-                    <button id="search-tab" class="mode-tab active">Search</button>
-                    <button id="browse-tab" class="mode-tab">Browse</button>
-                    <button id="added-tab" class="mode-tab">Added</button>
-                    <button id="removed-tab" class="mode-tab">Removed</button>
+                <div class="mode-tabs" role="group" aria-label="View">
+                    <button id="search-tab" class="mode-tab active" aria-pressed="true" aria-controls="search-mode">Search</button>
+                    <button id="browse-tab" class="mode-tab" aria-pressed="false" aria-controls="browse-mode">Browse</button>
+                    <button id="added-tab" class="mode-tab" aria-pressed="false" aria-controls="added-mode">Added</button>
+                    <button id="removed-tab" class="mode-tab" aria-pressed="false" aria-controls="removed-mode">Removed</button>
                 </div>
 
                 <!-- Search Mode -->
                 <div id="search-mode" class="mode-content">
                     <div class="filter-section">
                         <h2>Search</h2>
-                        <input type="text" id="search-input" placeholder="Search items..." />
+                        <input type="text" id="search-input" placeholder="Search items..." aria-label="Search items" aria-describedby="search-regex-error" />
                         <div class="search-controls">
                             <button id="search-btn">Search</button>
                             <button id="clear-btn">Clear</button>
@@ -88,11 +105,12 @@
                                 Regex
                             </label>
                         </div>
+                        <p id="search-regex-error" class="field-error" aria-live="polite"></p>
 
                         <div class="search-help">
-                            <div class="search-help-toggle" id="search-help-toggle">
-                                <span>Search Tips</span> <span class="toggle-icon">▼</span>
-                            </div>
+                            <button type="button" class="search-help-toggle" id="search-help-toggle" aria-expanded="false" aria-controls="search-help-content">
+                                <span>Search Tips</span> <span class="toggle-icon" aria-hidden="true">▼</span>
+                            </button>
                             <div class="search-help-content" id="search-help-content" style="display: none;">
                                 <div class="search-tip">
                                     <strong>"exact phrase"</strong> - Search for exact phrases using quotes
@@ -119,6 +137,11 @@
                         </div>
                     </div>
 
+                <!-- Filters: collapsed behind this toggle on small screens -->
+                <button type="button" id="filters-toggle" class="filters-toggle" aria-expanded="false" aria-controls="search-filters">
+                    <span>Filters<span id="filters-toggle-count"></span></span> <span class="toggle-icon" aria-hidden="true">▼</span>
+                </button>
+                <div id="search-filters" class="collapsible-filters">
                 <div class="filter-section">
                     <button id="apply-filters">Apply Filters</button>
                     <button id="reset-filters">Reset All</button>
@@ -222,7 +245,7 @@
                         <option value="fairly small">Fairly Small (8 - 11)</option>
                         <option value="somewhat small">Somewhat Small (12 - 15)</option>
                         <option value="slightly small">Slightly Small (16 - 19)</option>
-                        <option value="medium">Medium< (20 - 39)</option>
+                        <option value="medium">Medium (20 - 39)</option>
                         <option value="slightly large">Slightly Large (40 - 49)</option>
                         <option value="fairly large">Fairly Large (50 - 59)</option>
                         <option value="large">Large (60 - 69)</option>
@@ -327,6 +350,7 @@
                     <button id="reset-filters-bottom">Reset All</button>
                 </div>
                 </div>
+                </div>
 
                 <!-- Browse Mode -->
                 <div id="browse-mode" class="mode-content" style="display: none;">
@@ -339,7 +363,7 @@
 
                     <div class="filter-section" id="shop-sign-search-section">
                         <h2>Search Shop Signs</h2>
-                        <input type="text" id="shop-sign-search-input" placeholder="Search shop signs..." />
+                        <input type="text" id="shop-sign-search-input" placeholder="Search shop signs..." aria-label="Search shop signs" />
                         <div class="search-controls">
                             <button id="shop-sign-search-btn">Search</button>
                             <button id="shop-sign-clear-btn">Clear</button>
@@ -363,9 +387,9 @@
                 <div id="added-mode" class="mode-content" style="display: none;">
                     <div class="filter-section">
                         <h2>Recently Added Items</h2>
-                        <p class="mode-description">Items added to shops within the last 24 hours</p>
+                        <p class="mode-description">Items newly listed in shops. Use Addition Date to look further back.</p>
 
-                        <input type="text" id="added-search-input" placeholder="Search added items..." />
+                        <input type="text" id="added-search-input" placeholder="Search added items..." aria-label="Search added items" />
                         <button id="added-search-btn">Search</button>
                         <button id="added-clear-btn">Clear</button>
                     </div>
@@ -418,7 +442,7 @@
                         <p class="mode-description">Items removed from shops (retained for 14-180 days based on data size)</p>
                         <p class="disclaimer"><strong>DISCLAIMER:</strong> Not a source of truth on sales price. Items listed have been removed from shops, by what means is unknown.</p>
 
-                        <input type="text" id="removed-search-input" placeholder="Search removed items..." />
+                        <input type="text" id="removed-search-input" placeholder="Search removed items..." aria-label="Search removed items" />
                         <button id="removed-search-btn">Search</button>
                         <button id="removed-clear-btn">Clear</button>
                     </div>
@@ -458,9 +482,10 @@
             </aside>
 
             <!-- Main Content Area -->
-            <main id="content">
+            <main id="content" tabindex="-1">
+                <h2 class="visually-hidden">Results</h2>
                 <div id="results-header">
-                    <span id="results-count">0 items found</span>
+                    <span id="results-count" role="status" aria-live="polite">0 items found</span>
 
                     <!-- Sort mode toggle (only visible in browse mode when viewing a shop) -->
                     <div id="browse-sort-mode-toggle" style="display: none;">
@@ -470,7 +495,7 @@
                     </div>
 
                     <!-- Pagination in header -->
-                    <div id="pagination-top" class="pagination">
+                    <div id="pagination-top" class="pagination" role="navigation" aria-label="Pagination, top">
                         <button id="prev-page-top" disabled>Previous</button>
                         <span id="page-numbers-top"></span>
                         <button id="next-page-top">Next</button>
@@ -484,11 +509,11 @@
                     <table id="results-table">
                         <thead>
                             <tr>
-                                <th class="sortable" data-sort="name">Item Name <span class="sort-indicator"></span></th>
-                                <th class="sortable" data-sort="price">Price <span class="sort-indicator"></span></th>
-                                <th class="sortable" data-sort="properties">Properties <span class="sort-indicator"></span></th>
-                                <th class="sortable" data-sort="town">Town <span class="sort-indicator"></span></th>
-                                <th class="sortable" data-sort="shop">Shop <span class="sort-indicator"></span></th>
+                                <th class="sortable" data-sort="name" scope="col"><button type="button" class="sort-button">Item Name<span class="sort-indicator" aria-hidden="true"></span></button></th>
+                                <th class="sortable" data-sort="price" scope="col"><button type="button" class="sort-button">Price<span class="sort-indicator" aria-hidden="true"></span></button></th>
+                                <th class="sortable" data-sort="properties" scope="col"><button type="button" class="sort-button">Properties<span class="sort-indicator" aria-hidden="true"></span></button></th>
+                                <th class="sortable" data-sort="town" scope="col"><button type="button" class="sort-button">Town<span class="sort-indicator" aria-hidden="true"></span></button></th>
+                                <th class="sortable" data-sort="shop" scope="col"><button type="button" class="sort-button">Shop<span class="sort-indicator" aria-hidden="true"></span></button></th>
                             </tr>
                         </thead>
                         <tbody id="results-body">
@@ -498,7 +523,7 @@
                 </div>
 
                 <!-- Bottom Pagination -->
-                <div id="pagination" class="pagination">
+                <div id="pagination" class="pagination" role="navigation" aria-label="Pagination">
                     <button id="prev-page" disabled>Previous</button>
                     <span id="page-numbers"></span>
                     <button id="next-page">Next</button>
@@ -507,26 +532,25 @@
         </div>
 
         <!-- Item Detail Modal -->
-        <div id="item-modal" class="modal">
+        <dialog id="item-modal" class="modal" aria-labelledby="modal-item-name">
             <div class="modal-content">
-                <span class="close">&times;</span>
+                <button type="button" class="close" aria-label="Close" autofocus>&times;</button>
                 <h2 id="modal-item-name">Item Name</h2>
                 <div id="modal-content-body">
                     <!-- Item details will be inserted here -->
                 </div>
             </div>
-        </div>
+        </dialog>
 
         <!-- Tag Settings Modal -->
-        <div id="tag-settings-modal" class="modal" hidden>
-            <div class="modal-backdrop"></div>
+        <dialog id="tag-settings-modal" class="modal" aria-labelledby="tag-settings-title">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3>Tag Display Settings</h3>
-                    <button id="close-tag-settings" class="modal-close" aria-label="Close">&times;</button>
+                    <h2 id="tag-settings-title">Tag Display Settings</h2>
+                    <button id="close-tag-settings" class="modal-close" aria-label="Close" autofocus>&times;</button>
                 </div>
                 <div class="modal-body">
-                    <p class="modal-description">Toggle individual tags on/off, customize their colors, and reorder categories by dragging them up or down.</p>
+                    <p class="modal-description">Toggle individual tags on/off, customize their colors, and reorder tags and categories with the arrow buttons.</p>
 
                     <div id="category-toggles" class="category-toggles">
                         <!-- Generated dynamically from TAG_DEFINITIONS -->
@@ -537,13 +561,16 @@
                     <button id="save-tag-settings" class="btn-primary">Save</button>
                 </div>
             </div>
-        </div>
+        </dialog>
 
         <!-- Loading Overlay -->
         <div id="loading-overlay">
             <div class="spinner"></div>
-            <p>Loading shop data...</p>
+            <p id="loading-message">Loading shop data…</p>
         </div>
+
+        <!-- Copy confirmations (announced to screen readers) -->
+        <div id="url-toast" class="toast" role="status" aria-live="polite"></div>
 
         <!-- Item Tooltip (hover preview) -->
         <div id="item-tooltip" class="item-tooltip" hidden></div>

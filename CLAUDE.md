@@ -10,8 +10,11 @@ GemStone IV Bodega is a player shop browser that combines a static web applicati
 
 ### Local Web Development
 ```bash
-cd docs && python -m http.server 8000
+automation/bin/fetch-site-data            # docs/data/ is gitignored; pull it from the live site
+cd docs && python3 -m http.server 8000    # then open http://localhost:8000
 ```
+There is no build step and no JS test suite: `docs/` is published to GitHub
+Pages as-is, so test changes in a browser against real data.
 
 ### Automation Testing (requires game credentials)
 ```bash
@@ -35,7 +38,7 @@ ruby automation/ruby/processor.rb --mode=reprocess
 |-----------|---------------|
 | **bodega.lic** | Raw data capture ONLY - saves `raw_inspect` text to `docs/data/raw/*.json` |
 | **processor.rb** | ALL extraction - tags, properties, item types → outputs to `docs/data/*.json` |
-| **data-loader.js** | Display ONLY - loads processed data, no parsing/fallback |
+| **data-loader.js** | Display ONLY - loads processed data, no parsing/fallback. Town files load at startup; `added_items.json` / `removed_items.json` load the first time the Added/Removed tab is opened |
 
 ### Data Pipeline
 ```
@@ -53,7 +56,10 @@ data-loader.js (browser) → Web UI
 | `automation/lich/scripts/headless.lic` | Headless automation entry point |
 | `automation/ruby/processor.rb` | Extracts ALL properties from raw data |
 | `automation/ruby/bodega_extractor.rb` | Pattern matching and extraction logic |
-| `docs/assets/js/core/data-loader.js` | Loads and displays processed data |
+| `docs/assets/js/core/data-loader.js` | Loads town data at startup; loads added/removed tracking on first use |
+| `docs/assets/js/core/shared.js` | Shared UI helpers: item property tags, mode switching, sort headers, pagination, keyboard activation |
+| `docs/assets/js/core/url-state-manager.js` | Keeps search/browse/added/removed state (incl. page) in the URL and restores it |
+| `docs/assets/js/components/*.js` | One engine per view: search, browse, added, removed |
 
 ### Data Directories
 - `docs/data/raw/` - Raw JSON from bodega.lic (per-town files)
@@ -80,8 +86,32 @@ data-loader.js (browser) → Web UI
 - **Full scan**: `;bodega` - Complete shop inventory inspection (~65 min)
 - **Smart scan**: `;bodega --smart` - Only inspects new/changed items (~2-3 min)
 - Automation runs one full scan per UTC day (the first scheduled run of the
-  day, gated by the `automation/state/last-full-scan` marker) and smart scans
-  every 2 hours otherwise
+  day, gated by the `last_full_scan` date in `docs/data/state.json`) and smart
+  scans every 2 hours otherwise
+
+## Web App Conventions
+
+- Plain scripts loaded in order from `index.html` (no modules, no bundler).
+  Shared helpers go in `core/shared.js` (`BodegaShared`), not copied into
+  each component.
+- All four views share one results table and one pair of pagination bars;
+  each engine checks `isActiveMode()` before acting on shared controls.
+- Item, shop and sign text is player-controlled: build DOM with
+  `textContent`, or escape with `DataLoader.escapeHtml` before using
+  `innerHTML`.
+- Popups are native `<dialog>` elements opened with `showModal()` (the
+  browser handles Escape, focus and inertness). Sortable headers are
+  `<button>`s inside `<th>` with `aria-sort` on the `<th>`. Clickable
+  non-button elements use `BodegaShared.makeActivatable`.
+- Theme colours are CSS variables in `themes.css`; each theme also sets
+  `color-scheme`.
+- No `console.log` in shipped code (`console.warn`/`console.error` for real
+  problems only).
+- `docs/404.html` is the GitHub Pages not-found page (absolute paths, since it
+  is served at any URL). `docs/assets/og-image.png` (1200×630) is the link
+  preview image referenced by the Open Graph tags in `index.html`.
+- Accessibility status and remaining work: `ACCESSIBILITY_PLAN.md` (repo root,
+  so it is not published with the site; everything under `docs/` is public).
 
 ## Extracted Properties
 
@@ -95,11 +125,14 @@ processor.rb extracts these fields from raw inspection text:
 ## Code Patterns
 
 ### Item Signature Generation
-Items are tracked using signatures (used in `added_items.json`):
+Items are tracked using signatures (the keys of `added_items.json`), built by
+`create_item_signature` in `processor.rb` and mirrored by
+`DataLoader.createItemSignature` in `data-loader.js`:
 ```ruby
-# Ruby (bodega.lic)
-"#{safe_town}:#{safe_shop}:#{item_name}:#{price}"
+"#{safe_town}:#{safe_shop}:#{safe_item}"
 ```
+Price is deliberately not part of the signature, so a price change doesn't make
+an item look removed and re-added.
 
 ### Processed JSON Schema
 ```json
