@@ -20,7 +20,7 @@ This consolidated repository merges the best of both worlds:
 - **Recently Removed**: Items that left shops (kept 14–180 days depending on data size)
 - **Shareable Links**: Items, shops and searches (filters, sort and page) all live in the URL; links also unfurl with a preview image in Discord and similar apps
 - **Mobile Friendly**: Filters fold behind a toggle on small screens; the results table scrolls sideways
-- **Accessible**: Keyboard-operable throughout, screen-reader labels and announcements, native modal dialogs, light/dark/high-contrast themes and A-/A/A+ text size (see `docs/ACCESSIBILITY_PLAN.md`)
+- **Accessible**: Keyboard-operable throughout, screen-reader labels and announcements, native modal dialogs, light/dark/high-contrast themes and A-/A/A+ text size (see [ACCESSIBILITY_PLAN.md](ACCESSIBILITY_PLAN.md))
 
 ### Automation System
 - **Smart Scanning**: 90%+ efficiency improvement via intelligent caching

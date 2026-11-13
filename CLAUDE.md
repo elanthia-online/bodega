@@ -110,7 +110,8 @@ data-loader.js (browser) → Web UI
 - `docs/404.html` is the GitHub Pages not-found page (absolute paths, since it
   is served at any URL). `docs/assets/og-image.png` (1200×630) is the link
   preview image referenced by the Open Graph tags in `index.html`.
-- Accessibility status and remaining work: `docs/ACCESSIBILITY_PLAN.md`.
+- Accessibility status and remaining work: `ACCESSIBILITY_PLAN.md` (repo root,
+  so it is not published with the site; everything under `docs/` is public).
 
 ## Extracted Properties
 

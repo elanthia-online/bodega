@@ -63,7 +63,7 @@ Goal: Features that are **discoverable** and work **out of the box** for users w
 
 **Why discoverable**: Automatic - screen readers announce changes without user action.
 
-**Files:** `docs/index.html`, `docs/assets/css/main.css`, `docs/assets/js/modes/*.js`
+**Files:** `docs/index.html`, `docs/assets/css/main.css`, `docs/assets/js/components/*.js`
 
 ---
 
