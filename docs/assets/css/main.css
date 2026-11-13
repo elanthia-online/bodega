@@ -2167,11 +2167,23 @@ input::placeholder {
     top: 8px;
 }
 
-/* Elements that used to be spans/divs are now buttons: keep their look */
-.search-help-toggle {
+/* Elements that used to be spans/divs are now buttons: keep their look.
+   Scoped under .filter-section so they win over the generic
+   ".filter-section button" sidebar button style. */
+.filter-section .search-help-toggle {
     width: 100%;
+    margin: 0;
+    padding: 6px 8px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-secondary);
+    border-radius: 4px;
     font-family: inherit;
+    font-size: 11px;
     text-align: left;
+}
+
+.filter-section .search-help-toggle:hover {
+    background: var(--bg-hover);
 }
 
 button.close {
@@ -2181,9 +2193,19 @@ button.close {
     line-height: 1;
 }
 
-.filter-tag {
+.filter-section .filter-tag {
+    padding: 3px 8px;
+    margin: 2px 4px 2px 0;
+    background: var(--color-accent);
+    color: white;
     border: none;
+    border-radius: 12px;
     font-family: inherit;
+    font-size: 11px;
+}
+
+.filter-section .filter-tag:hover {
+    background: var(--color-accent-dark);
 }
 
 #pagination .page-gap, #pagination-top .page-gap {
