@@ -162,6 +162,13 @@ export SIMU_CHARACTER="your-character"
 }
 ```
 
+### Search Index
+`data/index.json` (https://shops.elanthia.online/data/index.json) is a compact,
+flat list of every item across all towns, with the filterable fields (price,
+type, material, enchant, enhancives, tags, shop and room) but no raw inspect
+text. It is meant for scripts and bots; the web app itself reads the per-town
+files.
+
 ### Removed Items
 ```json
 {
