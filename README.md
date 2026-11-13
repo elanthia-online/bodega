@@ -14,12 +14,13 @@ This consolidated repository merges the best of both worlds:
 ## Features
 
 ### Web Application
-- **Advanced Search**: Full-text search with wildcard support and filters
-- **Browse Mode**: Hierarchical navigation through towns → shops → rooms → items
-- **Recently Added**: Items added to shops within the last 24 hours
-- **Recently Removed**: Items removed from shops with comprehensive tracking
-- **Mobile Responsive**: Optimized for all device sizes
-- **Direct Linking**: Share specific items via URL
+- **Advanced Search**: Quoted phrases, `*` wildcards, `OR`, `-exclude`, optional regex, plus filters for item type, enchant, worn location, container size, armor, shield, weapon, gemstone, town and price
+- **Browse Mode**: Hierarchical navigation through towns → shops → rooms → items, plus shop-sign search
+- **Recently Added**: Newly listed items (last 24 hours by default, up to all time)
+- **Recently Removed**: Items that left shops (kept 14–180 days depending on data size)
+- **Shareable Links**: Items, shops and searches (filters, sort and page) all live in the URL; links also unfurl with a preview image in Discord and similar apps
+- **Mobile Friendly**: Filters fold behind a toggle on small screens; the results table scrolls sideways
+- **Accessible**: Keyboard-operable throughout, screen-reader labels and announcements, native modal dialogs, light/dark/high-contrast themes and A-/A/A+ text size (see `docs/ACCESSIBILITY_PLAN.md`)
 
 ### Automation System
 - **Smart Scanning**: 90%+ efficiency improvement via intelligent caching
@@ -73,25 +74,26 @@ once to populate `docs/data/`.
 - **Smart Scan** (default): Only inspects new/changed items - 90% faster
 - **Full Scan** (first scheduled run each UTC day): Comprehensive scan of all shops
 
-### Ruby Integration
-The automation system uses the core bodega.lic script directly:
+### How a scan runs
+`automation/bin/run-scan` starts Lich headless with
+`automation/lich/scripts/headless.lic`, which runs `bodega.lic` in raw-capture
+mode. The scan type is chosen by the workflow (one full scan per UTC day, gated
+by the `last_full_scan` date in `docs/data/state.json`) and passed to
+`run-scan`, which hands it to `headless.lic` as `BODEGA_SCAN_TYPE`:
 
 ```ruby
-# Direct execution of bodega.lic
-Bodega::Opts[:headless] = true
-Bodega::Opts[:automation] = true
-
-# Scan type is chosen by the workflow (one full scan per UTC day, gated by
-# the last_full_scan date in docs/data/state.json) and passed to run-scan.
-if scan_type == "full"
-  Bodega::Parser.smart_scan()  # Smart pass first
-  Bodega::Parser.full_scan()   # Then full pass
+# automation/lich/scripts/headless.lic
+if scan_type == 'full'
+  # Smart pass first (to catch removals), then full inspection
+  Script.run("bodega", "--parser --smart --save --raw-only")
+  Script.run("bodega", "--parser --save --raw-only")
 else
-  Bodega::Parser.smart_scan()  # Smart only
+  Script.run("bodega", "--parser --smart --save --raw-only")
 end
-
-Bodega::Parser.to_json()
 ```
+
+`--raw-only` saves the raw inspect text to `docs/data/raw/`; all property
+extraction then happens in `automation/ruby/processor.rb` (Process job).
 
 ### Environment Setup
 The automation system requires these GitHub Secrets:
@@ -108,7 +110,7 @@ automation/bin/fetch-site-data
 
 # Start local web server
 cd docs
-python -m http.server 8000
+python3 -m http.server 8000   # then open http://localhost:8000
 
 # Test automation components
 ./automation/bin/setup-environment
@@ -145,9 +147,12 @@ export SIMU_CHARACTER="your-character"
             {
               "id": "67890",
               "name": "item name",
-              "price": 1000,
-              "added_date": "2024-09-20T15:30:00Z",
-              "details": { ... }
+              "details": {
+                "raw": ["inspection text..."],
+                "cost": 1000,
+                "tags": ["scripted"],
+                "item_type": "weapon"
+              }
             }
           ]
         }
@@ -181,7 +186,7 @@ export SIMU_CHARACTER="your-character"
 
 ### Web Performance
 - **Static Assets**: Served via GitHub Pages CDN
-- **Data Loading**: Asynchronous with progress indicators
+- **Data Loading**: Town files load in parallel at startup (with a per-town progress count); the added/removed tracking files load only when those tabs are first opened
 - **Search**: Client-side filtering for instant results
 - **Mobile**: Optimized for all device sizes
 

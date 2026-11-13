@@ -461,7 +461,7 @@ class AddedEngine {
         tbody.innerHTML = `
             <tr>
                 <td colspan="6" class="no-results">
-                    No recently added items found in the last 24 hours
+                    No added items match these filters
                 </td>
             </tr>
         `;

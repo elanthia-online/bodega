@@ -20,7 +20,9 @@ native `<dialog>` elements opened with `showModal()`, so the browser makes the
 page inert, keeps focus in the dialog, closes on Escape and returns focus).
 Sortable headers are `<button>`s inside the `<th>` with `aria-sort` on the
 `<th>`; page numbers, item names, shop cards, rooms, filter chips and the
-Search Tips toggle are all keyboard-operable. Still open: custom focus styling (2), keyboard
+Search Tips toggle are all keyboard-operable. Copy confirmations and data-load
+errors are announced (polite status / alert), the results area has its own
+heading, and dialog headings follow a consistent h2 → h3 order. Still open: custom focus styling (2), keyboard
 shortcuts and help modal (6), and the visible shortcut hint (8).
 
 Goal: Features that are **discoverable** and work **out of the box** for users who need them.

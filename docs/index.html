@@ -5,7 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GemStone IV Playershops</title>
     <meta name="description" content="Search and browse GemStone IV player shop inventories across every town, updated every two hours.">
+    <link rel="canonical" href="https://shops.elanthia.online/">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <meta name="theme-color" content="#357abd">
+
+    <!-- Link previews (Discord, Slack, social sites) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="GemStone IV Playershops">
+    <meta property="og:title" content="GemStone IV Playershops">
+    <meta property="og:description" content="Search and browse GemStone IV player shop inventories across every town, updated every two hours.">
+    <meta property="og:url" content="https://shops.elanthia.online/">
+    <meta property="og:image" content="https://shops.elanthia.online/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="GemStone IV Playershops: search and browse player shop inventories">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="assets/css/themes.css">
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
@@ -373,7 +387,7 @@
                 <div id="added-mode" class="mode-content" style="display: none;">
                     <div class="filter-section">
                         <h2>Recently Added Items</h2>
-                        <p class="mode-description">Items added to shops within the last 24 hours</p>
+                        <p class="mode-description">Items newly listed in shops. Use Addition Date to look further back.</p>
 
                         <input type="text" id="added-search-input" placeholder="Search added items..." aria-label="Search added items" />
                         <button id="added-search-btn">Search</button>
@@ -469,6 +483,7 @@
 
             <!-- Main Content Area -->
             <main id="content" tabindex="-1">
+                <h2 class="visually-hidden">Results</h2>
                 <div id="results-header">
                     <span id="results-count" role="status" aria-live="polite">0 items found</span>
 
@@ -531,11 +546,11 @@
         <dialog id="tag-settings-modal" class="modal" aria-labelledby="tag-settings-title">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3 id="tag-settings-title">Tag Display Settings</h3>
+                    <h2 id="tag-settings-title">Tag Display Settings</h2>
                     <button id="close-tag-settings" class="modal-close" aria-label="Close" autofocus>&times;</button>
                 </div>
                 <div class="modal-body">
-                    <p class="modal-description">Toggle individual tags on/off, customize their colors, and reorder categories by dragging them up or down.</p>
+                    <p class="modal-description">Toggle individual tags on/off, customize their colors, and reorder tags and categories with the arrow buttons.</p>
 
                     <div id="category-toggles" class="category-toggles">
                         <!-- Generated dynamically from TAG_DEFINITIONS -->
@@ -551,8 +566,11 @@
         <!-- Loading Overlay -->
         <div id="loading-overlay">
             <div class="spinner"></div>
-            <p>Loading shop data...</p>
+            <p id="loading-message">Loading shop data…</p>
         </div>
+
+        <!-- Copy confirmations (announced to screen readers) -->
+        <div id="url-toast" class="toast" role="status" aria-live="polite"></div>
 
         <!-- Item Tooltip (hover preview) -->
         <div id="item-tooltip" class="item-tooltip" hidden></div>

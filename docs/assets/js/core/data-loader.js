@@ -41,6 +41,11 @@ class DataLoader {
                 return this.dataFiles;
             }
             const manifest = await response.json();
+            // Display names, used in load-error messages
+            this.townNamesByFile = {};
+            (manifest.towns || []).forEach(t => {
+                if (t.file && t.town) this.townNamesByFile[`data/${t.file}`] = t.town;
+            });
             const files = (manifest.towns || [])
                 .map(t => t.file)
                 .filter(Boolean)
@@ -61,18 +66,34 @@ class DataLoader {
         this.showLoading(true);
 
         try {
-
             // Discover towns from the manifest, then load town files in parallel.
             // added_items.json / removed_items.json are NOT loaded here: they
             // are only needed by the Added/Removed tabs, which fetch them on
             // first use (ensureAddedItems / ensureRemovedItems).
             const townFiles = await this.loadTownManifest();
-            const loadPromises = townFiles.map(file => this.loadTownData(file));
+            let loaded = 0;
+            this.setLoadingMessage(`Loading shop data… (0 of ${townFiles.length} towns)`);
+            const loadPromises = townFiles.map(file => this.loadTownData(file).then(data => {
+                loaded++;
+                this.setLoadingMessage(`Loading shop data… (${loaded} of ${townFiles.length} towns)`);
+                return data;
+            }));
             const townDataArray = await Promise.all(loadPromises);
 
             this.processAllData(townDataArray);
             this.updateStats();
             this.populateTownFilter();
+
+            // loadTownData returns null for a town it couldn't load; say so
+            // instead of silently showing fewer (or zero) items
+            const failed = townFiles.filter((file, i) => !townDataArray[i]);
+            if (failed.length === townFiles.length) {
+                this.showError("Couldn't load any shop data. Check your connection and refresh the page.");
+            } else if (failed.length > 0) {
+                const names = failed.map(file => (this.townNamesByFile && this.townNamesByFile[file]) ||
+                    file.replace(/^data\//, '').replace(/\.json$/, '').replace(/_/g, ' '));
+                this.showError(`Couldn't load shop data for ${names.join(', ')}. Results from ${failed.length === 1 ? 'that town' : 'those towns'} are missing; refreshing usually fixes this.`);
+            }
 
         } catch (error) {
             console.error('Error loading data:', error);
@@ -563,6 +584,11 @@ class DataLoader {
         });
     }
 
+    setLoadingMessage(text) {
+        const message = document.getElementById('loading-message');
+        if (message) message.textContent = text;
+    }
+
     showLoading(show) {
         const overlay = document.getElementById('loading-overlay');
         overlay.style.display = show ? 'flex' : 'none';
@@ -572,6 +598,7 @@ class DataLoader {
         const content = document.getElementById('content');
         const errorDiv = document.createElement('div');
         errorDiv.className = 'error-message';
+        errorDiv.setAttribute('role', 'alert');
         errorDiv.textContent = message;
         content.insertBefore(errorDiv, content.firstChild);
     }

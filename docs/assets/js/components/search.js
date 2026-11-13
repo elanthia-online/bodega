@@ -963,7 +963,7 @@ class SearchEngine {
 
         bodyEl.innerHTML = `
             <div class="modal-section">
-                <h4>Basic Information</h4>
+                <h3>Basic Information</h3>
                 <p><strong>Price:</strong> ${esc(DataLoader.formatPrice(item.price))}</p>
                 ${item.quantity ? `<p><strong>Quantity Available:</strong> ${esc(item.quantity)}</p>` : ''}
                 <p><strong>Town:</strong> ${esc(item.town)}</p>
@@ -978,14 +978,14 @@ class SearchEngine {
 
             ${item.enchant ? `
             <div class="modal-section">
-                <h4>Enchantment</h4>
+                <h3>Enchantment</h3>
                 <p>+${esc(item.enchant)} enchant bonus</p>
             </div>
             ` : ''}
 
             ${item.forgedQuality && item.forgedAvd !== undefined ? `
             <div class="modal-section">
-                <h4>Forged Weapon Quality</h4>
+                <h3>Forged Weapon Quality</h3>
                 <p><strong>Quality:</strong> ${esc(item.forgedQuality.split(/[\s-]/).map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(item.forgedQuality.includes('-') ? '-' : ' '))}</p>
                 <p><strong>AvD Bonus:</strong> ${item.forgedAvd >= 0 ? '+' : ''}${esc(item.forgedAvd)}</p>
                 <p><strong>DF Bonus:</strong> ${item.forgedAvd * 2 >= 0 ? '+' : ''}${esc(item.forgedAvd * 2)}%</p>
@@ -995,7 +995,7 @@ class SearchEngine {
 
             ${item.flares && item.flares.length > 0 ? `
             <div class="modal-section">
-                <h4>Flares</h4>
+                <h3>Flares</h3>
                 <div class="flares-list">
                     ${item.flares.map(flare => `
                         <p>${esc(this.formatFlareDisplay(flare))}</p>
@@ -1006,7 +1006,7 @@ class SearchEngine {
 
             ${item.enhancives && item.enhancives.length > 0 ? `
             <div class="modal-section">
-                <h4>Enhancive Properties</h4>
+                <h3>Enhancive Properties</h3>
                 <div class="enhancive-list">
                     ${item.enhancives.map(enh => `
                         <p>+${esc(enh.boost)} to ${esc(enh.ability)}${enh.level ? ` (requires ${esc(enh.level)} training)` : ''}</p>
@@ -1017,7 +1017,7 @@ class SearchEngine {
 
             ${item.gemstoneProperties && item.gemstoneProperties.length > 0 ? `
             <div class="modal-section">
-                <h4>Gemstone Properties</h4>
+                <h3>Gemstone Properties</h3>
                 <div class="gemstone-properties">
                     ${item.gemstoneProperties.map(prop => `
                         <div class="gemstone-property">
@@ -1037,7 +1037,7 @@ class SearchEngine {
 
             ${item.tags && item.tags.length > 0 ? `
             <div class="modal-section">
-                <h4>Special Properties</h4>
+                <h3>Special Properties</h3>
                 <p>${esc(item.tags
                     .filter(tag => typeof isValidDisplayTag === 'function' ? isValidDisplayTag(tag) : typeof tag === 'string' && tag.length <= 30)
                     .map(tag => tag.replace(/_/g, ' '))
@@ -1046,13 +1046,13 @@ class SearchEngine {
             ` : ''}
 
             <div class="modal-section">
-                <h4>Shop Location${this.getShopMapInfoInline(item)}</h4>
+                <h3>Shop Location${this.getShopMapInfoInline(item)}</h3>
                 <p>${esc(item.shopLocation)}</p>
             </div>
 
             ${item.raw && item.raw.length > 0 ? `
             <div class="modal-section">
-                <h4>Raw Item Data</h4>
+                <h3>Raw Item Data</h3>
                 <div class="raw-data">${esc(item.raw.join('\n'))}</div>
             </div>
             ` : ''}
@@ -1237,21 +1237,15 @@ class SearchEngine {
     }
 
     showToast(message) {
-        // Create or update toast notification
-        let toast = document.getElementById('url-toast');
-        if (!toast) {
-            toast = document.createElement('div');
-            toast.id = 'url-toast';
-            toast.className = 'toast';
-            document.body.appendChild(toast);
-        }
-
+        // #url-toast is a polite live region that is always in the page, so
+        // screen readers announce the message; it's invisible while empty.
+        const toast = document.getElementById('url-toast');
         toast.textContent = message;
-        toast.style.display = 'block';
 
-        // Auto-hide after 3 seconds
-        setTimeout(() => {
-            toast.style.display = 'none';
+        // Auto-hide after 3 seconds (restarting if another toast arrives)
+        clearTimeout(this.toastTimer);
+        this.toastTimer = setTimeout(() => {
+            toast.textContent = '';
         }, 3000);
     }
 
@@ -1382,6 +1376,7 @@ function initializeTagSettingsModal() {
             catUpBtn.className = 'reorder-btn category-reorder';
             catUpBtn.innerHTML = '▲';
             catUpBtn.title = 'Move category up';
+            catUpBtn.setAttribute('aria-label', `Move ${catDef.label} category up`);
             catUpBtn.addEventListener('click', () => moveCategory(catId, -1));
 
             const catDownBtn = document.createElement('button');
@@ -1389,6 +1384,7 @@ function initializeTagSettingsModal() {
             catDownBtn.className = 'reorder-btn category-reorder';
             catDownBtn.innerHTML = '▼';
             catDownBtn.title = 'Move category down';
+            catDownBtn.setAttribute('aria-label', `Move ${catDef.label} category down`);
             catDownBtn.addEventListener('click', () => moveCategory(catId, 1));
 
             catReorderBtns.appendChild(catUpBtn);
@@ -1430,6 +1426,7 @@ function initializeTagSettingsModal() {
                 upBtn.className = 'reorder-btn';
                 upBtn.innerHTML = '▲';
                 upBtn.title = 'Move up';
+                upBtn.setAttribute('aria-label', `Move ${tagDef.label} up`);
                 upBtn.addEventListener('click', () => moveTag(tagId, -1));
 
                 const downBtn = document.createElement('button');
@@ -1437,6 +1434,7 @@ function initializeTagSettingsModal() {
                 downBtn.className = 'reorder-btn';
                 downBtn.innerHTML = '▼';
                 downBtn.title = 'Move down';
+                downBtn.setAttribute('aria-label', `Move ${tagDef.label} down`);
                 downBtn.addEventListener('click', () => moveTag(tagId, 1));
 
                 reorderBtns.appendChild(upBtn);
