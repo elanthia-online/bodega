@@ -43,6 +43,7 @@ STATE_FILES=(
   state.json
   shop_locations.json
   location_changes.json
+  index.json
 )
 
 mkdir -p "$DATA_DIR"
@@ -52,7 +53,7 @@ fetch() {
   local url="$BASE_URL/data/$name"
   local dest="$DATA_DIR/$name"
   local code
-  code=$(curl -sS -o "$dest.tmp" -w "%{http_code}" --retry 3 --retry-delay 2 "$url") || code="000"
+  code=$(curl -sS --compressed -o "$dest.tmp" -w "%{http_code}" --retry 3 --retry-delay 2 "$url") || code="000"
   if [ "$code" = "200" ]; then
     # Sanity check: must parse as JSON (Pages can serve an HTML 404 page)
     if python3 -c "import json,sys; json.load(open(sys.argv[1]))" "$dest.tmp" 2>/dev/null \
