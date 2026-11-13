@@ -53,6 +53,8 @@ class BodegaProcessor
     is_container: :is_container,
     is_jewelry: :is_jewelry,
     is_gemstone: :is_gemstone,
+    enhancives: :enhancives,
+    gemstone_properties: :gemstone_properties,
     tags: :tags,
   }.freeze
 
