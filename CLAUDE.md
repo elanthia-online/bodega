@@ -25,6 +25,14 @@ export SIMU_USERNAME="username" SIMU_PASSWORD="password" SIMU_CHARACTER="charact
 ./automation/bin/run-scan full     # Force full scan
 ```
 
+### Specs
+```bash
+gem install rspec && rspec spec    # CI: .github/workflows/spec.yml
+```
+`spec/bodega_spec.rb` covers bodega.lic's parser against real game text. It is
+kept identical to `spec/scripts/bodega_spec.rb` in elanthia-online/scripts;
+change both together.
+
 ### Local Data Processing (Windows)
 ```bash
 ruby automation/ruby/processor.rb --mode=reprocess
