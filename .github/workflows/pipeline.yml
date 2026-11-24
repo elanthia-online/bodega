@@ -59,6 +59,10 @@ jobs:
     outputs:
       scan_type: ${{ steps.scan_type.outputs.type }}
       changed: ${{ steps.scan.outputs.changed }}
+      # Set by run-scan when the scan fails (see set_failure there); empty on
+      # success and on a job timeout. For failure alerts.
+      failure_reason: ${{ steps.scan.outputs.failure_reason }}
+      failure_message: ${{ steps.scan.outputs.failure_message }}
     steps:
       - name: Checkout code
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1

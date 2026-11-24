@@ -20,6 +20,23 @@ cleanup() {
 }
 trap cleanup EXIT
 
+# Record why the scan failed as step outputs (failure_reason: a short code;
+# failure_message: one line for people), so later jobs such as a failure
+# alert can say why without parsing logs. Step outputs are kept even when
+# the step fails. A job timeout kills this script, so it sets nothing; the
+# job result ('cancelled') covers that case.
+#   setup_error              Lich or its auth file is missing
+#   game_server_unreachable  Lich never logged in: game server down
+#   lich_startup_failed      Lich died during startup for another reason
+#   lich_failed              Lich exited nonzero during the scan
+set_failure() {
+    [ -n "$GITHUB_OUTPUT" ] || return 0
+    {
+        echo "failure_reason=$1"
+        echo "failure_message=$2"
+    } >> "$GITHUB_OUTPUT"
+}
+
 log "Starting bodega automation scan"
 # Do not log SIMU_USERNAME - it is the account login name and lands in
 # retained log artifacts.
@@ -45,11 +62,13 @@ export BODEGA_SCAN_TYPE="$SCAN_TYPE"
 LICH_DIR="automation/lich"
 if [ ! -f "$LICH_DIR/lich.rbw" ]; then
     log "ERROR: Lich not found at $LICH_DIR/lich.rbw"
+    set_failure setup_error "Lich not found at $LICH_DIR/lich.rbw"
     exit 1
 fi
 
 if [ ! -f "$LICH_DIR/data/entry.dat" ]; then
     log "ERROR: Authentication file not found - run setup-environment first"
+    set_failure setup_error "Authentication file not found - run setup-environment first"
     exit 1
 fi
 
@@ -88,6 +107,7 @@ report_lich_failure() {
         server="$(grep -m1 -oE "connecting to game server \([^)]*\)" "$debug_log" | sed -E 's/.*\((.*)\)/\1/')"
         local msg="Could not connect to the GemStone IV game server (${server:-unknown}): ${detail}. The game is most likely down (crash or maintenance). Nothing was scanned and the live site is unchanged; the next scheduled run will try again."
         log "ERROR: $msg"
+        set_failure game_server_unreachable "Game server unreachable (${server:-unknown}: ${detail}); the game is likely down. The next scheduled run will try again."
         if [ -n "$GITHUB_ACTIONS" ]; then
             echo "::error title=Game server unreachable::$msg"
             if [ -n "$GITHUB_STEP_SUMMARY" ]; then
@@ -136,6 +156,7 @@ if ! kill -0 $LICH_PID 2>/dev/null; then
         if [ -n "$GITHUB_ACTIONS" ]; then
             echo "::error title=Lich died during startup::Lich exited within 10s of launch. See the Lich debug log above and the scrape-logs artifact."
         fi
+        set_failure lich_startup_failed "Lich exited within 10s of launch; see the scrape-logs artifact."
     fi
     exit 1
 fi
@@ -159,6 +180,7 @@ elif [ $exit_code -eq 0 ]; then
 else
     log "Automation failed with exit code: $exit_code"
     log "Check log file: $LOG_FILE"
+    set_failure lich_failed "Lich exited with code $exit_code during the scan; see the scrape-logs artifact."
 fi
 
 log "Scan completed - exit code: $exit_code"
