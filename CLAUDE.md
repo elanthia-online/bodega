@@ -81,6 +81,12 @@ data-loader.js (browser) → Web UI
   detects changes, the Process job posts a Discord alert (built by
   `automation/tools/location_alert_payload.rb`) if a `DISCORD_WEBHOOK`
   repo secret is configured; without the secret the step is a no-op.
+  A separate `notify-failure` job posts to the same webhook and channel when
+  any pipeline job fails or is cancelled (a job timeout counts as cancelled,
+  and so does a run cancelled by hand), including the Scrape job's
+  `failure_message` when there is one; game server outages get their own
+  grey "game server unreachable" alert. Without the secret it logs a warning
+  instead of alerting.
 
 ### Scan Types
 - **Full scan**: `;bodega` - Complete shop inventory inspection (~65 min)
