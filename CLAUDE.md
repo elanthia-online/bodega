@@ -85,6 +85,18 @@ data-loader.js (browser) → Web UI
 ### Scan Types
 - **Full scan**: `;bodega` - Complete shop inventory inspection (~65 min)
 - **Smart scan**: `;bodega --smart` - Only inspects new/changed items (~2-3 min)
+- Automation's full scan (`headless.lic`) is a smart pass then a full pass.
+  Smart passes match items by stock ID, which a server reboot reassigns, so
+  after a reboot the smart pass re-inspects everything itself; when it
+  re-inspected at least 90% of the items the full pass is skipped
+  (`FULL_PASS_SKIP_RESCANNED_SHARE`) instead of inspecting everything twice
+- If the game server is down, `run-scan` fails with a "Game server
+  unreachable" error annotation; it does not retry (outages can last hours),
+  the next scheduled run tries again
+- When a scan fails, the Scrape job exposes `failure_reason` (a short code:
+  `setup_error`, `game_server_unreachable`, `lich_startup_failed`,
+  `lich_failed`) and `failure_message` outputs, set by `run-scan`, for
+  failure alerts; both are empty on success and on a job timeout
 - Automation runs one full scan per UTC day (the first scheduled run of the
   day, gated by the `last_full_scan` date in `docs/data/state.json`) and smart
   scans every 2 hours otherwise

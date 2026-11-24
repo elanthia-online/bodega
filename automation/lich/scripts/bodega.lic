@@ -9,16 +9,24 @@
 
   Author: Ondreian
   Requirements: Ruby >= 2.3
-  version: 0.9
+  version: 0.9.1
   tags: playershops
 
   changelog:
+    v0.9.1 (2026-11-24)
+           - Full scans no longer inspect every item twice after a server
+             reboot renumbers shop stock
+           - Items keep their shop room after a server reboot instead of all
+             showing in the shop's first room
+           - Include the v0.8.1 asset download fix
     v0.9 - Scan towns the game rejects by full name (e.g. Kraken's Fall)
            - shop direc falls back to a unique leading token when the full
              advertised name returns "Unknown town specified"
            - Rewrite the per-shop SHOP BROWSE command to the same accepted
              token (the advertised browse command is rejected the same way)
            - Fix Oxford-comma town-list parse ("Cysaegir," stray entry)
+    v0.8.1 - Fix asset downloads on Ruby 3 and later: open asset URLs with
+             URI.open, since Kernel#open no longer fetches URLs
     v0.8 - Capture shop location from the new SHOP BROWSE preamble format
            - Extract room_name, room_number (game's official room id), and
              exterior as shop-level fields on every scan (full and smart)
@@ -519,9 +527,7 @@ module Bodega
       remote = OpenStruct.new(remote)
       path = local_path(remote.base_name)
       Log.out("updating".rjust(10) + " ... #{remote.base_name.gsub(".json", "").rjust(20)} >> #{remote.size}", label: :download)
-      # rubocop:disable Security/Open
-      IO.copy_stream(open(remote.url), path)
-      # rubocop:enable Security/Open
+      IO.copy_stream(URI.parse(remote.url).open, path)
     end
   end
 end
@@ -675,7 +681,7 @@ module Bodega
 
       by_shop_number = result.slice(1..-2)
                              .map(&:strip).map do |row| row.split(/\s{2,}/) end # split columns
-                                          .flatten.map do |col| col.split(") ") end # split number/shop name
+                             .flatten.map do |col| col.split(") ") end # split number/shop name
 
       if Opts.shop
         by_shop_number = Hash[by_shop_number.select do |_id, title| title.downcase.include?(Opts.shop.downcase) end]
@@ -932,6 +938,7 @@ module Bodega
         Log.out("Shop ID #{shop_id} owner mismatch: cached=#{cached_owner}, current=#{current_owner} - game reset likely reordered shops. Wiping cache and doing full scan.", label: :smart)
 
         @smart_stats[:shops_scanned] += 1
+        @smart_stats[:new_items] += current_ids.size
         return {
           preamble: preamble,
           town: town,
@@ -951,6 +958,25 @@ module Bodega
       unchanged_ids = current_ids & existing_ids
 
       Log.out("Smart diff for shop #{shop_id}: #{new_ids.size} new, #{removed_ids.size} removed, #{unchanged_ids.size} unchanged", label: :smart)
+
+      # Step 5.5: No cached stock ID matches. A server reboot renumbers stock
+      # while the owner stays the same, so this is the whole shop, not a few
+      # new arrivals. Merging would drop every item into the first room
+      # (add_items_to_shop can't know rooms from IDs), so do a full parse of
+      # the browse output we already have instead: it keeps the room layout
+      # and sends no extra commands.
+      if unchanged_ids.empty? && new_ids.any?
+        Log.out("Shop #{shop_id}: no cached stock IDs match (reboot renumbered stock?) - performing full scan", label: :smart)
+        @smart_stats[:shops_scanned] += 1
+        @smart_stats[:new_items] += current_ids.size
+        return {
+          preamble: preamble,
+          town: town,
+          id: shop_id,
+          shop_owner: current_owner,
+          inv: parse_inv(inv.map(&:strip))
+        }.merge(location_fields(preamble))
+      end
 
       # Track statistics
       @smart_stats[:new_items] += new_ids.size
@@ -1114,8 +1140,21 @@ module Bodega
       end
       Log.out("=" * 60, label: :smart)
 
+      # Keep a copy for headless.lic, which reads it after Script.run returns
+      # to decide whether a full scan still needs its second (full) pass.
+      @last_smart_stats = stats.dup
+
       # Reset stats for next run
       @smart_stats = nil
+    end
+
+    # Stats from the most recent completed smart pass, or nil if none ran.
+    def self.last_smart_stats
+      @last_smart_stats
+    end
+
+    def self.clear_last_smart_stats
+      @last_smart_stats = nil
     end
 
     def self.scan_item(id, browse_price = nil, quantity = nil)
@@ -1181,7 +1220,7 @@ module Bodega
       end
     end
 
-    def self.to_json()
+    def self.to_json(*_args)
       @created_files = []
 
       # First, collect all the data
