@@ -60,6 +60,58 @@ log "Command: ruby $LICH_DIR/lich.rbw --login $SIMU_CHARACTER --without-frontend
 # Change to project root so relative paths work
 cd "$(dirname "$0")/../.."
 
+# Lich writes its own debug log (where connection errors land) to
+# $LICH_DIR/temp/debug-*.log, not to stdout. Find this run's file.
+lich_debug_log() {
+    ls -t "$LICH_DIR"/temp/debug-*.log 2>/dev/null | head -1
+}
+
+# Explain a Lich failure in the Actions log. A refused/unreachable game
+# server means the game is down (crashes and maintenance can last hours), so
+# say so plainly and leave the retry to the next scheduled run instead of
+# looking like a pipeline bug. Returns 0 if a game server outage was found.
+# Pass "quiet" to skip dumping the debug log when no outage is found (used
+# after a clean exit, where there is nothing to diagnose).
+report_lich_failure() {
+    local mode="${1:-}"
+    local debug_log
+    debug_log="$(lich_debug_log)"
+
+    # Only an outage if Lich never got in: a run that logged in and later
+    # hit a reset mid-scan is not a game server outage.
+    if [ -n "$debug_log" ] && grep -qE "connecting to game server" "$debug_log" \
+        && ! grep -qE "info: logged in as" "$debug_log" \
+        && grep -qE "Errno::(ECONNREFUSED|ECONNRESET|ETIMEDOUT|EHOSTUNREACH|ENETUNREACH)|SocketError|getaddrinfo" "$debug_log"; then
+        local detail
+        detail="$(grep -m1 -oE "Errno::[A-Z]+|SocketError|getaddrinfo[^)]*" "$debug_log")"
+        local server
+        server="$(grep -m1 -oE "connecting to game server \([^)]*\)" "$debug_log" | sed -E 's/.*\((.*)\)/\1/')"
+        local msg="Could not connect to the GemStone IV game server (${server:-unknown}): ${detail}. The game is most likely down (crash or maintenance). Nothing was scanned and the live site is unchanged; the next scheduled run will try again."
+        log "ERROR: $msg"
+        if [ -n "$GITHUB_ACTIONS" ]; then
+            echo "::error title=Game server unreachable::$msg"
+            if [ -n "$GITHUB_STEP_SUMMARY" ]; then
+                {
+                    echo "### Game server unreachable"
+                    echo
+                    echo "$msg"
+                } >> "$GITHUB_STEP_SUMMARY"
+            fi
+        fi
+        return 0
+    fi
+
+    [ "$mode" = "quiet" ] && return 1
+
+    if [ -n "$debug_log" ]; then
+        log "Last 30 lines of Lich debug log ($debug_log):"
+        tail -30 "$debug_log"
+    else
+        log "No Lich debug log found under $LICH_DIR/temp"
+    fi
+    return 1
+}
+
 # Launch Lich
 ruby "$LICH_DIR/lich.rbw" \
   --login "$SIMU_CHARACTER" \
@@ -78,8 +130,13 @@ sleep 10
 # Check if Lich is still running
 if ! kill -0 $LICH_PID 2>/dev/null; then
     log "ERROR: Lich process died during startup"
-    log "Last 30 lines of log:"
-    tail -30 "$LOG_FILE" 2>/dev/null || log "Could not read log file"
+    if ! report_lich_failure; then
+        log "Last 30 lines of log:"
+        tail -30 "$LOG_FILE" 2>/dev/null || log "Could not read log file"
+        if [ -n "$GITHUB_ACTIONS" ]; then
+            echo "::error title=Lich died during startup::Lich exited within 10s of launch. See the Lich debug log above and the scrape-logs artifact."
+        fi
+    fi
     exit 1
 fi
 
@@ -91,7 +148,13 @@ wait $LICH_PID
 exit_code=$?
 set -e
 
-if [ $exit_code -eq 0 ]; then
+# Lich can also exit cleanly after a failed connect if it took longer than
+# the startup check above, so check for an outage on every exit.
+report_mode=""
+[ $exit_code -eq 0 ] && report_mode="quiet"
+if report_lich_failure "$report_mode"; then
+    [ $exit_code -eq 0 ] && exit_code=1
+elif [ $exit_code -eq 0 ]; then
     log "Automation completed successfully"
 else
     log "Automation failed with exit code: $exit_code"

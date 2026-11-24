@@ -932,6 +932,7 @@ module Bodega
         Log.out("Shop ID #{shop_id} owner mismatch: cached=#{cached_owner}, current=#{current_owner} - game reset likely reordered shops. Wiping cache and doing full scan.", label: :smart)
 
         @smart_stats[:shops_scanned] += 1
+        @smart_stats[:new_items] += current_ids.size
         return {
           preamble: preamble,
           town: town,
@@ -1114,8 +1115,21 @@ module Bodega
       end
       Log.out("=" * 60, label: :smart)
 
+      # Keep a copy for headless.lic, which reads it after Script.run returns
+      # to decide whether a full scan still needs its second (full) pass.
+      @last_smart_stats = stats.dup
+
       # Reset stats for next run
       @smart_stats = nil
+    end
+
+    # Stats from the most recent completed smart pass, or nil if none ran.
+    def self.last_smart_stats
+      @last_smart_stats
+    end
+
+    def self.clear_last_smart_stats
+      @last_smart_stats = nil
     end
 
     def self.scan_item(id, browse_price = nil, quantity = nil)

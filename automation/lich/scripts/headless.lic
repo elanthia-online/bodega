@@ -1,4 +1,3 @@
-
 Script.start("log")
 
 fput("go table")
@@ -7,12 +6,55 @@ fput("go table")
 # 8 AM UTC = full scan, all other hours = smart scan
 scan_type = ENV['BODEGA_SCAN_TYPE'] || (Time.now.utc.hour == 8 ? 'full' : 'smart')
 
+# A full scan is a smart pass (to catch removals) followed by a full
+# inspection pass. The smart pass matches items by stock ID, and a server
+# reboot reassigns those IDs, so after a reboot the smart pass finds nothing
+# cached and re-inspects every item itself. Running the full pass on top of
+# that inspects everything twice and overruns the CI job timeout. Skip the
+# full pass when the smart pass already re-inspected at least this share of
+# the items.
+FULL_PASS_SKIP_RESCANNED_SHARE = 0.5
+
+# Returns [skip?, reason] for the full pass, based on the stats bodega.lic
+# kept from the smart pass that just finished.
+def full_pass_decision(stats)
+  return [false, "no smart pass stats available"] unless stats
+
+  new_items = stats[:new_items].to_i
+  unchanged = stats[:unchanged_items].to_i
+  total = new_items + unchanged
+  return [false, "smart pass saw no items"] if total.zero?
+
+  share = new_items.to_f / total
+  summary = "smart pass re-inspected #{new_items}/#{total} items (#{(share * 100).round(1)}%)"
+  [share >= FULL_PASS_SKIP_RESCANNED_SHARE, summary]
+end
+
+# bodega.lic keeps its last smart pass stats on Bodega::Parser, which Lich
+# evaluates as Lich::Common::Bodega. Guard the lookup so an older bodega.lic
+# (or a namespace change) just falls back to running the full pass.
+def bodega_parser
+  parser = if defined?(Lich::Common::Bodega::Parser)
+             Lich::Common::Bodega::Parser
+           elsif defined?(::Bodega::Parser)
+             ::Bodega::Parser
+           end
+  parser if parser.respond_to?(:last_smart_stats)
+end
+
 if scan_type == 'full'
   Lich.log("Starting Full Bodega Scan")
-  # Full scan: smart first (to catch removals), then full inspection
   # --raw-only defers extraction to server-side processor.rb
+  bodega_parser&.clear_last_smart_stats
   Script.run("bodega", "--parser --smart --save --raw-only")
-  Script.run("bodega", "--parser --save --raw-only")
+
+  skip_full_pass, reason = full_pass_decision(bodega_parser&.last_smart_stats)
+  if skip_full_pass
+    Lich.log("Skipping full inspection pass: #{reason} (likely a server reboot reassigned stock IDs)")
+  else
+    Lich.log("Running full inspection pass: #{reason}")
+    Script.run("bodega", "--parser --save --raw-only")
+  end
 else
   Lich.log("Starting Smart Bodega Scan")
   Script.run("bodega", "--parser --smart --save --raw-only")
