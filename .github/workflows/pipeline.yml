@@ -346,3 +346,71 @@ jobs:
         if: steps.deploy1.outcome == 'failure'
         uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
         timeout-minutes: 10
+
+  notify-failure:
+    name: Notify on failure
+    needs: [scrape, process, deploy]
+    # Alerts on any main-branch run that did not succeed: a failed job, a
+    # timed-out job (GitHub reports a job timeout as 'cancelled'), or a
+    # cancelled run. 'skipped' is NOT treated as a problem - Process/Deploy
+    # skip normally when a scan finds no changes, and Scrape skips on
+    # deploy-only. always() is required so this job is evaluated even when
+    # an upstream job failed or the run was cancelled. A failed attempt-1
+    # deploy that recovers on attempt 2 counts as success (continue-on-error).
+    if: |
+      always() &&
+      github.ref == 'refs/heads/main' &&
+      ( contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled') )
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions: {}
+    steps:
+      # Same flow as the shop-location alert: skipped (with a warning) until
+      # a DISCORD_WEBHOOK secret is configured. Needs no checkout - the
+      # payload is built with jq, which is preinstalled on ubuntu runners.
+      - name: Alert pipeline failure
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          SCRAPE_RESULT: ${{ needs.scrape.result }}
+          PROCESS_RESULT: ${{ needs.process.result }}
+          DEPLOY_RESULT: ${{ needs.deploy.result }}
+          SCAN_TYPE: ${{ needs.scrape.outputs.scan_type }}
+          EVENT_NAME: ${{ github.event_name }}
+          STAGE_INPUT: ${{ github.event.inputs.stage }}
+          RUN_NUMBER: ${{ github.run_number }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          if [ -z "$DISCORD_WEBHOOK" ]; then
+            echo "::warning::Pipeline did not succeed but no DISCORD_WEBHOOK secret set - skipping alert"
+            exit 0
+          fi
+
+          # Red for a real failure; amber when the only problem is a
+          # cancellation or timeout.
+          if [ "$SCRAPE_RESULT" = failure ] || [ "$PROCESS_RESULT" = failure ] || [ "$DEPLOY_RESULT" = failure ]; then
+            STATUS="failed"; COLOR=15158332
+          else
+            STATUS="was cancelled or timed out"; COLOR=16753920
+          fi
+
+          TRIGGER="$EVENT_NAME"
+          [ -n "$STAGE_INPUT" ] && TRIGGER="$TRIGGER ($STAGE_INPUT)"
+          ATTEMPT=""
+          [ "$RUN_ATTEMPT" != "1" ] && ATTEMPT=", attempt $RUN_ATTEMPT"
+
+          DESC="$(printf '**Scrape:** %s\n**Process:** %s\n**Deploy:** %s\n\n**Trigger:** %s\n**Scan type:** %s' \
+            "$SCRAPE_RESULT" "$PROCESS_RESULT" "$DEPLOY_RESULT" "$TRIGGER" "${SCAN_TYPE:-n/a}")"
+
+          jq -n \
+            --arg title "Pipeline $STATUS (run #$RUN_NUMBER$ATTEMPT)" \
+            --arg url "$RUN_URL" \
+            --arg desc "$DESC" \
+            --argjson color "$COLOR" \
+            '{embeds: [{title: $title, url: $url, description: $desc, color: $color}]}' \
+            > /tmp/discord_payload.json
+
+          # --fail-with-body so a rejected webhook call shows up as a failed
+          # step instead of a silently lost alert.
+          curl -sS --fail-with-body -H "Content-Type: application/json" -d @/tmp/discord_payload.json "$DISCORD_WEBHOOK"
+          echo "Alert sent"
