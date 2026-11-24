@@ -100,9 +100,9 @@ report_lich_failure() {
     # hit a reset mid-scan is not a game server outage.
     if [ -n "$debug_log" ] && grep -qE "connecting to game server" "$debug_log" \
         && ! grep -qE "info: logged in as" "$debug_log" \
-        && grep -qE "Errno::(ECONNREFUSED|ECONNRESET|ETIMEDOUT|EHOSTUNREACH|ENETUNREACH)|SocketError|getaddrinfo" "$debug_log"; then
+        && grep -qE "Errno::(ECONNREFUSED|ECONNRESET|ETIMEDOUT|EHOSTUNREACH|ENETUNREACH)|SocketError|getaddrinfo|timed out connecting to" "$debug_log"; then
         local detail
-        detail="$(grep -m1 -oE "Errno::[A-Z]+|SocketError|getaddrinfo[^)]*" "$debug_log")"
+        detail="$(grep -m1 -oE "Errno::[A-Z]+|SocketError|getaddrinfo[^)]*|timed out connecting to [^ ]+" "$debug_log")"
         local server
         server="$(grep -m1 -oE "connecting to game server \([^)]*\)" "$debug_log" | sed -E 's/.*\((.*)\)/\1/')"
         local msg="Could not connect to the GemStone IV game server (${server:-unknown}): ${detail}. The game is most likely down (crash or maintenance). Nothing was scanned and the live site is unchanged; the next scheduled run will try again."
@@ -170,7 +170,8 @@ exit_code=$?
 set -e
 
 # Lich can also exit cleanly after a failed connect if it took longer than
-# the startup check above, so check for an outage on every exit.
+# the startup check above (its own 30s connect timeout, retried once on the
+# alternate host, then exit 0), so check for an outage on every exit.
 report_mode=""
 [ $exit_code -eq 0 ] && report_mode="quiet"
 if report_lich_failure "$report_mode"; then

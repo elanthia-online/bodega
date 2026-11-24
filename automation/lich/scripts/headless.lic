@@ -12,8 +12,10 @@ scan_type = ENV['BODEGA_SCAN_TYPE'] || (Time.now.utc.hour == 8 ? 'full' : 'smart
 # cached and re-inspects every item itself. Running the full pass on top of
 # that inspects everything twice and overruns the CI job timeout. Skip the
 # full pass when the smart pass already re-inspected at least this share of
-# the items.
-FULL_PASS_SKIP_RESCANNED_SHARE = 0.5
+# the items. Real runs are bimodal (0.2% on a normal day, ~100% after a
+# reboot), so a high bar costs nothing and keeps a partial day (50-99%) on
+# the full pass, which refreshes prices on the unchanged items.
+FULL_PASS_SKIP_RESCANNED_SHARE = 0.9
 
 # Returns [skip?, reason] for the full pass, based on the stats bodega.lic
 # kept from the smart pass that just finished.

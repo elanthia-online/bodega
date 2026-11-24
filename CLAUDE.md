@@ -88,7 +88,7 @@ data-loader.js (browser) → Web UI
 - Automation's full scan (`headless.lic`) is a smart pass then a full pass.
   Smart passes match items by stock ID, which a server reboot reassigns, so
   after a reboot the smart pass re-inspects everything itself; when it
-  re-inspected at least half the items the full pass is skipped
+  re-inspected at least 90% of the items the full pass is skipped
   (`FULL_PASS_SKIP_RESCANNED_SHARE`) instead of inspecting everything twice
 - If the game server is down, `run-scan` fails with a "Game server
   unreachable" error annotation; it does not retry (outages can last hours),
